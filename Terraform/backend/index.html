@@ -325,6 +325,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/variable/" class="md-nav__link">
+        変数
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -521,25 +533,26 @@
                 <h1 id="backend">backend設定</h1>
 <h2 id="s3">S3</h2>
 <p>backendの定義を追加</p>
-<pre><code class="language-hcl">terraform {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>terraform {
   required_providers {
-    aws = {
-      source  = &quot;hashicorp/aws&quot;
-      version = &quot;~&gt; 3.0&quot;
+    aws <span style="color: #666666">=</span> {
+      source  <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;hashicorp/aws&quot;</span>
+      version <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;~&gt; 3.0&quot;</span>
     }
   }
 
-  backend &quot;s3&quot; {
-    bucket = &quot;bucket-name&quot;
-    key    = &quot;terraform.tfstate&quot;
-    region = &quot;ap-northeast-1&quot;
+  backend <span style="color: #BB4444">&quot;s3&quot;</span> {
+    bucket <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;bucket-name&quot;</span>
+    key    <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
+    region <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
   }
 }
 
-provider &quot;aws&quot; {
-  region  = &quot;ap-northeast-1&quot;
+provider <span style="color: #BB4444">&quot;aws&quot;</span> {
+  region  <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
 }
-</code></pre>
+</code></pre></div>
+
 <p>もともとローカルでtfstate作っていた状態からS3へ移行する場合は、</p>
 <ol>
 <li>S3バケット作成</li>

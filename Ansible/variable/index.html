@@ -16,7 +16,7 @@
     
     
       
-        <title>プレイブック - 戯術memo</title>
+        <title>変数 - 戯術memo</title>
       
     
     
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              プレイブック
+              変数
             
           </span>
         </div>
@@ -318,6 +318,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../playbook/" class="md-nav__link">
+        プレイブック
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -329,22 +341,60 @@
         
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        プレイブック
-      </a>
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          変数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../variable/" class="md-nav__link">
+      <a href="./" class="md-nav__link md-nav__link--active">
         変数
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    マジック変数
+  </a>
+  
+    <nav class="md-nav" aria-label="マジック変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#omit" class="md-nav__link">
+    omit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role_path" class="md-nav__link">
+    role_path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -470,6 +520,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    マジック変数
+  </a>
+  
+    <nav class="md-nav" aria-label="マジック変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#omit" class="md-nav__link">
+    omit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role_path" class="md-nav__link">
+    role_path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -480,25 +565,31 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Ansible/playbook.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Ansible/variable.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">プレイブック</h1>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
-  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
-
-  <span style="color: #008000; font-weight: bold">tasks</span>:
-  - <span style="color: #008000; font-weight: bold">name</span>: hello
-    <span style="color: #008000; font-weight: bold">debug</span>:
-      <span style="color: #008000; font-weight: bold">msg</span>: hello world
+                <h1 id="_1">変数</h1>
+<h2 id="_2">マジック変数</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables — Ansible Documentation</a></p>
+<h3 id="omit">omit</h3>
+<p>省略したいパラメタにセットすると無視されるようになる。<br />
+<a href="https://zaki-hmkc.hatenablog.com/entry/2021/06/02/090251">[Ansible] 省略したいパラメタに変数指定せざるを得ない場合に使う変数omitとdefaultフィルタ - zaki work log</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: create files by csv
+    <span style="color: #008000; font-weight: bold">ansible.builtin.file</span>:
+      <span style="color: #008000; font-weight: bold">state</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item.type</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008000; font-weight: bold">path</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item.path</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008000; font-weight: bold">mode</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item.mode</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default(omit,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">true)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008000; font-weight: bold">owner</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item.owner</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default(omit,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">true)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008000; font-weight: bold">group</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item.group</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default(omit,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">true)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+    <span style="color: #008000; font-weight: bold">loop</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">res_input.list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
 </code></pre></div>
 
-<h1 id="_2">インベントリ</h1>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[server]</span>
-<span style="color: #BB4444">192.168.0.1</span>
-</code></pre></div>
+<h3 id="role_path">role_path</h3>
+<p>現在実行中のロールのディレクトリパス。<br />
+例えば <code>/path/to/ansible/roles/sample/tasks/main.yml</code>というディレクトリ構造のロールの中で <code>"{{ role_path }}"</code> を参照すると、<code>/path/to/ansible/roles/sample</code> を得られる。</p>
+<p>ロールの中で参照できる変数なので、playbookで参照しても undefined エラーになる。</p>
                 
               
               
@@ -517,7 +608,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../install/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../playbook/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -526,19 +617,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              インストール
+              プレイブック
             </div>
           </div>
         </a>
       
       
-        <a href="../variable/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../../Docker/install/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              変数
+              インストール
             </div>
           </div>
           <div class="md-footer__button md-icon">
