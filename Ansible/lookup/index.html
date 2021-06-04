@@ -16,7 +16,7 @@
     
     
       
-        <title>インストール - 戯術memo</title>
+        <title>Lookupプラグイン - 戯術memo</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#lookup" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              インストール
+              Lookupプラグイン
             
           </span>
         </div>
@@ -171,13 +171,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Ansible/install/" class="md-tabs__link">
+      <a href="../install/" class="md-tabs__link md-tabs__link--active">
         Ansible
       </a>
     </li>
@@ -187,15 +189,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Docker/install/" class="md-tabs__link">
         Docker
       </a>
     </li>
@@ -299,12 +299,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         Ansible
@@ -322,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/install/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
         インストール
       </a>
     </li>
@@ -334,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/lint/" class="md-nav__link">
+      <a href="../lint/" class="md-nav__link">
         Ansible Lint
       </a>
     </li>
@@ -344,11 +346,65 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Ansible/lookup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lookupプラグイン
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Lookupプラグイン
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ファイル
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    コマンド実行
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -358,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/playbook/" class="md-nav__link">
+      <a href="../playbook/" class="md-nav__link">
         プレイブック
       </a>
     </li>
@@ -370,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/variable/" class="md-nav__link">
+      <a href="../variable/" class="md-nav__link">
         変数
       </a>
     </li>
@@ -389,14 +445,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         Docker
@@ -412,21 +466,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Docker/install/" class="md-nav__link">
         インストール
       </a>
-      
     </li>
   
 
@@ -436,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../proxy/" class="md-nav__link">
+      <a href="../../Docker/proxy/" class="md-nav__link">
         proxy設定
       </a>
     </li>
@@ -576,6 +620,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ファイル
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    コマンド実行
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -586,14 +659,46 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Docker/install.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Ansible/lookup.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">インストール</h1>
-<p><a href="https://docs.docker.com/engine/install/">Install Docker Engine | Docker Documentation</a></p>
-<p>各ディストリビューション毎のページ参照。</p>
+                <h1 id="lookup">Lookupプラグイン</h1>
+<p><a href="https://docs.ansible.com/ansible/latest/plugins/lookup.html">Lookup Plugins — Ansible Documentation</a></p>
+<p>Jinja2テンプレートの書式と連携して、ファイル参照やコマンド実行など外部リソースを利用できる。<br />
+評価されるのはコントロールノード上であって、ターゲットノードのファイルやコマンド実行ではないことに注意。</p>
+<p>taskを1個消費せずにインラインでファイルの内容をロードしたりコマンド実行したりできるので便利</p>
+<h2 id="_1">ファイル</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: load ssh public key
+    <span style="color: #008000; font-weight: bold">vars</span>:
+      <span style="color: #008000; font-weight: bold">pubkey</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;file&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;~/.ssh/id_rsa.pub&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+    <span style="color: #008000; font-weight: bold">debug</span>:
+      <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">pubkey</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p><code>ansible-playbook</code>の実行ユーザの<code>~/.ssh/id_rsa.pub</code>の内容を読み込んだ内容が<code>pubkey</code>にセットされる。</p>
+<h2 id="_2">環境変数</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: env lookup
+    <span style="color: #008000; font-weight: bold">debug</span>:
+      <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;env&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;HOSTNAME&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>環境変数<code>HOSTNAME</code>を取得する。<br />
+コントロールノードでの評価結果になるので、どのターゲットノードのtaskの実行でも、コントロールノードのホスト名になる。</p>
+<p>ターゲットノードの情報が欲しい場合は、<code>gather_facts: true</code>でfact情報を参照する。<br />
+<a href="https://github.com/zaki-lknr/ansible-sample/blob/master/lookup/env.yml">ansible-sample/env.yml at master · zaki-lknr/ansible-sample</a></p>
+<h2 id="_3">コマンド実行</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: get date
+    <span style="color: #008000; font-weight: bold">vars</span>:
+      <span style="color: #008000; font-weight: bold">current_date</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;pipe&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;date</span><span style="color: #B8860B"> </span><span style="color: #BB4444">+%Y/%m/%d_%H:%M:%S&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008800; font-style: italic"># https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pipe_lookup.html</span>
+      <span style="color: #008800; font-style: italic"># pipeを使うとコマンド実行結果を取得できる</span>
+
+    <span style="color: #008000; font-weight: bold">debug</span>:
+      <span style="color: #008000; font-weight: bold">msg</span>:
+      - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">current_date</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
                 
               
               
@@ -612,7 +717,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../../Ansible/variable/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../lint/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -621,19 +726,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              変数
+              Ansible Lint
             </div>
           </div>
         </a>
       
       
-        <a href="../proxy/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../playbook/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              proxy設定
+              プレイブック
             </div>
           </div>
           <div class="md-footer__button md-icon">

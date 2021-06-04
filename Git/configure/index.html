@@ -16,7 +16,7 @@
     
     
       
-        <title>インストール - 戯術memo</title>
+        <title>Git設定 - 戯術memo</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#git" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              インストール
+              Git設定
             
           </span>
         </div>
@@ -187,15 +187,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Docker/install/" class="md-tabs__link">
         Docker
       </a>
     </li>
@@ -205,13 +203,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Git/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Git
       </a>
     </li>
@@ -389,14 +389,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         Docker
@@ -412,21 +410,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Docker/install/" class="md-nav__link">
         インストール
       </a>
-      
     </li>
   
 
@@ -436,7 +424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../proxy/" class="md-nav__link">
+      <a href="../../Docker/proxy/" class="md-nav__link">
         proxy設定
       </a>
     </li>
@@ -455,12 +443,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         Git
@@ -478,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Git/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Git基本操作
       </a>
     </li>
@@ -488,11 +478,132 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Git/configure/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Git設定
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Git設定
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    現在の設定確認
+  </a>
+  
+    <nav class="md-nav" aria-label="現在の設定確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    現在適用される設定全て
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    セクションごとの設定内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitssh" class="md-nav__link">
+    Git+SSH
+  </a>
+  
+    <nav class="md-nav" aria-label="Git+SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sshconfig" class="md-nav__link">
+    .ssh/config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    リモートリポジトリ
+  </a>
+  
+    <nav class="md-nav" aria-label="リモートリポジトリ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    現在の設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    リポジトリを設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    リモートリポジトリを変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    別のリポジトリを別名で追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -502,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Git/trouble/" class="md-nav__link">
+      <a href="../trouble/" class="md-nav__link">
         やらかしたとき
       </a>
     </li>
@@ -576,6 +687,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    現在の設定確認
+  </a>
+  
+    <nav class="md-nav" aria-label="現在の設定確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    現在適用される設定全て
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    セクションごとの設定内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitssh" class="md-nav__link">
+    Git+SSH
+  </a>
+  
+    <nav class="md-nav" aria-label="Git+SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sshconfig" class="md-nav__link">
+    .ssh/config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    リモートリポジトリ
+  </a>
+  
+    <nav class="md-nav" aria-label="リモートリポジトリ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    現在の設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    リポジトリを設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    リモートリポジトリを変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    別のリポジトリを別名で追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -586,14 +793,56 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Docker/install.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Git/configure.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">インストール</h1>
-<p><a href="https://docs.docker.com/engine/install/">Install Docker Engine | Docker Documentation</a></p>
-<p>各ディストリビューション毎のページ参照。</p>
+                <h1 id="git">Git設定</h1>
+<h2 id="_1">現在の設定確認</h2>
+<h3 id="_2">現在適用される設定全て</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git config -l
+</code></pre></div>
+
+<h3 id="_3">セクションごとの設定内容</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git config --system -l
+$ git config --global -l
+$ git config --local -l
+</code></pre></div>
+
+<h2 id="gitssh">Git+SSH</h2>
+<h3 id="sshconfig">.ssh/config</h3>
+<p>鍵を指定する場合はこんな感じ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Host gitlab-ce.example.org
+    IdentityFile ~/.ssh/id_rsa_git
+
+Host github.com
+    IdentityFile ~/.ssh/id_rsa_git
+</code></pre></div>
+
+<p>cloneのパスが<code>git@github.com/...</code>とユーザー名が指定されているので、<code>User git</code>は不要</p>
+<h2 id="_4">リモートリポジトリ</h2>
+<h3 id="_5">現在の設定</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote -v
+</code></pre></div>
+
+<h3 id="_6">リポジトリを設定</h3>
+<p>GitHubとかでREADME無しでリポジトリ作るとコマンドが表示されるアレ</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote add origin &lt;URI of Repository&gt;
+</code></pre></div>
+
+<h3 id="_7">リモートリポジトリを変更</h3>
+<p>originをGitHubからプライベートGitLabに変更、とか。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote set-url origin https://my-gitlab.example.org/user/repository.git
+</code></pre></div>
+
+<p>HTTPS -&gt; SSHもこれ</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote set-url origin git@github.com:zaki-lknr/ansible-sample.git
+</code></pre></div>
+
+<h3 id="_8">別のリポジトリを別名で追加</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote add hoge &lt;other repository&gt;
+</code></pre></div>
                 
               
               
@@ -612,7 +861,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../../Ansible/variable/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -621,19 +870,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              変数
+              Git基本操作
             </div>
           </div>
         </a>
       
       
-        <a href="../proxy/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../trouble/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              proxy設定
+              やらかしたとき
             </div>
           </div>
           <div class="md-footer__button md-icon">
