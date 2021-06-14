@@ -16,7 +16,7 @@
     
     
       
-        <title>インストール - 戯術memo</title>
+        <title>設定 - 戯術memo</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              インストール
+              設定
             
           </span>
         </div>
@@ -187,7 +187,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../config/" class="md-tabs__link md-tabs__link--active">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         Ansible
       </a>
     </li>
@@ -362,11 +362,72 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../config/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          設定
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         設定
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Pythonインタプリタパス
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コールバックプラグイン
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    コレクションパス(2.10～)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    コレクションパス(旧)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -386,51 +447,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          インストール
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
         インストール
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pip" class="md-nav__link">
-    pip
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -845,8 +866,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pip" class="md-nav__link">
-    pip
+  <a href="#python" class="md-nav__link">
+    Pythonインタプリタパス
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コールバックプラグイン
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    コレクションパス(2.10～)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    コレクションパス(旧)
   </a>
   
 </li>
@@ -863,22 +905,92 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Ansible/install.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Ansible/config.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">インストール</h1>
-<h2 id="pip">pip</h2>
-<p>最新</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ pip install ansible
-</code></pre></div>
-
-<p>2.9系最新</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ pip install <span style="color: #B8860B">ansible</span><span style="color: #666666">==2</span>.9.*
-</code></pre></div>
-
-<p><code>ansible==2.9</code>だと2.9.0が入るので注意。</p>
+                <h1 id="_1">設定</h1>
+<h2 id="python">Pythonインタプリタパス</h2>
+<table>
+<thead>
+<tr>
+<th>設定場所</th>
+<th>設定キー</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ansible.cfg</td>
+<td>interpreter_python ([defaults]section)</td>
+</tr>
+<tr>
+<td>環境変数</td>
+<td>ANSIBLE_PYTHON_INTERPRETER</td>
+</tr>
+<tr>
+<td>変数</td>
+<td>ansible_python_interpreter</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">コールバックプラグイン</h2>
+<table>
+<thead>
+<tr>
+<th>設定場所</th>
+<th>設定キー</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ansible.cfg</td>
+<td>stdout_callback ([defaults]section)</td>
+</tr>
+<tr>
+<td>環境変数</td>
+<td>ANSIBLE_STDOUT_CALLBACK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="210">コレクションパス(2.10～)</h2>
+<table>
+<thead>
+<tr>
+<th>設定場所</th>
+<th>設定キー</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ansible.cfg</td>
+<td>collections_path ([defaults]section)</td>
+</tr>
+<tr>
+<td>環境変数</td>
+<td>ANSIBLE_COLLECTIONS_PATH</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">コレクションパス(旧)</h2>
+<table>
+<thead>
+<tr>
+<th>設定場所</th>
+<th>設定キー</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ansible.cfg</td>
+<td>collections_paths ([defaults]section)</td>
+</tr>
+<tr>
+<td>環境変数</td>
+<td>ANSIBLE_COLLECTIONS_PATHS</td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -897,7 +1009,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../filter/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../.." class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -906,19 +1018,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              フィルタ
+              戯術memo
             </div>
           </div>
         </a>
       
       
-        <a href="../inventory/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../filter/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              インベントリ
+              フィルタ
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -25,6 +25,10 @@
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
       
     
     
@@ -54,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="pink">
   
     
     <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -183,7 +187,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../filter/" class="md-tabs__link md-tabs__link--active">
+      <a href="../config/" class="md-tabs__link md-tabs__link--active">
         Ansible
       </a>
     </li>
@@ -360,6 +364,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../filter/" class="md-nav__link">
         フィルタ
       </a>
@@ -478,6 +494,33 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    接続設定
+  </a>
+  
+    <nav class="md-nav" aria-label="接続設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ログインパスワード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#become" class="md-nav__link">
+    becomeパスワード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     マジック変数
   </a>
   
@@ -805,6 +848,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/vscode/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -838,6 +893,33 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    接続設定
+  </a>
+  
+    <nav class="md-nav" aria-label="接続設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ログインパスワード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#become" class="md-nav__link">
+    becomeパスワード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     マジック変数
   </a>
   
@@ -881,7 +963,32 @@
                 
                 
                 <h1 id="_1">変数</h1>
-<h2 id="_2">マジック変数</h2>
+<h2 id="_2">接続設定</h2>
+<h3 id="_3">ログインパスワード</h3>
+<p><a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters">Connecting to hosts: behavioral inventory parameters</a></p>
+<p>ネットワーク機器や公開鍵設定されてないサーバーOSへSSH接続の際のパスワードは<code>ansible_password</code>を使う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[<span style="color: #B8860B">dev-server</span>]
+192.168.0.211  ansible_user=developer ansible_password=deve1op!
+</code></pre></div>
+
+<p>※ ↑はplaintextで書いてるので、vaultで暗号化しましょう</p>
+<h3 id="become">becomeパスワード</h3>
+<p><a href="https://docs.ansible.com/ansible/latest/user_guide/become.html#become-connection-variables">Become connection variables</a></p>
+<p><code>become: true</code>を使う場合にパスワードが必要な場合、<code>-K (--ask-become-pass)</code>でパスワードプロンプトを表示するか、<code>ansible_become_password</code>で昇格用のパスワードを指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+- <span style="color: #008000; font-weight: bold">hosts</span>: linux
+  <span style="color: #008000; font-weight: bold">gather_facts</span>: true
+  <span style="color: #008000; font-weight: bold">become</span>: true
+  <span style="color: #008000; font-weight: bold">vars</span>:
+    <span style="color: #008000; font-weight: bold">ansible_become_password</span>: this_is_become_password!
+
+  <span style="color: #008000; font-weight: bold">tasks</span>:
+    - <span style="color: #008000; font-weight: bold">name</span>: enable sudo with no password (on RHEL)
+      <span style="color: #008000; font-weight: bold">ansible.builtin.copy</span>:
+        ...
+</code></pre></div>
+
+<h2 id="_4">マジック変数</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables — Ansible Documentation</a></p>
 <h3 id="omit">omit</h3>
 <p>省略したいパラメタにセットすると無視されるようになる。<br />
