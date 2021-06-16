@@ -16,7 +16,7 @@
     
     
       
-        <title>backend設定 - 戯術memo</title>
+        <title>Terraform - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backend" class="md-skip">
+        <a href="#terraform" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              backend設定
+              Terraform
             
           </span>
         </div>
@@ -251,23 +251,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
-        Terraform
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../Tools/mkdocs/" class="md-tabs__link">
+      <a href="../mkdocs/" class="md-tabs__link md-tabs__link--active">
         Tools
       </a>
     </li>
@@ -697,15 +681,27 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
-        Terraform
+        Tools
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Terraform" data-md-level="1">
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Terraform
+          Tools
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/" class="md-nav__link">
+        MkDocs
+      </a>
+    </li>
+  
+
           
             
   
@@ -722,12 +718,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          backend設定
+          Terraform
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        backend設定
+        Terraform
       </a>
       
         
@@ -745,9 +741,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    インストール
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    backend設定
+  </a>
+  
+    <nav class="md-nav" aria-label="backend設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#s3" class="md-nav__link">
     S3
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -759,54 +788,12 @@
   
 
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      <label class="md-nav__link" for="__nav_7">
-        Tools
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Tools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Tools
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
             
   
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/mkdocs/" class="md-nav__link">
-        MkDocs
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Tools/vscode/" class="md-nav__link">
+      <a href="../vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -845,9 +832,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    インストール
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    backend設定
+  </a>
+  
+    <nav class="md-nav" aria-label="backend設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#s3" class="md-nav__link">
     S3
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -863,13 +883,23 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Terraform/backend.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Tools/terraform.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="backend">backend設定</h1>
-<h2 id="s3">S3</h2>
+                <h1 id="terraform">Terraform</h1>
+<h2 id="_1">インストール</h2>
+<p><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">Install Terraform | Terraform - HashiCorp Learn</a></p>
+<h3 id="apt">apt</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo apt-get update <span style="color: #666666">&amp;&amp;</span> sudo apt-get install -y gnupg software-properties-common curl
+<span style="color: #000080; font-weight: bold">$ </span>curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+<span style="color: #000080; font-weight: bold">$ </span>sudo apt-add-repository <span style="color: #BB4444">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span style="color: #AA22FF; font-weight: bold">$(</span>lsb_release -cs<span style="color: #AA22FF; font-weight: bold">)</span><span style="color: #BB4444"> main&quot;</span>
+<span style="color: #000080; font-weight: bold">$ </span>sudo apt-get update <span style="color: #666666">&amp;&amp;</span> sudo apt-get install terraform
+</code></pre></div>
+
+<h2 id="backend">backend設定</h2>
+<h3 id="s3">S3</h3>
 <p>backendの定義を追加</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>terraform {
   required_providers {
@@ -923,7 +953,7 @@ provider <span style="color: #BB4444">&quot;aws&quot;</span> {
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../../Linux/ssh/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../mkdocs/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -932,19 +962,19 @@ provider <span style="color: #BB4444">&quot;aws&quot;</span> {
               <span class="md-footer__direction">
                 前
               </span>
-              ssh関連
+              MkDocs
             </div>
           </div>
         </a>
       
       
-        <a href="../../Tools/mkdocs/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../vscode/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              MkDocs
+              VS Code
             </div>
           </div>
           <div class="md-footer__button md-icon">
