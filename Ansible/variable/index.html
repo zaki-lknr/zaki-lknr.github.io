@@ -518,6 +518,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    定義の優先順位
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     接続設定
   </a>
   
@@ -525,7 +532,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ログインパスワード
   </a>
   
@@ -544,7 +551,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     マジック変数
   </a>
   
@@ -929,6 +936,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    定義の優先順位
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     接続設定
   </a>
   
@@ -936,7 +950,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ログインパスワード
   </a>
   
@@ -955,7 +969,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     マジック変数
   </a>
   
@@ -999,8 +1013,17 @@
                 
                 
                 <h1 id="_1">変数</h1>
-<h2 id="_2">接続設定</h2>
-<h3 id="_3">ログインパスワード</h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html">Using Variables — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables — Ansible Documentation</a></li>
+</ul>
+<h2 id="_2">定義の優先順位</h2>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#understanding-variable-precedence">Understanding variable precedence</a></li>
+<li><a href="https://qiita.com/answer_d/items/b8a87aff8762527fb319">Ansible 変数の優先順位と書き方をまとめてみた - Qiita</a></li>
+</ul>
+<h2 id="_3">接続設定</h2>
+<h3 id="_4">ログインパスワード</h3>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters">Connecting to hosts: behavioral inventory parameters</a></p>
 <p>ネットワーク機器や公開鍵設定されてないサーバーOSへSSH接続の際のパスワードは<code>ansible_password</code>を使う。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[<span style="color: #B8860B">dev-server</span>]
@@ -1024,7 +1047,7 @@
         ...
 </code></pre></div>
 
-<h2 id="_4">マジック変数</h2>
+<h2 id="_5">マジック変数</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables — Ansible Documentation</a></p>
 <h3 id="omit">omit</h3>
 <p>省略したいパラメタにセットすると無視されるようになる。<br />
