@@ -755,6 +755,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    インストール可能なバージョン一覧
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -955,6 +962,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    インストール可能なバージョン一覧
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -992,6 +1006,24 @@ $ rpm -ql foo     <span style="color: #008800; font-style: italic"># redhat</spa
 <h2 id="_3">更新確認</h2>
 <h3 id="yum">yum</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>yum check-update 
+</code></pre></div>
+
+<h2 id="_4">インストール可能なバージョン一覧</h2>
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/03/15/075946">yum updateするときに特定のパッケージを更新対象外にする - zaki work log</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>root@rhel8 ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>yum<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">search</span><span style="color: #bbbbbb"> </span>httpd<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>showduplicates<span style="color: #bbbbbb"> </span>
+Updating<span style="color: #bbbbbb"> </span>Subscription<span style="color: #bbbbbb"> </span>Management<span style="color: #bbbbbb"> </span>repositories.<span style="color: #bbbbbb"></span>
+<span style="color: #A0A000">メタデータの期限切れの最終確認</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">24</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">27</span><span style="color: #bbbbbb"> </span>時間前の<span style="color: #bbbbbb"> </span><span style="color: #666666">2021</span>年06月21日<span style="color: #bbbbbb"> </span><span style="color: #666666">21</span>時36分50秒<span style="color: #bbbbbb"> </span>に実施しました<span style="border: 1px solid #FF0000">。</span><span style="color: #bbbbbb"></span>
+<span style="color: #666666">================================================</span><span style="color: #bbbbbb"> </span>名前<span style="color: #bbbbbb"> </span><span style="color: #A0A000">完全一致</span>:<span style="color: #bbbbbb"> </span>httpd<span style="color: #bbbbbb"> </span><span style="color: #666666">=================================================</span><span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-39.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">.4.0+9658+</span>b87b2deb.x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-10.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">+2764+7127e69</span>e.x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-11.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">.0.0+2969+90015743.</span>x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-16.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">.1.0+4134+</span>e6bad0ed.x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-12.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">.0.0+4096+</span>eb40e6da.x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-21.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">.2.0+5008+</span>cca404a3.x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-30.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">.3.0+7001+0766</span>b9e7.x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+httpd<span style="color: #666666">-2.4.37-39.</span><span style="color: #AA22FF; font-weight: bold">module</span><span style="color: #666666">+</span>el8<span style="color: #666666">.4.0+9658+</span>b87b2deb.x86_64<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Apache<span style="color: #bbbbbb"> </span>HTTP<span style="color: #bbbbbb"> </span>Server<span style="color: #bbbbbb"></span>
+<span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"></span>
+<span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
                 
               
