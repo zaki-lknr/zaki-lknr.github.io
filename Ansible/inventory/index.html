@@ -445,6 +445,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#localhost" class="md-nav__link">
+    localhost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-inventory" class="md-nav__link">
     ansible-inventoryコマンド
   </a>
@@ -901,6 +908,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#localhost" class="md-nav__link">
+    localhost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-inventory" class="md-nav__link">
     ansible-inventoryコマンド
   </a>
@@ -945,6 +959,58 @@
                 
                 
                 <h1 id="_1">インベントリ</h1>
+<h2 id="localhost">localhost</h2>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/inventory/implicit_localhost.html">Implicit ‘localhost’ — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/2.9_ja/inventory/implicit_localhost.html">暗黙的な ‘localhost’ — Ansible Documentation</a></li>
+</ul>
+<p>ターゲットホストで<code>localhost</code>を指定した場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
+  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
+
+  <span style="color: #008000; font-weight: bold">tasks</span>:
+    - <span style="color: #008000; font-weight: bold">name</span>: sample
+      <span style="color: #008000; font-weight: bold">ping</span>:
+</code></pre></div>
+
+<p>このとき、インベントリファイルに<code>localhost</code>の定義が無い場合(や、インベントリファイルを指定しない場合)は、暗黙の<code>localhost</code>として</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">hosts</span>:
+  <span style="color: #008000; font-weight: bold">localhost</span>:
+   <span style="color: #008000; font-weight: bold">vars</span>:
+     <span style="color: #008000; font-weight: bold">ansible_connection</span>: local
+     <span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>: <span style="color: #BB4444">&quot;{{ansible_playbook_python}}&quot;</span>
+</code></pre></div>
+
+<p>ってのが内部で用意され、この設定で接続される。よって、<code>connection: local</code>として動く。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook localhost.yml -vvv
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">TASK [sample] *****************************************************</span>
+<span style="color: #888888">task path: /home/zaki/src/ansible-sample/inventory/localhost.yml:6</span>
+<span style="color: #888888">&lt;127.0.0.1&gt; ESTABLISH LOCAL CONNECTION FOR USER: zaki</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+</code></pre></div>
+
+<p>こんな感じ。</p>
+<p>インベントリに<code>localhost</code>の設定があればそれが使われる。当然<code>connection: local</code>が無ければ、設定されたコネクションプラグインが使用される(未指定ならデフォルトの<code>ssh</code>)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[localhost]</span>
+<span style="color: #BB4444">localhost</span>
+</code></pre></div>
+
+<p>こんな<code>localhost.ini</code>というインベントリファイルを指定すると、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook localhost.yml -i localhost.ini -vvv
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">TASK [sample] *****************************************************</span>
+<span style="color: #888888">task path: /home/zaki/src/ansible-sample/inventory/localhost.yml:6</span>
+<span style="color: #888888">&lt;localhost&gt; ESTABLISH SSH CONNECTION FOR USER: None</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+</code></pre></div>
+
+<p>このようにssh接続となる。</p>
 <h2 id="ansible-inventory">ansible-inventoryコマンド</h2>
 <p><code>ansible-inventory</code>コマンドを使用すると、ターゲットノード一覧やそのホストに紐づく変数を確認できる。<br />
 ダイナミックインベントリの場合に対象ノードが何になるか確認できる。</p>
