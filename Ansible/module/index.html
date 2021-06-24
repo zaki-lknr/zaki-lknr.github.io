@@ -16,7 +16,7 @@
     
     
       
-        <title>Terraform - 戯術memo</title>
+        <title>モジュール - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#terraform" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Terraform
+              モジュール
             
           </span>
         </div>
@@ -179,13 +179,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Ansible/base/" class="md-tabs__link">
+      <a href="../base/" class="md-tabs__link md-tabs__link--active">
         Ansible
       </a>
     </li>
@@ -243,15 +245,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../mkdocs/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Tools/mkdocs/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -339,12 +339,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         Ansible
@@ -362,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/base/" class="md-nav__link">
+      <a href="../base/" class="md-nav__link">
         基本・ネタ帳
       </a>
     </li>
@@ -374,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/config/" class="md-nav__link">
+      <a href="../config/" class="md-nav__link">
         設定
       </a>
     </li>
@@ -386,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/directives/" class="md-nav__link">
+      <a href="../directives/" class="md-nav__link">
         ディレクティブ
       </a>
     </li>
@@ -398,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/filter/" class="md-nav__link">
+      <a href="../filter/" class="md-nav__link">
         フィルタ
       </a>
     </li>
@@ -410,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/install/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
         インストール
       </a>
     </li>
@@ -422,7 +424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/inventory/" class="md-nav__link">
+      <a href="../inventory/" class="md-nav__link">
         インベントリ
       </a>
     </li>
@@ -434,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/jinja2/" class="md-nav__link">
+      <a href="../jinja2/" class="md-nav__link">
         Jinja2テンプレート
       </a>
     </li>
@@ -446,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/lint/" class="md-nav__link">
+      <a href="../lint/" class="md-nav__link">
         Ansible Lint
       </a>
     </li>
@@ -458,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/lookup/" class="md-nav__link">
+      <a href="../lookup/" class="md-nav__link">
         Lookupプラグイン
       </a>
     </li>
@@ -468,11 +470,58 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Ansible/module/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          モジュール
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         モジュール
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#assert" class="md-nav__link">
+    assert
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lineinfile" class="md-nav__link">
+    lineinfile
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -482,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/playbook/" class="md-nav__link">
+      <a href="../playbook/" class="md-nav__link">
         プレイブック
       </a>
     </li>
@@ -494,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/tower/" class="md-nav__link">
+      <a href="../tower/" class="md-nav__link">
         Ansible Tower
       </a>
     </li>
@@ -506,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/variable/" class="md-nav__link">
+      <a href="../variable/" class="md-nav__link">
         変数
       </a>
     </li>
@@ -747,14 +796,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         Tools
@@ -772,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mkdocs/" class="md-nav__link">
+      <a href="../../Tools/mkdocs/" class="md-nav__link">
         MkDocs
       </a>
     </li>
@@ -782,84 +829,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Terraform
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Tools/terraform/" class="md-nav__link">
         Terraform
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    インストール
-  </a>
-  
-    <nav class="md-nav" aria-label="インストール">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    apt
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backend" class="md-nav__link">
-    backend設定
-  </a>
-  
-    <nav class="md-nav" aria-label="backend設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#s3" class="md-nav__link">
-    S3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -869,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode/" class="md-nav__link">
+      <a href="../../Tools/vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -950,42 +924,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    インストール
+  <a href="#assert" class="md-nav__link">
+    assert
   </a>
-  
-    <nav class="md-nav" aria-label="インストール">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    apt
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#backend" class="md-nav__link">
-    backend設定
+  <a href="#lineinfile" class="md-nav__link">
+    lineinfile
   </a>
-  
-    <nav class="md-nav" aria-label="backend設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#s3" class="md-nav__link">
-    S3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1001,58 +949,45 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Tools/terraform.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Ansible/module.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="terraform">Terraform</h1>
-<h2 id="_1">インストール</h2>
-<p><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">Install Terraform | Terraform - HashiCorp Learn</a></p>
-<h3 id="apt">apt</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo apt-get update <span style="color: #666666">&amp;&amp;</span> sudo apt-get install -y gnupg software-properties-common curl
-<span style="color: #000080; font-weight: bold">$ </span>curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-<span style="color: #000080; font-weight: bold">$ </span>sudo apt-add-repository <span style="color: #BB4444">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span style="color: #AA22FF; font-weight: bold">$(</span>lsb_release -cs<span style="color: #AA22FF; font-weight: bold">)</span><span style="color: #BB4444"> main&quot;</span>
-<span style="color: #000080; font-weight: bold">$ </span>sudo apt-get update <span style="color: #666666">&amp;&amp;</span> sudo apt-get install terraform
+                <h1 id="_1">モジュール</h1>
+<h2 id="assert">assert</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: assert sample
+    <span style="color: #008000; font-weight: bold">vars</span>:
+      <span style="color: #008000; font-weight: bold">hoge</span>: <span style="color: #BB4444">&quot;zzz&quot;</span>
+      <span style="color: #008000; font-weight: bold">foo</span>: <span style="color: #BB4444">&quot;bar&quot;</span>
+      <span style="color: #008000; font-weight: bold">baz</span>: False
+    <span style="color: #008000; font-weight: bold">ansible.builtin.assert</span>:
+      <span style="color: #008000; font-weight: bold">that</span>:
+        - <span style="color: #BB4444">&quot;hoge</span><span style="color: #B8860B"> </span><span style="color: #BB4444">is</span><span style="color: #B8860B"> </span><span style="color: #BB4444">defined&quot;</span>
+        - foo is defined
+        - baz is defined and baz
+      <span style="color: #008000; font-weight: bold">fail_msg</span>: <span style="color: #BB4444">&quot;&#39;hoge&#39;,&#39;bar&#39;</span><span style="color: #B8860B"> </span><span style="color: #BB4444">must</span><span style="color: #B8860B"> </span><span style="color: #BB4444">be</span><span style="color: #B8860B"> </span><span style="color: #BB4444">defined,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;baz&#39;</span><span style="color: #B8860B"> </span><span style="color: #BB4444">must</span><span style="color: #B8860B"> </span><span style="color: #BB4444">be</span><span style="color: #B8860B"> </span><span style="color: #BB4444">true&quot;</span>
+    <span style="color: #008000; font-weight: bold">register</span>: assert_result
 </code></pre></div>
 
-<h2 id="backend">backend設定</h2>
-<h3 id="s3">S3</h3>
-<p>backendの定義を追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>terraform {
-  required_providers {
-    aws <span style="color: #666666">=</span> {
-      source  <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;hashicorp/aws&quot;</span>
-      version <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;~&gt; 3.0&quot;</span>
-    }
-  }
-
-  backend <span style="color: #BB4444">&quot;s3&quot;</span> {
-    bucket <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;bucket-name&quot;</span>
-    key    <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
-    region <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
-  }
-}
-
-provider <span style="color: #BB4444">&quot;aws&quot;</span> {
-  region  <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
-}
+<p><code>that</code>で指定した各値がtrueでなければタスクが失敗する。<br />
+変数ではなく文字列で指定するので、<code>:</code>を含む文字はYAMLのキーとしてparseされてしまうため、ダブルクォートなどで囲む必要がある。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: assert
+    <span style="color: #008000; font-weight: bold">ansible.builtin.assert</span>:
+      <span style="color: #008000; font-weight: bold">that</span>:
+      - <span style="color: #BB4444">&#39;sample_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">regex_search(&quot;could</span><span style="color: #B8860B"> </span><span style="color: #BB4444">not</span><span style="color: #B8860B"> </span><span style="color: #BB4444">found:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar&quot;)&#39;</span>
 </code></pre></div>
 
-<p>もともとローカルでtfstate作っていた状態からS3へ移行する場合は、</p>
-<ol>
-<li>S3バケット作成</li>
-<li>tfstateをS3アップロード</li>
-<li>ソースに<code>backend</code>定義追加 (バケット名・キー(ファイル)名・リージョン指定)</li>
-</ol>
-<p>ここまではセットで。<br />
-で、</p>
-<ol>
-<li>ローカルのtfstateを退避</li>
-<li><code>terraform init</code>実行 (S3設定が反映される)</li>
-<li><code>terraform plan</code>で差分がないことを確認</li>
-</ol>
-<p>でいける。</p>
+<h2 id="lineinfile">lineinfile</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>      <span style="color: #008000; font-weight: bold">lineinfile</span>:
+        <span style="color: #008000; font-weight: bold">path</span>: lineinfile.txt
+        <span style="color: #008000; font-weight: bold">regexp</span>: <span style="color: #BB4444">&#39;^port:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">80&#39;</span>
+        <span style="color: #008000; font-weight: bold">line</span>: <span style="color: #BB4444">&#39;port:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">8080&#39;</span>
+</code></pre></div>
+
+<p>lineinfile.txtファイルの中の<code>^port: 80</code>に <strong>最後に</strong> マッチする行を<code>port: 8080</code>に変更。<br />
+<code>port: 8080</code>が有る場合は、他に<code>^port: 80</code>にマッチしてもそれは対象外。</p>
+<p><strong>最初に</strong> マッチする行を対象にする場合は<code>firstmatch: true</code>を指定。</p>
                 
               
               
@@ -1071,7 +1006,7 @@ provider <span style="color: #BB4444">&quot;aws&quot;</span> {
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../mkdocs/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../lookup/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1080,19 +1015,19 @@ provider <span style="color: #BB4444">&quot;aws&quot;</span> {
               <span class="md-footer__direction">
                 前
               </span>
-              MkDocs
+              Lookupプラグイン
             </div>
           </div>
         </a>
       
       
-        <a href="../vscode/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../playbook/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              VS Code
+              プレイブック
             </div>
           </div>
           <div class="md-footer__button md-icon">

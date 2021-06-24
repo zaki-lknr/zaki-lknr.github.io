@@ -16,7 +16,7 @@
     
     
       
-        <title>Terraform - 戯術memo</title>
+        <title>基本・ネタ帳 - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#terraform" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Terraform
+              基本・ネタ帳
             
           </span>
         </div>
@@ -195,13 +195,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Docker/base/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         Docker
       </a>
     </li>
@@ -243,15 +245,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../mkdocs/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Tools/mkdocs/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -525,12 +525,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Docker
@@ -546,11 +548,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Docker/base/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          基本・ネタ帳
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         基本・ネタ帳
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    dockerコマンド
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -560,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/install/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
         インストール
       </a>
     </li>
@@ -572,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/proxy/" class="md-nav__link">
+      <a href="../proxy/" class="md-nav__link">
         proxy設定
       </a>
     </li>
@@ -747,14 +789,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         Tools
@@ -772,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mkdocs/" class="md-nav__link">
+      <a href="../../Tools/mkdocs/" class="md-nav__link">
         MkDocs
       </a>
     </li>
@@ -782,84 +822,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Terraform
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Tools/terraform/" class="md-nav__link">
         Terraform
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    インストール
-  </a>
-  
-    <nav class="md-nav" aria-label="インストール">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    apt
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backend" class="md-nav__link">
-    backend設定
-  </a>
-  
-    <nav class="md-nav" aria-label="backend設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#s3" class="md-nav__link">
-    S3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -869,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode/" class="md-nav__link">
+      <a href="../../Tools/vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -950,42 +917,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    インストール
+  <a href="#docker" class="md-nav__link">
+    dockerコマンド
   </a>
-  
-    <nav class="md-nav" aria-label="インストール">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    apt
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backend" class="md-nav__link">
-    backend設定
-  </a>
-  
-    <nav class="md-nav" aria-label="backend設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#s3" class="md-nav__link">
-    S3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1001,58 +935,14 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Tools/terraform.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Docker/base.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="terraform">Terraform</h1>
-<h2 id="_1">インストール</h2>
-<p><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">Install Terraform | Terraform - HashiCorp Learn</a></p>
-<h3 id="apt">apt</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo apt-get update <span style="color: #666666">&amp;&amp;</span> sudo apt-get install -y gnupg software-properties-common curl
-<span style="color: #000080; font-weight: bold">$ </span>curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-<span style="color: #000080; font-weight: bold">$ </span>sudo apt-add-repository <span style="color: #BB4444">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span style="color: #AA22FF; font-weight: bold">$(</span>lsb_release -cs<span style="color: #AA22FF; font-weight: bold">)</span><span style="color: #BB4444"> main&quot;</span>
-<span style="color: #000080; font-weight: bold">$ </span>sudo apt-get update <span style="color: #666666">&amp;&amp;</span> sudo apt-get install terraform
-</code></pre></div>
-
-<h2 id="backend">backend設定</h2>
-<h3 id="s3">S3</h3>
-<p>backendの定義を追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>terraform {
-  required_providers {
-    aws <span style="color: #666666">=</span> {
-      source  <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;hashicorp/aws&quot;</span>
-      version <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;~&gt; 3.0&quot;</span>
-    }
-  }
-
-  backend <span style="color: #BB4444">&quot;s3&quot;</span> {
-    bucket <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;bucket-name&quot;</span>
-    key    <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
-    region <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
-  }
-}
-
-provider <span style="color: #BB4444">&quot;aws&quot;</span> {
-  region  <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
-}
-</code></pre></div>
-
-<p>もともとローカルでtfstate作っていた状態からS3へ移行する場合は、</p>
-<ol>
-<li>S3バケット作成</li>
-<li>tfstateをS3アップロード</li>
-<li>ソースに<code>backend</code>定義追加 (バケット名・キー(ファイル)名・リージョン指定)</li>
-</ol>
-<p>ここまではセットで。<br />
-で、</p>
-<ol>
-<li>ローカルのtfstateを退避</li>
-<li><code>terraform init</code>実行 (S3設定が反映される)</li>
-<li><code>terraform plan</code>で差分がないことを確認</li>
-</ol>
-<p>でいける。</p>
+                <h1 id="_1">基本・ネタ帳</h1>
+<h2 id="docker">dockerコマンド</h2>
+<p><a href="https://qiita.com/zembutsu/items/6e1ad18f0d548ce6c266">docker container / image コマンド新旧比較 - Qiita</a></p>
                 
               
               
@@ -1071,7 +961,7 @@ provider <span style="color: #BB4444">&quot;aws&quot;</span> {
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../mkdocs/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../Ansible/variable/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1080,19 +970,19 @@ provider <span style="color: #BB4444">&quot;aws&quot;</span> {
               <span class="md-footer__direction">
                 前
               </span>
-              MkDocs
+              変数
             </div>
           </div>
         </a>
       
       
-        <a href="../vscode/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../install/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              VS Code
+              インストール
             </div>
           </div>
           <div class="md-footer__button md-icon">
