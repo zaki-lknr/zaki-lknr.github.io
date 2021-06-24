@@ -187,7 +187,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../config/" class="md-tabs__link md-tabs__link--active">
+      <a href="../base/" class="md-tabs__link md-tabs__link--active">
         Ansible
       </a>
     </li>
@@ -364,6 +364,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        基本・ネタ帳
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../config/" class="md-nav__link">
         設定
       </a>
@@ -530,6 +542,13 @@
   
     <nav class="md-nav" aria-label="接続設定">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH関連設定
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
@@ -950,6 +969,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH関連設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     ログインパスワード
   </a>
@@ -1023,6 +1049,13 @@
 <li><a href="https://qiita.com/answer_d/items/b8a87aff8762527fb319">Ansible 変数の優先順位と書き方をまとめてみた - Qiita</a></li>
 </ul>
 <h2 id="_3">接続設定</h2>
+<h3 id="ssh">SSH関連設定</h3>
+<p>同一playbookで、playによって接続用アカウントを変えたいときなど。</p>
+<ul>
+<li>ansible_user</li>
+<li>ansible_ssh_private_key_file</li>
+</ul>
+<p>たとえば、最初は管理用アカウントで接続してユーザー作成など行って、次のplayでは作成したユーザーで接続できることを確認しつつアプリのデプロイを行う、などなど。</p>
 <h3 id="_4">ログインパスワード</h3>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters">Connecting to hosts: behavioral inventory parameters</a></p>
 <p>ネットワーク機器や公開鍵設定されてないサーバーOSへSSH接続の際のパスワードは<code>ansible_password</code>を使う。</p>

@@ -187,7 +187,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../config/" class="md-tabs__link md-tabs__link--active">
+      <a href="../base/" class="md-tabs__link md-tabs__link--active">
         Ansible
       </a>
     </li>
@@ -364,6 +364,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        基本・ネタ帳
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../config/" class="md-nav__link">
         設定
       </a>
@@ -504,6 +516,13 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     パスワード文字列生成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    HTTPアクセスする
   </a>
   
 </li>
@@ -929,6 +948,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    HTTPアクセスする
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1049,6 +1075,23 @@ TASK [print password] <span style="color: #666666">*****************************
 <span style="color: #A0A000">ok</span>: [localhost] <span style="color: #666666">=&gt;</span> 
   <span style="color: #A0A000">msg</span>: <span style="color: #666666">-</span>StMaxh9fmrGIkMYj_qJ
 </code></pre></div>
+
+<h2 id="http">HTTPアクセスする</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: url lookup plugin
+    <span style="color: #008000; font-weight: bold">vars</span>:
+      <span style="color: #008000; font-weight: bold">response</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;url&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+    <span style="color: #008000; font-weight: bold">debug</span>:
+      <span style="color: #008800; font-style: italic"># msg: &quot;{{ lookup(&#39;url&#39;, &#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;, wantlist=true) }}&quot;</span>
+      <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">response.text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>basic認証するなら</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&quot;{{ lookup(&#39;ansible.builtin.url&#39;, &#39;http://www.example.org/path/to/basicauth/file&#39;,
+            username=&#39;user&#39;,
+            password=&#39;pass&#39;) }}&quot;
+</code></pre></div>
+
+<p>こんな感じ</p>
                 
               
               
