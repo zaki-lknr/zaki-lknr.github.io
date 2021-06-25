@@ -872,6 +872,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    実装
+  </a>
+  
+    <nav class="md-nav" aria-label="実装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial-application" class="md-nav__link">
+    部分適用(partial application)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     仮想環境
   </a>
   
@@ -887,7 +907,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     作成
   </a>
   
@@ -951,6 +971,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    実装
+  </a>
+  
+    <nav class="md-nav" aria-label="実装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial-application" class="md-nav__link">
+    部分適用(partial application)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     仮想環境
   </a>
   
@@ -966,7 +1006,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     作成
   </a>
   
@@ -1007,9 +1047,37 @@
                 
                 
                 <h1 id="python">Python</h1>
-<h2 id="_1">仮想環境</h2>
+<h2 id="_1">実装</h2>
+<h3 id="partial-application">部分適用(partial application)</h3>
+<ul>
+<li><code>functiontools#partial()</code>を使う。</li>
+<li>
+<p>引数(の一部を)固定した関数を作る</p>
+</li>
+<li>
+<p><a href="https://qiita.com/tetsuya-zama/items/146d3ee9154e15158f38">Pythonのfunctools.partial(部分適用)を解説する - Qiita</a></p>
+</li>
+<li><a href="https://docs.python.org/ja/3/library/functools.html#functools.partial">functools --- 高階関数と呼び出し可能オブジェクトの操作 — Python 3.9.4 ドキュメント</a></li>
+</ul>
+<p>こんな感じ。<br />
+<a href="https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114">https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>                    method <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;_get_attr_</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BB4444">&quot;</span> <span style="color: #666666">%</span> attr_name
+                    <span style="color: #AA22FF; font-weight: bold">if</span> method <span style="color: #AA22FF; font-weight: bold">in</span> src_dict <span style="color: #AA22FF; font-weight: bold">or</span> method <span style="color: #AA22FF; font-weight: bold">in</span> dst_dict:
+                        getter <span style="color: #666666">=</span> partial(_generic_g_method, attr_name)
+                    <span style="color: #AA22FF; font-weight: bold">elif</span> (<span style="color: #BB4444">&#39;_get_parent_attribute&#39;</span> <span style="color: #AA22FF; font-weight: bold">in</span> dst_dict <span style="color: #AA22FF; font-weight: bold">or</span> <span style="color: #BB4444">&#39;_get_parent_attribute&#39;</span> <span style="color: #AA22FF; font-weight: bold">in</span> src_dict) <span style="color: #AA22FF; font-weight: bold">and</span> value<span style="color: #666666">.</span>inherit:
+                        getter <span style="color: #666666">=</span> partial(_generic_g_parent, attr_name)
+                    <span style="color: #AA22FF; font-weight: bold">else</span>:
+                        getter <span style="color: #666666">=</span> partial(_generic_g, attr_name)
+
+                    setter <span style="color: #666666">=</span> partial(_generic_s, attr_name)
+                    deleter <span style="color: #666666">=</span> partial(_generic_d, attr_name)
+</code></pre></div>
+
+<p>なるほどわからん</p>
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></p>
+<h2 id="_2">仮想環境</h2>
 <h3 id="venv">venv</h3>
-<h4 id="_2">作成</h4>
+<h4 id="_3">作成</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3 -m venv venv/ansible
 </code></pre></div>
 
