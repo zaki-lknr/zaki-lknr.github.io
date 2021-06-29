@@ -436,6 +436,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ansiballz" class="md-nav__link">
+    実行後にAnsiballZファイルを消さない
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -977,6 +984,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ansiballz" class="md-nav__link">
+    実行後にAnsiballZファイルを消さない
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1075,6 +1089,27 @@
 </tr>
 </tbody>
 </table>
+<h2 id="ansiballz">実行後にAnsiballZファイルを消さない</h2>
+<table>
+<thead>
+<tr>
+<th>設定場所</th>
+<th>設定キー</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>環境変数</td>
+<td>ANSIBLE_KEEP_REMOTE_FILES</td>
+</tr>
+</tbody>
+</table>
+<p><code>ANSIBLE_KEEP_REMOTE_FILES=true</code>をセットして実行する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">ANSIBLE_KEEP_REMOTE_FILES</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span> ansible-playbook -i inventory.ini playbook.yml -v ...
+</code></pre></div>
+
+<p>これでターゲットノード上のスクリプトファイルが残る。 基本的に消えないので手動で消す必要あり。<br />
+ターゲットノードのどこに転送されるかは、-vvvくらいまでverboseレベルを上げておけば実行時に表示される。</p>
                 
               
               
