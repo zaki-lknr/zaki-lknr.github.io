@@ -470,6 +470,39 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    制御構文
+  </a>
+  
+    <nav class="md-nav" aria-label="制御構文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ループ
+  </a>
+  
+    <nav class="md-nav" aria-label="ループ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ループインデックス
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     コメント
   </a>
   
@@ -483,7 +516,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -969,6 +1002,39 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    制御構文
+  </a>
+  
+    <nav class="md-nav" aria-label="制御構文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ループ
+  </a>
+  
+    <nav class="md-nav" aria-label="ループ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ループインデックス
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     コメント
   </a>
   
@@ -982,7 +1048,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -1020,7 +1086,18 @@
                 
                 <h1 id="jinja2">Jinja2テンプレート</h1>
 <p>増えたらToolsとかに移すかも</p>
-<h2 id="_1">コメント</h2>
+<h2 id="_1">制御構文</h2>
+<h3 id="_2">ループ</h3>
+<p>リストに対する<code>for</code>構文は、foreach式で配列要素をループ毎に処理できる</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{<span style="color: #666666">%</span> <span style="color: #AA22FF; font-weight: bold">for</span> <span style="color: #B8860B">item</span> <span style="color: #B8860B">in</span> <span style="color: #B8860B">array_value</span> <span style="color: #666666">%</span>}
+...
+{<span style="color: #666666">%</span> <span style="color: #B8860B">endfor</span> <span style="color: #666666">%</span>}
+</code></pre></div>
+
+<p><code>array_value</code>の配列要素が<code>item</code>にセットされてループ処理される。</p>
+<h4 id="_3">ループインデックス</h4>
+<p>ループブロック内で<code>loop.index0</code>という変数参照でループインデックスを取り出せる(ゼロオリジン)</p>
+<h2 id="_4">コメント</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{# comment #}
 </code></pre></div>
 
@@ -1036,7 +1113,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{{</span> <span style="color: #B8860B">lookup</span><span style="color: #666666">(</span><span style="color: #BB4444">&#39;pipe&#39;</span><span style="color: #666666">,</span> <span style="color: #BB4444">&#39;date +%s&#39;</span><span style="color: #666666">)</span> <span style="color: #008800">}}</span>
 </code></pre></div>
 
-<h2 id="_2">指定部分へのフィルタの実行</h2>
+<h2 id="_5">指定部分へのフィルタの実行</h2>
 <h3 id="indent">indent()</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{%</span> <span style="color: #AA22FF; font-weight: bold">filter</span> <span style="color: #00A000">indent</span><span style="color: #666666">(4,</span> <span style="color: #AA22FF">true</span><span style="color: #666666">)</span> <span style="color: #008800">%}</span>
 <span style="color: #008800">{{</span> <span style="color: #B8860B">sample_string</span> <span style="color: #008800">}}</span>
