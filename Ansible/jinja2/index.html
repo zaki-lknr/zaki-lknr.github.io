@@ -482,6 +482,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    指定部分へのフィルタの実行
+  </a>
+  
+    <nav class="md-nav" aria-label="指定部分へのフィルタの実行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indent" class="md-nav__link">
+    indent()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -961,6 +981,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    指定部分へのフィルタの実行
+  </a>
+  
+    <nav class="md-nav" aria-label="指定部分へのフィルタの実行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indent" class="md-nav__link">
+    indent()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -994,6 +1034,35 @@
 <h2 id="lookup">lookupプラグイン実行</h2>
 <p>playbook等で書くときと同じ要領で記述可能</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{{</span> <span style="color: #B8860B">lookup</span><span style="color: #666666">(</span><span style="color: #BB4444">&#39;pipe&#39;</span><span style="color: #666666">,</span> <span style="color: #BB4444">&#39;date +%s&#39;</span><span style="color: #666666">)</span> <span style="color: #008800">}}</span>
+</code></pre></div>
+
+<h2 id="_2">指定部分へのフィルタの実行</h2>
+<h3 id="indent">indent()</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{%</span> <span style="color: #AA22FF; font-weight: bold">filter</span> <span style="color: #00A000">indent</span><span style="color: #666666">(4,</span> <span style="color: #AA22FF">true</span><span style="color: #666666">)</span> <span style="color: #008800">%}</span>
+<span style="color: #008800">{{</span> <span style="color: #B8860B">sample_string</span> <span style="color: #008800">}}</span>
+<span style="color: #008800">{%</span> <span style="color: #AA22FF; font-weight: bold">endfilter</span> <span style="color: #008800">%}</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
+  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
+  <span style="color: #008000; font-weight: bold">vars</span>:
+    <span style="color: #008000; font-weight: bold">sample_string</span>: |
+      <span style="color: #880000">int main() {</span>
+        <span style="color: #880000">return 0;</span>
+      <span style="color: #880000">}</span>
+
+  <span style="color: #008000; font-weight: bold">tasks</span>:
+    - <span style="color: #008000; font-weight: bold">name</span>: j2 saple
+      <span style="color: #008000; font-weight: bold">template</span>:
+        <span style="color: #008000; font-weight: bold">src</span>: indent_sample.txt.j2
+        <span style="color: #008000; font-weight: bold">dest</span>: /var/tmp/indent_sample.txt
+</code></pre></div>
+
+<p>実行結果は以下の通り、スペース4文字分のインデントが入る。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    int main() {
+      return 0;
+    }
 </code></pre></div>
                 
               
