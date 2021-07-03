@@ -754,13 +754,27 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    チャートの検索
+    リポジトリを追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    ローカルのリポジトリ情報を更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    チャートの検索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     チャートのデフォルト値
   </a>
   
@@ -1056,13 +1070,27 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    チャートの検索
+    リポジトリを追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    ローカルのリポジトリ情報を更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    チャートの検索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     チャートのデフォルト値
   </a>
   
@@ -1098,40 +1126,54 @@
 <p>aptはあるけど、今のとこyun/dnfはないんだよな。</p>
 <h2 id="_2">コマンド</h2>
 <h3 id="_3">リポジトリ一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ helm repo list
-NAME                    URL                                               
-prometheus-community    https://prometheus-community.github.io/helm-charts
-rook-release            https://charts.rook.io/release                    
-stable                  https://charts.helm.sh/stable                     
-grafana                 https://grafana.github.io/helm-charts             
-elastic                 https://helm.elastic.co                           
-metallb                 https://metallb.github.io/metallb   
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo list
+<span style="color: #888888">NAME                    URL                                               </span>
+<span style="color: #888888">prometheus-community    https://prometheus-community.github.io/helm-charts</span>
+<span style="color: #888888">rook-release            https://charts.rook.io/release                    </span>
+<span style="color: #888888">stable                  https://charts.helm.sh/stable                     </span>
+<span style="color: #888888">grafana                 https://grafana.github.io/helm-charts             </span>
+<span style="color: #888888">elastic                 https://helm.elastic.co                           </span>
+<span style="color: #888888">metallb                 https://metallb.github.io/metallb   </span>
 </code></pre></div>
 
-<h3 id="_4">チャートの検索</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ helm search repo prometheus
-NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       
-prometheus-community/kube-prometheus-stack              <span style="color: #666666">16</span>.12.1         <span style="color: #666666">0</span>.48.1          kube-prometheus-stack collects Kubernetes manif...
-prometheus-community/prometheus                         <span style="color: #666666">14</span>.3.0          <span style="color: #666666">2</span>.26.0          Prometheus is a monitoring system and <span style="color: #AA22FF">time</span> seri...
-prometheus-community/prometheus-adapter                 <span style="color: #666666">2</span>.14.2          v0.8.4          A Helm chart <span style="color: #AA22FF; font-weight: bold">for</span> k8s prometheus adapter           
-prometheus-community/prometheus-blackbox-exporter       <span style="color: #666666">4</span>.15.0          <span style="color: #666666">0</span>.19.0          Prometheus Blackbox Exporter                      
-prometheus-community/prometheus-cloudwatch-expo...      <span style="color: #666666">0</span>.16.0          <span style="color: #666666">0</span>.10.0          A Helm chart <span style="color: #AA22FF; font-weight: bold">for</span> prometheus cloudwatch-exporter   
-:
-:
+<h3 id="_4">リポジトリを追加</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo add stable https://charts.helm.sh/stable
 </code></pre></div>
 
-<h3 id="_5">チャートのデフォルト値</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ helm show values metallb/metallb
-<span style="color: #008800; font-style: italic"># Default values for metallb.</span>
-<span style="color: #008800; font-style: italic"># This is a YAML-formatted file.</span>
-<span style="color: #008800; font-style: italic"># Declare variables to be passed into your templates.</span>
+<p>とか</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+</code></pre></div>
 
-imagePullSecrets: <span style="color: #666666">[]</span>
-nameOverride: <span style="color: #BB4444">&quot;&quot;</span>
-fullnameOverride: <span style="color: #BB4444">&quot;&quot;</span>
+<p>とか</p>
+<h3 id="_5">ローカルのリポジトリ情報を更新</h3>
+<p>多分<code>apt-get update</code>的な動作。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo update
+</code></pre></div>
 
-:
-:
+<h3 id="_6">チャートの検索</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm search repo prometheus
+<span style="color: #888888">NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       </span>
+<span style="color: #888888">prometheus-community/kube-prometheus-stack              16.12.1         0.48.1          kube-prometheus-stack collects Kubernetes manif...</span>
+<span style="color: #888888">prometheus-community/prometheus                         14.3.0          2.26.0          Prometheus is a monitoring system and time seri...</span>
+<span style="color: #888888">prometheus-community/prometheus-adapter                 2.14.2          v0.8.4          A Helm chart for k8s prometheus adapter           </span>
+<span style="color: #888888">prometheus-community/prometheus-blackbox-exporter       4.15.0          0.19.0          Prometheus Blackbox Exporter                      </span>
+<span style="color: #888888">prometheus-community/prometheus-cloudwatch-expo...      0.16.0          0.10.0          A Helm chart for prometheus cloudwatch-exporter   </span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+</code></pre></div>
+
+<h3 id="_7">チャートのデフォルト値</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm show values metallb/metallb
+<span style="color: #000080; font-weight: bold"># </span>Default values <span style="color: #AA22FF; font-weight: bold">for</span> metallb.
+<span style="color: #000080; font-weight: bold"># </span>This is a YAML-formatted file.
+<span style="color: #000080; font-weight: bold"># </span>Declare variables to be passed into your templates.
+
+<span style="color: #888888">imagePullSecrets: []</span>
+<span style="color: #888888">nameOverride: &quot;&quot;</span>
+<span style="color: #888888">fullnameOverride: &quot;&quot;</span>
+
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
 </code></pre></div>
 
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
