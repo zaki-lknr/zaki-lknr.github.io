@@ -541,6 +541,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#blockinfile" class="md-nav__link">
+    blockinfile
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1033,6 +1040,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#blockinfile" class="md-nav__link">
+    blockinfile
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1096,6 +1110,38 @@ ad-hocで実行する方が多いかも？</p>
 <p>ファイル内にマッチする行が見つからなかった場合は、デフォルトではファイル末尾に追記される。<br />
 ファイル末尾以外に追記したい場合は、<code>insertafter</code>または<code>insertbefore</code>を使うことで、指定行直下・または直前に挿入できる。
 <code>insertafter</code>と<code>insertbefore</code>は指定できるのはどちらか片方。(両方同時指定は不可)</p>
+<h2 id="blockinfile">blockinfile</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html">ansible.builtin.blockinfile – Insert/update/remove a text block surrounded by marker lines — Ansible Documentation</a></p>
+<p>マーカー行が複数ある場合は、「ファイル内一番末尾の開始マーカー・終了マーカー」の間が処理対象になった。(ansible 2.10 / ansible 2.11で確認)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># /share/www configure begin
+1
+# /share/www configure end
+
+# /share/www configure begin
+2
+# /share/www configure end
+
+&lt;IfModule dir_module&gt;
+    DirectoryIndex index.html
+&lt;/IfModule&gt;
+
+# /share/www configure begin
+3
+# /share/www configure end
+</code></pre></div>
+
+<p>こんな入力ファイルに対して</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: blockinfile sample
+      <span style="color: #008000; font-weight: bold">blockinfile</span>:
+        <span style="color: #008000; font-weight: bold">path</span>: blockinfile-test.txt
+        <span style="color: #008000; font-weight: bold">marker_begin</span>: begin
+        <span style="color: #008000; font-weight: bold">marker_end</span>: end
+        <span style="color: #008000; font-weight: bold">marker</span>: <span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">{mark}&#39;</span>
+        <span style="color: #008000; font-weight: bold">block</span>: |
+          <span style="color: #880000">...</span>
+</code></pre></div>
+
+<p>を実行すると、更新されるのは <code>3</code> の部分のみ。</p>
                 
               
               
