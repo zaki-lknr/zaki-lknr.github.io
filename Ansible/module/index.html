@@ -548,6 +548,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#replace" class="md-nav__link">
+    replace
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1047,6 +1054,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#replace" class="md-nav__link">
+    replace
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1141,7 +1155,85 @@ ad-hocで実行する方が多いかも？</p>
           <span style="color: #880000">...</span>
 </code></pre></div>
 
-<p>を実行すると、更新されるのは <code>3</code> の部分のみ。</p>
+<p>を実行すると、更新されるのは <code>3</code> の部分のみ。<br />
+(複数のbegin行がある場合は最後のものが使用される)</p>
+<p>入力ファイルが以下の場合は、<code>1</code>から<code>3</code>までの範囲が更新される。<br />
+(end行も複数ある場合は最後のものが使用される)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># /share/www configure begin
+1
+# /share/www configure end
+
+2
+# /share/www configure end
+
+&lt;IfModule dir_module&gt;
+    DirectoryIndex index.html
+&lt;/IfModule&gt;
+
+3
+# /share/www configure end
+</code></pre></div>
+
+<hr />
+<p>これなら一度で確かめられた。<br />
+↓のファイルなら、blockinfileが更新するのは<code>3</code>から<code>5</code>まで。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># /share/www configure begin
+1
+
+# /share/www configure begin
+2
+
+# /share/www configure begin
+3
+# /share/www configure end
+
+&lt;IfModule dir_module&gt;
+    DirectoryIndex index.html
+&lt;/IfModule&gt;
+
+4
+# /share/www configure end
+
+5
+# /share/www configure end
+</code></pre></div>
+
+<h2 id="replace">replace</h2>
+<p>ansible.builtin.replace – Replace all instances of a particular string in a file using a back-referenced regular expression — Ansible Documentation
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_module.html</p>
+<p><code>after</code>/<code>before</code>で「ここからここまでの間」を指定できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: replace sample
+      <span style="color: #008000; font-weight: bold">replace</span>:
+        <span style="color: #008000; font-weight: bold">path</span>: duplicate-test.txt
+        <span style="color: #008000; font-weight: bold">regexp</span>: ^[0-9]+$
+        <span style="color: #008000; font-weight: bold">replace</span>: zzz
+        <span style="color: #008000; font-weight: bold">after</span>: <span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">begin&#39;</span>
+        <span style="color: #008000; font-weight: bold">before</span>: <span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">end&#39;</span>
+</code></pre></div>
+
+<p>入力ファイルが↓のように複数マッチする場合は</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># /share/www configure begin
+1
+
+# /share/www configure begin
+2
+
+# /share/www configure begin
+3
+# /share/www configure end
+
+&lt;IfModule dir_module&gt;
+    DirectoryIndex index.html
+&lt;/IfModule&gt;
+
+4
+# /share/www configure end
+
+5
+# /share/www configure end
+</code></pre></div>
+
+<p><code>1</code>から<code>3</code>までが対象だった。(<code>after</code>も<code>before</code>も最初にマッチした部分が対象)</p>
                 
               
               
