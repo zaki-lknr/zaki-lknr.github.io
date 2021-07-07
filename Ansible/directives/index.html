@@ -470,6 +470,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-mode" class="md-nav__link">
+    check mode
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -767,6 +774,18 @@
     <li class="md-nav__item">
       <a href="../../Kubernetes/helm/" class="md-nav__link">
         Helm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/kubectl/" class="md-nav__link">
+        kubectl
       </a>
     </li>
   
@@ -1083,6 +1102,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-mode" class="md-nav__link">
+    check mode
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1209,6 +1235,20 @@
 <li><a href="http://aikotobaha.blogspot.com/2017/12/ansible-include-importxxx-includeyyy.html">OSSはアルミニウムの翼で飛ぶ: Ansible: include の代わりに使う import_xxx, include_yyy とは</a></li>
 </ul>
 <p>とりあえずリンク</p>
+<h2 id="check-mode">check mode</h2>
+<p><code>ansible-playbook</code>実行時のオプションで<code>--check</code>付与でdry runになるが、<code>check_mode</code>を使うことでタスク単位で強制的にチェックモードのon/offができる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: command sample
+    <span style="color: #008000; font-weight: bold">copy</span>:
+      <span style="color: #008000; font-weight: bold">src</span>: /home/zaki/tmp.yml
+      <span style="color: #008000; font-weight: bold">dest</span>: /var/tmp
+      <span style="color: #008000; font-weight: bold">mode</span>: <span style="color: #BB4444">&#39;0644&#39;</span>
+    <span style="color: #008000; font-weight: bold">register</span>: result
+    <span style="color: #008000; font-weight: bold">check_mode</span>: false
+</code></pre></div>
+
+<p>このパラメタを<code>true</code>にすると、<code>--check</code>を付けなくてもチェックモードで動作する。<br />
+<code>false</code>にすると、<code>--check</code>がなくてもチェックモードで動作する。</p>
+<p><code>--check</code>については<a href="/Ansible/playbook/#-check">playbook</a>参照。</p>
                 
               
               
