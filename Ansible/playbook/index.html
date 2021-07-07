@@ -509,9 +509,52 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          プレイブック
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         プレイブック
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-playbook" class="md-nav__link">
+    ansible-playbook コマンド
+  </a>
+  
+    <nav class="md-nav" aria-label="ansible-playbook コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-check" class="md-nav__link">
+    --check
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -798,6 +841,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Linux/selinux/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Linux/ssh/" class="md-nav__link">
         ssh関連
       </a>
@@ -842,6 +897,18 @@
     <li class="md-nav__item">
       <a href="../../Tools/mkdocs/" class="md-nav__link">
         MkDocs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/openssl/" class="md-nav__link">
+        openssl
       </a>
     </li>
   
@@ -962,6 +1029,34 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-playbook" class="md-nav__link">
+    ansible-playbook コマンド
+  </a>
+  
+    <nav class="md-nav" aria-label="ansible-playbook コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-check" class="md-nav__link">
+    --check
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -978,6 +1073,75 @@
                 
                 
                 <h1 id="_1">プレイブック</h1>
+<h2 id="ansible-playbook">ansible-playbook コマンド</h2>
+<h3 id="-check">--check</h3>
+<p>いわゆるDry Runで実行する。<br />
+checkに対応している<code>copy</code>モジュールの場合は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: command sample
+    <span style="color: #008000; font-weight: bold">copy</span>:
+      <span style="color: #008000; font-weight: bold">src</span>: /home/zaki/tmp.yml
+      <span style="color: #008000; font-weight: bold">dest</span>: /var/tmp
+      <span style="color: #008000; font-weight: bold">mode</span>: <span style="color: #BB4444">&#39;0644&#39;</span>
+    <span style="color: #008000; font-weight: bold">register</span>: result
+</code></pre></div>
+
+<p>このplaybook、コピー先が存在しない状態で、実際に動かすと<code>changed</code>になる状態で<code>--check</code>付けて実行すると</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls /var/tmp/tmp.yml 
+<span style="color: #888888">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
+<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook copy.yml --check
+
+<span style="color: #888888">PLAY [localhost] ********************</span>
+
+<span style="color: #888888">TASK [command sample] ***************</span>
+<span style="color: #888888">changed: [localhost]</span>
+
+<span style="color: #888888">TASK [print result] *****************</span>
+<span style="color: #888888">ok: [localhost] =&gt; </span>
+<span style="color: #888888">  msg:</span>
+<span style="color: #888888">    changed: true</span>
+<span style="color: #888888">    diff: []</span>
+<span style="color: #888888">    failed: false</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls /var/tmp/tmp.yml 
+<span style="color: #888888">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
+</code></pre></div>
+
+<p>このとおり<code>changed</code>として処理され、resultもchangedになる。<br />
+ファイルが存在して<code>ok</code>となる状態で<code>--check</code>で実行すると、以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls /var/tmp/tmp.yml
+<span style="color: #888888">/var/tmp/tmp.yml</span>
+<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook copy.yml --check
+<span style="color: #888888">PLAY [localhost] ********************</span>
+
+<span style="color: #888888">TASK [command sample] ***************</span>
+<span style="color: #888888">ok: [localhost]</span>
+
+<span style="color: #888888">TASK [print result] *****************</span>
+<span style="color: #888888">ok: [localhost] =&gt; </span>
+<span style="color: #888888">  msg:</span>
+<span style="color: #888888">    changed: false</span>
+<span style="color: #888888">    checksum: e4012c7ec05eb3bd3d27774fa73b772426c02d74</span>
+<span style="color: #888888">    dest: /var/tmp/tmp.yml</span>
+<span style="color: #888888">    diff:</span>
+<span style="color: #888888">      after:</span>
+<span style="color: #888888">        path: /var/tmp/tmp.yml</span>
+<span style="color: #888888">      before:</span>
+<span style="color: #888888">        path: /var/tmp/tmp.yml</span>
+<span style="color: #888888">    failed: false</span>
+<span style="color: #888888">    gid: 1000</span>
+<span style="color: #888888">    group: zaki</span>
+<span style="color: #888888">    mode: &#39;0644&#39;</span>
+<span style="color: #888888">    owner: zaki</span>
+<span style="color: #888888">    path: /var/tmp/tmp.yml</span>
+<span style="color: #888888">    secontext: unconfined_u:object_r:user_home_t:s0</span>
+<span style="color: #888888">    size: 5447</span>
+<span style="color: #888888">    state: file</span>
+<span style="color: #888888">    uid: 1000</span>
+</code></pre></div>
+
+<h1 id="sample">sample</h1>
+<h2 id="playbook">playbook</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
   <span style="color: #008000; font-weight: bold">gather_facts</span>: false
 
@@ -987,7 +1151,7 @@
       <span style="color: #008000; font-weight: bold">msg</span>: hello world
 </code></pre></div>
 
-<h1 id="_2">インベントリ</h1>
+<h1 id="inventory">inventory</h1>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[server]</span>
 <span style="color: #BB4444">192.168.0.1</span>
 </code></pre></div>
