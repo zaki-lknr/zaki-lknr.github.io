@@ -875,6 +875,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#apk" class="md-nav__link">
+    apk
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1137,6 +1144,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#apk" class="md-nav__link">
+    apk
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1158,12 +1172,14 @@
 <h2 id="_2">インストール済みのパッケージ一覧出力</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>dpkg -l      <span style="color: #008800; font-style: italic"># debian</span>
 <span style="color: #000080; font-weight: bold">$ </span>rpm -qa      <span style="color: #008800; font-style: italic"># redhat</span>
+<span style="color: #000080; font-weight: bold">$ </span>apk info     <span style="color: #008800; font-style: italic"># alpine</span>
 </code></pre></div>
 
 <p><a href="http://www.jp-z.jp/changelog/2005-11-05-1.html">パッケージ管理あれこれ / [cygwin][debian][redhat][Solaris][command] | 戯術者の日記</a></p>
 <h2 id="foo">インストール済みのパッケージ foo に含まれるファイル一覧</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ dpkg -L foo     <span style="color: #008800; font-style: italic"># debian</span>
-$ rpm -ql foo     <span style="color: #008800; font-style: italic"># redhat</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ dpkg -L foo        <span style="color: #008800; font-style: italic"># debian</span>
+$ rpm -ql foo        <span style="color: #008800; font-style: italic"># redhat</span>
+$ apk manifest foo   <span style="color: #008800; font-style: italic"># alpine</span>
 </code></pre></div>
 
 <h2 id="foobar">ファイル /foo/bar をインストールしたパッケージ</h2>
@@ -1198,6 +1214,14 @@ httpd<span style="color: #666666">-2.4.37-39.</span><span style="color: #AA22FF;
 <ul>
 <li><a href="https://www.atmarkit.co.jp/ait/articles/2001/31/news006.html">【 dnf 】コマンド（応用編その7）――リポジトリを追加する：Linux基本コマンドTips（375） - ＠IT</a></li>
 </ul>
+<h2 id="apk">apk</h2>
+<p>インストール</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># apk add squid
+</code></pre></div>
+
+<p>アンインストール</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># apk del squid
+</code></pre></div>
                 
               
               

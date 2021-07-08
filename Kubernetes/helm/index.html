@@ -785,6 +785,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1137,6 +1144,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1213,6 +1227,34 @@
 </code></pre></div>
 
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
+<h2 id="_8">環境変数</h2>
+<p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm env
+<span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
+<span style="color: #888888">HELM_CACHE_HOME=&quot;/home/zaki/.cache/helm&quot;</span>
+<span style="color: #888888">HELM_CONFIG_HOME=&quot;/home/zaki/.config/helm&quot;</span>
+<span style="color: #888888">HELM_DATA_HOME=&quot;/home/zaki/.local/share/helm&quot;</span>
+<span style="color: #888888">HELM_DEBUG=&quot;false&quot;</span>
+<span style="color: #888888">HELM_KUBEAPISERVER=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBEASGROUPS=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBEASUSER=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBECAFILE=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBECONTEXT=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBETOKEN=&quot;&quot;</span>
+<span style="color: #888888">HELM_MAX_HISTORY=&quot;10&quot;</span>
+<span style="color: #888888">HELM_NAMESPACE=&quot;default&quot;</span>
+<span style="color: #888888">HELM_PLUGINS=&quot;/home/zaki/.local/share/helm/plugins&quot;</span>
+<span style="color: #888888">HELM_REGISTRY_CONFIG=&quot;/home/zaki/.config/helm/registry.json&quot;</span>
+<span style="color: #888888">HELM_REPOSITORY_CACHE=&quot;/home/zaki/.cache/helm/repository&quot;</span>
+<span style="color: #888888">HELM_REPOSITORY_CONFIG=&quot;/home/zaki/.config/helm/repositories.yaml&quot;</span>
+</code></pre></div>
+
+<p><code>HELM_CONFIG_HOME</code>を設定すれば、<code>HELM_REGISTRY_CONFIG</code>などは連動する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ <span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span>/var/tmp helm env | grep var
+<span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp&quot;</span>
+<span style="color: #B8860B">HELM_REGISTRY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/registry.json&quot;</span>
+<span style="color: #B8860B">HELM_REPOSITORY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/repositories.yaml&quot;</span>
+</code></pre></div>
                 
               
               
