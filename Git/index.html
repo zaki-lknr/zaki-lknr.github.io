@@ -1878,6 +1878,26 @@ $ git commit -m <span style="color: #BB4444">&quot;first commit&quot;</span>
 <li><a href="https://backlog.com/ja/git-tutorial/stepup/13/">7. rebaseでマージする｜サル先生のGit入門【プロジェクト管理ツールBacklog】</a></li>
 </ul>
 <p><code>merge</code>は「他ブランチの内容を取り込む」で、<code>rebase</code>は「他ブランチの内容を適用済みだったことにする」かな？</p>
+<p>リモートブランチから最新を取得</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git fetch origin 
+</code></pre></div>
+
+<p>rebaseで取り込み</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git rebase origin/hogehoge
+</code></pre></div>
+
+<p>変更がローカルに残ってる場合は</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git rebase origin/hogehoge
+<span style="color: #888888">error: cannot rebase: You have unstaged changes.</span>
+<span style="color: #888888">error: Please commit or stash them.</span>
+</code></pre></div>
+
+<p>エラーになるので、退避してrebaseする</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git stash save
+<span style="color: #000080; font-weight: bold">$ </span>git rebase origin/hogehoge
+<span style="color: #000080; font-weight: bold">$ </span>git stash pop
+</code></pre></div>
+
 <h2 id="conflict">conflictした場合</h2>
 <h3 id="_4">修正する場合は普通に</h3>
 <ol>

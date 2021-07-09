@@ -778,6 +778,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    resetの取り消し
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     取り消し
   </a>
@@ -1240,6 +1247,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    resetの取り消し
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     取り消し
   </a>
@@ -1347,6 +1361,30 @@ $ git stash pop
 <p><code>git add</code>する前、編集済みの状態に戻す</p>
 <h3 id="git-reset-hard-head">git reset --hard HEAD^</h3>
 <p>編集前、直前の<code>git commit</code>完了時点に戻す (対象ファイルを間違えたとかコミットを間違えただけで編集内容は正しい場合はこれやると事故る)</p>
+<h2 id="reset">resetの取り消し</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reflog
+</code></pre></div>
+
+<p>これでresetを含むgitの操作履歴が表示される。
+「このコミットの状態に戻したい」のHEAD番号を探して</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reset --mixed  HEAD@<span style="color: #666666">{8}</span>
+</code></pre></div>
+
+<p>など実行する。
+<code>--mixed</code>や<code>--soft</code>については、最初にresetしたときと同じのを指定すればよいかな？ (未確認)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reflog 
+de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{0}</span>: reset: moving to HEAD@<span style="color: #666666">{7}</span>
+<span style="color: #666666">7379519</span> HEAD@<span style="color: #666666">{1}</span>: reset: moving to HEAD@<span style="color: #666666">{5}</span>
+de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{2}</span>: reset: moving to HEAD@<span style="color: #666666">{5}</span>
+de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{3}</span>: reset: moving to HEAD@<span style="color: #666666">{4}</span>
+22364c9 HEAD@<span style="color: #666666">{4}</span>: reset: moving to HEAD^
+de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{5}</span>: reset: moving to HEAD^
+<span style="color: #666666">7379519</span> HEAD@<span style="color: #666666">{6}</span>: reset: moving to HEAD
+<span style="color: #666666">7379519</span> HEAD@<span style="color: #666666">{7}</span>: ....
+de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{8}</span>: ....
+</code></pre></div>
+
+<p>これで<code>HEAD@{8}</code>に<code>reset</code>すれば、<code>de41fb8</code>をコミットした状態になる。</p>
 <h2 id="_7">取り消し</h2>
 <h3 id="addcommit">ローカルの変更(未add、未commit)を破棄</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git checkout /path/to/file

@@ -1005,6 +1005,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    リスト処理
+  </a>
+  
+    <nav class="md-nav" aria-label="リスト処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#length" class="md-nav__link">
+    length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    要素のindex
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#partial-application" class="md-nav__link">
     部分適用(partial application)
   </a>
@@ -1012,7 +1039,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     メタクラス
   </a>
   
@@ -1024,7 +1051,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     仮想環境
   </a>
   
@@ -1040,7 +1067,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     作成
   </a>
   
@@ -1143,6 +1170,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    リスト処理
+  </a>
+  
+    <nav class="md-nav" aria-label="リスト処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#length" class="md-nav__link">
+    length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    要素のindex
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#partial-application" class="md-nav__link">
     部分適用(partial application)
   </a>
@@ -1150,7 +1204,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     メタクラス
   </a>
   
@@ -1162,7 +1216,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     仮想環境
   </a>
   
@@ -1178,7 +1232,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     作成
   </a>
   
@@ -1226,6 +1280,39 @@
 </code></pre></div>
 
 <h2 id="_1">実装</h2>
+<h3 id="_2">リスト処理</h3>
+<h4 id="length">length</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666666">=</span> []
+array<span style="color: #666666">.</span>append(<span style="color: #BB4444">&#39;2&#39;</span>)
+array<span style="color: #666666">.</span>append(<span style="color: #BB4444">&#39;3&#39;</span>)
+array<span style="color: #666666">.</span>append(<span style="color: #BB4444">&#39;4&#39;</span>)
+
+<span style="color: #AA22FF">print</span>(<span style="color: #AA22FF">len</span>(array))
+</code></pre></div>
+
+<p>3になる。</p>
+<h4 id="index">要素のindex</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666666">=</span> [<span style="color: #BB4444">&#39;curry&#39;</span>, <span style="color: #BB4444">&#39;beef&#39;</span>, <span style="color: #BB4444">&#39;chicken&#39;</span>, <span style="color: #BB4444">&#39;vegetable&#39;</span>]
+
+beef_index <span style="color: #666666">=</span> array<span style="color: #666666">.</span>index(<span style="color: #BB4444">&#39;chicken&#39;</span>)
+<span style="color: #AA22FF">print</span>(beef_index)
+</code></pre></div>
+
+<p>引数に指定した要素が配列中の何番目にあるかを返す。上記の出力は<code>2</code><br />
+存在しない場合はValueErrorになる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666666">=</span> [<span style="color: #BB4444">&#39;curry&#39;</span>, <span style="color: #BB4444">&#39;beef&#39;</span>, <span style="color: #BB4444">&#39;chicken&#39;</span>, <span style="color: #BB4444">&#39;vegetable&#39;</span>]
+
+beef_index <span style="color: #666666">=</span> array<span style="color: #666666">.</span>index(<span style="color: #BB4444">&#39;zzz&#39;</span>)
+<span style="color: #AA22FF">print</span>(beef_index)
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3 index.py
+<span style="color: #888888">Traceback (most recent call last):</span>
+<span style="color: #888888">  File &quot;index.py&quot;, line 3, in &lt;module&gt;</span>
+<span style="color: #888888">    beef_index = array.index(&#39;zzz&#39;)</span>
+<span style="color: #888888">ValueError: &#39;zzz&#39; is not in list</span>
+</code></pre></div>
+
 <h3 id="partial-application">部分適用(partial application)</h3>
 <ul>
 <li><code>functiontools#partial()</code>を使う。</li>
@@ -1253,7 +1340,7 @@
 
 <p>なるほどわからん</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></p>
-<h3 id="_2">メタクラス</h3>
+<h3 id="_3">メタクラス</h3>
 <ul>
 <li><a href="https://qiita.com/slope-book/items/3319c357c1a092d9d841">pythonで考えるメタクラスとは？ - Qiita</a></li>
 <li><a href="https://qiita.com/FGtatsuro/items/49f907a809e53b874b18">__new__と__init__とメタクラスと - Qiita</a></li>
@@ -1275,9 +1362,9 @@
 <ul>
 <li><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></li>
 </ul>
-<h2 id="_3">仮想環境</h2>
+<h2 id="_4">仮想環境</h2>
 <h3 id="venv">venv</h3>
-<h4 id="_4">作成</h4>
+<h4 id="_5">作成</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3 -m venv venv/ansible
 </code></pre></div>
 
