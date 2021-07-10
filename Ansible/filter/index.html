@@ -1073,6 +1073,27 @@
                 
                 
                 <h1 id="_1">フィルタ</h1>
+<p>ドキュメントはAnsibleとJinja2両方チェックする。</p>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">Using filters to manipulate data — Ansible Documentation</a></li>
+<li><a href="https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters">Template Designer Documentation — Jinja Documentation (3.1.x)</a></li>
+</ul>
+<p>コレクションによっては個別のドキュメントもある。</p>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/community/general/docsite/filter_guide.html">community.general Filter Guide — Ansible Documentation</a></li>
+</ul>
+<p>実装はこのあたり</p>
+<ul>
+<li>ansible.builtin<ul>
+<li><a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/filter/core.py">ansible/core.py at devel · ansible/ansible</a></li>
+<li>core以外のものは同じディレクトリの別ソースにあるかも</li>
+</ul>
+</li>
+<li>jinja2<ul>
+<li><a href="https://github.com/pallets/jinja/blob/main/src/jinja2/filters.py">jinja/filters.py at main · pallets/jinja</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="_2">三項演算子</h2>
 <p><code>ternary</code>を使う。</p>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#defining-different-values-for-true-false-null-ternary">Defining different values for true/false/null (ternary)</a></p>
