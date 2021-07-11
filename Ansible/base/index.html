@@ -1107,6 +1107,18 @@
 <p>この辺の設定をどこかに入れればOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>: /root/venv/bin/python
 </code></pre></div>
+
+<p>pipは最新にしつつ、バージョン指定のパッケージも入れるならこんな感じ。<br />
+最新だと<code>ansible==4.2.0</code>が入る場合でも、<code>4.1.0</code>がインストールされる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: create venv
+      <span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:
+        <span style="color: #008000; font-weight: bold">name</span>:
+          - pip
+          - ansible==4.1.0
+        <span style="color: #008000; font-weight: bold">state</span>: latest
+        <span style="color: #008000; font-weight: bold">virtualenv</span>: ~/venv/ansible4.1.0
+        <span style="color: #008000; font-weight: bold">virtualenv_command</span>: python3 -m venv
+</code></pre></div>
                 
               
               
