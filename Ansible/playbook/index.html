@@ -552,6 +552,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-list-tasks" class="md-nav__link">
+    --list-tasks
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1067,6 +1074,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-list-tasks" class="md-nav__link">
+    --list-tasks
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1153,6 +1167,45 @@ checkに対応している<code>copy</code>モジュールの場合は以下の�
 </code></pre></div>
 
 <p>タスク単位でチェックモードを指定する<code>check_mode</code>パラメタについては<a href="/Ansible/directives/#check-mode">directives</a>参照。</p>
+<h2 id="-list-tasks">--list-tasks</h2>
+<p>同時に指定する<code>--tags</code>などの実行条件を踏まえて、どのプレイとタスクが実行対象となるかをリストアップする。dry runのもう1段階手前な感じ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook setup.yml --list-tasks
+
+<span style="color: #888888">playbook: setup.yml</span>
+
+<span style="color: #888888">  play #1 (rhel): rhel  TAGS: []</span>
+<span style="color: #888888">    tasks:</span>
+<span style="color: #888888">      subscription      TAGS: [subscription]</span>
+<span style="color: #888888">      install packages  TAGS: [packages]</span>
+
+<span style="color: #888888">  play #2 (rhel): rhel  TAGS: []</span>
+<span style="color: #888888">    tasks:</span>
+<span style="color: #888888">      ssh user config   TAGS: [ssh]</span>
+<span style="color: #888888">      git config        TAGS: [git]</span>
+<span style="color: #888888">      get git-prompt.sh TAGS: [git]</span>
+<span style="color: #888888">      add prompt with git config        TAGS: [git]</span>
+<span style="color: #888888">      add source gitprompt      TAGS: [git]</span>
+<span style="color: #888888">      create venv       TAGS: [python]</span>
+<span style="color: #888888">      clone repository (linux)  TAGS: [repository]</span>
+<span style="color: #888888">      clone repository (container)      TAGS: [repository]</span>
+</code></pre></div>
+
+<p><code>--tags</code>指定ありの場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook setup.yml --list-tasks --tags git
+
+<span style="color: #888888">playbook: setup.yml</span>
+
+<span style="color: #888888">  play #1 (rhel): rhel  TAGS: []</span>
+<span style="color: #888888">    tasks:</span>
+
+<span style="color: #888888">  play #2 (rhel): rhel  TAGS: []</span>
+<span style="color: #888888">    tasks:</span>
+<span style="color: #888888">      git config        TAGS: [git]</span>
+<span style="color: #888888">      get git-prompt.sh TAGS: [git]</span>
+<span style="color: #888888">      add prompt with git config        TAGS: [git]</span>
+<span style="color: #888888">      add source gitprompt      TAGS: [git]</span>
+</code></pre></div>
+
 <h1 id="sample">sample</h1>
 <h2 id="playbook">playbook</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
