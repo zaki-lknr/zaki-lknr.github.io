@@ -486,6 +486,33 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    変数
+  </a>
+  
+    <nav class="md-nav" aria-label="変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    変数宣言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    配列要素の追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     制御構文
   </a>
   
@@ -493,7 +520,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     ループ
   </a>
   
@@ -501,7 +528,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ループインデックス
   </a>
   
@@ -518,7 +545,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     コメント
   </a>
   
@@ -532,7 +559,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -1096,6 +1123,33 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    変数
+  </a>
+  
+    <nav class="md-nav" aria-label="変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    変数宣言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    配列要素の追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     制御構文
   </a>
   
@@ -1103,7 +1157,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     ループ
   </a>
   
@@ -1111,7 +1165,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ループインデックス
   </a>
   
@@ -1128,7 +1182,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     コメント
   </a>
   
@@ -1142,7 +1196,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -1180,8 +1234,32 @@
                 
                 <h1 id="jinja2">Jinja2テンプレート</h1>
 <p>増えたらToolsとかに移すかも</p>
-<h2 id="_1">制御構文</h2>
-<h3 id="_2">ループ</h3>
+<h2 id="_1">変数</h2>
+<h3 id="_2">変数宣言</h3>
+<p>変数</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% set hogehoge = &#39;foobar&#39; %}
+</code></pre></div>
+
+<p>配列</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% set array = [] %}
+</code></pre></div>
+
+<h3 id="_3">配列要素の追加</h3>
+<p>↑の<code>array</code>に要素を追加したい場合、Ansibleでは<code>array.append()</code>は使えるように見えて使えない。<br />
+↓のように書く。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% set _ = array.append(&#39;item&#39;) %} 
+</code></pre></div>
+
+<blockquote>
+<p>これに <code>do</code> を追加して <code>{% do list.append(1) %}</code> と書けるようにする <a href="https://jinja.palletsprojects.com/en/latest/templates/#expression-statement">Expression Statement</a> という拡張もあるらしいのですが Ansible では有効化されていませんので、面倒ですが <code>{% if list.append(1) %}{% endif %}</code> や <code>{% set _ = list.append(1) %}</code> のように他のステートメントの中で評価したい式を書く必要があります。</p>
+<p><a href="http://blog.keshi.org/hogememo/2015/12/07/exploiting-ansible-jinja2">ほげめも: Ansible の Jinja2 を活用する</a></p>
+</blockquote>
+<p>辞書をリストの要素として追加は普通にOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #FF0000">{</span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">set</span><span style="color: #bbbbbb"> </span>_<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>host_list.append(<span style="border: 1px solid #FF0000">{</span><span style="color: #BB4444">&#39;host&#39;</span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">host</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;name&#39;</span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>hostvars<span style="color: #666666">[</span>host<span style="color: #666666">]</span>.tags.<span style="color: #AA22FF; font-weight: bold">User</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">}</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="border: 1px solid #FF0000">}</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<h2 id="_4">制御構文</h2>
+<h3 id="_5">ループ</h3>
 <p>リストに対する<code>for</code>構文は、foreach式で配列要素をループ毎に処理できる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{<span style="color: #666666">%</span> <span style="color: #AA22FF; font-weight: bold">for</span> <span style="color: #B8860B">item</span> <span style="color: #B8860B">in</span> <span style="color: #B8860B">array_value</span> <span style="color: #666666">%</span>}
 ...
@@ -1189,9 +1267,9 @@
 </code></pre></div>
 
 <p><code>array_value</code>の配列要素が<code>item</code>にセットされてループ処理される。</p>
-<h4 id="_3">ループインデックス</h4>
+<h4 id="_6">ループインデックス</h4>
 <p>ループブロック内で<code>loop.index0</code>という変数参照でループインデックスを取り出せる(ゼロオリジン)</p>
-<h2 id="_4">コメント</h2>
+<h2 id="_7">コメント</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{# comment #}
 </code></pre></div>
 
@@ -1207,7 +1285,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{{</span> <span style="color: #B8860B">lookup</span><span style="color: #666666">(</span><span style="color: #BB4444">&#39;pipe&#39;</span><span style="color: #666666">,</span> <span style="color: #BB4444">&#39;date +%s&#39;</span><span style="color: #666666">)</span> <span style="color: #008800">}}</span>
 </code></pre></div>
 
-<h2 id="_5">指定部分へのフィルタの実行</h2>
+<h2 id="_8">指定部分へのフィルタの実行</h2>
 <h3 id="indent">indent()</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{%</span> <span style="color: #AA22FF; font-weight: bold">filter</span> <span style="color: #00A000">indent</span><span style="color: #666666">(4,</span> <span style="color: #AA22FF">true</span><span style="color: #666666">)</span> <span style="color: #008800">%}</span>
 <span style="color: #008800">{{</span> <span style="color: #B8860B">sample_string</span> <span style="color: #008800">}}</span>
