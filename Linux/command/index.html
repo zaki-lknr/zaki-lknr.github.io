@@ -904,6 +904,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    zip
+  </a>
+  
+    <nav class="md-nav" aria-label="zip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ファイル一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    展開
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    圧縮
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ps" class="md-nav__link">
     ps
   </a>
@@ -912,21 +946,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     子プロセスツリー表示
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     子プロセス一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ヘッダ無し
   </a>
   
@@ -946,7 +980,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     スタティックルート追加
   </a>
   
@@ -1272,6 +1306,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    zip
+  </a>
+  
+    <nav class="md-nav" aria-label="zip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ファイル一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    展開
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    圧縮
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ps" class="md-nav__link">
     ps
   </a>
@@ -1280,21 +1348,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     子プロセスツリー表示
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     子プロセス一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ヘッダ無し
   </a>
   
@@ -1314,7 +1382,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     スタティックルート追加
   </a>
   
@@ -1403,8 +1471,28 @@
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">まぁなんでこれ試したかってーと、-Cの説明よく読んだら「ディレクトリDIRへ移動」ってあるんで、ファイル指定より前にこれ指定したら、もしかして移動処理が先に行われてから指定ファイル取り出し処理が走るんじゃね？<br>と思ったのがたまたま当たったという</p>&mdash; z a k i 🌈 (@zaki_hmkc) <a href="https://twitter.com/zaki_hmkc/status/1306950429792583681?ref_src=twsrc%5Etfw">September 18, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<h2 id="zip">zip</h2>
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/06/18/202546">[コマンドメモ] Linuxでzip操作 - zaki work log</a></p>
+<h3 id="_8">ファイル一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>zipinfo &lt;zip-file&gt;
+</code></pre></div>
+
+<h3 id="_9">展開</h3>
+<p><code>-q</code>付ければquietモードでファイル名が出力されない</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>unzip -q &lt;zip-file&gt;
+</code></pre></div>
+
+<p><code>-d</code>で出力先ディレクトリ指定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>unzip &lt;zip-file&gt; -d &lt;dirname&gt;
+</code></pre></div>
+
+<h3 id="_10">圧縮</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>zip gitlab-compose.zip gitlab-compose/ -r
+</code></pre></div>
+
+<p><code>-r</code>は必須</p>
 <h2 id="ps">ps</h2>
-<h3 id="_8">子プロセスツリー表示</h3>
+<h3 id="_11">子プロセスツリー表示</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps 
 <span style="color: #888888">    PID TTY          TIME CMD</span>
 <span style="color: #888888"> 434128 pts/2    00:00:00 bash</span>
@@ -1415,7 +1503,7 @@
 <span style="color: #888888"> 456875 pts/2    R+     0:00  \_ ps f</span>
 </code></pre></div>
 
-<h3 id="_9">子プロセス一覧</h3>
+<h3 id="_12">子プロセス一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps auxf
 <span style="color: #888888">:</span>
 <span style="color: #888888">:</span>
@@ -1436,7 +1524,7 @@
 </code></pre></div>
 
 <p>孫プロセスは出ない</p>
-<h3 id="_10">ヘッダ無し</h3>
+<h3 id="_13">ヘッダ無し</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps --ppid <span style="color: #666666">1961</span> --no-headers
 <span style="color: #888888"> 241047 ?        00:00:00 docker-proxy</span>
 <span style="color: #888888"> 241052 ?        00:00:00 docker-proxy</span>
@@ -1445,7 +1533,7 @@
 </code></pre></div>
 
 <h2 id="networkmanager">NetworkManager</h2>
-<h3 id="_11">スタティックルート追加</h3>
+<h3 id="_14">スタティックルート追加</h3>
 <p>環境: <a href="https://zaki-hmkc.hatenablog.com/entry/2021/04/15/092340">[VyOS] NAT設定を使ったネットワーク間のルーティング (手動 &amp; Ansible / vyos_config) - zaki work log</a></p>
 <p><img alt="" src="https://cdn-ak.f.st-hatena.com/images/fotolife/z/zaki-hmkc/20210415/20210415085905.png" /></p>
 <p>やりたいこと</p>
