@@ -863,6 +863,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    sed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tar" class="md-nav__link">
     tar
   </a>
@@ -1265,6 +1272,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    sed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tar" class="md-nav__link">
     tar
   </a>
@@ -1448,6 +1462,12 @@
 </code></pre></div>
 
 <p><code>ansible.example.org</code>という名前で<code>192.168.0.41:443</code>へアクセスする。</p>
+<h2 id="sed">sed</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sed -i -e <span style="color: #BB4444">&#39;s/regexp/string/&#39;</span> file
+</code></pre></div>
+
+<p><code>-i</code>でファイル更新を行う。<br />
+<code>-ie</code>って書くと、<code>-i.bak</code>で<code>file.bak</code>のバックアップ作成と解釈されるので分ける。</p>
 <h2 id="tar">tar</h2>
 <h3 id="_5">展開時の形式指定オプション</h3>
 <p>gzの場合はzとかは不要。<br />
