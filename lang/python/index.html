@@ -1085,6 +1085,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pyvenv" class="md-nav__link">
+    pyvenv
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1250,6 +1257,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pyvenv" class="md-nav__link">
+    pyvenv
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1370,6 +1384,29 @@ beef_index <span style="color: #666666">=</span> array<span style="color: #66666
 
 <h4 id="system">systemのパッケージパスも参照</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3 -m venv venv-sys --system-site-packages
+</code></pre></div>
+
+<h3 id="pyvenv">pyvenv</h3>
+<p>RHEL8に入ってるやつ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pyvenv-3 venv3
+<span style="color: #888888">WARNING: the pyenv script is deprecated in favour of `platform-python -m venv`</span>
+<span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>. venv3/bin/activate
+<span style="color: #000080; font-weight: bold">(venv3)</span> <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>
+<span style="color: #000080; font-weight: bold">(venv3)</span> <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pip install --upgrade pip
+<span style="color: #888888">Cache entry deserialization failed, entry ignored</span>
+<span style="color: #888888">Collecting pip</span>
+<span style="color: #888888">  Downloading https://files.pythonhosted.org/packages/47/ca/f0d790b6e18b3a6f3bd5e80c2ee4edbb5807286c21cdd0862ca933f751dd/pip-21.1.3-py3-none-any.whl (1.5MB)</span>
+<span style="color: #888888">    100% |████████████████████████████████| 1.6MB 641kB/s </span>
+<span style="color: #888888">Installing collected packages: pip</span>
+<span style="color: #888888">  Found existing installation: pip 9.0.3</span>
+<span style="color: #888888">    Uninstalling pip-9.0.3:</span>
+<span style="color: #888888">      Successfully uninstalled pip-9.0.3</span>
+<span style="color: #888888">Successfully installed pip-21.1.3</span>
+<span style="color: #000080; font-weight: bold">(venv3)</span> <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pip list
+<span style="color: #888888">Package    Version</span>
+<span style="color: #888888">---------- -------</span>
+<span style="color: #888888">pip        21.1.3</span>
+<span style="color: #888888">setuptools 39.2.0</span>
 </code></pre></div>
                 
               
