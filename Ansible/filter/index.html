@@ -469,6 +469,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リストの先頭・末尾要素
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1069,6 +1076,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リストの先頭・末尾要素
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1195,6 +1209,39 @@
 <p><a href="https://github.com/zaki-lknr/ansible-sample/blob/master/filter/dict2items.yml">ansible-sample/dict2items.yml at master · zaki-lknr/ansible-sample</a></p>
 <h2 id="select-selectattr">検索 (select / selectattr)</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/02/18/000228">[Ansible / Jinja2] select / selectattr を使った配列と辞書のフィルタリング - zaki work log</a></p>
+<h2 id="_3">リストの先頭・末尾要素</h2>
+<p><code>array[0]</code>, <code>array[-1]</code>でも一緒といえば一緒だけど。<br />
+出展はJinja2のフィルタ。</p>
+<ul>
+<li><a href="https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.first">first</a></li>
+<li><a href="https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.last">last</a></li>
+</ul>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: first
+      <span style="color: #008000; font-weight: bold">vars</span>:
+        <span style="color: #008000; font-weight: bold">list</span>:
+          - item1
+          - item2
+          - item3
+        <span style="color: #008000; font-weight: bold">foobar</span>: hogehoge
+      <span style="color: #008000; font-weight: bold">debug</span>:
+        <span style="color: #008000; font-weight: bold">msg</span>:
+          - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">first</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+          - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list[0]</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+          - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">last</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+          - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list[-1]</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>結果</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>first<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*******************************************</span><span style="color: #bbbbbb"></span>
+<span style="color: #A0A000">ok</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>localhost<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=&gt;</span><span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">  </span><span style="color: #A0A000">msg</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item3<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
                 
               
               
