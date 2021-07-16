@@ -477,6 +477,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#changed_when" class="md-nav__link">
+    changed_when
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1109,6 +1116,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#changed_when" class="md-nav__link">
+    changed_when
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1250,6 +1264,23 @@
 <p>このパラメタを<code>true</code>にすると、<code>--check</code>を付けなくてもチェックモードで動作する。<br />
 <code>false</code>にすると、<code>--check</code>がなくてもチェックモードで動作する。</p>
 <p><code>--check</code>については<a href="/Ansible/playbook/#-check">playbook</a>参照。</p>
+<p>ちなみに、古いバージョンの<code>always_run</code>と機能的には同じ(値は逆)  </p>
+<blockquote>
+<p>Note<br />
+Prior to version 2.2 only the equivalent of <code>check_mode: no</code> existed. The notation for that was <code>always_run: yes</code>.</p>
+<p><a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_checkmode.html#enabling-or-disabling-check-mode-for-tasks">https://docs.ansible.com/ansible/2.9/user_guide/playbooks_checkmode.html#enabling-or-disabling-check-mode-for-tasks</a></p>
+</blockquote>
+<h2 id="changed_when">changed_when</h2>
+<p>条件がtrueの場合はタスクの結果に関係なく<code>changed</code>判定にする。逆にfalseの場合は<code>ok</code>判定にする。<br />
+タスクの結果を<code>register</code>で保持し、その内容を条件式に組み込むのもOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: command always run and no change
+      <span style="color: #008000; font-weight: bold">ansible.builtin.shell</span>:
+        <span style="color: #008000; font-weight: bold">cmd</span>: hogehoge
+      <span style="color: #008000; font-weight: bold">changed_when</span>: exec_result.stdout != &#39;&#39;
+      <span style="color: #008000; font-weight: bold">register</span>: exec_result
+</code></pre></div>
+
+<p><code>hogehoge</code>の実行結果で標準出力が何も無い場合は<code>changed</code>になる。</p>
                 
               
               
