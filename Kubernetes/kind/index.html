@@ -1095,12 +1095,11 @@
 
 <p>引数無しの場合は、デフォルト設定で作成したクラスタ名<code>kind</code>のノードになる。<br />
 クラスタ名を指定する場合は</p>
-<p>``console
-$ kind get nodes --name cluster-name</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>この結果を`docker stop`に渡すために、全体としてはこんな感じ。
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind get nodes --name cluster-name
+</code></pre></div>
 
-```console
-$ kind get nodes --name cluster-name | xargs docker stop
+<p>この結果を<code>docker stop</code>に渡すために、全体としてはこんな感じ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind get nodes --name cluster-name | xargs docker stop
 </code></pre></div>
                 
               
