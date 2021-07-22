@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../lang/python/" class="md-tabs__link">
+      <a href="../../lang/powershell/" class="md-tabs__link">
         Lang
       </a>
     </li>
@@ -744,6 +744,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    クラスタ作成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     停止
   </a>
   
@@ -930,6 +937,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/msedge/" class="md-nav__link">
+        Microsoft Edge Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/openssl/" class="md-nav__link">
         openssl
       </a>
@@ -1008,6 +1027,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../lang/powershell/" class="md-nav__link">
+        PowerShell
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../lang/python/" class="md-nav__link">
         Python
       </a>
@@ -1060,6 +1091,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    クラスタ作成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     停止
   </a>
   
@@ -1085,7 +1123,19 @@
                 <h1 id="kind">kind</h1>
 <p>DockerやPodman上にKubernetesのノードとして動くコンテナをデプロイ</p>
 <p><a href="https://kind.sigs.k8s.io/">kind</a></p>
-<h2 id="_1">停止</h2>
+<ul>
+<li><a href="https://zaki-hmkc.hatenablog.com/entry/2020/08/01/135922">[Kubernetes / kind] kindを使ってDocker上にクラスタを高速作成し、MetalLBも併用してクラスタ横断した通信お試し - zaki work log</a></li>
+</ul>
+<h2 id="_1">クラスタ作成</h2>
+<p>基本 (<code>kind</code>という名前のクラスタを作成すｒ)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind create cluster
+</code></pre></div>
+
+<p>名前指定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind create cluster --name sample-cluster
+</code></pre></div>
+
+<h2 id="_2">停止</h2>
 <p>kindクラスタの停止は無い。<br />
 クラスタを削除するか、ノードとして動作してるコンテナを停止する。</p>
 <p>コンテナを停止するには<code>docker stop</code>するが、停止対象コンテナは<code>kind get nodes</code>で取得できる。</p>
