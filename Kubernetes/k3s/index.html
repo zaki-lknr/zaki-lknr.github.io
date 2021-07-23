@@ -747,6 +747,40 @@
     Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る
   </a>
   
+    <nav class="md-nav" aria-label="Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubeconfig" class="md-nav__link">
+    kubeconfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    穴あけ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-sample" class="md-nav__link">
+    deploy sample
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ノードスペック
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1099,6 +1133,40 @@
     Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る
   </a>
   
+    <nav class="md-nav" aria-label="Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubeconfig" class="md-nav__link">
+    kubeconfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    穴あけ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-sample" class="md-nav__link">
+    deploy sample
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ノードスペック
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1120,44 +1188,46 @@
                 
                 <h1 id="k3s">K3s</h1>
 <h2 id="always-freeocia1flex-2cpu12gb-ram">Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ curl -sfL https://get.k3s.io | sh -
+<p>標準のE2.1.Microの場合↓<br />
+<a href="https://qiita.com/zaki-lknr/items/e829a3ad548e362ef89c">[Oracle Cloud] K3sでAlways Free枠ノードにKubernetesクラスタ作成してローカルからkubectlアクセスまで - Qiita</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl -sfL https://get.k3s.io | sh -
 </code></pre></div>
 
 <p>たまたま作成できた2cpus/12GB RAMで作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>opc@instance-20210704-1554 ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>sfL<span style="color: #bbbbbb"> </span><span style="color: #A0A000">https</span>:<span style="color: #666666">//</span><span style="color: #AA22FF; font-weight: bold">get</span>.k3s.io<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>sh<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>curl -sfL https://get.k3s.io | sh -
 
-<span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"></span>
-<span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
 
-<span style="color: #A0A000">インストール</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>k3s<span style="color: #666666">-</span>selinux.noarch<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">0.3-0.</span>el7<span style="color: #bbbbbb"></span>
+<span style="color: #888888">インストール:</span>
+<span style="color: #888888">  k3s-selinux.noarch 0:0.3-0.el7</span>
 
-<span style="color: #A0A000">依存性関連をインストールしました</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>container<span style="color: #666666">-</span>selinux.noarch<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">2.119.2-1.911</span>c772.el7_8<span style="color: #bbbbbb"></span>
+<span style="color: #888888">依存性関連をインストールしました:</span>
+<span style="color: #888888">  container-selinux.noarch 2:2.119.2-1.911c772.el7_8</span>
 
-完了しました<span style="border: 1px solid #FF0000">!</span><span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span>Creating<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">local</span><span style="color: #666666">/</span>bin<span style="color: #666666">/</span>kubectl<span style="color: #bbbbbb"> </span>symlink<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span>k3s<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span>Creating<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">local</span><span style="color: #666666">/</span>bin<span style="color: #666666">/</span>crictl<span style="color: #bbbbbb"> </span>symlink<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span>k3s<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span>Creating<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">local</span><span style="color: #666666">/</span>bin<span style="color: #666666">/</span>ctr<span style="color: #bbbbbb"> </span>symlink<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span>k3s<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span>Creating<span style="color: #bbbbbb"> </span>killall<span style="color: #bbbbbb"> </span>script<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">local</span><span style="color: #666666">/</span>bin<span style="color: #666666">/</span>k3s<span style="color: #666666">-</span>killall.sh<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span>Creating<span style="color: #bbbbbb"> </span>uninstall<span style="color: #bbbbbb"> </span>script<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">local</span><span style="color: #666666">/</span>bin<span style="color: #666666">/</span>k3s<span style="color: #666666">-</span>uninstall.sh<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span><span style="color: #A0A000">env</span>:<span style="color: #bbbbbb"> </span>Creating<span style="color: #bbbbbb"> </span>environment<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">file</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>systemd<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">system</span><span style="color: #666666">/</span>k3s.service.env<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span><span style="color: #A0A000">systemd</span>:<span style="color: #bbbbbb"> </span>Creating<span style="color: #bbbbbb"> </span>service<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">file</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>systemd<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">system</span><span style="color: #666666">/</span>k3s.service<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span><span style="color: #A0A000">systemd</span>:<span style="color: #bbbbbb"> </span>Enabling<span style="color: #bbbbbb"> </span>k3s<span style="color: #bbbbbb"> </span>unit<span style="color: #bbbbbb"></span>
-Created<span style="color: #bbbbbb"> </span>symlink<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">from</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>systemd<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">system</span><span style="color: #666666">/</span>multi<span style="color: #666666">-</span><span style="color: #AA22FF; font-weight: bold">user</span>.target.wants<span style="color: #666666">/</span>k3s.service<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>systemd<span style="color: #666666">/</span><span style="color: #AA22FF; font-weight: bold">system</span><span style="color: #666666">/</span>k3s.service.<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>INFO<span style="color: #666666">]</span><span style="color: #bbbbbb">  </span><span style="color: #A0A000">systemd</span>:<span style="color: #bbbbbb"> </span>Starting<span style="color: #bbbbbb"> </span>k3s<span style="color: #bbbbbb"></span>
+<span style="color: #888888">完了しました!</span>
+<span style="color: #888888">[INFO]  Creating /usr/local/bin/kubectl symlink to k3s</span>
+<span style="color: #888888">[INFO]  Creating /usr/local/bin/crictl symlink to k3s</span>
+<span style="color: #888888">[INFO]  Creating /usr/local/bin/ctr symlink to k3s</span>
+<span style="color: #888888">[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh</span>
+<span style="color: #888888">[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh</span>
+<span style="color: #888888">[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env</span>
+<span style="color: #888888">[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service</span>
+<span style="color: #888888">[INFO]  systemd: Enabling k3s unit</span>
+<span style="color: #888888">Created symlink from /etc/systemd/system/multi-user.target.wants/k3s.service to /etc/systemd/system/k3s.service.</span>
+<span style="color: #888888">[INFO]  systemd: Starting k3s</span>
 </code></pre></div>
 
-<h1 id="kubeconfig">kubeconfig</h1>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>opc@instance-20210704-1554 ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>cp<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>rancher<span style="color: #666666">/</span>k3s<span style="color: #666666">/</span>k3s.yaml<span style="color: #bbbbbb"> </span><span style="color: #666666">~</span><span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>opc@instance-20210704-1554 ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>ll<span style="color: #bbbbbb"></span>
-合計<span style="color: #bbbbbb"> </span><span style="color: #666666">4</span><span style="color: #bbbbbb"></span>
-<span style="color: #666666">-</span>rw<span style="color: #666666">-------</span>.<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span>root<span style="color: #bbbbbb"> </span>root<span style="color: #bbbbbb"> </span><span style="color: #666666">2961</span><span style="color: #bbbbbb">  </span><span style="color: #666666">7</span>月<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span><span style="color: #bbbbbb"> </span><span style="color: #666666">02</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">30</span><span style="color: #bbbbbb"> </span>k3s.yaml<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>opc@instance-20210704-1554 ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>hhown<span style="color: #bbbbbb"> </span><span style="color: #A0A000">opc</span>:opc<span style="color: #bbbbbb"> </span>k3s.yaml<span style="color: #bbbbbb"> </span>
+<h3 id="kubeconfig">kubeconfig</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo cp /etc/rancher/k3s/k3s.yaml ~
+<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>ll
+<span style="color: #888888">合計 4</span>
+<span style="color: #888888">-rw-------. 1 root root 2961  7月 23 02:30 k3s.yaml</span>
+<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo hhown opc:opc k3s.yaml 
 </code></pre></div>
 
 <p>手元にコピー</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ scp oci-ap-n1:k3s.yaml oci-ap-n1-k3s.yaml
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>scp oci-ap-n1:k3s.yaml oci-ap-n1-k3s.yaml
 </code></pre></div>
 
 <p><code>server</code>のアドレスをグローバルIPに変更し、<code>insecure-skip-tls-verify: true</code>を追加。</p>
@@ -1174,54 +1244,55 @@ Created<span style="color: #bbbbbb"> </span>symlink<span style="color: #bbbbbb">
   <span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>: true
 </code></pre></div>
 
-<h1 id="_1">穴あけ</h1>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[opc<span style="border: 1px solid #FF0000">@</span>instance<span style="color: #666666">-20210704-1554</span> <span style="color: #666666">~</span>]<span style="color: #666666">$</span> sudo firewall<span style="color: #666666">-</span>cmd <span style="color: #666666">--</span>add<span style="color: #666666">-</span>port<span style="color: #666666">=6443/</span>tcp <span style="color: #666666">--</span>permanent
-success
-[opc<span style="border: 1px solid #FF0000">@</span>instance<span style="color: #666666">-20210704-1554</span> <span style="color: #666666">~</span>]<span style="color: #666666">$</span> sudo firewall<span style="color: #666666">-</span>cmd <span style="color: #666666">--</span>reload
-success
+<h3 id="_1">穴あけ</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo firewall-cmd --add-port<span style="color: #666666">=6443</span>/tcp --permanent
+<span style="color: #888888">success</span>
+<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo firewall-cmd --reload
+<span style="color: #888888">success</span>
 </code></pre></div>
 
 <p>あとwebコンソールで、6443/TCPへのアクセス許可を追加。</p>
-<h1 id="deploy-sample">deploy sample</h1>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>zaki@cloud-dev kubeconfig<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>KUBECONFIG<span style="color: #666666">=</span>oci<span style="color: #666666">-</span>ap<span style="color: #666666">-</span>n1<span style="color: #666666">-</span>k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>apply<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>n<span style="color: #bbbbbb"> </span>sample<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>f<span style="color: #bbbbbb"> </span><span style="color: #666666">~/</span>src<span style="color: #666666">/</span>k8s<span style="color: #666666">-</span>samples<span style="color: #666666">/</span>sample<span style="color: #666666">-</span>web<span style="color: #666666">/</span>httpd<span style="color: #666666">-</span>clusterip<span style="color: #666666">/</span>sample<span style="color: #666666">-</span>http.yaml<span style="color: #bbbbbb"> </span>
-deployment.apps<span style="color: #666666">/</span>sample<span style="color: #666666">-</span>http<span style="color: #bbbbbb"> </span>created<span style="color: #bbbbbb"></span>
-service<span style="color: #666666">/</span>sample<span style="color: #666666">-</span>http<span style="color: #bbbbbb"> </span>created<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>zaki@cloud-dev kubeconfig<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>KUBECONFIG<span style="color: #666666">=</span>oci<span style="color: #666666">-</span>ap<span style="color: #666666">-</span>n1<span style="color: #666666">-</span>k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">get</span><span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>n<span style="color: #bbbbbb"> </span>sample<span style="color: #bbbbbb"></span>
-NAME<span style="color: #bbbbbb">                           </span>READY<span style="color: #bbbbbb">   </span>STATUS<span style="color: #bbbbbb">              </span>RESTARTS<span style="color: #bbbbbb">   </span>AGE<span style="color: #bbbbbb"></span>
-sample<span style="color: #666666">-</span>http<span style="color: #666666">-6</span>c94f59975<span style="color: #666666">-65</span>p6w<span style="color: #bbbbbb">   </span><span style="color: #666666">0/1</span><span style="color: #bbbbbb">     </span>ContainerCreating<span style="color: #bbbbbb">   </span><span style="color: #666666">0</span><span style="color: #bbbbbb">          </span><span style="color: #666666">9</span>s<span style="color: #bbbbbb"></span>
-sample<span style="color: #666666">-</span>http<span style="color: #666666">-6</span>c94f59975<span style="color: #666666">-</span>clzhp<span style="color: #bbbbbb">   </span><span style="color: #666666">0/1</span><span style="color: #bbbbbb">     </span>ContainerCreating<span style="color: #bbbbbb">   </span><span style="color: #666666">0</span><span style="color: #bbbbbb">          </span><span style="color: #666666">9</span>s<span style="color: #bbbbbb"></span>
+<h3 id="deploy-sample">deploy sample</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl apply -n sample -f ~/src/k8s-samples/sample-web/httpd-clusterip/sample-http.yaml 
+<span style="color: #888888">deployment.apps/sample-http created</span>
+<span style="color: #888888">service/sample-http created</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl get pod -n sample
+<span style="color: #888888">NAME                           READY   STATUS              RESTARTS   AGE</span>
+<span style="color: #888888">sample-http-6c94f59975-65p6w   0/1     ContainerCreating   0          9s</span>
+<span style="color: #888888">sample-http-6c94f59975-clzhp   0/1     ContainerCreating   0          9s</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>zaki@cloud-dev kubeconfig<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>KUBECONFIG<span style="color: #666666">=</span>oci<span style="color: #666666">-</span>ap<span style="color: #666666">-</span>n1<span style="color: #666666">-</span>k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">get</span><span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>n<span style="color: #bbbbbb"> </span>sample<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>o<span style="color: #bbbbbb"> </span>wide<span style="color: #bbbbbb"></span>
-NAME<span style="color: #bbbbbb">                           </span>READY<span style="color: #bbbbbb">   </span>STATUS<span style="color: #bbbbbb">    </span>RESTARTS<span style="color: #bbbbbb">   </span>AGE<span style="color: #bbbbbb">   </span>IP<span style="color: #bbbbbb">           </span>NODE<span style="color: #bbbbbb">                     </span>NOMINATED<span style="color: #bbbbbb"> </span>NODE<span style="color: #bbbbbb">   </span>READINESS<span style="color: #bbbbbb"> </span>GATES<span style="color: #bbbbbb"></span>
-sample<span style="color: #666666">-</span>http<span style="color: #666666">-6</span>c94f59975<span style="color: #666666">-65</span>p6w<span style="color: #bbbbbb">   </span><span style="color: #666666">1/1</span><span style="color: #bbbbbb">     </span>Running<span style="color: #bbbbbb">   </span><span style="color: #666666">0</span><span style="color: #bbbbbb">          </span><span style="color: #666666">87</span>s<span style="color: #bbbbbb">   </span><span style="color: #666666">10.42.0.9</span><span style="color: #bbbbbb">    </span>instance<span style="color: #666666">-20210704-1554</span><span style="color: #bbbbbb">   </span><span style="color: #666666">&lt;</span><span style="color: #AA22FF; font-weight: bold">none</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb">           </span><span style="color: #666666">&lt;</span><span style="color: #AA22FF; font-weight: bold">none</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"></span>
-sample<span style="color: #666666">-</span>http<span style="color: #666666">-6</span>c94f59975<span style="color: #666666">-</span>clzhp<span style="color: #bbbbbb">   </span><span style="color: #666666">1/1</span><span style="color: #bbbbbb">     </span>Running<span style="color: #bbbbbb">   </span><span style="color: #666666">0</span><span style="color: #bbbbbb">          </span><span style="color: #666666">87</span>s<span style="color: #bbbbbb">   </span><span style="color: #666666">10.42.0.10</span><span style="color: #bbbbbb">   </span>instance<span style="color: #666666">-20210704-1554</span><span style="color: #bbbbbb">   </span><span style="color: #666666">&lt;</span><span style="color: #AA22FF; font-weight: bold">none</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb">           </span><span style="color: #666666">&lt;</span><span style="color: #AA22FF; font-weight: bold">none</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl get pod -n sample -o wide
+<span style="color: #888888">NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE                     NOMINATED NODE   READINESS GATES</span>
+<span style="color: #888888">sample-http-6c94f59975-65p6w   1/1     Running   0          87s   10.42.0.9    instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
+<span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
-<h1 id="_2">ノードスペック</h1>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>zaki@cloud-dev kubeconfig<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>KUBECONFIG<span style="color: #666666">=</span>oci<span style="color: #666666">-</span>ap<span style="color: #666666">-</span>n1<span style="color: #666666">-</span>k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">describe</span><span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"></span>
+<h3 id="_2">ノードスペック</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl describe node
 
-<span style="color: #666666">[</span>...<span style="color: #666666">]</span><span style="color: #bbbbbb"></span>
+<span style="color: #888888">[...]</span>
 
-<span style="color: #A0A000">Capacity</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #A0A000">cpu</span>:<span style="color: #bbbbbb">                </span><span style="color: #666666">2</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>ephemeral<span style="color: #666666">-</span><span style="color: #A0A000">storage</span>:<span style="color: #bbbbbb">  </span><span style="color: #666666">40223552</span>Ki<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>hugepages<span style="color: #666666">-16</span><span style="color: #A0A000">Gi</span>:<span style="color: #bbbbbb">     </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>hugepages<span style="color: #666666">-2</span><span style="color: #A0A000">Mi</span>:<span style="color: #bbbbbb">      </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>hugepages<span style="color: #666666">-512</span><span style="color: #A0A000">Mi</span>:<span style="color: #bbbbbb">    </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #A0A000">memory</span>:<span style="color: #bbbbbb">             </span><span style="color: #666666">11125568</span>Ki<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #A0A000">pods</span>:<span style="color: #bbbbbb">               </span><span style="color: #666666">110</span><span style="color: #bbbbbb"></span>
-<span style="color: #A0A000">Allocatable</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #A0A000">cpu</span>:<span style="color: #bbbbbb">                </span><span style="color: #666666">2</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>ephemeral<span style="color: #666666">-</span><span style="color: #A0A000">storage</span>:<span style="color: #bbbbbb">  </span><span style="color: #666666">39129471355</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>hugepages<span style="color: #666666">-16</span><span style="color: #A0A000">Gi</span>:<span style="color: #bbbbbb">     </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>hugepages<span style="color: #666666">-2</span><span style="color: #A0A000">Mi</span>:<span style="color: #bbbbbb">      </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>hugepages<span style="color: #666666">-512</span><span style="color: #A0A000">Mi</span>:<span style="color: #bbbbbb">    </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #A0A000">memory</span>:<span style="color: #bbbbbb">             </span><span style="color: #666666">11125568</span>Ki<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #A0A000">pods</span>:<span style="color: #bbbbbb">               </span><span style="color: #666666">110</span><span style="color: #bbbbbb"></span>
+<span style="color: #888888">Capacity:</span>
+<span style="color: #888888">  cpu:                2</span>
+<span style="color: #888888">  ephemeral-storage:  40223552Ki</span>
+<span style="color: #888888">  hugepages-16Gi:     0</span>
+<span style="color: #888888">  hugepages-2Mi:      0</span>
+<span style="color: #888888">  hugepages-512Mi:    0</span>
+<span style="color: #888888">  memory:             11125568Ki</span>
+<span style="color: #888888">  pods:               110</span>
+<span style="color: #888888">Allocatable:</span>
+<span style="color: #888888">  cpu:                2</span>
+<span style="color: #888888">  ephemeral-storage:  39129471355</span>
+<span style="color: #888888">  hugepages-16Gi:     0</span>
+<span style="color: #888888">  hugepages-2Mi:      0</span>
+<span style="color: #888888">  hugepages-512Mi:    0</span>
+<span style="color: #888888">  memory:             11125568Ki</span>
+<span style="color: #888888">  pods:               110</span>
 </code></pre></div>
 
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
+<p>rebootしてもOK</p>
                 
               
               
