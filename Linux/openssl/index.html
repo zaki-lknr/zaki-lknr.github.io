@@ -16,7 +16,7 @@
     
     
       
-        <title>K3s - 戯術memo</title>
+        <title>openssl - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#k3s" class="md-skip">
+        <a href="#openssl" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              K3s
+              openssl
             
           </span>
         </div>
@@ -227,15 +227,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../helm/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Kubernetes/helm/" class="md-tabs__link">
         Kubernetes
       </a>
     </li>
@@ -245,13 +243,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Linux/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Linux
       </a>
     </li>
@@ -673,14 +673,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       <label class="md-nav__link" for="__nav_5">
         Kubernetes
@@ -698,8 +696,112 @@
   
   
     <li class="md-nav__item">
-      <a href="../helm/" class="md-nav__link">
+      <a href="../../Kubernetes/helm/" class="md-nav__link">
         Helm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/k3s/" class="md-nav__link">
+        K3s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/kind/" class="md-nav__link">
+        kind
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/kubectl/" class="md-nav__link">
+        kubectl
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Linux
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cert/" class="md-nav__link">
+        証明書
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command/" class="md-nav__link">
+        コマンドメモ
       </a>
     </li>
   
@@ -720,12 +822,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          K3s
+          openssl
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        K3s
+        openssl
       </a>
       
         
@@ -743,43 +845,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#always-freeocia1flex-2cpu12gb-ram" class="md-nav__link">
-    Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る
-  </a>
-  
-    <nav class="md-nav" aria-label="Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kubeconfig" class="md-nav__link">
-    kubeconfig
+  <a href="#rsa" class="md-nav__link">
+    RSA秘密鍵の確認
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#csr" class="md-nav__link">
+    CSR(証明書署名要求)の確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    穴あけ
+    証明書ファイルの確認
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-sample" class="md-nav__link">
-    deploy sample
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    ノードスペック
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -796,109 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kind/" class="md-nav__link">
-        kind
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kubectl/" class="md-nav__link">
-        kubectl
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      <label class="md-nav__link" for="__nav_6">
-        Linux
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Linux
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/" class="md-nav__link">
-        Linux
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/cert/" class="md-nav__link">
-        証明書
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/command/" class="md-nav__link">
-        コマンドメモ
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/openssl/" class="md-nav__link">
-        openssl
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Linux/package/" class="md-nav__link">
+      <a href="../package/" class="md-nav__link">
         パッケージ操作
       </a>
     </li>
@@ -910,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/rhel/" class="md-nav__link">
+      <a href="../rhel/" class="md-nav__link">
         RHEL
       </a>
     </li>
@@ -922,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/selinux/" class="md-nav__link">
+      <a href="../selinux/" class="md-nav__link">
         SELinux
       </a>
     </li>
@@ -934,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/ssh/" class="md-nav__link">
+      <a href="../ssh/" class="md-nav__link">
         ssh関連
       </a>
     </li>
@@ -1153,43 +1133,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#always-freeocia1flex-2cpu12gb-ram" class="md-nav__link">
-    Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る
-  </a>
-  
-    <nav class="md-nav" aria-label="Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kubeconfig" class="md-nav__link">
-    kubeconfig
+  <a href="#rsa" class="md-nav__link">
+    RSA秘密鍵の確認
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#csr" class="md-nav__link">
+    CSR(証明書署名要求)の確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    穴あけ
+    証明書ファイルの確認
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-sample" class="md-nav__link">
-    deploy sample
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    ノードスペック
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1205,118 +1165,50 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Kubernetes/k3s.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Linux/openssl.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="k3s">K3s</h1>
-<h2 id="always-freeocia1flex-2cpu12gb-ram">Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る</h2>
-<p>標準のE2.1.Microの場合↓<br />
-<a href="https://qiita.com/zaki-lknr/items/e829a3ad548e362ef89c">[Oracle Cloud] K3sでAlways Free枠ノードにKubernetesクラスタ作成してローカルからkubectlアクセスまで - Qiita</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl -sfL https://get.k3s.io | sh -
+                <h1 id="openssl">openssl</h1>
+<h2 id="rsa">RSA秘密鍵の確認</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">BEGIN</span> RSA PRIVATE KEY<span style="color: #666666">-----</span>
+MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........
+:
+:
+.....
+<span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">END</span> RSA PRIVATE KEY<span style="color: #666666">-----</span>
 </code></pre></div>
 
-<p>たまたま作成できた2cpus/12GB RAMで作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>curl -sfL https://get.k3s.io | sh -
-
-<span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-
-<span style="color: #888888">インストール:</span>
-<span style="color: #888888">  k3s-selinux.noarch 0:0.3-0.el7</span>
-
-<span style="color: #888888">依存性関連をインストールしました:</span>
-<span style="color: #888888">  container-selinux.noarch 2:2.119.2-1.911c772.el7_8</span>
-
-<span style="color: #888888">完了しました!</span>
-<span style="color: #888888">[INFO]  Creating /usr/local/bin/kubectl symlink to k3s</span>
-<span style="color: #888888">[INFO]  Creating /usr/local/bin/crictl symlink to k3s</span>
-<span style="color: #888888">[INFO]  Creating /usr/local/bin/ctr symlink to k3s</span>
-<span style="color: #888888">[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh</span>
-<span style="color: #888888">[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh</span>
-<span style="color: #888888">[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env</span>
-<span style="color: #888888">[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service</span>
-<span style="color: #888888">[INFO]  systemd: Enabling k3s unit</span>
-<span style="color: #888888">Created symlink from /etc/systemd/system/multi-user.target.wants/k3s.service to /etc/systemd/system/k3s.service.</span>
-<span style="color: #888888">[INFO]  systemd: Starting k3s</span>
+<p>こんな内容の「BEGIN RSA PRIVATE KEY」で始まってENDまでのファイルは以下で確認。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl rsa -text -noout -in account.key 
 </code></pre></div>
 
-<h3 id="kubeconfig">kubeconfig</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo cp /etc/rancher/k3s/k3s.yaml ~
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>ll
-<span style="color: #888888">合計 4</span>
-<span style="color: #888888">-rw-------. 1 root root 2961  7月 23 02:30 k3s.yaml</span>
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo hhown opc:opc k3s.yaml 
+<h2 id="csr">CSR(証明書署名要求)の確認</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">BEGIN</span> CERTIFICATE REQUEST<span style="color: #666666">-----</span>
+MIIEkDCCAngCAQAwHDEaMB........
+:
+:
+.....
+<span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">END</span> CERTIFICATE REQUEST<span style="color: #666666">-----</span>
 </code></pre></div>
 
-<p>手元にコピー</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>scp oci-ap-n1:k3s.yaml oci-ap-n1-k3s.yaml
+<p>「BEGIN CERTIFICATE REQUEST」で始まってENDで終わるファイルであれば以下で確認。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl req -text -noout -in server.csr
 </code></pre></div>
 
-<p><code>server</code>のアドレスをグローバルIPに変更し、<code>insecure-skip-tls-verify: true</code>を追加。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">clusters</span>:
-- <span style="color: #008000; font-weight: bold">cluster</span>:
-    <span style="color: #008000; font-weight: bold">certificate-authority-data</span>: ...
-    <span style="color: #008000; font-weight: bold">server</span>: https://&lt;hostのgip&gt;:6443
-  <span style="color: #008000; font-weight: bold">name</span>: default
-<span style="color: #008000; font-weight: bold">contexts</span>:
-- <span style="color: #008000; font-weight: bold">context</span>:
-    <span style="color: #008000; font-weight: bold">cluster</span>: default
-    <span style="color: #008000; font-weight: bold">user</span>: default
-  <span style="color: #008000; font-weight: bold">name</span>: default
-  <span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>: true
+<h2 id="_1">証明書ファイルの確認</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">BEGIN</span> CERTIFICATE<span style="color: #666666">-----</span>
+MIIGKTCCBRGg.......
+:
+:
+....
+<span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">END</span> CERTIFICATE<span style="color: #666666">-----</span>
 </code></pre></div>
 
-<h3 id="_1">穴あけ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo firewall-cmd --add-port<span style="color: #666666">=6443</span>/tcp --permanent
-<span style="color: #888888">success</span>
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo firewall-cmd --reload
-<span style="color: #888888">success</span>
+<p>「BEGIN CERTIFICATE」で始まってENDで終わっているファイルは、x509を指定して確認。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl x509 -text -noout -in server.crt
 </code></pre></div>
-
-<p>あとwebコンソールで、6443/TCPへのアクセス許可を追加。</p>
-<h3 id="deploy-sample">deploy sample</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl apply -n sample -f ~/src/k8s-samples/sample-web/httpd-clusterip/sample-http.yaml 
-<span style="color: #888888">deployment.apps/sample-http created</span>
-<span style="color: #888888">service/sample-http created</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl get pod -n sample
-<span style="color: #888888">NAME                           READY   STATUS              RESTARTS   AGE</span>
-<span style="color: #888888">sample-http-6c94f59975-65p6w   0/1     ContainerCreating   0          9s</span>
-<span style="color: #888888">sample-http-6c94f59975-clzhp   0/1     ContainerCreating   0          9s</span>
-</code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl get pod -n sample -o wide
-<span style="color: #888888">NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE                     NOMINATED NODE   READINESS GATES</span>
-<span style="color: #888888">sample-http-6c94f59975-65p6w   1/1     Running   0          87s   10.42.0.9    instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
-<span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
-</code></pre></div>
-
-<h3 id="_2">ノードスペック</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl describe node
-
-<span style="color: #888888">[...]</span>
-
-<span style="color: #888888">Capacity:</span>
-<span style="color: #888888">  cpu:                2</span>
-<span style="color: #888888">  ephemeral-storage:  40223552Ki</span>
-<span style="color: #888888">  hugepages-16Gi:     0</span>
-<span style="color: #888888">  hugepages-2Mi:      0</span>
-<span style="color: #888888">  hugepages-512Mi:    0</span>
-<span style="color: #888888">  memory:             11125568Ki</span>
-<span style="color: #888888">  pods:               110</span>
-<span style="color: #888888">Allocatable:</span>
-<span style="color: #888888">  cpu:                2</span>
-<span style="color: #888888">  ephemeral-storage:  39129471355</span>
-<span style="color: #888888">  hugepages-16Gi:     0</span>
-<span style="color: #888888">  hugepages-2Mi:      0</span>
-<span style="color: #888888">  hugepages-512Mi:    0</span>
-<span style="color: #888888">  memory:             11125568Ki</span>
-<span style="color: #888888">  pods:               110</span>
-</code></pre></div>
-
-<p>おぉ、CPUはともかくメモリが潤沢だ。</p>
-<p>rebootしてもOK</p>
                 
               
               
@@ -1335,7 +1227,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../helm/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../command/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1344,19 +1236,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              Helm
+              コマンドメモ
             </div>
           </div>
         </a>
       
       
-        <a href="../kind/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../package/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              kind
+              パッケージ操作
             </div>
           </div>
           <div class="md-footer__button md-icon">
