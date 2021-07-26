@@ -267,7 +267,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Tools/mkdocs/" class="md-tabs__link">
+      <a href="../../Tools/googledrive/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -780,13 +780,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    リリースの設定値
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     環境変数
   </a>
   
@@ -872,7 +879,7 @@
   
     <li class="md-nav__item">
       <a href="../../Linux/" class="md-nav__link">
-        Index
+        Linux
       </a>
     </li>
   
@@ -979,6 +986,18 @@
           Tools
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/googledrive/" class="md-nav__link">
+        Google Drive
+      </a>
+    </li>
+  
+
           
             
   
@@ -1199,13 +1218,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    リリースの設定値
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     環境変数
   </a>
   
@@ -1287,7 +1313,25 @@
 </code></pre></div>
 
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
-<h2 id="_8">環境変数</h2>
+<h3 id="_8">リリースの設定値</h3>
+<p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm ls -A
+<span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
+<span style="color: #888888">grafana         monitoring      1               2021-07-26 16:23:47.276215637 +0900 JST deployed        grafana-6.14.1          8.0.5      </span>
+<span style="color: #888888">prometheus      monitoring      1               2021-07-26 14:24:12.737306448 +0900 JST deployed        prometheus-14.4.1       2.26.0     </span>
+<span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm get values -n monitoring grafana
+<span style="color: #888888">USER-SUPPLIED VALUES:</span>
+<span style="color: #888888">persistence:</span>
+<span style="color: #888888">  accessModes:</span>
+<span style="color: #888888">  - ReadWriteOnce</span>
+<span style="color: #888888">  enabled: true</span>
+<span style="color: #888888">  size: 1Gi</span>
+<span style="color: #888888">  type: pvc</span>
+<span style="color: #888888">service:</span>
+<span style="color: #888888">  type: LoadBalancer</span>
+</code></pre></div>
+
+<h2 id="_9">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm env
 <span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
