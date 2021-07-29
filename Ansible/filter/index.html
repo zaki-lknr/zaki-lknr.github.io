@@ -187,7 +187,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../base/" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Ansible
       </a>
     </li>
@@ -380,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../base/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         基本・ネタ帳
       </a>
     </li>
@@ -473,6 +473,53 @@
   <a href="#_3" class="md-nav__link">
     リストの先頭・末尾要素
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    暗号化パスワード
+  </a>
+  
+    <nav class="md-nav" aria-label="暗号化パスワード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#password_hash" class="md-nav__link">
+    password_hash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base64" class="md-nav__link">
+    base64
+  </a>
+  
+    <nav class="md-nav" aria-label="base64">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    エンコード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    デコード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1167,6 +1214,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    暗号化パスワード
+  </a>
+  
+    <nav class="md-nav" aria-label="暗号化パスワード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#password_hash" class="md-nav__link">
+    password_hash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#base64" class="md-nav__link">
+    base64
+  </a>
+  
+    <nav class="md-nav" aria-label="base64">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    エンコード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    デコード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1326,6 +1420,51 @@
 </code></pre></div>
 
 <p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
+<h2 id="_4">暗号化パスワード</h2>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-generate-encrypted-passwords-for-the-user-module">How do I generate encrypted passwords for the user module?</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#encrypting-and-checksumming-strings-and-passwords">Encrypting and checksumming strings and passwords</a></li>
+</ul>
+<h3 id="password_hash">password_hash</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">password</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_plain_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_hash(&#39;sha512&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>デフォルトは<code>sha512</code>で暗号化される。<br />
+<a href="https://github.com/ansible/ansible/blob/v2.10.5/lib/ansible/plugins/filter/core.py#L266">https://github.com/ansible/ansible/blob/v2.10.5/lib/ansible/plugins/filter/core.py#L266</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">def</span> <span style="color: #00A000">get_encrypted_password</span>(password, hashtype<span style="color: #666666">=</span><span style="color: #BB4444">&#39;sha512&#39;</span>, salt<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">None</span>, salt_size<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">None</span>, rounds<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">None</span>):
+</code></pre></div>
+
+<p>saltの指定が無い場合はランダムになるため、実行のたびに結果の値は変化する。(つまり、このパスワードを設定したりすれば毎回<code>changed</code>になる)<br />
+冪等にしたければ、saltに固定の値をセットする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">password</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_plain_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_hash(&#39;sha512&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;hoge&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<h2 id="base64">base64</h2>
+<h3 id="_5">エンコード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: base64 enc
+  <span style="color: #008000; font-weight: bold">vars</span>:
+    <span style="color: #008000; font-weight: bold">sample_text</span>: zaki
+  <span style="color: #008000; font-weight: bold">debug</span>:
+    <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">sample_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">b64encode</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>↓</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ok: [localhost] =&gt; </span>
+<span style="color: #888888">  msg: emFraQ==</span>
+</code></pre></div>
+
+<h3 id="_6">デコード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: base64 dec
+  <span style="color: #008000; font-weight: bold">vars</span>:
+    <span style="color: #008000; font-weight: bold">b64text</span>: emFraQ==
+  <span style="color: #008000; font-weight: bold">debug</span>:
+    <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">b64text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">b64decode</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>↓</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ok: [localhost] =&gt; </span>
+<span style="color: #888888">  msg: zaki</span>
+</code></pre></div>
                 
               
               

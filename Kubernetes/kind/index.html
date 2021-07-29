@@ -185,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Ansible/base/" class="md-tabs__link">
+      <a href="../../Ansible/" class="md-tabs__link">
         Ansible
       </a>
     </li>
@@ -378,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Ansible/base/" class="md-nav__link">
+      <a href="../../Ansible/" class="md-nav__link">
         基本・ネタ帳
       </a>
     </li>
@@ -770,6 +770,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    マルチノード
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     クラスタバージョンの指定
   </a>
   
@@ -1148,6 +1155,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    マルチノード
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     クラスタバージョンの指定
   </a>
   
@@ -1202,9 +1216,36 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind get nodes --name cluster-name | xargs docker stop
 </code></pre></div>
 
-<h2 id="_3">クラスタバージョンの指定</h2>
+<h2 id="_3">マルチノード</h2>
+<p>ノード設定用のファイル作成する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
+<span style="color: #008000; font-weight: bold">kind</span>: Cluster
+<span style="color: #008000; font-weight: bold">apiVersion</span>: kind.x-k8s.io/v1alpha4
+<span style="color: #008000; font-weight: bold">nodes</span>:
+- <span style="color: #008000; font-weight: bold">role</span>: control-plane
+- <span style="color: #008000; font-weight: bold">role</span>: worker
+- <span style="color: #008000; font-weight: bold">role</span>: worker
+</code></pre></div>
+
+<p>で、このファイルを指定してクラスタ作成する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind create cluster --config kind-config.yaml
+</code></pre></div>
+
+<h2 id="_4">クラスタバージョンの指定</h2>
 <p><a href="https://github.com/kubernetes-sigs/kind/releases">Releases · kubernetes-sigs/kind</a></p>
-<p>リリースノートに各種バージョンのコンテナIDの記載があるのでそれを指定する。</p>
+<p>リリースノートに各種バージョンのコンテナIDの記載があるのでそれを指定する。<br />
+v1.19ならこんな感じ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
+<span style="color: #008000; font-weight: bold">kind</span>: Cluster
+<span style="color: #008000; font-weight: bold">apiVersion</span>: kind.x-k8s.io/v1alpha4
+<span style="color: #008000; font-weight: bold">nodes</span>:
+- <span style="color: #008000; font-weight: bold">role</span>: control-plane
+  <span style="color: #008000; font-weight: bold">image</span>: kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
+- <span style="color: #008000; font-weight: bold">role</span>: worker
+  <span style="color: #008000; font-weight: bold">image</span>: kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
+- <span style="color: #008000; font-weight: bold">role</span>: worker
+  <span style="color: #008000; font-weight: bold">image</span>: kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
+</code></pre></div>
                 
               
               
