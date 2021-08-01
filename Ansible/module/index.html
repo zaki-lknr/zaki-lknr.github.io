@@ -562,6 +562,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ファイル
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    モード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1195,6 +1215,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ファイル
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    モード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1333,8 +1373,7 @@ ad-hocで実行する方が多いかも？</p>
 </code></pre></div>
 
 <h2 id="replace">replace</h2>
-<p>ansible.builtin.replace – Replace all instances of a particular string in a file using a back-referenced regular expression — Ansible Documentation
-https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_module.html</p>
+<p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_module.html">ansible.builtin.replace – Replace all instances of a particular string in a file using a back-referenced regular expression — Ansible Documentation</a></p>
 <p><code>after</code>/<code>before</code>で「ここからここまでの間」を指定できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: replace sample
       <span style="color: #008000; font-weight: bold">replace</span>:
@@ -1383,6 +1422,48 @@ https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_modu
 <p>ですべて完了する。</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/05/160946">制限ネットワーク環境のRHEL7でproxy経由でサブスクリプション登録とDockerインストール - zaki work log</a></p>
 <p>これでいうと<code>subscription-manager register</code>して<code>subscription-manager attach --pool=****</code>まで終わった状態になる。</p>
+<h2 id="_2">ファイル</h2>
+<h3 id="_3">モード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: create file
+  <span style="color: #008000; font-weight: bold">file</span>:
+    <span style="color: #008000; font-weight: bold">path</span>: /var/tmp/file_permission
+    <span style="color: #008000; font-weight: bold">mode</span>: <span style="color: #BB4444">&quot;0755&quot;</span>
+    <span style="color: #008000; font-weight: bold">state</span>: directory
+</code></pre></div>
+
+<p>これなら</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ll -d /var/tmp/file_permission/
+<span style="color: #888888">drwxr-xr-x. 2 zaki zaki 6  7月 31 10:27 /var/tmp/file_permission/</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>mode</th>
+<th>実体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"0755"</code> (str)</td>
+<td><code>drwxr-xr-x</code></td>
+</tr>
+<tr>
+<td><code>0755</code> (int)</td>
+<td><code>drwxr-xr-x</code></td>
+</tr>
+<tr>
+<td><code>"755"</code> (str)</td>
+<td><code>drwxr-xr-x</code></td>
+</tr>
+<tr>
+<td><code>755</code> (int)</td>
+<td><code>d-wxrw--wt</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>755</code>にすると、10進数の755入力を8進数と解釈し<code>1363</code>としてモード設定される動作になる。
+モード設定は8進数の数値か文字列型の数値が入力なのと、先頭ゼロの数値は8進数としてYAMLが解釈するので、先頭ゼロを付けずにintの数値を指定すると想定外の動作になる。</p>
                 
               
               

@@ -426,50 +426,70 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    接続ユーザー名
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
-    SSH秘密鍵
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Pythonインタプリタパス
+    設定ファイル優先順位
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    設定キー
+  </a>
+  
+    <nav class="md-nav" aria-label="設定キー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    接続ユーザー名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH秘密鍵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Pythonインタプリタパス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     コールバックプラグイン
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#210" class="md-nav__link">
     コレクションパス(2.10～)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     コレクションパス(旧)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#ansiballz" class="md-nav__link">
     実行後にAnsiballZファイルを消さない
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1162,50 +1182,70 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    接続ユーザー名
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
-    SSH秘密鍵
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Pythonインタプリタパス
+    設定ファイル優先順位
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    設定キー
+  </a>
+  
+    <nav class="md-nav" aria-label="設定キー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    接続ユーザー名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH秘密鍵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Pythonインタプリタパス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     コールバックプラグイン
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#210" class="md-nav__link">
     コレクションパス(2.10～)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     コレクションパス(旧)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#ansiballz" class="md-nav__link">
     実行後にAnsiballZファイルを消さない
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1227,7 +1267,16 @@
                 
                 
                 <h1 id="_1">設定</h1>
-<h2 id="_2">接続ユーザー名</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/config.html">Ansible Configuration Settings — Ansible Documentation</a></p>
+<h2 id="_2">設定ファイル優先順位</h2>
+<ol>
+<li><code>ANSIBLE_CONFIG</code> 環境変数</li>
+<li><code>ansible.cfg</code> (カレントディレクトリ)</li>
+<li><code>~/.ansible.cfg</code></li>
+<li><code>/etc/ansible/ansible.cfg</code></li>
+</ol>
+<h2 id="_3">設定キー</h2>
+<h3 id="_4">接続ユーザー名</h3>
 <table>
 <thead>
 <tr>
@@ -1242,7 +1291,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ssh">SSH秘密鍵</h2>
+<h3 id="ssh">SSH秘密鍵</h3>
 <table>
 <thead>
 <tr>
@@ -1257,7 +1306,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="python">Pythonインタプリタパス</h2>
+<h3 id="python">Pythonインタプリタパス</h3>
 <table>
 <thead>
 <tr>
@@ -1280,7 +1329,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">コールバックプラグイン</h2>
+<h3 id="_5">コールバックプラグイン</h3>
 <table>
 <thead>
 <tr>
@@ -1299,7 +1348,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="210">コレクションパス(2.10～)</h2>
+<h3 id="210">コレクションパス(2.10～)</h3>
 <table>
 <thead>
 <tr>
@@ -1318,7 +1367,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">コレクションパス(旧)</h2>
+<h3 id="_6">コレクションパス(旧)</h3>
 <table>
 <thead>
 <tr>
@@ -1337,7 +1386,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ansiballz">実行後にAnsiballZファイルを消さない</h2>
+<h3 id="ansiballz">実行後にAnsiballZファイルを消さない</h3>
 <table>
 <thead>
 <tr>
