@@ -815,6 +815,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sudo" class="md-nav__link">
+    sudo
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -842,6 +849,18 @@
     <li class="md-nav__item">
       <a href="command/" class="md-nav__link">
         コマンドメモ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="disk/" class="md-nav__link">
+        ディスク
       </a>
     </li>
   
@@ -1125,6 +1144,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sudo" class="md-nav__link">
+    sudo
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1144,10 +1170,16 @@
                 
                 <h1 id="linux">Linux</h1>
 <h2 id="_1">いろいろメモ</h2>
+<p><a href="https://rufus.ie/ja/">Rufus - 起動可能なUSBドライブを簡単に作成できます</a></p>
 <p>Rufus使用<br />
 <a href="https://kijonojiron.com/ubuntu_usb_boot_media_create">WindowsでUbuntuのUSBブートメディアを作成する手順 | 机上の自論</a></p>
 <p>Universal USB Installer<br />
 <a href="https://itlogs.net/ubuntu-bootable-usb/">Linux UbuntuのブータブルUSBドライブを作成する手順 | 俺の開発研究所</a></p>
+<h2 id="sudo">sudo</h2>
+<p>パスワード不要にする雑な設定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800"># cat /etc/sudoers.d/nopass </span>
+<span style="color: #00A000">%wheel</span> ALL<span style="color: #666666">=</span>(ALL) <span style="color: #A0A000">NOPASSWD</span>: ALL
+</code></pre></div>
                 
               
               
