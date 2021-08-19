@@ -580,6 +580,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../role/" class="md-nav__link">
+        Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tower/" class="md-nav__link">
         Ansible Tower
       </a>
@@ -1255,9 +1267,9 @@
 </code></pre></div>
 
 <p>実行結果は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK [create password] <span style="color: #666666">*************************</span>
-<span style="color: #A0A000">ok</span>: [localhost] <span style="color: #666666">=&gt;</span> 
-  <span style="color: #A0A000">msg</span>: Uk<span style="color: #666666">.9</span>vigyP2IlQn2q4620
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK<span style="color: #bbbbbb"> </span>[create<span style="color: #bbbbbb"> </span>password]<span style="color: #bbbbbb"> </span><span style="color: #666666">*************************</span><span style="color: #bbbbbb"></span>
+<span style="color: #A0A000">ok</span>:<span style="color: #bbbbbb"> </span>[localhost]<span style="color: #bbbbbb"> </span><span style="color: #666666">=&gt;</span><span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">  </span><span style="color: #A0A000">msg</span>:<span style="color: #bbbbbb"> </span>Uk<span style="color: #666666">.9</span>vigyP2IlQn2q4620<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p><code>/var/tmp/ansible-work/password</code>の中身は</p>
@@ -1284,13 +1296,13 @@
 </code></pre></div>
 
 <p>実行結果</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK [create password] <span style="color: #666666">**************************************************</span>
-<span style="color: #A0A000">ok</span>: [localhost] <span style="color: #666666">=&gt;</span> 
-  <span style="color: #A0A000">msg</span>: <span style="color: #A0A000">sw</span>:oDzMrVtdxy0aOdsEw
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK<span style="color: #bbbbbb"> </span>[create<span style="color: #bbbbbb"> </span>password]<span style="color: #bbbbbb"> </span><span style="color: #666666">**************************************************</span><span style="color: #bbbbbb"></span>
+<span style="color: #A0A000">ok</span>:<span style="color: #bbbbbb"> </span>[localhost]<span style="color: #bbbbbb"> </span><span style="color: #666666">=&gt;</span><span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">  </span><span style="color: #A0A000">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #A0A000">sw</span>:oDzMrVtdxy0aOdsEw<span style="color: #bbbbbb"></span>
 
-TASK [create password] <span style="color: #666666">**************************************************</span>
-<span style="color: #A0A000">ok</span>: [localhost] <span style="color: #666666">=&gt;</span> 
-  <span style="color: #A0A000">msg</span>: <span style="color: #666666">9</span>imT.elnUhq1.GpALpX3
+TASK<span style="color: #bbbbbb"> </span>[create<span style="color: #bbbbbb"> </span>password]<span style="color: #bbbbbb"> </span><span style="color: #666666">**************************************************</span><span style="color: #bbbbbb"></span>
+<span style="color: #A0A000">ok</span>:<span style="color: #bbbbbb"> </span>[localhost]<span style="color: #bbbbbb"> </span><span style="color: #666666">=&gt;</span><span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">  </span><span style="color: #A0A000">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">9</span>imT.elnUhq1.GpALpX3<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>これだと生成したパスワードを見ることができないので、<code>set_fact</code>で一度作成済みにして、それを使うようにすれば、「パスワード設定」と「設定したパスワードのストア」を自前で管理できる。</p>
@@ -1304,14 +1316,14 @@ TASK [create password] <span style="color: #666666">****************************
 </code></pre></div>
 
 <p><code>-v</code>つけて実行すれば以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK [create password] <span style="color: #666666">**************************************************</span>
-<span style="color: #A0A000">ok</span>: [localhost] <span style="color: #666666">=&gt;</span> changed<span style="color: #666666">=</span><span style="color: #AA22FF">false</span> 
-  <span style="color: #A0A000">ansible_facts</span>:
-    <span style="color: #A0A000">password</span>: <span style="color: #666666">-</span>StMaxh9fmrGIkMYj_qJ
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK<span style="color: #bbbbbb"> </span>[create<span style="color: #bbbbbb"> </span>password]<span style="color: #bbbbbb"> </span><span style="color: #666666">**************************************************</span><span style="color: #bbbbbb"></span>
+<span style="color: #A0A000">ok</span>:<span style="color: #bbbbbb"> </span>[localhost]<span style="color: #bbbbbb"> </span><span style="color: #666666">=&gt;</span><span style="color: #bbbbbb"> </span>changed<span style="color: #666666">=</span><span style="color: #AA22FF">false</span><span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">  </span><span style="color: #A0A000">ansible_facts</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #A0A000">password</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>StMaxh9fmrGIkMYj_qJ<span style="color: #bbbbbb"></span>
 
-TASK [print password] <span style="color: #666666">**************************************************</span>
-<span style="color: #A0A000">ok</span>: [localhost] <span style="color: #666666">=&gt;</span> 
-  <span style="color: #A0A000">msg</span>: <span style="color: #666666">-</span>StMaxh9fmrGIkMYj_qJ
+TASK<span style="color: #bbbbbb"> </span>[print<span style="color: #bbbbbb"> </span>password]<span style="color: #bbbbbb"> </span><span style="color: #666666">**************************************************</span><span style="color: #bbbbbb"></span>
+<span style="color: #A0A000">ok</span>:<span style="color: #bbbbbb"> </span>[localhost]<span style="color: #bbbbbb"> </span><span style="color: #666666">=&gt;</span><span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">  </span><span style="color: #A0A000">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>StMaxh9fmrGIkMYj_qJ<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h2 id="http">HTTPアクセスする</h2>

@@ -510,6 +510,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Ansible/role/" class="md-nav__link">
+        Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Ansible/tower/" class="md-nav__link">
         Ansible Tower
       </a>
@@ -1178,7 +1190,7 @@
 <h2 id="sudo">sudo</h2>
 <p>パスワード不要にする雑な設定</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800"># cat /etc/sudoers.d/nopass </span>
-<span style="color: #00A000">%wheel</span> ALL<span style="color: #666666">=</span>(ALL) <span style="color: #A0A000">NOPASSWD</span>: ALL
+<span style="color: #00A000">%wheel</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span><span style="color: #A0A000">NOPASSWD</span>:<span style="color: #bbbbbb"> </span>ALL<span style="color: #bbbbbb"></span>
 </code></pre></div>
                 
               

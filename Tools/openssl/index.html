@@ -510,6 +510,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Ansible/role/" class="md-nav__link">
+        Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Ansible/tower/" class="md-nav__link">
         Ansible Tower
       </a>
@@ -1184,12 +1196,12 @@
                 
                 <h1 id="openssl">openssl</h1>
 <h2 id="rsa">RSA秘密鍵の確認</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">BEGIN</span> RSA PRIVATE KEY<span style="color: #666666">-----</span>
-MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........
-:
-:
-.....
-<span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">END</span> RSA PRIVATE KEY<span style="color: #666666">-----</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN RSA PRIVATE KEY-----</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">.....</span><span style="color: #bbbbbb"></span>
+<span style="color: #000080; font-weight: bold">-----END RSA PRIVATE KEY-----</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>こんな内容の「BEGIN RSA PRIVATE KEY」で始まってENDまでのファイルは以下で確認。</p>
@@ -1197,12 +1209,12 @@ MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........
 </code></pre></div>
 
 <h2 id="csr">CSR(証明書署名要求)の確認</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">BEGIN</span> CERTIFICATE REQUEST<span style="color: #666666">-----</span>
-MIIEkDCCAngCAQAwHDEaMB........
-:
-:
-.....
-<span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">END</span> CERTIFICATE REQUEST<span style="color: #666666">-----</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE REQUEST-----</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">MIIEkDCCAngCAQAwHDEaMB........</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">.....</span><span style="color: #bbbbbb"></span>
+<span style="color: #000080; font-weight: bold">-----END CERTIFICATE REQUEST-----</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>「BEGIN CERTIFICATE REQUEST」で始まってENDで終わるファイルであれば以下で確認。</p>
@@ -1210,12 +1222,12 @@ MIIEkDCCAngCAQAwHDEaMB........
 </code></pre></div>
 
 <h2 id="_1">証明書ファイルの確認</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">BEGIN</span> CERTIFICATE<span style="color: #666666">-----</span>
-MIIGKTCCBRGg.......
-:
-:
-....
-<span style="color: #666666">-----</span><span style="color: #AA22FF; font-weight: bold">END</span> CERTIFICATE<span style="color: #666666">-----</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE-----</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">MIIGKTCCBRGg.......</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">....</span><span style="color: #bbbbbb"></span>
+<span style="color: #000080; font-weight: bold">-----END CERTIFICATE-----</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>「BEGIN CERTIFICATE」で始まってENDで終わっているファイルは、x509を指定して確認。</p>

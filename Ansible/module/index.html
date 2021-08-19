@@ -564,6 +564,33 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    パッケージ
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    dnf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yum" class="md-nav__link">
+    yum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ファイル
   </a>
   
@@ -571,7 +598,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     モード
   </a>
   
@@ -597,6 +624,18 @@
     <li class="md-nav__item">
       <a href="../playbook/" class="md-nav__link">
         プレイブック
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../role/" class="md-nav__link">
+        Role
       </a>
     </li>
   
@@ -1229,6 +1268,33 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    パッケージ
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    dnf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yum" class="md-nav__link">
+    yum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ファイル
   </a>
   
@@ -1236,7 +1302,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     モード
   </a>
   
@@ -1434,8 +1500,20 @@ ad-hocで実行する方が多いかも？</p>
 <p>ですべて完了する。</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/05/160946">制限ネットワーク環境のRHEL7でproxy経由でサブスクリプション登録とDockerインストール - zaki work log</a></p>
 <p>これでいうと<code>subscription-manager register</code>して<code>subscription-manager attach --pool=****</code>まで終わった状態になる。</p>
-<h2 id="_2">ファイル</h2>
-<h3 id="_3">モード</h3>
+<h2 id="_2">パッケージ</h2>
+<h3 id="dnf">dnf</h3>
+<p>CentOS7(yum環境)に使える？ =&gt; NG</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>fatal: [cloud<span style="color: #666666">-</span>dev]: FAILED<span style="border: 1px solid #FF0000">!</span> <span style="color: #666666">=&gt;</span> changed<span style="color: #666666">=</span>false 
+  msg: Could <span style="color: #AA22FF; font-weight: bold">not</span> <span style="color: #AA22FF; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">the</span> dnf python module using <span style="color: #666666">/</span>usr<span style="color: #666666">/</span><span style="color: #AA22FF">bin</span><span style="color: #666666">/</span>python (<span style="color: #666666">2.7.5</span> (default, Nov <span style="color: #666666">16</span> <span style="color: #666666">2020</span>, <span style="color: #666666">22</span>:<span style="color: #666666">23</span>:<span style="color: #666666">17</span>) [GCC <span style="color: #666666">4.8.5</span> <span style="color: #666666">20150623</span> (Red Hat <span style="color: #666666">4.8.5-44</span>)])<span style="color: #666666">.</span> Please install <span style="border: 1px solid #FF0000">`</span>python3<span style="color: #666666">-</span>dnf<span style="border: 1px solid #FF0000">`</span> <span style="color: #AA22FF; font-weight: bold">or</span> <span style="border: 1px solid #FF0000">`</span>python2<span style="color: #666666">-</span>dnf<span style="border: 1px solid #FF0000">`</span> package <span style="color: #AA22FF; font-weight: bold">or</span> ensure you have specified the correct ansible_python_interpreter<span style="color: #666666">.</span> (attempted [<span style="color: #BB4444">&#39;/usr/libexec/platform-python&#39;</span>, <span style="color: #BB4444">&#39;/usr/bin/python3&#39;</span>, <span style="color: #BB4444">&#39;/usr/bin/python2&#39;</span>, <span style="color: #BB4444">&#39;/usr/bin/python&#39;</span>])
+  results: []
+</code></pre></div>
+
+<p>ただし、CentOS7で<code>sudo yum install python2-dnf</code>を入れると動く。<br />
+dnfモジュールでパッケージインストールし、CentOS7上で<code>rpm -qa</code>とかしても確認できる。</p>
+<h3 id="yum">yum</h3>
+<p>Fedora34 / RHEL8に使える？ =&gt; OK</p>
+<h2 id="_3">ファイル</h2>
+<h3 id="_4">モード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: create file
   <span style="color: #008000; font-weight: bold">file</span>:
     <span style="color: #008000; font-weight: bold">path</span>: /var/tmp/file_permission

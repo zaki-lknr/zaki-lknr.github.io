@@ -620,6 +620,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../role/" class="md-nav__link">
+        Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tower/" class="md-nav__link">
         Ansible Tower
       </a>
@@ -1451,6 +1463,10 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">password</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_plain_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_hash(&#39;sha512&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;hoge&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
 </code></pre></div>
 
+<ul>
+<li><a href="https://blog.amedama.jp/entry/linux-shadow-passwd">Linux の UNIX パスワード認証について調べた - CUBE SUGAR CONTAINER</a></li>
+<li><a href="https://www.unknownengineer.net/entry/2017/08/16/184537">【CentOS】/etc/shadowのハッシュ化パスワードについて - よくわからないエンジニア</a></li>
+</ul>
 <h2 id="base64">base64</h2>
 <h3 id="_5">エンコード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: base64 enc
