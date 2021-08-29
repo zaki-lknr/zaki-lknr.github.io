@@ -975,6 +975,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yum_1" class="md-nav__link">
+    yum
+  </a>
+  
+    <nav class="md-nav" aria-label="yum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    リポジトリ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    リポジトリの有効化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#apk" class="md-nav__link">
     apk
   </a>
@@ -1319,6 +1346,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yum_1" class="md-nav__link">
+    yum
+  </a>
+  
+    <nav class="md-nav" aria-label="yum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    リポジトリ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    リポジトリの有効化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#apk" class="md-nav__link">
     apk
   </a>
@@ -1427,6 +1481,21 @@ rhel<span style="color: #666666">-8-</span><span style="color: #AA22FF; font-wei
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># <span style="color: #B8860B">dnf</span> <span style="color: #B8860B">config</span><span style="color: #666666">-</span><span style="color: #B8860B">manager</span> <span style="color: #666666">--</span><span style="color: #B8860B">disable</span> <span style="color: #B8860B">ansible</span><span style="color: #666666">-2</span>.<span style="color: #666666">9-</span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #666666">-</span><span style="color: #B8860B">rhel</span><span style="color: #666666">-8-</span><span style="color: #B8860B">x86_64</span><span style="color: #666666">-</span><span style="color: #B8860B">rpms</span>
 </code></pre></div>
 
+<h2 id="yum_1">yum</h2>
+<h3 id="_8">リポジトリ一覧</h3>
+<p>有効なもの一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>yum repolist
+</code></pre></div>
+
+<p>無効なもの一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>yum repolist disabled
+</code></pre></div>
+
+<h3 id="_9">リポジトリの有効化</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># yum-config-manager --enable ol7_developer_EPEL
+</code></pre></div>
+
+<p>引数に指定するのはリポジトリIDだけど、リスト時に<code>/arch</code>が付いてる場合はそれは除く。</p>
 <h2 id="apk">apk</h2>
 <p>インストール</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># apk add squid
