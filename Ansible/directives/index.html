@@ -445,6 +445,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#block" class="md-nav__link">
+    ループとblockは併用不可
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#register" class="md-nav__link">
     ループとregisterの併用
   </a>
@@ -1218,6 +1225,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#block" class="md-nav__link">
+    ループとblockは併用不可
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#register" class="md-nav__link">
     ループとregisterの併用
   </a>
@@ -1291,6 +1305,22 @@
                 <h1 id="_1">ディレクティブ</h1>
 <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">Playbook Keywords — Ansible Documentation</a></p>
 <h2 id="_2">ループ</h2>
+<h3 id="block">ループとblockは併用不可</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  <span style="color: #008000; font-weight: bold">tasks</span>:
+    - <span style="color: #008000; font-weight: bold">name</span>: block with loop
+      <span style="color: #008000; font-weight: bold">loop</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item_list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008000; font-weight: bold">block</span>:
+        :
+</code></pre></div>
+
+<p>こういうのは無理</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ERROR! &#39;loop&#39; is not a valid attribute for a Block</span>
+</code></pre></div>
+
+<p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_blocks.html">Blocks — Ansible Documentation</a></p>
+<blockquote>
+<p>Most of what you can apply to a single task (with the exception of loops) can be applied at the block level, so blocks make it much easier to set data or directives common to the tasks.</p>
+</blockquote>
 <h3 id="register">ループとregisterの併用</h3>
 <ul>
 <li><a href="https://zaki-hmkc.hatenablog.com/entry/2021/04/06/190124">[Ansible] loopとモジュール実行の結果を保持するregisterを併用する - zaki work log</a></li>

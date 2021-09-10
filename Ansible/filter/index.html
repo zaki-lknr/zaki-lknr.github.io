@@ -449,6 +449,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    デフォルト値 (default)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     三項演算子
   </a>
@@ -470,14 +477,41 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    リスト要素への一律処理 (map)
+  </a>
+  
+    <nav class="md-nav" aria-label="リスト要素への一律処理 (map)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    別フィルタの適用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    要素抜き出し
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     リストの先頭・末尾要素
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     暗号化パスワード
   </a>
   
@@ -505,14 +539,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     エンコード
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     デコード
   </a>
   
@@ -1223,6 +1257,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    デフォルト値 (default)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     三項演算子
   </a>
@@ -1244,14 +1285,41 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    リスト要素への一律処理 (map)
+  </a>
+  
+    <nav class="md-nav" aria-label="リスト要素への一律処理 (map)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    別フィルタの適用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    要素抜き出し
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     リストの先頭・末尾要素
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     暗号化パスワード
   </a>
   
@@ -1279,14 +1347,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     エンコード
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     デコード
   </a>
   
@@ -1335,6 +1403,41 @@
 <li><a href="https://github.com/pallets/jinja/blob/main/src/jinja2/filters.py">jinja/filters.py at main · pallets/jinja</a></li>
 </ul>
 </li>
+</ul>
+<h2 id="default">デフォルト値 (default)</h2>
+<p>未定義だったらこの値に置き換える、というもの。<br />
+以下は<code>foobar_values</code>が未定義の場合は<code>value</code>は<code>zzz</code>となる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">vars</span>:
+  <span style="color: #008000; font-weight: bold">value</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar_values</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default(&#39;zzz&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>よく使うのは初期値が無い場合にループでリストを作るとき。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: curry
+      <span style="color: #008000; font-weight: bold">debug</span>:
+        <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008000; font-weight: bold">loop</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">yasai</span><span style="color: #B8860B"> </span><span style="color: #BB4444">+</span><span style="color: #B8860B"> </span><span style="color: #BB4444">(niku</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default([]))</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>とか</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    - <span style="color: #008000; font-weight: bold">name</span>: set_fact list value
+      <span style="color: #008000; font-weight: bold">vars</span>:
+        <span style="color: #008000; font-weight: bold">list_values</span>:
+        - item1
+        - item2
+        - item3
+      <span style="color: #008000; font-weight: bold">set_fact</span>:
+        <span style="color: #008000; font-weight: bold">list_items</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_items|default([])</span><span style="color: #B8860B"> </span><span style="color: #BB4444">+</span><span style="color: #B8860B"> </span><span style="color: #BB4444">[item]</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+      <span style="color: #008000; font-weight: bold">loop</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_values</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>未定義でなくfalseだったら置き換えるのであれば、第2引数に<code>true</code>をセットする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{{ <span style="color: #BB4444">&#39;&#39;</span><span style="border: 1px solid #FF0000">|</span><span style="color: #B8860B">default(&#39;the string was empty&#39;</span>, <span style="color: #B8860B">true)</span> }}
+</code></pre></div>
+
+<ul>
+<li><a href="https://jinja.palletsprojects.com/en/3.0.x/templates/#jinja-filters.default">jinja-filters.default</a></li>
+<li><a href="https://zaki-hmkc.hatenablog.com/entry/2021/06/02/090251">[Ansible] 省略したいパラメタに変数指定せざるを得ない場合に使う変数omitとdefaultフィルタ - zaki work log</a></li>
+<li><a href="https://zaki-hmkc.hatenablog.com/entry/2020/05/09/224713">[Ansible] リスト連結時にdefaultを使って未定義の場合は空リストとして処理する - zaki work log</a></li>
 </ul>
 <h2 id="_2">三項演算子</h2>
 <p><code>ternary</code>を使う。</p>
@@ -1423,7 +1526,28 @@
 <p><a href="https://github.com/zaki-lknr/ansible-sample/blob/master/filter/dict2items.yml">ansible-sample/dict2items.yml at master · zaki-lknr/ansible-sample</a></p>
 <h2 id="select-selectattr">検索 (select / selectattr)</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/02/18/000228">[Ansible / Jinja2] select / selectattr を使った配列と辞書のフィルタリング - zaki work log</a></p>
-<h2 id="_3">リストの先頭・末尾要素</h2>
+<h2 id="map">リスト要素への一律処理 (map)</h2>
+<h3 id="_3">別フィルタの適用</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(&#39;length&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>リスト<code>items</code>の各要素に対して<code>length</code>フィルタをかます</p>
+<h3 id="_4">要素抜き出し</h3>
+<p>辞書のキーを<code>attribute</code>で指定することで、各要素(辞書型からなる)の指定キーの値のみ抜き出す。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(attribute=&#39;hostname&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p>キーが無い場合は<code>AnsibleUndefined</code>になるが、オプションか更にフィルタすることで対処できる。<br />
+<code>default</code>を指定すればキーが無い場合はその値に置き換える。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(attribute=&#39;hostname&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default=&#39;no</span><span style="color: #B8860B"> </span><span style="color: #BB4444">data&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p><code>select</code>を使ったフィルタに繋げれば、undefの項目を除外もできる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(attribute=&#39;hostname&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">select(&#39;none&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p><code>none</code>は<a href="https://jinja.palletsprojects.com/en/latest/templates/#jinja-tests.none">Jinja2のTest</a>の一つ。</p>
+<h2 id="_5">リストの先頭・末尾要素</h2>
 <p><code>array[0]</code>, <code>array[-1]</code>でも一緒といえば一緒だけど。<br />
 出展はJinja2のフィルタ。</p>
 <ul>
@@ -1456,7 +1580,7 @@
 </code></pre></div>
 
 <p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
-<h2 id="_4">暗号化パスワード</h2>
+<h2 id="_6">暗号化パスワード</h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-generate-encrypted-passwords-for-the-user-module">How do I generate encrypted passwords for the user module?</a></li>
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#encrypting-and-checksumming-strings-and-passwords">Encrypting and checksumming strings and passwords</a></li>
@@ -1480,7 +1604,7 @@
 <li><a href="https://www.unknownengineer.net/entry/2017/08/16/184537">【CentOS】/etc/shadowのハッシュ化パスワードについて - よくわからないエンジニア</a></li>
 </ul>
 <h2 id="base64">base64</h2>
-<h3 id="_5">エンコード</h3>
+<h3 id="_7">エンコード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: base64 enc
   <span style="color: #008000; font-weight: bold">vars</span>:
     <span style="color: #008000; font-weight: bold">sample_text</span>: zaki
@@ -1493,7 +1617,7 @@
 <span style="color: #888888">  msg: emFraQ==</span>
 </code></pre></div>
 
-<h3 id="_6">デコード</h3>
+<h3 id="_8">デコード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: base64 dec
   <span style="color: #008000; font-weight: bold">vars</span>:
     <span style="color: #008000; font-weight: bold">b64text</span>: emFraQ==
