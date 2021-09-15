@@ -471,6 +471,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    when
+  </a>
+  
+    <nav class="md-nav" aria-label="when">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    リストで複数条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#includeimport" class="md-nav__link">
     includeとimport
   </a>
@@ -1251,6 +1271,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    when
+  </a>
+  
+    <nav class="md-nav" aria-label="when">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    リストで複数条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#includeimport" class="md-nav__link">
     includeとimport
   </a>
@@ -1421,6 +1461,25 @@
 </code></pre></div>
 
 <p><code>{{ item }}</code>は使用不可となる。</p>
+<h2 id="when">when</h2>
+<h3 id="_4">リストで複数条件</h3>
+<p><code>when</code>にはリスト形式で条件を複数指定できる。リストの場合は「すべての条件がtrueの場合」にタスクは実行。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
+  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
+  <span style="color: #008000; font-weight: bold">vars</span>:
+    <span style="color: #008000; font-weight: bold">cond1</span>: true
+    <span style="color: #008000; font-weight: bold">cond2</span>: false
+
+  <span style="color: #008000; font-weight: bold">tasks</span>:
+    - <span style="color: #008000; font-weight: bold">debug</span>:
+        <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;hello&quot;</span>
+      <span style="color: #008000; font-weight: bold">when</span>:
+        - cond1
+        - cond2
+</code></pre></div>
+
+<p>この場合スキップされる。</p>
 <h2 id="includeimport">includeとimport</h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html">Re-using Ansible artifacts — Ansible Documentation</a></li>
