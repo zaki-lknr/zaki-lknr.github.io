@@ -1072,6 +1072,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    コミット時の対象ファイルを表示
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1920,6 +1927,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    コミット時の対象ファイルを表示
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2188,6 +2202,36 @@ $ git mv managed.file dir/
 <h3 id="_27">別ブランチのログ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git log --oneline --first-parent &lt;branch-name&gt;
 </code></pre></div>
+
+<h3 id="_28">コミット時の対象ファイルを表示</h3>
+<p><code>pull</code>のように変更量などを表示</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git log --stat
+:
+:
+commit 8331291c45b99411ee14076cc0e73dddfeafa153 <span style="color: #666666">(</span>HEAD -&gt; main, origin/main, origin/HEAD<span style="color: #666666">)</span>
+Author: zaki-lknr &lt;zaki.hmkc+github@gmail.com&gt;
+Date:   Wed Sep <span style="color: #666666">15</span> <span style="color: #666666">16</span>:44:39 <span style="color: #666666">2021</span> +0900
+
+    add: ansible/directives: whenでリスト
+
+ docs/Ansible/directives.md | <span style="color: #666666">24</span> ++++++++++++++++++++++++
+ <span style="color: #666666">1</span> file changed, <span style="color: #666666">24</span> insertions<span style="color: #666666">(</span>+<span style="color: #666666">)</span>
+</code></pre></div>
+
+<p><code>status</code>のときのように変更種別の表示</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git log --name-status
+:
+:
+commit 8331291c45b99411ee14076cc0e73dddfeafa153 <span style="color: #666666">(</span>HEAD -&gt; main, origin/main, origin/HEAD<span style="color: #666666">)</span>
+Author: zaki-lknr &lt;zaki.hmkc+github@gmail.com&gt;
+Date:   Wed Sep <span style="color: #666666">15</span> <span style="color: #666666">16</span>:44:39 <span style="color: #666666">2021</span> +0900
+
+    add: ansible/directives: whenでリスト
+
+M       docs/Ansible/directives.md
+</code></pre></div>
+
+<p><code>--oneline</code>との併用も可</p>
                 
               
               
