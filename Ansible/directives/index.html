@@ -203,7 +203,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Docker/base/" class="md-tabs__link">
+      <a href="../../Docker/" class="md-tabs__link">
         Docker
       </a>
     </li>
@@ -465,6 +465,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ループインデックスの参照
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -479,7 +486,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     リストで複数条件
   </a>
   
@@ -700,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/base/" class="md-nav__link">
+      <a href="../../Docker/" class="md-nav__link">
         基本・ネタ帳
       </a>
     </li>
@@ -1265,6 +1272,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ループインデックスの参照
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1279,7 +1293,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     リストで複数条件
   </a>
   
@@ -1461,8 +1475,43 @@
 </code></pre></div>
 
 <p><code>{{ item }}</code>は使用不可となる。</p>
+<h3 id="_4">ループインデックスの参照</h3>
+<p>タスク内でループインデックスを参照したい場合は、<code>extended: true</code>を付加すれば参照できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">name</span>: loop index sample
+  <span style="color: #008000; font-weight: bold">debug</span>:
+    <span style="color: #008000; font-weight: bold">msg</span>:
+    - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+    - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_loop.index</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+    - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_loop.index0</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+  <span style="color: #008000; font-weight: bold">loop</span>:
+    - foo
+    - bar
+    - baz
+  <span style="color: #008000; font-weight: bold">loop_control</span>:
+    <span style="color: #008000; font-weight: bold">extended</span>: true
+</code></pre></div>
+
+<p>実行結果は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ok: [localhost] =&gt; (item=foo) =&gt; </span>
+<span style="color: #888888">  msg:</span>
+<span style="color: #888888">  - foo</span>
+<span style="color: #888888">  - &#39;1&#39;</span>
+<span style="color: #888888">  - &#39;0&#39;</span>
+<span style="color: #888888">ok: [localhost] =&gt; (item=bar) =&gt; </span>
+<span style="color: #888888">  msg:</span>
+<span style="color: #888888">  - bar</span>
+<span style="color: #888888">  - &#39;2&#39;</span>
+<span style="color: #888888">  - &#39;1&#39;</span>
+<span style="color: #888888">ok: [localhost] =&gt; (item=baz) =&gt; </span>
+<span style="color: #888888">  msg:</span>
+<span style="color: #888888">  - baz</span>
+<span style="color: #888888">  - &#39;3&#39;</span>
+<span style="color: #888888">  - &#39;2&#39;</span>
+</code></pre></div>
+
+<p>使用可能な変数はこちら→ <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#extended-loop-variables">Extended loop variables</a></p>
 <h2 id="when">when</h2>
-<h3 id="_4">リストで複数条件</h3>
+<h3 id="_5">リストで複数条件</h3>
 <p><code>when</code>にはリスト形式で条件を複数指定できる。リストの場合は「すべての条件がtrueの場合」にタスクは実行。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
 - <span style="color: #008000; font-weight: bold">hosts</span>: localhost

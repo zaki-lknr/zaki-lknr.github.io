@@ -201,7 +201,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../Docker/base/" class="md-tabs__link">
+      <a href="../Docker/" class="md-tabs__link">
         Docker
       </a>
     </li>
@@ -576,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Docker/base/" class="md-nav__link">
+      <a href="../Docker/" class="md-nav__link">
         基本・ネタ帳
       </a>
     </li>
@@ -1075,6 +1075,26 @@
           <li class="md-nav__item">
   <a href="#_28" class="md-nav__link">
     コミット時の対象ファイルを表示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    差分
+  </a>
+  
+    <nav class="md-nav" aria-label="差分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitespace" class="md-nav__link">
+    whitespace無視
   </a>
   
 </li>
@@ -1939,6 +1959,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    差分
+  </a>
+  
+    <nav class="md-nav" aria-label="差分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whitespace" class="md-nav__link">
+    whitespace無視
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2232,6 +2272,18 @@ M       docs/Ansible/directives.md
 </code></pre></div>
 
 <p><code>--oneline</code>との併用も可</p>
+<h2 id="_29">差分</h2>
+<h3 id="whitespace">whitespace無視</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git diff -w
+</code></pre></div>
+
+<blockquote>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   <span style="color: #666666">-</span><span style="color: #B8860B">w</span>, <span style="color: #666666">--</span><span style="color: #B8860B">ignore</span><span style="color: #666666">-</span><span style="color: #B8860B">all</span><span style="color: #666666">-</span><span style="color: #B8860B">space</span>
+       <span style="color: #B8860B">Ignore</span> <span style="color: #B8860B">whitespace</span> <span style="color: #B8860B">when</span> <span style="color: #B8860B">comparing</span> <span style="color: #B8860B">lines</span>. <span style="color: #B8860B">This</span> <span style="color: #B8860B">ignores</span> <span style="color: #B8860B">differences</span>
+       <span style="color: #B8860B">even</span> <span style="color: #AA22FF; font-weight: bold">if</span> <span style="color: #B8860B">one</span> <span style="color: #B8860B">line</span> <span style="color: #B8860B">has</span> <span style="color: #B8860B">whitespace</span> <span style="color: #B8860B">where</span> <span style="color: #B8860B">the</span> <span style="color: #B8860B">other</span> <span style="color: #B8860B">line</span> <span style="color: #B8860B">has</span> <span style="color: #B8860B">none</span>.
+</code></pre></div>
+
+</blockquote>
                 
               
               
