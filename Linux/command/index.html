@@ -1036,6 +1036,13 @@
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
+    デフォルトゲートウェイ変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
     スタティックルート追加
   </a>
   
@@ -1050,6 +1057,26 @@
   <a href="#firewall-cmd" class="md-nav__link">
     firewall-cmd
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kvm" class="md-nav__link">
+    KVM
+  </a>
+  
+    <nav class="md-nav" aria-label="KVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1524,6 +1551,13 @@
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
+    デフォルトゲートウェイ変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
     スタティックルート追加
   </a>
   
@@ -1538,6 +1572,26 @@
   <a href="#firewall-cmd" class="md-nav__link">
     firewall-cmd
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kvm" class="md-nav__link">
+    KVM
+  </a>
+  
+    <nav class="md-nav" aria-label="KVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1687,7 +1741,17 @@
 </code></pre></div>
 
 <h2 id="networkmanager">NetworkManager</h2>
-<h3 id="_14">スタティックルート追加</h3>
+<h3 id="_14">デフォルトゲートウェイ変更</h3>
+<p><code>192.168.39.89</code>に設定する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens192 ipv4.gateway <span style="color: #666666">192</span>.168.39.89
+</code></pre></div>
+
+<p>設定削除する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens192 ipv4.gateway <span style="color: #BB4444">&quot;&quot;</span>
+</code></pre></div>
+
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/01/08/094833">[Ansible] ターゲットホストのIPアドレスの参照とデフォルトゲートウェイの設定についてのメモ - zaki work log</a></p>
+<h3 id="_15">スタティックルート追加</h3>
 <p>環境: <a href="https://zaki-hmkc.hatenablog.com/entry/2021/04/15/092340">[VyOS] NAT設定を使ったネットワーク間のルーティング (手動 &amp; Ansible / vyos_config) - zaki work log</a></p>
 <p><img alt="" src="https://cdn-ak.f.st-hatena.com/images/fotolife/z/zaki-hmkc/20210415/20210415085905.png" /></p>
 <p>やりたいこと</p>
@@ -1729,6 +1793,10 @@
 
 <h2 id="firewall-cmd">firewall-cmd</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/05/26/230958">[コマンドメモ] firewall-cmd備忘録 (firewalld) - zaki work log</a></p>
+<h2 id="kvm">KVM</h2>
+<h3 id="_16">一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ virsh list --all
+</code></pre></div>
                 
               
               

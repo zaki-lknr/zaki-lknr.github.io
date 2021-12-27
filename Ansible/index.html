@@ -427,13 +427,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ansible-documentation" class="md-nav__link">
-    Ansible Documentation 索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     ディレクトリ構成
   </a>
@@ -1204,13 +1197,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ansible-documentation" class="md-nav__link">
-    Ansible Documentation 索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     ディレクトリ構成
   </a>
@@ -1253,8 +1239,6 @@
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/basic_concepts.html">Ansible concepts — Ansible Documentation</a></p>
 <h2 id="_3">リリースとメンテナンス情報</h2>
 <p><a href="https://docs.ansible.com/ansible/devel/reference_appendices/release_and_maintenance.html">Releases and maintenance — Ansible Documentation</a></p>
-<h2 id="ansible-documentation">Ansible Documentation 索引</h2>
-<p><a href="https://docs.ansible.com/ansible/latest/genindex.html">Index — Ansible Documentation</a></p>
 <h2 id="_4">ディレクトリ構成</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/sample_setup.html">Sample Ansible setup — Ansible Documentation</a></p>
 <p>「Sample directory layout」や「Alternative directory layout」を参照。</p>
@@ -1287,6 +1271,22 @@
         <span style="color: #008000; font-weight: bold">virtualenv</span>: ~/venv/ansible4.1.0
         <span style="color: #008000; font-weight: bold">virtualenv_command</span>: python3 -m venv
 </code></pre></div>
+
+<h1 id="_5">ドキュメント</h1>
+<h2 id="_6">索引</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/genindex.html">Index — Ansible Documentation</a></p>
+<h2 id="ansible-doc">ansible-doc</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc &lt;module-name&gt;
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc &lt;module-fqcn&gt;
+</code></pre></div>
+
+<p>モジュールパスを指定するには</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc -M /path/to/collection-path/ansible_collections/namespace/collectionname/plugins/modules hogehoge
+</code></pre></div>
+
+<p>パスが合わない場合は、エラーメッセージに「これらのパスにそんなモジュールないんだが？」とパス一覧が表示されるので、そこから調整する。</p>
                 
               
               

@@ -1024,6 +1024,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    秘密鍵から公開鍵を作成
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1344,6 +1351,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    秘密鍵から公開鍵を作成
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1450,6 +1464,12 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -l -f ~/.ssh/id_rsa.pub
 <span style="color: #888888">4096 SHA256:6Qt0+Nikcx/NpgM4xu/4WnDpqhj8L+OjtDEP5O2a7lw no comment (RSA)</span>
 </code></pre></div>
+
+<h3 id="_8">秘密鍵から公開鍵を作成</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -y -f ~/.ssh/id_rsa
+</code></pre></div>
+
+<p>STDOUTへ出力されるので、<code>&gt; id_rsa.pub</code>とかファイルへ出力すればOK</p>
                 
               
               

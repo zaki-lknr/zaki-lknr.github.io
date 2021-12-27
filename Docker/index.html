@@ -639,6 +639,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prune" class="md-nav__link">
+    prune
+  </a>
+  
+    <nav class="md-nav" aria-label="prune">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prune_1" class="md-nav__link">
+    コンテナのprune
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prune_2" class="md-nav__link">
+    イメージのprune
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1210,6 +1237,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prune" class="md-nav__link">
+    prune
+  </a>
+  
+    <nav class="md-nav" aria-label="prune">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prune_1" class="md-nav__link">
+    コンテナのprune
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prune_2" class="md-nav__link">
+    イメージのprune
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1257,6 +1311,29 @@
 <a href="https://docs.docker.jp/engine/reference/commandline/volume_ls.html#id2">ダングリング</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker volume ls -f <span style="color: #B8860B">dangling</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span>
 </code></pre></div>
+
+<h3 id="prune">prune</h3>
+<p>不要オブジェクトを削除するには<code>docker prune</code>を使う。</p>
+<h4 id="prune_1">コンテナのprune</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker container prune
+</code></pre></div>
+
+<p>デフォルトは停止している全コンテナが削除される。<br />
+10日以前に停止しているコンテナの場合は、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker container prune --filter <span style="color: #BB4444">&quot;until=240h&quot;</span>
+</code></pre></div>
+
+<p><a href="https://pkg.go.dev/time#ParseDuration">Go duration strings</a>を使って期間を指定できる。<br />
+指定可能なのは以下、かな？</p>
+<blockquote>
+<p>Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h"</p>
+</blockquote>
+<h4 id="prune_2">イメージのprune</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image prune
+</code></pre></div>
+
+<p>デフォルトは、タグが設定されずに<code>&lt;none&gt;</code>になっているイメージが削除される。<br />
+<code>&lt;none&gt;</code>のイメージをリストアップするだけであれば <code>docker image ls -f "dangling=true"</code> でリストアップできる。</p>
                 
               
               
