@@ -1075,6 +1075,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vm" class="md-nav__link">
+    VMの起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_1" class="md-nav__link">
+    実行中VMへコンソール接続
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    停止
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1590,6 +1611,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vm" class="md-nav__link">
+    VMの起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_1" class="md-nav__link">
+    実行中VMへコンソール接続
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    停止
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1779,12 +1821,12 @@
 </code></pre></div>
 
 <p>Fedora34だと設定ファイルは<code>/etc/NetworkManager/system-connections/ens224.nmconnection</code>で、内容はこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[ipv4]</span>
-<span style="color: #BB4444">address1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.0.44/23</span>
-<span style="color: #BB4444">dns</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.2.0;</span>
-<span style="color: #BB4444">dns-search</span><span style="color: #666666">=</span>
-<span style="color: #BB4444">method</span><span style="color: #666666">=</span><span style="color: #BB4444">manual</span>
-<span style="color: #BB4444">route1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.29.0.0/24,172.16.1.3</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[ipv4]</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">address1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.0.44/23</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">dns</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.2.0;</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">dns-search</span><span style="color: #666666">=</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">method</span><span style="color: #666666">=</span><span style="color: #BB4444">manual</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">route1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.29.0.0/24,172.16.1.3</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>設定解除は<code>-</code>を付けて実行。</p>
@@ -1795,7 +1837,25 @@
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/05/26/230958">[コマンドメモ] firewall-cmd備忘録 (firewalld) - zaki work log</a></p>
 <h2 id="kvm">KVM</h2>
 <h3 id="_16">一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ virsh list --all
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh list --all
+</code></pre></div>
+
+<h3 id="vm">VMの起動</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh start &lt;domain-name&gt;
+</code></pre></div>
+
+<h3 id="vm_1">実行中VMへコンソール接続</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh console &lt;domain-name&gt;
+</code></pre></div>
+
+<p>VM(domain)名は<code>list</code>で確認する。</p>
+<h3 id="_17">停止</h3>
+<p>シャットダウンするには<code>shutdown</code>する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh shutdown &lt;domain-name&gt;
+</code></pre></div>
+
+<p>強制停止は<code>destroy</code>する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh destroy &lt;domain-name&gt;
 </code></pre></div>
                 
               

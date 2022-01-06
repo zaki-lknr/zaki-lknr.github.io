@@ -1198,16 +1198,16 @@
 </code></pre></div>
 
 <h2 id="sample">sample</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
-  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
-  <span style="color: #008000; font-weight: bold">vars</span>:
-    <span style="color: #008000; font-weight: bold">value</span>: hello
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">value</span>:<span style="color: #bbbbbb"> </span>hello<span style="color: #bbbbbb"></span>
 
-  <span style="color: #008000; font-weight: bold">tasks</span>:
-  - <span style="color: #008000; font-weight: bold">name</span>: print result
-    <span style="color: #008000; font-weight: bold">debug</span>:
-      <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">value}}&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>print result<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">value}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p><code>"{{ value }}"</code>の参照と、あと<code>tasks</code>の前の行は空行でなく2文字スペースが入っている状態。</p>

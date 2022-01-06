@@ -1254,13 +1254,13 @@
 
 <h2 id="_3">マルチノード</h2>
 <p>ノード設定用のファイル作成する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
-<span style="color: #008000; font-weight: bold">kind</span>: Cluster
-<span style="color: #008000; font-weight: bold">apiVersion</span>: kind.x-k8s.io/v1alpha4
-<span style="color: #008000; font-weight: bold">nodes</span>:
-- <span style="color: #008000; font-weight: bold">role</span>: control-plane
-- <span style="color: #008000; font-weight: bold">role</span>: worker
-- <span style="color: #008000; font-weight: bold">role</span>: worker
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span><span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Cluster<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>kind.x-k8s.io/v1alpha4<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">nodes</span>:<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>control-plane<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>で、このファイルを指定してクラスタ作成する。</p>
@@ -1271,16 +1271,16 @@
 <p><a href="https://github.com/kubernetes-sigs/kind/releases">Releases · kubernetes-sigs/kind</a></p>
 <p>リリースノートに各種バージョンのコンテナIDの記載があるのでそれを指定する。<br />
 v1.19ならこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
-<span style="color: #008000; font-weight: bold">kind</span>: Cluster
-<span style="color: #008000; font-weight: bold">apiVersion</span>: kind.x-k8s.io/v1alpha4
-<span style="color: #008000; font-weight: bold">nodes</span>:
-- <span style="color: #008000; font-weight: bold">role</span>: control-plane
-  <span style="color: #008000; font-weight: bold">image</span>: kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
-- <span style="color: #008000; font-weight: bold">role</span>: worker
-  <span style="color: #008000; font-weight: bold">image</span>: kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
-- <span style="color: #008000; font-weight: bold">role</span>: worker
-  <span style="color: #008000; font-weight: bold">image</span>: kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span><span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Cluster<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>kind.x-k8s.io/v1alpha4<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">nodes</span>:<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>control-plane<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729<span style="color: #bbbbbb"></span>
 </code></pre></div>
                 
               

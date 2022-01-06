@@ -1240,18 +1240,18 @@
 評価されるのはコントロールノード上であって、ターゲットノードのファイルやコマンド実行ではないことに注意。</p>
 <p>taskを1個消費せずにインラインでファイルの内容をロードしたりコマンド実行したりできるので便利</p>
 <h2 id="_1">ファイル</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: load ssh public key
-    <span style="color: #008000; font-weight: bold">vars</span>:
-      <span style="color: #008000; font-weight: bold">pubkey</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;file&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;~/.ssh/id_rsa.pub&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-    <span style="color: #008000; font-weight: bold">debug</span>:
-      <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">pubkey</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>load ssh public key<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">pubkey</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;file&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;~/.ssh/id_rsa.pub&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">pubkey</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p><code>ansible-playbook</code>の実行ユーザの<code>~/.ssh/id_rsa.pub</code>の内容を読み込んだ内容が<code>pubkey</code>にセットされる。</p>
 <h2 id="_2">環境変数</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: env lookup
-    <span style="color: #008000; font-weight: bold">debug</span>:
-      <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;env&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;HOSTNAME&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>env lookup<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;env&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;HOSTNAME&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>環境変数<code>HOSTNAME</code>を取得する。<br />
@@ -1259,23 +1259,23 @@
 <p>ターゲットノードの情報が欲しい場合は、<code>gather_facts: true</code>でfact情報を参照する。<br />
 <a href="https://github.com/zaki-lknr/ansible-sample/blob/master/lookup/env.yml">ansible-sample/env.yml at master · zaki-lknr/ansible-sample</a></p>
 <h2 id="_3">コマンド実行</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: get date
-    <span style="color: #008000; font-weight: bold">vars</span>:
-      <span style="color: #008000; font-weight: bold">current_date</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;pipe&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;date</span><span style="color: #B8860B"> </span><span style="color: #BB4444">+%Y/%m/%d_%H:%M:%S&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-      <span style="color: #008800; font-style: italic"># https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pipe_lookup.html</span>
-      <span style="color: #008800; font-style: italic"># pipeを使うとコマンド実行結果を取得できる</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>get date<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">current_date</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;pipe&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;date</span><span style="color: #B8860B"> </span><span style="color: #BB4444">+%Y/%m/%d_%H:%M:%S&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pipe_lookup.html</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># pipeを使うとコマンド実行結果を取得できる</span><span style="color: #bbbbbb"></span>
 
-    <span style="color: #008000; font-weight: bold">debug</span>:
-      <span style="color: #008000; font-weight: bold">msg</span>:
-      - <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">current_date</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">current_date</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h2 id="_4">パスワード文字列生成</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/password_lookup.html">ansible.builtin.password – retrieve or generate a random password, stored in a file — Ansible Documentation</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  <span style="color: #008000; font-weight: bold">tasks</span>:
-    - <span style="color: #008000; font-weight: bold">name</span>: create password
-      <span style="color: #008000; font-weight: bold">debug</span>:
-        <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;password&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;/var/tmp/ansible-work/password&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create password<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;password&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;/var/tmp/ansible-work/password&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>実行結果は</p>
@@ -1292,19 +1292,19 @@
 <p>がファイルがなければ新規に作成される。
 ファイルが既に存在する場合は「既存ファイル内のパスワード」が返る。(ので、再実行するとファイルの内容が取得される)</p>
 <p>実行のたびに異なるパスワードを生成するのであれば、<code>/dev/null</code>を指定する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
-  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
-  <span style="color: #008000; font-weight: bold">vars</span>:
-    <span style="color: #008000; font-weight: bold">create_password</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;password&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;/dev/null&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">create_password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;password&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;/dev/null&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 
-  <span style="color: #008000; font-weight: bold">tasks</span>:
-    - <span style="color: #008000; font-weight: bold">name</span>: create password (1)
-      <span style="color: #008000; font-weight: bold">debug</span>:
-        <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">create_password</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create password (1)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">create_password</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 
-    - <span style="color: #008000; font-weight: bold">name</span>: create password (2)
-      <span style="color: #008000; font-weight: bold">debug</span>:
-        <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">create_password</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create password (2)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">create_password</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>実行結果</p>
@@ -1339,12 +1339,12 @@ TASK<span style="color: #bbbbbb"> </span>[print<span style="color: #bbbbbb"> </s
 </code></pre></div>
 
 <h2 id="http">HTTPアクセスする</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: url lookup plugin
-    <span style="color: #008000; font-weight: bold">vars</span>:
-      <span style="color: #008000; font-weight: bold">response</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;url&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-    <span style="color: #008000; font-weight: bold">debug</span>:
-      <span style="color: #008800; font-style: italic"># msg: &quot;{{ lookup(&#39;url&#39;, &#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;, wantlist=true) }}&quot;</span>
-      <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">response.text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>url lookup plugin<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">response</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">lookup(&#39;url&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># msg: &quot;{{ lookup(&#39;url&#39;, &#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;, wantlist=true) }}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">response.text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>basic認証するなら</p>

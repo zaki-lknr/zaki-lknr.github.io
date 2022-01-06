@@ -1299,10 +1299,10 @@ Running hooks <span style="color: #AA22FF; font-weight: bold">in</span> /etc/ca-
 <span style="color: #888888">    category: other-entry</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[root<span style="border: 1px solid #FF0000">@</span>cloud<span style="color: #666666">-</span>dev <span style="color: #666666">~</span>]<span style="color: #008800; font-style: italic"># trust anchor --remove &quot;pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%3f;type=cert&quot;</span>
-p11<span style="color: #666666">-</span>kit: couldn<span style="color: #BB4444">&#39;t remove read-only certificate</span>
-[root<span style="border: 1px solid #FF0000">@</span>cloud<span style="color: #666666">-</span>dev <span style="color: #666666">~</span>]<span style="color: #008800; font-style: italic"># trust anchor --remove /var/tmp/ansible-work/ca.crt </span>
-p11<span style="color: #666666">-</span>kit: couldn<span style="color: #BB4444">&#39;t remove read-only certificate</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[root<span style="border: 1px solid #FF0000">@</span>cloud<span style="color: #666666">-</span>dev<span style="color: #bbbbbb"> </span><span style="color: #666666">~</span>]<span style="color: #008800; font-style: italic"># trust anchor --remove &quot;pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%3f;type=cert&quot;</span><span style="color: #bbbbbb"></span>
+p11<span style="color: #666666">-</span>kit:<span style="color: #bbbbbb"> </span>couldn<span style="color: #BB4444">&#39;t remove read-only certificate</span>
+[root<span style="border: 1px solid #FF0000">@</span>cloud<span style="color: #666666">-</span>dev<span style="color: #bbbbbb"> </span><span style="color: #666666">~</span>]<span style="color: #008800; font-style: italic"># trust anchor --remove /var/tmp/ansible-work/ca.crt </span><span style="color: #bbbbbb"></span>
+p11<span style="color: #666666">-</span>kit:<span style="color: #bbbbbb"> </span>couldn<span style="color: #BB4444">&#39;t remove read-only certificate</span>
 </code></pre></div>
 
 <p>これで消せるらしいんだけど、<code>update-ca-trust</code>で追加してるCAはダメなのかな。。</p>

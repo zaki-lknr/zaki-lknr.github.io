@@ -1135,17 +1135,17 @@
                 
                 <h1 id="tcp">リモートからのTCP接続</h1>
 <p>/lib/systemd/system/docker.service</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A00000">--- /lib/systemd/system/_docker.service 2021-04-10 07:46:42.000000000 +0900</span>
-<span style="color: #00A000">+++ /lib/systemd/system/docker.service  2021-08-10 09:39:32.451408694 +0900</span>
-<span style="color: #800080; font-weight: bold">@@ -10,7 +10,7 @@</span>
- # the default is not to use systemd for cgroups because the delegate issues still
- # exists and systemd currently does not support the cgroup feature set required
- # for containers run by docker
-<span style="color: #A00000">-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
-<span style="color: #00A000">+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0 --containerd=/run/containerd/containerd.sock</span>
- ExecReload=/bin/kill -s HUP $MAINPID
- TimeoutSec=0
- RestartSec=2
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A00000">--- /lib/systemd/system/_docker.service 2021-04-10 07:46:42.000000000 +0900</span><span style="color: #bbbbbb"></span>
+<span style="color: #00A000">+++ /lib/systemd/system/docker.service  2021-08-10 09:39:32.451408694 +0900</span><span style="color: #bbbbbb"></span>
+<span style="color: #800080; font-weight: bold">@@ -10,7 +10,7 @@</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span># the default is not to use systemd for cgroups because the delegate issues still<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span># exists and systemd currently does not support the cgroup feature set required<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span># for containers run by docker<span style="color: #bbbbbb"></span>
+<span style="color: #A00000">-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span><span style="color: #bbbbbb"></span>
+<span style="color: #00A000">+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0 --containerd=/run/containerd/containerd.sock</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>ExecReload=/bin/kill -s HUP $MAINPID<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>TimeoutSec=0<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>RestartSec=2<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>これで2375/TCPでListenする。</p>

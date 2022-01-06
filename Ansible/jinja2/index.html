@@ -1413,20 +1413,20 @@
 <span style="color: #008800">{%</span> <span style="color: #AA22FF; font-weight: bold">endfilter</span> <span style="color: #008800">%}</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
-  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
-  <span style="color: #008000; font-weight: bold">vars</span>:
-    <span style="color: #008000; font-weight: bold">sample_string</span>: |
-      <span style="color: #880000">int main() {</span>
-        <span style="color: #880000">return 0;</span>
-      <span style="color: #880000">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">sample_string</span>:<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #880000">int main() {</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #880000">return 0;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #880000">}</span><span style="color: #bbbbbb"></span>
 
-  <span style="color: #008000; font-weight: bold">tasks</span>:
-    - <span style="color: #008000; font-weight: bold">name</span>: j2 saple
-      <span style="color: #008000; font-weight: bold">template</span>:
-        <span style="color: #008000; font-weight: bold">src</span>: indent_sample.txt.j2
-        <span style="color: #008000; font-weight: bold">dest</span>: /var/tmp/indent_sample.txt
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>j2 saple<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">template</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #bbbbbb"> </span>indent_sample.txt.j2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #bbbbbb"> </span>/var/tmp/indent_sample.txt<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>実行結果は以下の通り、スペース4文字分のインデントが入る。</p>

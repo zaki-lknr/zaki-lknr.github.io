@@ -1291,17 +1291,17 @@
 </code></pre></div>
 
 <p><code>server</code>のアドレスをグローバルIPに変更し、<code>insecure-skip-tls-verify: true</code>を追加。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">clusters</span>:
-- <span style="color: #008000; font-weight: bold">cluster</span>:
-    <span style="color: #008000; font-weight: bold">certificate-authority-data</span>: ...
-    <span style="color: #008000; font-weight: bold">server</span>: https://&lt;hostのgip&gt;:6443
-  <span style="color: #008000; font-weight: bold">name</span>: default
-<span style="color: #008000; font-weight: bold">contexts</span>:
-- <span style="color: #008000; font-weight: bold">context</span>:
-    <span style="color: #008000; font-weight: bold">cluster</span>: default
-    <span style="color: #008000; font-weight: bold">user</span>: default
-  <span style="color: #008000; font-weight: bold">name</span>: default
-  <span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>: true
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">clusters</span>:<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">cluster</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">certificate-authority-data</span>:<span style="color: #bbbbbb"> </span>...<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">server</span>:<span style="color: #bbbbbb"> </span>https://&lt;hostのgip&gt;:6443<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">contexts</span>:<span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">context</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cluster</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">user</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h3 id="_1">穴あけ</h3>

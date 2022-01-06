@@ -1223,12 +1223,12 @@
 <h3 id="-check">--check</h3>
 <p>いわゆるDry Runで実行する。<br />
 checkに対応している<code>copy</code>モジュールの場合は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  - <span style="color: #008000; font-weight: bold">name</span>: command sample
-    <span style="color: #008000; font-weight: bold">copy</span>:
-      <span style="color: #008000; font-weight: bold">src</span>: /home/zaki/tmp.yml
-      <span style="color: #008000; font-weight: bold">dest</span>: /var/tmp
-      <span style="color: #008000; font-weight: bold">mode</span>: <span style="color: #BB4444">&#39;0644&#39;</span>
-    <span style="color: #008000; font-weight: bold">register</span>: result
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>command sample<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">copy</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #bbbbbb"> </span>/home/zaki/tmp.yml<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #bbbbbb"> </span>/var/tmp<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">mode</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0644&#39;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>result<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>このplaybook、コピー先が存在しない状態で、実際に動かすと<code>changed</code>になる状態で<code>--check</code>付けて実行すると</p>
@@ -1328,18 +1328,18 @@ checkに対応している<code>copy</code>モジュールの場合は以下の�
 
 <h1 id="sample">sample</h1>
 <h2 id="playbook">playbook</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
-  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
 
-  <span style="color: #008000; font-weight: bold">tasks</span>:
-  - <span style="color: #008000; font-weight: bold">name</span>: hello
-    <span style="color: #008000; font-weight: bold">debug</span>:
-      <span style="color: #008000; font-weight: bold">msg</span>: hello world
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>hello<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>hello world<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h1 id="inventory">inventory</h1>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[server]</span>
-<span style="color: #BB4444">192.168.0.1</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[server]</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">192.168.0.1</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
                 
               

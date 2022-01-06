@@ -1306,15 +1306,15 @@
 <li><a href="https://docs.ansible.com/ansible/2.9_ja/user_guide/intro_inventory.html">インベントリーの構築方法 — Ansible Documentation</a></li>
 </ul>
 <h2 id="_2">インベントリファイルへのグループ変数定義</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[servers]</span>
-<span style="color: #BB4444">host1</span>
-<span style="color: #BB4444">host2</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[servers]</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">host1</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">host2</span><span style="color: #bbbbbb"></span>
 
-<span style="color: #AA22FF; font-weight: bold">[all:vars]</span>
-<span style="color: #BB4444">gateway</span><span style="color: #666666">=</span><span style="color: #BB4444">192.168.0.1</span>
+<span style="color: #AA22FF; font-weight: bold">[all:vars]</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">gateway</span><span style="color: #666666">=</span><span style="color: #BB4444">192.168.0.1</span><span style="color: #bbbbbb"></span>
 
-<span style="color: #AA22FF; font-weight: bold">[servers:vars]</span>
-<span style="color: #BB4444">db_host</span><span style="color: #666666">=</span><span style="color: #BB4444">192.168.0.121</span>
+<span style="color: #AA22FF; font-weight: bold">[servers:vars]</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">db_host</span><span style="color: #666666">=</span><span style="color: #BB4444">192.168.0.121</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h2 id="localhost">localhost</h2>
@@ -1323,21 +1323,21 @@
 <li><a href="https://docs.ansible.com/ansible/2.9_ja/inventory/implicit_localhost.html">暗黙的な ‘localhost’ — Ansible Documentation</a></li>
 </ul>
 <p>ターゲットホストで<code>localhost</code>を指定した場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
-  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
 
-  <span style="color: #008000; font-weight: bold">tasks</span>:
-    - <span style="color: #008000; font-weight: bold">name</span>: sample
-      <span style="color: #008000; font-weight: bold">ping</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ping</span>:<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>このとき、インベントリファイルに<code>localhost</code>の定義が無い場合(や、インベントリファイルを指定しない場合)は、暗黙の<code>localhost</code>として</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">hosts</span>:
-  <span style="color: #008000; font-weight: bold">localhost</span>:
-   <span style="color: #008000; font-weight: bold">vars</span>:
-     <span style="color: #008000; font-weight: bold">ansible_connection</span>: local
-     <span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>: <span style="color: #BB4444">&quot;{{ansible_playbook_python}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">localhost</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">   </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">     </span><span style="color: #008000; font-weight: bold">ansible_connection</span>:<span style="color: #bbbbbb"> </span>local<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">     </span><span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ansible_playbook_python}}&quot;</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>ってのが内部で用意され、この設定で接続される。よって、<code>connection: local</code>として動く。</p>
@@ -1353,8 +1353,8 @@
 
 <p>こんな感じ。</p>
 <p>インベントリに<code>localhost</code>の設定があればそれが使われる。当然<code>connection: local</code>が無ければ、設定されたコネクションプラグインが使用される(未指定ならデフォルトの<code>ssh</code>)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[localhost]</span>
-<span style="color: #BB4444">localhost</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[localhost]</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">localhost</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p>こんな<code>localhost.ini</code>というインベントリファイルを指定すると、</p>
@@ -1377,141 +1377,141 @@
 </code></pre></div>
 
 <p><a href="https://github.com/zaki-lknr/initialize-kubeadm-ansible/blob/master/inventory.ini">このインベントリファイル</a>を参照した際のホストグループやホスト変数(<a href="https://github.com/zaki-lknr/initialize-kubeadm-ansible/tree/master/group_vars"><code>group_vars</code>など有れば参照</a>)をリストアップする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-    <span style="color: #008000; font-weight: bold">&quot;_meta&quot;</span>: {
-        <span style="color: #008000; font-weight: bold">&quot;hostvars&quot;</span>: {
-            <span style="color: #008000; font-weight: bold">&quot;master01&quot;</span>: {
-                <span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>: [
-                    <span style="color: #BB4444">&quot;bash-completion&quot;</span>,
-                    <span style="color: #BB4444">&quot;open-vm-tools&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>: [
-                    <span style="color: #BB4444">&quot;vmtoolsd&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>: <span style="color: #BB4444">&quot;192.168.0.121&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>: <span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>: <span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>: <span style="color: #BB4444">&quot;true&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>: <span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>: [
-                    <span style="color: #BB4444">&quot;6443/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;2379-2380/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10250/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10251/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10252/tcp&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>: <span style="color: #BB4444">&quot;calico&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>: <span style="color: #BB4444">&quot;containerd&quot;</span>
-            },
-            <span style="color: #008000; font-weight: bold">&quot;master02&quot;</span>: {
-                <span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>: [
-                    <span style="color: #BB4444">&quot;bash-completion&quot;</span>,
-                    <span style="color: #BB4444">&quot;open-vm-tools&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>: [
-                    <span style="color: #BB4444">&quot;vmtoolsd&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>: <span style="color: #BB4444">&quot;192.168.0.122&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>: <span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>: <span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>: <span style="color: #BB4444">&quot;true&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>: <span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>: [
-                    <span style="color: #BB4444">&quot;6443/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;2379-2380/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10250/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10251/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10252/tcp&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>: <span style="color: #BB4444">&quot;calico&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>: <span style="color: #BB4444">&quot;containerd&quot;</span>
-            },
-            <span style="color: #008000; font-weight: bold">&quot;master03&quot;</span>: {
-                <span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>: [
-                    <span style="color: #BB4444">&quot;bash-completion&quot;</span>,
-                    <span style="color: #BB4444">&quot;open-vm-tools&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>: [
-                    <span style="color: #BB4444">&quot;vmtoolsd&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>: <span style="color: #BB4444">&quot;192.168.0.123&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>: <span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>: <span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>: <span style="color: #BB4444">&quot;true&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>: <span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>: [
-                    <span style="color: #BB4444">&quot;6443/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;2379-2380/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10250/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10251/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;10252/tcp&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>: <span style="color: #BB4444">&quot;calico&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>: <span style="color: #BB4444">&quot;containerd&quot;</span>
-            },
-            <span style="color: #008000; font-weight: bold">&quot;worker01&quot;</span>: {
-                <span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>: [
-                    <span style="color: #BB4444">&quot;bash-completion&quot;</span>,
-                    <span style="color: #BB4444">&quot;open-vm-tools&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>: [
-                    <span style="color: #BB4444">&quot;vmtoolsd&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>: <span style="color: #BB4444">&quot;192.168.0.125&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>: <span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>: <span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>: <span style="color: #BB4444">&quot;true&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>: <span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>: [
-                    <span style="color: #BB4444">&quot;10250/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;30000-32767/tcp&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>: <span style="color: #BB4444">&quot;calico&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>: <span style="color: #BB4444">&quot;containerd&quot;</span>
-            },
-            <span style="color: #008000; font-weight: bold">&quot;worker02&quot;</span>: {
-                <span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>: [
-                    <span style="color: #BB4444">&quot;bash-completion&quot;</span>,
-                    <span style="color: #BB4444">&quot;open-vm-tools&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>: [
-                    <span style="color: #BB4444">&quot;vmtoolsd&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>: <span style="color: #BB4444">&quot;192.168.0.126&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>: <span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>: <span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>: <span style="color: #BB4444">&quot;true&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>: <span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>: [
-                    <span style="color: #BB4444">&quot;10250/tcp&quot;</span>,
-                    <span style="color: #BB4444">&quot;30000-32767/tcp&quot;</span>
-                ],
-                <span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>: <span style="color: #BB4444">&quot;calico&quot;</span>,
-                <span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>: <span style="color: #BB4444">&quot;containerd&quot;</span>
-            }
-        }
-    },
-    <span style="color: #008000; font-weight: bold">&quot;all&quot;</span>: {
-        <span style="color: #008000; font-weight: bold">&quot;children&quot;</span>: [
-            <span style="color: #BB4444">&quot;master&quot;</span>,
-            <span style="color: #BB4444">&quot;ungrouped&quot;</span>,
-            <span style="color: #BB4444">&quot;worker&quot;</span>
-        ]
-    },
-    <span style="color: #008000; font-weight: bold">&quot;master&quot;</span>: {
-        <span style="color: #008000; font-weight: bold">&quot;hosts&quot;</span>: [
-            <span style="color: #BB4444">&quot;master01&quot;</span>,
-            <span style="color: #BB4444">&quot;master02&quot;</span>,
-            <span style="color: #BB4444">&quot;master03&quot;</span>
-        ]
-    },
-    <span style="color: #008000; font-weight: bold">&quot;worker&quot;</span>: {
-        <span style="color: #008000; font-weight: bold">&quot;hosts&quot;</span>: [
-            <span style="color: #BB4444">&quot;worker01&quot;</span>,
-            <span style="color: #BB4444">&quot;worker02&quot;</span>
-        ]
-    }
-}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;_meta&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;hostvars&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;master01&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;bash-completion&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;open-vm-tools&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;vmtoolsd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;192.168.0.121&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;true&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;6443/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;2379-2380/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10250/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10251/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10252/tcp&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;calico&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;containerd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;master02&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;bash-completion&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;open-vm-tools&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;vmtoolsd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;192.168.0.122&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;true&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;6443/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;2379-2380/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10250/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10251/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10252/tcp&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;calico&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;containerd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;master03&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;bash-completion&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;open-vm-tools&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;vmtoolsd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;192.168.0.123&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;true&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;6443/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;2379-2380/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10250/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10251/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10252/tcp&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;calico&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;containerd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;worker01&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;bash-completion&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;open-vm-tools&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;vmtoolsd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;192.168.0.125&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;true&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10250/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;30000-32767/tcp&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;calico&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;containerd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;worker02&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;bash-completion&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;open-vm-tools&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;vmtoolsd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;192.168.0.126&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;my-kubeadm-cluster&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;true&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;10.244.0.0/16&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;10250/tcp&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">&quot;30000-32767/tcp&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>],<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;calico&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;containerd&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;all&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;children&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;master&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;ungrouped&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;worker&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>]<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;master&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;hosts&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;master01&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;master02&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;master03&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>]<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>},<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;worker&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;hosts&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;worker01&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;worker02&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>]<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h3 id="-graph-vars">--graph --vars</h3>
@@ -1594,17 +1594,17 @@
 <h2 id="_3">ダイナミックインベントリ</h2>
 <h3 id="ec2">EC2</h3>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/06/21/091252">[Ansible / AWS] ダイナミックインベントリを使ってEC2接続先を動的に取得してAnsible実行お試し - zaki work log</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-<span style="color: #008000; font-weight: bold">plugin</span>: amazon.aws.aws_ec2
-<span style="color: #008000; font-weight: bold">regions</span>:
-  - ap-northeast-1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">plugin</span>:<span style="color: #bbbbbb"> </span>amazon.aws.aws_ec2<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">regions</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>ap-northeast-1<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h3 id="netbox">netbox</h3>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/01/29/002540">[NetBox / Ansible] ダイナミックインベントリを使ってNetBoxに登録されたホスト情報をターゲットノードにAnsibleを実行 - zaki work log</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">plugin</span>: netbox.netbox.nb_inventory
-<span style="color: #008000; font-weight: bold">api_endpoint</span>: http://192.168.0.19:28080
-<span style="color: #008000; font-weight: bold">token</span>: 0123456789abcdef0123456789abcdef01234567
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">plugin</span>:<span style="color: #bbbbbb"> </span>netbox.netbox.nb_inventory<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">api_endpoint</span>:<span style="color: #bbbbbb"> </span>http://192.168.0.19:28080<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">token</span>:<span style="color: #bbbbbb"> </span>0123456789abcdef0123456789abcdef01234567<span style="color: #bbbbbb"></span>
 </code></pre></div>
                 
               

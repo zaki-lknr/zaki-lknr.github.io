@@ -1225,36 +1225,36 @@
 <ul>
 <li>role2 (呼ばれる側)</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-<span style="color: #008800; font-style: italic"># roles/test2/tasks/main.yml</span>
-- <span style="color: #008000; font-weight: bold">name</span>: ...省略
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+<span style="color: #008800; font-style: italic"># roles/test2/tasks/main.yml</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>...省略<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <ul>
 <li>role3 (呼ぶ側)</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-<span style="color: #008800; font-style: italic"># roles/test3/tasks/main.yml</span>
-- <span style="color: #008000; font-weight: bold">name</span>: this is test3
-  <span style="color: #008000; font-weight: bold">debug</span>:
-    <span style="color: #008000; font-weight: bold">msg</span>: <span style="color: #BB4444">&quot;this</span><span style="color: #B8860B"> </span><span style="color: #BB4444">is</span><span style="color: #B8860B"> </span><span style="color: #BB4444">test3&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+<span style="color: #008800; font-style: italic"># roles/test3/tasks/main.yml</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>this is test3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;this</span><span style="color: #B8860B"> </span><span style="color: #BB4444">is</span><span style="color: #B8860B"> </span><span style="color: #BB4444">test3&quot;</span><span style="color: #bbbbbb"></span>
 
-- <span style="color: #008000; font-weight: bold">name</span>: exec other role
-  <span style="color: #008000; font-weight: bold">import_role</span>:
-    <span style="color: #008000; font-weight: bold">name</span>: test2
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>exec other role<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">import_role</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>test2<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <ul>
 <li>playbook</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-<span style="color: #008800; font-style: italic"># playbook.yml</span>
-- <span style="color: #008000; font-weight: bold">hosts</span>: localhost
-  <span style="color: #008000; font-weight: bold">gather_facts</span>: false
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+<span style="color: #008800; font-style: italic"># playbook.yml</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
 
-  <span style="color: #008000; font-weight: bold">roles</span>:
-  - test2
-  - test3
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">roles</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>test2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>test3<span style="color: #bbbbbb"></span>
 </code></pre></div>
                 
               
