@@ -1086,6 +1086,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#remote-ssh" class="md-nav__link">
+    Remote SSH
+  </a>
+  
+    <nav class="md-nav" aria-label="Remote SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-clone" class="md-nav__link">
+    git cloneの認証
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#remote-container" class="md-nav__link">
     Remote Container
   </a>
@@ -1307,6 +1327,26 @@
   <a href="#_7" class="md-nav__link">
     キーバインド設定
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-ssh" class="md-nav__link">
+    Remote SSH
+  </a>
+  
+    <nav class="md-nav" aria-label="Remote SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-clone" class="md-nav__link">
+    git cloneの認証
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1605,6 +1645,21 @@
 }<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
+<h2 id="remote-ssh">Remote SSH</h2>
+<h3 id="git-clone">git cloneの認証</h3>
+<p>通常だと認証のプロンプトが表示される操作でこのようになる場合、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Missing or invalid credentials.</span>
+<span style="color: #888888">Error: connect ECONNREFUSED /run/user/1000/vscode-git-fce9cdb56d.sock</span>
+<span style="color: #888888">    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1146:16) {</span>
+<span style="color: #888888">  errno: -111,</span>
+<span style="color: #888888">  code: &#39;ECONNREFUSED&#39;,</span>
+<span style="color: #888888">  syscall: &#39;connect&#39;,</span>
+<span style="color: #888888">  address: &#39;/run/user/1000/vscode-git-fce9cdb56d.sock&#39;</span>
+<span style="color: #888888">}</span>
+<span style="color: #888888">Missing or invalid credentials.</span>
+</code></pre></div>
+
+<p>アクセスしてるリモート環境へ、<a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a>を入れてReload WindowすればVS Codeの画面で認証プロンプトが表示されてアカウント設定できた。</p>
 <h2 id="remote-container">Remote Container</h2>
 <h3 id="ubuntu-focal">ubuntu / focal</h3>
 <h4 id="_8">起動後の環境</h4>
