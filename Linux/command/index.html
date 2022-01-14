@@ -1096,6 +1096,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    自動起動
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1176,6 +1183,18 @@
     <li class="md-nav__item">
       <a href="../ssh/" class="md-nav__link">
         ssh関連
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wsl/" class="md-nav__link">
+        WSL
       </a>
     </li>
   
@@ -1632,6 +1651,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    自動起動
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1857,6 +1883,17 @@
 <p>強制停止は<code>destroy</code>する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh destroy &lt;domain-name&gt;
 </code></pre></div>
+
+<h3 id="_18">自動起動</h3>
+<p>有効化</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh autostart &lt;domain-name&gt;
+</code></pre></div>
+
+<p>無効化</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh autostart --disable &lt;domain-name&gt;
+</code></pre></div>
+
+<p>確認は<code>virsh dominfo &lt;domain-name&gt;</code>かな？</p>
                 
               
               
