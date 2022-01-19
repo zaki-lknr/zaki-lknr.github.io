@@ -788,6 +788,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#git-prompt" class="md-nav__link">
+    git prompt
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -959,6 +966,18 @@
     <li class="md-nav__item">
       <a href="../../Linux/disk/" class="md-nav__link">
         ディスク
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/kvm/" class="md-nav__link">
+        KVM
       </a>
     </li>
   
@@ -1335,6 +1354,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#git-prompt" class="md-nav__link">
+    git prompt
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1375,6 +1401,11 @@ Host github.com
 </code></pre></div>
 
 <p>cloneのパスが<code>git@github.com/...</code>とユーザー名が指定されているので、<code>User git</code>は不要</p>
+<p>Backlogも同様にclone用文字列コピーにユーザー名含んでいるので以下でOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Host &lt;space&gt;.git.backlog.com
+    IdentityFile ~/.ssh/id_rsa_git
+</code></pre></div>
+
 <h2 id="_4">リモートリポジトリ</h2>
 <h3 id="_5">現在の設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote -v
@@ -1396,6 +1427,15 @@ Host github.com
 
 <h3 id="_8">別のリポジトリを別名で追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote add hoge &lt;other repository&gt;
+</code></pre></div>
+
+<h2 id="git-prompt">git prompt</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o .git-prompt.sh</span>
+<span style="color: #888888">chmod 755 .git-prompt.sh</span>
+</code></pre></div>
+
+<p>.bashrcへ以下追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span> -f ~/.git-prompt.sh <span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #AA22FF">source</span> ~/.git-prompt.sh
 </code></pre></div>
                 
               
