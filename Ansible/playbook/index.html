@@ -533,6 +533,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    共通
+  </a>
+  
+    <nav class="md-nav" aria-label="共通">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-e-extra-vars" class="md-nav__link">
+    -e | --extra-vars
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-playbook" class="md-nav__link">
     ansible-playbook コマンド
   </a>
@@ -1206,6 +1226,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    共通
+  </a>
+  
+    <nav class="md-nav" aria-label="共通">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-e-extra-vars" class="md-nav__link">
+    -e | --extra-vars
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-playbook" class="md-nav__link">
     ansible-playbook コマンド
   </a>
@@ -1257,6 +1297,17 @@
                 
                 
                 <h1 id="_1">プレイブック</h1>
+<p>これCLIとかコマンドってタイトルの方がいいか</p>
+<h2 id="_2">共通</h2>
+<h3 id="-e-extra-vars">-e | --extra-vars</h3>
+<p>スペースを含む値を与える場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook ... -e <span style="color: #BB4444">&#39;key=&quot;foo bar baz&quot;&#39;</span>
+</code></pre></div>
+
+<p>あるいはJSON形式で。(JSONだと辞書もリストもいける)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook ... -e <span style="color: #BB4444">&#39;{key: &quot;foo bar baz&quot;}&#39;</span>
+</code></pre></div>
+
 <h2 id="ansible-playbook">ansible-playbook コマンド</h2>
 <h3 id="-check">--check</h3>
 <p>いわゆるDry Runで実行する。<br />

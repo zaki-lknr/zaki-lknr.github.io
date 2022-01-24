@@ -918,6 +918,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#awk" class="md-nav__link">
+    awk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tar" class="md-nav__link">
     tar
   </a>
@@ -1471,6 +1478,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#awk" class="md-nav__link">
+    awk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tar" class="md-nav__link">
     tar
   </a>
@@ -1708,6 +1722,19 @@
 
 <p><code>-i</code>でファイル更新を行う。<br />
 <code>-ie</code>って書くと、<code>-i.bak</code>で<code>file.bak</code>のバックアップ作成と解釈されるので分ける。</p>
+<h2 id="awk">awk</h2>
+<p><code>ps aux</code>の結果の3カラム目を抜き出す。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps aux | awk <span style="color: #BB4444">&#39;{print $3}&#39;</span>
+</code></pre></div>
+
+<p>3カラム目と4カラム目をタブで区切って出力。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps aux | awk <span style="color: #BB4444">&#39;{print $3, &quot;\t&quot;, $4}&#39;</span>
+</code></pre></div>
+
+<p>または、OFS変数(output field separator)にタブをセットし以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps aux | awk <span style="color: #BB4444">&#39;BEGIN { OFS=&quot;\t&quot; } {print $3, $4}&#39;</span>
+</code></pre></div>
+
 <h2 id="tar">tar</h2>
 <h3 id="_5">展開時の形式指定オプション</h3>
 <p>gzの場合はzとかは不要。<br />
