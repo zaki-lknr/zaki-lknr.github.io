@@ -557,6 +557,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#type_debug" class="md-nav__link">
+    オブジェクトの型を調べる (type_debug)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1389,6 +1396,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#type_debug" class="md-nav__link">
+    オブジェクトの型を調べる (type_debug)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1652,6 +1666,41 @@
 <p>↓</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ok: [localhost] =&gt; </span>
 <span style="color: #888888">  msg: zaki</span>
+</code></pre></div>
+
+<h2 id="type_debug">オブジェクトの型を調べる (type_debug)</h2>
+<p>任意のオブジェクトの型をチェックするには <code>type_debug</code> を使う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>name:<span style="color: #bbbbbb"> </span>type<span style="color: #bbbbbb"> </span>debug<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>debug:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>msg:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ item }}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>vars:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>num_val:<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>str_val:<span style="color: #bbbbbb"> </span>zzz<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>list_val:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>dict_val:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>key1:<span style="color: #bbbbbb"> </span>val1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>key2:<span style="color: #bbbbbb"> </span>val2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>key3:<span style="color: #bbbbbb"> </span>val3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>loop:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ num_val | type_debug }}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ str_val | type_debug }}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ list_val | type_debug }}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ dict_val | type_debug }}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>結果</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [type debug] ***********************************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; (item=int) =&gt; </span>
+<span style="color: #888888">  msg: int</span>
+<span style="color: #888888">ok: [localhost] =&gt; (item=AnsibleUnicode) =&gt; </span>
+<span style="color: #888888">  msg: AnsibleUnicode</span>
+<span style="color: #888888">ok: [localhost] =&gt; (item=list) =&gt; </span>
+<span style="color: #888888">  msg: list</span>
+<span style="color: #888888">ok: [localhost] =&gt; (item=dict) =&gt; </span>
+<span style="color: #888888">  msg: dict</span>
 </code></pre></div>
                 
               

@@ -547,6 +547,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-l-limit" class="md-nav__link">
+    -l | --limit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1240,6 +1247,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-l-limit" class="md-nav__link">
+    -l | --limit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1308,6 +1322,13 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook ... -e <span style="color: #BB4444">&#39;{key: &quot;foo bar baz&quot;}&#39;</span>
 </code></pre></div>
 
+<h3 id="-l-limit">-l | --limit</h3>
+<p>playbookの<code>hosts</code>で指定してあるホストグループの内、特定のホストだけに処理したい場合に使う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook ... -l host1
+</code></pre></div>
+
+<p>こうすると、playbookで例えば<code>hosts: servers</code>と指定されており、serversグループに <code>host1</code>, <code>host2</code>, <code>host3</code> が有ったとしても、この<code>ansible-playbook</code>実行のタスクは <code>host1</code> のみが処理対象で実行される。</p>
+<p>開発やデバッグのお供に。</p>
 <h2 id="ansible-playbook">ansible-playbook コマンド</h2>
 <h3 id="-check">--check</h3>
 <p>いわゆるDry Runで実行する。<br />
