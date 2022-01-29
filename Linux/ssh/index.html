@@ -971,6 +971,13 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    多段アクセス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     ポートフォワード
   </a>
   
@@ -978,7 +985,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     ローカルフォワード
   </a>
   
@@ -1010,7 +1017,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     有効になる設定のリスト
   </a>
   
@@ -1022,7 +1029,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     鍵
   </a>
   
@@ -1030,14 +1037,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     フィンガープリント確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     秘密鍵から公開鍵を作成
   </a>
   
@@ -1310,6 +1317,13 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    多段アクセス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     ポートフォワード
   </a>
   
@@ -1317,7 +1331,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     ローカルフォワード
   </a>
   
@@ -1349,7 +1363,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     有効になる設定のリスト
   </a>
   
@@ -1361,7 +1375,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     鍵
   </a>
   
@@ -1369,14 +1383,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     フィンガープリント確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     秘密鍵から公開鍵を作成
   </a>
   
@@ -1454,8 +1468,21 @@
 <span style="color: #000080; font-weight: bold">$ </span>
 </code></pre></div>
 
-<h3 id="_3">ポートフォワード</h3>
-<h4 id="_4">ローカルフォワード</h4>
+<h3 id="_3">多段アクセス</h3>
+<p><code>ProxyCommand</code>を使った情報がたくさんヒットするけど、<code>ProxyJump (-J)</code>を使うと簡単。<br />
+ローカルから192.168.0.19→172.16.1.0→172.29.0.89という順でssh多段アクセスしたい場合は、以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh <span style="color: #666666">172</span>.29.0.89 -J <span style="color: #666666">192</span>.168.0.19,172.16.1.0
+</code></pre></div>
+
+<p>記述の仕方は</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ssh ゴール(終着点) -J 踏み台ホストをアクセス順にカンマ区切りで羅列。
+</code></pre></div>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ローカルから192.168.0.19→172.16.1.0→172.29.0.89という順でssh多段アクセスしたい場合は、<br>$ ssh 172.29.0.89 -J 192.168.0.19,172.16.1.0<br>でいける。 <a href="https://t.co/7xHlxvxFTr">pic.twitter.com/7xHlxvxFTr</a></p>&mdash; z a k i 🌈🌉 (@zaki_hmkc) <a href="https://twitter.com/zaki_hmkc/status/1487383030251462658?ref_src=twsrc%5Etfw">January 29, 2022</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h3 id="_4">ポートフォワード</h3>
+<h4 id="_5">ローカルフォワード</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh rhel8 -L <span style="color: #666666">25080</span>:10.88.250.10:80
 </code></pre></div>
 
@@ -1473,7 +1500,7 @@
 <span style="color: #888888">/etc/ssh/sshd_config: terminating, 1 bad configuration options</span>
 </code></pre></div>
 
-<h3 id="_5">有効になる設定のリスト</h3>
+<h3 id="_6">有効になる設定のリスト</h3>
 <p>実行する環境の<code>/etc/ssh/sshd_config</code>の結果、どの設定が適用されるかのすべての内容が表示される。<br />
 (<code>/etc/ssh_sshd_config</code>に書かなかったデフォルトの設定含めて出力される)</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>sshd -T
@@ -1483,13 +1510,13 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>diff -u &lt;<span style="color: #666666">(</span>sshd -T -f /dev/null<span style="color: #666666">)</span>  &lt;<span style="color: #666666">(</span>sshd -T<span style="color: #666666">)</span>
 </code></pre></div>
 
-<h2 id="_6">鍵</h2>
-<h3 id="_7">フィンガープリント確認</h3>
+<h2 id="_7">鍵</h2>
+<h3 id="_8">フィンガープリント確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -l -f ~/.ssh/id_rsa.pub
 <span style="color: #888888">4096 SHA256:6Qt0+Nikcx/NpgM4xu/4WnDpqhj8L+OjtDEP5O2a7lw no comment (RSA)</span>
 </code></pre></div>
 
-<h3 id="_8">秘密鍵から公開鍵を作成</h3>
+<h3 id="_9">秘密鍵から公開鍵を作成</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -y -f ~/.ssh/id_rsa
 </code></pre></div>
 
