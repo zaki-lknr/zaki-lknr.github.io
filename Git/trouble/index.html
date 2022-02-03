@@ -837,6 +837,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#mergeconflict" class="md-nav__link">
+    mergeの取り消し(conflict)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1426,6 +1433,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#mergeconflict" class="md-nav__link">
+    mergeの取り消し(conflict)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1552,6 +1566,12 @@ $ git reset HEAD bar
 <p>memo</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reset --hard HEAD /path/to/file
 fatal: Cannot <span style="color: #AA22FF; font-weight: bold">do</span> hard reset with paths.
+</code></pre></div>
+
+<h3 id="mergeconflict">mergeの取り消し(conflict)</h3>
+<p>mergeしようとしたらconflictしてしまい、競合を解消するよりマージ元を改修してマージしなおしたほうが早いような場合。<br />
+マージを取り消すには</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git merge --abort
 </code></pre></div>
                 
               

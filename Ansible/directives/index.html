@@ -506,6 +506,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    orで複数条件
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1351,6 +1358,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    orで複数条件
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1607,6 +1621,11 @@
 </code></pre></div>
 
 <p>この場合スキップされる。</p>
+<h3 id="or">orで複数条件</h3>
+<p>リスト形式はandになるため、<code>or</code>で条件を羅列して一つの条件式として記述する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"> </span>cond == &quot;foobar&quot; or cond == &quot;bazqux&quot;<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
 <h2 id="includeimport">includeとimport</h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html">Re-using Ansible artifacts — Ansible Documentation</a></li>

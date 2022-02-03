@@ -1036,13 +1036,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ポート番号の変更
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     鍵
   </a>
   
@@ -1050,14 +1057,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     フィンガープリント確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     秘密鍵から公開鍵を作成
   </a>
   
@@ -1395,13 +1402,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ポート番号の変更
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     鍵
   </a>
   
@@ -1409,14 +1423,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     フィンガープリント確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     秘密鍵から公開鍵を作成
   </a>
   
@@ -1495,6 +1509,7 @@
 </code></pre></div>
 
 <h3 id="_3">多段アクセス</h3>
+<p>追記: 詳細はこちら -&gt; <a href="https://zaki-hmkc.hatenablog.com/entry/2022/02/03/000245">[Linux] ProxyJump設定でSSHの多段アクセスとscp/ポートフォワード - zaki work log</a></p>
 <p><code>ProxyCommand</code>を使った情報がたくさんヒットするけど、<code>ProxyJump (-J)</code>を使うと簡単。<br />
 ローカルから192.168.0.19→172.16.1.0→172.29.0.89という順でssh多段アクセスしたい場合は、以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh <span style="color: #666666">172</span>.29.0.89 -J <span style="color: #666666">192</span>.168.0.19,172.16.1.0
@@ -1544,13 +1559,32 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>diff -u &lt;<span style="color: #666666">(</span>sshd -T -f /dev/null<span style="color: #666666">)</span>  &lt;<span style="color: #666666">(</span>sshd -T<span style="color: #666666">)</span>
 </code></pre></div>
 
-<h2 id="_8">鍵</h2>
-<h3 id="_9">フィンガープリント確認</h3>
+<h3 id="_8">ポート番号の変更</h3>
+<p>SELinuxが有効の場合はsshdの設定変更だけでは有効にならない。<br />
+<code>Port 25022</code>を設定したときに、、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># <span style="color: #B8860B">systemctl</span> <span style="color: #B8860B">restart</span> <span style="color: #B8860B">sshd</span>
+<span style="color: #B8860B">Job</span> <span style="color: #AA22FF; font-weight: bold">for</span> <span style="color: #B8860B">sshd</span>.<span style="color: #B8860B">service</span> <span style="color: #B8860B">failed</span> <span style="color: #B8860B">because</span> <span style="color: #B8860B">the</span> <span style="color: #B8860B">control</span> <span style="color: #B8860B">process</span> <span style="color: #B8860B">exited</span> <span style="color: #B8860B">with</span> <span style="color: #B8860B">error</span> <span style="color: #B8860B">code</span>. <span style="color: #B8860B">See</span> <span style="color: #BB4444">&quot;systemctl status sshd.service&quot;</span> <span style="color: #B8860B">and</span> <span style="color: #BB4444">&quot;journalctl -xe&quot;</span> <span style="color: #AA22FF; font-weight: bold">for</span> <span style="color: #B8860B">details</span>.
+# <span style="color: #B8860B">journalctl</span> <span style="color: #666666">-</span><span style="color: #B8860B">xe</span>
+<span style="color: #B8860B">sshd</span>[<span style="color: #666666">20141</span>]: <span style="color: #B8860B">error</span>: <span style="color: #B8860B">Bind</span> <span style="color: #B8860B">to</span> <span style="color: #B8860B">port</span> <span style="color: #666666">25022</span> <span style="color: #B8860B">on</span> <span style="color: #666666">0</span>.<span style="color: #666666">0</span>.<span style="color: #666666">0</span>.<span style="color: #666666">0</span> <span style="color: #B8860B">failed</span>: <span style="color: #B8860B">Permission</span> <span style="color: #B8860B">denied</span>.
+<span style="color: #B8860B">sshd</span>[<span style="color: #666666">20141</span>]: <span style="color: #B8860B">error</span>: <span style="color: #B8860B">Bind</span> <span style="color: #B8860B">to</span> <span style="color: #B8860B">port</span> <span style="color: #666666">25022</span> <span style="color: #B8860B">on</span> :: <span style="color: #B8860B">failed</span>: <span style="color: #B8860B">Permission</span> <span style="color: #B8860B">denied</span>.
+<span style="color: #B8860B">sshd</span>[<span style="color: #666666">20141</span>]: <span style="color: #B8860B">fatal</span>: <span style="color: #B8860B">Cannot</span> <span style="color: #B8860B">bind</span> <span style="color: #B8860B">any</span> <span style="color: #B8860B">address</span>.
+<span style="color: #B8860B">systemd</span>[<span style="color: #666666">1</span>]: <span style="color: #B8860B">sshd</span>.<span style="color: #B8860B">service</span>: <span style="color: #B8860B">main</span> <span style="color: #B8860B">process</span> <span style="color: #B8860B">exited</span>, <span style="color: #B8860B">code</span><span style="color: #666666">=</span><span style="color: #B8860B">exited</span>, <span style="color: #B8860B">status</span><span style="color: #666666">=255/</span><span style="color: #B8860B">n</span><span style="color: #666666">/</span><span style="color: #B8860B">a</span>
+<span style="color: #B8860B">systemd</span>[<span style="color: #666666">1</span>]: <span style="color: #B8860B">Failed</span> <span style="color: #B8860B">to</span> <span style="color: #B8860B">start</span> <span style="color: #B8860B">OpenSSH</span> <span style="color: #B8860B">server</span> <span style="color: #B8860B">daemon</span>.
+</code></pre></div>
+
+<p>こんなエラーが出る場合は、以下を実行。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>semanage port -a -t ssh_port_t -p tcp <span style="color: #666666">25022</span>
+</code></pre></div>
+
+<p>これで<code>systemctl restart sshd</code>が有効になる。
+まぁsshd_configの<code>Port</code>のすぐ上にコメントで書かれてるんだけど。</p>
+<h2 id="_9">鍵</h2>
+<h3 id="_10">フィンガープリント確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -l -f ~/.ssh/id_rsa.pub
 <span style="color: #888888">4096 SHA256:6Qt0+Nikcx/NpgM4xu/4WnDpqhj8L+OjtDEP5O2a7lw no comment (RSA)</span>
 </code></pre></div>
 
-<h3 id="_10">秘密鍵から公開鍵を作成</h3>
+<h3 id="_11">秘密鍵から公開鍵を作成</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -y -f ~/.ssh/id_rsa
 </code></pre></div>
 
