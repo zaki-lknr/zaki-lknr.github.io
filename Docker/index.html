@@ -671,6 +671,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ビルド
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ヘルスチェック
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1293,6 +1313,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ビルド
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ヘルスチェック
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1358,6 +1398,33 @@
 
 <p>デフォルトは、タグが設定されずに<code>&lt;none&gt;</code>になっているイメージが削除される。<br />
 <code>&lt;none&gt;</code>のイメージをリストアップするだけであれば <code>docker image ls -f "dangling=true"</code> でリストアップできる。</p>
+<h2 id="_2">ビルド</h2>
+<h3 id="_3">ヘルスチェック</h3>
+<p>30秒後にhttpdが起動するようになっているコンテナイメージ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">FROM</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">httpd:2.4</span>
+
+<span style="color: #AA22FF; font-weight: bold">COPY</span><span style="color: #bbbbbb"> </span>index.html /usr/local/apache2/htdocs/
+<span style="color: #AA22FF; font-weight: bold">RUN</span><span style="color: #bbbbbb"> </span>apt-get update; apt-get install curl
+
+<span style="color: #AA22FF; font-weight: bold">HEALTHCHECK</span><span style="color: #bbbbbb"> </span>--interval<span style="color: #666666">=</span>5s --timeout<span style="color: #666666">=</span>5s --retries<span style="color: #666666">=15</span> <span style="color: #AA22FF; font-weight: bold">CMD</span><span style="color: #bbbbbb"> </span>curl -f http://127.0.0.1 <span style="color: #666666">||</span> <span style="color: #AA22FF">exit</span> <span style="color: #666666">1</span>
+
+<span style="color: #008800; font-style: italic">#CMD [&quot;httpd-foreground&quot;]</span>
+<span style="color: #AA22FF; font-weight: bold">CMD</span><span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;sh&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;-c&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;sleep 30; httpd-foreground&quot;</span>]
+</code></pre></div>
+
+<p>起動処理中は</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker run --rm -d -p <span style="color: #666666">8080</span>:80 --name slowstart_httpd slowstart_httpd
+<span style="color: #888888">e5c366cb3bbab10284ab41bd3e23fbf24720c9c371c35a8137d78a3c138844c6</span>
+<span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker container ls
+<span style="color: #888888">CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS                            PORTS                                   NAMES</span>
+<span style="color: #888888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
+</code></pre></div>
+
+<p>起動後は</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker container ls
+<span style="color: #888888">CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                    PORTS                                   NAMES</span>
+<span style="color: #888888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
+</code></pre></div>
                 
               
               

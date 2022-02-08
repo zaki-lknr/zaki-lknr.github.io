@@ -1031,6 +1031,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#untracked" class="md-nav__link">
+    Untrackedファイルを削除する
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1930,6 +1937,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#untracked" class="md-nav__link">
+    Untrackedファイルを削除する
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2249,6 +2263,15 @@ $ git mv managed.file dir/
 ディレクトリの場合は<code>-r</code>もつける。</p>
 <hr />
 <p><code>git rm</code>直後は、<code>git status</code>で削除したものが<code>deleted</code>と表示されステージング状態なので、<code>commit</code>すればリポジトリに反映される。</p>
+<h3 id="untracked">Untrackedファイルを削除する</h3>
+<p><code>-n</code>でファイルを確認</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git clean -n <span style="color: #666666">[</span>path/to<span style="color: #666666">]</span>
+</code></pre></div>
+
+<p><code>-f</code>で削除する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git clean -f <span style="color: #666666">[</span>path/to<span style="color: #666666">]</span>
+</code></pre></div>
+
 <h2 id="_24">コミットログ</h2>
 <h3 id="_25">ログを見る</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git log

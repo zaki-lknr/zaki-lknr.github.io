@@ -1109,6 +1109,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    実行初期設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version" class="md-nav__link">
     version確認
   </a>
@@ -1186,6 +1193,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    実行初期設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version" class="md-nav__link">
     version確認
   </a>
@@ -1217,6 +1231,21 @@
                 
                 
                 <h1 id="powershell">PowerShell</h1>
+<h2 id="_1">実行初期設定</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>このシステムではスクリプトの実行が無効になっているため、ファイル C:\path\to\foobar.ps1 を読み込むことができません。詳細については、「about_Execution_Policies」(https://go.microsoft.c
+om/fwlink/?LinkID=135170) を参照してください。
+    + CategoryInfo          : セキュリティ エラー: (: ) []、ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+</code></pre></div>
+
+<p>そのときに一時的に許可するには</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #AA22FF">Set-ExecutionPolicy</span> RemoteSigned -Scope <span style="color: #AA22FF; font-weight: bold">Process</span>
+</code></pre></div>
+
+<p>システムワイドに設定するには、管理者権限で</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #AA22FF">Set-ExecutionPolicy</span> RemoteSigned
+</code></pre></div>
+
 <h2 id="version">version確認</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #B8860B">$PSVersionTable</span>
 </code></pre></div>
