@@ -2110,6 +2110,7 @@ $ git commit -m <span style="color: #BB4444">&quot;first commit&quot;</span>
 <span style="color: #000080; font-weight: bold">$ </span>git stash pop
 </code></pre></div>
 
+<p>origin/mainから取り込むときに<code>pull</code>するとmergeになってしまうので、rebaseしたい場合は<code>fetch</code>する。(たぶん)</p>
 <h2 id="conflict">conflictした場合</h2>
 <h3 id="_4">修正する場合は普通に</h3>
 <ol>
@@ -2163,8 +2164,16 @@ $ git commit -m <span style="color: #BB4444">&quot;first commit&quot;</span>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git checkout features/divide_playbook
 </code></pre></div>
 
+<p>Git 2.23以降は</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git switch features/divide_playbook
+</code></pre></div>
+
 <h3 id="_13">ブランチ作成＆切り替え</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git checkout -b features/divide_playbook
+</code></pre></div>
+
+<p>Git 2.23以降は</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git switch -c features/divide_playbook
 </code></pre></div>
 
 <h3 id="_14">ローカルブランチの削除</h3>
