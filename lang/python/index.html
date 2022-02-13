@@ -233,7 +233,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Kubernetes/helm/" class="md-tabs__link">
+      <a href="../../Kubernetes/" class="md-tabs__link">
         Kubernetes
       </a>
     </li>
@@ -714,6 +714,18 @@
           Kubernetes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
           
             
   
@@ -1252,6 +1264,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    ゼロパディング
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1265,7 +1284,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     メタクラス
   </a>
   
@@ -1277,7 +1296,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     仮想環境
   </a>
   
@@ -1293,7 +1312,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     作成
   </a>
   
@@ -1513,6 +1532,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    ゼロパディング
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1526,7 +1552,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     メタクラス
   </a>
   
@@ -1538,7 +1564,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     仮想環境
   </a>
   
@@ -1554,7 +1580,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     作成
   </a>
   
@@ -1734,6 +1760,20 @@ beef_index <span style="color: #666666">=</span> array<span style="color: #66666
 <h3 id="_8">文字列</h3>
 <h4 id="splitlines">splitlines()</h4>
 <p>テキストの末尾に改行がある場合、<code>split('\n')</code>を使うと末尾の改行もデリミタと認識し、リストの最終要素は空文字になるが、<code>splitlines()</code>であれば末尾の改行分は無視される。行ごとに処理したい場合はこちらが便利。</p>
+<h4 id="_9">ゼロパディング</h4>
+<p>文字列のzfill()メソッドを使う。<br />
+引数の数値の桁数長にゼロパディングされた文字列を返す。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>int_sample <span style="color: #666666">=</span> <span style="color: #BB4444">&#39;123&#39;</span>
+str_sample <span style="color: #666666">=</span> <span style="color: #BB4444">&#39;foo&#39;</span>
+<span style="color: #AA22FF">print</span>(int_sample<span style="color: #666666">.</span>zfill(<span style="color: #666666">8</span>))
+<span style="color: #AA22FF">print</span>(str_sample<span style="color: #666666">.</span>zfill(<span style="color: #666666">8</span>))
+</code></pre></div>
+
+<p>実行結果は以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">00000123</span>
+<span style="color: #888888">00000foo</span>
+</code></pre></div>
+
 <h3 id="partial-application">部分適用(partial application)</h3>
 <ul>
 <li><code>functiontools#partial()</code>を使う。</li>
@@ -1761,7 +1801,7 @@ beef_index <span style="color: #666666">=</span> array<span style="color: #66666
 
 <p>なるほどわからん</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></p>
-<h3 id="_9">メタクラス</h3>
+<h3 id="_10">メタクラス</h3>
 <ul>
 <li><a href="https://qiita.com/slope-book/items/3319c357c1a092d9d841">pythonで考えるメタクラスとは？ - Qiita</a></li>
 <li><a href="https://qiita.com/FGtatsuro/items/49f907a809e53b874b18">__new__と__init__とメタクラスと - Qiita</a></li>
@@ -1783,9 +1823,9 @@ beef_index <span style="color: #666666">=</span> array<span style="color: #66666
 <ul>
 <li><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></li>
 </ul>
-<h2 id="_10">仮想環境</h2>
+<h2 id="_11">仮想環境</h2>
 <h3 id="venv">venv</h3>
-<h4 id="_11">作成</h4>
+<h4 id="_12">作成</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3 -m venv venv/ansible
 </code></pre></div>
 

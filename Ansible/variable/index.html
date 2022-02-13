@@ -235,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Kubernetes/helm/" class="md-tabs__link">
+      <a href="../../Kubernetes/" class="md-tabs__link">
         Kubernetes
       </a>
     </li>
@@ -636,6 +636,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ノードのファクト変数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -817,6 +824,18 @@
           Kubernetes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
           
             
   
@@ -1307,6 +1326,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ノードのファクト変数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1387,6 +1413,28 @@
 <p>ロールの中で参照できる変数なので、playbookで参照しても undefined エラーになる。</p>
 <p>ロール内のtaskから<code>import_tasks</code>で読んだ先のファイルのtaskで参照する<code>role_path</code>であれば参照可能。<br />
 (あくまで呼び出し元ロール基準のパスになる)</p>
+<h2 id="_6">ノードのファクト変数</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>全部取ると重いけど、<code>gather_subset</code>を指定するとサブセットだけ取れる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>all<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_subset</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>network<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_facts</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>これで<code>wc -l</code>すると約375行。<br />
+<code>gather_subset</code>の指定が無いと926行。</p>
+<p><code>ansible all -m setup | wc -l</code>だと916行。<br />
+<code>ansible -i inventory all -m setup -a "gather_subset=network" | wc -l</code>だと365行。</p>
+<p>OS情報程度であれば<code>min</code>で取れる。<br />
+インタフェース毎のネットワーク設定は<code>network</code>も必要っぽい。</p>
                 
               
               
