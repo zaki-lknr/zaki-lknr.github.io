@@ -390,6 +390,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Ansible/awx/" class="md-nav__link">
+        AWX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Ansible/config/" class="md-nav__link">
         設定
       </a>
@@ -850,6 +862,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+    <nav class="md-nav" aria-label="run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod" class="md-nav__link">
+    ワーク用のpodをデプロイする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#config" class="md-nav__link">
     config
   </a>
@@ -1285,6 +1317,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+    <nav class="md-nav" aria-label="run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod" class="md-nav__link">
+    ワーク用のpodをデプロイする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#config" class="md-nav__link">
     config
   </a>
@@ -1356,6 +1408,11 @@ apiVersion:<span style="color: #bbbbbb"> </span>v1<span style="color: #bbbbbb"><
 </code></pre></div>
 
 <p>これはConfigMapと同じ</p>
+<h2 id="run">run</h2>
+<h3 id="pod">ワーク用のpodをデプロイする</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl run work-pod --image<span style="color: #666666">=</span>fedora --command -- tail -f /dev/null
+</code></pre></div>
+
 <h2 id="config">config</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/04/07/080241">[kubectl / oc]コンテキストやクラスタ情報の確認 (コマンドメモ) - zaki work log</a></p>
 <p><code>~/.kube/config</code>(<code>$KUBECONFIG</code>)の内容から証明書のデータをマスクした情報</p>

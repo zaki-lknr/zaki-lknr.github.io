@@ -392,6 +392,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../awx/" class="md-nav__link">
+        AWX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../config/" class="md-nav__link">
         設定
       </a>
@@ -640,6 +652,19 @@
   <a href="#_6" class="md-nav__link">
     ノードのファクト変数
   </a>
+  
+    <nav class="md-nav" aria-label="ノードのファクト変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1331,6 +1356,19 @@
     ノードのファクト変数
   </a>
   
+    <nav class="md-nav" aria-label="ノードのファクト変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1435,6 +1473,51 @@
 <code>ansible -i inventory all -m setup -a "gather_subset=network" | wc -l</code>だと365行。</p>
 <p>OS情報程度であれば<code>min</code>で取れる。<br />
 インタフェース毎のネットワーク設定は<code>network</code>も必要っぽい。</p>
+<h3 id="_7">環境変数</h3>
+<p><code>gather_subset: min</code>で確認。<br />
+<code>become</code>なしの場合。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;ansible_env&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;DBUS_SESSION_BUS_ADDRESS&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;unix:path=/run/user/1001/bus&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;HOME&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/home/ubuntu&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;LANG&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;C.UTF-8&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;LOGNAME&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ubuntu&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;MOTD_SHOWN&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;pam&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;PATH&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;PWD&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/home/ubuntu&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SHELL&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/bin/bash&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SHLVL&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;0&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SSH_CLIENT&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;****&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SSH_CONNECTION&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;****&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SSH_TTY&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/dev/pts/1&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;TERM&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;xterm-256color&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;USER&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ubuntu&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;XDG_RUNTIME_DIR&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/run/user/1001&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;XDG_SESSION_CLASS&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;user&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;XDG_SESSION_ID&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;29&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;XDG_SESSION_TYPE&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;tty&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;_&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/bin/sh&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>},<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p><code>become</code>ありの場合。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;ansible_env&quot;</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;HOME&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/root&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;LANG&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;C.UTF-8&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;LOGNAME&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;root&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;MAIL&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/var/mail/root&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;PATH&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;PWD&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/home/ubuntu&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SHELL&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/bin/bash&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SUDO_COMMAND&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/bin/sh -c echo BECOME-SUCCESS-****** ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-****/AnsiballZ_setup.py&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SUDO_GID&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;1001&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SUDO_UID&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;1001&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;SUDO_USER&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ubuntu&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;TERM&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;xterm-256color&quot;</span>,<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;USER&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;root&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>},<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>昇格前のユーザー情報は<code>SUDO_USER</code>と<code>PWD</code>を見るしか無いかな？</p>
                 
               
               

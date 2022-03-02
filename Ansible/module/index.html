@@ -392,6 +392,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../awx/" class="md-nav__link">
+        AWX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../config/" class="md-nav__link">
         設定
       </a>
@@ -584,6 +596,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#apt_repository" class="md-nav__link">
+    apt_repository
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -613,6 +632,40 @@
   <a href="#fetch" class="md-nav__link">
     fetch
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make" class="md-nav__link">
+    make
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    metaで再接続
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-image" class="md-nav__link">
+    push image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1343,6 +1396,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#apt_repository" class="md-nav__link">
+    apt_repository
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1372,6 +1432,40 @@
   <a href="#fetch" class="md-nav__link">
     fetch
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make" class="md-nav__link">
+    make
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    metaで再接続
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-image" class="md-nav__link">
+    push image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1574,6 +1668,19 @@ ad-hocで実行する方が多いかも？</p>
 dnfモジュールでパッケージインストールし、CentOS7上で<code>rpm -qa</code>とかしても確認できる。</p>
 <h3 id="yum">yum</h3>
 <p>Fedora34 / RHEL8に使える？ =&gt; OK</p>
+<h3 id="apt_repository">apt_repository</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>add apt repository<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.apt_repository</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">repo</span>:<span style="color: #bbbbbb"> </span>deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">filename</span>:<span style="color: #bbbbbb"> </span>docker<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>これで以下のファイルが作成される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat /etc/apt/sources.list.d/docker.list
+<span style="color: #888888">deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable</span>
+</code></pre></div>
+
+<p>このとき、<code>/etc/apt/sources.list.d/docker.list</code>以外のファイルですでに同じ設定がある場合は<code>docker.list</code>は作成されずに<code>ok</code>となる。</p>
 <h2 id="_3">ファイル</h2>
 <h3 id="_4">モード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create file<span style="color: #bbbbbb"></span>
@@ -1630,6 +1737,44 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 </blockquote>
 <p>fetchモジュールの使い方全般ははてブに書いた。<br />
 <a href="https://zaki-hmkc.hatenablog.com/entry/2021/12/13/060649">[Ansible] fetchモジュールを使ってリモートのファイルを実行ノードへ転送・集約する - zaki work log</a></p>
+<h2 id="make">make</h2>
+<p><code>/path/to/awx-operator</code>ディレクトリ上で<code>make deploy IMG=zakihmkc/awx-operator:0.17.0</code>を実行するタスクであれば以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>deploy awx-operator<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.general.make</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">chdir</span>:<span style="color: #bbbbbb"> </span>/path/to/awx-operator<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #bbbbbb"> </span>deploy<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">params</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">IMG</span>:<span style="color: #bbbbbb"> </span>zakihmkc/awx-operator:0.17.0<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>ターゲットファイル作成済みで<code>make</code>が何も処理しない場合は、実行ステータスは<code>ok</code>となる。</p>
+<h2 id="meta">metaで再接続</h2>
+<p>たとえば、OSユーザーのグループを更新した場合、通常であればログインし直さなければ変更が反映されない。<br />
+Ansibleも同様で、タスクでグループの更新を行っても、後続のタスクは接続が維持されているため、更新されたグループの状態でタスクが実行されない。<br />
+この場合、<a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/meta_module.html">metaモジュール</a>の<code>reset_connection</code>を使って再接続を行い、変更を反映して後続のタスクを実行できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>グループを変更するタスク<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>...<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>refresh connection<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>reset_connection<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>変更したグループ前提のタスク<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>...<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<h2 id="docker">Docker</h2>
+<h3 id="push-image">push image</h3>
+<p><code>docker_image</code>を使用しパラメタに<code>push: true</code>を指定。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>push container image<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.docker.docker_image</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">repository</span>:<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:0.6.0<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">push</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">source</span>:<span style="color: #bbbbbb"> </span>local<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>このタスクの場合は、ローカルにある<code>quay.io/ansible/awx-ee</code>イメージをDocker Hubへ<code>zakihmkc/awx-ee:0.6.0</code>として<code>push</code>する。<br />
+このとき、<code>zakihmkc/awx-ee:0.6.0</code>が既にローカルにある場合はtagの上書きが発生しないため、pushされない。ここでpushしたい場合は、tag設定を上書きする<code>force_tag: true</code>も追加する。</p>
                 
               
               

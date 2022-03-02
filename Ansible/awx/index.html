@@ -1,0 +1,1830 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="zaki">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>AWX - 戯術memo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-199279483-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="pink">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#awx" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="戯術memo" class="md-header__button md-logo" aria-label="戯術memo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            戯術memo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AWX
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/zaki-lknr/docs/" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      戯術memo
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Ansible
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Docker/" class="md-tabs__link">
+        Docker
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Git/" class="md-tabs__link">
+        Git
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Kubernetes/" class="md-tabs__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Tools/googledrive/" class="md-tabs__link">
+        Tools
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lang/powershell/" class="md-tabs__link">
+        Lang
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="戯術memo" class="md-nav__button md-logo" aria-label="戯術memo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    戯術memo
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/zaki-lknr/docs/" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        戯術memo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Ansible
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Ansible" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Ansible
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        基本・ネタ帳
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          AWX
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        AWX
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arm64" class="md-nav__link">
+    arm64版ビルド
+  </a>
+  
+    <nav class="md-nav" aria-label="arm64版ビルド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awx-operator" class="md-nav__link">
+    awx-operator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awx_1" class="md-nav__link">
+    awx
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awx-ee" class="md-nav__link">
+    awx-ee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ansible-runner" class="md-nav__link">
+    ansible-runner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-base" class="md-nav__link">
+    python-base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-builder" class="md-nav__link">
+    python-builder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ansible-builder" class="md-nav__link">
+    ansible-builder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receptor" class="md-nav__link">
+    receptor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directives/" class="md-nav__link">
+        ディレクティブ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filter/" class="md-nav__link">
+        フィルタ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        インストール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventory/" class="md-nav__link">
+        インベントリ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jinja2/" class="md-nav__link">
+        Jinja2テンプレート
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lint/" class="md-nav__link">
+        Ansible Lint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lookup/" class="md-nav__link">
+        Lookupプラグイン
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module/" class="md-nav__link">
+        モジュール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../playbook/" class="md-nav__link">
+        プレイブック
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../role/" class="md-nav__link">
+        Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tower/" class="md-nav__link">
+        Ansible Tower
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variable/" class="md-nav__link">
+        変数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Docker
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/" class="md-nav__link">
+        基本・ネタ帳
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/install/" class="md-nav__link">
+        インストール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/proxy/" class="md-nav__link">
+        proxy設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/tcp_listen/" class="md-nav__link">
+        リモートからのTCP接続
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/" class="md-nav__link">
+        Git基本操作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/configure/" class="md-nav__link">
+        Git設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/trouble/" class="md-nav__link">
+        やらかしたとき
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Kubernetes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/k3s/" class="md-nav__link">
+        K3s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/kind/" class="md-nav__link">
+        kind
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/kubectl/" class="md-nav__link">
+        kubectl
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Linux
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/cert/" class="md-nav__link">
+        証明書
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/command/" class="md-nav__link">
+        コマンドメモ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/disk/" class="md-nav__link">
+        ディスク
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/kvm/" class="md-nav__link">
+        KVM
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/openssl/" class="md-nav__link">
+        openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/package/" class="md-nav__link">
+        パッケージ操作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/rhel/" class="md-nav__link">
+        RHEL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/selinux/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/ssh/" class="md-nav__link">
+        ssh関連
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/wsl/" class="md-nav__link">
+        WSL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/googledrive/" class="md-nav__link">
+        Google Drive
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/mkdocs/" class="md-nav__link">
+        MkDocs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/msedge/" class="md-nav__link">
+        Microsoft Edge Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/openssl/" class="md-nav__link">
+        openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/vscode/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Lang
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Lang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Lang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/powershell/" class="md-nav__link">
+        PowerShell
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/yaml/" class="md-nav__link">
+        YAML
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arm64" class="md-nav__link">
+    arm64版ビルド
+  </a>
+  
+    <nav class="md-nav" aria-label="arm64版ビルド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awx-operator" class="md-nav__link">
+    awx-operator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awx_1" class="md-nav__link">
+    awx
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awx-ee" class="md-nav__link">
+    awx-ee
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ansible-runner" class="md-nav__link">
+    ansible-runner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-base" class="md-nav__link">
+    python-base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-builder" class="md-nav__link">
+    python-builder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ansible-builder" class="md-nav__link">
+    ansible-builder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receptor" class="md-nav__link">
+    receptor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Ansible/awx.md" title="編集" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="awx">AWX</h1>
+<h2 id="arm64">arm64版ビルド</h2>
+<p>arm64版はイメージが公開されてないのでビルドする必要がある。<br />
+2022.02.15時点の内容。2.16にAWX 2.0.0がリリースされてる。</p>
+<h3 id="awx-operator">awx-operator</h3>
+<p>0.16.1 (devel)で実施</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make docker-build <span style="color: #B8860B">IMAGE_TAG_BASE</span><span style="color: #666666">=</span>zakihmkc/awx-operator <span style="color: #B8860B">VERSION</span><span style="color: #666666">=0</span>.16.1-arm
+</code></pre></div>
+
+<p>これでビルドされるイメージ名は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">Step 5/8 : RUN ansible-galaxy collection install -r ${HOME}/requirements.yml  &amp;&amp; chmod -R ug+rwx ${HOME}/.ansible</span>
+<span style="color: #888888"> ---&gt; Running in bb9cc8cc61ee</span>
+<span style="color: #888888">Process install dependency map</span>
+<span style="color: #888888">Starting collection install process</span>
+<span style="color: #888888">Installing &#39;kubernetes.core:1.2.1&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/kubernetes/core&#39;</span>
+<span style="color: #888888">Installing &#39;operator_sdk.util:0.2.0&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/operator_sdk/util&#39;</span>
+<span style="color: #888888">Removing intermediate container bb9cc8cc61ee</span>
+<span style="color: #888888"> ---&gt; 7346f9bc9f4e</span>
+<span style="color: #888888">Step 6/8 : COPY watches.yaml ${HOME}/watches.yaml</span>
+<span style="color: #888888"> ---&gt; fdba769a7d2f</span>
+<span style="color: #888888">Step 7/8 : COPY roles/ ${HOME}/roles/</span>
+<span style="color: #888888"> ---&gt; 5326e818c7ed</span>
+<span style="color: #888888">Step 8/8 : COPY playbooks/ ${HOME}/playbooks/</span>
+<span style="color: #888888"> ---&gt; 28538a5f08b7</span>
+<span style="color: #888888">Successfully built 28538a5f08b7</span>
+<span style="color: #888888">Successfully tagged zakihmkc/awx-operator:0.16.1-arm</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls zakihmkc/awx-operator
+<span style="color: #888888">REPOSITORY              TAG          IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888888">zakihmkc/awx-operator   0.16.1-arm   28538a5f08b7   45 seconds ago   516MB</span>
+</code></pre></div>
+
+<p>イメージができたら<code>push</code>する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make docker-push <span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
+</code></pre></div>
+
+<p>ビルドしたカスタムイメージをデプロイするには</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make deploy <span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
+</code></pre></div>
+
+<h3 id="awx_1">awx</h3>
+<p>19.5.1で実施。</p>
+<p>Makefileあるけど使い方がよくわからなかった。
+tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">cd</span> tools/ansible/
+<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook build.yml
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker images ansible/awx
+<span style="color: #888888">REPOSITORY    TAG             IMAGE ID       CREATED         SIZE</span>
+<span style="color: #888888">ansible/awx   19.5.2.dev117   5c0f58543bbc   5 minutes ago   696MB</span>
+</code></pre></div>
+
+<p>ビルドできたらpush</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker tag ansible/awx:19.5.2.dev117 zakihmkc/awx:19.5.2.dev117-arm
+<span style="color: #000080; font-weight: bold">$ </span>docker push zakihmkc/awx:19.5.2.dev117-arm
+</code></pre></div>
+
+<p>この状態でデプロイすると、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat awx-demo.yml 
+<span style="color: #888888">---</span>
+<span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
+<span style="color: #888888">kind: AWX</span>
+<span style="color: #888888">metadata:</span>
+<span style="color: #888888">  name: awx-demo</span>
+<span style="color: #888888">spec:</span>
+<span style="color: #888888">  service_type: nodeport</span>
+<span style="color: #888888">  image: zakihmkc/awx</span>
+<span style="color: #888888">  image_version: 19.5.2.dev117-arm</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl apply -f awx-demo.yml -n awx
+<span style="color: #888888">awx.awx.ansible.com/awx-demo created</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl get pod -n awx 
+<span style="color: #888888">NAME                                             READY   STATUS    RESTARTS      AGE</span>
+<span style="color: #888888">awx-operator-controller-manager-59584d6d-cfvcw   2/2     Running   0             60m</span>
+<span style="color: #888888">awx-demo-postgres-0                              1/1     Running   0             83s</span>
+<span style="color: #888888">awx-demo-64b6ddfbb5-td57c                        3/4     Error     3 (30s ago)   73s</span>
+</code></pre></div>
+
+<p>あー、、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(awx-build)</span> <span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~/src/awx-operator$ </span>kubectl logs -n awx awx-demo-64b6ddfbb5-td57c -c awx-demo-ee
+<span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
+</code></pre></div>
+
+<p>このイメージもarm版必要だった。</p>
+<p>awx-eeもarm版をbuild&amp;pushして…</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat awx-demo.yml 
+<span style="color: #888888">---</span>
+<span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
+<span style="color: #888888">kind: AWX</span>
+<span style="color: #888888">metadata:</span>
+<span style="color: #888888">  name: awx-demo</span>
+<span style="color: #888888">spec:</span>
+<span style="color: #888888">  service_type: nodeport</span>
+<span style="color: #888888">  image: zakihmkc/awx</span>
+<span style="color: #888888">  image_version: 19.5.2.dev117-arm</span>
+<span style="color: #888888">  ee_images:</span>
+<span style="color: #888888">    - name: awx-demo-ee</span>
+<span style="color: #888888">      image: zakihmkc/awx-ee</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl apply -f awx-demo.yml -n awx
+<span style="color: #888888">awx.awx.ansible.com/awx-demo created</span>
+</code></pre></div>
+
+<p>反映されない。。
+<code>ee_images</code>の設定方法わからず。。
+ドキュメントよく見ると、すぐ近くに<code>control_plane_ee_image</code>について書かれている。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat awx-demo.yml 
+<span style="color: #888888">---</span>
+<span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
+<span style="color: #888888">kind: AWX</span>
+<span style="color: #888888">metadata:</span>
+<span style="color: #888888">  name: awx-demo</span>
+<span style="color: #888888">spec:</span>
+<span style="color: #888888">  service_type: nodeport</span>
+<span style="color: #888888">  image: zakihmkc/awx</span>
+<span style="color: #888888">  image_version: 19.5.2.dev117-arm</span>
+<span style="color: #888888">  ee_images:</span>
+<span style="color: #888888">    - name: awx-ee-arm64</span>
+<span style="color: #888888">      image: zakihmkc/awx-ee</span>
+<span style="color: #888888">  control_plane_ee_image: zakihmkc/awx-ee</span>
+</code></pre></div>
+
+<p>これでarm用にビルドしたイメージをpullできた。<br />
+が…</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl logs -n awx awx-demo-5888cdc5cc-dtqtt -c awx-demo-ee
+<span style="color: #888888">/usr/bin/receptor: /usr/bin/receptor: cannot execute binary file</span>
+</code></pre></div>
+
+<p>中で使ってる実行バイナリがarmじゃない？</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker run -it --rm zakihmkc/awx-ee cat /usr/bin/receptor | file -
+<span style="color: #888888">/dev/stdin: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, Go BuildID=dzUF3PWwMDDpxbzJG4PA/ROcMoX3MTms06DLSdROU/2q0gqTdR4VkvLhOjbFwW/_sKtclM7e0bA3VOTpJ50, not stripped</span>
+</code></pre></div>
+
+<p>あぁ、、なるほど…<br />
+ビルドログを見返すと、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Step 21/26 : COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor</span>
+<span style="color: #888888">devel: Pulling from ansible/receptor</span>
+</code></pre></div>
+
+<p>ってのが出力されてた。</p>
+<h3 id="awx-ee">awx-ee</h3>
+<p>0.6.0で実施</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip install tox
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tox -edocker
+</code></pre></div>
+
+<p>エラーになった。ベースイメージがこれもamd64しかないっぽい。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Digest: sha256:67164fe74446b5cc40f7ff48d69c2cf5a09d234103982a870e8dd90f0cce4fcf</span>
+<span style="color: #888888">Status: Downloaded newer image for quay.io/ansible/ansible-runner:latest</span>
+<span style="color: #888888"> ---&gt; fe0ebe0eae7f</span>
+<span style="color: #888888">Step 4/26 : ARG ANSIBLE_GALAXY_CLI_COLLECTION_OPTS=</span>
+<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888888"> ---&gt; Running in ddcc58ce4a3e</span>
+<span style="color: #888888">Removing intermediate container ddcc58ce4a3e</span>
+<span style="color: #888888"> ---&gt; 29bdd8b42c78</span>
+<span style="color: #888888">Step 5/26 : USER root</span>
+<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888888"> ---&gt; Running in ec96ecc53899</span>
+<span style="color: #888888">Removing intermediate container ec96ecc53899</span>
+<span style="color: #888888"> ---&gt; 047557a18fd9</span>
+<span style="color: #888888">Step 6/26 : ADD _build /build</span>
+<span style="color: #888888"> ---&gt; 4aae6069de8c</span>
+<span style="color: #888888">Step 7/26 : WORKDIR /build</span>
+<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888888"> ---&gt; Running in 84bc2b6aa898</span>
+<span style="color: #888888">Removing intermediate container 84bc2b6aa898</span>
+<span style="color: #888888"> ---&gt; 96ca9bbcffce</span>
+<span style="color: #888888">Step 8/26 : RUN ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles</span>
+<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888888"> ---&gt; Running in 52ab0ab8b6c9</span>
+<span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
+<span style="color: #888888">The command &#39;/bin/sh -c ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles&#39; returned a non-zero code: 1</span>
+
+<span style="color: #888888">An error occured (rc=1), see output line(s) above for details.</span>
+<span style="color: #888888">ERROR: InvocationError for command /home/ubuntu/src/awx-ee/.tox/docker/bin/ansible-builder build -v3 -c . -t quay.io/ansible/awx-ee --container-runtime=docker (exited with code 1)</span>
+</code></pre></div>
+
+<p>runnerもbuilderもarm版が必要っぽいな</p>
+<p>runnerとbuilderを用意するとビルド成功。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Removing intermediate container dcdffc16d888</span>
+<span style="color: #888888"> ---&gt; 5b60adcb5b7b</span>
+<span style="color: #888888">Successfully built 5b60adcb5b7b</span>
+<span style="color: #888888">Successfully tagged quay.io/ansible/awx-ee:latest</span>
+
+<span style="color: #888888">Complete! The build context can be found at: /home/ubuntu/src/awx/awx-ee</span>
+<span style="color: #888888">______________________________________________________ summary _______________________________________________________</span>
+<span style="color: #888888">  docker: commands succeeded</span>
+<span style="color: #888888">  congratulations :)</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/awx-ee
+<span style="color: #888888">REPOSITORY               TAG       IMAGE ID       CREATED         SIZE</span>
+<span style="color: #888888">quay.io/ansible/awx-ee   latest    5b60adcb5b7b   5 minutes ago   1.58GB</span>
+</code></pre></div>
+
+<p>あ、イメージ名…</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker tag quay.io/ansible/awx-ee:latest zakihmkc/awx-ee:latest
+<span style="color: #000080; font-weight: bold">$ </span>docker push zakihmkc/awx-ee:latest
+</code></pre></div>
+
+<h3 id="ansible-runner">ansible-runner</h3>
+<p>develブランチで実施</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make image
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Status: Downloaded newer image for quay.io/ansible/python-builder:latest</span>
+<span style="color: #888888"> ---&gt; e86f8912b919</span>
+<span style="color: #888888">Step 6/21 : ARG ANSIBLE_BRANCH</span>
+<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888888"> ---&gt; Running in 4efe4c1dbf0d</span>
+<span style="color: #888888">Removing intermediate container 4efe4c1dbf0d</span>
+<span style="color: #888888"> ---&gt; b29ee85f97c3</span>
+<span style="color: #888888">Step 7/21 : ARG ZUUL_SIBLINGS</span>
+<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888888"> ---&gt; Running in e3770bf07693</span>
+<span style="color: #888888">Removing intermediate container e3770bf07693</span>
+<span style="color: #888888"> ---&gt; 3bc46246a2c3</span>
+<span style="color: #888888">Step 8/21 : COPY . /tmp/src</span>
+<span style="color: #888888"> ---&gt; 5c8193d3adec</span>
+<span style="color: #888888">Step 9/21 : RUN if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt</span>
+<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888888"> ---&gt; Running in a3b89d0a4b54</span>
+<span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
+<span style="color: #888888">The command &#39;/bin/sh -c if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt&#39; returned a non-zero code: 1</span>
+<span style="color: #888888">make: *** [Makefile:95: image] Error 1</span>
+</code></pre></div>
+
+<p>これまたベースやビルドに使う <code>quay.io/ansible/python-base:latest</code> と <code>quay.io/ansible/python-builder:latest</code> がamd64向けっぽい。</p>
+<p>後述の<code>python-base</code>と<code>python-builder</code>を↑のイメージ名でビルドして再実行すればOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Step 20/21 : ENTRYPOINT [&quot;entrypoint&quot;]</span>
+<span style="color: #888888"> ---&gt; Running in efe6471171c6</span>
+<span style="color: #888888">Removing intermediate container efe6471171c6</span>
+<span style="color: #888888"> ---&gt; 8b899620e92f</span>
+<span style="color: #888888">Step 21/21 : CMD [&quot;ansible-runner&quot;, &quot;run&quot;, &quot;/runner&quot;]</span>
+<span style="color: #888888"> ---&gt; Running in 5486cf162432</span>
+<span style="color: #888888">Removing intermediate container 5486cf162432</span>
+<span style="color: #888888"> ---&gt; 7db86ada250a</span>
+<span style="color: #888888">Successfully built 7db86ada250a</span>
+<span style="color: #888888">Successfully tagged quay.io/ansible/ansible-runner:latest</span>
+<span style="color: #888888">docker tag quay.io/ansible/ansible-runner quay.io/ansible/ansible-runner:devel</span>
+</code></pre></div>
+
+<h3 id="python-base">python-base</h3>
+<p>mainブランチで実施</p>
+<p><a href="https://github.com/ansible/python-base-image">ansible/python-base-image: A container image for running python projects</a></p>
+<p>ビルド用のMakefileの類はなにも無し。<br />
+<code>Containerfile</code>あるので、これで<code>docker build</code>した。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker build -f Containerfile -t quay.io/ansible/python-base .
+</code></pre></div>
+
+<p>これはうまく行った。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">Step 16/17 : RUN rm -rf $REMOTE_SOURCE_DIR</span>
+<span style="color: #888888"> ---&gt; Running in e45372606b30</span>
+<span style="color: #888888">Removing intermediate container e45372606b30</span>
+<span style="color: #888888"> ---&gt; 1fc6e4db77c4</span>
+<span style="color: #888888">Step 17/17 : ENTRYPOINT [&quot;/usr/local/bin/dumb-init&quot;, &quot;--&quot;]</span>
+<span style="color: #888888"> ---&gt; Running in e711f13da032</span>
+<span style="color: #888888">Removing intermediate container e711f13da032</span>
+<span style="color: #888888"> ---&gt; 84c14ff10f30</span>
+<span style="color: #888888">Successfully built 84c14ff10f30</span>
+<span style="color: #888888">Successfully tagged quay.io/ansible/python-base:latest</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/python-base
+<span style="color: #888888">REPOSITORY                    TAG       IMAGE ID       CREATED              SIZE</span>
+<span style="color: #888888">quay.io/ansible/python-base   latest    84c14ff10f30   About a minute ago   768MB</span>
+</code></pre></div>
+
+<h3 id="python-builder">python-builder</h3>
+<p>mainブランチで実施</p>
+<p><a href="https://github.com/ansible/python-builder-image">ansible/python-builder-image: A container image for building python projects</a></p>
+<p>これも特にビルド用のツール無し。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker build -f Containerfile -t quay.io/ansible/python-builder:latest .
+</code></pre></div>
+
+<p>これもうまくいった。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">Step 18/19 : WORKDIR /</span>
+<span style="color: #888888"> ---&gt; Running in 561b64ed5ff6</span>
+<span style="color: #888888">Removing intermediate container 561b64ed5ff6</span>
+<span style="color: #888888"> ---&gt; 756c2f3aab76</span>
+<span style="color: #888888">Step 19/19 : RUN rm -rf $REMOTE_SOURCE_APP_DIR</span>
+<span style="color: #888888"> ---&gt; Running in 0315f4ab8cbc</span>
+<span style="color: #888888">Removing intermediate container 0315f4ab8cbc</span>
+<span style="color: #888888"> ---&gt; c832710ee7dd</span>
+<span style="color: #888888">Successfully built c832710ee7dd</span>
+<span style="color: #888888">Successfully tagged quay.io/ansible/python-builder:latest</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/python-builder
+<span style="color: #888888">REPOSITORY                       TAG       IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888888">quay.io/ansible/python-builder   latest    c832710ee7dd   51 seconds ago   854MB</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/ansible-runner
+<span style="color: #888888">REPOSITORY                       TAG       IMAGE ID       CREATED              SIZE</span>
+<span style="color: #888888">quay.io/ansible/ansible-runner   devel     7db86ada250a   About a minute ago   962MB</span>
+<span style="color: #888888">quay.io/ansible/ansible-runner   latest    7db86ada250a   About a minute ago   962MB</span>
+</code></pre></div>
+
+<h3 id="ansible-builder">ansible-builder</h3>
+<p>release_1.0で実施</p>
+<p><a href="https://github.com/ansible/ansible-builder">ansible/ansible-builder: An Ansible execution environment builder</a></p>
+<p>これもrunnerと同じく、<code>Makefile</code>に<code>image</code>ターゲットがあるのでこれを実行。
+ビルド中のログを見るとpython-baseとpython-builderに依存している。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make image
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/ansible-builder
+<span style="color: #888888">REPOSITORY                        TAG                   IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888888">quay.io/ansible/ansible-builder   1.0.0a2-99-g38a0104   e0d5adabb6c3   46 seconds ago   858MB</span>
+<span style="color: #888888">quay.io/ansible/ansible-builder   latest                e0d5adabb6c3   46 seconds ago   858MB</span>
+</code></pre></div>
+
+<h3 id="receptor">receptor</h3>
+<p>1.0.0a2ブランチで実施</p>
+<p><a href="https://github.com/ansible/receptor">ansible/receptor: Project Receptor is a flexible multi-service relayer with remote execution and orchestration capabilities linking controllers with executors across a mesh of nodes.</a></p>
+<p>デフォルトは<code>podman</code>を使うみたいなので<code>docker</code>を指定して実行。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make container <span style="color: #B8860B">CONTAINERCMD</span><span style="color: #666666">=</span>docker
+</code></pre></div>
+
+<p>エラーになった。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
+<span style="color: #888888">error in setup command: Error parsing /source/receptorctl/setup.cfg: Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
+<span style="color: #888888">make: git: Command not found</span>
+</code></pre></div>
+
+<p>んー、develのままだったのが悪かったかな。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git switch release_1.1 
+<span style="color: #888888">Switched to branch &#39;release_1.1&#39;</span>
+<span style="color: #888888">Your branch is up to date with &#39;origin/release_1.1&#39;.</span>
+</code></pre></div>
+
+<p>でも、別のエラーが出る。。よくわからん。<br />
+ディレクトリ掘ったら<code>packaging/container/Dockerfile</code>があった…が、このファイルは<code>make</code>でビルドするときに使われるのと一緒だ。。</p>
+<p>ビルドのログをよくみると</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Step 3/25 : RUN curl -LO https://go.dev/dl/go1.16.13.linux-amd64.tar.gz</span>
+<span style="color: #888888"> ---&gt; Using cache</span>
+<span style="color: #888888"> ---&gt; b1bf06de576f</span>
+<span style="color: #888888">Step 4/25 : RUN tar -C /usr/local -xzf go1.16.13.linux-amd64.tar.gz</span>
+<span style="color: #888888"> ---&gt; Using cache</span>
+<span style="color: #888888"> ---&gt; 7b134322bd9b</span>
+</code></pre></div>
+
+<p>みたいなのあった。これか。<br />
+以下変更</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">$ git diff</span>
+<span style="color: #000080; font-weight: bold">diff --git a/packaging/container/Dockerfile b/packaging/container/Dockerfile</span><span style="color: #bbbbbb"></span>
+<span style="color: #000080; font-weight: bold">index ead007a..1fc7416 100644</span><span style="color: #bbbbbb"></span>
+<span style="color: #A00000">--- a/packaging/container/Dockerfile</span><span style="color: #bbbbbb"></span>
+<span style="color: #00A000">+++ b/packaging/container/Dockerfile</span><span style="color: #bbbbbb"></span>
+<span style="color: #800080; font-weight: bold">@@ -2,9 +2,9 @@ FROM quay.io/centos/centos:stream8 as builder</span><span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb"> </span>RUN dnf -y update &amp;&amp; dnf install -y make python3 python3-pip python3-wheel<span style="color: #bbbbbb"></span>
+
+<span style="color: #A00000">-RUN curl -LO https://go.dev/dl/go1.16.13.linux-amd64.tar.gz</span><span style="color: #bbbbbb"></span>
+<span style="color: #00A000">+RUN curl -LO https://go.dev/dl/go1.16.13.linux-arm64.tar.gz</span><span style="color: #bbbbbb"></span>
+
+<span style="color: #A00000">-RUN tar -C /usr/local -xzf go1.16.13.linux-amd64.tar.gz</span><span style="color: #bbbbbb"></span>
+<span style="color: #00A000">+RUN tar -C /usr/local -xzf go1.16.13.linux-arm64.tar.gz</span><span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb"> </span>ADD source.tar.gz /source<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>WORKDIR /source<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>これでビルド。同じエラーはでたが処理は続行した。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">Step 24/25 : ENTRYPOINT [&quot;/usr/bin/tini&quot;, &quot;--&quot;]</span>
+<span style="color: #888888"> ---&gt; Running in c19287787c6c</span>
+<span style="color: #888888">Removing intermediate container c19287787c6c</span>
+<span style="color: #888888"> ---&gt; d90dae43fbbf</span>
+<span style="color: #888888">Step 25/25 : CMD [&quot;/usr/bin/receptor&quot;, &quot;-c&quot;, &quot;/etc/receptor/receptor.conf&quot;]</span>
+<span style="color: #888888"> ---&gt; Running in e8debaee8c0c</span>
+<span style="color: #888888">Removing intermediate container e8debaee8c0c</span>
+<span style="color: #888888"> ---&gt; 376efbc54f61</span>
+<span style="color: #888888">Successfully built 376efbc54f61</span>
+<span style="color: #888888">Successfully tagged receptor:latest</span>
+</code></pre></div>
+
+<p>あ、イメージ名…</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls receptor
+<span style="color: #888888">REPOSITORY   TAG       IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888888">receptor     latest    376efbc54f61   51 seconds ago   777MB</span>
+</code></pre></div>
+
+<p>とりあえずセット</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker tag receptor:latest quay.io/ansible/receptor:devel
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              基本・ネタ帳
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../config/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              設定
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2021 zaki
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+    
+  </body>
+</html>
