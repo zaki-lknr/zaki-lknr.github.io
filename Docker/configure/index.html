@@ -16,7 +16,7 @@
     
     
       
-        <title>proxy設定 - 戯術memo</title>
+        <title>設定 - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#proxy" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              proxy設定
+              設定
             
           </span>
         </div>
@@ -600,18 +600,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
-        インストール
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -624,12 +612,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          proxy設定
+          設定
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        proxy設定
+        設定
       </a>
       
         
@@ -647,8 +635,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy設定
+  </a>
+  
+    <nav class="md-nav" aria-label="proxy設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#docker-engineproxy" class="md-nav__link">
     Docker Engineのproxy設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    リモートからのTCP接続
   </a>
   
 </li>
@@ -666,8 +681,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../tcp_listen/" class="md-nav__link">
-        リモートからのTCP接続
+      <a href="../install/" class="md-nav__link">
+        インストール
       </a>
     </li>
   
@@ -1203,8 +1218,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy設定
+  </a>
+  
+    <nav class="md-nav" aria-label="proxy設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#docker-engineproxy" class="md-nav__link">
     Docker Engineのproxy設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    リモートからのTCP接続
   </a>
   
 </li>
@@ -1221,13 +1263,21 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Docker/proxy.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Docker/configure.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="proxy">proxy設定</h1>
-<h2 id="docker-engineproxy">Docker Engineのproxy設定</h2>
+                <h1 id="_1">設定</h1>
+<h2 id="dns">DNS</h2>
+<p>コンテナ内で使用するDNS設定を指定するには、<code>--dns</code>を指定するか、ホストの<code>/etc/docker/daemon.json</code>で一律指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;dns&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;8.8.8.8&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;8.8.4.4&quot;</span>]<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<h2 id="proxy">proxy設定</h2>
+<h3 id="docker-engineproxy">Docker Engineのproxy設定</h3>
 <p><a href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">HTTP/HTTPS proxy</a></p>
 <p>systemdのユニットファイルの設定に変数設定する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo mkdir -p /etc/systemd/system/docker.service.d
@@ -1240,6 +1290,22 @@
 </code></pre></div>
 
 <p>これでproxy環境下にあるホストノード上で<code>docker pull</code>などできる。</p>
+<h2 id="tcp">リモートからのTCP接続</h2>
+<p>/lib/systemd/system/docker.service</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A00000">--- /lib/systemd/system/_docker.service 2021-04-10 07:46:42.000000000 +0900</span><span style="color: #bbbbbb"></span>
+<span style="color: #00A000">+++ /lib/systemd/system/docker.service  2021-08-10 09:39:32.451408694 +0900</span><span style="color: #bbbbbb"></span>
+<span style="color: #800080; font-weight: bold">@@ -10,7 +10,7 @@</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span># the default is not to use systemd for cgroups because the delegate issues still<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span># exists and systemd currently does not support the cgroup feature set required<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span># for containers run by docker<span style="color: #bbbbbb"></span>
+<span style="color: #A00000">-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span><span style="color: #bbbbbb"></span>
+<span style="color: #00A000">+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0 --containerd=/run/containerd/containerd.sock</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>ExecReload=/bin/kill -s HUP $MAINPID<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>TimeoutSec=0<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>RestartSec=2<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>これで2375/TCPでListenする。</p>
                 
               
               
@@ -1258,7 +1324,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../install/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1267,19 +1333,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              インストール
+              基本・ネタ帳
             </div>
           </div>
         </a>
       
       
-        <a href="../tcp_listen/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../install/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              リモートからのTCP接続
+              インストール
             </div>
           </div>
           <div class="md-footer__button md-icon">

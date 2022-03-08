@@ -644,8 +644,28 @@
       
         <li class="md-nav__item">
   <a href="#meta" class="md-nav__link">
-    metaで再接続
+    meta
   </a>
+  
+    <nav class="md-nav" aria-label="meta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    再接続
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#play" class="md-nav__link">
+    playの終了
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -772,32 +792,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Docker/configure/" class="md-nav__link">
+        設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Docker/install/" class="md-nav__link">
         インストール
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Docker/proxy/" class="md-nav__link">
-        proxy設定
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Docker/tcp_listen/" class="md-nav__link">
-        リモートからのTCP接続
       </a>
     </li>
   
@@ -1444,8 +1452,28 @@
       
         <li class="md-nav__item">
   <a href="#meta" class="md-nav__link">
-    metaで再接続
+    meta
   </a>
+  
+    <nav class="md-nav" aria-label="meta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    再接続
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#play" class="md-nav__link">
+    playの終了
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1748,7 +1776,8 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 </code></pre></div>
 
 <p>ターゲットファイル作成済みで<code>make</code>が何も処理しない場合は、実行ステータスは<code>ok</code>となる。</p>
-<h2 id="meta">metaで再接続</h2>
+<h2 id="meta">meta</h2>
+<h3 id="_5">再接続</h3>
 <p>たとえば、OSユーザーのグループを更新した場合、通常であればログインし直さなければ変更が反映されない。<br />
 Ansibleも同様で、タスクでグループの更新を行っても、後続のタスクは接続が維持されているため、更新されたグループの状態でタスクが実行されない。<br />
 この場合、<a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/meta_module.html">metaモジュール</a>の<code>reset_connection</code>を使って再接続を行い、変更を反映して後続のタスクを実行できる。</p>
@@ -1760,6 +1789,43 @@ Ansibleも同様で、タスクでグループの更新を行っても、後続�
 
 <span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>変更したグループ前提のタスク<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">    </span>...<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<h3 id="play">playの終了</h3>
+<p>プログラムにおける<code>exit(0)</code>みたいなやつ。<br />
+任意のタイミングでplayを正常終了させることができる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task1<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task2<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>end play<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>end_play<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task3<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>このplaybookの内容でAnsible実行すると、以下の通りtask3は実行されずに終了する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">PLAY [localhost] ****************************************************************</span>
+
+<span style="color: #888888">TASK [task1] ********************************************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; </span>
+<span style="color: #888888">  msg: task1</span>
+
+<span style="color: #888888">TASK [task2] ********************************************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; </span>
+<span style="color: #888888">  msg: task2</span>
+
+<span style="color: #888888">TASK [end play] *****************************************************************</span>
+
+<span style="color: #888888">PLAY RECAP **********************************************************************</span>
+<span style="color: #888888">localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span>
 </code></pre></div>
 
 <h2 id="docker">Docker</h2>
