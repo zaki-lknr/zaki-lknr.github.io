@@ -493,6 +493,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#awx_2" class="md-nav__link">
+    AWXでジョブが実行できない件(調査中)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1321,6 +1328,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#awx_2" class="md-nav__link">
+    AWXでジョブが実行できない件(調査中)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1736,6 +1750,118 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p>とりあえずセット</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker tag receptor:latest quay.io/ansible/receptor:devel
 </code></pre></div>
+
+<h2 id="awx_2">AWXでジョブが実行できない件(調査中)</h2>
+<p>AWXで以下のエラーが出てるやつ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Traceback (most recent call last):</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 449, in run</span>
+<span style="color: #888888">    self.pre_run_hook(self.instance, private_data_dir)</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 979, in pre_run_hook</span>
+<span style="color: #888888">    RunProjectUpdate.make_local_copy(job.project, private_data_dir, scm_revision=job_revision)</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 1380, in make_local_copy</span>
+<span style="color: #888888">    source_branch = git_repo.create_head(tmp_branch_name, p.scm_revision)</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/repo/base.py&quot;, line 386, in create_head</span>
+<span style="color: #888888">    return Head.create(self, path, commit, force, logmsg)</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 543, in create</span>
+<span style="color: #888888">    return cls._create(repo, path, cls._resolve_ref_on_create, reference, force, logmsg)</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 510, in _create</span>
+<span style="color: #888888">    ref.set_reference(target, logmsg)</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 326, in set_reference</span>
+<span style="color: #888888">    assure_directory_exists(fpath, is_file=True)</span>
+<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/util.py&quot;, line 177, in assure_directory_exists</span>
+<span style="color: #888888">    os.makedirs(path, exist_ok=True)</span>
+<span style="color: #888888">  File &quot;/usr/lib64/python3.9/os.py&quot;, line 225, in makedirs</span>
+<span style="color: #888888">    mkdir(name, mode)</span>
+<span style="color: #888888">PermissionError: [Errno 13] Permission denied: &#39;/var/lib/awx/projects/_6__demo_project/.git/refs/heads/awx_internal&#39;</span>
+</code></pre></div>
+
+<p>オリジナルのamd64版、Dockerイメージのユーザー権限</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker run -it --rm quay.io/ansible/awx-ee:0.6.0 bash
+<span style="color: #888888">bash-4.4# id</span>
+<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-4.4# exit</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker run -it --rm quay.io/ansible/awx:20.0.0 bash
+<span style="color: #888888">bash-5.1$ id</span>
+<span style="color: #888888">uid=1000 gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-5.1$ </span>
+</code></pre></div>
+
+<p>arm64でビルドしたDockerイメージのユーザー権限</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker run -it --rm zakihmkc/awx-ee:0.6.0 bash
+<span style="color: #888888">bash-4.4# id</span>
+<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-4.4# exit</span>
+<span style="color: #888888">exit</span>
+<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker run -it --rm zakihmkc/awx:20.0.0 bash
+<span style="color: #888888">bash-5.1$ id</span>
+<span style="color: #888888">uid=1000 gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-5.1$ exit</span>
+<span style="color: #888888">exit</span>
+</code></pre></div>
+
+<p>Docker上だと同一。</p>
+<p>じゃあk8s上だと…
+amd64版はこれ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl  <span style="color: #AA22FF">exec</span> -it -n awx awx-demo-74d8979549-bszp6 -c awx-demo-ee -- bash 
+<span style="color: #888888">bash-4.4$ id</span>
+<span style="color: #888888">uid=1000(runner) gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-4.4$ exit</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl  <span style="color: #AA22FF">exec</span> -it -n awx awx-demo-74d8979549-bszp6 -c awx-demo-task -- bash
+<span style="color: #888888">bash-5.1$ id</span>
+<span style="color: #888888">uid=1000(awx) gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-5.1$ exit</span>
+<span style="color: #888888">exit</span>
+</code></pre></div>
+
+<p>arm64版。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl <span style="color: #AA22FF">exec</span> -n awx -it awx-demo-7847cd4bb-wd4w4 -c awx-demo-ee -- bash
+<span style="color: #888888">bash-4.4# id</span>
+<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-4.4# exit</span>
+<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl <span style="color: #AA22FF">exec</span> -n awx -it awx-demo-7847cd4bb-wd4w4 -c awx-demo-task -- bash
+<span style="color: #888888">bash-5.1$ id</span>
+<span style="color: #888888">uid=1000(awx) gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-5.1$ </span>
+<span style="color: #888888">exit</span>
+</code></pre></div>
+
+<p>eeの実行権限がここだけ<code>root</code>になっている。</p>
+<p>実行権限じゃなくて<code>/etc/passwd</code>かも。</p>
+<p>amd64のオリジナル版</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl  <span style="color: #AA22FF">exec</span> -it -n awx awx-demo-74d8979549-bszp6 -c awx-demo-ee -- bash
+<span style="color: #888888">bash-4.4$ id</span>
+<span style="color: #888888">uid=1000(runner) gid=0(root) groups=0(root)</span>
+<span style="color: #888888">bash-4.4$ cat /etc/passwd</span>
+<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888888">runner:x:1000:0:,,,:/home/runner:/bin/bash</span>
+</code></pre></div>
+
+<p>arm64向けにビルドした版</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~/tmp$ </span>kubectl <span style="color: #AA22FF">exec</span> -n awx -it awx-demo-84b4b75d85-9txt2 -c awx-demo-ee -- bash
+<span style="color: #888888">bash-4.4# cat /etc/passwd</span>
+<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
+<span style="color: #888888">bash-4.4# exit</span>
+</code></pre></div>
+
+<p>そもそも<code>runner</code>ユーザーのUIDがおかしい感じ。</p>
+<p>ベースイメージの<code>ansible-runner</code>は？</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker run -it --rm quay.io/ansible/ansible-runner:latest bash
+<span style="color: #888888">bash-4.4# cat /etc/passwd</span>
+<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
+<span style="color: #888888">bash-4.4# </span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~$ </span>docker run -it --rm quay.io/ansible/ansible-runner:latest bash
+<span style="color: #888888">bash-4.4# cat /etc/passwd</span>
+<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
+<span style="color: #888888">bash-4.4# exit</span>
+</code></pre></div>
+
+<p>この時点では同じ模様。
+てことはEEのビルド時に<code>/etc/passwd</code>を変更する何かが抜けてるのかな</p>
                 
               
               

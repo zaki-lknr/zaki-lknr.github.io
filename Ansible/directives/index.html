@@ -484,6 +484,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#include1" class="md-nav__link">
+    ループとinclude併用時にループに関係ないタスクを1回だけ実行することは…
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1336,6 +1343,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#include1" class="md-nav__link">
+    ループとinclude併用時にループに関係ないタスクを1回だけ実行することは…
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1588,6 +1602,22 @@
 </code></pre></div>
 
 <p>使用可能な変数はこちら→ <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#extended-loop-variables">Extended loop variables</a></p>
+<h3 id="include1">ループとinclude併用時にループに関係ないタスクを1回だけ実行することは…</h3>
+<p><code>run_once</code>使って出来ないか試したけど予想通り無効。<br />
+たぶん無理なので、そういうタスクはループの外で実装しましょう。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>include with loop<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">include_tasks</span>:<span style="color: #bbbbbb"> </span>dup-loop-included.yml<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">users</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>1回だけ実行したいタスク<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>zzz<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">run_once</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>このタスクは<code>users</code>の要素のループごとに当然毎回実行される。<br />
+ループ内で毎回実行される必要がないのであれば、includeの外で実行しましょう。</p>
 <h2 id="when">when</h2>
 <h3 id="int">条件がint型</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  <span style="color: #B8860B">tasks</span>:

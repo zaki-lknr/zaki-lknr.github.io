@@ -524,6 +524,26 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    パス処理
+  </a>
+  
+    <nav class="md-nav" aria-label="パス処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path_join" class="md-nav__link">
+    パスの合成 (path_join)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     暗号化パスワード
   </a>
   
@@ -551,14 +571,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     エンコード
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     デコード
   </a>
   
@@ -1363,6 +1383,26 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    パス処理
+  </a>
+  
+    <nav class="md-nav" aria-label="パス処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path_join" class="md-nav__link">
+    パスの合成 (path_join)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     暗号化パスワード
   </a>
   
@@ -1390,14 +1430,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     エンコード
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     デコード
   </a>
   
@@ -1438,8 +1478,9 @@
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">Using filters to manipulate data — Ansible Documentation</a></li>
 <li><a href="https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters">Template Designer Documentation — Jinja Documentation (3.1.x)</a></li>
 </ul>
-<p>コレクションによっては個別のドキュメントもある。</p>
+<p>項目やコレクションによっては個別のドキュメントもある。</p>
 <ul>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters_ipaddr.html">ipaddr filter — Ansible Documentation</a></li>
 <li><a href="https://docs.ansible.com/ansible/latest/collections/community/general/docsite/filter_guide.html">community.general Filter Guide — Ansible Documentation</a></li>
 </ul>
 <p>実装はこのあたり</p>
@@ -1630,7 +1671,27 @@
 </code></pre></div>
 
 <p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
-<h2 id="_6">暗号化パスワード</h2>
+<h2 id="_6">パス処理</h2>
+<h3 id="path_join">パスの合成 (path_join)</h3>
+<p><code>path_join</code>を使うと、リストの文字列をディレクトリセパレータで繋ぐ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create repository url<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">(registry_url,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">registry_username,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;awx&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">path_join</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">registry_username</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">zaki-lknr</span><span style="color: #bbbbbb"></span>
+<span style="color: #BB4444">registry_url</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">ghcr.io</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>という変数が設定されていれば、実行結果は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [create repository url] ************************************</span>
+<span style="color: #888888">ok: [oci-g-a1-ubuntu] =&gt; </span>
+<span style="color: #888888">  msg:</span>
+<span style="color: #888888">  - ghcr.io/zaki-lknr/awx</span>
+</code></pre></div>
+
+<h2 id="_7">暗号化パスワード</h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-generate-encrypted-passwords-for-the-user-module">How do I generate encrypted passwords for the user module?</a></li>
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#encrypting-and-checksumming-strings-and-passwords">Encrypting and checksumming strings and passwords</a></li>
@@ -1654,7 +1715,7 @@
 <li><a href="https://www.unknownengineer.net/entry/2017/08/16/184537">【CentOS】/etc/shadowのハッシュ化パスワードについて - よくわからないエンジニア</a></li>
 </ul>
 <h2 id="base64">base64</h2>
-<h3 id="_7">エンコード</h3>
+<h3 id="_8">エンコード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>base64 enc<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">sample_text</span>:<span style="color: #bbbbbb"> </span>zaki<span style="color: #bbbbbb"></span>
@@ -1667,7 +1728,7 @@
 <span style="color: #888888">  msg: emFraQ==</span>
 </code></pre></div>
 
-<h3 id="_8">デコード</h3>
+<h3 id="_9">デコード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>base64 dec<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">b64text</span>:<span style="color: #bbbbbb"> </span>emFraQ==<span style="color: #bbbbbb"></span>

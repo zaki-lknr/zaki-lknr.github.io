@@ -703,6 +703,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#github-container-registry" class="md-nav__link">
+    GitHub Container Registry
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1345,6 +1352,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#github-container-registry" class="md-nav__link">
+    GitHub Container Registry
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1437,6 +1451,19 @@
 <span style="color: #888888">CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                    PORTS                                   NAMES</span>
 <span style="color: #888888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
+
+<h2 id="github-container-registry">GitHub Container Registry</h2>
+<p>手順は以下。<br />
+<a href="https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-container-registry">コンテナレジストリの利用 - GitHub Docs</a></p>
+<p>認証に使用するパスワードは、個人用アクセストークンを作成する。<br />
+<a href="https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">個人アクセストークンを使用する - GitHub Docs</a></p>
+<p>GitHubのユーザー名と、入手したトークンをパスワードとして、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker login ghcr.io
+</code></pre></div>
+
+<p>すれば認証できる。</p>
+<p>あとは<code>ghcr.io/zaki-lknr/squid:5.0.4-alpine-3.13</code>とかの名前のタグをつければ<code>push</code>もできる。<br />
+pushされたイメージは、GitHubのweb画面の「Packages」で確認できる。デフォルトはprivate設定。</p>
                 
               
               
