@@ -1083,6 +1083,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    鍵形式の指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    鍵形式の変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ssh-copy-id" class="md-nav__link">
     ssh-copy-id
   </a>
@@ -1456,6 +1470,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    鍵形式の指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    鍵形式の変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ssh-copy-id" class="md-nav__link">
     ssh-copy-id
   </a>
@@ -1615,6 +1643,28 @@
 </code></pre></div>
 
 <p>STDOUTへ出力されるので、<code>&gt; id_rsa.pub</code>とかファイルへ出力すればOK</p>
+<h3 id="_12">鍵形式の指定</h3>
+<p>デフォルトでは以下で始まるOpenSSH形式で作成される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-----BEGIN OPENSSH PRIVATE KEY-----
+</code></pre></div>
+
+<p><code>-m</code>を使うと、形式を指定できる。<br />
+PEM形式であれば以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -m PEM
+</code></pre></div>
+
+<p>出力される鍵は以下で始まる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-----BEGIN RSA PRIVATE KEY-----
+</code></pre></div>
+
+<h3 id="_13">鍵形式の変更</h3>
+<p><code>-p</code>を使ったパスフレーズ更新の際に、<code>-m</code>で鍵形式を指定することで変換できる。<br />
+実行することで鍵ファイルが更新される。<br />
+PEM形式に変換するのであれば以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -p -m PEM -f ~/.ssh/id_rsa
+</code></pre></div>
+
+<p>デフォルトは<code>RFC4716</code>。OpenSSH形式にする場合は、<code>-m RFC4716</code>を指定すればOK</p>
 <h3 id="ssh-copy-id">ssh-copy-id</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-copy-id <span style="color: #666666">[</span>-i identity_file<span style="color: #666666">]</span> <span style="color: #666666">[</span>-p port<span style="color: #666666">]</span> <span style="color: #666666">[</span>username@<span style="color: #666666">]</span>hostname
 </code></pre></div>

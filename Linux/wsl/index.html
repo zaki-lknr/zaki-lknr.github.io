@@ -978,6 +978,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wsl_1" class="md-nav__link">
+    WSLバージョンの設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reboot" class="md-nav__link">
+    rebootする
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1211,6 +1225,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wsl_1" class="md-nav__link">
+    WSLバージョンの設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reboot" class="md-nav__link">
+    rebootする
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1248,6 +1276,34 @@
 
 <p>インストールが完了すると起動まで行われ、初期設定が開始される。<br />
 Ubuntuの場合、作成するアカウントの入力を行う。</p>
+<h2 id="wsl_1">WSLバージョンの設定</h2>
+<p>WSL 2に設定するには以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">wsl --set-version Ubuntu-20.04 2</span>
+</code></pre></div>
+
+<p>実行すると以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">PS C:\Users\h_miyazaki&gt; wsl --set-version Ubuntu-20.04 2</span>
+<span style="color: #888888">変換中です。この処理には数分かかることがあります...</span>
+<span style="color: #888888">WSL 2 との主な違いについては、https://aka.ms/wsl2 を参照してください</span>
+<span style="color: #888888">変換が完了しました。</span>
+</code></pre></div>
+
+<p>バージョンを確認するには以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">wsl -l -v</span>
+</code></pre></div>
+
+<h2 id="reboot">rebootする</h2>
+<p>WSLのターミナルで<code>reboot</code>実行しても以下エラーで実行できない。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@wensley:~$ </span>sudo reboot
+<span style="color: #888888">[sudo] password for zaki: </span>
+<span style="color: #888888">System has not been booted with systemd as init system (PID 1). Can&#39;t operate.</span>
+<span style="color: #888888">Failed to connect to bus: Host is down</span>
+<span style="color: #888888">Failed to talk to init daemon.</span>
+</code></pre></div>
+
+<p>再起動するには、ホストOSの<code>wsl</code>コマンドで実施する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">wsl --terminate Ubuntu-20.04</span>
+</code></pre></div>
                 
               
               

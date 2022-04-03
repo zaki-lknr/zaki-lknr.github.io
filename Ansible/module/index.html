@@ -575,6 +575,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    alternatives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     パッケージ
   </a>
@@ -1383,6 +1390,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    alternatives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     パッケージ
   </a>
@@ -1684,6 +1698,23 @@ ad-hocで実行する方が多いかも？</p>
 <p>ですべて完了する。</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/05/160946">制限ネットワーク環境のRHEL7でproxy経由でサブスクリプション登録とDockerインストール - zaki work log</a></p>
 <p>これでいうと<code>subscription-manager register</code>して<code>subscription-manager attach --pool=****</code>まで終わった状態になる。</p>
+<h2 id="alternatives">alternatives</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/collections/community/general/alternatives_module.html">community.general.alternatives – Manages alternative programs for common commands — Ansible Documentation</a></p>
+<p><code>community.general.alternatives</code>で<code>alternatives</code>コマンドを使ったコマンド切り替え設定を行う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>alternatives python<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.general.alternatives</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">link</span>:<span style="color: #bbbbbb"> </span>/usr/bin/python<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>/usr/bin/python3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">become</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>これで、<code>/usr/bin/python</code> -&gt; <code>/etc/alternatives/python</code> -&gt; <code>/usr/bin/python3</code>へのリンクが<code>python</code>という名前で登録される。<br />
+コマンドとしては以下と同等。<br />
+(<code>priority</code>はデフォルト50)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>update-alternatives --install /usr/bin/python python /usr/bin/python3 <span style="color: #666666">50</span>
+</code></pre></div>
+
 <h2 id="_2">パッケージ</h2>
 <h3 id="dnf">dnf</h3>
 <p>CentOS7(yum環境)に使える？ =&gt; NG</p>

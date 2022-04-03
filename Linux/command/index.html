@@ -1202,6 +1202,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    設定の登録
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1856,6 +1863,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    設定の登録
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2188,6 +2202,27 @@ libnssckbi.so.x86_64<span style="color: #bbbbbb">    </span>auto<span style="col
 soelim<span style="color: #bbbbbb">                  </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>bin<span style="color: #666666">/</span>soelim.groff<span style="color: #bbbbbb"></span>
 iptables<span style="color: #bbbbbb">                </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>sbin<span style="color: #666666">/</span>iptables<span style="color: #666666">-</span>nft<span style="color: #bbbbbb"></span>
 <span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<h3 id="_23">設定の登録</h3>
+<p><code>python</code>という名前で、<code>/usr/bin/python</code>を優先度10で登録する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 <span style="color: #666666">10</span>
+<span style="color: #888888">update-alternatives: using /usr/bin/python3 to provide /usr/bin/python (python) in auto mode</span>
+</code></pre></div>
+
+<p>これで、以下のリンクが作成される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ls -l /usr/bin/python /etc/alternatives/python 
+<span style="color: #888888">lrwxrwxrwx 1 root root 16 Mar 31 15:16 /etc/alternatives/python -&gt; /usr/bin/python3</span>
+<span style="color: #888888">lrwxrwxrwx 1 root root 24 Mar 31 15:16 /usr/bin/python -&gt; /etc/alternatives/python</span>
+</code></pre></div>
+
+<p>設定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>update-alternatives --display python
+<span style="color: #888888">python - auto mode</span>
+<span style="color: #888888">  link best version is /usr/bin/python3</span>
+<span style="color: #888888">  link currently points to /usr/bin/python3</span>
+<span style="color: #888888">  link python is /usr/bin/python</span>
+<span style="color: #888888">/usr/bin/python3 - priority 10</span>
 </code></pre></div>
                 
               
