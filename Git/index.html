@@ -751,6 +751,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#amend" class="md-nav__link">
+    amend
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1669,6 +1676,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#amend" class="md-nav__link">
+    amend
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2085,6 +2099,16 @@ $ git commit -m <span style="color: #BB4444">&quot;first commit&quot;</span>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git commit -m <span style="color: #BB4444">&quot;commit messages&quot;</span>
 </code></pre></div>
 
+<h3 id="amend">amend</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git commit --amend
+</code></pre></div>
+
+<p>直前のコミットに内容をあとから追加できる。<br />
+コミット漏れのファイルがあった場合などに1コミットにまとめられる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git commit --amend --no-edit
+</code></pre></div>
+
+<p><code>--no-edit</code>を付与すれば、コミットログは前と同じものを使用できる。</p>
 <h2 id="_3">マージ</h2>
 <h3 id="hogehoge">hogehogeブランチをマージする</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git merge hogehoge
