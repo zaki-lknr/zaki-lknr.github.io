@@ -631,6 +631,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+    <nav class="md-nav" aria-label="run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-p-publish" class="md-nav__link">
+    -p | --publish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-v" class="md-nav__link">
+    ボリューム (-v)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#save" class="md-nav__link">
     save
   </a>
@@ -1280,6 +1307,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    run
+  </a>
+  
+    <nav class="md-nav" aria-label="run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-p-publish" class="md-nav__link">
+    -p | --publish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-v" class="md-nav__link">
+    ボリューム (-v)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#save" class="md-nav__link">
     save
   </a>
@@ -1379,6 +1433,20 @@
                 <h1 id="_1">基本・ネタ帳</h1>
 <h2 id="docker">dockerコマンド</h2>
 <p><a href="https://qiita.com/zembutsu/items/6e1ad18f0d548ce6c266">docker container / image コマンド新旧比較 - Qiita</a></p>
+<h3 id="run">run</h3>
+<h4 id="-p-publish">-p | --publish</h4>
+<p><code>localでlistenするポート</code>:<code>コンテナに接続するポート</code>を指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">-p 8081:80</span>
+</code></pre></div>
+
+<p>これでホスト上は<code>8081</code>でListenして、その接続をコンテナの80へ転送する。</p>
+<h4 id="-v">ボリューム (-v)</h4>
+<p>ボリュームマウント</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker run --name httpd --rm -d -v webvolume:/var/tmp httpd
+</code></pre></div>
+
+<p><code>webvolume</code>ボリュームを(無ければ自動作成して)<code>/var/tmp</code>にマウントしてコンテナ起動。<br />
+コンテナを停止・削除してもボリュームは残るので、このボリュームを別コンテナでマウントすればデータを保持できる。</p>
 <h3 id="save">save</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker save imagename:tag &gt; imagename-tag.tar
 </code></pre></div>
