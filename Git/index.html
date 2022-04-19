@@ -1118,6 +1118,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    その他
+  </a>
+  
+    <nav class="md-nav" aria-label="その他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#head" class="md-nav__link">
+    HEAD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2043,6 +2063,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    その他
+  </a>
+  
+    <nav class="md-nav" aria-label="その他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#head" class="md-nav__link">
+    HEAD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2074,6 +2114,10 @@
 <h3 id="_1">出力先ディレクトリ指定</h3>
 <p><code>-l &lt;dirname&gt;</code>を付ける</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git clone -b &lt;branch-name&gt; &lt;repository-URL&gt; -l app-src-work
+</code></pre></div>
+
+<p>実は<code>-l</code>は無くてもよい。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git clone &lt;repository-url&gt; &lt;local-path&gt;
 </code></pre></div>
 
 <h2 id="_2">ローカルリポジトリ作成</h2>
@@ -2379,6 +2423,36 @@ M       docs/Ansible/directives.md
        <span style="color: #B8860B">even</span> <span style="color: #AA22FF; font-weight: bold">if</span> <span style="color: #B8860B">one</span> <span style="color: #B8860B">line</span> <span style="color: #B8860B">has</span> <span style="color: #B8860B">whitespace</span> <span style="color: #B8860B">where</span> <span style="color: #B8860B">the</span> <span style="color: #B8860B">other</span> <span style="color: #B8860B">line</span> <span style="color: #B8860B">has</span> <span style="color: #B8860B">none</span>.
 </code></pre></div>
 
+</blockquote>
+<h2 id="_30">その他</h2>
+<h3 id="head">HEAD</h3>
+<p>概略(語弊あるかも)</p>
+<ul>
+<li><code>HEAD</code> は最新(カレント)</li>
+<li><code>HEAD~</code> 1個前</li>
+<li><code>HEAD~1</code> 同上(1は省略可能)</li>
+<li><code>HEAD~2</code> 2個前</li>
+</ul>
+<p><code>git log</code>した時の、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ec33978 (HEAD -&gt; main) add: docker: ボリュームのリンク追加</span>
+<span style="color: #888888">bd9aa93 add: ansible/config: ansible.cfgサンプル</span>
+<span style="color: #888888">bc5eb56 add: git/configure: git-prompt設定後のPS1環境変数</span>
+<span style="color: #888888">:</span>
+</code></pre></div>
+
+<p>に対して、</p>
+<ul>
+<li><code>ec33978</code>が<code>HEAD</code></li>
+<li><code>bd9aa93</code>が<code>HEAD~</code></li>
+<li><code>bc5eb56</code>が<code>HEAD~2</code></li>
+</ul>
+<hr />
+<p><code>^</code>と<code>~</code>は基本は同じ。<br />
+<code>HEAD</code>の一つ前なら<code>HEAD^</code>または<code>HEAD~</code>、2つ前なら<code>HEAD^^</code>または<code>HEAD~2</code>になる。<br />
+ただし厳密には違うもので、<code>^</code>はブランチのマージで親が複数ある場合に使用する。</p>
+<blockquote>
+<p>コミットを指定するときに、~(チルダ)と^(キャレット)を使ってあるコミットからの相対位置で指定することもできます。この時に、よく使われるのがHEADです。~(チルダ)を後ろに付け加えることで何世代前の親かを指定することができます。^(キャレット)は、ブランチのマージで親が複数ある場合に、何番目の親かを指定することができます。</p>
+<p><a href="https://backlog.com/ja/git-tutorial/stepup/03/">ブランチの切り替え｜サル先生のGit入門【プロジェクト管理ツールBacklog】</a></p>
 </blockquote>
                 
               

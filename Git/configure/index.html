@@ -1449,6 +1449,12 @@ Host github.com
 <p>.bashrcへ以下追加</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span> -f ~/.git-prompt.sh <span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #AA22FF">source</span> ~/.git-prompt.sh
 </code></pre></div>
+
+<p>この状態で、<code>PS1</code>環境変数を設定する。<br />
+設定例</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># prompt</span>
+<span style="color: #B8860B">PS1</span><span style="color: #666666">=</span><span style="color: #BB4444">&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
+</code></pre></div>
                 
               
               

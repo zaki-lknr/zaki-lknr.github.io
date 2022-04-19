@@ -1334,6 +1334,17 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook ... -e <span style="color: #BB4444">&#39;{key: &quot;foo bar baz&quot;}&#39;</span>
 </code></pre></div>
 
+<p>変数ファイルを指定する場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">netbox_url</span>:<span style="color: #bbbbbb"> </span>http://netbox.example.org/<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">netbox_token</span>:<span style="color: #bbbbbb"> </span>hogehoge<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>こんなファイルを<code>netbox-vars.yml</code>として用意しておき、<code>ansible-playbook</code>実行時に</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook ... -e @/path/to/netbox-vars.yml
+</code></pre></div>
+
+<p>で、このファイルで定義した変数を実行時にextra varsとして参照できる。</p>
 <h3 id="-l-limit">-l | --limit</h3>
 <p>playbookの<code>hosts</code>で指定してあるホストグループの内、特定のホストだけに処理したい場合に使う。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook ... -l host1
