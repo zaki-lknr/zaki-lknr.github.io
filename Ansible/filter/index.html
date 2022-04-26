@@ -535,6 +535,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#combine" class="md-nav__link">
+    辞書のマージ(combine)
+  </a>
+  
+    <nav class="md-nav" aria-label="辞書のマージ(combine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list_merge" class="md-nav__link">
+    list_merge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     パス処理
   </a>
@@ -1394,6 +1414,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#combine" class="md-nav__link">
+    辞書のマージ(combine)
+  </a>
+  
+    <nav class="md-nav" aria-label="辞書のマージ(combine)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list_merge" class="md-nav__link">
+    list_merge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     パス処理
   </a>
@@ -1683,6 +1723,191 @@
 </code></pre></div>
 
 <p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
+<h2 id="combine">辞書のマージ(combine)</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>2つの辞書をマージする。<br />
+重複キーの無い辞書同士は単純合成になり、上のタスクの実行結果は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; {</span>
+<span style="color: #888888">    &quot;msg&quot;: {</span>
+<span style="color: #888888">        &quot;list1&quot;: [</span>
+<span style="color: #888888">            &quot;item1&quot;,</span>
+<span style="color: #888888">            &quot;item2&quot;</span>
+<span style="color: #888888">        ],</span>
+<span style="color: #888888">        &quot;list2&quot;: [</span>
+<span style="color: #888888">            &quot;itemA&quot;,</span>
+<span style="color: #888888">            &quot;itemB&quot;</span>
+<span style="color: #888888">        ]</span>
+<span style="color: #888888">    }</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+
+<p>同じキーを含む場合は上書きする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p><code>combine</code>する辞書に同じ<code>lsit1</code>キーを含む場合、このタスクの実行結果は以下の通りで、<code>combine</code>に指定した辞書側の<code>list1</code>キーの値で上書きされる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] ******************************************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; {</span>
+<span style="color: #888888">    &quot;msg&quot;: {</span>
+<span style="color: #888888">        &quot;list1&quot;: [</span>
+<span style="color: #888888">            &quot;item3&quot;</span>
+<span style="color: #888888">        ],</span>
+<span style="color: #888888">        &quot;list2&quot;: [</span>
+<span style="color: #888888">            &quot;itemA&quot;,</span>
+<span style="color: #888888">            &quot;itemB&quot;</span>
+<span style="color: #888888">        ]</span>
+<span style="color: #888888">    }</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+
+<h3 id="list_merge">list_merge</h3>
+<p>辞書の要素がリストの場合、キーが同じ場合の上書き動作のデフォルトは、<code>list_merge</code>パラメタで動作を変更できる。</p>
+<p><code>append</code>を指定すると、要素の末尾に追加。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_merge=&#39;append&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p><code>list1</code>キーが重複した入力で、<code>list_merge=append</code>を指定した場合の実行結果は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; {</span>
+<span style="color: #888888">    &quot;msg&quot;: {</span>
+<span style="color: #888888">        &quot;list1&quot;: [</span>
+<span style="color: #888888">            &quot;item1&quot;,</span>
+<span style="color: #888888">            &quot;item2&quot;,</span>
+<span style="color: #888888">            &quot;item3&quot;</span>
+<span style="color: #888888">        ],</span>
+<span style="color: #888888">        &quot;list2&quot;: [</span>
+<span style="color: #888888">            &quot;itemA&quot;,</span>
+<span style="color: #888888">            &quot;itemB&quot;</span>
+<span style="color: #888888">        ]</span>
+<span style="color: #888888">    }</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+
+<p><code>list1</code>キーの値のリストもマージ(<code>combime</code>の引数に指定する方が末尾に追加)されている。<br />
+<code>list_merge</code>に指定できるパラメタは以下の通り。</p>
+<table>
+<thead>
+<tr>
+<th>パラメタ</th>
+<th>動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>append</code></td>
+<td>末尾に追加</td>
+</tr>
+<tr>
+<td><code>prepend</code></td>
+<td>先頭に追加</td>
+</tr>
+<tr>
+<td><code>append_rp</code></td>
+<td>末尾に追加 (重複時に既存要素は削除)</td>
+</tr>
+<tr>
+<td><code>prepend_rp</code></td>
+<td>先頭に追加 (重複時に既存要素は削除)</td>
+</tr>
+</tbody>
+</table>
+<p><code>append_rp</code>の動作は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item4<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_merge=&#39;append_rp&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>このタスクを実行すると以下の通り。<br />
+リスト要素にどちらも<code>item1</code>が含まれるためこれが<code>var1</code>から削除され、<code>var2</code>の要素(<code>item3</code>,<code>item1</code>,<code>item4</code>)が末尾へ追加される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; {</span>
+<span style="color: #888888">    &quot;msg&quot;: {</span>
+<span style="color: #888888">        &quot;list1&quot;: [</span>
+<span style="color: #888888">            &quot;item2&quot;,</span>
+<span style="color: #888888">            &quot;item3&quot;,</span>
+<span style="color: #888888">            &quot;item1&quot;,</span>
+<span style="color: #888888">            &quot;item4&quot;</span>
+<span style="color: #888888">        ],</span>
+<span style="color: #888888">        &quot;list2&quot;: [</span>
+<span style="color: #888888">            &quot;itemA&quot;,</span>
+<span style="color: #888888">            &quot;itemB&quot;</span>
+<span style="color: #888888">        ]</span>
+<span style="color: #888888">    }</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+
+<p><code>prepend_rp</code>の動作は、↑と同じ条件でパラメタのみ変更して実行すると以下の通り。<br />
+重複する<code>item1</code>が<code>var1</code>から削除される動作は同じで、<code>var2</code>の要素(<code>item3</code>,<code>item1</code>,<code>item4</code>)が先頭へ追加される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888888">ok: [localhost] =&gt; {</span>
+<span style="color: #888888">    &quot;msg&quot;: {</span>
+<span style="color: #888888">        &quot;list1&quot;: [</span>
+<span style="color: #888888">            &quot;item3&quot;,</span>
+<span style="color: #888888">            &quot;item1&quot;,</span>
+<span style="color: #888888">            &quot;item4&quot;,</span>
+<span style="color: #888888">            &quot;item2&quot;</span>
+<span style="color: #888888">        ],</span>
+<span style="color: #888888">        &quot;list2&quot;: [</span>
+<span style="color: #888888">            &quot;itemA&quot;,</span>
+<span style="color: #888888">            &quot;itemB&quot;</span>
+<span style="color: #888888">        ]</span>
+<span style="color: #888888">    }</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+
 <h2 id="_6">パス処理</h2>
 <h3 id="path_join">パスの合成 (path_join)</h3>
 <p><code>path_join</code>を使うと、リストの文字列をディレクトリセパレータで繋ぐ。</p>
