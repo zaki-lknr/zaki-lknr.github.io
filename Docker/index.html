@@ -724,6 +724,26 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    実行サンプル
+  </a>
+  
+    <nav class="md-nav" aria-label="実行サンプル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webhttpd" class="md-nav__link">
+    ローカルのwebコンテンツをhttpdに持たせる
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ビルド
   </a>
   
@@ -731,7 +751,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -753,6 +773,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="build/" class="md-nav__link">
+        イメージビルド
+      </a>
     </li>
   
 
@@ -1400,6 +1432,26 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    実行サンプル
+  </a>
+  
+    <nav class="md-nav" aria-label="実行サンプル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webhttpd" class="md-nav__link">
+    ローカルのwebコンテンツをhttpdに持たせる
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ビルド
   </a>
   
@@ -1407,7 +1459,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -1505,8 +1557,13 @@
 
 <p>デフォルトは、タグが設定されずに<code>&lt;none&gt;</code>になっているイメージが削除される。<br />
 <code>&lt;none&gt;</code>のイメージをリストアップするだけであれば <code>docker image ls -f "dangling=true"</code> でリストアップできる。</p>
-<h2 id="_2">ビルド</h2>
-<h3 id="_3">ヘルスチェック</h3>
+<h2 id="_2">実行サンプル</h2>
+<h3 id="webhttpd">ローカルのwebコンテンツをhttpdに持たせる</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
+</code></pre></div>
+
+<h2 id="_3">ビルド</h2>
+<h3 id="_4">ヘルスチェック</h3>
 <p>30秒後にhttpdが起動するようになっているコンテナイメージ。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">FROM</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">httpd:2.4</span>
 
@@ -1578,13 +1635,13 @@ pushされたイメージは、GitHubのweb画面の「Packages」で確認で�
         </a>
       
       
-        <a href="configure/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="build/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              設定
+              イメージビルド
             </div>
           </div>
           <div class="md-footer__button md-icon">

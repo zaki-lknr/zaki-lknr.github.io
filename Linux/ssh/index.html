@@ -612,6 +612,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Docker/build/" class="md-nav__link">
+        イメージビルド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Docker/configure/" class="md-nav__link">
         設定
       </a>
@@ -1109,6 +1121,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    鍵サイズ指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ssh-copy-id" class="md-nav__link">
     ssh-copy-id
   </a>
@@ -1496,6 +1515,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    鍵サイズ指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ssh-copy-id" class="md-nav__link">
     ssh-copy-id
   </a>
@@ -1677,6 +1703,11 @@ PEM形式に変換するのであれば以下の通り。</p>
 </code></pre></div>
 
 <p>デフォルトは<code>RFC4716</code>。OpenSSH形式にする場合は、<code>-m RFC4716</code>を指定すればOK</p>
+<h3 id="_14">鍵サイズ指定</h3>
+<p><code>-b</code>で指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen -t rsa -b <span style="color: #666666">4096</span>
+</code></pre></div>
+
 <h3 id="ssh-copy-id">ssh-copy-id</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-copy-id <span style="color: #666666">[</span>-i identity_file<span style="color: #666666">]</span> <span style="color: #666666">[</span>-p port<span style="color: #666666">]</span> <span style="color: #666666">[</span>username@<span style="color: #666666">]</span>hostname
 </code></pre></div>
