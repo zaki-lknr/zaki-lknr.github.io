@@ -1293,8 +1293,20 @@
                 <h1 id="rhel">RHEL</h1>
 <h2 id="_1">サブスクリプション</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/05/160946">制限ネットワーク環境のRHEL7でproxy経由でサブスクリプション登録とDockerインストール - zaki work log</a></p>
-<p>これで登録とサブスクリプション割り当てをまとめてできる。</p>
+<p>以下で登録とサブスクリプション割り当てをまとめてできる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager register --auto-attach
+</code></pre></div>
+
+<p>登録のみは以下。アカウント情報を対話的に入力する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager register
+</code></pre></div>
+
+<p>登録後のサブスクリプション割り当ては以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager attach
+</code></pre></div>
+
+<p>サブスクリプション割り当て時にpool IDを指定する場合は以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager attach --pool<span style="color: #666666">=</span>****
 </code></pre></div>
 
 <h2 id="package">package</h2>
