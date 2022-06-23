@@ -1032,6 +1032,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    停止する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    環境の削除
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm" class="md-nav__link">
+    VM環境のエクスポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm_1" class="md-nav__link">
+    VM環境のインポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    デフォルトユーザーの変更
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1119,6 +1154,18 @@
     <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/gitlab/" class="md-nav__link">
+        GitLab
       </a>
     </li>
   
@@ -1333,6 +1380,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    停止する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    環境の削除
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm" class="md-nav__link">
+    VM環境のエクスポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm_1" class="md-nav__link">
+    VM環境のインポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    デフォルトユーザーの変更
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1395,8 +1477,44 @@ Ubuntuの場合、作成するアカウントの入力を行う。</p>
 <span style="color: #888888">Failed to talk to init daemon.</span>
 </code></pre></div>
 
-<p>再起動するには、ホストOSの<code>wsl</code>コマンドで実施する。</p>
+<p>再起動するには、ホストOSの<code>wsl</code>コマンドでterminateすることで停止するので、再接続する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">wsl --terminate Ubuntu-20.04</span>
+</code></pre></div>
+
+<h2 id="_3">停止する</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">PS C:\Users\h_miyazaki&gt; wsl -l -v</span>
+<span style="color: #888888">  NAME                      STATE           VERSION</span>
+<span style="color: #888888">* docker-desktop-data       Running         2</span>
+<span style="color: #888888">  Ubuntu-20.04              Running         1</span>
+</code></pre></div>
+
+<p><code>Running</code>になっているホストを停止するには、↑と同様<code>--terminate | -t</code>で停止する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">wsl -t Ubuntu-20.04</span>
+</code></pre></div>
+
+<h2 id="_4">環境の削除</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">&gt; wsl --unregister ubuntu-20.04-container</span>
+<span style="color: #888888">登録を解除しています...</span>
+</code></pre></div>
+
+<h2 id="vm">VM環境のエクスポート</h2>
+<p>tar形式にエクスポートする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">wsl --export Ubuntu-20.04 Ubuntu-20.04.tar</span>
+</code></pre></div>
+
+<p>カレントに <code>Ubuntu-20.04.tar</code> ファイルが作成される。</p>
+<h2 id="vm_1">VM環境のインポート</h2>
+<p>エクスポートしたtarファイルをWSLに登録する。<br />
+名前を変更することで、環境のコピーとなる。</p>
+<p>書式は <code>wsl --import ディストリビューション名 インストール先ファイルパス インポートするtarファイル</code>。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">wsl --import ubuntu-20.04-container .\work\wsl\ubuntu-20.04-container .\Ubuntu-20.04.tar</span>
+</code></pre></div>
+
+<p>制限として、デフォルトユーザーが<code>root</code>になってしまう仕様がある。</p>
+<h2 id="_5">デフォルトユーザーの変更</h2>
+<p>PowerShellで設定可能。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">PS C:\Users\zaki&gt; Function WSL-SetDefaultUser ($distro, $user) { Get-ItemProperty Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\*\ DistributionName | Where-Object -Property DistributionName -eq $distro | Set-ItemProperty -Name DefaultUid -Value ((wsl -d $distro -u $user -e id -u) | Out-String); };</span>
+<span style="color: #888888">PS C:\Users\zaki&gt; WSL-SetDefaultUser ubuntu-20.04-container zaki</span>
 </code></pre></div>
                 
               
