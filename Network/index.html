@@ -1068,6 +1068,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ページャーの無効化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    シャットダウン
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1178,6 +1192,18 @@
     <li class="md-nav__item">
       <a href="../Tools/openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/slack/" class="md-nav__link">
+        Slack
       </a>
     </li>
   
@@ -1338,6 +1364,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ページャーの無効化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    シャットダウン
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1385,6 +1425,21 @@
 
 <span style="color: #888888">[edit]</span>
 <span style="color: #000080; font-weight: bold">root@srx100-demo#</span>
+</code></pre></div>
+
+<h3 id="_3">ページャーの無効化</h3>
+<p><code>terminal length 0</code>相当の操作は以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">set cli screen-length 0</span>
+</code></pre></div>
+
+<h3 id="_4">シャットダウン</h3>
+<p>rootでログインして<code>cli</code>を実行。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@SRX% </span>cli
+</code></pre></div>
+
+<p>その後<code>request system power-off</code>を実行する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">request system power-off</span>
+<span style="color: #888888">Power Off the system ? [yes,no] (no) yes</span>
 </code></pre></div>
                 
               

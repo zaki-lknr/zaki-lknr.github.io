@@ -785,6 +785,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ecr-elastic-container-registry" class="md-nav__link">
+    ECR (Elastic COntainer Registry)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1296,6 +1303,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Tools/slack/" class="md-nav__link">
+        Slack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Tools/terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -1559,6 +1578,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ecr-elastic-container-registry" class="md-nav__link">
+    ECR (Elastic COntainer Registry)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1684,6 +1710,30 @@
 <p>すれば認証できる。</p>
 <p>あとは<code>ghcr.io/zaki-lknr/squid:5.0.4-alpine-3.13</code>とかの名前のタグをつければ<code>push</code>もできる。<br />
 pushされたイメージは、GitHubのweb画面の「Packages」で確認できる。デフォルトはprivate設定。</p>
+<h2 id="ecr-elastic-container-registry">ECR (Elastic COntainer Registry)</h2>
+<p>認証(のためのパスワード取得)には <code>aws</code> CLIが必要。</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html">AWS CLI の最新バージョンをインストールまたは更新します。 - AWS Command Line Interface</a></li>
+<li><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html">設定の基本 - AWS Command Line Interface</a></li>
+</ul>
+<p>Linux(x86_64)は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl <span style="color: #BB4444">&quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot;</span> -o <span style="color: #BB4444">&quot;awscliv2.zip&quot;</span>
+<span style="color: #000080; font-weight: bold">$ </span>unzip awscliv2.zip
+<span style="color: #000080; font-weight: bold">$ </span>sudo ./aws/install
+</code></pre></div>
+
+<p>インストール後の設定は以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws configure
+<span style="color: #888888">AWS Access Key ID [None]: ....</span>
+<span style="color: #888888">AWS Secret Access Key [None]: ....</span>
+<span style="color: #888888">Default region name [None]: ap-northeast-1</span>
+<span style="color: #888888">Default output format [None]: json</span>
+</code></pre></div>
+
+<p>これで、<code>aws ecr get-login-password</code> を実行するとレジストリ認証に使用するパスワードを取得できる。
+ログイン時のユーザー名は <code>AWS</code> 固定のため、コマンドは以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman login &lt;registry URL&gt; -u AWS -p <span style="color: #AA22FF; font-weight: bold">$(</span>aws ecr get-login-password<span style="color: #AA22FF; font-weight: bold">)</span>
+</code></pre></div>
                 
               
               
