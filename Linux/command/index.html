@@ -1017,6 +1017,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wget" class="md-nav__link">
+    wget
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sed" class="md-nav__link">
     sed
   </a>
@@ -1811,6 +1818,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wget" class="md-nav__link">
+    wget
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sed" class="md-nav__link">
     sed
   </a>
@@ -2202,6 +2216,12 @@
 </code></pre></div>
 
 <p><code>ansible.example.org</code>という名前で<code>192.168.0.41:443</code>へアクセスする。</p>
+<h2 id="wget">wget</h2>
+<p>リソースの内容をstdoutへ出力</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>wget -q -O - https://storage.googleapis.com/kubernetes-release/release/stable.txt
+<span style="color: #888888">v1.24.3</span>
+</code></pre></div>
+
 <h2 id="sed">sed</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sed -i -e <span style="color: #BB4444">&#39;s/regexp/string/&#39;</span> file
 </code></pre></div>
