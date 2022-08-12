@@ -551,6 +551,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#difference" class="md-nav__link">
+    リストから要素の除外(difference)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#combine" class="md-nav__link">
     辞書のマージ(combine)
   </a>
@@ -648,6 +655,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../galaxy/" class="md-nav__link">
+        Galaxy
+      </a>
     </li>
   
 
@@ -821,6 +840,18 @@
     <li class="md-nav__item">
       <a href="../../Docker/build/" class="md-nav__link">
         イメージビルド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/compose/" class="md-nav__link">
+        Docker Compose
       </a>
     </li>
   
@@ -1520,6 +1551,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#difference" class="md-nav__link">
+    リストから要素の除外(difference)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#combine" class="md-nav__link">
     辞書のマージ(combine)
   </a>
@@ -1829,6 +1867,41 @@
 </code></pre></div>
 
 <p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
+<h2 id="difference">リストから要素の除外(difference)</h2>
+<p>リストから特定要素を除外するには<code>difference</code>フィルタを使う。<br />
+入力のリストの要素から、<code>difference</code>フィルタの引数に指定したリストの要素を除外したリストを返す。<br />
+<code>difference</code>にもリストを指定する必要がある(iterableな変数でなければエラーとなる)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">int_list1</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">3</span>]<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">int_list2</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">4</span>]<span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>defference filter sample<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">int_list1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">difference(int_list2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>出力は<code>[1, 2]</code>になる。</p>
+<p>なお、文字列の場合は元々iterableのため、<code>difference</code>の引数はリストでなくても一応動作する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;foo&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;bar&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;baz&quot;</span>]<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">list2</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;baz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;qux&quot;</span>]<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">str_item</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;baz&quot;</span><span style="color: #bbbbbb"></span>
+
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>defference filter sample<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">difference(list2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">difference(str_item)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p>どちらの結果も<code>["foo", "bar"]</code>になる。</p>
 <h2 id="combine">辞書のマージ(combine)</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
@@ -2151,13 +2224,13 @@
         </a>
       
       
-        <a href="../install/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../galaxy/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              インストール
+              Galaxy
             </div>
           </div>
           <div class="md-footer__button md-icon">

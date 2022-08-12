@@ -466,6 +466,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Ansible/galaxy/" class="md-nav__link">
+        Galaxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Ansible/install/" class="md-nav__link">
         インストール
       </a>
@@ -753,6 +765,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#centosstream8" class="md-nav__link">
+    centos:stream8
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -807,6 +826,18 @@
     <li class="md-nav__item">
       <a href="build/" class="md-nav__link">
         イメージビルド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="compose/" class="md-nav__link">
+        Docker Compose
       </a>
     </li>
   
@@ -1546,6 +1577,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#centosstream8" class="md-nav__link">
+    centos:stream8
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1668,6 +1706,11 @@
 <h2 id="_2">実行サンプル</h2>
 <h3 id="webhttpd">ローカルのwebコンテンツをhttpdに持たせる</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
+</code></pre></div>
+
+<h3 id="centosstream8">centos:stream8</h3>
+<p><a href="https://quay.io/repository/centos/centos?tab=tags">quayにあるイメージ</a>を使う</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
 </code></pre></div>
 
 <h2 id="_3">ビルド</h2>
