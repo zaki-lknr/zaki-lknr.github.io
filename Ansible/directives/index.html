@@ -1776,26 +1776,26 @@
 ループ内で毎回実行される必要がないのであれば、includeの外で実行しましょう。</p>
 <h2 id="when">when</h2>
 <h3 id="int">条件がint型</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  <span style="color: #B8860B">tasks</span>:
-    <span style="color: #666666">-</span> <span style="color: #B8860B">name</span>: <span style="color: #B8860B">len</span> <span style="color: #B8860B">bool</span>
-      <span style="color: #B8860B">debug</span>:
-      <span style="color: #AA22FF; font-weight: bold">loop</span>:
-        <span style="color: #666666">-</span> <span style="color: #666666">1</span>
-        <span style="color: #666666">-</span> <span style="color: #666666">0</span>
-        <span style="color: #666666">-</span> <span style="color: #666666">-1</span>
-      <span style="color: #B8860B">when</span>: <span style="color: #B8860B">item</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #B8860B">tasks</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">name</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">len</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">bool</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #AA22FF; font-weight: bold">loop</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-1</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">when</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p><code>0</code>の場合はskip。<br />
 <code>1</code>, <code>-1</code>は処理対象。</p>
 <p>ansible-core 2.11.3で確認</p>
 <h3 id="string">条件がstring型</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    <span style="color: #666666">-</span> <span style="color: #B8860B">name</span>: <span style="color: #B8860B">str</span>
-      <span style="color: #B8860B">debug</span>:
-      <span style="color: #AA22FF; font-weight: bold">loop</span>:
-        <span style="color: #666666">-</span> <span style="color: #BB4444">&quot;a&quot;</span>
-        <span style="color: #666666">-</span> <span style="color: #BB4444">&quot;&quot;</span>
-      <span style="color: #B8860B">when</span>: <span style="color: #B8860B">item</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">name</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">str</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">debug</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #AA22FF; font-weight: bold">loop</span>:<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;a&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&quot;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">when</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p><code>""</code>の場合はskip。<br />

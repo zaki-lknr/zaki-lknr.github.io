@@ -766,6 +766,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    ユーザー名・メールアドレスの設定
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザー名・メールアドレスの設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#home" class="md-nav__link">
+    共用アカウントなどで$HOMEに記録したくない場合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     現在の設定確認
   </a>
   
@@ -773,14 +793,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     現在適用される設定全て
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     セクションごとの設定内容
   </a>
   
@@ -812,7 +832,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     リモートリポジトリ
   </a>
   
@@ -820,28 +840,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     現在の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     リポジトリを設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リモートリポジトリを変更
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     別のリポジトリを別名で追加
   </a>
   
@@ -1422,6 +1442,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    ユーザー名・メールアドレスの設定
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザー名・メールアドレスの設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#home" class="md-nav__link">
+    共用アカウントなどで$HOMEに記録したくない場合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     現在の設定確認
   </a>
   
@@ -1429,14 +1469,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     現在適用される設定全て
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     セクションごとの設定内容
   </a>
   
@@ -1468,7 +1508,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     リモートリポジトリ
   </a>
   
@@ -1476,28 +1516,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     現在の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     リポジトリを設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リモートリポジトリを変更
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     別のリポジトリを別名で追加
   </a>
   
@@ -1533,12 +1573,23 @@
                 
                 
                 <h1 id="git">Git設定</h1>
-<h2 id="_1">現在の設定確認</h2>
-<h3 id="_2">現在適用される設定全て</h3>
+<h2 id="_1">ユーザー名・メールアドレスの設定</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git config --global user.name zaki</span>
+<span style="color: #888888">git config --global user.email zaki.hmkc@...</span>
+</code></pre></div>
+
+<h3 id="home">共用アカウントなどで$HOMEに記録したくない場合</h3>
+<p><code>--local</code>を使えば、<code>$HOME/.gitconfig</code>でなく、現在のリポジトリの設定に記録される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git config --local user.name zaki</span>
+<span style="color: #888888">git config --local user.email zaki.hmkc@...</span>
+</code></pre></div>
+
+<h2 id="_2">現在の設定確認</h2>
+<h3 id="_3">現在適用される設定全て</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git config -l
 </code></pre></div>
 
-<h3 id="_3">セクションごとの設定内容</h3>
+<h3 id="_4">セクションごとの設定内容</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git config --system -l
 $ git config --global -l
 $ git config --local -l
@@ -1560,17 +1611,17 @@ Host github.com
     IdentityFile ~/.ssh/id_rsa_git
 </code></pre></div>
 
-<h2 id="_4">リモートリポジトリ</h2>
-<h3 id="_5">現在の設定</h3>
+<h2 id="_5">リモートリポジトリ</h2>
+<h3 id="_6">現在の設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote -v
 </code></pre></div>
 
-<h3 id="_6">リポジトリを設定</h3>
+<h3 id="_7">リポジトリを設定</h3>
 <p>GitHubとかでREADME無しでリポジトリ作るとコマンドが表示されるアレ</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote add origin &lt;URI of Repository&gt;
 </code></pre></div>
 
-<h3 id="_7">リモートリポジトリを変更</h3>
+<h3 id="_8">リモートリポジトリを変更</h3>
 <p>originをGitHubからプライベートGitLabに変更、とか。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote set-url origin https://my-gitlab.example.org/user/repository.git
 </code></pre></div>
@@ -1579,7 +1630,7 @@ Host github.com
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote set-url origin git@github.com:zaki-lknr/ansible-sample.git
 </code></pre></div>
 
-<h3 id="_8">別のリポジトリを別名で追加</h3>
+<h3 id="_9">別のリポジトリを別名で追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote add hoge &lt;other repository&gt;
 </code></pre></div>
 

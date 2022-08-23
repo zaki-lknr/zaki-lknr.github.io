@@ -1560,9 +1560,9 @@
 <h2 id="_4">制御構文</h2>
 <h3 id="_5">ループ</h3>
 <p>リストに対する<code>for</code>構文は、foreach式で配列要素をループ毎に処理できる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{<span style="color: #666666">%</span> <span style="color: #AA22FF; font-weight: bold">for</span> <span style="color: #B8860B">item</span> <span style="color: #B8860B">in</span> <span style="color: #B8860B">array_value</span> <span style="color: #666666">%</span>}
-...
-{<span style="color: #666666">%</span> <span style="color: #B8860B">endfor</span> <span style="color: #666666">%</span>}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{<span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">in</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">array_value</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span>}<span style="color: #bbbbbb"></span>
+...<span style="color: #bbbbbb"></span>
+{<span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">endfor</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span>}<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <p><code>array_value</code>の配列要素が<code>item</code>にセットされてループ処理される。</p>
@@ -1573,10 +1573,10 @@
 </code></pre></div>
 
 <p>複数行もOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{#
-{<span style="color: #666666">%</span> <span style="color: #AA22FF; font-weight: bold">for</span> <span style="color: #B8860B">item</span> <span style="color: #B8860B">in</span> <span style="color: #B8860B">list</span> <span style="color: #666666">%</span>}
-{<span style="color: #666666">%</span> <span style="color: #B8860B">endfor</span> <span style="color: #666666">%</span>}
-#}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{#<span style="color: #bbbbbb"></span>
+{<span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">in</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">list</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span>}<span style="color: #bbbbbb"></span>
+{<span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">endfor</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span>}<span style="color: #bbbbbb"></span>
+#}<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
 <h2 id="lookup">lookupプラグイン実行</h2>

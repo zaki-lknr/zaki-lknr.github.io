@@ -701,6 +701,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    停止と削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1360,6 +1367,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    停止と削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1391,6 +1405,15 @@
 <p>この場合フォアグラウンドで起動する。<br />
 バックグラウンドで起動するには<code>-d</code>を付ける。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose up -d</span>
+</code></pre></div>
+
+<h3 id="_2">停止と削除</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose down</span>
+</code></pre></div>
+
+<p><code>down</code>でコンテナは削除されるが、ボリュームは残る。<br />
+ボリュームも削除するには<code>-v</code>オプションを追加する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose down -v</span>
 </code></pre></div>
                 
               

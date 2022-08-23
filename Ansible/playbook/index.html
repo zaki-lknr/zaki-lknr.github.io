@@ -1636,6 +1636,21 @@ checkに対応している<code>copy</code>モジュールの場合は以下の�
 <span style="color: #888888">  msg: hello worlds!!</span>
 </code></pre></div>
 
+<p>roleの場合は、ロール名含めて指定すればよい。(実行時の<code>TASK [***]</code>の<code>***</code>の部分を指定する)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook -i inventory-oci-l-dev.ini playbook.yml -v
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">TASK [build_awx/awx-ee : clone repository] ***************************************************</span>
+<span style="color: #888888">fatal: [oci-l-a1-ubuntu]: FAILED! =&gt; {&quot;before&quot;: &quot;54de4047be742783f69678f942a515e991c097ab&quot;, &quot;changed&quot;: false, &quot;msg&quot;: &quot;Local modifications exist in repository (force=no).&quot;}</span>
+
+<span style="color: #888888">PLAY RECAP ***********************************************************************************</span>
+<span style="color: #888888">oci-l-a1-ubuntu            : ok=33   changed=5    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   </span>
+
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook -i inventory-oci-l-dev.ini playbook.yml -v --start-at <span style="color: #BB4444">&quot;build_awx/awx-ee : create working directory&quot;</span>
+</code></pre></div>
+
 <h1 id="sample">sample</h1>
 <h2 id="playbook">playbook</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
