@@ -1044,6 +1044,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Linux/server/" class="md-nav__link">
+        サーバー関連
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Linux/ssh/" class="md-nav__link">
         ssh関連
       </a>
@@ -1414,6 +1426,12 @@
 <p><code>down</code>でコンテナは削除されるが、ボリュームは残る。<br />
 ボリュームも削除するには<code>-v</code>オプションを追加する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose down -v</span>
+</code></pre></div>
+
+<p>特定のコンテナのみ停止・削除するには、引数にCompose Fileで指定している名称を指定する。<br />
+ただし<code>down</code>ではこの指定はできない。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose stop myapp</span>
+<span style="color: #888888">docker compose rm myapp</span>
 </code></pre></div>
                 
               

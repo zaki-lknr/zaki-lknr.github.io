@@ -982,6 +982,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Linux/server/" class="md-nav__link">
+        サーバー関連
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Linux/ssh/" class="md-nav__link">
         ssh関連
       </a>
@@ -1173,23 +1185,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    証明書作成
+  </a>
+  
+    <nav class="md-nav" aria-label="証明書作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commonname" class="md-nav__link">
+    オレオレ証明書作成(CommonName)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-name" class="md-nav__link">
+    Alternative Name指定のオレオレ証明書
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ファイル内容確認
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル内容確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#rsa" class="md-nav__link">
     RSA秘密鍵の確認
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#csr" class="md-nav__link">
     CSR(証明書署名要求)の確認
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     証明書ファイルの確認
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1347,23 +1399,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    証明書作成
+  </a>
+  
+    <nav class="md-nav" aria-label="証明書作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commonname" class="md-nav__link">
+    オレオレ証明書作成(CommonName)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-name" class="md-nav__link">
+    Alternative Name指定のオレオレ証明書
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ファイル内容確認
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル内容確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#rsa" class="md-nav__link">
     RSA秘密鍵の確認
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#csr" class="md-nav__link">
     CSR(証明書署名要求)の確認
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     証明書ファイルの確認
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1385,7 +1477,18 @@
                 
                 
                 <h1 id="openssl">openssl</h1>
-<h2 id="rsa">RSA秘密鍵の確認</h2>
+<h2 id="_1">証明書作成</h2>
+<h3 id="commonname">オレオレ証明書作成(CommonName)</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">openssl req -newkey rsa:4096 -nodes -sha256 -keyout /path/to/example.org.key -x509 -days 365 -out /path/to/example.org.crt -subj &#39;/CN=example.org/&#39;</span>
+</code></pre></div>
+
+<h3 id="alternative-name">Alternative Name指定のオレオレ証明書</h3>
+<p><code>appserv</code>と<code>appserv.example.org</code>いう名前のSANを追加する場合。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">openssl req -newkey rsa:4096 -nodes -sha256 -keyout server.key -x509 -days 365  -out server.crt -subj &#39;/C=JP/&#39; -addext &quot;subjectAltName=DNS:appserv,DNS:appserv.example.org&quot; </span>
+</code></pre></div>
+
+<h2 id="_2">ファイル内容確認</h2>
+<h3 id="rsa">RSA秘密鍵の確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN RSA PRIVATE KEY-----</span><span style="color: #bbbbbb"></span>
 <span style="color: #BB4444">MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........</span><span style="color: #bbbbbb"></span>
 <span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
@@ -1398,7 +1501,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl rsa -text -noout -in account.key 
 </code></pre></div>
 
-<h2 id="csr">CSR(証明書署名要求)の確認</h2>
+<h3 id="csr">CSR(証明書署名要求)の確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE REQUEST-----</span><span style="color: #bbbbbb"></span>
 <span style="color: #BB4444">MIIEkDCCAngCAQAwHDEaMB........</span><span style="color: #bbbbbb"></span>
 <span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
@@ -1411,7 +1514,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl req -text -noout -in server.csr
 </code></pre></div>
 
-<h2 id="_1">証明書ファイルの確認</h2>
+<h3 id="_3">証明書ファイルの確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE-----</span><span style="color: #bbbbbb"></span>
 <span style="color: #BB4444">MIIGKTCCBRGg.......</span><span style="color: #bbbbbb"></span>
 <span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>

@@ -16,7 +16,7 @@
     
     
       
-        <title>SELinux - 戯術memo</title>
+        <title>サーバー関連 - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#selinux" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SELinux
+              サーバー関連
             
           </span>
         </div>
@@ -970,6 +970,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../selinux/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -982,12 +994,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          SELinux
+          サーバー関連
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SELinux
+        サーバー関連
       </a>
       
         
@@ -1005,37 +1017,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    port追加
+  <a href="#samba" class="md-nav__link">
+    samba
   </a>
   
-    <nav class="md-nav" aria-label="port追加">
+    <nav class="md-nav" aria-label="samba">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    エラーログ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    ポート状態
+    ユーザー追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    追加
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    更新
+    登録済みユーザー一覧
   </a>
   
 </li>
@@ -1045,29 +1043,10 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#semanage" class="md-nav__link">
-    semanage
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../server/" class="md-nav__link">
-        サーバー関連
-      </a>
     </li>
   
 
@@ -1386,50 +1365,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    port追加
+  <a href="#samba" class="md-nav__link">
+    samba
   </a>
   
-    <nav class="md-nav" aria-label="port追加">
+    <nav class="md-nav" aria-label="samba">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    エラーログ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    ポート状態
+    ユーザー追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    追加
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    更新
+    登録済みユーザー一覧
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#semanage" class="md-nav__link">
-    semanage
-  </a>
   
 </li>
       
@@ -1445,104 +1403,20 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Linux/selinux.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Linux/server.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="selinux">SELinux</h1>
-<h2 id="port">port追加</h2>
-<h3 id="_1">エラーログ</h3>
-<p>webサーバーで適当に<code>8081</code>でListenさせようとしてもバインドできずに起動できない。</p>
-<p>error_log</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[suexec:notice] [pid 1237:tid 1237] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
-AH00558: httpd: Could not reliably determine the server&#39;s fully qualified domain name, using 192.168.0.44. Set the &#39;ServerName&#39; directive globally to suppress this message
-[Tue Jul 06 10:47:18.353422 2021] [lbmethod_heartbeat:notice] [pid 1237:tid 1237] AH02282: No slotmem from mod_heartmonitor
+                <h1 id="_1">サーバー関連</h1>
+<h2 id="samba">samba</h2>
+<h3 id="_2">ユーザー追加</h3>
+<p>ユーザー<code>zaki</code>を作成する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">pdbedit -a zaki</span>
 </code></pre></div>
 
-<p>message</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>setroubleshoot[1462]: SELinux により、httpd による name_bind アクセスが、tcp_socket ポート 8081 で拒否されました。#012#012*****  プラグイン catchall (100. 信頼性) による示唆****************************************#012#012httpd に、 ポート 8081 tcp_socket の name_bind アクセスがデフォルトで許可されるべきと考える場合。#012このようにします: バグとして報告してください。 #012ローカルのポリシーモジュールを生成すると、#012 このアクセスを許可することができます。#012そして、以下を実行します: #012以下を実行して、このアクセスを許可します:#012# ausearch -c &#39;httpd&#39; --raw | audit2allow -M my-httpd#012# semodule -X 300 -i my-httpd.pp#012
-</code></pre></div>
-
-<h3 id="_2">ポート状態</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -l | grep -w <span style="color: #BB4444">&quot;http_port_t&quot;</span>
-<span style="color: #888888">http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
-</code></pre></div>
-
-<p>なるほど、8081は無い。</p>
-<h3 id="_3">追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -a -t http_port_t -p tcp <span style="color: #666666">8081</span>
-<span style="color: #888888">ValueError: ポート tcp/8081 はすでに定義されています</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -l | grep -w <span style="color: #666666">8081</span>
-<span style="color: #888888">transproxy_port_t              tcp      8081</span>
-</code></pre></div>
-
-<p>あー、別で使ってるのか。なるほど。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -l | grep -w <span style="color: #666666">808</span>.
-<span style="color: #888888">http_cache_port_t              tcp      8080, 8118, 8123, 10001-10010</span>
-<span style="color: #888888">luci_port_t                    tcp      8084</span>
-<span style="color: #888888">transproxy_port_t              tcp      8081</span>
-<span style="color: #888888">us_cli_port_t                  tcp      8082, 8083</span>
-<span style="color: #888888">us_cli_port_t                  udp      8082, 8083</span>
-</code></pre></div>
-
-<p>8085空いてる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -a -t http_port_t -p tcp <span style="color: #666666">8085</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -l | grep -w <span style="color: #BB4444">&quot;http_port_t&quot;</span>
-<span style="color: #888888">http_port_t                    tcp      8085, 80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
-</code></pre></div>
-
-<p>うむ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>vi /etc/httpd/conf/httpd.conf 
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>systemctl restart httpd
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>curl http://localhost:8085 -I
-<span style="color: #888888">HTTP/1.1 403 Forbidden</span>
-<span style="color: #888888">Date: Tue, 06 Jul 2021 01:55:15 GMT</span>
-<span style="color: #888888">Server: Apache/2.4.48 (Fedora)</span>
-<span style="color: #888888">Last-Modified: Fri, 26 Mar 2021 17:49:58 GMT</span>
-<span style="color: #888888">ETag: &quot;211a-5be742910bd80&quot;</span>
-<span style="color: #888888">Accept-Ranges: bytes</span>
-<span style="color: #888888">Content-Length: 8474</span>
-<span style="color: #888888">Content-Type: text/html; charset=UTF-8</span>
-
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>
-</code></pre></div>
-
-<p>はい。</p>
-<h3 id="_4">更新</h3>
-<p><code>-a</code>だと他で使ってるとエラーになる。<br />
-<code>-m</code>なら更新され、他で使ってるものと多重に定義できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -a -t http_port_t -p tcp <span style="color: #666666">8082</span>
-<span style="color: #888888">ValueError: ポート tcp/8082 はすでに定義されています</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -l | grep -w <span style="color: #666666">8082</span>
-<span style="color: #888888">us_cli_port_t                  tcp      8082, 8083</span>
-<span style="color: #888888">us_cli_port_t                  udp      8082, 8083</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -m -t http_port_t -p tcp <span style="color: #666666">8082</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage port -l | grep -w <span style="color: #666666">8082</span>
-<span style="color: #888888">http_port_t                    tcp      8082, 8081, 8087, 8086, 8085, 80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
-<span style="color: #888888">us_cli_port_t                  tcp      8082, 8083</span>
-<span style="color: #888888">us_cli_port_t                  udp      8082, 8083</span>
-</code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>root@fedora-node ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>httpd<span style="color: #bbbbbb"></span>
-<span style="color: #666666">[</span>root@fedora-node ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span><span style="color: #A0A000">http</span>:<span style="color: #666666">//</span><span style="color: #A0A000">localhost</span>:<span style="color: #666666">8082</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>I<span style="color: #bbbbbb"></span>
-HTTP<span style="color: #666666">/1.1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">403</span><span style="color: #bbbbbb"> </span>Forbidden<span style="color: #bbbbbb"></span>
-<span style="color: #0000FF">Date</span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Tue,<span style="color: #bbbbbb"> </span><span style="color: #666666">06</span><span style="color: #bbbbbb"> </span>Jul<span style="color: #bbbbbb"> </span><span style="color: #666666">2021</span><span style="color: #bbbbbb"> </span><span style="color: #666666">04</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">06</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">38</span><span style="color: #bbbbbb"> </span>GMT<span style="color: #bbbbbb"></span>
-<span style="color: #A0A000">Server</span>:<span style="color: #bbbbbb"> </span>Apache<span style="color: #666666">/2.4.48</span><span style="color: #bbbbbb"> </span>(Fedora)<span style="color: #bbbbbb"></span>
-<span style="color: #AA22FF; font-weight: bold">Last</span><span style="color: #666666">-</span><span style="color: #A0A000">Modified</span>:<span style="color: #bbbbbb"> </span>Fri,<span style="color: #bbbbbb"> </span><span style="color: #666666">26</span><span style="color: #bbbbbb"> </span>Mar<span style="color: #bbbbbb"> </span><span style="color: #666666">2021</span><span style="color: #bbbbbb"> </span><span style="color: #666666">17</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">49</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">58</span><span style="color: #bbbbbb"> </span>GMT<span style="color: #bbbbbb"></span>
-<span style="color: #A0A000">ETag</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;211a-5be742910bd80&quot;</span><span style="color: #bbbbbb"></span>
-Accept<span style="color: #666666">-</span><span style="color: #A0A000">Ranges</span>:<span style="color: #bbbbbb"> </span>bytes<span style="color: #bbbbbb"></span>
-Content<span style="color: #666666">-</span><span style="color: #A0A000">Length</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">8474</span><span style="color: #bbbbbb"></span>
-Content<span style="color: #666666">-</span><span style="color: #A0A000">Type</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">text</span><span style="color: #666666">/</span>html;<span style="color: #bbbbbb"> </span>charset<span style="color: #666666">=</span>UTF<span style="color: #666666">-8</span><span style="color: #bbbbbb"></span>
-
-<span style="color: #666666">[</span>root@fedora-node ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>
-</code></pre></div>
-
-<p><a href="https://zaki-lknr.github.io/Linux/ssh/#sshd">sshdの場合はこちら</a></p>
-<h2 id="semanage">semanage</h2>
-<p>コマンドがない場合は <code>policycoreutils-python-utils</code> パッケージをインストールする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>rpm -qf /usr/sbin/semanage
-<span style="color: #888888">policycoreutils-python-utils-3.3-1.fc35.noarch</span>
+<h3 id="_3">登録済みユーザー一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">pdbedit -L</span>
 </code></pre></div>
                 
               
@@ -1562,7 +1436,7 @@ Content<span style="color: #666666">-</span><span style="color: #A0A000">Type</s
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../rhel/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../selinux/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1571,19 +1445,19 @@ Content<span style="color: #666666">-</span><span style="color: #A0A000">Type</s
               <span class="md-footer__direction">
                 前
               </span>
-              RHEL
+              SELinux
             </div>
           </div>
         </a>
       
       
-        <a href="../server/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../ssh/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              サーバー関連
+              ssh関連
             </div>
           </div>
           <div class="md-footer__button md-icon">
