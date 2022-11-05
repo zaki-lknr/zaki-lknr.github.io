@@ -1547,7 +1547,8 @@
 <li>ansible_user</li>
 <li>ansible_ssh_private_key_file</li>
 </ul>
-<p>たとえば、最初は管理用アカウントで接続してユーザー作成など行って、次のplayでは作成したユーザーで接続できることを確認しつつアプリのデプロイを行う、などなど。</p>
+<p>たとえば、最初は管理用アカウントで接続してユーザー作成など行って、次のplayでは作成したユーザーで接続できることを確認しつつアプリのデプロイを行う、などなど。<br />
+コマンドラインオプションでは、それぞれ<code>-u</code>と<code>--private-key</code>で指定可能。</p>
 <h3 id="_4">ログインパスワード</h3>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters">Connecting to hosts: behavioral inventory parameters</a></p>
 <p>ネットワーク機器や公開鍵設定されてないサーバーOSへSSH接続の際のパスワードは<code>ansible_password</code>を使う。</p>

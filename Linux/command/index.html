@@ -1275,6 +1275,46 @@
       
         <li class="md-nav__item">
   <a href="#_23" class="md-nav__link">
+    ホスト名
+  </a>
+  
+    <nav class="md-nav" aria-label="ホスト名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolvectl" class="md-nav__link">
+    resolvectl
+  </a>
+  
+    <nav class="md-nav" aria-label="resolvectl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns_1" class="md-nav__link">
+    DNS設定確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
     ファイアウォール
   </a>
   
@@ -1290,7 +1330,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     リダイレクトルールの削除
   </a>
   
@@ -1329,14 +1369,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     設定一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     設定の登録
   </a>
   
@@ -2095,6 +2135,46 @@
       
         <li class="md-nav__item">
   <a href="#_23" class="md-nav__link">
+    ホスト名
+  </a>
+  
+    <nav class="md-nav" aria-label="ホスト名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolvectl" class="md-nav__link">
+    resolvectl
+  </a>
+  
+    <nav class="md-nav" aria-label="resolvectl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns_1" class="md-nav__link">
+    DNS設定確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
     ファイアウォール
   </a>
   
@@ -2110,7 +2190,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     リダイレクトルールの削除
   </a>
   
@@ -2149,14 +2229,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     設定一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     設定の登録
   </a>
   
@@ -2525,7 +2605,18 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens224 -ipv4.routes <span style="color: #BB4444">&quot;172.29.0.0/24 172.16.1.3&quot;</span>
 </code></pre></div>
 
-<h2 id="_23">ファイアウォール</h2>
+<h2 id="_23">ホスト名</h2>
+<h3 id="_24">変更</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">sudo hostnamectl set-hostname rhel8</span>
+</code></pre></div>
+
+<h2 id="resolvectl">resolvectl</h2>
+<p>Fedoraなど。</p>
+<h3 id="dns_1">DNS設定確認</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">resolvectl status</span>
+</code></pre></div>
+
+<h2 id="_25">ファイアウォール</h2>
 <h3 id="iptables">iptables</h3>
 <p>ルール確認</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables -L
@@ -2544,7 +2635,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 172.29.0.14:443</span>
 </code></pre></div>
 
-<h4 id="_24">リダイレクトルールの削除</h4>
+<h4 id="_26">リダイレクトルールの削除</h4>
 <p>まずルールの確認を<code>--line-numbers</code>を付与して行番号を確認。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables -L -t nat --line-numbers
 </code></pre></div>
@@ -2594,7 +2685,7 @@ ssh経由の場合警告される。(<code>iptables -nL</code>あたりで22/tcp
 <p>※ 操作のみ。この環境はufwを使ってないらしく動作は未確認</p>
 <h2 id="alternatives">alternatives</h2>
 <p>ubuntuだと<code>update-alternatives</code>で、RHEL系だと<code>alternatives</code>になる。</p>
-<h3 id="_25">設定一覧</h3>
+<h3 id="_27">設定一覧</h3>
 <p>ubuntuの場合</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-ap-a1-ubuntu:~# </span>update-alternatives --get-selections 
 <span style="color: #888888">arptables                      auto     /usr/sbin/arptables-nft</span>
@@ -2613,7 +2704,7 @@ iptables<span style="color: #bbbbbb">                </span>auto<span style="col
 <span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
 
-<h3 id="_26">設定の登録</h3>
+<h3 id="_28">設定の登録</h3>
 <p><code>python</code>という名前で、<code>/usr/bin/python</code>を優先度10で登録する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 <span style="color: #666666">10</span>
 <span style="color: #888888">update-alternatives: using /usr/bin/python3 to provide /usr/bin/python (python) in auto mode</span>

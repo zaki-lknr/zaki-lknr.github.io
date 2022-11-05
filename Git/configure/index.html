@@ -1664,7 +1664,11 @@ Host github.com
 <p>既存の<code>PS1</code>設定に追加するのであればこんな感じが良いかも。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">if</span> <span style="color: #666666">[</span> -f ~/.git-prompt.sh <span style="color: #666666">]</span>; <span style="color: #AA22FF; font-weight: bold">then</span>
     <span style="color: #AA22FF">source</span> ~/.git-prompt.sh
-    <span style="color: #B8860B">PS1</span><span style="color: #666666">=</span><span style="color: #BB4444">&#39;$(__git_ps1 &quot;(%s) &quot;)&#39;&quot;</span><span style="color: #B8860B">$PS1</span><span style="color: #BB4444">&quot;</span>
+    <span style="color: #B8860B">PS1</span><span style="color: #666666">=</span><span style="color: #BB4444">&#39;\[\e[31m\]$(__git_ps1 &quot;(%s) &quot;)\[\e[0m\]&#39;&quot;</span><span style="color: #B8860B">$PS1</span><span style="color: #BB4444">&quot;</span>
+    <span style="color: #AA22FF">export</span> <span style="color: #B8860B">GIT_PS1_SHOWDIRTYSTATE</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span>
+    <span style="color: #AA22FF">export</span> <span style="color: #B8860B">GIT_PS1_SHOWUNTRACKEDFILES</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span>
+    <span style="color: #AA22FF">export</span> <span style="color: #B8860B">GIT_PS1_SHOWSTASHSTATE</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span>
+    <span style="color: #AA22FF">export</span> <span style="color: #B8860B">GIT_PS1_SHOWUPSTREAM</span><span style="color: #666666">=</span>auto
 <span style="color: #AA22FF; font-weight: bold">fi</span>
 </code></pre></div>
                 
