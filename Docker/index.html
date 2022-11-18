@@ -698,6 +698,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#inspect" class="md-nav__link">
+    inspect
+  </a>
+  
+    <nav class="md-nav" aria-label="inspect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatip" class="md-nav__link">
+    formatでIPアドレス
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#save" class="md-nav__link">
     save
   </a>
@@ -1522,6 +1542,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#inspect" class="md-nav__link">
+    inspect
+  </a>
+  
+    <nav class="md-nav" aria-label="inspect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatip" class="md-nav__link">
+    formatでIPアドレス
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#save" class="md-nav__link">
     save
   </a>
@@ -1670,6 +1710,23 @@
 
 <p><code>webvolume</code>ボリュームを(無ければ自動作成して)<code>/var/tmp</code>にマウントしてコンテナ起動。<br />
 コンテナを停止・削除してもボリュームは残るので、このボリュームを別コンテナでマウントすればデータを保持できる。</p>
+<h3 id="inspect">inspect</h3>
+<p>コンテナの状態を確認する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker inspect &lt;container name or ID&gt;</span>
+</code></pre></div>
+
+<h4 id="formatip">formatでIPアドレス</h4>
+<p><code>docker run</code>でデフォルトのネットワークへデプロイしたコンテナであればこの通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker inspect &lt;container name or ID&gt; --format <span style="color: #BB4444">&#39;{{ .NetworkSettings.IPAddress }}&#39;</span>
+<span style="color: #888888">172.17.0.2</span>
+</code></pre></div>
+
+<p>デフォルト以外のネットワークはこのパスの値は空になっているので、ネットワークの指定も必要。<br />
+Compose使用時もこのパターン。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker inspect &lt;container name or ID&gt; --format <span style="color: #BB4444">&#39;{{ .NetworkSettings.Networks.&lt;network name&gt;.IPAddress }}&#39;</span>
+<span style="color: #888888">172.18.0.2</span>
+</code></pre></div>
+
 <h3 id="save">save</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker save imagename:tag &gt; imagename-tag.tar
 </code></pre></div>

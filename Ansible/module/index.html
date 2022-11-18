@@ -711,6 +711,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    インベントリの再読み込み
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1640,6 +1647,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    インベントリの再読み込み
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2013,6 +2027,13 @@ Ansibleも同様で、タスクでグループの更新を行っても、後続�
 <span style="color: #888888">localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </span>
 </code></pre></div>
 
+<h3 id="_6">インベントリの再読み込み</h3>
+<p>ダイナミックインベントリでホスト情報を再収集したい場合、など。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>refresh inventory<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>refresh_inventory<span style="color: #bbbbbb"></span>
+</code></pre></div>
+
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2022/11/09/203145">[Ansible] 任意のタイミングでダイナミックインベントリのホスト情報収集を行う - zaki work log</a></p>
 <h2 id="docker">Docker</h2>
 <h3 id="push-image">push image</h3>
 <p><code>docker_image</code>を使用しパラメタに<code>push: true</code>を指定。</p>
