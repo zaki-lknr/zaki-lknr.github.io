@@ -683,6 +683,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/registry/" class="md-nav__link">
+        Registry
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -951,6 +963,26 @@
           <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
     ワーク用のpodをデプロイする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expose" class="md-nav__link">
+    expose
+  </a>
+  
+    <nav class="md-nav" aria-label="expose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#podservice" class="md-nav__link">
+    podベースでserviceを作成
   </a>
   
 </li>
@@ -1533,6 +1565,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#expose" class="md-nav__link">
+    expose
+  </a>
+  
+    <nav class="md-nav" aria-label="expose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#podservice" class="md-nav__link">
+    podベースでserviceを作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#config" class="md-nav__link">
     config
   </a>
@@ -1660,6 +1712,11 @@ apiVersion:<span style="color: #bbbbbb"> </span>v1<span style="color: #bbbbbb"><
 <h2 id="run">run</h2>
 <h3 id="pod">ワーク用のpodをデプロイする</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl run work-pod --image<span style="color: #666666">=</span>fedora --command -- tail -f /dev/null
+</code></pre></div>
+
+<h2 id="expose">expose</h2>
+<h3 id="podservice">podベースでserviceを作成</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl expose pod &lt;pod-name&gt; --port <span style="color: #666666">80</span>
 </code></pre></div>
 
 <h2 id="config">config</h2>

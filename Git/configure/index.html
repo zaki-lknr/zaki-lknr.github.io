@@ -683,6 +683,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docker/registry/" class="md-nav__link">
+        Registry
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -779,13 +791,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境変数を使う場合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     現在の設定確認
   </a>
   
@@ -793,14 +812,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     現在適用される設定全て
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     セクションごとの設定内容
   </a>
   
@@ -826,13 +845,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#homesshconfig" class="md-nav__link">
+    共用アカウントなどで$HOME/.ssh/config以外を使いたい場合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     リモートリポジトリ
   </a>
   
@@ -840,28 +866,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     現在の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リポジトリを設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リモートリポジトリを変更
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     別のリポジトリを別名で追加
   </a>
   
@@ -1467,13 +1493,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境変数を使う場合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     現在の設定確認
   </a>
   
@@ -1481,14 +1514,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     現在適用される設定全て
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     セクションごとの設定内容
   </a>
   
@@ -1514,13 +1547,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#homesshconfig" class="md-nav__link">
+    共用アカウントなどで$HOME/.ssh/config以外を使いたい場合
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     リモートリポジトリ
   </a>
   
@@ -1528,28 +1568,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     現在の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リポジトリを設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リモートリポジトリを変更
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     別のリポジトリを別名で追加
   </a>
   
@@ -1596,12 +1636,21 @@
 <span style="color: #888888">git config --local user.email zaki.hmkc@...</span>
 </code></pre></div>
 
-<h2 id="_2">現在の設定確認</h2>
-<h3 id="_3">現在適用される設定全て</h3>
+<h3 id="_2">環境変数を使う場合</h3>
+<p>以下を設定することで、<code>user.name</code>と<code>user.email</code>を上書きできる。<br />
+共用アカウントで誰かが<code>$HOME/.gitconfig</code>を設定してしまい、自分のワークディレクトリの<code>.gitconfig</code>の設定忘れでの事故防止的にはこちらが良いかも。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">export</span> GIT_AUTHOR_NAME
+<span style="color: #AA22FF">export</span> GIT_AUTHOR_EMAIL
+<span style="color: #AA22FF">export</span> GIT_COMMITTER_NAME
+<span style="color: #AA22FF">export</span> GIT_COMMITTER_EMAIL
+</code></pre></div>
+
+<h2 id="_3">現在の設定確認</h2>
+<h3 id="_4">現在適用される設定全て</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git config -l
 </code></pre></div>
 
-<h3 id="_4">セクションごとの設定内容</h3>
+<h3 id="_5">セクションごとの設定内容</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git config --system -l
 $ git config --global -l
 $ git config --local -l
@@ -1623,17 +1672,22 @@ Host github.com
     IdentityFile ~/.ssh/id_rsa_git
 </code></pre></div>
 
-<h2 id="_5">リモートリポジトリ</h2>
-<h3 id="_6">現在の設定</h3>
+<h3 id="homesshconfig">共用アカウントなどで$HOME/.ssh/config以外を使いたい場合</h3>
+<p>以下設定。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">export</span> <span style="color: #B8860B">GIT_SSH_COMMAND</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;ssh -F /path/to/myconf/ssh/config&quot;</span>
+</code></pre></div>
+
+<h2 id="_6">リモートリポジトリ</h2>
+<h3 id="_7">現在の設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote -v
 </code></pre></div>
 
-<h3 id="_7">リポジトリを設定</h3>
+<h3 id="_8">リポジトリを設定</h3>
 <p>GitHubとかでREADME無しでリポジトリ作るとコマンドが表示されるアレ</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote add origin &lt;URI of Repository&gt;
 </code></pre></div>
 
-<h3 id="_8">リモートリポジトリを変更</h3>
+<h3 id="_9">リモートリポジトリを変更</h3>
 <p>originをGitHubからプライベートGitLabに変更、とか。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote set-url origin https://my-gitlab.example.org/user/repository.git
 </code></pre></div>
@@ -1642,7 +1696,7 @@ Host github.com
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote set-url origin git@github.com:zaki-lknr/ansible-sample.git
 </code></pre></div>
 
-<h3 id="_9">別のリポジトリを別名で追加</h3>
+<h3 id="_10">別のリポジトリを別名で追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git remote add hoge &lt;other repository&gt;
 </code></pre></div>
 
