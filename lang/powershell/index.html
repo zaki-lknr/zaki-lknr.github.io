@@ -1198,6 +1198,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/vi/" class="md-nav__link">
+        vi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/vscode/" class="md-nav__link">
         VS Code
       </a>
@@ -1307,6 +1319,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コーディング
+  </a>
+  
+    <nav class="md-nav" aria-label="コーディング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    型
+  </a>
+  
+    <nav class="md-nav" aria-label="型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    配列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    連想配列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    型を確認する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1391,6 +1450,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コーディング
+  </a>
+  
+    <nav class="md-nav" aria-label="コーディング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    型
+  </a>
+  
+    <nav class="md-nav" aria-label="型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    配列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    連想配列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    型を確認する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1430,6 +1536,44 @@ om/fwlink/?LinkID=135170) を参照してください。
 
 <h2 id="http">httpアクセス</h2>
 <p><a href="https://qiita.com/zaki-lknr/items/8950f6acea20961a8afc">curl/PowerShellでHTTPアクセスいろいろ - Qiita</a></p>
+<h2 id="_2">コーディング</h2>
+<h3 id="_3">型</h3>
+<h4 id="_4">配列</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span> = @(1,2,3,<span style="color: #BB4444">&quot;foo&quot;</span>,<span style="color: #BB4444">&quot;bar&quot;</span>,<span style="color: #BB4444">&quot;baz&quot;</span>)
+<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span>
+1
+2
+3
+foo
+bar
+baz
+<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt;
+</code></pre></div>
+
+<h4 id="_5">連想配列</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span> = @{key1=<span style="color: #BB4444">&quot;value1&quot;</span>; key2=123}
+<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span>
+
+Name                           Value
+----                           -----
+key1                           value1
+key2                           123
+
+
+<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt;
+</code></pre></div>
+
+<h4 id="_6">型を確認する</h4>
+<p><code>GetType()</code>を使用する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B8860B">$flen_values</span>.GetType()
+</code></pre></div>
+
+<p>これで型を確認できる。<br />
+例えばこんな出力になる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">IsPublic IsSerial Name                                     BaseType</span>
+<span style="color: #888888">-------- -------- ----                                     --------</span>
+<span style="color: #888888">True     True     Byte[]                                   System.Array</span>
+</code></pre></div>
                 
               
               
