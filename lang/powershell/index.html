@@ -1366,6 +1366,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#azure-powershell" class="md-nav__link">
+    Azure PowerShell
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure PowerShell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-az-powershell" class="md-nav__link">
+    Azure Az PowerShellインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    サインイン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ディレクトリ切り替え
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1497,6 +1531,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#azure-powershell" class="md-nav__link">
+    Azure PowerShell
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure PowerShell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-az-powershell" class="md-nav__link">
+    Azure Az PowerShellインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    サインイン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ディレクトリ切り替え
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1574,6 +1642,26 @@ key2                           123
 <span style="color: #888888">-------- -------- ----                                     --------</span>
 <span style="color: #888888">True     True     Byte[]                                   System.Array</span>
 </code></pre></div>
+
+<h2 id="azure-powershell">Azure PowerShell</h2>
+<h3 id="azure-az-powershell">Azure Az PowerShellインストール</h3>
+<p><a href="https://learn.microsoft.com/ja-jp/powershell/azure/install-az-ps">Azure Az PowerShell モジュールをインストールする | Microsoft Learn</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Install-Module</span> -Name Az -Scope CurrentUser -Repository PSGallery -Force
+</code></pre></div>
+
+<h3 id="_7">サインイン</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Connect-AzAccount</span>
+</code></pre></div>
+
+<p>ディレクトリが複数ある場合は指定の必要がある。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Connect-AzAccount</span> -TenantId ********
+</code></pre></div>
+
+<h3 id="_8">ディレクトリ切り替え</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Select-AzContext</span> ...
+</code></pre></div>
+
+<p>サインイン済みのディレクトリはtabでサジェストできる。</p>
                 
               
               
