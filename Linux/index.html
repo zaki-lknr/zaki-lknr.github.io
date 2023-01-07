@@ -1496,24 +1496,24 @@
 <h2 id="sudo">sudo</h2>
 <p>パスワード不要にする雑な設定</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800"># cat /etc/sudoers.d/nopass </span>
-<span style="color: #00A000">%wheel</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #bbbbbb"></span>
+<span style="color: #00A000">%wheel</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
 </code></pre></div>
 
 <p>Debian系はグループ名は<code>wheel</code>でなく<code>sudo</code>になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00A000">%sudo</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00A000">%sudo</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
 </code></pre></div>
 
 <h3 id="_2">コマンドでパス不要設定</h3>
 <p>rhel系</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span>__EOL__<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>sudoers.d<span style="color: #666666">/</span>nopass<span style="color: #bbbbbb"></span>
-<span style="color: #00A000">%wheel</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #bbbbbb"></span>
-__EOL__<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span>__EOL__<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>sudoers.d<span style="color: #666666">/</span>nopass
+<span style="color: #00A000">%wheel</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
+__EOL__
 </code></pre></div>
 
 <p>debian系</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span>__EOL__<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>sudoers.d<span style="color: #666666">/</span>nopass<span style="color: #bbbbbb"></span>
-<span style="color: #00A000">%sudo</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #bbbbbb"></span>
-__EOL__<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span>__EOL__<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>sudoers.d<span style="color: #666666">/</span>nopass
+<span style="color: #00A000">%sudo</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
+__EOL__
 </code></pre></div>
 
 <h2 id="_3">環境変数</h2>

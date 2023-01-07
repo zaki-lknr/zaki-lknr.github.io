@@ -1669,9 +1669,9 @@
                 <h1 id="_1">やらかしたとき</h1>
 <h2 id="commit">ユーザー設定前にcommitした</h2>
 <p>メッセージ出るのでその通りすればいい</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git config --global user.name <span style="color: #BB4444">&quot;Your Name&quot;</span>
-$ git config --global user.email you@example.com
-$ git commit --amend --reset-author
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>--global<span style="color: #bbbbbb"> </span>user.name<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;Your Name&quot;</span>
+$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>--global<span style="color: #bbbbbb"> </span>user.email<span style="color: #bbbbbb"> </span>you@example.com
+$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>commit<span style="color: #bbbbbb"> </span>--amend<span style="color: #bbbbbb"> </span>--reset-author
 </code></pre></div>
 
 <p>※ これは最初の1回のみ(<code>--amend</code>による直前のコミットのみ修正)</p>
@@ -1680,37 +1680,37 @@ $ git commit --amend --reset-author
 <p><a href="https://qiita.com/y10exxx/items/dcea0e39788d649ca8ba">GitのCommitユーザを修正する方法 - Qiita</a></p>
 <h2 id="_2">ブランチに移動する前に編集してしまった(未コミット状態)</h2>
 <p><code>stash save</code>で変更を退避 -&gt; ブランチに移動 -&gt; <code>stash pop</code>で退避した変更点を取り出す</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git stash save
-$ git checkout &lt;branch-name&gt;
-$ git stash pop
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>stash<span style="color: #bbbbbb"> </span>save
+$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>checkout<span style="color: #bbbbbb"> </span>&lt;branch-name&gt;
+$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>stash<span style="color: #bbbbbb"> </span>pop
 </code></pre></div>
 
 <h2 id="-amendcommit">--amendを忘れてcommit</h2>
 <p>未コミットの変更でなく、コミット済みAとBをまとめるには<code>git rebase</code>を使う</p>
 <h2 id="_3">過去のコミットに対する打ち消しコミット</h2>
 <p>コミットログ上は「過去コミット」「打ち消しコミット」が残るもの</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git revert &lt;取り消したいコミットID&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>revert<span style="color: #bbbbbb"> </span>&lt;取り消したいコミットID&gt;
 </code></pre></div>
 
 <p>対象コミット後に変更があったりするとコンフリクトになるので、手動で修正し、<code>add</code>,<code>commit</code>する。</p>
 <h2 id="_4">コミットログの変更</h2>
 <h3 id="_5">直近のコミットのコミットログ変更</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git commit --amend
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>commit<span style="color: #bbbbbb"> </span>--amend
 </code></pre></div>
 
 <h3 id="2">2つ以上前のコミットのコミットログを変更</h3>
 <p>3つ前の場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git rebase -i HEAD~3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>rebase<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>HEAD~3
 </code></pre></div>
 
 <p>これでエディタが起動してどのコミットを変更するかの選択になるので、対象の行頭の<code>pick</code>を<code>edit</code>に変更して<code>:wq</code>する。<br />
 この状態で</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git commit --amend
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>commit<span style="color: #bbbbbb"> </span>--amend
 </code></pre></div>
 
 <p>を実行すると、<code>edit</code>対象のコミットログに対しての再コミットとなるので、コミットログを修正する。<br />
 修正したら</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git rebase --continue
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>rebase<span style="color: #bbbbbb"> </span>--continue
 </code></pre></div>
 
 <p>対象が複数ある場合は次のコミットログを<code>git commit --amend</code>して<code>git rebase --continue</code>を件数分繰り返し。</p>
@@ -1724,74 +1724,74 @@ $ git stash pop
 <h3 id="git-reset-hard-head">git reset --hard HEAD^</h3>
 <p>編集前、直前の<code>git commit</code>完了時点に戻す (対象ファイルを間違えたとかコミットを間違えただけで編集内容は正しい場合はこれやると事故る)</p>
 <h2 id="reset">resetの取り消し</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reflog
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reflog
 </code></pre></div>
 
 <p>これでresetを含むgitの操作履歴が表示される。
 「このコミットの状態に戻したい」のHEAD番号を探して</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reset --mixed  HEAD@<span style="color: #666666">{8}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reset<span style="color: #bbbbbb"> </span>--mixed<span style="color: #bbbbbb">  </span>HEAD@<span style="color: #666666">{8}</span>
 </code></pre></div>
 
 <p>など実行する。
 <code>--mixed</code>や<code>--soft</code>については、最初にresetしたときと同じのを指定すればよいかな？ (未確認)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reflog 
-de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{0}</span>: reset: moving to HEAD@<span style="color: #666666">{7}</span>
-<span style="color: #666666">7379519</span> HEAD@<span style="color: #666666">{1}</span>: reset: moving to HEAD@<span style="color: #666666">{5}</span>
-de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{2}</span>: reset: moving to HEAD@<span style="color: #666666">{5}</span>
-de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{3}</span>: reset: moving to HEAD@<span style="color: #666666">{4}</span>
-22364c9 HEAD@<span style="color: #666666">{4}</span>: reset: moving to HEAD^
-de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{5}</span>: reset: moving to HEAD^
-<span style="color: #666666">7379519</span> HEAD@<span style="color: #666666">{6}</span>: reset: moving to HEAD
-<span style="color: #666666">7379519</span> HEAD@<span style="color: #666666">{7}</span>: ....
-de41fb8 <span style="color: #666666">(</span>HEAD -&gt; linux<span style="color: #666666">)</span> HEAD@<span style="color: #666666">{8}</span>: ....
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reflog<span style="color: #bbbbbb"> </span>
+de41fb8<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>HEAD<span style="color: #bbbbbb"> </span>-&gt;<span style="color: #bbbbbb"> </span>linux<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{0}</span>:<span style="color: #bbbbbb"> </span>reset:<span style="color: #bbbbbb"> </span>moving<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{7}</span>
+<span style="color: #666666">7379519</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{1}</span>:<span style="color: #bbbbbb"> </span>reset:<span style="color: #bbbbbb"> </span>moving<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{5}</span>
+de41fb8<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>HEAD<span style="color: #bbbbbb"> </span>-&gt;<span style="color: #bbbbbb"> </span>linux<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{2}</span>:<span style="color: #bbbbbb"> </span>reset:<span style="color: #bbbbbb"> </span>moving<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{5}</span>
+de41fb8<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>HEAD<span style="color: #bbbbbb"> </span>-&gt;<span style="color: #bbbbbb"> </span>linux<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{3}</span>:<span style="color: #bbbbbb"> </span>reset:<span style="color: #bbbbbb"> </span>moving<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{4}</span>
+22364c9<span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{4}</span>:<span style="color: #bbbbbb"> </span>reset:<span style="color: #bbbbbb"> </span>moving<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>HEAD^
+de41fb8<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>HEAD<span style="color: #bbbbbb"> </span>-&gt;<span style="color: #bbbbbb"> </span>linux<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{5}</span>:<span style="color: #bbbbbb"> </span>reset:<span style="color: #bbbbbb"> </span>moving<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>HEAD^
+<span style="color: #666666">7379519</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{6}</span>:<span style="color: #bbbbbb"> </span>reset:<span style="color: #bbbbbb"> </span>moving<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>HEAD
+<span style="color: #666666">7379519</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{7}</span>:<span style="color: #bbbbbb"> </span>....
+de41fb8<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>HEAD<span style="color: #bbbbbb"> </span>-&gt;<span style="color: #bbbbbb"> </span>linux<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>HEAD@<span style="color: #666666">{8}</span>:<span style="color: #bbbbbb"> </span>....
 </code></pre></div>
 
 <p>これで<code>HEAD@{8}</code>に<code>reset</code>すれば、<code>de41fb8</code>をコミットした状態になる。</p>
 <h2 id="_7">取り消し</h2>
 <h3 id="addcommit">ローカルの変更(未add、未commit)を破棄</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git checkout /path/to/file
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>checkout<span style="color: #bbbbbb"> </span>/path/to/file
 </code></pre></div>
 
 <p>ファイルシステムから削除したファイルをリポジトリから復旧したい場合も、削除したファイルのパスを指定すればOK<br />
 古いバージョンでないGitであれば、これからは<code>restore</code>を使おう。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git restore /path/to/file
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>restore<span style="color: #bbbbbb"> </span>/path/to/file
 </code></pre></div>
 
 <h3 id="add">addの取り消し</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reset HEAD &lt;path&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reset<span style="color: #bbbbbb"> </span>HEAD<span style="color: #bbbbbb"> </span>&lt;path&gt;
 </code></pre></div>
 
 <p>ただし、<code>git init</code>直後の場合はこの操作は不可。<br />
 <code>git rm --cached</code>でバージョン管理から外す操作を行う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git rm --cached &lt;filename&gt;
-<span style="color: #000080; font-weight: bold">$ </span>git rm --cached -r &lt;dirname&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>rm<span style="color: #bbbbbb"> </span>--cached<span style="color: #bbbbbb"> </span>&lt;filename&gt;
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>rm<span style="color: #bbbbbb"> </span>--cached<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>&lt;dirname&gt;
 </code></pre></div>
 
 <h3 id="mv">mvの取り消し</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git mv foo bar
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>mv<span style="color: #bbbbbb"> </span>foo<span style="color: #bbbbbb"> </span>bar
 </code></pre></div>
 
 <p>した状態で、無かったことにするには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reset HEAD foo
-$ git reset HEAD bar
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reset<span style="color: #bbbbbb"> </span>HEAD<span style="color: #bbbbbb"> </span>foo
+$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reset<span style="color: #bbbbbb"> </span>HEAD<span style="color: #bbbbbb"> </span>bar
 </code></pre></div>
 
 <p>の両方を実行する。</p>
 <p>※ <code>git mv</code>によって、<code>bar</code>が作成され、<code>foo</code>は削除対象になってるので、それぞれ<code>reset HEAD</code>で元に戻す(<code>bar</code>は削除して<code>foo</code>の<code>delete</code>をキャンセル)</p>
 <p>memo</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git reset --hard HEAD /path/to/file
-fatal: Cannot <span style="color: #AA22FF; font-weight: bold">do</span> hard reset with paths.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reset<span style="color: #bbbbbb"> </span>--hard<span style="color: #bbbbbb"> </span>HEAD<span style="color: #bbbbbb"> </span>/path/to/file
+fatal:<span style="color: #bbbbbb"> </span>Cannot<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">do</span><span style="color: #bbbbbb"> </span>hard<span style="color: #bbbbbb"> </span>reset<span style="color: #bbbbbb"> </span>with<span style="color: #bbbbbb"> </span>paths.
 </code></pre></div>
 
 <h3 id="mergeconflict">mergeの取り消し(conflict)</h3>
 <p>mergeしようとしたらconflictしてしまい、競合を解消するよりマージ元を改修してマージしなおしたほうが早いような場合。<br />
 マージを取り消すには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git merge --abort
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>merge<span style="color: #bbbbbb"> </span>--abort
 </code></pre></div>
 
 <h3 id="rebaseconflict">rebaseの取り消し(conflict)</h3>
 <p><code>merge</code>と同様に<code>--abort</code>で元に戻せる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git rebase --abort
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>rebase<span style="color: #bbbbbb"> </span>--abort
 </code></pre></div>
                 
               

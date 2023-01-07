@@ -1398,12 +1398,12 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">FROM</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">guacamole/guacamole:1.4.0</span>
 
 <span style="color: #AA22FF; font-weight: bold">USER</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">0</span>
-<span style="color: #AA22FF; font-weight: bold">RUN</span><span style="color: #bbbbbb"> </span>apt-get update <span style="color: #BB6622; font-weight: bold">\</span>
-    <span style="color: #666666">&amp;&amp;</span> apt-get install -y locales <span style="color: #BB6622; font-weight: bold">\</span>
-    <span style="color: #666666">&amp;&amp;</span> sed -i -E <span style="color: #BB4444">&#39;s/# (ja_JP.UTF-8)/\1/&#39;</span> /etc/locale.gen <span style="color: #BB6622; font-weight: bold">\</span>
-    <span style="color: #666666">&amp;&amp;</span> locale-gen <span style="color: #BB6622; font-weight: bold">\</span>
-    <span style="color: #666666">&amp;&amp;</span> update-locale <span style="color: #B8860B">LANG</span><span style="color: #666666">=</span>ja_JP.UTF-8
-<span style="color: #AA22FF; font-weight: bold">ENV</span><span style="color: #bbbbbb"> </span>LANG ja_JP.UTF-8
+<span style="color: #AA22FF; font-weight: bold">RUN</span><span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>update<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-y<span style="color: #bbbbbb"> </span>locales<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>sed<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>-E<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;s/# (ja_JP.UTF-8)/\1/&#39;</span><span style="color: #bbbbbb"> </span>/etc/locale.gen<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>locale-gen<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>update-locale<span style="color: #bbbbbb"> </span><span style="color: #B8860B">LANG</span><span style="color: #666666">=</span>ja_JP.UTF-8
+<span style="color: #AA22FF; font-weight: bold">ENV</span><span style="color: #bbbbbb"> </span>LANG<span style="color: #bbbbbb"> </span>ja_JP.UTF-8
 
 <span style="color: #AA22FF; font-weight: bold">USER</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">1001</span>
 </code></pre></div>

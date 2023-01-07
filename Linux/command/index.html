@@ -2336,7 +2336,7 @@
 <p>表示中に<code>-i</code>押下して<code>enter</code></p>
 <h2 id="find">find</h2>
 <h3 id="_4">ディレクトリ除外</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find /path/to -path <span style="color: #666666">(</span>除外パス<span style="color: #666666">)</span> -prune -o <span style="color: #666666">(</span>検索条件<span style="color: #666666">)</span> -print
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find<span style="color: #bbbbbb"> </span>/path/to<span style="color: #bbbbbb"> </span>-path<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>除外パス<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>-prune<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>検索条件<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>-print
 </code></pre></div>
 
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">find . -path &quot;*venv&quot; -prune -o -name &quot;*.py&quot; -print</span>
@@ -2345,12 +2345,12 @@
 <p>とか。</p>
 <h3 id="xargs">スペース込みのパスとxargsの連携</h3>
 <p>以下で、findの結果が\0区切りになり、xargsのデリミタの扱いが\0になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find path <span style="color: #666666">[</span>opt<span style="color: #666666">]</span> -print0 | xargs -0 <span style="color: #AA22FF">command</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find<span style="color: #bbbbbb"> </span>path<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>opt<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span>-print0<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>xargs<span style="color: #bbbbbb"> </span>-0<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">command</span>
 </code></pre></div>
 
 <p><code>find</code>は結果を改行区切りで出力し、<code>xargs</code>は改行とスペースを区切りとみなすのがデフォルト。<br />
 <code>find</code>に<code>-print0</code>を付与すると区切りが<code>\0</code>に変更され、<code>xargs</code>に<code>-0</code>を付与すると<code>\0</code>区切りで動作する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@salva% </span>find . -name <span style="color: #BB4444">&quot;*txt&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@salva% </span>find<span style="color: #bbbbbb"> </span>.<span style="color: #bbbbbb"> </span>-name<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;*txt&quot;</span>
 <span style="color: #888888">./a b.txt</span>
 <span style="color: #888888">./a.txt</span>
 <span style="color: #888888">./b.txt</span>
@@ -2359,14 +2359,14 @@
 <span style="color: #888888">./sub/b.txt</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@salva% </span>find . -name <span style="color: #BB4444">&quot;*txt&quot;</span> | od -c
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@salva% </span>find<span style="color: #bbbbbb"> </span>.<span style="color: #bbbbbb"> </span>-name<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;*txt&quot;</span><span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>od<span style="color: #bbbbbb"> </span>-c
 <span style="color: #888888">0000000   .   /   a       b   .   t   x   t  \n   .   /   a   .   t   x</span>
 <span style="color: #888888">0000020   t  \n   .   /   b   .   t   x   t  \n   .   /   s   u   b   /</span>
 <span style="color: #888888">0000040   a       b   .   t   x   t  \n   .   /   s   u   b   /   a   .</span>
 <span style="color: #888888">0000060   t   x   t  \n   .   /   s   u   b   /   b   .   t   x   t  \n</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@salva% </span>find . -name <span style="color: #BB4444">&quot;*txt&quot;</span> -print0 | od -c
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@salva% </span>find<span style="color: #bbbbbb"> </span>.<span style="color: #bbbbbb"> </span>-name<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;*txt&quot;</span><span style="color: #bbbbbb"> </span>-print0<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>od<span style="color: #bbbbbb"> </span>-c
 <span style="color: #888888">0000000   .   /   a       b   .   t   x   t  \0   .   /   a   .   t   x</span>
 <span style="color: #888888">0000020   t  \0   .   /   b   .   t   x   t  \0   .   /   s   u   b   /</span>
 <span style="color: #888888">0000040   a       b   .   t   x   t  \0   .   /   s   u   b   /   a   .</span>
@@ -2379,28 +2379,28 @@
 <ul>
 <li>文字列</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date -d <span style="color: #BB4444">&quot;2021/06/25 09:00&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2021/06/25 09:00&quot;</span>
 <span style="color: #888888">2021年  6月 25日 金曜日 09:00:00 JST</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date -d <span style="color: #BB4444">&quot;2021/06/25 09:00&quot;</span> +%s
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2021/06/25 09:00&quot;</span><span style="color: #bbbbbb"> </span>+%s
 <span style="color: #888888">1624579200</span>
 </code></pre></div>
 
 <ul>
 <li>epoch</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date -d @1624579200
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>@1624579200
 <span style="color: #888888">2021年  6月 25日 金曜日 09:00:00 JST</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date -d @1624579200 <span style="color: #BB4444">&quot;+%Y-%m-%d %H-%M-%S&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>date<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>@1624579200<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;+%Y-%m-%d %H-%M-%S&quot;</span>
 <span style="color: #888888">2021-06-25 09-00-00</span>
 </code></pre></div>
 
 <h2 id="man">man</h2>
 <p>セクション番号を指定するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>man <span style="color: #666666">5</span> crontab
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>man<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span><span style="color: #bbbbbb"> </span>crontab
 </code></pre></div>
 
 <p>など</p>
@@ -2412,32 +2412,32 @@
 <p><code>ansible.example.org</code>という名前で<code>192.168.0.41:443</code>へアクセスする。</p>
 <h2 id="wget">wget</h2>
 <p>リソースの内容をstdoutへ出力</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>wget -q -O - https://storage.googleapis.com/kubernetes-release/release/stable.txt
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>wget<span style="color: #bbbbbb"> </span>-q<span style="color: #bbbbbb"> </span>-O<span style="color: #bbbbbb"> </span>-<span style="color: #bbbbbb"> </span>https://storage.googleapis.com/kubernetes-release/release/stable.txt
 <span style="color: #888888">v1.24.3</span>
 </code></pre></div>
 
 <h2 id="sed">sed</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sed -i -e <span style="color: #BB4444">&#39;s/regexp/string/&#39;</span> file
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sed<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>-e<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;s/regexp/string/&#39;</span><span style="color: #bbbbbb"> </span>file
 </code></pre></div>
 
 <p><code>-i</code>でファイル更新を行う。<br />
 <code>-ie</code>って書くと、<code>-i.bak</code>で<code>file.bak</code>のバックアップ作成と解釈されるので分ける。</p>
 <h2 id="awk">awk</h2>
 <p><code>ps aux</code>の結果の3カラム目を抜き出す。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps aux | awk <span style="color: #BB4444">&#39;{print $3}&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>aux<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>awk<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;{print $3}&#39;</span>
 </code></pre></div>
 
 <p>3カラム目と4カラム目をタブで区切って出力。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps aux | awk <span style="color: #BB4444">&#39;{print $3, &quot;\t&quot;, $4}&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>aux<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>awk<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;{print $3, &quot;\t&quot;, $4}&#39;</span>
 </code></pre></div>
 
 <p>または、OFS変数(output field separator)にタブをセットし以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps aux | awk <span style="color: #BB4444">&#39;BEGIN { OFS=&quot;\t&quot; } {print $3, $4}&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>aux<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>awk<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;BEGIN { OFS=&quot;\t&quot; } {print $3, $4}&#39;</span>
 </code></pre></div>
 
 <h2 id="diff">diff</h2>
 <p>コマンド実行結果のstdout同士を比較したい場合は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>diff -u &lt;<span style="color: #666666">(</span>command1<span style="color: #666666">)</span> &lt;<span style="color: #666666">(</span>command2<span style="color: #666666">)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>diff<span style="color: #bbbbbb"> </span>-u<span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>command1<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>command2<span style="color: #666666">)</span>
 </code></pre></div>
 
 <h2 id="tar">tar</h2>
@@ -2445,19 +2445,19 @@
 <p>gzの場合はzとかは不要。<br />
 今は<code>tar xf hoge.tar.gz</code>だけで形式は自動認識する。</p>
 <h3 id="_9">指定ディレクトリで展開したい</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar xf archive.tar.gz -C /tmp
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar<span style="color: #bbbbbb"> </span>xf<span style="color: #bbbbbb"> </span>archive.tar.gz<span style="color: #bbbbbb"> </span>-C<span style="color: #bbbbbb"> </span>/tmp
 </code></pre></div>
 
 <h3 id="tar_1">tarファイル内の特定ファイルを取り出したい</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar xf archive.tar.gz hoge
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar<span style="color: #bbbbbb"> </span>xf<span style="color: #bbbbbb"> </span>archive.tar.gz<span style="color: #bbbbbb"> </span>hoge
 </code></pre></div>
 
 <h3 id="_10">特定ファイルだけを指定ディレクトリ展開</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar xf archive.tar.gz hoge -C /tmp
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar<span style="color: #bbbbbb"> </span>xf<span style="color: #bbbbbb"> </span>archive.tar.gz<span style="color: #bbbbbb"> </span>hoge<span style="color: #bbbbbb"> </span>-C<span style="color: #bbbbbb"> </span>/tmp
 </code></pre></div>
 
 <p>または</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar -C /tmp -xf archive.tar.gz hoge
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tar<span style="color: #bbbbbb"> </span>-C<span style="color: #bbbbbb"> </span>/tmp<span style="color: #bbbbbb"> </span>-xf<span style="color: #bbbbbb"> </span>archive.tar.gz<span style="color: #bbbbbb"> </span>hoge
 </code></pre></div>
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">まぁなんでこれ試したかってーと、-Cの説明よく読んだら「ディレクトリDIRへ移動」ってあるんで、ファイル指定より前にこれ指定したら、もしかして移動処理が先に行われてから指定ファイル取り出し処理が走るんじゃね？<br>と思ったのがたまたま当たったという</p>&mdash; z a k i 🌈 (@zaki_hmkc) <a href="https://twitter.com/zaki_hmkc/status/1306950429792583681?ref_src=twsrc%5Etfw">September 18, 2020</a></blockquote>
@@ -2466,37 +2466,37 @@
 <h2 id="zip">zip</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/06/18/202546">[コマンドメモ] Linuxでzip操作 - zaki work log</a></p>
 <h3 id="_11">ファイル一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>zipinfo &lt;zip-file&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>zipinfo<span style="color: #bbbbbb"> </span>&lt;zip-file&gt;
 </code></pre></div>
 
 <h3 id="_12">展開</h3>
 <p><code>-q</code>付ければquietモードでファイル名が出力されない</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>unzip -q &lt;zip-file&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>unzip<span style="color: #bbbbbb"> </span>-q<span style="color: #bbbbbb"> </span>&lt;zip-file&gt;
 </code></pre></div>
 
 <p><code>-d</code>で出力先ディレクトリ指定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>unzip &lt;zip-file&gt; -d &lt;dirname&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>unzip<span style="color: #bbbbbb"> </span>&lt;zip-file&gt;<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>&lt;dirname&gt;
 </code></pre></div>
 
 <h3 id="_13">圧縮</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>zip gitlab-compose.zip gitlab-compose/ -r
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>zip<span style="color: #bbbbbb"> </span>gitlab-compose.zip<span style="color: #bbbbbb"> </span>gitlab-compose/<span style="color: #bbbbbb"> </span>-r
 </code></pre></div>
 
 <p><code>-r</code>は必須</p>
 <h2 id="ps">ps</h2>
 <h3 id="_14">子プロセスツリー表示</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">    PID TTY          TIME CMD</span>
 <span style="color: #888888"> 434128 pts/2    00:00:00 bash</span>
 <span style="color: #888888"> 456871 pts/2    00:00:00 ps</span>
-<span style="color: #000080; font-weight: bold">$ </span>ps f
+<span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>f
 <span style="color: #888888">    PID TTY      STAT   TIME COMMAND</span>
 <span style="color: #888888"> 434128 pts/2    Ss     0:00 /bin/bash</span>
 <span style="color: #888888"> 456875 pts/2    R+     0:00  \_ ps f</span>
 </code></pre></div>
 
 <h3 id="_15">子プロセス一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps auxf
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>auxf
 <span style="color: #888888">:</span>
 <span style="color: #888888">:</span>
 <span style="color: #888888">root        1961  0.0  1.1 1104052 91304 ?       Ssl   5月12   6:00 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd</span>
@@ -2507,7 +2507,7 @@
 <span style="color: #888888">:</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps --ppid <span style="color: #666666">1961</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>--ppid<span style="color: #bbbbbb"> </span><span style="color: #666666">1961</span>
 <span style="color: #888888">    PID TTY          TIME CMD</span>
 <span style="color: #888888"> 241047 ?        00:00:00 docker-proxy</span>
 <span style="color: #888888"> 241052 ?        00:00:00 docker-proxy</span>
@@ -2517,7 +2517,7 @@
 
 <p>孫プロセスは出ない</p>
 <h3 id="_16">ヘッダ無し</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps --ppid <span style="color: #666666">1961</span> --no-headers
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>--ppid<span style="color: #bbbbbb"> </span><span style="color: #666666">1961</span><span style="color: #bbbbbb"> </span>--no-headers
 <span style="color: #888888"> 241047 ?        00:00:00 docker-proxy</span>
 <span style="color: #888888"> 241052 ?        00:00:00 docker-proxy</span>
 <span style="color: #888888"> 241066 ?        00:00:00 docker-proxy</span>
@@ -2532,10 +2532,10 @@
 <p>実行中に<code>1</code>押下</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">top - 09:18:32 up 69 days, 11:39,  0 users,  load average: 0.01, 0.02, 0.05</span>
 <span style="color: #888888">Tasks: 134 total,   1 running, 133 sleeping,   0 stopped,   0 zombie</span>
-<span style="color: #000080; font-weight: bold">%</span>Cpu0  :  <span style="color: #666666">2</span>.0 us,  <span style="color: #666666">0</span>.7 sy,  <span style="color: #666666">0</span>.0 ni, <span style="color: #666666">97</span>.3 id,  <span style="color: #666666">0</span>.0 wa,  <span style="color: #666666">0</span>.0 hi,  <span style="color: #666666">0</span>.0 si,  <span style="color: #666666">0</span>.0 st
-<span style="color: #000080; font-weight: bold">%</span>Cpu1  :  <span style="color: #666666">0</span>.3 us,  <span style="color: #666666">0</span>.7 sy,  <span style="color: #666666">0</span>.0 ni, <span style="color: #666666">99</span>.0 id,  <span style="color: #666666">0</span>.0 wa,  <span style="color: #666666">0</span>.0 hi,  <span style="color: #666666">0</span>.0 si,  <span style="color: #666666">0</span>.0 st
-<span style="color: #000080; font-weight: bold">%</span>Cpu2  :  <span style="color: #666666">1</span>.3 us,  <span style="color: #666666">0</span>.7 sy,  <span style="color: #666666">0</span>.0 ni, <span style="color: #666666">98</span>.0 id,  <span style="color: #666666">0</span>.0 wa,  <span style="color: #666666">0</span>.0 hi,  <span style="color: #666666">0</span>.0 si,  <span style="color: #666666">0</span>.0 st
-<span style="color: #000080; font-weight: bold">%</span>Cpu3  :  <span style="color: #666666">0</span>.3 us,  <span style="color: #666666">0</span>.3 sy,  <span style="color: #666666">0</span>.0 ni, <span style="color: #666666">99</span>.3 id,  <span style="color: #666666">0</span>.0 wa,  <span style="color: #666666">0</span>.0 hi,  <span style="color: #666666">0</span>.0 si,  <span style="color: #666666">0</span>.0 st
+<span style="color: #000080; font-weight: bold">%</span>Cpu0<span style="color: #bbbbbb">  </span>:<span style="color: #bbbbbb">  </span><span style="color: #666666">2</span>.0<span style="color: #bbbbbb"> </span>us,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.7<span style="color: #bbbbbb"> </span>sy,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>ni,<span style="color: #bbbbbb"> </span><span style="color: #666666">97</span>.3<span style="color: #bbbbbb"> </span>id,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>wa,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>hi,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>si,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>st
+<span style="color: #000080; font-weight: bold">%</span>Cpu1<span style="color: #bbbbbb">  </span>:<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.3<span style="color: #bbbbbb"> </span>us,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.7<span style="color: #bbbbbb"> </span>sy,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>ni,<span style="color: #bbbbbb"> </span><span style="color: #666666">99</span>.0<span style="color: #bbbbbb"> </span>id,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>wa,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>hi,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>si,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>st
+<span style="color: #000080; font-weight: bold">%</span>Cpu2<span style="color: #bbbbbb">  </span>:<span style="color: #bbbbbb">  </span><span style="color: #666666">1</span>.3<span style="color: #bbbbbb"> </span>us,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.7<span style="color: #bbbbbb"> </span>sy,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>ni,<span style="color: #bbbbbb"> </span><span style="color: #666666">98</span>.0<span style="color: #bbbbbb"> </span>id,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>wa,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>hi,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>si,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>st
+<span style="color: #000080; font-weight: bold">%</span>Cpu3<span style="color: #bbbbbb">  </span>:<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.3<span style="color: #bbbbbb"> </span>us,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.3<span style="color: #bbbbbb"> </span>sy,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>ni,<span style="color: #bbbbbb"> </span><span style="color: #666666">99</span>.3<span style="color: #bbbbbb"> </span>id,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>wa,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>hi,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>si,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>st
 <span style="color: #888888">KiB Mem :  7990048 total,   717480 free,  1974248 used,  5298320 buff/cache</span>
 <span style="color: #888888">KiB Swap:  3670012 total,  3670012 free,        0 used.  5665228 avail Mem </span>
 </code></pre></div>
@@ -2544,7 +2544,7 @@
 <p>実行中に<code>c</code>押下</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">top - 09:20:43 up 69 days, 11:41,  0 users,  load average: 0.00, 0.01, 0.05</span>
 <span style="color: #888888">Tasks: 134 total,   1 running, 133 sleeping,   0 stopped,   0 zombie</span>
-<span style="color: #000080; font-weight: bold">%</span>Cpu<span style="color: #666666">(</span>s<span style="color: #666666">)</span>:  <span style="color: #666666">0</span>.1 us,  <span style="color: #666666">0</span>.0 sy,  <span style="color: #666666">0</span>.0 ni, <span style="color: #666666">99</span>.9 id,  <span style="color: #666666">0</span>.0 wa,  <span style="color: #666666">0</span>.0 hi,  <span style="color: #666666">0</span>.0 si,  <span style="color: #666666">0</span>.0 st
+<span style="color: #000080; font-weight: bold">%</span>Cpu<span style="color: #666666">(</span>s<span style="color: #666666">)</span>:<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.1<span style="color: #bbbbbb"> </span>us,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>sy,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>ni,<span style="color: #bbbbbb"> </span><span style="color: #666666">99</span>.9<span style="color: #bbbbbb"> </span>id,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>wa,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>hi,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>si,<span style="color: #bbbbbb">  </span><span style="color: #666666">0</span>.0<span style="color: #bbbbbb"> </span>st
 <span style="color: #888888">KiB Mem :  7990048 total,   715400 free,  1976168 used,  5298480 buff/cache</span>
 <span style="color: #888888">KiB Swap:  3670012 total,  3670012 free,        0 used.  5663308 avail Mem </span>
 
@@ -2558,7 +2558,7 @@
 <h2 id="dig">dig</h2>
 <h3 id="a">Aレコード</h3>
 <p>デフォルトは実行ホストのOSで設定されているネームサーバーに対してAレコードを問い合わせる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>dig gmail.com
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>dig<span style="color: #bbbbbb"> </span>gmail.com
 
 <span style="color: #888888">; &lt;&lt;&gt;&gt; DiG 9.16.28-RH &lt;&lt;&gt;&gt; gmail.com</span>
 <span style="color: #888888">;; global options: +cmd</span>
@@ -2582,7 +2582,7 @@
 
 <h3 id="_19">逆引き</h3>
 <p><code>-x</code>オプションを使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>dig -x <span style="color: #666666">192</span>.168.0.16
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>dig<span style="color: #bbbbbb"> </span>-x<span style="color: #bbbbbb"> </span><span style="color: #666666">192</span>.168.0.16
 
 <span style="color: #888888">; &lt;&lt;&gt;&gt; DiG 9.16.33-RH &lt;&lt;&gt;&gt; -x 192.168.0.16</span>
 <span style="color: #888888">;; global options: +cmd</span>
@@ -2608,17 +2608,17 @@
 <h2 id="networkmanager">NetworkManager</h2>
 <h3 id="_20">インタフェース一覧</h3>
 <p>接続してるもの全部</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>nmcli connection
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>nmcli<span style="color: #bbbbbb"> </span>connection
 </code></pre></div>
 
 <p>デバイス一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>nmcli device
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>nmcli<span style="color: #bbbbbb"> </span>device
 </code></pre></div>
 
 <p><code>connection</code>と<code>device</code>は、それぞれ<code>c</code>と<code>d</code>に短縮可能。</p>
 <h3 id="_21">インタフェース詳細</h3>
 <p><code>s</code>または<code>show</code>の引数に、インタフェース名を指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c s ens192
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span>ens192
 <span style="color: #888888">connection.id:                          ens192</span>
 <span style="color: #888888">connection.uuid:                        fd81b589-db4b-445d-9e60-22524aab4e9f</span>
 <span style="color: #888888">connection.stable-id:                   --</span>
@@ -2636,22 +2636,22 @@
 <p>追加する項目である<code>ipv4.dns</code>の手前に<code>+</code>を付与すると「追加」になる。<br />
 <code>-</code>を付与すると対象を削除になる。</p>
 <p><code>DNS1</code>の設定がある状態で下記を実行すると、<code>DNS2</code>の設定として追加される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m <span style="color: #BB4444">&quot;System ens192&quot;</span> +ipv4.dns <span style="color: #666666">192</span>.168.0.1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;System ens192&quot;</span><span style="color: #bbbbbb"> </span>+ipv4.dns<span style="color: #bbbbbb"> </span><span style="color: #666666">192</span>.168.0.1
 </code></pre></div>
 
 <h3 id="dnssearch">DNSのsearch行追加</h3>
 <p><code>my.example.org</code>を設定するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens192 ipv4.dns-search my.example.org
-<span style="color: #000080; font-weight: bold"># </span>systemctl restart NetworkManager
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span>ens192<span style="color: #bbbbbb"> </span>ipv4.dns-search<span style="color: #bbbbbb"> </span>my.example.org
+<span style="color: #000080; font-weight: bold"># </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>NetworkManager
 </code></pre></div>
 
 <h3 id="_22">デフォルトゲートウェイ変更</h3>
 <p><code>192.168.39.89</code>に設定する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens192 ipv4.gateway <span style="color: #666666">192</span>.168.39.89
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span>ens192<span style="color: #bbbbbb"> </span>ipv4.gateway<span style="color: #bbbbbb"> </span><span style="color: #666666">192</span>.168.39.89
 </code></pre></div>
 
 <p>設定削除する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens192 ipv4.gateway <span style="color: #BB4444">&quot;&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span>ens192<span style="color: #bbbbbb"> </span>ipv4.gateway<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&quot;</span>
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/01/08/094833">[Ansible] ターゲットホストのIPアドレスの参照とデフォルトゲートウェイの設定についてのメモ - zaki work log</a></p>
@@ -2668,14 +2668,14 @@
 </li>
 </ul>
 <p>コマンド</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens224 +ipv4.routes <span style="color: #BB4444">&quot;172.29.0.0/24 172.16.1.3&quot;</span>
-<span style="color: #000080; font-weight: bold"># </span>nmcli c u ens224
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span>ens224<span style="color: #bbbbbb"> </span>+ipv4.routes<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;172.29.0.0/24 172.16.1.3&quot;</span>
+<span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>u<span style="color: #bbbbbb"> </span>ens224
 </code></pre></div>
 
 <p><a href="https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_static_routes_using_nmcli">4.2. nmcli を使った静的ルートの設定 Red Hat Enterprise Linux 7 | Red Hat Customer Portal</a></p>
 <p>この辺が追加される。<br />
 リブートしても有効</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>ip r
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>ip<span style="color: #bbbbbb"> </span>r
 <span style="color: #888888">default via 192.168.0.1 dev ens192 proto static metric 100 </span>
 <span style="color: #888888">:</span>
 <span style="color: #888888">:</span>
@@ -2683,16 +2683,16 @@
 </code></pre></div>
 
 <p>Fedora34だと設定ファイルは<code>/etc/NetworkManager/system-connections/ens224.nmconnection</code>で、内容はこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[ipv4]</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">address1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.0.44/23</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">dns</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.2.0;</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">dns-search</span><span style="color: #666666">=</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">method</span><span style="color: #666666">=</span><span style="color: #BB4444">manual</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">route1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.29.0.0/24,172.16.1.3</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[ipv4]</span>
+<span style="color: #BB4444">address1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.0.44/23</span>
+<span style="color: #BB4444">dns</span><span style="color: #666666">=</span><span style="color: #BB4444">172.16.2.0</span><span style="color: #008800; font-style: italic">;</span>
+<span style="color: #BB4444">dns-search</span><span style="color: #666666">=</span>
+<span style="color: #BB4444">method</span><span style="color: #666666">=</span><span style="color: #BB4444">manual</span>
+<span style="color: #BB4444">route1</span><span style="color: #666666">=</span><span style="color: #BB4444">172.29.0.0/24,172.16.1.3</span>
 </code></pre></div>
 
 <p>設定解除は<code>-</code>を付けて実行。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli c m ens224 -ipv4.routes <span style="color: #BB4444">&quot;172.29.0.0/24 172.16.1.3&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>nmcli<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span>ens224<span style="color: #bbbbbb"> </span>-ipv4.routes<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;172.29.0.0/24 172.16.1.3&quot;</span>
 </code></pre></div>
 
 <h2 id="_24">ホスト名</h2>
@@ -2709,16 +2709,16 @@
 <h2 id="_26">ファイアウォール</h2>
 <h3 id="iptables">iptables</h3>
 <p>ルール確認</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables -L
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables<span style="color: #bbbbbb"> </span>-L
 </code></pre></div>
 
 <p>TCPポート許可追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport <span style="color: #666666">8080</span> -j ACCEPT
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables<span style="color: #bbbbbb"> </span>-A<span style="color: #bbbbbb"> </span>INPUT<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>state<span style="color: #bbbbbb"> </span>--state<span style="color: #bbbbbb"> </span>NEW<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span>--dport<span style="color: #bbbbbb"> </span><span style="color: #666666">8080</span><span style="color: #bbbbbb"> </span>-j<span style="color: #bbbbbb"> </span>ACCEPT
 </code></pre></div>
 
 <p>リダイレクト<br />
 10.0.0.1からの80/tcpアクセスを8080/tcpへリダイレクトする場合。(8080/tcpも許可は必要)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables -t nat -A PREROUTING -p tcp -s <span style="color: #666666">10</span>.0.0.1 --dport <span style="color: #666666">80</span> -j REDIRECT --to <span style="color: #666666">8080</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>nat<span style="color: #bbbbbb"> </span>-A<span style="color: #bbbbbb"> </span>PREROUTING<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span>-s<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span>.0.0.1<span style="color: #bbbbbb"> </span>--dport<span style="color: #bbbbbb"> </span><span style="color: #666666">80</span><span style="color: #bbbbbb"> </span>-j<span style="color: #bbbbbb"> </span>REDIRECT<span style="color: #bbbbbb"> </span>--to<span style="color: #bbbbbb"> </span><span style="color: #666666">8080</span>
 </code></pre></div>
 
 <p>自分への443/tcpアクセスをリモートの172.29.0.14:443へリダイレクトする場合。</p>
@@ -2727,11 +2727,11 @@
 
 <h4 id="_27">リダイレクトルールの削除</h4>
 <p>まずルールの確認を<code>--line-numbers</code>を付与して行番号を確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables -L -t nat --line-numbers
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables<span style="color: #bbbbbb"> </span>-L<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>nat<span style="color: #bbbbbb"> </span>--line-numbers
 </code></pre></div>
 
 <p>番号を確認したら、それを引数に以下を実行。(<code>PREROUTING</code>ルールの場合)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables -t nat -D PREROUTING <span style="color: #666666">1</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>iptables<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>nat<span style="color: #bbbbbb"> </span>-D<span style="color: #bbbbbb"> </span>PREROUTING<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>
 </code></pre></div>
 
 <h3 id="firewall-cmd">firewall-cmd</h3>
@@ -2739,31 +2739,31 @@
 <h3 id="ufw">ufw</h3>
 <p>現在の状態。<br />
 ※アクティブになっていない</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw status
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw<span style="color: #bbbbbb"> </span>status
 <span style="color: #888888">Status: inactive</span>
 </code></pre></div>
 
 <p>有効化する。<br />
 ssh経由の場合警告される。(<code>iptables -nL</code>あたりで22/tcpが開いてる事を確認しておけば…良いのかな)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw <span style="color: #AA22FF">enable</span> 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">enable</span><span style="color: #bbbbbb"> </span>
 <span style="color: #888888">Command may disrupt existing ssh connections. Proceed with operation (y|n)? y</span>
 <span style="color: #888888">Firewall is active and enabled on system startup</span>
 </code></pre></div>
 
 <p>再読み込みと状態確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw reload 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw<span style="color: #bbbbbb"> </span>reload<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">Firewall reloaded</span>
-<span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw status
+<span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw<span style="color: #bbbbbb"> </span>status
 <span style="color: #888888">Status: active</span>
 </code></pre></div>
 
 <p>TCPポートの許可</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw allow <span style="color: #666666">6443</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw<span style="color: #bbbbbb"> </span>allow<span style="color: #bbbbbb"> </span><span style="color: #666666">6443</span>
 <span style="color: #888888">Rule added</span>
 <span style="color: #888888">Rule added (v6)</span>
-<span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw reload 
+<span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw<span style="color: #bbbbbb"> </span>reload<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">Firewall reloaded</span>
-<span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw status
+<span style="color: #000080; font-weight: bold">root@oci-g-a1-ubuntu:~# </span>ufw<span style="color: #bbbbbb"> </span>status
 <span style="color: #888888">Status: active</span>
 
 <span style="color: #888888">To                         Action      From</span>
@@ -2777,7 +2777,7 @@ ssh経由の場合警告される。(<code>iptables -nL</code>あたりで22/tcp
 <p>ubuntuだと<code>update-alternatives</code>で、RHEL系だと<code>alternatives</code>になる。</p>
 <h3 id="_28">設定一覧</h3>
 <p>ubuntuの場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-ap-a1-ubuntu:~# </span>update-alternatives --get-selections 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-ap-a1-ubuntu:~# </span>update-alternatives<span style="color: #bbbbbb"> </span>--get-selections<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">arptables                      auto     /usr/sbin/arptables-nft</span>
 <span style="color: #888888">awk                            auto     /usr/bin/gawk</span>
 <span style="color: #888888">builtins.7.gz                  auto     /usr/share/man/man7/bash-builtins.7.gz</span>
@@ -2788,26 +2788,26 @@ ssh経由の場合警告される。(<code>iptables -nL</code>あたりで22/tcp
 
 <p>Fedoraの場合</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>root@cloud-dev2 ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">update</span><span style="color: #666666">-</span>alternatives<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>list<span style="color: #bbbbbb"> </span>
-libnssckbi.so.x86_64<span style="color: #bbbbbb">    </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>lib64<span style="color: #666666">/</span>pkcs11<span style="color: #666666">/</span>p11<span style="color: #666666">-</span>kit<span style="color: #666666">-</span>trust.so<span style="color: #bbbbbb"></span>
-soelim<span style="color: #bbbbbb">                  </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>bin<span style="color: #666666">/</span>soelim.groff<span style="color: #bbbbbb"></span>
-iptables<span style="color: #bbbbbb">                </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>sbin<span style="color: #666666">/</span>iptables<span style="color: #666666">-</span>nft<span style="color: #bbbbbb"></span>
-<span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"></span>
+libnssckbi.so.x86_64<span style="color: #bbbbbb">    </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>lib64<span style="color: #666666">/</span>pkcs11<span style="color: #666666">/</span>p11<span style="color: #666666">-</span>kit<span style="color: #666666">-</span>trust.so
+soelim<span style="color: #bbbbbb">                  </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>bin<span style="color: #666666">/</span>soelim.groff
+iptables<span style="color: #bbbbbb">                </span>auto<span style="color: #bbbbbb">    </span><span style="color: #666666">/</span>usr<span style="color: #666666">/</span>sbin<span style="color: #666666">/</span>iptables<span style="color: #666666">-</span>nft
+<span style="border: 1px solid #FF0000">:</span>
 </code></pre></div>
 
 <h3 id="_29">設定の登録</h3>
 <p><code>python</code>という名前で、<code>/usr/bin/python</code>を優先度10で登録する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 <span style="color: #666666">10</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>update-alternatives<span style="color: #bbbbbb"> </span>--install<span style="color: #bbbbbb"> </span>/usr/bin/python<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"> </span>/usr/bin/python3<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span>
 <span style="color: #888888">update-alternatives: using /usr/bin/python3 to provide /usr/bin/python (python) in auto mode</span>
 </code></pre></div>
 
 <p>これで、以下のリンクが作成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ls -l /usr/bin/python /etc/alternatives/python 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ls<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>/usr/bin/python<span style="color: #bbbbbb"> </span>/etc/alternatives/python<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">lrwxrwxrwx 1 root root 16 Mar 31 15:16 /etc/alternatives/python -&gt; /usr/bin/python3</span>
 <span style="color: #888888">lrwxrwxrwx 1 root root 24 Mar 31 15:16 /usr/bin/python -&gt; /etc/alternatives/python</span>
 </code></pre></div>
 
 <p>設定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>update-alternatives --display python
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>update-alternatives<span style="color: #bbbbbb"> </span>--display<span style="color: #bbbbbb"> </span>python
 <span style="color: #888888">python - auto mode</span>
 <span style="color: #888888">  link best version is /usr/bin/python3</span>
 <span style="color: #888888">  link currently points to /usr/bin/python3</span>

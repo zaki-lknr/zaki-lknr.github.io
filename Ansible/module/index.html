@@ -1725,39 +1725,39 @@
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html">ansible.builtin.setup – Gathers facts about remote hosts — Ansible Documentation</a></p>
 <p>facts変数を収集する。<br />
 ad-hocで実行する方が多いかも？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible -i inventory.ini all -m setup 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>inventory.ini<span style="color: #bbbbbb"> </span>all<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>setup<span style="color: #bbbbbb"> </span>
 </code></pre></div>
 
 <h2 id="assert">assert</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/assert_module.html">ansible.builtin.assert – Asserts given expressions are true — Ansible Documentation</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>assert sample<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">hoge</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;zzz&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">foo</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;bar&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">baz</span>:<span style="color: #bbbbbb"> </span>False<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.assert</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">that</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;hoge</span><span style="color: #B8860B"> </span><span style="color: #BB4444">is</span><span style="color: #B8860B"> </span><span style="color: #BB4444">defined&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>foo is defined<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>baz is defined and baz<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">fail_msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&#39;hoge&#39;,&#39;bar&#39;</span><span style="color: #B8860B"> </span><span style="color: #BB4444">must</span><span style="color: #B8860B"> </span><span style="color: #BB4444">be</span><span style="color: #B8860B"> </span><span style="color: #BB4444">defined,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;baz&#39;</span><span style="color: #B8860B"> </span><span style="color: #BB4444">must</span><span style="color: #B8860B"> </span><span style="color: #BB4444">be</span><span style="color: #B8860B"> </span><span style="color: #BB4444">true&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>assert_result<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>assert sample
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">hoge</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;zzz&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">foo</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;bar&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">baz</span>:<span style="color: #bbbbbb"> </span>False
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.assert</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">that</span>:
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;hoge</span><span style="color: #B8860B"> </span><span style="color: #BB4444">is</span><span style="color: #B8860B"> </span><span style="color: #BB4444">defined&quot;</span>
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>foo is defined
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>baz is defined and baz
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">fail_msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&#39;hoge&#39;,&#39;bar&#39;</span><span style="color: #B8860B"> </span><span style="color: #BB4444">must</span><span style="color: #B8860B"> </span><span style="color: #BB4444">be</span><span style="color: #B8860B"> </span><span style="color: #BB4444">defined,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;baz&#39;</span><span style="color: #B8860B"> </span><span style="color: #BB4444">must</span><span style="color: #B8860B"> </span><span style="color: #BB4444">be</span><span style="color: #B8860B"> </span><span style="color: #BB4444">true&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>assert_result
 </code></pre></div>
 
 <p><code>that</code>で指定した各値がtrueでなければタスクが失敗する。<br />
 変数ではなく文字列で指定するので、<code>:</code>を含む文字はYAMLのキーとしてparseされてしまうため、ダブルクォートなどで囲む必要がある。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>assert<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.assert</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">that</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;sample_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">regex_search(&quot;could</span><span style="color: #B8860B"> </span><span style="color: #BB4444">not</span><span style="color: #B8860B"> </span><span style="color: #BB4444">found:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar&quot;)&#39;</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>assert
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.assert</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">that</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;sample_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">regex_search(&quot;could</span><span style="color: #B8860B"> </span><span style="color: #BB4444">not</span><span style="color: #B8860B"> </span><span style="color: #BB4444">found:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar&quot;)&#39;</span>
 </code></pre></div>
 
 <h2 id="lineinfile">lineinfile</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html">ansible.builtin.lineinfile – Manage lines in text files — Ansible Documentation</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">lineinfile</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>lineinfile.txt<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">regexp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;^port:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">80&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">line</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;port:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">8080&#39;</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">lineinfile</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>lineinfile.txt
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">regexp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;^port:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">80&#39;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">line</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;port:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">8080&#39;</span>
 </code></pre></div>
 
 <p>lineinfile.txtファイルの中の<code>^port: 80</code>に <strong>最後に</strong> マッチする行を<code>port: 8080</code>に変更。<br />
@@ -1787,14 +1787,14 @@ ad-hocで実行する方が多いかも？</p>
 </code></pre></div>
 
 <p>こんな入力ファイルに対して</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>blockinfile sample<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">blockinfile</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>blockinfile-test.txt<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">marker_begin</span>:<span style="color: #bbbbbb"> </span>begin<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">marker_end</span>:<span style="color: #bbbbbb"> </span>end<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">marker</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">{mark}&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">          </span><span style="color: #880000">...</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>blockinfile sample
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">blockinfile</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>blockinfile-test.txt
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">marker_begin</span>:<span style="color: #bbbbbb"> </span>begin
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">marker_end</span>:<span style="color: #bbbbbb"> </span>end
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">marker</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">{mark}&#39;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #bbbbbb"> </span>|
+<span style="color: #bbbbbb">          </span><span style="color: #880000">...</span>
 </code></pre></div>
 
 <p>を実行すると、更新されるのは <code>3</code> の部分のみ。<br />
@@ -1843,13 +1843,13 @@ ad-hocで実行する方が多いかも？</p>
 <h2 id="replace">replace</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_module.html">ansible.builtin.replace – Replace all instances of a particular string in a file using a back-referenced regular expression — Ansible Documentation</a></p>
 <p><code>after</code>/<code>before</code>で「ここからここまでの間」を指定できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>replace sample<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">replace</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>duplicate-test.txt<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">regexp</span>:<span style="color: #bbbbbb"> </span>^[0-9]+$<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">replace</span>:<span style="color: #bbbbbb"> </span>zzz<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">after</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">begin&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">before</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">end&#39;</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>replace sample
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">replace</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>duplicate-test.txt
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">regexp</span>:<span style="color: #bbbbbb"> </span>^[0-9]+$
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">replace</span>:<span style="color: #bbbbbb"> </span>zzz
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">after</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">begin&#39;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">before</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;#</span><span style="color: #B8860B"> </span><span style="color: #BB4444">/share/www</span><span style="color: #B8860B"> </span><span style="color: #BB4444">configure</span><span style="color: #B8860B"> </span><span style="color: #BB4444">end&#39;</span>
 </code></pre></div>
 
 <p>入力ファイルが↓のように複数マッチする場合は</p>
@@ -1879,12 +1879,12 @@ ad-hocで実行する方が多いかも？</p>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/community/general/redhat_subscription_module.html">community.general.redhat_subscription – Manage registration and subscriptions to RHSM using the subscription-manager command — Ansible Documentation</a></p>
 <p>RHELのサブスクリプション割り当てを行う。
 開発者ライセンスならプールIDは1個しかないので</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>subscription<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">community.general.redhat_subscription</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #bbbbbb"> </span>present<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">rh_username</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">rh_password</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">auto_attach</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>subscription
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">community.general.redhat_subscription</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #bbbbbb"> </span>present
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">rh_username</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">rh_password</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">auto_attach</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
 <p>ですべて完了する。</p>
@@ -1893,18 +1893,18 @@ ad-hocで実行する方が多いかも？</p>
 <h2 id="alternatives">alternatives</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/community/general/alternatives_module.html">community.general.alternatives – Manages alternative programs for common commands — Ansible Documentation</a></p>
 <p><code>community.general.alternatives</code>で<code>alternatives</code>コマンドを使ったコマンド切り替え設定を行う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>alternatives python<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.general.alternatives</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">link</span>:<span style="color: #bbbbbb"> </span>/usr/bin/python<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>/usr/bin/python3<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">become</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>alternatives python
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.general.alternatives</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>python
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">link</span>:<span style="color: #bbbbbb"> </span>/usr/bin/python
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>/usr/bin/python3
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">become</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
 <p>これで、<code>/usr/bin/python</code> -&gt; <code>/etc/alternatives/python</code> -&gt; <code>/usr/bin/python3</code>へのリンクが<code>python</code>という名前で登録される。<br />
 コマンドとしては以下と同等。<br />
 (<code>priority</code>はデフォルト50)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>update-alternatives --install /usr/bin/python python /usr/bin/python3 <span style="color: #666666">50</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>update-alternatives<span style="color: #bbbbbb"> </span>--install<span style="color: #bbbbbb"> </span>/usr/bin/python<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"> </span>/usr/bin/python3<span style="color: #bbbbbb"> </span><span style="color: #666666">50</span>
 </code></pre></div>
 
 <h2 id="_2">パッケージ</h2>
@@ -1920,29 +1920,29 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 <h3 id="yum">yum</h3>
 <p>Fedora34 / RHEL8に使える？ =&gt; OK</p>
 <h3 id="apt_repository">apt_repository</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>add apt repository<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.apt_repository</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">repo</span>:<span style="color: #bbbbbb"> </span>deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">filename</span>:<span style="color: #bbbbbb"> </span>docker<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>add apt repository
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.apt_repository</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">repo</span>:<span style="color: #bbbbbb"> </span>deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">filename</span>:<span style="color: #bbbbbb"> </span>docker
 </code></pre></div>
 
 <p>これで以下のファイルが作成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat /etc/apt/sources.list.d/docker.list
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>/etc/apt/sources.list.d/docker.list
 <span style="color: #888888">deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable</span>
 </code></pre></div>
 
 <p>このとき、<code>/etc/apt/sources.list.d/docker.list</code>以外のファイルですでに同じ設定がある場合は<code>docker.list</code>は作成されずに<code>ok</code>となる。</p>
 <h2 id="_3">ファイル</h2>
 <h3 id="_4">モード</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create file<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">file</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>/var/tmp/file_permission<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">mode</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;0755&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #bbbbbb"> </span>directory<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create file
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">file</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span>/var/tmp/file_permission
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">mode</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;0755&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #bbbbbb"> </span>directory
 </code></pre></div>
 
 <p>これなら</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ll -d /var/tmp/file_permission/
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ll<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>/var/tmp/file_permission/
 <span style="color: #888888">drwxr-xr-x. 2 zaki zaki 6  7月 31 10:27 /var/tmp/file_permission/</span>
 </code></pre></div>
 
@@ -1990,12 +1990,12 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 <a href="https://zaki-hmkc.hatenablog.com/entry/2021/12/13/060649">[Ansible] fetchモジュールを使ってリモートのファイルを実行ノードへ転送・集約する - zaki work log</a></p>
 <h2 id="make">make</h2>
 <p><code>/path/to/awx-operator</code>ディレクトリ上で<code>make deploy IMG=zakihmkc/awx-operator:0.17.0</code>を実行するタスクであれば以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>deploy awx-operator<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.general.make</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">chdir</span>:<span style="color: #bbbbbb"> </span>/path/to/awx-operator<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #bbbbbb"> </span>deploy<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">params</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">IMG</span>:<span style="color: #bbbbbb"> </span>zakihmkc/awx-operator:0.17.0<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>deploy awx-operator
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.general.make</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">chdir</span>:<span style="color: #bbbbbb"> </span>/path/to/awx-operator
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #bbbbbb"> </span>deploy
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">params</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">IMG</span>:<span style="color: #bbbbbb"> </span>zakihmkc/awx-operator:0.17.0
 </code></pre></div>
 
 <p>ターゲットファイル作成済みで<code>make</code>が何も処理しない場合は、実行ステータスは<code>ok</code>となる。</p>
@@ -2004,34 +2004,34 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 <p>たとえば、OSユーザーのグループを更新した場合、通常であればログインし直さなければ変更が反映されない。<br />
 Ansibleも同様で、タスクでグループの更新を行っても、後続のタスクは接続が維持されているため、更新されたグループの状態でタスクが実行されない。<br />
 この場合、<a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/meta_module.html">metaモジュール</a>の<code>reset_connection</code>を使って再接続を行い、変更を反映して後続のタスクを実行できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>グループを変更するタスク<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>...<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>グループを変更するタスク
+<span style="color: #bbbbbb">    </span>...
 
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>refresh connection<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>reset_connection<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>refresh connection
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>reset_connection
 
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>変更したグループ前提のタスク<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>...<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>変更したグループ前提のタスク
+<span style="color: #bbbbbb">    </span>...
 </code></pre></div>
 
 <h3 id="play">playの終了</h3>
 <p>プログラムにおける<code>exit(0)</code>みたいなやつ。<br />
 任意のタイミングでplayを正常終了させることができる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task1<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task1<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task1
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task1
 
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task2<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task2
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task2
 
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>end play<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>end_play<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>end play
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>end_play
 
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task3<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task3<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>task3
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>task3
 </code></pre></div>
 
 <p>このplaybookの内容でAnsible実行すると、以下の通りtask3は実行されずに終了する。</p>
@@ -2053,20 +2053,20 @@ Ansibleも同様で、タスクでグループの更新を行っても、後続�
 
 <h3 id="_6">インベントリの再読み込み</h3>
 <p>ダイナミックインベントリでホスト情報を再収集したい場合、など。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>refresh inventory<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>refresh_inventory<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>refresh inventory
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.meta</span>:<span style="color: #bbbbbb"> </span>refresh_inventory
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2022/11/09/203145">[Ansible] 任意のタイミングでダイナミックインベントリのホスト情報収集を行う - zaki work log</a></p>
 <h2 id="docker">Docker</h2>
 <h3 id="push-image">push image</h3>
 <p><code>docker_image</code>を使用しパラメタに<code>push: true</code>を指定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>push container image<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.docker.docker_image</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">repository</span>:<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:0.6.0<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">push</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">source</span>:<span style="color: #bbbbbb"> </span>local<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>push container image
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">community.docker.docker_image</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">repository</span>:<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:0.6.0
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">push</span>:<span style="color: #bbbbbb"> </span>true
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">source</span>:<span style="color: #bbbbbb"> </span>local
 </code></pre></div>
 
 <p>このタスクの場合は、ローカルにある<code>quay.io/ansible/awx-ee</code>イメージをDocker Hubへ<code>zakihmkc/awx-ee:0.6.0</code>として<code>push</code>する。<br />

@@ -457,8 +457,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tips-and-trics" class="md-nav__link">
-    Tips and trics
+  <a href="#playbook" class="md-nav__link">
+    Playbook書き方
   </a>
   
 </li>
@@ -1439,8 +1439,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tips-and-trics" class="md-nav__link">
-    Tips and trics
+  <a href="#playbook" class="md-nav__link">
+    Playbook書き方
   </a>
   
 </li>
@@ -1489,9 +1489,11 @@
 <h2 id="_5">ディレクトリ構成</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/sample_setup.html">Sample Ansible setup — Ansible Documentation</a></p>
 <p>「Sample directory layout」や「Alternative directory layout」を参照。</p>
-<h2 id="tips-and-trics">Tips and trics</h2>
-<p>旧「ベストプラクティス」のページはこちら。<br />
-<a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Tips and tricks — Ansible Documentation</a></p>
+<h2 id="playbook">Playbook書き方</h2>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Tips and tricks — Ansible Documentation</a> 旧「ベストプラクティス」のページ。</li>
+<li><a href="https://terryhowe.github.io/ansible-modules-hashivault/user_guide/playbooks_conditionals.html">Conditionals — Ansible Documentation</a> 条件分</li>
+</ul>
 <h2 id="_6">ネットワーク</h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/network/user_guide/network_best_practices_2.5.html">Ansible Network Examples — Ansible Documentation</a></li>
@@ -1499,43 +1501,43 @@
 </ul>
 <h2 id="venv">venv作るタスク</h2>
 <p>venvにopenshiftパッケージ入れる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>install openshift<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>openshift<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv</span>:<span style="color: #bbbbbb"> </span>/root/venv<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv_command</span>:<span style="color: #bbbbbb"> </span>python3 -m venv<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>install openshift
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>openshift
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv</span>:<span style="color: #bbbbbb"> </span>/root/venv
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv_command</span>:<span style="color: #bbbbbb"> </span>python3 -m venv
 </code></pre></div>
 
 <p>このターゲットノードのvenvを使ってAnsible実行するには以下。</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/05/26/230432">[Ansible] ターゲットノードのvenvのPythonを指定して実行する (interpreter_python / ansible_python_interpreter / PYTHONPATH) - zaki work log</a></p>
 <p>この辺の設定をどこかに入れればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>:<span style="color: #bbbbbb"> </span>/root/venv/bin/python<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>:<span style="color: #bbbbbb"> </span>/root/venv/bin/python
 </code></pre></div>
 
 <p>pipは最新にしつつ、バージョン指定のパッケージも入れるならこんな感じ。<br />
 最新だと<code>ansible==4.2.0</code>が入る場合でも、<code>4.1.0</code>がインストールされる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create venv<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span>pip<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span>ansible==4.1.0<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #bbbbbb"> </span>latest<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv</span>:<span style="color: #bbbbbb"> </span>~/venv/ansible4.1.0<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv_command</span>:<span style="color: #bbbbbb"> </span>python3 -m venv<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create venv
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">name</span>:
+<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span>pip
+<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span>ansible==4.1.0
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #bbbbbb"> </span>latest
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv</span>:<span style="color: #bbbbbb"> </span>~/venv/ansible4.1.0
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">virtualenv_command</span>:<span style="color: #bbbbbb"> </span>python3 -m venv
 </code></pre></div>
 
 <h1 id="_7">ドキュメント</h1>
 <h2 id="_8">索引</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/genindex.html">Index — Ansible Documentation</a></p>
 <h2 id="ansible-doc">ansible-doc</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc &lt;module-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc<span style="color: #bbbbbb"> </span>&lt;module-name&gt;
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc &lt;module-fqcn&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc<span style="color: #bbbbbb"> </span>&lt;module-fqcn&gt;
 </code></pre></div>
 
 <p>モジュールパスを指定するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc -M /path/to/collection-path/ansible_collections/namespace/collectionname/plugins/modules hogehoge
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc<span style="color: #bbbbbb"> </span>-M<span style="color: #bbbbbb"> </span>/path/to/collection-path/ansible_collections/namespace/collectionname/plugins/modules<span style="color: #bbbbbb"> </span>hogehoge
 </code></pre></div>
 
 <p>パスが合わない場合は、エラーメッセージに「これらのパスにそんなモジュールないんだが？」とパス一覧が表示されるので、そこから調整する。</p>

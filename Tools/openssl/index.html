@@ -1513,42 +1513,42 @@
 
 <h2 id="_2">ファイル内容確認</h2>
 <h3 id="rsa">RSA秘密鍵の確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN RSA PRIVATE KEY-----</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">.....</span><span style="color: #bbbbbb"></span>
-<span style="color: #000080; font-weight: bold">-----END RSA PRIVATE KEY-----</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN RSA PRIVATE KEY-----</span>
+<span style="color: #BB4444">MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........</span>
+<span style="color: #BB4444">:</span>
+<span style="color: #BB4444">:</span>
+<span style="color: #BB4444">.....</span>
+<span style="color: #000080; font-weight: bold">-----END RSA PRIVATE KEY-----</span>
 </code></pre></div>
 
 <p>こんな内容の「BEGIN RSA PRIVATE KEY」で始まってENDまでのファイルは以下で確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl rsa -text -noout -in account.key 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl<span style="color: #bbbbbb"> </span>rsa<span style="color: #bbbbbb"> </span>-text<span style="color: #bbbbbb"> </span>-noout<span style="color: #bbbbbb"> </span>-in<span style="color: #bbbbbb"> </span>account.key<span style="color: #bbbbbb"> </span>
 </code></pre></div>
 
 <h3 id="csr">CSR(証明書署名要求)の確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE REQUEST-----</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">MIIEkDCCAngCAQAwHDEaMB........</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">.....</span><span style="color: #bbbbbb"></span>
-<span style="color: #000080; font-weight: bold">-----END CERTIFICATE REQUEST-----</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE REQUEST-----</span>
+<span style="color: #BB4444">MIIEkDCCAngCAQAwHDEaMB........</span>
+<span style="color: #BB4444">:</span>
+<span style="color: #BB4444">:</span>
+<span style="color: #BB4444">.....</span>
+<span style="color: #000080; font-weight: bold">-----END CERTIFICATE REQUEST-----</span>
 </code></pre></div>
 
 <p>「BEGIN CERTIFICATE REQUEST」で始まってENDで終わるファイルであれば以下で確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl req -text -noout -in server.csr
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl<span style="color: #bbbbbb"> </span>req<span style="color: #bbbbbb"> </span>-text<span style="color: #bbbbbb"> </span>-noout<span style="color: #bbbbbb"> </span>-in<span style="color: #bbbbbb"> </span>server.csr
 </code></pre></div>
 
 <h3 id="_3">証明書ファイルの確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE-----</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">MIIGKTCCBRGg.......</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">....</span><span style="color: #bbbbbb"></span>
-<span style="color: #000080; font-weight: bold">-----END CERTIFICATE-----</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE-----</span>
+<span style="color: #BB4444">MIIGKTCCBRGg.......</span>
+<span style="color: #BB4444">:</span>
+<span style="color: #BB4444">:</span>
+<span style="color: #BB4444">....</span>
+<span style="color: #000080; font-weight: bold">-----END CERTIFICATE-----</span>
 </code></pre></div>
 
 <p>「BEGIN CERTIFICATE」で始まってENDで終わっているファイルは、x509を指定して確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl x509 -text -noout -in server.crt
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl<span style="color: #bbbbbb"> </span>x509<span style="color: #bbbbbb"> </span>-text<span style="color: #bbbbbb"> </span>-noout<span style="color: #bbbbbb"> </span>-in<span style="color: #bbbbbb"> </span>server.crt
 </code></pre></div>
                 
               

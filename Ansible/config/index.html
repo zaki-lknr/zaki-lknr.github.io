@@ -1541,8 +1541,8 @@
 </ol>
 <h2 id="_3">設定ファイル書式</h2>
 <p><code>ansible.cfg</code>サンプル</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[defaults]</span><span style="color: #bbbbbb"></span>
-<span style="color: #BB4444">stdout_callback</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">yaml</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">[defaults]</span>
+<span style="color: #BB4444">stdout_callback</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">yaml</span>
 </code></pre></div>
 
 <h2 id="_4">設定キー</h2>
@@ -1688,7 +1688,7 @@
 </tbody>
 </table>
 <p><code>ANSIBLE_KEEP_REMOTE_FILES=true</code>をセットして実行する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">ANSIBLE_KEEP_REMOTE_FILES</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span> ansible-playbook -i inventory.ini playbook.yml -v ...
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">ANSIBLE_KEEP_REMOTE_FILES</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span><span style="color: #bbbbbb"> </span>ansible-playbook<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>inventory.ini<span style="color: #bbbbbb"> </span>playbook.yml<span style="color: #bbbbbb"> </span>-v<span style="color: #bbbbbb"> </span>...
 </code></pre></div>
 
 <p>これでターゲットノード上のスクリプトファイルが残る。 基本的に消えないので手動で消す必要あり。<br />

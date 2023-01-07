@@ -1450,19 +1450,19 @@
 <h2 id="_1">サブスクリプション</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/05/160946">制限ネットワーク環境のRHEL7でproxy経由でサブスクリプション登録とDockerインストール - zaki work log</a></p>
 <p>以下で登録とサブスクリプション割り当てをまとめてできる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager register --auto-attach
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>register<span style="color: #bbbbbb"> </span>--auto-attach
 </code></pre></div>
 
 <p>登録のみは以下。アカウント情報を対話的に入力する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager register
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>register
 </code></pre></div>
 
 <p>登録後のサブスクリプション割り当ては以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager attach
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>attach
 </code></pre></div>
 
 <p>サブスクリプション割り当て時にpool IDを指定する場合は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager attach --pool<span style="color: #666666">=</span>****
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>attach<span style="color: #bbbbbb"> </span>--pool<span style="color: #666666">=</span>****
 </code></pre></div>
 
 <h2 id="package">package</h2>
@@ -1472,7 +1472,7 @@
 <li><a href="https://fedoraproject.org/wiki/EPEL#Quickstart">EPEL - Fedora Project Wiki</a></li>
 </ul>
 <p>RHEL8用のコマンドを実行してリポジトリを追加する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #bbbbbb"> </span>dnf<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 <span style="color: #888888">Updating Subscription Management repositories.</span>
 <span style="color: #888888">Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                    13 kB/s | 4.1 kB     00:00    </span>
 <span style="color: #888888">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                 19 kB/s | 4.5 kB     00:00    </span>
@@ -1511,7 +1511,7 @@
 <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>ls -l /etc/yum.repos.d/
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>ls<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>/etc/yum.repos.d/
 <span style="color: #888888">合計 168</span>
 <span style="color: #888888">-rw-r--r--. 1 root root   1480  6月  8 09:29 epel-modular.repo</span>
 <span style="color: #888888">-rw-r--r--. 1 root root   1562  6月  8 09:29 epel-playground.repo</span>
@@ -1521,7 +1521,7 @@
 <span style="color: #888888">-rw-r--r--. 1 root root 149513  7月  2 19:58 redhat.repo</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo dnf search sshpass
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #bbbbbb"> </span>dnf<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>sshpass
 <span style="color: #888888">Updating Subscription Management repositories.</span>
 <span style="color: #888888">Extra Packages for Enterprise Linux Modular 8 - x86_64                  652 kB/s | 798 kB     00:01    </span>
 <span style="color: #888888">Extra Packages for Enterprise Linux 8 - x86_64                          7.2 MB/s |  10 MB     00:01    </span>

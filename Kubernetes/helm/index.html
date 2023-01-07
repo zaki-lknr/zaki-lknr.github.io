@@ -1524,7 +1524,7 @@
 <p>aptはあるけど、今のとこyun/dnfはないんだよな。</p>
 <h2 id="_2">コマンド</h2>
 <h3 id="_3">リポジトリ一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo list
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>list
 <span style="color: #888888">NAME                    URL                                               </span>
 <span style="color: #888888">prometheus-community    https://prometheus-community.github.io/helm-charts</span>
 <span style="color: #888888">rook-release            https://charts.rook.io/release                    </span>
@@ -1535,21 +1535,21 @@
 </code></pre></div>
 
 <h3 id="_4">リポジトリを追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo add stable https://charts.helm.sh/stable
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>stable<span style="color: #bbbbbb"> </span>https://charts.helm.sh/stable
 </code></pre></div>
 
 <p>とか</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>prometheus-community<span style="color: #bbbbbb"> </span>https://prometheus-community.github.io/helm-charts
 </code></pre></div>
 
 <p>とか</p>
 <h3 id="_5">ローカルのリポジトリ情報を更新</h3>
 <p>多分<code>apt-get update</code>的な動作。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm repo update
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>update
 </code></pre></div>
 
 <h3 id="_6">チャートの検索</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm search repo prometheus
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>prometheus
 <span style="color: #888888">NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       </span>
 <span style="color: #888888">prometheus-community/kube-prometheus-stack              16.12.1         0.48.1          kube-prometheus-stack collects Kubernetes manif...</span>
 <span style="color: #888888">prometheus-community/prometheus                         14.3.0          2.26.0          Prometheus is a monitoring system and time seri...</span>
@@ -1561,10 +1561,10 @@
 </code></pre></div>
 
 <h3 id="_7">チャートのデフォルト値</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm show values metallb/metallb
-<span style="color: #000080; font-weight: bold"># </span>Default values <span style="color: #AA22FF; font-weight: bold">for</span> metallb.
-<span style="color: #000080; font-weight: bold"># </span>This is a YAML-formatted file.
-<span style="color: #000080; font-weight: bold"># </span>Declare variables to be passed into your templates.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>show<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>metallb/metallb
+<span style="color: #000080; font-weight: bold"># </span>Default<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>metallb.
+<span style="color: #000080; font-weight: bold"># </span>This<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>YAML-formatted<span style="color: #bbbbbb"> </span>file.
+<span style="color: #000080; font-weight: bold"># </span>Declare<span style="color: #bbbbbb"> </span>variables<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>be<span style="color: #bbbbbb"> </span>passed<span style="color: #bbbbbb"> </span>into<span style="color: #bbbbbb"> </span>your<span style="color: #bbbbbb"> </span>templates.
 
 <span style="color: #888888">imagePullSecrets: []</span>
 <span style="color: #888888">nameOverride: &quot;&quot;</span>
@@ -1577,11 +1577,11 @@
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
 <h3 id="_8">リリースの設定値</h3>
 <p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm ls -A
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-A
 <span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
 <span style="color: #888888">grafana         monitoring      1               2021-07-26 16:23:47.276215637 +0900 JST deployed        grafana-6.14.1          8.0.5      </span>
 <span style="color: #888888">prometheus      monitoring      1               2021-07-26 14:24:12.737306448 +0900 JST deployed        prometheus-14.4.1       2.26.0     </span>
-<span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm get values -n monitoring grafana
+<span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>monitoring<span style="color: #bbbbbb"> </span>grafana
 <span style="color: #888888">USER-SUPPLIED VALUES:</span>
 <span style="color: #888888">persistence:</span>
 <span style="color: #888888">  accessModes:</span>
@@ -1595,7 +1595,7 @@
 
 <h2 id="_9">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm env
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>env
 <span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
 <span style="color: #888888">HELM_CACHE_HOME=&quot;/home/zaki/.cache/helm&quot;</span>
 <span style="color: #888888">HELM_CONFIG_HOME=&quot;/home/zaki/.config/helm&quot;</span>
@@ -1616,7 +1616,7 @@
 </code></pre></div>
 
 <p><code>HELM_CONFIG_HOME</code>を設定すれば、<code>HELM_REGISTRY_CONFIG</code>などは連動する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ <span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span>/var/tmp helm env | grep var
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span><span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span>/var/tmp<span style="color: #bbbbbb"> </span>helm<span style="color: #bbbbbb"> </span>env<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>var
 <span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp&quot;</span>
 <span style="color: #B8860B">HELM_REGISTRY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/registry.json&quot;</span>
 <span style="color: #B8860B">HELM_REPOSITORY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/repositories.yaml&quot;</span>

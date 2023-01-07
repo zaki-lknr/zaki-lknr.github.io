@@ -1624,13 +1624,13 @@
 <p>分類変えるかも…</p>
 <h2 id="_1">設定</h2>
 <h3 id="kubeconfig">kubeconfigのマージ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>new-kubeconfig.yaml:<span style="color: #B8860B">$HOME</span>/.kube/config kubectl config view --flatten &gt; <span style="color: #B8860B">$HOME</span>/.kube/tmp
-<span style="color: #000080; font-weight: bold">$ </span>mv <span style="color: #B8860B">$HOME</span>/.kube/tmp <span style="color: #B8860B">$HOME</span>/.kube/config
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>new-kubeconfig.yaml:<span style="color: #B8860B">$HOME</span>/.kube/config<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>view<span style="color: #bbbbbb"> </span>--flatten<span style="color: #bbbbbb"> </span>&gt;<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$HOME</span>/.kube/tmp
+<span style="color: #000080; font-weight: bold">$ </span>mv<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$HOME</span>/.kube/tmp<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$HOME</span>/.kube/config
 </code></pre></div>
 
 <h3 id="_2">タブ補完</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">source</span> &lt;<span style="color: #666666">(</span>kubectl completion bash<span style="color: #666666">)</span>
-<span style="color: #AA22FF">complete</span> -o default -F __start_kubectl kc
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">source</span><span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>kubectl<span style="color: #bbbbbb"> </span>completion<span style="color: #bbbbbb"> </span>bash<span style="color: #666666">)</span>
+<span style="color: #AA22FF">complete</span><span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"> </span>-F<span style="color: #bbbbbb"> </span>__start_kubectl<span style="color: #bbbbbb"> </span>kc
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/03/02/205509">[oc / kubectl] コマンドや引数の補完設定 【completion】 - zaki work log</a></p>
@@ -1639,115 +1639,115 @@
 <h3 id="secret">secret</h3>
 <h4 id="secret_1">ファイルのsecret</h4>
 <p>キー名: ファイル内容のsecret作る</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat sample.txt 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>sample.txt<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">hello</span>
 <span style="color: #888888">kubernetes!</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl create secret generic sample-secret --from-file<span style="color: #666666">=</span><span style="color: #B8860B">lines</span><span style="color: #666666">=</span>sample.txt 
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>secret<span style="color: #bbbbbb"> </span>generic<span style="color: #bbbbbb"> </span>sample-secret<span style="color: #bbbbbb"> </span>--from-file<span style="color: #666666">=</span><span style="color: #B8860B">lines</span><span style="color: #666666">=</span>sample.txt<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">secret/sample-secret created</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl get secret sample-secret
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>secret<span style="color: #bbbbbb"> </span>sample-secret
 <span style="color: #888888">NAME            TYPE     DATA   AGE</span>
 <span style="color: #888888">sample-secret   Opaque   1      6s</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl get secret sample-secret -o yaml<span style="color: #bbbbbb"></span>
-apiVersion:<span style="color: #bbbbbb"> </span>v1<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">data</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">lines</span>:<span style="color: #bbbbbb"> </span>aGVsbG8Ka3ViZXJuZXRlcyEK<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">metadata</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2021-07-07T12:12:03Z&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;1041860&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>9675c818-cb9b-4b7f-a29c-c60bf5a908aa<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl get secret sample-secret -o yaml
+apiVersion:<span style="color: #bbbbbb"> </span>v1
+<span style="color: #008000; font-weight: bold">data</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">lines</span>:<span style="color: #bbbbbb"> </span>aGVsbG8Ka3ViZXJuZXRlcyEK
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret
+<span style="color: #008000; font-weight: bold">metadata</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2021-07-07T12:12:03Z&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;1041860&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>9675c818-cb9b-4b7f-a29c-c60bf5a908aa
+<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl get secret sample-secret -o <span style="color: #B8860B">jsonpath</span><span style="color: #666666">=</span><span style="color: #BB4444">&#39;{.data.lines}&#39;</span> | base64 -d
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>secret<span style="color: #bbbbbb"> </span>sample-secret<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span><span style="color: #B8860B">jsonpath</span><span style="color: #666666">=</span><span style="color: #BB4444">&#39;{.data.lines}&#39;</span><span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>base64<span style="color: #bbbbbb"> </span>-d
 <span style="color: #888888">hello</span>
 <span style="color: #888888">kubernetes!</span>
 </code></pre></div>
 
 <p>これはConfigMapと同じ</p>
 <h4 id="keyvaluesecret">key=valueのsecret</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl create secret generic sample-secret --from-literal<span style="color: #666666">=</span><span style="color: #B8860B">username</span><span style="color: #666666">=</span>zaki
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>secret<span style="color: #bbbbbb"> </span>generic<span style="color: #bbbbbb"> </span>sample-secret<span style="color: #bbbbbb"> </span>--from-literal<span style="color: #666666">=</span><span style="color: #B8860B">username</span><span style="color: #666666">=</span>zaki
 <span style="color: #888888">secret/sample-secret created</span>
 </code></pre></div>
 
 <p>このコマンド実行で以下のsecretリソースが作成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl get secret sample-secret -o yaml<span style="color: #bbbbbb"></span>
-apiVersion:<span style="color: #bbbbbb"> </span>v1<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">data</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span>emFraQ==<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">metadata</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2022-03-24T02:57:06Z&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;298054&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>35c9b58a-247d-4243-b292-193d811f140a<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl get secret sample-secret -o yaml
+apiVersion:<span style="color: #bbbbbb"> </span>v1
+<span style="color: #008000; font-weight: bold">data</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span>emFraQ==
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret
+<span style="color: #008000; font-weight: bold">metadata</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2022-03-24T02:57:06Z&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;298054&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>35c9b58a-247d-4243-b292-193d811f140a
+<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque
 </code></pre></div>
 
 <h4 id="secret_2">マニフェストでsecret</h4>
 <p>マニュフェストから作成する場合は、base64エンコード済みであること。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ cat secret-sample.yaml<span style="color: #bbbbbb"> </span>
-apiVersion:<span style="color: #bbbbbb"> </span>v1<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">data</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span>emFraQ==<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">metadata</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret2<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque<span style="color: #bbbbbb"></span>
+apiVersion:<span style="color: #bbbbbb"> </span>v1
+<span style="color: #008000; font-weight: bold">data</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span>emFraQ==
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret
+<span style="color: #008000; font-weight: bold">metadata</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret2
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque
 </code></pre></div>
 
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl apply -f secret-sample.yaml<span style="color: #bbbbbb"> </span>
-secret/sample-secret2 created<span style="color: #bbbbbb"></span>
-$ kubectl get secret sample-secret2 -o yaml<span style="color: #bbbbbb"></span>
-apiVersion:<span style="color: #bbbbbb"> </span>v1<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">data</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span>emFraQ==<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">metadata</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">annotations</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">kubectl.kubernetes.io/last-applied-configuration</span>:<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #880000">{&quot;apiVersion&quot;:&quot;v1&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;emFraQ==&quot;},&quot;kind&quot;:&quot;Secret&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;sample-secret2&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;type&quot;:&quot;Opaque&quot;}</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2022-03-24T03:01:32Z&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret2<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;298241&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>a1ae0bf1-3434-4f3d-88d3-a1bb33dee6ac<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque<span style="color: #bbbbbb"></span>
+secret/sample-secret2 created
+$ kubectl get secret sample-secret2 -o yaml
+apiVersion:<span style="color: #bbbbbb"> </span>v1
+<span style="color: #008000; font-weight: bold">data</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span>emFraQ==
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret
+<span style="color: #008000; font-weight: bold">metadata</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">annotations</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">kubectl.kubernetes.io/last-applied-configuration</span>:<span style="color: #bbbbbb"> </span>|
+<span style="color: #bbbbbb">      </span><span style="color: #880000">{&quot;apiVersion&quot;:&quot;v1&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;emFraQ==&quot;},&quot;kind&quot;:&quot;Secret&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;sample-secret2&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;type&quot;:&quot;Opaque&quot;}</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2022-03-24T03:01:32Z&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sample-secret2
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;298241&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>a1ae0bf1-3434-4f3d-88d3-a1bb33dee6ac
+<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque
 </code></pre></div>
 
 <h2 id="run">run</h2>
 <h3 id="pod">ワーク用のpodをデプロイする</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl run work-pod --image<span style="color: #666666">=</span>fedora --command -- tail -f /dev/null
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>work-pod<span style="color: #bbbbbb"> </span>--image<span style="color: #666666">=</span>fedora<span style="color: #bbbbbb"> </span>--command<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>tail<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>/dev/null
 </code></pre></div>
 
 <h2 id="expose">expose</h2>
 <h3 id="podservice">podベースでserviceを作成</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl expose pod &lt;pod-name&gt; --port <span style="color: #666666">80</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>expose<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>&lt;pod-name&gt;<span style="color: #bbbbbb"> </span>--port<span style="color: #bbbbbb"> </span><span style="color: #666666">80</span>
 </code></pre></div>
 
 <h2 id="config">config</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/04/07/080241">[kubectl / oc]コンテキストやクラスタ情報の確認 (コマンドメモ) - zaki work log</a></p>
 <p><code>~/.kube/config</code>(<code>$KUBECONFIG</code>)の内容から証明書のデータをマスクした情報</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl config view
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>view
 </code></pre></div>
 
 <p>現在のクラスタ情報</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl cluster-info 
-Kubernetes control plane is running at https://192.168.0.121:6443
-CoreDNS is running at https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-Metrics-server is running at https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>cluster-info<span style="color: #bbbbbb"> </span>
+Kubernetes<span style="color: #bbbbbb"> </span>control<span style="color: #bbbbbb"> </span>plane<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>running<span style="color: #bbbbbb"> </span>at<span style="color: #bbbbbb"> </span>https://192.168.0.121:6443
+CoreDNS<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>running<span style="color: #bbbbbb"> </span>at<span style="color: #bbbbbb"> </span>https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>running<span style="color: #bbbbbb"> </span>at<span style="color: #bbbbbb"> </span>https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
 
-To further debug and diagnose cluster problems, use <span style="color: #BB4444">&#39;kubectl cluster-info dump&#39;</span>.
+To<span style="color: #bbbbbb"> </span>further<span style="color: #bbbbbb"> </span>debug<span style="color: #bbbbbb"> </span>and<span style="color: #bbbbbb"> </span>diagnose<span style="color: #bbbbbb"> </span>cluster<span style="color: #bbbbbb"> </span>problems,<span style="color: #bbbbbb"> </span>use<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;kubectl cluster-info dump&#39;</span>.
 </code></pre></div>
 
 <p>KUBECONFIGで持っているクラスタ一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl config get-clusters
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>get-clusters
 NAME
 cluster-c2daobwhbsg
 kind-multi-1.15
@@ -1762,27 +1762,27 @@ sample-cluster
 </code></pre></div>
 
 <p>コンテキスト情報</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl config get-contexts
-CURRENT   NAME                          CLUSTER               AUTHINFO                               NAMESPACE
-          context-c2daobwhbsg           cluster-c2daobwhbsg   user-c2daobwhbsg                       
-          kind-kind                     kind-kind             kind-kind                              
-          kind-multi-1.15               kind-multi-1.15       kind-multi-1.15                        
-          kind-multicluster             kind-multicluster     kind-multicluster                      
-          kubernetes-admin@kubernetes   kubernetes            kubernetes-admin                       
-          kubernetes-admin@zks          zks                   kubernetes-admin                       
-          local-k3s                     local-k3s             local-k3s                              
-          oci-k3s                       oci-k3s               oci-k3s                                
-*         oci-k3s-le                    oci-k3s-le            oci-k3s-le                             
-          sample-cluster                sample-cluster        clusterUser_sample-rg_sample-cluster  
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>get-contexts
+CURRENT<span style="color: #bbbbbb">   </span>NAME<span style="color: #bbbbbb">                          </span>CLUSTER<span style="color: #bbbbbb">               </span>AUTHINFO<span style="color: #bbbbbb">                               </span>NAMESPACE
+<span style="color: #bbbbbb">          </span>context-c2daobwhbsg<span style="color: #bbbbbb">           </span>cluster-c2daobwhbsg<span style="color: #bbbbbb">   </span>user-c2daobwhbsg<span style="color: #bbbbbb">                       </span>
+<span style="color: #bbbbbb">          </span>kind-kind<span style="color: #bbbbbb">                     </span>kind-kind<span style="color: #bbbbbb">             </span>kind-kind<span style="color: #bbbbbb">                              </span>
+<span style="color: #bbbbbb">          </span>kind-multi-1.15<span style="color: #bbbbbb">               </span>kind-multi-1.15<span style="color: #bbbbbb">       </span>kind-multi-1.15<span style="color: #bbbbbb">                        </span>
+<span style="color: #bbbbbb">          </span>kind-multicluster<span style="color: #bbbbbb">             </span>kind-multicluster<span style="color: #bbbbbb">     </span>kind-multicluster<span style="color: #bbbbbb">                      </span>
+<span style="color: #bbbbbb">          </span>kubernetes-admin@kubernetes<span style="color: #bbbbbb">   </span>kubernetes<span style="color: #bbbbbb">            </span>kubernetes-admin<span style="color: #bbbbbb">                       </span>
+<span style="color: #bbbbbb">          </span>kubernetes-admin@zks<span style="color: #bbbbbb">          </span>zks<span style="color: #bbbbbb">                   </span>kubernetes-admin<span style="color: #bbbbbb">                       </span>
+<span style="color: #bbbbbb">          </span>local-k3s<span style="color: #bbbbbb">                     </span>local-k3s<span style="color: #bbbbbb">             </span>local-k3s<span style="color: #bbbbbb">                              </span>
+<span style="color: #bbbbbb">          </span>oci-k3s<span style="color: #bbbbbb">                       </span>oci-k3s<span style="color: #bbbbbb">               </span>oci-k3s<span style="color: #bbbbbb">                                </span>
+*<span style="color: #bbbbbb">         </span>oci-k3s-le<span style="color: #bbbbbb">                    </span>oci-k3s-le<span style="color: #bbbbbb">            </span>oci-k3s-le<span style="color: #bbbbbb">                             </span>
+<span style="color: #bbbbbb">          </span>sample-cluster<span style="color: #bbbbbb">                </span>sample-cluster<span style="color: #bbbbbb">        </span>clusterUser_sample-rg_sample-cluster<span style="color: #bbbbbb">  </span>
 </code></pre></div>
 
 <p>現在のコンテキスト</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl config current-context
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>current-context
 oci-k3s-le
 </code></pre></div>
 
 <p>コンテキストをセットする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl config use-context k3d-k3s-default
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>use-context<span style="color: #bbbbbb"> </span>k3d-k3s-default
 <span style="color: #888888">Switched to context &quot;k3d-k3s-default&quot;.</span>
 </code></pre></div>
                 

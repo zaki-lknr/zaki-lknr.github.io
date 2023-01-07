@@ -1497,11 +1497,11 @@
 <h2 id="always-freeocia1flex-2cpu12gb-ram">Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る</h2>
 <p>標準のE2.1.Microの場合↓<br />
 <a href="https://qiita.com/zaki-lknr/items/e829a3ad548e362ef89c">[Oracle Cloud] K3sでAlways Free枠ノードにKubernetesクラスタ作成してローカルからkubectlアクセスまで - Qiita</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl -sfL https://get.k3s.io | sh -
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sfL<span style="color: #bbbbbb"> </span>https://get.k3s.io<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>sh<span style="color: #bbbbbb"> </span>-
 </code></pre></div>
 
 <p>たまたま作成できた2cpus/12GB RAMで作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>curl -sfL https://get.k3s.io | sh -
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>curl<span style="color: #bbbbbb"> </span>-sfL<span style="color: #bbbbbb"> </span>https://get.k3s.io<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>sh<span style="color: #bbbbbb"> </span>-
 
 <span style="color: #888888">:</span>
 <span style="color: #888888">:</span>
@@ -1526,58 +1526,58 @@
 </code></pre></div>
 
 <h3 id="kubeconfig">kubeconfig</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo cp /etc/rancher/k3s/k3s.yaml ~
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>cp<span style="color: #bbbbbb"> </span>/etc/rancher/k3s/k3s.yaml<span style="color: #bbbbbb"> </span>~
 <span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>ll
 <span style="color: #888888">合計 4</span>
 <span style="color: #888888">-rw-------. 1 root root 2961  7月 23 02:30 k3s.yaml</span>
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo hhown opc:opc k3s.yaml 
+<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>hhown<span style="color: #bbbbbb"> </span>opc:opc<span style="color: #bbbbbb"> </span>k3s.yaml<span style="color: #bbbbbb"> </span>
 </code></pre></div>
 
 <p>手元にコピー</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>scp oci-ap-n1:k3s.yaml oci-ap-n1-k3s.yaml
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>scp<span style="color: #bbbbbb"> </span>oci-ap-n1:k3s.yaml<span style="color: #bbbbbb"> </span>oci-ap-n1-k3s.yaml
 </code></pre></div>
 
 <p><code>server</code>のアドレスをグローバルIPに変更し、<code>insecure-skip-tls-verify: true</code>を追加。<br />
 (※うまくいかないときは<code>kubectl</code>に<code>--insecure-skip-tls-verify=true</code>オプションを追加)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">clusters</span>:<span style="color: #bbbbbb"></span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">cluster</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">certificate-authority-data</span>:<span style="color: #bbbbbb"> </span>...<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">server</span>:<span style="color: #bbbbbb"> </span>https://&lt;hostのgip&gt;:6443<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">contexts</span>:<span style="color: #bbbbbb"></span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">context</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cluster</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">user</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">clusters</span>:
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">cluster</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">certificate-authority-data</span>:<span style="color: #bbbbbb"> </span>...
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">server</span>:<span style="color: #bbbbbb"> </span>https://&lt;hostのgip&gt;:6443
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #008000; font-weight: bold">contexts</span>:
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">context</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cluster</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">user</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>default
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
 <h3 id="_1">穴あけ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo firewall-cmd --add-port<span style="color: #666666">=6443</span>/tcp --permanent
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--add-port<span style="color: #666666">=6443</span>/tcp<span style="color: #bbbbbb"> </span>--permanent
 <span style="color: #888888">success</span>
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo firewall-cmd --reload
+<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--reload
 <span style="color: #888888">success</span>
 </code></pre></div>
 
 <p>あとwebコンソールで、6443/TCPへのアクセス許可を追加。</p>
 <h3 id="deploy-sample">deploy sample</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl apply -n sample -f ~/src/k8s-samples/sample-web/httpd-clusterip/sample-http.yaml 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>apply<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>sample<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/src/k8s-samples/sample-web/httpd-clusterip/sample-http.yaml<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">deployment.apps/sample-http created</span>
 <span style="color: #888888">service/sample-http created</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl get pod -n sample
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>sample
 <span style="color: #888888">NAME                           READY   STATUS              RESTARTS   AGE</span>
 <span style="color: #888888">sample-http-6c94f59975-65p6w   0/1     ContainerCreating   0          9s</span>
 <span style="color: #888888">sample-http-6c94f59975-clzhp   0/1     ContainerCreating   0          9s</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl get pod -n sample -o wide
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>sample<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span>wide
 <span style="color: #888888">NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE                     NOMINATED NODE   READINESS GATES</span>
 <span style="color: #888888">sample-http-6c94f59975-65p6w   1/1     Running   0          87s   10.42.0.9    instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 <span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
 <h3 id="_2">ノードスペック</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml kubectl describe node
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>describe<span style="color: #bbbbbb"> </span>node
 
 <span style="color: #888888">[...]</span>
 
@@ -1602,7 +1602,7 @@
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
 <h2 id="_3">アンインストール</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #bbbbbb"> </span>
 </code></pre></div>
                 
               

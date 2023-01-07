@@ -1517,11 +1517,11 @@
 <p>バックアップするには以下。<br />
 Towerは実行中で良い。<br />
 バックアップに成功すると、カレントに <code>tower-backup-YYYY-mm-dd-HH:MM:SS.tar.gz</code> が作成される。(symlinkの<code>tower-backup-latest.tar.gz</code>も作成される)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>./setup.sh -b
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>./setup.sh<span style="color: #bbbbbb"> </span>-b
 </code></pre></div>
 
 <p>リストアは以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>./setup.sh -r -e <span style="color: #B8860B">restore_backup_file</span><span style="color: #666666">=</span>/path/to/tower-backup-....tar.gz
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>./setup.sh<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>-e<span style="color: #bbbbbb"> </span><span style="color: #B8860B">restore_backup_file</span><span style="color: #666666">=</span>/path/to/tower-backup-....tar.gz
 </code></pre></div>
 
 <h2 id="_2">プロジェクト</h2>
@@ -1536,13 +1536,13 @@ Towerは実行中で良い。<br />
 <p>Towerのユーザーページで、対象ユーザーを選択、「トークン」押下して「＋」押下で作成できる。<br />
 権限はread/writeのみ。</p>
 <p>GUIで作ったパーソナルトークンを使ったRESTは以下のように<code>Authorization: Bearer {token-string}</code>をヘッダに追加すればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">export</span> <span style="color: #B8860B">tower_token</span><span style="color: #666666">=</span>........
-<span style="color: #000080; font-weight: bold">$ </span>curl -sk https://192.168.0.27/api/v2/job_templates/ -H <span style="color: #BB4444">&quot;Authorization: Bearer </span><span style="color: #B8860B">$tower_token</span><span style="color: #BB4444">&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">export</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">tower_token</span><span style="color: #666666">=</span>........
+<span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://192.168.0.27/api/v2/job_templates/<span style="color: #bbbbbb"> </span>-H<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;Authorization: Bearer </span><span style="color: #B8860B">$tower_token</span><span style="color: #BB4444">&quot;</span>
 </code></pre></div>
 
 <p><a href="https://docs.ansible.com/ansible-tower/latest/html_ja/administration/oauth2_token_auth.html#using-oauth-2-token-system-for-personal-access-tokens-pat">19.2. パーソナルアクセストークン (PAT) 向けの OAuth2 トークンシステムの使用</a></p>
 <h3 id="_5">ジョブテンプレート一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl -sk https://192.168.0.27/api/v2/job_templates/?page_size<span style="color: #666666">=1000</span> | python -m json.tool
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://192.168.0.27/api/v2/job_templates/?page_size<span style="color: #666666">=1000</span><span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>json.tool
 </code></pre></div>
                 
               

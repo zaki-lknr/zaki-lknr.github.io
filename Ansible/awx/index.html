@@ -1536,7 +1536,7 @@
 2022.02.15時点の内容。2.16にAWX 2.0.0がリリースされてる。</p>
 <h3 id="awx-operator">awx-operator</h3>
 <p>0.16.1 (devel)で実施</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make docker-build <span style="color: #B8860B">IMAGE_TAG_BASE</span><span style="color: #666666">=</span>zakihmkc/awx-operator <span style="color: #B8860B">VERSION</span><span style="color: #666666">=0</span>.16.1-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>docker-build<span style="color: #bbbbbb"> </span><span style="color: #B8860B">IMAGE_TAG_BASE</span><span style="color: #666666">=</span>zakihmkc/awx-operator<span style="color: #bbbbbb"> </span><span style="color: #B8860B">VERSION</span><span style="color: #666666">=0</span>.16.1-arm
 </code></pre></div>
 
 <p>これでビルドされるイメージ名は以下の通り。</p>
@@ -1560,39 +1560,39 @@
 <span style="color: #888888">Successfully tagged zakihmkc/awx-operator:0.16.1-arm</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls zakihmkc/awx-operator
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>zakihmkc/awx-operator
 <span style="color: #888888">REPOSITORY              TAG          IMAGE ID       CREATED          SIZE</span>
 <span style="color: #888888">zakihmkc/awx-operator   0.16.1-arm   28538a5f08b7   45 seconds ago   516MB</span>
 </code></pre></div>
 
 <p>イメージができたら<code>push</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make docker-push <span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>docker-push<span style="color: #bbbbbb"> </span><span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
 </code></pre></div>
 
 <p>ビルドしたカスタムイメージをデプロイするには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make deploy <span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>deploy<span style="color: #bbbbbb"> </span><span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
 </code></pre></div>
 
 <h3 id="awx_1">awx</h3>
 <p>19.5.1で実施。</p>
 <p>Makefileあるけど使い方がよくわからなかった。
 tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">cd</span> tools/ansible/
-<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook build.yml
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">cd</span><span style="color: #bbbbbb"> </span>tools/ansible/
+<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #bbbbbb"> </span>build.yml
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker images ansible/awx
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>images<span style="color: #bbbbbb"> </span>ansible/awx
 <span style="color: #888888">REPOSITORY    TAG             IMAGE ID       CREATED         SIZE</span>
 <span style="color: #888888">ansible/awx   19.5.2.dev117   5c0f58543bbc   5 minutes ago   696MB</span>
 </code></pre></div>
 
 <p>ビルドできたらpush</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker tag ansible/awx:19.5.2.dev117 zakihmkc/awx:19.5.2.dev117-arm
-<span style="color: #000080; font-weight: bold">$ </span>docker push zakihmkc/awx:19.5.2.dev117-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>tag<span style="color: #bbbbbb"> </span>ansible/awx:19.5.2.dev117<span style="color: #bbbbbb"> </span>zakihmkc/awx:19.5.2.dev117-arm
+<span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>zakihmkc/awx:19.5.2.dev117-arm
 </code></pre></div>
 
 <p>この状態でデプロイすると、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat awx-demo.yml 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">---</span>
 <span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
 <span style="color: #888888">kind: AWX</span>
@@ -1602,9 +1602,9 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span style="color: #888888">  service_type: nodeport</span>
 <span style="color: #888888">  image: zakihmkc/awx</span>
 <span style="color: #888888">  image_version: 19.5.2.dev117-arm</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl apply -f awx-demo.yml -n awx
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>apply<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx
 <span style="color: #888888">awx.awx.ansible.com/awx-demo created</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl get pod -n awx 
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">NAME                                             READY   STATUS    RESTARTS      AGE</span>
 <span style="color: #888888">awx-operator-controller-manager-59584d6d-cfvcw   2/2     Running   0             60m</span>
 <span style="color: #888888">awx-demo-postgres-0                              1/1     Running   0             83s</span>
@@ -1612,13 +1612,13 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 </code></pre></div>
 
 <p>あー、、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(awx-build)</span> <span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~/src/awx-operator$ </span>kubectl logs -n awx awx-demo-64b6ddfbb5-td57c -c awx-demo-ee
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(awx-build)</span> <span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~/src/awx-operator$ </span>kubectl<span style="color: #bbbbbb"> </span>logs<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-64b6ddfbb5-td57c<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee
 <span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
 </code></pre></div>
 
 <p>このイメージもarm版必要だった。</p>
 <p>awx-eeもarm版をbuild&amp;pushして…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat awx-demo.yml 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">---</span>
 <span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
 <span style="color: #888888">kind: AWX</span>
@@ -1633,14 +1633,14 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span style="color: #888888">      image: zakihmkc/awx-ee</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl apply -f awx-demo.yml -n awx
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>apply<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx
 <span style="color: #888888">awx.awx.ansible.com/awx-demo created</span>
 </code></pre></div>
 
 <p>反映されない。。
 <code>ee_images</code>の設定方法わからず。。
 ドキュメントよく見ると、すぐ近くに<code>control_plane_ee_image</code>について書かれている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat awx-demo.yml 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">---</span>
 <span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
 <span style="color: #888888">kind: AWX</span>
@@ -1658,12 +1658,12 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 
 <p>これでarm用にビルドしたイメージをpullできた。<br />
 が…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl logs -n awx awx-demo-5888cdc5cc-dtqtt -c awx-demo-ee
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>logs<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-5888cdc5cc-dtqtt<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee
 <span style="color: #888888">/usr/bin/receptor: /usr/bin/receptor: cannot execute binary file</span>
 </code></pre></div>
 
 <p>中で使ってる実行バイナリがarmじゃない？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker run -it --rm zakihmkc/awx-ee cat /usr/bin/receptor | file -
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee<span style="color: #bbbbbb"> </span>cat<span style="color: #bbbbbb"> </span>/usr/bin/receptor<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span>-
 <span style="color: #888888">/dev/stdin: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, Go BuildID=dzUF3PWwMDDpxbzJG4PA/ROcMoX3MTms06DLSdROU/2q0gqTdR4VkvLhOjbFwW/_sKtclM7e0bA3VOTpJ50, not stripped</span>
 </code></pre></div>
 
@@ -1676,10 +1676,10 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p>ってのが出力されてた。(awx-ee)</p>
 <h3 id="awx-ee">awx-ee</h3>
 <p>0.6.0で実施</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip install tox
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>tox
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tox -edocker
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tox<span style="color: #bbbbbb"> </span>-edocker
 </code></pre></div>
 
 <p>エラーになった。ベースイメージがこれもamd64しかないっぽい。</p>
@@ -1726,19 +1726,19 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span style="color: #888888">  congratulations :)</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/awx-ee
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee
 <span style="color: #888888">REPOSITORY               TAG       IMAGE ID       CREATED         SIZE</span>
 <span style="color: #888888">quay.io/ansible/awx-ee   latest    5b60adcb5b7b   5 minutes ago   1.58GB</span>
 </code></pre></div>
 
 <p>あ、イメージ名…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker tag quay.io/ansible/awx-ee:latest zakihmkc/awx-ee:latest
-<span style="color: #000080; font-weight: bold">$ </span>docker push zakihmkc/awx-ee:latest
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>tag<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee:latest<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:latest
+<span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:latest
 </code></pre></div>
 
 <h3 id="ansible-runner">ansible-runner</h3>
 <p>develブランチで実施</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make image
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>image
 </code></pre></div>
 
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Status: Downloaded newer image for quay.io/ansible/python-builder:latest</span>
@@ -1783,7 +1783,7 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p><a href="https://github.com/ansible/python-base-image">ansible/python-base-image: A container image for running python projects</a></p>
 <p>ビルド用のMakefileの類はなにも無し。<br />
 <code>Containerfile</code>あるので、これで<code>docker build</code>した。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker build -f Containerfile -t quay.io/ansible/python-base .
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>build<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>Containerfile<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>quay.io/ansible/python-base<span style="color: #bbbbbb"> </span>.
 </code></pre></div>
 
 <p>これはうまく行った。</p>
@@ -1801,7 +1801,7 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span style="color: #888888">Successfully tagged quay.io/ansible/python-base:latest</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/python-base
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/python-base
 <span style="color: #888888">REPOSITORY                    TAG       IMAGE ID       CREATED              SIZE</span>
 <span style="color: #888888">quay.io/ansible/python-base   latest    84c14ff10f30   About a minute ago   768MB</span>
 </code></pre></div>
@@ -1810,7 +1810,7 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p>mainブランチで実施</p>
 <p><a href="https://github.com/ansible/python-builder-image">ansible/python-builder-image: A container image for building python projects</a></p>
 <p>これも特にビルド用のツール無し。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker build -f Containerfile -t quay.io/ansible/python-builder:latest .
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>build<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>Containerfile<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>quay.io/ansible/python-builder:latest<span style="color: #bbbbbb"> </span>.
 </code></pre></div>
 
 <p>これもうまくいった。</p>
@@ -1828,12 +1828,12 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span style="color: #888888">Successfully tagged quay.io/ansible/python-builder:latest</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/python-builder
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/python-builder
 <span style="color: #888888">REPOSITORY                       TAG       IMAGE ID       CREATED          SIZE</span>
 <span style="color: #888888">quay.io/ansible/python-builder   latest    c832710ee7dd   51 seconds ago   854MB</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/ansible-runner
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-runner
 <span style="color: #888888">REPOSITORY                       TAG       IMAGE ID       CREATED              SIZE</span>
 <span style="color: #888888">quay.io/ansible/ansible-runner   devel     7db86ada250a   About a minute ago   962MB</span>
 <span style="color: #888888">quay.io/ansible/ansible-runner   latest    7db86ada250a   About a minute ago   962MB</span>
@@ -1844,10 +1844,10 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p><a href="https://github.com/ansible/ansible-builder">ansible/ansible-builder: An Ansible execution environment builder</a></p>
 <p>これもrunnerと同じく、<code>Makefile</code>に<code>image</code>ターゲットがあるのでこれを実行。
 ビルド中のログを見るとpython-baseとpython-builderに依存している。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make image
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>image
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls quay.io/ansible/ansible-builder
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-builder
 <span style="color: #888888">REPOSITORY                        TAG                   IMAGE ID       CREATED          SIZE</span>
 <span style="color: #888888">quay.io/ansible/ansible-builder   1.0.0a2-99-g38a0104   e0d5adabb6c3   46 seconds ago   858MB</span>
 <span style="color: #888888">quay.io/ansible/ansible-builder   latest                e0d5adabb6c3   46 seconds ago   858MB</span>
@@ -1857,7 +1857,7 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p>1.0.0a2ブランチで実施</p>
 <p><a href="https://github.com/ansible/receptor">ansible/receptor: Project Receptor is a flexible multi-service relayer with remote execution and orchestration capabilities linking controllers with executors across a mesh of nodes.</a></p>
 <p>デフォルトは<code>podman</code>を使うみたいなので<code>docker</code>を指定して実行。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make container <span style="color: #B8860B">CONTAINERCMD</span><span style="color: #666666">=</span>docker
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>container<span style="color: #bbbbbb"> </span><span style="color: #B8860B">CONTAINERCMD</span><span style="color: #666666">=</span>docker
 </code></pre></div>
 
 <p>エラーになった。</p>
@@ -1867,7 +1867,7 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 </code></pre></div>
 
 <p>んー、develのままだったのが悪かったかな。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git switch release_1.1 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>switch<span style="color: #bbbbbb"> </span>release_1.1<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">Switched to branch &#39;release_1.1&#39;</span>
 <span style="color: #888888">Your branch is up to date with &#39;origin/release_1.1&#39;.</span>
 </code></pre></div>
@@ -1886,22 +1886,22 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p>みたいなのあった。これか。<br />
 以下変更</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">$ git diff</span>
-<span style="color: #000080; font-weight: bold">diff --git a/packaging/container/Dockerfile b/packaging/container/Dockerfile</span><span style="color: #bbbbbb"></span>
-<span style="color: #000080; font-weight: bold">index ead007a..1fc7416 100644</span><span style="color: #bbbbbb"></span>
-<span style="color: #A00000">--- a/packaging/container/Dockerfile</span><span style="color: #bbbbbb"></span>
-<span style="color: #00A000">+++ b/packaging/container/Dockerfile</span><span style="color: #bbbbbb"></span>
-<span style="color: #800080; font-weight: bold">@@ -2,9 +2,9 @@ FROM quay.io/centos/centos:stream8 as builder</span><span style="color: #bbbbbb"></span>
+<span style="color: #000080; font-weight: bold">diff --git a/packaging/container/Dockerfile b/packaging/container/Dockerfile</span>
+<span style="color: #000080; font-weight: bold">index ead007a..1fc7416 100644</span>
+<span style="color: #A00000">--- a/packaging/container/Dockerfile</span>
+<span style="color: #00A000">+++ b/packaging/container/Dockerfile</span>
+<span style="color: #800080; font-weight: bold">@@ -2,9 +2,9 @@ FROM quay.io/centos/centos:stream8 as builder</span>
 
-<span style="color: #bbbbbb"> </span>RUN dnf -y update &amp;&amp; dnf install -y make python3 python3-pip python3-wheel<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>RUN dnf -y update &amp;&amp; dnf install -y make python3 python3-pip python3-wheel
 
-<span style="color: #A00000">-RUN curl -LO https://go.dev/dl/go1.16.13.linux-amd64.tar.gz</span><span style="color: #bbbbbb"></span>
-<span style="color: #00A000">+RUN curl -LO https://go.dev/dl/go1.16.13.linux-arm64.tar.gz</span><span style="color: #bbbbbb"></span>
+<span style="color: #A00000">-RUN curl -LO https://go.dev/dl/go1.16.13.linux-amd64.tar.gz</span>
+<span style="color: #00A000">+RUN curl -LO https://go.dev/dl/go1.16.13.linux-arm64.tar.gz</span>
 
-<span style="color: #A00000">-RUN tar -C /usr/local -xzf go1.16.13.linux-amd64.tar.gz</span><span style="color: #bbbbbb"></span>
-<span style="color: #00A000">+RUN tar -C /usr/local -xzf go1.16.13.linux-arm64.tar.gz</span><span style="color: #bbbbbb"></span>
+<span style="color: #A00000">-RUN tar -C /usr/local -xzf go1.16.13.linux-amd64.tar.gz</span>
+<span style="color: #00A000">+RUN tar -C /usr/local -xzf go1.16.13.linux-arm64.tar.gz</span>
 
-<span style="color: #bbbbbb"> </span>ADD source.tar.gz /source<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb"> </span>WORKDIR /source<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>ADD source.tar.gz /source
+<span style="color: #bbbbbb"> </span>WORKDIR /source
 </code></pre></div>
 
 <p>これでビルド。同じエラーはでたが処理は続行した。</p>
@@ -1920,13 +1920,13 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 </code></pre></div>
 
 <p>あ、イメージ名…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker image ls receptor
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>receptor
 <span style="color: #888888">REPOSITORY   TAG       IMAGE ID       CREATED          SIZE</span>
 <span style="color: #888888">receptor     latest    376efbc54f61   51 seconds ago   777MB</span>
 </code></pre></div>
 
 <p>とりあえずセット</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker tag receptor:latest quay.io/ansible/receptor:devel
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>tag<span style="color: #bbbbbb"> </span>receptor:latest<span style="color: #bbbbbb"> </span>quay.io/ansible/receptor:devel
 </code></pre></div>
 
 <h2 id="awx_2">AWXでジョブが実行できない件(調査中)</h2>
@@ -1954,23 +1954,23 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 </code></pre></div>
 
 <p>オリジナルのamd64版、Dockerイメージのユーザー権限</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker run -it --rm quay.io/ansible/awx-ee:0.6.0 bash
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee:0.6.0<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-4.4# id</span>
 <span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-4.4# exit</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker run -it --rm quay.io/ansible/awx:20.0.0 bash
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/awx:20.0.0<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-5.1$ id</span>
 <span style="color: #888888">uid=1000 gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-5.1$ </span>
 </code></pre></div>
 
 <p>arm64でビルドしたDockerイメージのユーザー権限</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker run -it --rm zakihmkc/awx-ee:0.6.0 bash
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:0.6.0<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-4.4# id</span>
 <span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-4.4# exit</span>
 <span style="color: #888888">exit</span>
-<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker run -it --rm zakihmkc/awx:20.0.0 bash
+<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>zakihmkc/awx:20.0.0<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-5.1$ id</span>
 <span style="color: #888888">uid=1000 gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-5.1$ exit</span>
@@ -1980,11 +1980,11 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p>Docker上だと同一。</p>
 <p>じゃあk8s上だと…
 amd64版はこれ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl  <span style="color: #AA22FF">exec</span> -it -n awx awx-demo-74d8979549-bszp6 -c awx-demo-ee -- bash 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-74d8979549-bszp6<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">bash-4.4$ id</span>
 <span style="color: #888888">uid=1000(runner) gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-4.4$ exit</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl  <span style="color: #AA22FF">exec</span> -it -n awx awx-demo-74d8979549-bszp6 -c awx-demo-task -- bash
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-74d8979549-bszp6<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-task<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-5.1$ id</span>
 <span style="color: #888888">uid=1000(awx) gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-5.1$ exit</span>
@@ -1992,11 +1992,11 @@ amd64版はこれ。</p>
 </code></pre></div>
 
 <p>arm64版。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl <span style="color: #AA22FF">exec</span> -n awx -it awx-demo-7847cd4bb-wd4w4 -c awx-demo-ee -- bash
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>awx-demo-7847cd4bb-wd4w4<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-4.4# id</span>
 <span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-4.4# exit</span>
-<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl <span style="color: #AA22FF">exec</span> -n awx -it awx-demo-7847cd4bb-wd4w4 -c awx-demo-task -- bash
+<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>awx-demo-7847cd4bb-wd4w4<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-task<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-5.1$ id</span>
 <span style="color: #888888">uid=1000(awx) gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-5.1$ </span>
@@ -2006,7 +2006,7 @@ amd64版はこれ。</p>
 <p>eeの実行権限がここだけ<code>root</code>になっている。</p>
 <p>実行権限じゃなくて<code>/etc/passwd</code>かも。</p>
 <p>amd64のオリジナル版</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl  <span style="color: #AA22FF">exec</span> -it -n awx awx-demo-74d8979549-bszp6 -c awx-demo-ee -- bash
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-74d8979549-bszp6<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-4.4$ id</span>
 <span style="color: #888888">uid=1000(runner) gid=0(root) groups=0(root)</span>
 <span style="color: #888888">bash-4.4$ cat /etc/passwd</span>
@@ -2015,7 +2015,7 @@ amd64版はこれ。</p>
 </code></pre></div>
 
 <p>arm64向けにビルドした版</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~/tmp$ </span>kubectl <span style="color: #AA22FF">exec</span> -n awx -it awx-demo-84b4b75d85-9txt2 -c awx-demo-ee -- bash
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~/tmp$ </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>awx-demo-84b4b75d85-9txt2<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-4.4# cat /etc/passwd</span>
 <span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
 <span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
@@ -2024,14 +2024,14 @@ amd64版はこれ。</p>
 
 <p>そもそも<code>runner</code>ユーザーのUIDがおかしい感じ。</p>
 <p>ベースイメージの<code>ansible-runner</code>は？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker run -it --rm quay.io/ansible/ansible-runner:latest bash
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-runner:latest<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-4.4# cat /etc/passwd</span>
 <span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
 <span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
 <span style="color: #888888">bash-4.4# </span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~$ </span>docker run -it --rm quay.io/ansible/ansible-runner:latest bash
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-runner:latest<span style="color: #bbbbbb"> </span>bash
 <span style="color: #888888">bash-4.4# cat /etc/passwd</span>
 <span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
 <span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>

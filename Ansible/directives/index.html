@@ -1644,11 +1644,11 @@
 <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">Playbook Keywords — Ansible Documentation</a></p>
 <h2 id="_2">ループ</h2>
 <h3 id="block">ループとblockは併用不可</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>block with loop<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item_list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>:<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>block with loop
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item_list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">block</span>:
+<span style="color: #bbbbbb">        </span>:
 </code></pre></div>
 
 <p>こういうのは無理</p>
@@ -1664,115 +1664,115 @@
 <li><a href="https://zaki-hmkc.hatenablog.com/entry/2021/04/06/190124">[Ansible] loopとモジュール実行の結果を保持するregisterを併用する - zaki work log</a></li>
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#registering-variables-with-a-loop">Registering variables with a loop</a></li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>exec command<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.command</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>hostname<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>pwd<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>ls /opt<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>result_command<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>exec command
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.command</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>hostname
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>pwd
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>ls /opt
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>result_command
 
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>print result<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">result_command</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&#39;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>print result
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">result_command</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&#39;</span>
 </code></pre></div>
 
 <p>を実行すると、以下のようになる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ok</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">localhost</span>]<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">  </span>msg:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>All items completed<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">results</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible_loop_var</span>:<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">cmd</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>hostname<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delta</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0:00:00.001672&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">end</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.461799&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">failed</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">invocation</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">module_args</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">          </span>...<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">item</span>:<span style="color: #bbbbbb"> </span>hostname<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">rc</span>:<span style="color: #bbbbbb"> </span>0<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">start</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.460127&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr_lines</span>:<span style="color: #bbbbbb"> </span>[]<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout</span>:<span style="color: #bbbbbb"> </span>cloud-dev<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout_lines</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>cloud-dev<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible_loop_var</span>:<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">cmd</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>pwd<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delta</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0:00:00.001590&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">end</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.630725&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">failed</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">invocation</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">module_args</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">          </span>...<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">item</span>:<span style="color: #bbbbbb"> </span>pwd<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">rc</span>:<span style="color: #bbbbbb"> </span>0<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">start</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.629135&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr_lines</span>:<span style="color: #bbbbbb"> </span>[]<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout</span>:<span style="color: #bbbbbb"> </span>/home/zaki/src/ansible-sample/file<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout_lines</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>/home/zaki/src/ansible-sample/file<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible_loop_var</span>:<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">cmd</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>/opt<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delta</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0:00:00.001935&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">end</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.798976&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">failed</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">invocation</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">module_args</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">          </span>...<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">item</span>:<span style="color: #bbbbbb"> </span>ls /opt<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">rc</span>:<span style="color: #bbbbbb"> </span>0<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">start</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.797041&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr_lines</span>:<span style="color: #bbbbbb"> </span>[]<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout</span>:<span style="color: #bbbbbb"> </span>|-<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #880000">cni</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #880000">containerd</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout_lines</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>cni<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>containerd<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>msg:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>All items completed
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">results</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible_loop_var</span>:<span style="color: #bbbbbb"> </span>item
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">cmd</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>hostname
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delta</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0:00:00.001672&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">end</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.461799&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">failed</span>:<span style="color: #bbbbbb"> </span>false
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">invocation</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">module_args</span>:
+<span style="color: #bbbbbb">          </span>...
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">item</span>:<span style="color: #bbbbbb"> </span>hostname
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">rc</span>:<span style="color: #bbbbbb"> </span>0
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">start</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.460127&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr_lines</span>:<span style="color: #bbbbbb"> </span>[]
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout</span>:<span style="color: #bbbbbb"> </span>cloud-dev
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout_lines</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>cloud-dev
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible_loop_var</span>:<span style="color: #bbbbbb"> </span>item
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">cmd</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>pwd
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delta</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0:00:00.001590&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">end</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.630725&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">failed</span>:<span style="color: #bbbbbb"> </span>false
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">invocation</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">module_args</span>:
+<span style="color: #bbbbbb">          </span>...
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">item</span>:<span style="color: #bbbbbb"> </span>pwd
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">rc</span>:<span style="color: #bbbbbb"> </span>0
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">start</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.629135&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr_lines</span>:<span style="color: #bbbbbb"> </span>[]
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout</span>:<span style="color: #bbbbbb"> </span>/home/zaki/src/ansible-sample/file
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout_lines</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>/home/zaki/src/ansible-sample/file
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible_loop_var</span>:<span style="color: #bbbbbb"> </span>item
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed</span>:<span style="color: #bbbbbb"> </span>true
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">cmd</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>ls
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>/opt
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delta</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0:00:00.001935&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">end</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.798976&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">failed</span>:<span style="color: #bbbbbb"> </span>false
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">invocation</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">module_args</span>:
+<span style="color: #bbbbbb">          </span>...
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">item</span>:<span style="color: #bbbbbb"> </span>ls /opt
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">rc</span>:<span style="color: #bbbbbb"> </span>0
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">start</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;2021-04-06</span><span style="color: #B8860B"> </span><span style="color: #BB4444">18:54:28.797041&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;&#39;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stderr_lines</span>:<span style="color: #bbbbbb"> </span>[]
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout</span>:<span style="color: #bbbbbb"> </span>|-
+<span style="color: #bbbbbb">        </span><span style="color: #880000">cni</span>
+<span style="color: #bbbbbb">        </span><span style="color: #880000">containerd</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">stdout_lines</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>cni
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span>containerd
 </code></pre></div>
 
 <p>要は、<code>${registerで指定した変数名}.results[...]</code>という配列になる。</p>
 <h3 id="_3">ループ変数のカスタム</h3>
 <p><code>loop_control.loop_var</code>で指定できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>loop<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">zzz</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>foo<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>bar<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>baz<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>qux<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop_control</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">loop_var</span>:<span style="color: #bbbbbb"> </span>zzz<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>loop
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">zzz</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>foo
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>bar
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>baz
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>qux
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop_control</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">loop_var</span>:<span style="color: #bbbbbb"> </span>zzz
 </code></pre></div>
 
 <p><code>{{ item }}</code>は使用不可となる。</p>
 <h3 id="_4">ループインデックスの参照</h3>
 <p>タスク内でループインデックスを参照したい場合は、<code>extended: true</code>を付加すれば参照できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>loop index sample<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_loop.index</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_loop.index0</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>foo<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>bar<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>baz<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">loop_control</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">extended</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>loop index sample
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_loop.index</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_loop.index0</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">loop</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>foo
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>bar
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>baz
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">loop_control</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">extended</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
 <p>実行結果は以下の通り。</p>
@@ -1797,41 +1797,41 @@
 <h3 id="include1">ループとinclude併用時にループに関係ないタスクを1回だけ実行することは…</h3>
 <p><code>run_once</code>使って出来ないか試したけど予想通り無効。<br />
 たぶん無理なので、そういうタスクはループの外で実装しましょう。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>include with loop<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">include_tasks</span>:<span style="color: #bbbbbb"> </span>dup-loop-included.yml<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">users</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>include with loop
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">include_tasks</span>:<span style="color: #bbbbbb"> </span>dup-loop-included.yml
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">users</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>1回だけ実行したいタスク<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>zzz<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">run_once</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>1回だけ実行したいタスク
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>zzz
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">run_once</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
 <p>このタスクは<code>users</code>の要素のループごとに当然毎回実行される。<br />
 ループ内で毎回実行される必要がないのであれば、includeの外で実行しましょう。</p>
 <h2 id="when">when</h2>
 <h3 id="int">条件がint型</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #B8860B">tasks</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">name</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">len</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">bool</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #B8860B">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #AA22FF; font-weight: bold">loop</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-1</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #B8860B">when</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #B8860B">tasks</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">name</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">len</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">bool</span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">debug</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #AA22FF; font-weight: bold">loop</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-1</span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">when</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span>
 </code></pre></div>
 
 <p><code>0</code>の場合はskip。<br />
 <code>1</code>, <code>-1</code>は処理対象。</p>
 <p>ansible-core 2.11.3で確認</p>
 <h3 id="string">条件がstring型</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">name</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">str</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #B8860B">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #AA22FF; font-weight: bold">loop</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;a&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #B8860B">when</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">name</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">str</span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">debug</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #AA22FF; font-weight: bold">loop</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;a&quot;</span>
+<span style="color: #bbbbbb">        </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #B8860B">when</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span>
 </code></pre></div>
 
 <p><code>""</code>の場合はskip。<br />
@@ -1839,30 +1839,30 @@
 <p>ansible-core 2.11.3で確認 / 2.9だと構文エラー(文字列のみの判定はできないっぽい？何かと比較するなど評価すればもちろんOK)</p>
 <h3 id="_5">リストで複数条件</h3>
 <p><code>when</code>にはリスト形式で条件を複数指定できる。リストの場合は「すべての条件がtrueの場合」にタスクは実行。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span><span style="color: #bbbbbb"></span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cond1</span>:<span style="color: #bbbbbb"> </span>true<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cond2</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cond1</span>:<span style="color: #bbbbbb"> </span>true
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cond2</span>:<span style="color: #bbbbbb"> </span>false
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">debug</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;hello&quot;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>cond1<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>cond2<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;hello&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">when</span>:
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>cond1
+<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>cond2
 </code></pre></div>
 
 <p>この場合スキップされる。</p>
 <h3 id="or">orで複数条件</h3>
 <p>リスト形式はandになるため、<code>or</code>で条件を羅列して一つの条件式として記述する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"> </span>cond == &quot;foobar&quot; or cond == &quot;bazqux&quot;<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"> </span>cond == &quot;foobar&quot; or cond == &quot;bazqux&quot;
 </code></pre></div>
 
 <h3 id="_6">定義されてる場合/されてない場合</h3>
 <p><code>foobar_value</code>が未定義の場合にタスク実行するには以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"> </span>foobar_value is not defined<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"> </span>foobar_value is not defined
 </code></pre></div>
 
 <h2 id="includeimport">includeとimport</h2>
@@ -1874,13 +1874,13 @@
 <p>とりあえずリンク</p>
 <h2 id="check-mode">check mode</h2>
 <p><code>ansible-playbook</code>実行時のオプションで<code>--check</code>付与でdry runになるが、<code>check_mode</code>を使うことでタスク単位で強制的にチェックモードのon/offができる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>command sample<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">copy</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #bbbbbb"> </span>/home/zaki/tmp.yml<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #bbbbbb"> </span>/var/tmp<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">mode</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0644&#39;</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>result<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">check_mode</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>command sample
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">copy</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #bbbbbb"> </span>/home/zaki/tmp.yml
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #bbbbbb"> </span>/var/tmp
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">mode</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;0644&#39;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>result
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">check_mode</span>:<span style="color: #bbbbbb"> </span>false
 </code></pre></div>
 
 <p>このパラメタを<code>true</code>にすると、<code>--check</code>を付けなくてもチェックモードで動作する。<br />
@@ -1895,30 +1895,30 @@ Prior to version 2.2 only the equivalent of <code>check_mode: no</code> existed.
 <h2 id="changed_when">changed_when</h2>
 <p>条件がtrueの場合はタスクの結果に関係なく<code>changed</code>判定にする。逆にfalseの場合は<code>ok</code>判定にする。<br />
 タスクの結果を<code>register</code>で保持し、その内容を条件式に組み込むのもOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>command always run and no change<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.shell</span>:<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">cmd</span>:<span style="color: #bbbbbb"> </span>hogehoge<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed_when</span>:<span style="color: #bbbbbb"> </span>exec_result.stdout != &#39;&#39;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>exec_result<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>command always run and no change
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.shell</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">cmd</span>:<span style="color: #bbbbbb"> </span>hogehoge
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed_when</span>:<span style="color: #bbbbbb"> </span>exec_result.stdout != &#39;&#39;
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>exec_result
 </code></pre></div>
 
 <p><code>hogehoge</code>の実行結果で標準出力が何も無い場合は<code>changed</code>になる。</p>
 <h2 id="until">until</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/04/08/075732">[Ansible] untilを使って非同期処理が完了するまで次のtaskを待つ - zaki work log</a></p>
 <p>使用例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>install flannel<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">shell</span>:<span style="color: #bbbbbb"> </span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>install flannel
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">shell</span>:<span style="color: #bbbbbb"> </span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
 
-<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># todo: applyの処理がunchangedの場合も、ansibleではchanged扱いになっている</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># todo: applyの処理がunchangedの場合も、ansibleではchanged扱いになっている</span>
 
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>wait for Node-Ready<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">shell</span>:<span style="color: #bbbbbb"> </span>kubectl get node --no-headers | awk &#39;{print $2}&#39;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>node_state<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">until</span>:<span style="color: #bbbbbb"> </span>node_state.stdout == &quot;Ready&quot;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">retries</span>:<span style="color: #bbbbbb"> </span>10<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delay</span>:<span style="color: #bbbbbb"> </span>5<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed_when</span>:<span style="color: #bbbbbb"> </span>false<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># 待つだけなので強制no changed</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>wait for Node-Ready
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">shell</span>:<span style="color: #bbbbbb"> </span>kubectl get node --no-headers | awk &#39;{print $2}&#39;
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>node_state
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">until</span>:<span style="color: #bbbbbb"> </span>node_state.stdout == &quot;Ready&quot;
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">retries</span>:<span style="color: #bbbbbb"> </span>10
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">delay</span>:<span style="color: #bbbbbb"> </span>5
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">changed_when</span>:<span style="color: #bbbbbb"> </span>false
+<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># 待つだけなので強制no changed</span>
 </code></pre></div>
 
 <p><a href="https://github.com/zaki-lknr/initialize-kubeadm-ansible/blob/e48d1a86ef9f4d94853c18246708490f842b8058/playbooks/deploy_cni.yaml#L13-L15">initialize-kubeadm-ansible/deploy_cni.yaml at e48d1a86ef9f4d94853c18246708490f842b8058 · zaki-lknr/initialize-kubeadm-ansible</a></p>
