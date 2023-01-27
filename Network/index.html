@@ -1095,12 +1095,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    用語
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cisco" class="md-nav__link">
     Cisco
   </a>
   
     <nav class="md-nav" aria-label="Cisco">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    昇格
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    インタフェースの情報を見る
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コンフィギュレーションモードへ移行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ホスト名変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    再起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    インタフェースの無効化
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#devnetcsr1000v-always-on" class="md-nav__link">
@@ -1130,21 +1179,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ホスト名の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ページャーの無効化
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     シャットダウン
   </a>
   
@@ -1423,12 +1472,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    用語
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cisco" class="md-nav__link">
     Cisco
   </a>
   
     <nav class="md-nav" aria-label="Cisco">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    昇格
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    インタフェースの情報を見る
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コンフィギュレーションモードへ移行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ホスト名変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    再起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    インタフェースの無効化
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#devnetcsr1000v-always-on" class="md-nav__link">
@@ -1458,21 +1556,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ホスト名の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ページャーの無効化
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     シャットダウン
   </a>
   
@@ -1501,7 +1599,65 @@
                 
                 
                 <h1 id="_1">ネットワーク</h1>
+<h2 id="_2">用語</h2>
+<ul>
+<li>VRRP<ul>
+<li><a href="https://www.infraexpert.com/study/fhrpz06.html">VRRPとは</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="cisco">Cisco</h2>
+<h3 id="_3">昇格</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ios&gt;enable</span>
+<span style="color: #888888">Password: </span>
+<span style="color: #888888">rt-center#</span>
+</code></pre></div>
+
+<p><code>show interfaces</code>とか実行するには昇格する。</p>
+<h3 id="_4">インタフェースの情報を見る</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">show interfaces</span>
+</code></pre></div>
+
+<p>とか、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ios# show ip interface brief </span>
+<span style="color: #888888">Interface              IP-Address      OK? Method Status                Protocol</span>
+<span style="color: #888888">GigabitEthernet1       10.1.1.254      YES DHCP   up                    up      </span>
+<span style="color: #888888">GigabitEthernet2       10.1.2.254      YES DHCP   up                    up      </span>
+<span style="color: #888888">Loopback0              10.255.255.1    YES TFTP   up                    up      </span>
+<span style="color: #888888">VirtualPortGroup0      192.168.35.101  YES TFTP   up                    up     </span>
+</code></pre></div>
+
+<p>とか。</p>
+<h3 id="_5">コンフィギュレーションモードへ移行</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ios#configure terminal </span>
+<span style="color: #888888">Enter configuration commands, one per line.  End with CNTL/Z.</span>
+<span style="color: #888888">ios(config)#</span>
+</code></pre></div>
+
+<h3 id="_6">ホスト名変更</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ios(config)#hostname router1</span>
+<span style="color: #888888">router1(config)#</span>
+</code></pre></div>
+
+<h3 id="_7">再起動</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">router1#reload </span>
+
+<span style="color: #888888">System configuration has been modified. Save? [yes/no]: yes</span>
+<span style="color: #888888">Building configuration...</span>
+<span style="color: #888888">[OK]</span>
+<span style="color: #888888">Proceed with reload? [confirm]</span>
+<span style="color: #888888">Connection to 10.1.1.254 closed by remote host.</span>
+<span style="color: #888888">Connection to 10.1.1.254 closed.</span>
+</code></pre></div>
+
+<h3 id="_8">インタフェースの無効化</h3>
+<p><code>shutdown</code>を使う。元に戻すのは<code>no shutdown</code><br />
+以下はGigabitEthernet 2を無効化する場合。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">router1(config)#interface GigabitEthernet 2</span>
+<span style="color: #888888">router1(config-if)#shutdown</span>
+<span style="color: #888888">router1(config-if)#</span>
+</code></pre></div>
+
 <h3 id="devnetcsr1000v-always-on">DevNetのCSR1000v (Always-On)</h3>
 <p><a href="https://devnetsandbox.cisco.com/RM/Topology">DevNet Sandbox - Lab Catalog - Dashboard</a><br />
 上記から"CSR100v"で検索して見つかるもののうち"Always-On"になっているものを利用する。<br />
@@ -1521,7 +1677,7 @@
 <span style="color: #888888">root#</span>
 </code></pre></div>
 
-<h3 id="_2">ホスト名の設定</h3>
+<h3 id="_9">ホスト名の設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">[edit]</span>
 <span style="color: #888888">root# set system host-name srx100-demo</span>
 
@@ -1532,12 +1688,12 @@
 <span style="color: #000080; font-weight: bold">root@srx100-demo#</span>
 </code></pre></div>
 
-<h3 id="_3">ページャーの無効化</h3>
+<h3 id="_10">ページャーの無効化</h3>
 <p><code>terminal length 0</code>相当の操作は以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">set cli screen-length 0</span>
 </code></pre></div>
 
-<h3 id="_4">シャットダウン</h3>
+<h3 id="_11">シャットダウン</h3>
 <p>rootでログインして<code>cli</code>を実行。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@SRX% </span>cli
 </code></pre></div>
