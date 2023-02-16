@@ -720,6 +720,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    Composeファイル
+  </a>
+  
+    <nav class="md-nav" aria-label="Composeファイル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network_mode" class="md-nav__link">
+    network_mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1480,6 +1500,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    Composeファイル
+  </a>
+  
+    <nav class="md-nav" aria-label="Composeファイル">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network_mode" class="md-nav__link">
+    network_mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1499,6 +1539,9 @@
                 
                 <h1 id="docker-compose">Docker Compose</h1>
 <h2 id="command">command</h2>
+<ul>
+<li><a href="https://docs.docker.com/compose/reference/">Overview of docker compose CLI | Docker Documentation</a></li>
+</ul>
 <h3 id="_1">起動</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose up</span>
 </code></pre></div>
@@ -1526,6 +1569,26 @@
 <h3 id="_3">コマンド起動</h3>
 <p><code>docker exec</code>と異なり<code>-it</code>オプションは不要。アプリ名とコマンド名のみでOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose exec &lt;app名&gt; bash</span>
+</code></pre></div>
+
+<h2 id="compose">Composeファイル</h2>
+<ul>
+<li><a href="https://docs.docker.com/compose/compose-file/compose-file-v3/">Compose file version 3 reference | Docker Documentation</a></li>
+</ul>
+<h3 id="network_mode">network_mode</h3>
+<p><code>"service:[service name]"</code>と記述すると、対象サービスのネットワーク設定を使用する。<br />
+記述例</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">app</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>myapp
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">ports</span>:
+<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>8080:8080
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">networks</span>:
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">default</span>:
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">ipv4_address</span>:<span style="color: #bbbbbb"> </span>192.168.0.100
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">db</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>mysql
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">network_mode</span>:<span style="color: #bbbbbb"> </span>service:app
 </code></pre></div>
                 
               
