@@ -931,20 +931,27 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    チャートの検索
+    チャート一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    チャートのデフォルト値
+    チャートの検索
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    チャートのデフォルト値
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -956,7 +963,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     環境変数
   </a>
   
@@ -1519,20 +1526,27 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    チャートの検索
+    チャート一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    チャートのデフォルト値
+    チャートの検索
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    チャートのデフォルト値
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -1544,7 +1558,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     環境変数
   </a>
   
@@ -1599,7 +1613,16 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>update
 </code></pre></div>
 
-<h3 id="_6">チャートの検索</h3>
+<h3 id="_6">チャート一覧</h3>
+<p>登録済み全リポジトリのチャート一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo
+</code></pre></div>
+
+<p>指定リポジトリのチャート一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>&lt;repository-name&gt;
+</code></pre></div>
+
+<h3 id="_7">チャートの検索</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>prometheus
 <span style="color: #888888">NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       </span>
 <span style="color: #888888">prometheus-community/kube-prometheus-stack              16.12.1         0.48.1          kube-prometheus-stack collects Kubernetes manif...</span>
@@ -1611,7 +1634,7 @@
 <span style="color: #888888">:</span>
 </code></pre></div>
 
-<h3 id="_7">チャートのデフォルト値</h3>
+<h3 id="_8">チャートのデフォルト値</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>show<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>metallb/metallb
 <span style="color: #000080; font-weight: bold"># </span>Default<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>metallb.
 <span style="color: #000080; font-weight: bold"># </span>This<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>YAML-formatted<span style="color: #bbbbbb"> </span>file.
@@ -1626,7 +1649,7 @@
 </code></pre></div>
 
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
-<h3 id="_8">リリースの設定値</h3>
+<h3 id="_9">リリースの設定値</h3>
 <p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-A
 <span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
@@ -1644,7 +1667,7 @@
 <span style="color: #888888">  type: LoadBalancer</span>
 </code></pre></div>
 
-<h2 id="_9">環境変数</h2>
+<h2 id="_10">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>env
 <span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
