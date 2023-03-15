@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Tools/github/" class="md-tabs__link">
+      <a href="../../Tools/cygwin/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -1098,6 +1098,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    basic認証
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1120,6 +1127,33 @@
         <li class="md-nav__item">
   <a href="#awk" class="md-nav__link">
     awk
+  </a>
+  
+    <nav class="md-nav" aria-label="awk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if文
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if_1" class="md-nav__link">
+    if文で正規表現
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#envsubst" class="md-nav__link">
+    envsubst
   </a>
   
 </li>
@@ -1663,6 +1697,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/cygwin/" class="md-nav__link">
+        Cygwin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1990,6 +2036,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    basic認証
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2012,6 +2065,33 @@
         <li class="md-nav__item">
   <a href="#awk" class="md-nav__link">
     awk
+  </a>
+  
+    <nav class="md-nav" aria-label="awk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if文
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if_1" class="md-nav__link">
+    if文で正規表現
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#envsubst" class="md-nav__link">
+    envsubst
   </a>
   
 </li>
@@ -2461,6 +2541,10 @@
 </code></pre></div>
 
 <p><code>ansible.example.org</code>という名前で<code>192.168.0.41:443</code>へアクセスする。</p>
+<h3 id="basic">basic認証</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl -u username:password http://example.org/
+</code></pre></div>
+
 <h2 id="wget">wget</h2>
 <p>リソースの内容をstdoutへ出力</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>wget<span style="color: #bbbbbb"> </span>-q<span style="color: #bbbbbb"> </span>-O<span style="color: #bbbbbb"> </span>-<span style="color: #bbbbbb"> </span>https://storage.googleapis.com/kubernetes-release/release/stable.txt
@@ -2486,6 +2570,27 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #bbbbbb"> </span>aux<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>awk<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;BEGIN { OFS=&quot;\t&quot; } {print $3, $4}&#39;</span>
 </code></pre></div>
 
+<h3 id="if">if文</h3>
+<p>1カラム目が<code>root</code>の場合の11カラム目を出力</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ps aux | awk &#39;{if($1 == &quot;root&quot;){print $11}}&#39;</span>
+</code></pre></div>
+
+<h3 id="if_1">if文で正規表現</h3>
+<p>1カラム目が数字のみの場合の行全部</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ps aux | awk &#39;{if($1 ~ /[0-9]+/){print $0}}&#39;</span>
+</code></pre></div>
+
+<h2 id="envsubst">envsubst</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>sample.template<span style="color: #bbbbbb"> </span>
+<span style="color: #888888">hello ${USER}</span>
+</code></pre></div>
+
+<p>環境変数<code>$USER</code>が定義されてる状態で、stdinから↑の内容を入力にあたえると</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>envsubst<span style="color: #bbbbbb"> </span>&lt;<span style="color: #bbbbbb"> </span>sample.template<span style="color: #bbbbbb"> </span>
+<span style="color: #888888">hello zaki</span>
+</code></pre></div>
+
+<p>変数名の書式で記述した箇所が環境変数で展開される。</p>
 <h2 id="diff">diff</h2>
 <p>コマンド実行結果のstdout同士を比較したい場合は以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>diff<span style="color: #bbbbbb"> </span>-u<span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>command1<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>command2<span style="color: #666666">)</span>

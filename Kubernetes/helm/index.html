@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Tools/github/" class="md-tabs__link">
+      <a href="../../Tools/cygwin/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -898,6 +898,19 @@
     インストール
   </a>
   
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -952,6 +965,13 @@
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -963,7 +983,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
+    チャートインストール例
+  </a>
+  
+    <nav class="md-nav" aria-label="チャートインストール例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluent-bit" class="md-nav__link">
+    Fluent Bit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     環境変数
   </a>
   
@@ -1264,6 +1304,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/cygwin/" class="md-nav__link">
+        Cygwin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1493,6 +1545,19 @@
     インストール
   </a>
   
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1547,6 +1612,13 @@
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -1558,7 +1630,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
+    チャートインストール例
+  </a>
+  
+    <nav class="md-nav" aria-label="チャートインストール例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluent-bit" class="md-nav__link">
+    Fluent Bit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     環境変数
   </a>
   
@@ -1587,6 +1679,14 @@
 <p>OSのパッケージ管理で対応してなければ、バイナリを<code>/usr/local/bin/helm</code>に置けばOK.<br />
 インストール用スクリプトもある。</p>
 <p>aptはあるけど、今のとこyun/dnfはないんだよな。</p>
+<h3 id="apt">apt</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
+<span style="color: #888888">sudo apt-get install apt-transport-https --yes</span>
+<span style="color: #888888">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list</span>
+<span style="color: #888888">sudo apt-get update</span>
+<span style="color: #888888">sudo apt-get install helm</span>
+</code></pre></div>
+
 <h2 id="_2">コマンド</h2>
 <h3 id="_3">リポジトリ一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>list
@@ -1649,7 +1749,12 @@
 </code></pre></div>
 
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
-<h3 id="_9">リリースの設定値</h3>
+<h3 id="_9">リリース一覧</h3>
+<p>実行中のリリースの一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-n<span style="color: #bbbbbb"> </span>&lt;namespace-name&gt;<span style="color: #666666">]</span>
+</code></pre></div>
+
+<h3 id="_10">リリースの設定値</h3>
 <p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-A
 <span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
@@ -1667,7 +1772,18 @@
 <span style="color: #888888">  type: LoadBalancer</span>
 </code></pre></div>
 
-<h2 id="_10">環境変数</h2>
+<h2 id="_11">チャートインストール例</h2>
+<h3 id="fluent-bit">Fluent Bit</h3>
+<p><a href="https://github.com/fluent/helm-charts">fluent/helm-charts: Helm Charts for Fluentd and Fluent Bit</a></p>
+<p>リポジトリ追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm repo add fluent https://fluent.github.io/helm-charts</span>
+</code></pre></div>
+
+<p>インストール</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install fluent-bit fluent/fluent-bit -n logging --create-namespace -f values.yaml</span>
+</code></pre></div>
+
+<h2 id="_12">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>env
 <span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>

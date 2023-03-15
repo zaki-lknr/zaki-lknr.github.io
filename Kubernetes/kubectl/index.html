@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Tools/github/" class="md-tabs__link">
+      <a href="../../Tools/cygwin/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -1050,6 +1050,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+    <nav class="md-nav" aria-label="delete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#namespacetype" class="md-nav__link">
+    指定namespaceの指定typeを全部消す
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1303,6 +1323,18 @@
           Tools
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/cygwin/" class="md-nav__link">
+        Cygwin
+      </a>
+    </li>
+  
+
           
             
   
@@ -1654,6 +1686,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+    <nav class="md-nav" aria-label="delete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#namespacetype" class="md-nav__link">
+    指定namespaceの指定typeを全部消す
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1835,6 +1887,11 @@ oci-k3s-le
 <p>コンテキストをセットする</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>use-context<span style="color: #bbbbbb"> </span>k3d-k3s-default
 <span style="color: #888888">Switched to context &quot;k3d-k3s-default&quot;.</span>
+</code></pre></div>
+
+<h2 id="delete">delete</h2>
+<h3 id="namespacetype">指定namespaceの指定typeを全部消す</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>delete<span style="color: #bbbbbb"> </span>pvc<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>zzz<span style="color: #bbbbbb"> </span>--all
 </code></pre></div>
                 
               
