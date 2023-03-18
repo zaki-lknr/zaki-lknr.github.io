@@ -958,20 +958,27 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    チャートのデフォルト値
+    チャートのバージョン一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    リリース一覧
+    チャートのデフォルト値
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -983,7 +990,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     チャートインストール例
   </a>
   
@@ -1003,7 +1010,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     環境変数
   </a>
   
@@ -1605,20 +1612,27 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    チャートのデフォルト値
+    チャートのバージョン一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    リリース一覧
+    チャートのデフォルト値
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -1630,7 +1644,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     チャートインストール例
   </a>
   
@@ -1650,7 +1664,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     環境変数
   </a>
   
@@ -1734,7 +1748,18 @@
 <span style="color: #888888">:</span>
 </code></pre></div>
 
-<h3 id="_8">チャートのデフォルト値</h3>
+<h3 id="_8">チャートのバージョン一覧</h3>
+<p>チャート検索でチャート名を付与しつつ<code>-l</code>を追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>fluent/fluentd<span style="color: #bbbbbb"> </span>-l
+<span style="color: #888888">NAME            CHART VERSION   APP VERSION     DESCRIPTION                </span>
+<span style="color: #888888">fluent/fluentd  0.3.9           v1.14.6         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.8           v1.12.4         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.7           v1.12.4         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.6           v1.12.4         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.5           v1.12.4         A Helm chart for Kubernetes</span>
+</code></pre></div>
+
+<h3 id="_9">チャートのデフォルト値</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>show<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>metallb/metallb
 <span style="color: #000080; font-weight: bold"># </span>Default<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>metallb.
 <span style="color: #000080; font-weight: bold"># </span>This<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>YAML-formatted<span style="color: #bbbbbb"> </span>file.
@@ -1749,12 +1774,12 @@
 </code></pre></div>
 
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
-<h3 id="_9">リリース一覧</h3>
+<h3 id="_10">リリース一覧</h3>
 <p>実行中のリリースの一覧</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-n<span style="color: #bbbbbb"> </span>&lt;namespace-name&gt;<span style="color: #666666">]</span>
 </code></pre></div>
 
-<h3 id="_10">リリースの設定値</h3>
+<h3 id="_11">リリースの設定値</h3>
 <p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-A
 <span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
@@ -1772,7 +1797,7 @@
 <span style="color: #888888">  type: LoadBalancer</span>
 </code></pre></div>
 
-<h2 id="_11">チャートインストール例</h2>
+<h2 id="_12">チャートインストール例</h2>
 <h3 id="fluent-bit">Fluent Bit</h3>
 <p><a href="https://github.com/fluent/helm-charts">fluent/helm-charts: Helm Charts for Fluentd and Fluent Bit</a></p>
 <p>リポジトリ追加</p>
@@ -1783,7 +1808,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install fluent-bit fluent/fluent-bit -n logging --create-namespace -f values.yaml</span>
 </code></pre></div>
 
-<h2 id="_12">環境変数</h2>
+<h2 id="_13">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>env
 <span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
