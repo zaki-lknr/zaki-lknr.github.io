@@ -826,7 +826,7 @@
       
         <li class="md-nav__item">
   <a href="#ecr-elastic-container-registry" class="md-nav__link">
-    ECR (Elastic COntainer Registry)
+    ECR (Elastic Container Registry)
   </a>
   
 </li>
@@ -1757,7 +1757,7 @@
       
         <li class="md-nav__item">
   <a href="#ecr-elastic-container-registry" class="md-nav__link">
-    ECR (Elastic COntainer Registry)
+    ECR (Elastic Container Registry)
   </a>
   
 </li>
@@ -1902,14 +1902,15 @@ Compose使用時もこのパターン。</p>
 <a href="https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-container-registry">コンテナレジストリの利用 - GitHub Docs</a></p>
 <p>認証に使用するパスワードは、個人用アクセストークンを作成する。<br />
 <a href="https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">個人アクセストークンを使用する - GitHub Docs</a></p>
-<p>GitHubのユーザー名と、入手したトークンをパスワードとして、</p>
+<p><a href="https://github.com/settings/tokens">Personal Access Tokens (Classic)</a>で[Generate new token]押下、Select scopesの<code>write:packages</code>にチェックして[Generate token]押下すればトークンが生成される。<br />
+GitHubのユーザー名と、入手したトークンをパスワードとして、</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>login<span style="color: #bbbbbb"> </span>ghcr.io
 </code></pre></div>
 
 <p>すれば認証できる。</p>
 <p>あとは<code>ghcr.io/zaki-lknr/squid:5.0.4-alpine-3.13</code>とかの名前のタグをつければ<code>push</code>もできる。<br />
 pushされたイメージは、GitHubのweb画面の「Packages」で確認できる。デフォルトはprivate設定。</p>
-<h2 id="ecr-elastic-container-registry">ECR (Elastic COntainer Registry)</h2>
+<h2 id="ecr-elastic-container-registry">ECR (Elastic Container Registry)</h2>
 <p>認証(のためのパスワード取得)には <code>aws</code> CLIが必要。</p>
 <ul>
 <li><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html">AWS CLI の最新バージョンをインストールまたは更新します。 - AWS Command Line Interface</a></li>
