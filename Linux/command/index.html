@@ -1008,6 +1008,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    forループワンライナー
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#less" class="md-nav__link">
     less
   </a>
@@ -1946,6 +1953,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    forループワンライナー
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#less" class="md-nav__link">
     less
   </a>
@@ -2472,6 +2486,14 @@
                 
                 
                 <h1 id="_1">コマンドメモ</h1>
+<h2 id="for">forループワンライナー</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">for i in `seq 1 3`; do curl 192.168.0.16; done</span>
+</code></pre></div>
+
+<p><code>seq</code>の値を参照</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">for i in `seq 1 3`; do curl 192.168.0.${i}; done</span>
+</code></pre></div>
+
 <h2 id="less">less</h2>
 <h3 id="_2">制御文字を認識させる</h3>
 <p><code>ESC[32m</code>とか大量に表示されたときは、表示中に<code>-r</code>押下して<code>enter</code></p>
