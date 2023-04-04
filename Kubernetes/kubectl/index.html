@@ -1109,6 +1109,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    wait
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1772,6 +1779,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    wait
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1967,6 +1981,12 @@ oci-k3s-le
 <h2 id="delete">delete</h2>
 <h3 id="namespacetype">指定namespaceの指定typeを全部消す</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>delete<span style="color: #bbbbbb"> </span>pvc<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>zzz<span style="color: #bbbbbb"> </span>--all
+</code></pre></div>
+
+<h2 id="wait">wait</h2>
+<p>リソースが指定の条件になるまで待つ。<br />
+podがrunningになるまで待つには以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl wait --for=jsonpath=&#39;{.status.phase}&#39;=Running pod/*****</span>
 </code></pre></div>
                 
               

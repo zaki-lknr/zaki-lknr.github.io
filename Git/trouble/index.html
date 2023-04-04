@@ -872,6 +872,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-amend" class="md-nav__link">
+    --amendの取り消し
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1664,6 +1671,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-amend" class="md-nav__link">
+    --amendの取り消し
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1798,6 +1812,9 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>st
 <p><code>git add</code>する前、編集済みの状態に戻す</p>
 <h3 id="git-reset-hard-head">git reset --hard HEAD^</h3>
 <p>編集前、直前の<code>git commit</code>完了時点に戻す (対象ファイルを間違えたとかコミットを間違えただけで編集内容は正しい場合はこれやると事故る)</p>
+<h3 id="-amend">--amendの取り消し</h3>
+<p><code>git commit --amend</code>直後であれば<code>git reset --soft HEAD@{1}</code>で元に戻る。<br />
+どこに戻るかは<code>git reflog</code>で確認できる。</p>
 <h2 id="reset">resetの取り消し</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reflog
 </code></pre></div>
