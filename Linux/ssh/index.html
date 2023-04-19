@@ -299,7 +299,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../lang/json/" class="md-tabs__link">
+      <a href="../../lang/bash/" class="md-tabs__link">
         Lang
       </a>
     </li>
@@ -1584,6 +1584,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../lang/bash/" class="md-nav__link">
+        bash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../lang/json/" class="md-nav__link">
         JSON
       </a>
@@ -1955,14 +1967,14 @@
 <h3 id="_8">ポート番号の変更</h3>
 <p>SELinuxが有効の場合はsshdの設定変更だけでは有効にならない。<br />
 <code>Port 25022</code>を設定したときに、、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>#<span style="color: #bbbbbb"> </span><span style="color: #B8860B">systemctl</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">restart</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">sshd</span>
-<span style="color: #B8860B">Job</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">sshd</span>.<span style="color: #B8860B">service</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">failed</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">because</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">the</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">control</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">process</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">exited</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">with</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">error</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">code</span>.<span style="color: #bbbbbb"> </span><span style="color: #B8860B">See</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;systemctl status sshd.service&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">and</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;journalctl -xe&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">details</span>.
-#<span style="color: #bbbbbb"> </span><span style="color: #B8860B">journalctl</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #B8860B">xe</span>
-<span style="color: #B8860B">sshd</span>[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">error</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">Bind</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">to</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">port</span><span style="color: #bbbbbb"> </span><span style="color: #666666">25022</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">on</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>.<span style="color: #666666">0</span>.<span style="color: #666666">0</span>.<span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">failed</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">Permission</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">denied</span>.
-<span style="color: #B8860B">sshd</span>[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">error</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">Bind</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">to</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">port</span><span style="color: #bbbbbb"> </span><span style="color: #666666">25022</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">on</span><span style="color: #bbbbbb"> </span>::<span style="color: #bbbbbb"> </span><span style="color: #B8860B">failed</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">Permission</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">denied</span>.
-<span style="color: #B8860B">sshd</span>[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">fatal</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">Cannot</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">bind</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">any</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">address</span>.
-<span style="color: #B8860B">systemd</span>[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">sshd</span>.<span style="color: #B8860B">service</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">main</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">process</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">exited</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">code</span><span style="color: #666666">=</span><span style="color: #B8860B">exited</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">status</span><span style="color: #666666">=255/</span><span style="color: #B8860B">n</span><span style="color: #666666">/</span><span style="color: #B8860B">a</span>
-<span style="color: #B8860B">systemd</span>[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">Failed</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">to</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">start</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">OpenSSH</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">server</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">daemon</span>.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>sshd
+Job<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>sshd.service<span style="color: #bbbbbb"> </span>failed<span style="color: #bbbbbb"> </span>because<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>control<span style="color: #bbbbbb"> </span>process<span style="color: #bbbbbb"> </span>exited<span style="color: #bbbbbb"> </span>with<span style="color: #bbbbbb"> </span>error<span style="color: #bbbbbb"> </span>code.<span style="color: #bbbbbb"> </span>See<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;systemctl status sshd.service&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;journalctl -xe&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>details.
+<span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>journalctl<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>xe
+sshd[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span>error:<span style="color: #bbbbbb"> </span>Bind<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span><span style="color: #666666">25022</span><span style="color: #bbbbbb"> </span>on<span style="color: #bbbbbb"> </span><span style="color: #666666">0.0.0.0</span><span style="color: #bbbbbb"> </span>failed:<span style="color: #bbbbbb"> </span>Permission<span style="color: #bbbbbb"> </span>denied.
+sshd[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span>error:<span style="color: #bbbbbb"> </span>Bind<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span><span style="color: #666666">25022</span><span style="color: #bbbbbb"> </span>on<span style="color: #bbbbbb"> </span><span style="color: #666666">::</span><span style="color: #bbbbbb"> </span>failed:<span style="color: #bbbbbb"> </span>Permission<span style="color: #bbbbbb"> </span>denied.
+sshd[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span>fatal:<span style="color: #bbbbbb"> </span>Cannot<span style="color: #bbbbbb"> </span>bind<span style="color: #bbbbbb"> </span>any<span style="color: #bbbbbb"> </span>address.
+systemd[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </span>sshd.service:<span style="color: #bbbbbb"> </span>main<span style="color: #bbbbbb"> </span>process<span style="color: #bbbbbb"> </span>exited,<span style="color: #bbbbbb"> </span>code=exited,<span style="color: #bbbbbb"> </span>status=<span style="color: #666666">255/</span>n<span style="color: #666666">/</span>a
+systemd[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </span>Failed<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>start<span style="color: #bbbbbb"> </span>OpenSSH<span style="color: #bbbbbb"> </span>server<span style="color: #bbbbbb"> </span>daemon.
 </code></pre></div>
 
 <p>こんなエラーが出る場合は、以下を実行。</p>

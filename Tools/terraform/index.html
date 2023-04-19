@@ -299,7 +299,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../lang/json/" class="md-tabs__link">
+      <a href="../../lang/bash/" class="md-tabs__link">
         Lang
       </a>
     </li>
@@ -1414,6 +1414,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../lang/bash/" class="md-nav__link">
+        bash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../lang/json/" class="md-nav__link">
         JSON
       </a>
@@ -1558,23 +1570,23 @@
 <h2 id="backend">backend設定</h2>
 <h3 id="s3">S3</h3>
 <p>backendの定義を追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>terraform<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">  </span>required_providers<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span>aws<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">      </span>source<span style="color: #bbbbbb">  </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;hashicorp/aws&quot;</span>
-<span style="color: #bbbbbb">      </span>version<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;~&gt; 3.0&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">terraform</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">required_providers</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">aws</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span><span style="color: #BB4444">source</span><span style="color: #bbbbbb">  </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;hashicorp/aws&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #BB4444">version</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;~&gt; 3.0&quot;</span>
 <span style="color: #bbbbbb">    </span>}
 <span style="color: #bbbbbb">  </span>}
 
-<span style="color: #bbbbbb">  </span>backend<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;s3&quot;</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span>bucket<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;bucket-name&quot;</span>
-<span style="color: #bbbbbb">    </span>key<span style="color: #bbbbbb">    </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
-<span style="color: #bbbbbb">    </span>region<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #AA22FF; font-weight: bold">backend</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">bucket</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;bucket-name&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">key</span><span style="color: #bbbbbb">    </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">region</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
 <span style="color: #bbbbbb">  </span>}
 }
 
-provider<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;aws&quot;</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">  </span>region<span style="color: #bbbbbb">  </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
+<span style="color: #AA22FF; font-weight: bold">provider</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;aws&quot;</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">  </span><span style="color: #BB4444">region</span><span style="color: #bbbbbb">  </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
 }
 </code></pre></div>
 

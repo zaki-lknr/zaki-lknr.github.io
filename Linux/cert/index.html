@@ -299,7 +299,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../lang/json/" class="md-tabs__link">
+      <a href="../../lang/bash/" class="md-tabs__link">
         Lang
       </a>
     </li>
@@ -1428,6 +1428,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../lang/bash/" class="md-nav__link">
+        bash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../lang/json/" class="md-nav__link">
         JSON
       </a>
@@ -1613,12 +1625,12 @@ p11<span style="color: #666666">-</span>kit:<span style="color: #bbbbbb"> </span
 <span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>root@rhel8-ansible-ctrl ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>trust<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">local</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-3</span>
-<span style="color: #A0A000">pkcs11</span>:id<span style="color: #666666">=%8</span>C<span style="color: #666666">%88%6</span>C<span style="color: #666666">%</span>FB<span style="color: #666666">%9</span>A<span style="color: #666666">%</span>C8<span style="color: #666666">%</span>ED<span style="color: #666666">%0</span>E<span style="color: #666666">%65%</span>DA<span style="color: #666666">%59%30%99%</span>AF<span style="color: #666666">%3</span>D<span style="color: #666666">%</span>FC<span style="color: #666666">%</span>B6<span style="color: #666666">%11%86%73</span>;type<span style="color: #666666">=</span>cert
-<span style="color: #bbbbbb">    </span><span style="color: #A0A000">type</span>:<span style="color: #bbbbbb"> </span>certificate
-<span style="color: #bbbbbb">    </span><span style="color: #A0A000">label</span>:<span style="color: #bbbbbb"> </span>localca.example.org
-<span style="color: #bbbbbb">    </span><span style="color: #A0A000">trust</span>:<span style="color: #bbbbbb"> </span>anchor
-<span style="color: #bbbbbb">    </span><span style="color: #A0A000">category</span>:<span style="color: #bbbbbb"> </span>other<span style="color: #666666">-</span>entry
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[root<span style="border: 1px solid #FF0000">@</span>rhel8<span style="color: #666666">-</span>ansible<span style="color: #666666">-</span>ctrl<span style="color: #bbbbbb"> </span><span style="color: #666666">~</span>]<span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>trust<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>local<span style="color: #bbbbbb"> </span><span style="color: #666666">-3</span>
+pkcs11:id=<span style="color: #666666">%8</span>C<span style="color: #666666">%88%6</span>C<span style="color: #666666">%</span>FB<span style="color: #666666">%9</span>A<span style="color: #666666">%</span>C8<span style="color: #666666">%</span>ED<span style="color: #666666">%0</span>E<span style="color: #666666">%65%</span>DA<span style="color: #666666">%59%30%99%</span>AF<span style="color: #666666">%3</span>D<span style="color: #666666">%</span>FC<span style="color: #666666">%</span>B6<span style="color: #666666">%11%86%73</span>;<span style="color: #AA22FF; font-weight: bold">type</span>=cert
+<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>certificate
+<span style="color: #bbbbbb">    </span>label:<span style="color: #bbbbbb"> </span>localca.example.org
+<span style="color: #bbbbbb">    </span>trust:<span style="color: #bbbbbb"> </span>anchor
+<span style="color: #bbbbbb">    </span>category:<span style="color: #bbbbbb"> </span>other<span style="color: #666666">-</span>entry
 </code></pre></div>
 
 <p><code>trust anchor --store</code>で追加したのであれば</p>
