@@ -281,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Tools/cygwin/" class="md-tabs__link">
+      <a href="../../Tools/az/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -1165,6 +1165,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/az/" class="md-nav__link">
+        Azure CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/cygwin/" class="md-nav__link">
         Cygwin
       </a>
@@ -1402,13 +1414,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    配列
+    算術演算
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    配列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     制御構文
   </a>
   
@@ -1430,7 +1449,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ループ
   </a>
   
@@ -1438,14 +1457,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     配列要素をループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ループで参照(インデックス)
   </a>
   
@@ -1577,13 +1596,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    配列
+    算術演算
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    配列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     制御構文
   </a>
   
@@ -1605,7 +1631,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ループ
   </a>
   
@@ -1613,14 +1639,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     配列要素をループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ループで参照(インデックス)
   </a>
   
@@ -1672,13 +1698,24 @@
 
 <h3 id="set-">set -* の解除</h3>
 <p><code>set -u</code>を解除するには<code>set +u</code></p>
-<h2 id="_3">配列</h2>
+<h2 id="_3">算術演算</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">4</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">))</span>
+<span style="color: #888888">13</span>
+<span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">13</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #AA22FF; font-weight: bold">))</span>
+<span style="color: #888888">26</span>
+<span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">13</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">))</span>
+<span style="color: #888888">4</span>
+<span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">13</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">))</span>
+<span style="color: #888888">1</span>
+</code></pre></div>
+
+<h2 id="_4">配列</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">list</span><span style="color: #666666">=(</span><span style="color: #BB4444">&quot;abc&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;123&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;xyz&quot;</span><span style="color: #666666">)</span>
 <span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #B8860B">list</span>[1]<span style="color: #BB6688; font-weight: bold">}</span>
 <span style="color: #888888">123</span>
 </code></pre></div>
 
-<h2 id="_4">制御構文</h2>
+<h2 id="_5">制御構文</h2>
 <h3 id="test">test/評価</h3>
 <table>
 <thead>
@@ -1731,8 +1768,8 @@
 <span style="color: #AA22FF; font-weight: bold">fi</span>
 </code></pre></div>
 
-<h3 id="_5">ループ</h3>
-<h4 id="_6">配列要素をループ処理</h4>
+<h3 id="_6">ループ</h3>
+<h4 id="_7">配列要素をループ処理</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
 
 <span style="color: #B8860B">list</span><span style="color: #666666">=(</span><span style="color: #BB4444">&quot;abc&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;123&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;xyz&quot;</span><span style="color: #666666">)</span>
@@ -1741,7 +1778,7 @@
 <span style="color: #AA22FF; font-weight: bold">done</span>
 </code></pre></div>
 
-<h4 id="_7">ループで参照(インデックス)</h4>
+<h4 id="_8">ループで参照(インデックス)</h4>
 <p>インデックスが必要であればこちら。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
 

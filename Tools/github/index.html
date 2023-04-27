@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../cygwin/" class="md-tabs__link md-tabs__link--active">
+      <a href="../az/" class="md-tabs__link md-tabs__link--active">
         Tools
       </a>
     </li>
@@ -1167,6 +1167,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../az/" class="md-nav__link">
+        Azure CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cygwin/" class="md-nav__link">
         Cygwin
       </a>
@@ -1232,6 +1244,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pr" class="md-nav__link">
+    PR
+  </a>
+  
+    <nav class="md-nav" aria-label="PR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    レビュー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr_1" class="md-nav__link">
+    PRマージ時のブランチ自動削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     API
   </a>
@@ -1240,15 +1279,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     デフォルトブランチを取得する
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pr" class="md-nav__link">
-    PRマージ時のブランチ自動削除
   </a>
   
 </li>
@@ -1535,6 +1567,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pr" class="md-nav__link">
+    PR
+  </a>
+  
+    <nav class="md-nav" aria-label="PR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    レビュー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr_1" class="md-nav__link">
+    PRマージ時のブランチ自動削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     API
   </a>
@@ -1543,15 +1602,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     デフォルトブランチを取得する
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pr" class="md-nav__link">
-    PRマージ時のブランチ自動削除
   </a>
   
 </li>
@@ -1589,8 +1641,22 @@
 <h2 id="_1">設定</h2>
 <h3 id="2">2要素認証を設定</h3>
 <p><a href="https://docs.github.com/ja/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication">2 要素認証を設定する - GitHub Docs</a></p>
+<h2 id="pr">PR</h2>
+<h3 id="_2">レビュー</h3>
+<ul>
+<li><a href="https://docs.github.com/ja/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request">プルリクエストで提案された変更をレビューする - GitHub Docs</a></li>
+</ul>
+<p>コメント入力のあとに[Submit review]を忘れないこと。</p>
+<ul>
+<li>Request changes / 追加修正がある場合</li>
+<li>Approve / 問題ない場合</li>
+<li>Comment / その他</li>
+</ul>
+<h3 id="pr_1">PRマージ時のブランチ自動削除</h3>
+<p>リポジトリの設定から。</p>
+<p><a href="https://docs.github.com/ja/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches">ブランチの自動的削除を管理する - GitHub Docs</a></p>
 <h2 id="api">API</h2>
-<h3 id="_2">デフォルトブランチを取得する</h3>
+<h3 id="_3">デフォルトブランチを取得する</h3>
 <p><code>https://api.github.com/repos/{owner}/{repo}</code> を<code>GET</code>すると、対象リポジトリの情報を取得できる。<br />
 JSON形式のレスポンスのうち、<code>default_branch</code>キーの値にデフォルトブランチがセットされている。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>https://api.github.com/repos/netbox-community/ansible_modules
@@ -1615,9 +1681,6 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <span style="color: #888888">}</span>
 </code></pre></div>
 
-<h3 id="pr">PRマージ時のブランチ自動削除</h3>
-<p>リポジトリの設定から。</p>
-<p><a href="https://docs.github.com/ja/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches">ブランチの自動的削除を管理する - GitHub Docs</a></p>
 <h2 id="diff">diff</h2>
 <p><a href="https://docs.github.com/ja/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits">コミットを比較する - GitHub Docs</a></p>
 <p>コミットを比較するには、<code>&lt;リポジトリURL&gt;/compare/SHAコードA..SHAコードB</code> を開く。<br />

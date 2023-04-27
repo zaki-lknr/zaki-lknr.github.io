@@ -16,7 +16,7 @@
     
     
       
-        <title>JSON - 戯術memo</title>
+        <title>Azure CLI - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#json" class="md-skip">
+        <a href="#azure-cli" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JSON
+              Azure CLI
             
           </span>
         </div>
@@ -275,13 +275,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Tools/az/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         Tools
       </a>
     </li>
@@ -291,15 +293,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../bash/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../lang/bash/" class="md-tabs__link">
         Lang
       </a>
     </li>
@@ -1142,12 +1142,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
       
       <label class="md-nav__link" for="__nav_8">
         Tools
@@ -1163,11 +1165,118 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Tools/az/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Azure CLI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Azure CLI
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    結果のquery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    network
+  </a>
+  
+    <nav class="md-nav" aria-label="network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ネットワークセキュリティグループ
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワークセキュリティグループ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nsg" class="md-nav__link">
+    NSG作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ルール作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-account" class="md-nav__link">
+    storage account
+  </a>
+  
+    <nav class="md-nav" aria-label="storage account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    セキュリティ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    キーの取得
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1177,7 +1286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/cygwin/" class="md-nav__link">
+      <a href="../cygwin/" class="md-nav__link">
         Cygwin
       </a>
     </li>
@@ -1189,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/github/" class="md-nav__link">
+      <a href="../github/" class="md-nav__link">
         GitHub
       </a>
     </li>
@@ -1201,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/gitlab/" class="md-nav__link">
+      <a href="../gitlab/" class="md-nav__link">
         GitLab
       </a>
     </li>
@@ -1213,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/googledrive/" class="md-nav__link">
+      <a href="../googledrive/" class="md-nav__link">
         Google Drive
       </a>
     </li>
@@ -1225,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/mkdocs/" class="md-nav__link">
+      <a href="../mkdocs/" class="md-nav__link">
         MkDocs
       </a>
     </li>
@@ -1237,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/msedge/" class="md-nav__link">
+      <a href="../msedge/" class="md-nav__link">
         Microsoft Edge Browser
       </a>
     </li>
@@ -1249,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/openssl/" class="md-nav__link">
+      <a href="../openssl/" class="md-nav__link">
         openssl
       </a>
     </li>
@@ -1261,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/slack/" class="md-nav__link">
+      <a href="../slack/" class="md-nav__link">
         Slack
       </a>
     </li>
@@ -1273,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/terraform/" class="md-nav__link">
+      <a href="../terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -1285,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/vi/" class="md-nav__link">
+      <a href="../vi/" class="md-nav__link">
         vi
       </a>
     </li>
@@ -1297,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/vscode/" class="md-nav__link">
+      <a href="../vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -1309,7 +1418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/windows/" class="md-nav__link">
+      <a href="../windows/" class="md-nav__link">
         Windows
       </a>
     </li>
@@ -1328,14 +1437,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       <label class="md-nav__link" for="__nav_9">
         Lang
@@ -1353,7 +1460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bash/" class="md-nav__link">
+      <a href="../../lang/bash/" class="md-nav__link">
         bash
       </a>
     </li>
@@ -1363,51 +1470,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          JSON
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../lang/json/" class="md-nav__link">
         JSON
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#jmespath" class="md-nav__link">
-    JMESPath
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1417,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../powershell/" class="md-nav__link">
+      <a href="../../lang/powershell/" class="md-nav__link">
         PowerShell
       </a>
     </li>
@@ -1429,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../lang/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1441,7 +1508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yaml/" class="md-nav__link">
+      <a href="../../lang/yaml/" class="md-nav__link">
         YAML
       </a>
     </li>
@@ -1480,9 +1547,76 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jmespath" class="md-nav__link">
-    JMESPath
+  <a href="#query" class="md-nav__link">
+    結果のquery
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    network
+  </a>
+  
+    <nav class="md-nav" aria-label="network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ネットワークセキュリティグループ
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワークセキュリティグループ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nsg" class="md-nav__link">
+    NSG作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ルール作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-account" class="md-nav__link">
+    storage account
+  </a>
+  
+    <nav class="md-nav" aria-label="storage account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    セキュリティ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    キーの取得
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1498,14 +1632,72 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/lang/json.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Tools/az.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="json">JSON</h1>
-<h2 id="jmespath">JMESPath</h2>
-<p>仕様: <a href="https://jmespath.org/specification.html">JMESPath Specification — JMESPath</a></p>
+                <h1 id="azure-cli">Azure CLI</h1>
+<h2 id="query">結果のquery</h2>
+<p><a href="https://learn.microsoft.com/ja-jp/cli/azure/query-azure-cli?tabs=concepts%2Cbash">Azure CLI での JMESPath クエリ コマンドの結果 | Microsoft Learn</a></p>
+<p>たとえば、「VNetの一覧からリソースグループ名とVNet名が指定のもののリソースIDを取得」であれば以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet list --query &quot;[?name==&#39;${vnet_name}&#39; &amp;&amp; resourceGroup==&#39;${resource_group}&#39;].id&quot;</span>
+</code></pre></div>
+
+<h2 id="network">network</h2>
+<h3 id="_1">ネットワークセキュリティグループ</h3>
+<h4 id="nsg">NSG作成</h4>
+<p>NSGの箱を作る</p>
+<p><a href="https://learn.microsoft.com/ja-jp/cli/azure/network/nsg?view=azure-cli-latest">az network nsg | Microsoft Learn</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network nsg create \</span>
+<span style="color: #888888">  --name ${nsg_name} \</span>
+<span style="color: #888888">  --resource-group ${resource_group}</span>
+</code></pre></div>
+
+<h4 id="_2">ルール作成</h4>
+<p><a href="https://learn.microsoft.com/ja-jp/cli/azure/network/nsg/rule?view=azure-cli-latest">az network nsg rule | Microsoft Learn</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network nsg rule create \</span>
+<span style="color: #888888">  --nsg-name ${nsg_name} \</span>
+<span style="color: #888888">  --resource-group ${resoure_group} \</span>
+<span style="color: #888888">  --name ${nsg_rule_name} \</span>
+<span style="color: #888888">  --access Allow \</span>
+<span style="color: #888888">  --priority 256 \</span>
+<span style="color: #888888">  --source-address-prefixes ${src_address_prefixes} \</span>
+<span style="color: #888888">  --source-port-ranges ${src_port_ranges} \</span>
+<span style="color: #888888">  --destination-address-prefixes ${dst_address_prefixes} \</span>
+<span style="color: #888888">  --destination-port-ranges ${dst_port_ranges} \</span>
+<span style="color: #888888">  --protocol ${protocol}</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>値</th>
+<th>設定例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*-address-prefixes</code></td>
+<td>IPアドレス(<code>192.168.0.0/24</code>など)や<code>VirtualNetwork</code>などサービスタグ</td>
+</tr>
+<tr>
+<td><code>*-port-ranges</code></td>
+<td>ポート番号(値のみ、範囲指定<code>1024-4096</code>など)、<code>*</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="storage-account">storage account</h2>
+<h3 id="_3">セキュリティ</h3>
+<p><a href="https://learn.microsoft.com/ja-jp/azure/storage/common/storage-network-security?tabs=azure-cli">Azure Storage ファイアウォールおよび仮想ネットワークを構成する | Microsoft Learn</a></p>
+<h3 id="_4">キーの取得</h3>
+<p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/account/keys?view=azure-cli-latest">az storage account keys | Microsoft Learn</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account keys list \</span>
+<span style="color: #888888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888888">  --account-name ${storage_account_name}</span>
+</code></pre></div>
+
+<p>2つヒットするはずなので、<code>--query '[0].value' -o tsv</code> とかやれば取り出せる。</p>
                 
               
               
@@ -1524,7 +1716,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../bash/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../Network/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1533,19 +1725,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              bash
+              ネットワーク
             </div>
           </div>
         </a>
       
       
-        <a href="../powershell/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../cygwin/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              PowerShell
+              Cygwin
             </div>
           </div>
           <div class="md-footer__button md-icon">
