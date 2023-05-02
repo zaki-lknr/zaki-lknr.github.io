@@ -1733,11 +1733,59 @@
       
         <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
-    仮想環境
+    環境
   </a>
   
-    <nav class="md-nav" aria-label="仮想環境">
+    <nav class="md-nav" aria-label="環境">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    pyenv
+  </a>
+  
+    <nav class="md-nav" aria-label="pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    設定追加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    依存パッケージのインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Pythonインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_2" class="md-nav__link">
+    pythonの切替
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#venv" class="md-nav__link">
@@ -1748,7 +1796,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     作成
   </a>
   
@@ -2136,11 +2184,59 @@
       
         <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
-    仮想環境
+    環境
   </a>
   
-    <nav class="md-nav" aria-label="仮想環境">
+    <nav class="md-nav" aria-label="環境">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    pyenv
+  </a>
+  
+    <nav class="md-nav" aria-label="pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    設定追加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    依存パッケージのインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Pythonインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_2" class="md-nav__link">
+    pythonの切替
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#venv" class="md-nav__link">
@@ -2151,7 +2247,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     作成
   </a>
   
@@ -2564,9 +2660,42 @@ dict_val <span style="color: #666666">=</span> {<span style="color: #BB4444">&qu
 <ul>
 <li><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></li>
 </ul>
-<h2 id="_21">仮想環境</h2>
+<h2 id="_21">環境</h2>
+<h3 id="pyenv">pyenv</h3>
+<p><a href="https://github.com/pyenv/pyenv">pyenv/pyenv: Simple Python version management</a></p>
+<h4 id="_22">インストール</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://pyenv.run | bash</span>
+</code></pre></div>
+
+<h4 id="_23">設定追加</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">cat &lt;&lt;&#39;__EOL__&#39; &gt;&gt; $HOME/.bashrc</span>
+<span style="color: #888888">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span>
+<span style="color: #888888">command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;</span>
+<span style="color: #888888">eval &quot;$(pyenv init -)&quot;</span>
+<span style="color: #888888">__EOL__</span>
+<span style="color: #888888">. $HOME/.bashrc</span>
+</code></pre></div>
+
+<h4 id="_24">依存パッケージのインストール</h4>
+<p>以下はUbuntuの場合。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \</span>
+<span style="color: #888888">libbz2-dev libreadline-dev libsqlite3-dev curl \</span>
+<span style="color: #888888">libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev</span>
+</code></pre></div>
+
+<p>その他の環境はwiki参照: <a href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment">https://github.com/pyenv/pyenv/wiki#suggested-build-environment</a></p>
+<h4 id="python_1">Pythonインストール</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">pyenv install 3.11.3</span>
+</code></pre></div>
+
+<p>インストール可能なPythonは<code>pyenv install -l</code>で確認</p>
+<h4 id="python_2"><code>python</code>の切替</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">pyenv global 3.11.3</span>
+</code></pre></div>
+
+<p>切替可能なPythonは<code>pyenv versions</code>で確認</p>
 <h3 id="venv">venv</h3>
-<h4 id="_22">作成</h4>
+<h4 id="_25">作成</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>venv<span style="color: #bbbbbb"> </span>venv/ansible
 </code></pre></div>
 
