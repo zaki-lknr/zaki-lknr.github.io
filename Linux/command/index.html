@@ -1519,6 +1519,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    ゾーン設定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1545,14 +1552,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     設定一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
+  <a href="#_34" class="md-nav__link">
     設定の登録
   </a>
   
@@ -2552,6 +2559,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    ゾーン設定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2578,14 +2592,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
+  <a href="#_33" class="md-nav__link">
     設定一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
+  <a href="#_34" class="md-nav__link">
     設定の登録
   </a>
   
@@ -3120,6 +3134,15 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">firewall-cmd --get-active-zones</span>
 </code></pre></div>
 
+<h4 id="_32">ゾーン設定</h4>
+<p>ゾーンに指定インタフェースを設定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">firewall-cmd --permanent --zone=trusted --change-interface=cni0</span>
+</code></pre></div>
+
+<p>ゾーンから指定インタフェースを削除</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">firewall-cmd --permanent --zone=trusted --remove-interface=cni0</span>
+</code></pre></div>
+
 <h3 id="ufw">ufw</h3>
 <p>現在の状態。<br />
 ※アクティブになっていない</p>
@@ -3159,7 +3182,7 @@ ssh経由の場合警告される。(<code>iptables -nL</code>あたりで22/tcp
 <p>※ 操作のみ。この環境はufwを使ってないらしく動作は未確認</p>
 <h2 id="alternatives">alternatives</h2>
 <p>ubuntuだと<code>update-alternatives</code>で、RHEL系だと<code>alternatives</code>になる。</p>
-<h3 id="_32">設定一覧</h3>
+<h3 id="_33">設定一覧</h3>
 <p>ubuntuの場合</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@oci-ap-a1-ubuntu:~# </span>update-alternatives<span style="color: #bbbbbb"> </span>--get-selections<span style="color: #bbbbbb"> </span>
 <span style="color: #888888">arptables                      auto     /usr/sbin/arptables-nft</span>
@@ -3178,7 +3201,7 @@ iptables<span style="color: #bbbbbb">                </span>auto<span style="col
 <span style="border: 1px solid #FF0000">:</span>
 </code></pre></div>
 
-<h3 id="_33">設定の登録</h3>
+<h3 id="_34">設定の登録</h3>
 <p><code>python</code>という名前で、<code>/usr/bin/python</code>を優先度10で登録する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>update-alternatives<span style="color: #bbbbbb"> </span>--install<span style="color: #bbbbbb"> </span>/usr/bin/python<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"> </span>/usr/bin/python3<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span>
 <span style="color: #888888">update-alternatives: using /usr/bin/python3 to provide /usr/bin/python (python) in auto mode</span>
