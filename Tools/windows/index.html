@@ -742,6 +742,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Git/codecommit/" class="md-nav__link">
+        CodeCommit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Git/configure/" class="md-nav__link">
         Git設定
       </a>
@@ -1335,6 +1347,46 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#disk" class="md-nav__link">
+    disk
+  </a>
+  
+    <nav class="md-nav" aria-label="disk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diskpart" class="md-nav__link">
+    diskpart
+  </a>
+  
+    <nav class="md-nav" aria-label="diskpart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oem" class="md-nav__link">
+    OEMパーティション削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1471,6 +1523,46 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#disk" class="md-nav__link">
+    disk
+  </a>
+  
+    <nav class="md-nav" aria-label="disk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diskpart" class="md-nav__link">
+    diskpart
+  </a>
+  
+    <nav class="md-nav" aria-label="diskpart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oem" class="md-nav__link">
+    OEMパーティション削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1492,6 +1584,48 @@
 <h2 id="windows10">評価版 Windows10</h2>
 <p>必要事項を入力してダウンロードしたISOは、ライセンスキー入力がなく90日検証に使用できる。</p>
 <p><a href="https://www.microsoft.com/ja-jp/evalcenter/evaluate-windows-10-enterprise">Microsoft Evaluation Center で Windows 10 Enterprise を試す</a></p>
+<h2 id="disk">disk</h2>
+<h3 id="diskpart">diskpart</h3>
+<p>パーティション操作</p>
+<h4 id="_1">起動</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>diskpart
+</code></pre></div>
+
+<h4 id="oem">OEMパーティション削除</h4>
+<p>「ディスクの管理」では削除できないので<code>diskpart</code>で削除する</p>
+<ol>
+<li><code>list disk</code>でディスクデバイス一覧を確認</li>
+<li><code>select disk *</code>で処理対象ディスクを選択</li>
+<li><code>list partition</code>でパーティション一覧を確認</li>
+<li><code>select partition *</code>で処理対象パーティションを選択</li>
+<li><code>delete partition override</code>でパーティション削除</li>
+</ol>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Microsoft DiskPart バージョン 10.0.19041.964
+
+Copyright (C) Microsoft Corporation.
+コンピューター: DESKTOP-NV2IS83
+
+DISKPART&gt; list disk
+
+  ディスク      状態           サイズ   空き   ダイナ GPT
+  ###                                          ミック
+  ------------  -------------  -------  -------  ---  ---
+  ディスク 0    オンライン           476 GB  1024 KB        *
+  ディスク 1    オンライン            28 GB    27 GB        *
+
+DISKPART&gt; select disk 1
+
+ディスク 1 が選択されました。
+
+DISKPART&gt; list partition
+
+  Partition ###  Type                Size     Offset
+  -------------  ------------------  -------  -------
+  Partition 1    プライマリ              224 KB    32 KB
+  Partition 2    システム              2880 KB   256 KB
+  Partition 3    OEM               1067 MB  3136 KB
+  Partition 4    プライマリ              300 KB  1070 MB
+</code></pre></div>
                 
               
               
