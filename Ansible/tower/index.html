@@ -660,7 +660,14 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    パーソナルトークン作成
+    ユーザー名とパスワード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    パーソナルトークン
   </a>
   
 </li>
@@ -671,7 +678,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     ジョブテンプレート一覧
   </a>
   
@@ -685,7 +692,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -1609,7 +1616,14 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    パーソナルトークン作成
+    ユーザー名とパスワード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    パーソナルトークン
   </a>
   
 </li>
@@ -1620,7 +1634,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     ジョブテンプレート一覧
   </a>
   
@@ -1634,7 +1648,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -1684,7 +1698,13 @@ Towerは実行中で良い。<br />
 <p>API一覧は以下。<br />
 <a href="https://docs.ansible.com/automation-controller/latest/html/controllerapi/api_ref.html">11. Controller API Reference Guide — Automation Controller API Guide v4.2.1</a></p>
 <h3 id="_4">認証</h3>
-<h4 id="_5">パーソナルトークン作成</h4>
+<h4 id="_5">ユーザー名とパスワード</h4>
+<p>webログイン時に使用するユーザー名とパスワードでRESTを実行するにはBasic認証を使用する。<br />
+<code>curl</code>であれば<code>-u</code>オプション。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -u $username:$password -sk https://192.168.0.27/api/v2/job_templates/</span>
+</code></pre></div>
+
+<h4 id="_6">パーソナルトークン</h4>
 <p>Towerのユーザーページで、対象ユーザーを選択、「トークン」押下して「＋」押下で作成できる。<br />
 権限はread/writeのみ。</p>
 <p>GUIで作ったパーソナルトークンを使ったRESTは以下のように<code>Authorization: Bearer {token-string}</code>をヘッダに追加すればOK</p>
@@ -1693,7 +1713,7 @@ Towerは実行中で良い。<br />
 </code></pre></div>
 
 <p><a href="https://docs.ansible.com/ansible-tower/latest/html_ja/administration/oauth2_token_auth.html#using-oauth-2-token-system-for-personal-access-tokens-pat">19.2. パーソナルアクセストークン (PAT) 向けの OAuth2 トークンシステムの使用</a></p>
-<h3 id="_6">ジョブテンプレート一覧</h3>
+<h3 id="_7">ジョブテンプレート一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://192.168.0.27/api/v2/job_templates/?page_size<span style="color: #666666">=1000</span><span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>json.tool
 </code></pre></div>
 
@@ -1809,7 +1829,7 @@ Towerは実行中で良い。<br />
 <span style="color: #888888">}</span>
 </code></pre></div>
 
-<h3 id="_7">その他のシステム設定</h3>
+<h3 id="_8">その他のシステム設定</h3>
 <p>category_slugに<code>system</code>を指定。<br />
 キー一覧は以下の通り</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://tower.example.org/api/v2/settings/system/<span style="color: #bbbbbb"> </span>...<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>python3<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>json.tool
