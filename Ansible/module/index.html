@@ -432,6 +432,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../collection/" class="md-nav__link">
+        コレクション
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../config/" class="md-nav__link">
         設定
       </a>
@@ -582,6 +594,13 @@
         <li class="md-nav__item">
   <a href="#assert" class="md-nav__link">
     assert
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    uri
   </a>
   
 </li>
@@ -1655,6 +1674,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    uri
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lineinfile" class="md-nav__link">
     lineinfile
   </a>
@@ -1858,6 +1884,20 @@ ad-hocで実行する方が多いかも？</p>
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.assert</span>:
 <span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">that</span>:
 <span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;sample_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">regex_search(&quot;could</span><span style="color: #B8860B"> </span><span style="color: #BB4444">not</span><span style="color: #B8860B"> </span><span style="color: #BB4444">found:</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar&quot;)&#39;</span>
+</code></pre></div>
+
+<h2 id="uri">uri</h2>
+<p>HTTPをしゃべる。<br />
+以下はAWX/AAPで通知テストをkickするRESTを叩くタスク。<br />
+basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<code>200</code>or<code>201</code>or<code>202</code>を期待している。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.uri</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">method</span>:<span style="color: #bbbbbb"> </span>POST
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">url</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">aap_address</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}/api/v2/notification_templates/{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">notify_id</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}/test/&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">url_username</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">username</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">url_password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">validate_certs</span>:<span style="color: #bbbbbb"> </span>false
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">force_basic_auth</span>:<span style="color: #bbbbbb"> </span>true
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">status_code</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">200</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">201</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">202</span>]
 </code></pre></div>
 
 <h2 id="lineinfile">lineinfile</h2>

@@ -430,6 +430,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Ansible/collection/" class="md-nav__link">
+        コレクション
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Ansible/config/" class="md-nav__link">
         設定
       </a>
@@ -1194,6 +1206,13 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    インタフェース設定モード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     インタフェースの無効化
   </a>
   
@@ -1227,21 +1246,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ホスト名の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ページャーの無効化
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     シャットダウン
   </a>
   
@@ -1638,6 +1657,13 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    インタフェース設定モード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     インタフェースの無効化
   </a>
   
@@ -1671,21 +1697,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ホスト名の設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ページャーの無効化
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     シャットダウン
   </a>
   
@@ -1772,7 +1798,13 @@
 <span style="color: #888888">Connection to 10.1.1.254 closed.</span>
 </code></pre></div>
 
-<h3 id="_8">インタフェースの無効化</h3>
+<h3 id="_8">インタフェース設定モード</h3>
+<p>コンフィギュレーションモードからさらにインタフェースを指定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">router1#configure terminal</span>
+<span style="color: #888888">router1(config)#interface GigabitEthernet 2</span>
+</code></pre></div>
+
+<h3 id="_9">インタフェースの無効化</h3>
 <p><code>shutdown</code>を使う。元に戻すのは<code>no shutdown</code><br />
 以下はGigabitEthernet 2を無効化する場合。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">router1(config)#interface GigabitEthernet 2</span>
@@ -1799,7 +1831,7 @@
 <span style="color: #888888">root#</span>
 </code></pre></div>
 
-<h3 id="_9">ホスト名の設定</h3>
+<h3 id="_10">ホスト名の設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">[edit]</span>
 <span style="color: #888888">root# set system host-name srx100-demo</span>
 
@@ -1810,12 +1842,12 @@
 <span style="color: #000080; font-weight: bold">root@srx100-demo#</span>
 </code></pre></div>
 
-<h3 id="_10">ページャーの無効化</h3>
+<h3 id="_11">ページャーの無効化</h3>
 <p><code>terminal length 0</code>相当の操作は以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">set cli screen-length 0</span>
 </code></pre></div>
 
-<h3 id="_11">シャットダウン</h3>
+<h3 id="_12">シャットダウン</h3>
 <p>rootでログインして<code>cli</code>を実行。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@SRX% </span>cli
 </code></pre></div>
