@@ -1351,6 +1351,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#private-dns" class="md-nav__link">
+    Private DNS
+  </a>
+  
+    <nav class="md-nav" aria-label="Private DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ゾーン作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1365,14 +1385,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     セキュリティ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     キーの取得
   </a>
   
@@ -1392,7 +1412,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     使用可能バージョンの確認
   </a>
   
@@ -1406,7 +1426,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ノードプールの追加
   </a>
   
@@ -1833,6 +1853,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#private-dns" class="md-nav__link">
+    Private DNS
+  </a>
+  
+    <nav class="md-nav" aria-label="Private DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ゾーン作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1847,14 +1887,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     セキュリティ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     キーの取得
   </a>
   
@@ -1874,7 +1914,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     使用可能バージョンの確認
   </a>
   
@@ -1888,7 +1928,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ノードプールの追加
   </a>
   
@@ -2039,10 +2079,17 @@
 <span style="color: #888888">  --record-set-name ${recordset_name}</span>
 </code></pre></div>
 
+<h3 id="private-dns">Private DNS</h3>
+<h4 id="_8">ゾーン作成</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network private-dns zone create \</span>
+<span style="color: #888888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888888">  --name &quot;private.example.org&quot;</span>
+</code></pre></div>
+
 <h2 id="storage-account">storage account</h2>
-<h3 id="_8">セキュリティ</h3>
+<h3 id="_9">セキュリティ</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/storage/common/storage-network-security?tabs=azure-cli">Azure Storage ファイアウォールおよび仮想ネットワークを構成する | Microsoft Learn</a></p>
-<h3 id="_9">キーの取得</h3>
+<h3 id="_10">キーの取得</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/account/keys?view=azure-cli-latest">az storage account keys | Microsoft Learn</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account keys list \</span>
 <span style="color: #888888">  --resoure-group ${resource_group} \</span>
@@ -2051,7 +2098,7 @@
 
 <p>2つヒットするはずなので、<code>--query '[0].value' -o tsv</code> とかやれば取り出せる。</p>
 <h2 id="aks">AKS</h2>
-<h3 id="_10">使用可能バージョンの確認</h3>
+<h3 id="_11">使用可能バージョンの確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks get-versions --query &#39;orchestrators[].orchestratorVersion&#39;</span>
 </code></pre></div>
 
@@ -2066,7 +2113,7 @@
 </code></pre></div>
 
 <p><code>--overwrite-existing</code>を付与すると確認無しで上書きされる。</p>
-<h3 id="_11">ノードプールの追加</h3>
+<h3 id="_12">ノードプールの追加</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add">az aks nodepool | Microsoft Learn</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks nodepool add \</span>
 <span style="color: #888888">  --resoure-group ${resource_group} \</span>
