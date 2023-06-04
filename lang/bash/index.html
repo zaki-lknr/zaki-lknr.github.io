@@ -1479,6 +1479,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nmseq" class="md-nav__link">
+    nからmまで(seq利用)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1661,6 +1668,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nmseq" class="md-nav__link">
+    nからmまで(seq利用)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1801,6 +1815,20 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">abc</span>
 <span style="color: #888888">123</span>
 <span style="color: #888888">xyz</span>
+</code></pre></div>
+
+<h4 id="nmseq">nからmまで(<code>seq</code>利用)</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
+
+<span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$(</span>seq<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">)</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">do</span>
+<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">$i</span>
+<span style="color: #AA22FF; font-weight: bold">done</span>
+</code></pre></div>
+
+<p>実行結果は以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">1</span>
+<span style="color: #888888">2</span>
+<span style="color: #888888">3</span>
 </code></pre></div>
                 
               
