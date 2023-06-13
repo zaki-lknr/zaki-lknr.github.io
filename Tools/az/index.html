@@ -1366,6 +1366,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    Aレコード作成
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1868,6 +1875,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    Aレコード作成
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2084,6 +2098,14 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network private-dns zone create \</span>
 <span style="color: #888888">  --resoure-group ${resource_group} \</span>
 <span style="color: #888888">  --name &quot;private.example.org&quot;</span>
+</code></pre></div>
+
+<h4 id="a">Aレコード作成</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network private-dns record-set a add-record \</span>
+<span style="color: #888888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888888">  --zone-name &quot;private.example.org&quot;</span>
+<span style="color: #888888">  --ipv4-adderss ${ipaddr} \</span>
+<span style="color: #888888">  --record-set-name hostname</span>
 </code></pre></div>
 
 <h2 id="storage-account">storage account</h2>

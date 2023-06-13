@@ -1034,6 +1034,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    シングルユーザーモード
+  </a>
+  
+    <nav class="md-nav" aria-label="シングルユーザーモード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu" class="md-nav__link">
+    ubuntu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1589,6 +1609,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    シングルユーザーモード
+  </a>
+  
+    <nav class="md-nav" aria-label="シングルユーザーモード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu" class="md-nav__link">
+    ubuntu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1647,6 +1687,22 @@ __EOL__
 </code></pre></div>
 
 <p>シェル変数に残るので<code>echo $EDITOR</code>の出力は変化しないが環境変数としては消える。</p>
+<h2 id="_6">シングルユーザーモード</h2>
+<h3 id="ubuntu">ubuntu</h3>
+<p>GRUBメニュー画面で<code>e</code>し、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>setparams &#39;Ubuntu&#39;
+
+        recordfail
+        load_video
+        gfxmode $linux_gfx_mode
+
+        [...]
+
+        linux   /vmlinuz-... root=/dev/... ...
+</code></pre></div>
+
+<p>の<code>linux</code>で始まる行の末尾に<code>single</code>を追記して<code>Ctrl-x</code>で起動する。<br />
+ルートファイルシステムをmountしたくない場合は<code>single</code>でなく<code>break</code>を追記。</p>
                 
               
               

@@ -1071,6 +1071,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fsck" class="md-nav__link">
+    fsck
+  </a>
+  
+    <nav class="md-nav" aria-label="fsck">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clean" class="md-nav__link">
+    cleanでも強制スキャン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fsck_1" class="md-nav__link">
+    起動時に強制fsck
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1591,6 +1618,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fsck" class="md-nav__link">
+    fsck
+  </a>
+  
+    <nav class="md-nav" aria-label="fsck">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clean" class="md-nav__link">
+    cleanでも強制スキャン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fsck_1" class="md-nav__link">
+    起動時に強制fsck
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1762,6 +1816,17 @@ sys<span style="color: #bbbbbb">     </span><span style="color: #666666">0</span
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666666">-</span>CF<span style="color: #666666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666666">~</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>e2label<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>dev<span style="color: #666666">/</span>sdb1<span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;HD-LDS-A&quot;</span>
 root<span style="color: #B8860B">@zaki</span><span style="color: #666666">-</span>CF<span style="color: #666666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666666">~</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>e2label<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>dev<span style="color: #666666">/</span>sdb1
 HD<span style="color: #666666">-</span>LDS<span style="color: #666666">-</span>A
+</code></pre></div>
+
+<h2 id="fsck">fsck</h2>
+<h3 id="clean">cleanでも強制スキャン</h3>
+<p><code>-f</code>を付与</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">fsck.ext4 -f /dev/mapper/ubuntu--vg-ubuntu--lv</span>
+</code></pre></div>
+
+<h3 id="fsck_1">起動時に強制fsck</h3>
+<p><code>shutdown</code>のオプションに<code>-F</code>を付与</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">shutdown -F -r now</span>
 </code></pre></div>
                 
               
