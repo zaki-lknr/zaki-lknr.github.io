@@ -1385,6 +1385,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#application-gateway" class="md-nav__link">
+    Application Gateway
+  </a>
+  
+    <nav class="md-nav" aria-label="Application Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skustandard-v2waf-v2" class="md-nav__link">
+    SKUをStandard v2からWAF v2に変更する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1901,6 +1921,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#application-gateway" class="md-nav__link">
+    Application Gateway
+  </a>
+  
+    <nav class="md-nav" aria-label="Application Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skustandard-v2waf-v2" class="md-nav__link">
+    SKUをStandard v2からWAF v2に変更する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2129,6 +2169,35 @@
 <span style="color: #888888">  --resource-group ${resource_group} \</span>
 <span style="color: #888888">  --virtual-network ${vnet_name} \</span>
 <span style="color: #888888">  --name ${link_name}</span>
+</code></pre></div>
+
+<h3 id="application-gateway">Application Gateway</h3>
+<h4 id="skustandard-v2waf-v2">SKUをStandard v2からWAF v2に変更する</h4>
+<p><a href="https://learn.microsoft.com/ja-jp/azure/web-application-firewall/ag/upgrade-ag-waf-policy?tabs=portal">Azure Application Gateway WAF ポリシーにアップグレードする | Microsoft Learn</a></p>
+<p>基本構文は<code>az network application-gateway update --resource-group ${rg} --name ${appgw} --sku WAF_v2</code>だが、これだけだとエラーになる。
+「WAF v2に変更」と「WAFポリシーの設定」を同時に行う必要がある。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>WAFポリシーの作成
+<span style="color: #888888">az network application-gateway waf-policy create \</span>
+<span style="color: #888888">  --name ${waf_policy_name} \</span>
+<span style="color: #888888">  --resource-group ${resource_group} \</span>
+<span style="color: #888888">  --version 3.2</span>
+
+<span style="color: #000080; font-weight: bold"># </span>WAFポリシー設定
+<span style="color: #888888">az network application-gateway waf-policy policy-setting update \</span>
+<span style="color: #888888">  --policy-name ${waf_policy_name} \</span>
+<span style="color: #888888">  --resource-group ${resource_group} \</span>
+<span style="color: #888888">  --request-body-check ${check} \</span>
+<span style="color: #888888">  --mode ${waf_mode} \</span>
+<span style="color: #888888">  --state ${waf_state}</span>
+
+<span style="color: #000080; font-weight: bold"># </span>WAFのSKUをWAF_v2に更新
+<span style="color: #888888">waf_id=$(az network application-gateway waf-policy show -g ${resource_group} -n ${waf_policy_name} --query id -o tsv)</span>
+<span style="color: #888888">az network application-gateway update \</span>
+<span style="color: #888888">  --name ${appgw_name} \</span>
+<span style="color: #888888">  --resource-group ${resouce_group} \</span>
+<span style="color: #888888">  --sku WAF_v2 \</span>
+<span style="color: #888888">  --set sku.tier=WAF_v2 \</span>
+<span style="color: #888888">  --set firewallPolicy.id=${waf_id}</span>
 </code></pre></div>
 
 <h2 id="storage-account">storage account</h2>

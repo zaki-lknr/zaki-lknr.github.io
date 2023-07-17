@@ -1210,6 +1210,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワーク">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    サイト間VPN接続の設定サンプルダウンロード
+  </a>
+  
+    <nav class="md-nav" aria-label="サイト間VPN接続の設定サンプルダウンロード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    デバイスタイプIDの取得
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1509,6 +1542,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワーク">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    サイト間VPN接続の設定サンプルダウンロード
+  </a>
+  
+    <nav class="md-nav" aria-label="サイト間VPN接続の設定サンプルダウンロード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    デバイスタイプIDの取得
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1541,6 +1607,41 @@
 
 <h2 id="_2">初期設定</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">aws configure</span>
+</code></pre></div>
+
+<h2 id="_3">ネットワーク</h2>
+<h3 id="vpn">サイト間VPN接続の設定サンプルダウンロード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">aws ec2 get-vpn-connection-device-sample-configuration \</span>
+<span style="color: #888888">  --vpn-connection-id &lt;VPN-ID&gt; \</span>
+<span style="color: #888888">  --vpn-connection-device-type-id &lt;デバイスタイプID&gt; \</span>
+<span style="color: #888888">  --internet-key-exchange-version ikev1 \</span>
+<span style="color: #888888">  --region ${region} \</span>
+<span style="color: #888888">  --output text &gt; vpn-sample.txt</span>
+</code></pre></div>
+
+<h4 id="id">デバイスタイプIDの取得</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">aws ec2 get-vpn-connection-device-types --region ap-southeast-1</span>
+
+<span style="color: #888888">{</span>
+<span style="color: #888888">    &quot;VpnConnectionDeviceTypes&quot;: [</span>
+<span style="color: #888888">        {</span>
+<span style="color: #888888">            :</span>
+<span style="color: #888888">            :</span>
+<span style="color: #888888">        },</span>
+<span style="color: #888888">        {</span>
+<span style="color: #888888">            &quot;VpnConnectionDeviceTypeId&quot;: &quot;9d9470de&quot;,</span>
+<span style="color: #888888">            &quot;Vendor&quot;: &quot;Fortinet&quot;,</span>
+<span style="color: #888888">            &quot;Platform&quot;: &quot;Fortigate 40+ Series&quot;,</span>
+<span style="color: #888888">            &quot;Software&quot;: &quot;FortiOS 5.0+&quot;</span>
+<span style="color: #888888">        },</span>
+<span style="color: #888888">        :</span>
+<span style="color: #888888">        :</span>
+<span style="color: #888888">    ]</span>
+<span style="color: #888888">}</span>
+</code></pre></div>
+
+<p>上記の「FortiOS 5.0+」のID(<code>9d9470de</code>)を変数セットするには<code>--query</code>を使って以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">devicetypeid=$(aws ec2 get-vpn-connection-device-types --region ${region} --query &quot;VpnConnectionDeviceTypes[?Vendor==&#39;Fortinet&#39; &amp;&amp; Software==&#39;FortiOS 5.0+&#39;].VpnConnectionDeviceTypeId&quot; --output text)</span>
 </code></pre></div>
                 
               
