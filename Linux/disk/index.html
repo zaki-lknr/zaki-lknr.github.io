@@ -1018,6 +1018,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    フォーマット確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ディスク追加
   </a>
   
@@ -1032,21 +1039,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     既存パーティション削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     パーティション作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     書き込み
   </a>
   
@@ -1060,8 +1067,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     ラベル設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm" class="md-nav__link">
+    LVM
+  </a>
+  
+    <nav class="md-nav" aria-label="LVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lv" class="md-nav__link">
+    LVの論理ボリュームのリサイズ
   </a>
   
 </li>
@@ -1315,6 +1342,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/esxi/" class="md-nav__link">
+        ESXi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1377,6 +1416,30 @@
     <li class="md-nav__item">
       <a href="../../Tools/openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/qnap/" class="md-nav__link">
+        QNAP
       </a>
     </li>
   
@@ -1565,6 +1628,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    フォーマット確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ディスク追加
   </a>
   
@@ -1579,21 +1649,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     既存パーティション削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     パーティション作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     書き込み
   </a>
   
@@ -1607,8 +1677,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     ラベル設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm" class="md-nav__link">
+    LVM
+  </a>
+  
+    <nav class="md-nav" aria-label="LVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lv" class="md-nav__link">
+    LVの論理ボリュームのリサイズ
   </a>
   
 </li>
@@ -1663,7 +1753,31 @@
                 
                 
                 <h1 id="_1">ディスク</h1>
-<h2 id="_2">ディスク追加</h2>
+<h2 id="_2">フォーマット確認</h2>
+<p><code>df -T</code>を実行</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>df<span style="color: #bbbbbb"> </span>-T
+<span style="color: #888888">ファイルシス            タイプ   1K-ブロック     使用   使用可 使用% マウント位置</span>
+<span style="color: #888888">devtmpfs                devtmpfs        4096        0     4096    0% /dev</span>
+<span style="color: #888888">tmpfs                   tmpfs        3927684        0  3927684    0% /dev/shm</span>
+<span style="color: #888888">tmpfs                   tmpfs        1571076     1280  1569796    1% /run</span>
+<span style="color: #888888">/dev/mapper/centos-root xfs        121047300 95026992 26020308   79% /</span>
+<span style="color: #888888">tmpfs                   tmpfs        3927688        0  3927688    0% /tmp</span>
+<span style="color: #888888">/dev/sda1               xfs          1038336   319000   719336   31% /boot</span>
+<span style="color: #888888">tmpfs                   tmpfs         785536        0   785536    0% /run/user/1000</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>df<span style="color: #bbbbbb"> </span>-T
+<span style="color: #888888">Filesystem                Type  1K-blocks      Used Available Use% Mounted on</span>
+<span style="color: #888888">tmpfs                     tmpfs    804648      2192    802456   1% /run</span>
+<span style="color: #888888">/dev/mapper/vgubuntu-root ext4  120977096  49076772  65708812  43% /</span>
+<span style="color: #888888">tmpfs                     tmpfs   4023240         0   4023240   0% /dev/shm</span>
+<span style="color: #888888">tmpfs                     tmpfs      5120         4      5116   1% /run/lock</span>
+<span style="color: #888888">/dev/sda1                 vfat     523248         4    523244   1% /boot/efi</span>
+<span style="color: #888888">tmpfs                     tmpfs    804648       148    804500   1% /run/user/1000</span>
+<span style="color: #888888">/dev/sdb2                 ext4  479594152 178667716 276490880  40% /media/zaki/376b22ca-a013-11e8-81fd-000180792463</span>
+</code></pre></div>
+
+<h2 id="_3">ディスク追加</h2>
 <p>USB接続の外付けHDDが死にかけてたので交換してデータ移行。</p>
 <h3 id="hdd">HDD繋ぐ</h3>
 <p>デバイスの番号は<code>dmesg</code>で確認</p>
@@ -1690,7 +1804,7 @@ I<span style="color: #666666">/</span>O<span style="color: #bbbbbb"> </span>サ�
 <span style="color: #666666">/</span>dev<span style="color: #666666">/</span>sdb1<span style="color: #bbbbbb">             </span><span style="color: #666666">64</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3907029119</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3907029056</span><span style="color: #bbbbbb">   </span><span style="color: #666666">1.8</span>T<span style="color: #bbbbbb">  </span><span style="color: #666666">7</span><span style="color: #bbbbbb"> </span>HPFS<span style="color: #666666">/</span>NTFS<span style="color: #666666">/</span>exFAT
 </code></pre></div>
 
-<h3 id="_3">既存パーティション削除</h3>
+<h3 id="_4">既存パーティション削除</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666666">-</span>CF<span style="color: #666666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666666">~</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>fdisk<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>dev<span style="color: #666666">/</span>sdb
 
 fdisk<span style="color: #bbbbbb"> </span>(util<span style="color: #666666">-</span>linux<span style="color: #bbbbbb"> </span><span style="color: #666666">2.34</span>)<span style="color: #bbbbbb"> </span>へようこそ<span style="border: 1px solid #FF0000">。</span>
@@ -1704,23 +1818,23 @@ fdisk<span style="color: #bbbbbb"> </span>(util<span style="color: #666666">-</s
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド (m でヘルプ): p
 ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ
 Disk model: HD-LDS-A        
-単位: セクタ (1 * 512 = 512 バイト)
-セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
-I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
-ディスクラベルのタイプ: dos
-ディスク識別子: 0x0b27d361
+単位: セクタ (1 <span style="font-weight: bold">* 512 = 512 バイト)</span>
+<span style="font-weight: bold">セクタサイズ (論理 / 物理): 512 バイト / 512 バイト</span>
+<span style="font-weight: bold">I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト</span>
+<span style="font-weight: bold">ディスクラベルのタイプ: dos</span>
+<span style="font-weight: bold">ディスク識別子: 0x0b27d361</span>
 
-デバイス   起動 開始位置   最後から     セクタ サイズ Id タイプ
-/dev/sdb1             64 3907029119 3907029056   1.8T  7 HPFS/NTFS/exFAT
+<span style="font-weight: bold">デバイス   起動 開始位置   最後から     セクタ サイズ Id タイプ</span>
+<span style="font-weight: bold">/dev/sdb1             64 3907029119 3907029056   1.8T  7 HPFS/NTFS/exFAT</span>
 
-コマンド (m でヘルプ): d
-パーティション 1 を選択
-パーティション 1 を削除しました。
+<span style="font-weight: bold">コマンド (m でヘルプ): d</span>
+<span style="font-weight: bold">パーティション 1 を選択</span>
+<span style="font-weight: bold">パーティション 1 を削除しました。</span>
 
-コマンド (m でヘルプ): p
-ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ
-Disk model: HD-LDS-A        
-単位: セクタ (1 * 512 = 512 バイト)
+<span style="font-weight: bold">コマンド (m でヘルプ): p</span>
+<span style="font-weight: bold">ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ</span>
+<span style="font-weight: bold">Disk model: HD-LDS-A        </span>
+<span style="font-weight: bold">単位: セクタ (1 *</span> 512 = 512 バイト)
 セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
 I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 ディスクラベルのタイプ: dos
@@ -1730,7 +1844,7 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 </code></pre></div>
 
 <p>パーティションが1個しかないからか、<code>d</code>でｼｭｯと消えた。</p>
-<h3 id="_4">パーティション作成</h3>
+<h3 id="_5">パーティション作成</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド (m でヘルプ): n
 パーティションタイプ
    p   基本パーティション (0 プライマリ, 0 拡張, 4 空き)
@@ -1759,7 +1873,7 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 コマンド (m でヘルプ): 
 </code></pre></div>
 
-<h3 id="_5">書き込み</h3>
+<h3 id="_6">書き込み</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド<span style="color: #bbbbbb"> </span>(m<span style="color: #bbbbbb"> </span>でヘルプ)<span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>w
 パーティション情報が変更されました<span style="border: 1px solid #FF0000">。</span>
 Failed<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span>remove<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">partition</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">from</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">system</span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>デバイスもしくはリソースがビジー状態です
@@ -1811,11 +1925,17 @@ done
 sys<span style="color: #bbbbbb">     </span><span style="color: #666666">0</span>m0<span style="color: #666666">.171</span>s
 </code></pre></div>
 
-<h3 id="_6">ラベル設定</h3>
+<h3 id="_7">ラベル設定</h3>
 <p><code>e2label</code>で設定・確認。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666666">-</span>CF<span style="color: #666666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666666">~</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>e2label<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>dev<span style="color: #666666">/</span>sdb1<span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;HD-LDS-A&quot;</span>
 root<span style="color: #B8860B">@zaki</span><span style="color: #666666">-</span>CF<span style="color: #666666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666666">~</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>e2label<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>dev<span style="color: #666666">/</span>sdb1
 HD<span style="color: #666666">-</span>LDS<span style="color: #666666">-</span>A
+</code></pre></div>
+
+<h2 id="lvm">LVM</h2>
+<h3 id="lv">LVの論理ボリュームのリサイズ</h3>
+<p>現在のサイズから+10GB拡張する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>lvresize<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>-L<span style="color: #bbbbbb"> </span>+10G<span style="color: #bbbbbb"> </span>/dev/mapper/centos-root
 </code></pre></div>
 
 <h2 id="fsck">fsck</h2>

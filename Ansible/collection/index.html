@@ -466,6 +466,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     リダイレクト設定
   </a>
   
@@ -1240,6 +1247,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/esxi/" class="md-nav__link">
+        ESXi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1302,6 +1321,30 @@
     <li class="md-nav__item">
       <a href="../../Tools/openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/qnap/" class="md-nav__link">
+        QNAP
       </a>
     </li>
   
@@ -1490,6 +1533,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     リダイレクト設定
   </a>
   
@@ -1513,7 +1563,15 @@
                 
                 
                 <h1 id="_1">コレクション</h1>
-<h2 id="_2">リダイレクト設定</h2>
+<h2 id="_2">インストール</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ansible-galaxy collection install amazon.aws</span>
+</code></pre></div>
+
+<p><code>requirements.yml</code>使用時は以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-galaxy<span style="color: #bbbbbb"> </span>collection<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>collections/requirements.yml
+</code></pre></div>
+
+<h2 id="_3">リダイレクト設定</h2>
 <p><a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml">https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml</a></p>
 <p>このymlファイルの定義に従い、FQCN表記でないものはリダイレクトされる。<br />
 moduleに限らずactionプラグインやconnectionプラグインの定義もある。</p>

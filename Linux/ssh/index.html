@@ -1304,7 +1304,41 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scp" class="md-nav__link">
+    scp
+  </a>
+  
+    <nav class="md-nav" aria-label="scp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_19" class="md-nav__link">
+    メタ文字のエスケープ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    ディレクトリのコピー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    属性維持してコピー
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
     その他
   </a>
   
@@ -1443,6 +1477,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/esxi/" class="md-nav__link">
+        ESXi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1505,6 +1551,30 @@
     <li class="md-nav__item">
       <a href="../../Tools/openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/qnap/" class="md-nav__link">
+        QNAP
       </a>
     </li>
   
@@ -1895,7 +1965,41 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scp" class="md-nav__link">
+    scp
+  </a>
+  
+    <nav class="md-nav" aria-label="scp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_19" class="md-nav__link">
+    メタ文字のエスケープ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    ディレクトリのコピー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    属性維持してコピー
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
     その他
   </a>
   
@@ -2103,7 +2207,23 @@ PEM形式に変換するのであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-copy-id<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-i<span style="color: #bbbbbb"> </span>identity_file<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-p<span style="color: #bbbbbb"> </span>port<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>username@<span style="color: #666666">]</span>hostname
 </code></pre></div>
 
-<h2 id="_19">その他</h2>
+<h2 id="scp">scp</h2>
+<h3 id="_19">メタ文字のエスケープ</h3>
+<p>クォートが無いとエラーになる</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp server:&#39;/path/to/file\(...\)&#39; dest</span>
+</code></pre></div>
+
+<h3 id="_20">ディレクトリのコピー</h3>
+<p><code>-r</code>を付与して再帰コピーする</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -r src dst</span>
+</code></pre></div>
+
+<h3 id="_21">属性維持してコピー</h3>
+<p><code>-p</code>を付与する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -p src dst</span>
+</code></pre></div>
+
+<h2 id="_22">その他</h2>
 <ul>
 <li><a href="https://tkuchiki.hatenablog.com/entry/2013/05/27/211051">パスワードを設定していないユーザで ssh ログインしようとすると公開鍵認証でもログインに失敗する - tkuchikiの日記</a><ul>
 <li><code>/etc/shadow</code>の<code>USERNAME</code>の次に<code>!!</code>と書かれている場合はアカウントがロックされている</li>

@@ -1363,6 +1363,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/esxi/" class="md-nav__link">
+        ESXi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1425,6 +1437,30 @@
     <li class="md-nav__item">
       <a href="../../Tools/openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/qnap/" class="md-nav__link">
+        QNAP
       </a>
     </li>
   
@@ -1825,7 +1861,7 @@ sshpass.x86_64<span style="color: #bbbbbb">                   </span><span style
 </code></pre></div>
 
 <h3 id="_7">指定リポジトリを有効化/無効化</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>#<span style="color: #bbbbbb"> </span><span style="color: #B8860B">dnf</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">config</span><span style="color: #666666">-</span><span style="color: #B8860B">manager</span><span style="color: #bbbbbb"> </span><span style="color: #666666">--</span><span style="color: #B8860B">enable</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">ansible</span><span style="color: #666666">-2</span>.<span style="color: #666666">9-</span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #666666">-</span><span style="color: #B8860B">rhel</span><span style="color: #666666">-8-</span><span style="color: #B8860B">x86_64</span><span style="color: #666666">-</span><span style="color: #B8860B">rpms</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">#</span> dnf config-manager --enable ansible-2.9-for-rhel-8-x86_64-rpms
 </code></pre></div>
 
 <p>こうなる</p>
@@ -1840,7 +1876,7 @@ rhel<span style="color: #666666">-8-</span><span style="color: #AA22FF; font-wei
 </code></pre></div>
 
 <p>無効化は<code>--disable</code>で。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>#<span style="color: #bbbbbb"> </span><span style="color: #B8860B">dnf</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">config</span><span style="color: #666666">-</span><span style="color: #B8860B">manager</span><span style="color: #bbbbbb"> </span><span style="color: #666666">--</span><span style="color: #B8860B">disable</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">ansible</span><span style="color: #666666">-2</span>.<span style="color: #666666">9-</span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #666666">-</span><span style="color: #B8860B">rhel</span><span style="color: #666666">-8-</span><span style="color: #B8860B">x86_64</span><span style="color: #666666">-</span><span style="color: #B8860B">rpms</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">#</span> dnf config-manager --disable ansible-2.9-for-rhel-8-x86_64-rpms
 </code></pre></div>
 
 <h2 id="yum_1">yum</h2>
@@ -1854,7 +1890,7 @@ rhel<span style="color: #666666">-8-</span><span style="color: #AA22FF; font-wei
 </code></pre></div>
 
 <h3 id="_9">リポジトリの有効化</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># yum-config-manager --enable ol7_developer_EPEL
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">#</span> yum-config-manager --enable ol7_developer_EPEL
 </code></pre></div>
 
 <p>引数に指定するのはリポジトリIDだけど、リスト時に<code>/arch</code>が付いてる場合はそれは除く。</p>

@@ -737,6 +737,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    load
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pull" class="md-nav__link">
     pull
   </a>
@@ -839,6 +846,13 @@
         <li class="md-nav__item">
   <a href="#ecr-elastic-container-registry" class="md-nav__link">
     ECR (Elastic Container Registry)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acr" class="md-nav__link">
+    ACR
   </a>
   
 </li>
@@ -1402,6 +1416,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Tools/esxi/" class="md-nav__link">
+        ESXi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1464,6 +1490,30 @@
     <li class="md-nav__item">
       <a href="../Tools/openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/qnap/" class="md-nav__link">
+        QNAP
       </a>
     </li>
   
@@ -1713,6 +1763,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    load
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pull" class="md-nav__link">
     pull
   </a>
@@ -1819,6 +1876,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#acr" class="md-nav__link">
+    ACR
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1877,6 +1941,14 @@ Compose使用時もこのパターン。</p>
 
 <p>または</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>docker<span style="color: #bbbbbb"> </span>save<span style="color: #bbbbbb"> </span>imagename:tag<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span>imagename-tag.tar
+</code></pre></div>
+
+<h3 id="load">load</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>load<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>image.tar
+</code></pre></div>
+
+<p>あるいは</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>load<span style="color: #bbbbbb"> </span>&lt;<span style="color: #bbbbbb"> </span>image.tar
 </code></pre></div>
 
 <h3 id="pull">pull</h3>
@@ -1968,29 +2040,20 @@ GitHubのユーザー名と、入手したトークンをパスワードとし�
 <p>あとは<code>ghcr.io/zaki-lknr/squid:5.0.4-alpine-3.13</code>とかの名前のタグをつければ<code>push</code>もできる。<br />
 pushされたイメージは、GitHubのweb画面の「Packages」で確認できる。デフォルトはprivate設定。</p>
 <h2 id="ecr-elastic-container-registry">ECR (Elastic Container Registry)</h2>
-<p>認証(のためのパスワード取得)には <code>aws</code> CLIが必要。</p>
-<ul>
-<li><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html">AWS CLI の最新バージョンをインストールまたは更新します。 - AWS Command Line Interface</a></li>
-<li><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html">設定の基本 - AWS Command Line Interface</a></li>
-</ul>
-<p>Linux(x86_64)は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot;</span><span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;awscliv2.zip&quot;</span>
-<span style="color: #000080; font-weight: bold">$ </span>unzip<span style="color: #bbbbbb"> </span>awscliv2.zip
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>./aws/install
+<p>認証用パスワードは <code>aws</code> CLIを使用。<br />
+<code>aws ecr get-login-password</code> を実行するとレジストリ認証に使用するパスワードを取得できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #bbbbbb"> </span>ecr<span style="color: #bbbbbb"> </span>get-login-password<span style="color: #bbbbbb"> </span>--region<span style="color: #bbbbbb"> </span>ap-northeast-1
+<span style="color: #888888">eyJwYXls ......</span>
 </code></pre></div>
 
-<p>インストール後の設定は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #bbbbbb"> </span>configure
-<span style="color: #888888">AWS Access Key ID [None]: ....</span>
-<span style="color: #888888">AWS Secret Access Key [None]: ....</span>
-<span style="color: #888888">Default region name [None]: ap-northeast-1</span>
-<span style="color: #888888">Default output format [None]: json</span>
-</code></pre></div>
-
-<p>これで、<code>aws ecr get-login-password</code> を実行するとレジストリ認証に使用するパスワードを取得できる。
-ログイン時のユーザー名は <code>AWS</code> 固定のため、コマンドは以下の通り。</p>
+<p>ログイン時のユーザー名は <code>AWS</code> 固定のため、レジストリログイン用のコマンドは以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #bbbbbb"> </span>login<span style="color: #bbbbbb"> </span>&lt;registry<span style="color: #bbbbbb"> </span>URL&gt;<span style="color: #bbbbbb"> </span>-u<span style="color: #bbbbbb"> </span>AWS<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$(</span>aws<span style="color: #bbbbbb"> </span>ecr<span style="color: #bbbbbb"> </span>get-login-password<span style="color: #AA22FF; font-weight: bold">)</span>
 </code></pre></div>
+
+<h2 id="acr">ACR</h2>
+<p>ポータルからの場合は、レジストリメニューの「トークン」から、「追加」でトークンを作成する。スコープマップに権限を入力。<br />
+作成したトークンの「詳細」からパスワードを生成できる。<br />
+生成されるのはj<code>docker login</code>で指定するパスワード、およびDockerコマンド列全体(<code>docker login -u ... -p ...</code>)も得られる。(ユーザー名はトークン名になる)</p>
                 
               
               

@@ -940,6 +940,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    オプション
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubeconfig" class="md-nav__link">
+    kubeconfigファイル指定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     コンテキスト
   </a>
   
@@ -947,14 +967,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     切り替え
   </a>
   
@@ -966,7 +986,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     設定
   </a>
   
@@ -974,14 +994,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kubeconfig" class="md-nav__link">
+  <a href="#kubeconfig_1" class="md-nav__link">
     kubeconfigのマージ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     タブ補完
   </a>
   
@@ -1408,6 +1428,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/esxi/" class="md-nav__link">
+        ESXi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1470,6 +1502,30 @@
     <li class="md-nav__item">
       <a href="../../Tools/openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/qnap/" class="md-nav__link">
+        QNAP
       </a>
     </li>
   
@@ -1658,6 +1714,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    オプション
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubeconfig" class="md-nav__link">
+    kubeconfigファイル指定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     コンテキスト
   </a>
   
@@ -1665,14 +1741,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     切り替え
   </a>
   
@@ -1684,7 +1760,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     設定
   </a>
   
@@ -1692,14 +1768,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kubeconfig" class="md-nav__link">
+  <a href="#kubeconfig_1" class="md-nav__link">
     kubeconfigのマージ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     タブ補完
   </a>
   
@@ -1850,22 +1926,25 @@
                 
                 <h1 id="kubectl">kubectl</h1>
 <p>分類変えるかも…</p>
-<h2 id="_1">コンテキスト</h2>
-<h3 id="_2">一覧</h3>
+<h2 id="_1">オプション</h2>
+<h3 id="kubeconfig">kubeconfigファイル指定</h3>
+<p>環境変数<code>KUBECONFIG</code>か、オプション<code>--kubeconfig</code>に指定する</p>
+<h2 id="_2">コンテキスト</h2>
+<h3 id="_3">一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl config get-contexts</span>
 </code></pre></div>
 
-<h3 id="_3">切り替え</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl config set-contexts &lt;context-name&gt;</span>
+<h3 id="_4">切り替え</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl config use-contexts &lt;context-name&gt;</span>
 </code></pre></div>
 
-<h2 id="_4">設定</h2>
-<h3 id="kubeconfig">kubeconfigのマージ</h3>
+<h2 id="_5">設定</h2>
+<h3 id="kubeconfig_1">kubeconfigのマージ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>new-kubeconfig.yaml:<span style="color: #B8860B">$HOME</span>/.kube/config<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>view<span style="color: #bbbbbb"> </span>--flatten<span style="color: #bbbbbb"> </span>&gt;<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$HOME</span>/.kube/tmp
 <span style="color: #000080; font-weight: bold">$ </span>mv<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$HOME</span>/.kube/tmp<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$HOME</span>/.kube/config
 </code></pre></div>
 
-<h3 id="_5">タブ補完</h3>
+<h3 id="_6">タブ補完</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">source</span><span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>kubectl<span style="color: #bbbbbb"> </span>completion<span style="color: #bbbbbb"> </span>bash<span style="color: #666666">)</span>
 <span style="color: #AA22FF">complete</span><span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"> </span>-F<span style="color: #bbbbbb"> </span>__start_kubectl<span style="color: #bbbbbb"> </span>kc
 </code></pre></div>

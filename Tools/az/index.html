@@ -1423,10 +1423,30 @@
     セキュリティ
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="セキュリティ">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
+    トラフィックのデフォルト拒否設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vnet_2" class="md-nav__link">
+    VNET/サブネットを追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     キーの取得
   </a>
   
@@ -1446,7 +1466,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     使用可能バージョンの確認
   </a>
   
@@ -1460,7 +1480,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ノードプールの追加
   </a>
   
@@ -1486,6 +1506,18 @@
     <li class="md-nav__item">
       <a href="../cygwin/" class="md-nav__link">
         Cygwin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esxi/" class="md-nav__link">
+        ESXi
       </a>
     </li>
   
@@ -1558,6 +1590,30 @@
     <li class="md-nav__item">
       <a href="../openssl/" class="md-nav__link">
         openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qnap/" class="md-nav__link">
+        QNAP
       </a>
     </li>
   
@@ -1959,10 +2015,30 @@
     セキュリティ
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="セキュリティ">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
+    トラフィックのデフォルト拒否設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vnet_2" class="md-nav__link">
+    VNET/サブネットを追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     キーの取得
   </a>
   
@@ -1982,7 +2058,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     使用可能バージョンの確認
   </a>
   
@@ -1996,7 +2072,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ノードプールの追加
   </a>
   
@@ -2203,7 +2279,29 @@
 <h2 id="storage-account">storage account</h2>
 <h3 id="_10">セキュリティ</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/storage/common/storage-network-security?tabs=azure-cli">Azure Storage ファイアウォールおよび仮想ネットワークを構成する | Microsoft Learn</a></p>
-<h3 id="_11">キーの取得</h3>
+<h4 id="_11">トラフィックのデフォルト拒否設定</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account update \</span>
+<span style="color: #888888">  --resource-group ${resource_group} \</span>
+<span style="color: #888888">  --name ${storage_account_name} \</span>
+<span style="color: #888888">  --default-action Deny</span>
+</code></pre></div>
+
+<h4 id="vnet_2">VNET/サブネットを追加</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account network-rule add \</span>
+<span style="color: #888888">  --resource-group ${resource_group} \</span>
+<span style="color: #888888">  --account-name ${storage_account_name} \</span>
+<span style="color: #888888">  --subnet ${subnet_id}</span>
+</code></pre></div>
+
+<p>ただしこれを実行するにはサブネット側エンドポイントのポリシー設定が必要</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet subnet update \</span>
+<span style="color: #888888">  --name ${subnet} \</span>
+<span style="color: #888888">  --vnet-name ${vnet} \</span>
+<span style="color: #888888">  --resource-group ${resource_group} \</span>
+<span style="color: #888888">  --service-endpoints Microsoft.Storage</span>
+</code></pre></div>
+
+<h3 id="_12">キーの取得</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/account/keys?view=azure-cli-latest">az storage account keys | Microsoft Learn</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account keys list \</span>
 <span style="color: #888888">  --resoure-group ${resource_group} \</span>
@@ -2212,7 +2310,7 @@
 
 <p>2つヒットするはずなので、<code>--query '[0].value' -o tsv</code> とかやれば取り出せる。</p>
 <h2 id="aks">AKS</h2>
-<h3 id="_12">使用可能バージョンの確認</h3>
+<h3 id="_13">使用可能バージョンの確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks get-versions --query &#39;orchestrators[].orchestratorVersion&#39;</span>
 </code></pre></div>
 
@@ -2227,7 +2325,7 @@
 </code></pre></div>
 
 <p><code>--overwrite-existing</code>を付与すると確認無しで上書きされる。</p>
-<h3 id="_13">ノードプールの追加</h3>
+<h3 id="_14">ノードプールの追加</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add">az aks nodepool | Microsoft Learn</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks nodepool add \</span>
 <span style="color: #888888">  --resoure-group ${resource_group} \</span>
