@@ -1332,13 +1332,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    ワイルドカード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     その他
   </a>
   
@@ -1993,13 +2000,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    ワイルドカード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     その他
   </a>
   
@@ -2223,7 +2237,13 @@ PEM形式に変換するのであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -p src dst</span>
 </code></pre></div>
 
-<h2 id="_22">その他</h2>
+<h3 id="_22">ワイルドカード</h3>
+<p>リモートのファイル・ディレクトリに対してもワイルドカートは有効。<br />
+ただしローカルに同じパスがあるとローカル側で展開されてしまうのでクォートで囲んでおくのが無難。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -pr 192.168.1.10:&quot;/path/to/file*&quot; .</span>
+</code></pre></div>
+
+<h2 id="_23">その他</h2>
 <ul>
 <li><a href="https://tkuchiki.hatenablog.com/entry/2013/05/27/211051">パスワードを設定していないユーザで ssh ログインしようとすると公開鍵認証でもログインに失敗する - tkuchikiの日記</a><ul>
 <li><code>/etc/shadow</code>の<code>USERNAME</code>の次に<code>!!</code>と書かれている場合はアカウントがロックされている</li>

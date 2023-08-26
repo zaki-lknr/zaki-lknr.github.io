@@ -789,29 +789,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#iamhttpsclone" class="md-nav__link">
-    IAMユーザーでHTTPSでclone
+  <a href="#iam" class="md-nav__link">
+    IAMユーザーの認証情報
   </a>
   
-    <nav class="md-nav" aria-label="IAMユーザーでHTTPSでclone">
+    <nav class="md-nav" aria-label="IAMユーザーの認証情報">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#iam" class="md-nav__link">
+  <a href="#iam_1" class="md-nav__link">
     IAMユーザー作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    認証情報作成
+  <a href="#https" class="md-nav__link">
+    HTTPS認証情報作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSHの認証と接続設定
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ブランチの削除
+  </a>
   
 </li>
       
@@ -1545,29 +1559,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#iamhttpsclone" class="md-nav__link">
-    IAMユーザーでHTTPSでclone
+  <a href="#iam" class="md-nav__link">
+    IAMユーザーの認証情報
   </a>
   
-    <nav class="md-nav" aria-label="IAMユーザーでHTTPSでclone">
+    <nav class="md-nav" aria-label="IAMユーザーの認証情報">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#iam" class="md-nav__link">
+  <a href="#iam_1" class="md-nav__link">
     IAMユーザー作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    認証情報作成
+  <a href="#https" class="md-nav__link">
+    HTTPS認証情報作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSHの認証と接続設定
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ブランチの削除
+  </a>
   
 </li>
       
@@ -1589,8 +1617,8 @@
                 
                 
                 <h1 id="codecommit">CodeCommit</h1>
-<h2 id="iamhttpsclone">IAMユーザーでHTTPSでclone</h2>
-<h3 id="iam">IAMユーザー作成</h3>
+<h2 id="iam">IAMユーザーの認証情報</h2>
+<h3 id="iam_1">IAMユーザー作成</h3>
 <p><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Setup for HTTPS users using Git credentials - AWS CodeCommit</a></p>
 <ul>
 <li>IAMユーザー作成<ul>
@@ -1602,10 +1630,21 @@
 </ul>
 </li>
 </ul>
-<h3 id="_1">認証情報作成</h3>
+<h3 id="https">HTTPS認証情報作成</h3>
 <p>IAMのページの「AWS CodeCommit の HTTPS Git 認証情報」で「認証情報を生成」押下。<br />
 表示されるユーザー名とパスワードでCodeCommitのリポジトリへ認証できる。<br />
 忘れないように認証情報をダウンロードしておくと良い。(CSV形式)</p>
+<h3 id="ssh">SSHの認証と接続設定</h3>
+<p><a href="https://docs.aws.amazon.com/ja_jp/codecommit/latest/userguide/setting-up-ssh-unixes.html">Linux、macOS、または Unix での AWS CodeCommit リポジトリへの SSH 接続の設定手順 - AWS CodeCommit</a></p>
+<p>SSHキーペアを作成し公開鍵をIAMコンソールの「AWS CodeCommit の SSH 公開キー」へアップロード。<br />
+「SSHキーID」をSSHアクセス時のユーザー名として<code>$HOME/.ssh/config</code>に接続設定を行う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Host git-codecommit.*.amazonaws.com
+    User APK......
+    IdentityFile ~/.ssh/......
+</code></pre></div>
+
+<h2 id="_1">ブランチの削除</h2>
+<p>メニューの[リポジトリ]-&gt;[ブランチ]で、対象をチェックして「ブランチの削除」</p>
                 
               
               

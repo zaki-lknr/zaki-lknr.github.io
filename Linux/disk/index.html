@@ -1125,6 +1125,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mount" class="md-nav__link">
+    mount
+  </a>
+  
+    <nav class="md-nav" aria-label="mount">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cifs" class="md-nav__link">
+    CIFS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1735,6 +1755,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mount" class="md-nav__link">
+    mount
+  </a>
+  
+    <nav class="md-nav" aria-label="mount">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cifs" class="md-nav__link">
+    CIFS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1948,6 +1988,14 @@ HD<span style="color: #666666">-</span>LDS<span style="color: #666666">-</span>A
 <p><code>shutdown</code>のオプションに<code>-F</code>を付与</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">shutdown -F -r now</span>
 </code></pre></div>
+
+<h2 id="mount">mount</h2>
+<h3 id="cifs">CIFS</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@cloud-dev2 ~]# </span>mount<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>cifs<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span><span style="color: #B8860B">username</span><span style="color: #666666">=</span>zaki,uid<span style="color: #666666">=</span>***,gid<span style="color: #666666">=</span>***<span style="color: #bbbbbb"> </span>//pecorino/HD-LDS-A<span style="color: #bbbbbb"> </span>/mnt/
+<span style="color: #888888">Password for zaki@//pecorino/HD-LDS-A: </span>
+</code></pre></div>
+
+<p><code>uid</code>と<code>gid</code>も指定しないとownerの設定ができない(mountした時のもので固定される)</p>
                 
               
               
