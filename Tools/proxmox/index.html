@@ -1317,6 +1317,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ovf" class="md-nav__link">
+    ovfインポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#vm" class="md-nav__link">
     VM定義ファイル関連
   </a>
@@ -1525,6 +1532,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ovf" class="md-nav__link">
+    ovfインポート
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#vm" class="md-nav__link">
     VM定義ファイル関連
   </a>
@@ -1549,6 +1563,22 @@
                 
                 
                 <h1 id="proxmox-pve">Proxmox (PVE)</h1>
+<h2 id="ovf">ovfインポート</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">qm importovf &lt;VM ID&gt; &lt;OVFファイルのパス&gt; &lt;VM用ストレージ名&gt;</span>
+</code></pre></div>
+
+<p>実行例</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qm<span style="color: #bbbbbb"> </span>importovf<span style="color: #bbbbbb"> </span><span style="color: #666666">201</span><span style="color: #bbbbbb"> </span>/mnt/pve/pecorino/archive/export/fedora-node/fedora-node.ovf<span style="color: #bbbbbb"> </span>wdblue1000gb
+<span style="color: #888888">  Logical volume &quot;vm-201-disk-0&quot; created.</span>
+<span style="color: #888888">transferred 0.0 B of 20.0 GiB (0.00%)</span>
+<span style="color: #888888">transferred 204.8 MiB of 20.0 GiB (1.00%)</span>
+<span style="color: #888888">transferred 409.6 MiB of 20.0 GiB (2.00%)</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">transferred 20.0 GiB of 20.0 GiB (100.00%)</span>
+<span style="color: #000080; font-weight: bold">root@pve:~# </span>
+</code></pre></div>
+
 <h2 id="vm">VM定義ファイル関連</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #bbbbbb"> </span>-F<span style="color: #bbbbbb"> </span>/etc/pve/nodes/pve/qemu-server
 <span style="color: #888888">100.conf  102.conf  202.conf  301.conf  303.conf</span>
