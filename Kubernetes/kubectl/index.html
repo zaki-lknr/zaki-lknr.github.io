@@ -2042,6 +2042,21 @@ apiVersion:<span style="color: #bbbbbb"> </span>v1
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>work-pod<span style="color: #bbbbbb"> </span>--image<span style="color: #666666">=</span>fedora<span style="color: #bbbbbb"> </span>--command<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>tail<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>/dev/null
 </code></pre></div>
 
+<p>マニフェストにするとこんな感じ</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Pod
+<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>v1
+<span style="color: #008000; font-weight: bold">metadata</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>work-pod
+<span style="color: #008000; font-weight: bold">spec</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">containers</span>:
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>work-pod
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>fedora
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">command</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>tail
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>-f
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>/dev/null
+</code></pre></div>
+
 <h2 id="expose">expose</h2>
 <h3 id="podservice">podベースでserviceを作成</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>expose<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>&lt;pod-name&gt;<span style="color: #bbbbbb"> </span>--port<span style="color: #bbbbbb"> </span><span style="color: #666666">80</span>
