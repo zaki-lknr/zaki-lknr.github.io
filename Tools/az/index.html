@@ -1440,6 +1440,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#blob" class="md-nav__link">
+    ファイルBlobのダウンロード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2059,6 +2066,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#blob" class="md-nav__link">
+    ファイルBlobのダウンロード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2353,6 +2367,17 @@
 
 <p><code>dest</code>はドキュメントには「パス」と書かれているが、実際に動かすとディレクトリ名になる。<br />
 (<code>destのディレクトリ名</code>/<code>元のファイル名</code>で保存される)</p>
+<h4 id="blob">ファイルBlobのダウンロード</h4>
+<p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-download">az storage blob | Microsoft Learn</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage blob download \</span>
+<span style="color: #888888">  --container-name ${container_name} \</span>
+<span style="color: #888888">  --name ${blob_filepath} \</span>
+<span style="color: #888888">  --file ${output_dir_name} \</span>
+<span style="color: #888888">  --account-name ${storage_account} \</span>
+<span style="color: #888888">  --account-key ${account_key}</span>
+</code></pre></div>
+
+<p><code>container_name</code>はコンテナーの名称、<code>blob_filepath</code>はコンテナー内におけるファイルのパス、<code>output_dir_name</code>は出力先(ダウンロード先のファイル名)</p>
 <h3 id="_13">セキュリティ</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/storage/common/storage-network-security?tabs=azure-cli">Azure Storage ファイアウォールおよび仮想ネットワークを構成する | Microsoft Learn</a></p>
 <h4 id="_14">トラフィックのデフォルト拒否設定</h4>

@@ -1330,6 +1330,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    バックアップとリストア
+  </a>
+  
+    <nav class="md-nav" aria-label="バックアップとリストア">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    リストア
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1545,6 +1565,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    バックアップとリストア
+  </a>
+  
+    <nav class="md-nav" aria-label="バックアップとリストア">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    リストア
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1606,6 +1646,32 @@
 <span style="color: #000080; font-weight: bold">root@pve:/# </span>file<span style="color: #bbbbbb"> </span>/dev/dm-15
 <span style="color: #888888">/dev/dm-15: block special (253/15)</span>
 </code></pre></div>
+
+<h2 id="_1">バックアップとリストア</h2>
+<h3 id="_2">リストア</h3>
+<p>VM削除済みの場合はCLIで実行する。<br />
+以下はバックアップデータをVM ID:500としてリストア。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qmrestore<span style="color: #bbbbbb"> </span>/mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst<span style="color: #bbbbbb"> </span><span style="color: #666666">500</span>
+<span style="color: #888888">restore vma archive: zstd -q -d -c /mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst | vma extract -v -r /var/tmp/vzdumptmp177197.fifo - /var/tmp/vzdumptmp177197</span>
+<span style="color: #888888">CFG: size: 458 name: qemu-server.conf</span>
+<span style="color: #888888">DEV: dev_id=1 size: 17179869184 devname: drive-scsi0</span>
+<span style="color: #888888">CTIME: Tue Sep  5 15:29:21 2023</span>
+<span style="color: #888888">  Logical volume &quot;vm-500-disk-0&quot; created.</span>
+<span style="color: #888888">new volume ID is &#39;WDS100T2BA0A:vm-500-disk-0&#39;</span>
+<span style="color: #888888">map &#39;drive-scsi0&#39; to &#39;/dev/WDS100T2BA0A/vm-500-disk-0&#39; (write zeros = 0)</span>
+<span style="color: #888888">progress 1% (read 171835392 bytes, duration 1 sec)</span>
+<span style="color: #888888">progress 2% (read 343605248 bytes, duration 2 sec)</span>
+<span style="color: #888888">progress 3% (read 515440640 bytes, duration 4 sec)</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">progress 100% (read 17179869184 bytes, duration 20 sec)</span>
+<span style="color: #888888">total bytes read 17179869184, sparse bytes 12563259392 (73.1%)</span>
+<span style="color: #888888">space reduction due to 4K zero blocks 2.95%</span>
+<span style="color: #888888">rescan volumes...</span>
+</code></pre></div>
+
+<p>ストレージはデフォルトだとバックアップ時と同じところへリストアされる？それともデフォルトのストレージかな？<br />
+<code>--storage</code>で指定できそう</p>
+<p>Web UIでリストアする場合は、VMのメニューでなくストレージのメニューからリストアを選ぶと、全バックアップデータが表示されるのでそこからリストアを行う。</p>
                 
               
               
