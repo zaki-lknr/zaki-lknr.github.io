@@ -1134,6 +1134,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#base64" class="md-nav__link">
+    base64
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sed" class="md-nav__link">
     sed
   </a>
@@ -2238,6 +2245,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#base64" class="md-nav__link">
+    base64
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sed" class="md-nav__link">
     sed
   </a>
@@ -2814,6 +2828,14 @@
 <p>リソースの内容をstdoutへ出力</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>wget<span style="color: #bbbbbb"> </span>-q<span style="color: #bbbbbb"> </span>-O<span style="color: #bbbbbb"> </span>-<span style="color: #bbbbbb"> </span>https://storage.googleapis.com/kubernetes-release/release/stable.txt
 <span style="color: #888888">v1.24.3</span>
+</code></pre></div>
+
+<h2 id="base64">base64</h2>
+<p>デコード</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>stdinから
+<span style="color: #888888">command | base64 -d</span>
+<span style="color: #000080; font-weight: bold"># </span>ファイルから
+<span style="color: #888888">base64 -d FILENAME</span>
 </code></pre></div>
 
 <h2 id="sed">sed</h2>

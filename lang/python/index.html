@@ -1776,6 +1776,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    DELETE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
     リクエストヘッダ
   </a>
@@ -1792,6 +1806,13 @@
           <li class="md-nav__item">
   <a href="#ssl" class="md-nav__link">
     SSL検証無視
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    Basic認証
   </a>
   
 </li>
@@ -2370,6 +2391,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    DELETE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
     リクエストヘッダ
   </a>
@@ -2386,6 +2421,13 @@
           <li class="md-nav__item">
   <a href="#ssl" class="md-nav__link">
     SSL検証無視
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    Basic認証
   </a>
   
 </li>
@@ -2922,6 +2964,22 @@ Type <span style="color: #BB4444">&quot;help&quot;</span>, <span style="color: #
 r <span style="color: #666666">=</span> requests<span style="color: #666666">.</span>get(<span style="color: #BB4444">&quot;http://www.example.org&quot;</span>)
 </code></pre></div>
 
+<h5 id="post">POST</h5>
+<p>辞書型データをJSON形式のリクエストヘッダにするなら<code>json.dumps</code>を使うと楽。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>payload <span style="color: #666666">=</span> json<span style="color: #666666">.</span>dumps(dict_params)
+headers <span style="color: #666666">=</span> {
+    <span style="color: #BB4444">&#39;Content-Type&#39;</span>: <span style="color: #BB4444">&#39;application/json&#39;</span>,
+    <span style="color: #BB4444">&#39;Accept&#39;</span>: <span style="color: #BB4444">&#39;application/json&#39;</span>,
+    <span style="color: #BB4444">&#39;Authorization&#39;</span>: <span style="color: #BB4444">&#39;Bearer &#39;</span> <span style="color: #666666">+</span> token
+}
+requests<span style="color: #666666">.</span>post(url, data<span style="color: #666666">=</span>payload, headers<span style="color: #666666">=</span>headers)
+</code></pre></div>
+
+<h5 id="delete">DELETE</h5>
+<p>POSTと同じ要領</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>requests<span style="color: #666666">.</span>delete(url)
+</code></pre></div>
+
 <h5 id="_21">リクエストヘッダ</h5>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>headers <span style="color: #666666">=</span> {
     <span style="color: #BB4444">&#39;Accept&#39;</span>: <span style="color: #BB4444">&#39;application/json&#39;</span>,
@@ -2943,6 +3001,10 @@ requests<span style="color: #666666">.</span>get(url, headers<span style="color:
 <p>REST APIのようにレスポンスがJSON形式のテキストの場合は、<code>r.json()</code>を使うとオブジェクトとして値をとれる。</p>
 <h5 id="ssl">SSL検証無視</h5>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>r <span style="color: #666666">=</span> requests<span style="color: #666666">.</span>get(<span style="color: #BB4444">&quot;https://www.example.org&quot;</span>, verify<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">False</span>)
+</code></pre></div>
+
+<h5 id="basic">Basic認証</h5>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>requests<span style="color: #666666">.</span>get(url, auth<span style="color: #666666">=</span>HTTPBasicAuth(username, password))
 </code></pre></div>
 
 <h3 id="isinstance">isinstance()で型チェック</h3>
