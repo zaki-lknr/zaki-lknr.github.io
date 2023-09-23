@@ -1474,6 +1474,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    許可IPアドレスの追加
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2100,6 +2107,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    許可IPアドレスの追加
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2400,6 +2414,13 @@
 <span style="color: #888888">  --vnet-name ${vnet} \</span>
 <span style="color: #888888">  --resource-group ${resource_group} \</span>
 <span style="color: #888888">  --service-endpoints Microsoft.Storage</span>
+</code></pre></div>
+
+<h4 id="ip">許可IPアドレスの追加</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account network-rule add \</span>
+<span style="color: #888888">  --resource-group ${resource_group} \</span>
+<span style="color: #888888">  --account-name ${storage_account_name} \</span>
+<span style="color: #888888">  --ip-address ${ip_address}</span>
 </code></pre></div>
 
 <h3 id="_15">キーの取得</h3>
