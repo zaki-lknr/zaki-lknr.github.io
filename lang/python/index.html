@@ -1694,6 +1694,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    末尾1文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    末尾1文字を削った文字列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#splitlines" class="md-nav__link">
     splitlines()
   </a>
@@ -2309,6 +2323,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    末尾1文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    末尾1文字を削った文字列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#splitlines" class="md-nav__link">
     splitlines()
   </a>
@@ -2876,6 +2904,14 @@ dict2 <span style="color: #666666">=</span> <span style="color: #AA22FF">dict</s
 <p>YAMLと違ってメソッド名は<code>dumps()</code>で<code>s</code>が付与される。<br />
 <code>dump()</code>は、ファイル出力を行うメソッドとして別に存在する。</p>
 <h3 id="_16">文字列</h3>
+<h4 id="1">末尾1文字</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_str[<span style="color: #666666">-1</span>]
+</code></pre></div>
+
+<h4 id="1_1">末尾1文字を削った文字列</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_str[:<span style="color: #666666">-1</span>]
+</code></pre></div>
+
 <h4 id="splitlines">splitlines()</h4>
 <p>テキストの末尾に改行がある場合、<code>split('\n')</code>を使うと末尾の改行もデリミタと認識し、リストの最終要素は空文字になるが、<code>splitlines()</code>であれば末尾の改行分は無視される。行ごとに処理したい場合はこちらが便利。</p>
 <h4 id="_17">ゼロパディング</h4>
