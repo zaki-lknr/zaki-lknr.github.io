@@ -1133,6 +1133,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+    <nav class="md-nav" aria-label="get">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event" class="md-nav__link">
+    eventで作成時ソート
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1907,6 +1927,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+    <nav class="md-nav" aria-label="get">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event" class="md-nav__link">
+    eventで作成時ソート
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2126,6 +2166,11 @@ oci-k3s-le
 <p>リソースが指定の条件になるまで待つ。<br />
 podがrunningになるまで待つには以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl wait --for=jsonpath=&#39;{.status.phase}&#39;=Running pod/*****</span>
+</code></pre></div>
+
+<h2 id="get">get</h2>
+<h3 id="event">eventで作成時ソート</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get event --sort-by=&#39;.metadata.creationTimestamp&#39;</span>
 </code></pre></div>
                 
               
