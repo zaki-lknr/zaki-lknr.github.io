@@ -1336,9 +1336,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ovf" class="md-nav__link">
-    OVFインポート
+  <a href="#_1" class="md-nav__link">
+    設定
   </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ネットワーク設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1539,9 +1552,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ovf" class="md-nav__link">
-    OVFインポート
+  <a href="#_1" class="md-nav__link">
+    設定
   </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ネットワーク設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1570,14 +1596,9 @@
 変更するには「ストレージ＆スナップショット」の「ストレージ情報」から。ただし変更すると各種設定がリセットされる。</p>
 <p>CIFS共有時のコメントを設定するには「コントロールパネル」-&gt;「共有フォルダ―」の「プロパティの編集」から。<br />
 でもリブートしたら消える？</p>
-<h2 id="ovf">OVFインポート</h2>
-<p>ESXiなどからエクスポートしたovfファイルは <code>qm</code> コマンドでインポートする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">qm importovf &lt;VM ID&gt; &lt;OVFファイルのパス&gt; &lt;VM用ストレージ名&gt;</span>
-</code></pre></div>
-
-<p>実行例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qm<span style="color: #bbbbbb"> </span>importovf<span style="color: #bbbbbb"> </span><span style="color: #666666">111</span><span style="color: #bbbbbb"> </span>/mnt/pve/pecorino/archive/export/cheddar/cheddar.ovf<span style="color: #bbbbbb"> </span>local-lvm
-</code></pre></div>
+<h2 id="_1">設定</h2>
+<h3 id="_2">ネットワーク設定</h3>
+<p>コントロールパネル-&gt;ネットワークと仮想スイッチの画面で、対象インタフェースの「：」メニューのConfigureから。</p>
                 
               
               
