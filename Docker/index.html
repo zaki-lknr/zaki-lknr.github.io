@@ -704,6 +704,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-add-host" class="md-nav__link">
+    ホストのアドレス(--add-host)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1730,6 +1737,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-add-host" class="md-nav__link">
+    ホストのアドレス(--add-host)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1918,6 +1932,12 @@
 
 <p><code>webvolume</code>ボリュームを(無ければ自動作成して)<code>/var/tmp</code>にマウントしてコンテナ起動。<br />
 コンテナを停止・削除してもボリュームは残るので、このボリュームを別コンテナでマウントすればデータを保持できる。</p>
+<h4 id="-add-host">ホストのアドレス(--add-host)</h4>
+<p><code>host.docker.internal</code>をホストOSのアドレスに設定するには<code>host-gateway</code>を指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --add-host host.docker.internal:host-gateway --rm -it centos bash</span>
+</code></pre></div>
+
+<p>これでコンテナ内の<code>/etc/hosts</code>に<code>host.docker.internal</code>のエントリが追加され、ホストOSへのアドレスが設定される。</p>
 <h3 id="inspect">inspect</h3>
 <p>コンテナの状態を確認する</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker inspect &lt;container name or ID&gt;</span>
@@ -2050,6 +2070,7 @@ pushされたイメージは、GitHubのweb画面の「Packages」で確認で�
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #bbbbbb"> </span>login<span style="color: #bbbbbb"> </span>&lt;registry<span style="color: #bbbbbb"> </span>URL&gt;<span style="color: #bbbbbb"> </span>-u<span style="color: #bbbbbb"> </span>AWS<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$(</span>aws<span style="color: #bbbbbb"> </span>ecr<span style="color: #bbbbbb"> </span>get-login-password<span style="color: #AA22FF; font-weight: bold">)</span>
 </code></pre></div>
 
+<p><a href="https://docs.aws.amazon.com/ja_jp/AmazonECR/latest/userguide/registry_auth.html">プライベートレジストリの認証 - Amazon ECR</a></p>
 <h2 id="acr">ACR</h2>
 <p>ポータルからの場合は、レジストリメニューの「トークン」から、「追加」でトークンを作成する。スコープマップに権限を入力。<br />
 作成したトークンの「詳細」からパスワードを生成できる。<br />

@@ -1153,6 +1153,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    label
+  </a>
+  
+    <nav class="md-nav" aria-label="label">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1947,6 +1967,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    label
+  </a>
+  
+    <nav class="md-nav" aria-label="label">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2171,6 +2211,25 @@ podがrunningになるまで待つには以下。</p>
 <h2 id="get">get</h2>
 <h3 id="event">eventで作成時ソート</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get event --sort-by=&#39;.metadata.creationTimestamp&#39;</span>
+</code></pre></div>
+
+<h2 id="label">label</h2>
+<p>リソースのラベルを追加/変更/削除する</p>
+<h3 id="_7">追加</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">app</span><span style="color: #666666">=</span>rsync
+<span style="color: #888888">pod/rsync-pod labeled</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>--show-labels
+<span style="color: #888888">NAME                       READY   STATUS    RESTARTS   AGE   LABELS</span>
+<span style="color: #888888">rsync-pod                  1/1     Running   3          28d   app=rsync</span>
+<span style="color: #888888">sockserv-db66b7df7-rtcv9   1/1     Running   1          17d   app=sockserv,pod-template-hash=db66b7df7</span>
+</code></pre></div>
+
+<p>更に追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">state</span><span style="color: #666666">=</span>normal
+<span style="color: #888888">pod/rsync-pod labeled</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span><span style="color: #B8860B">app</span><span style="color: #666666">=</span>rsync<span style="color: #bbbbbb"> </span>--show-labels
+<span style="color: #888888">NAME        READY   STATUS    RESTARTS   AGE   LABELS</span>
+<span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=normal</span>
 </code></pre></div>
                 
               
