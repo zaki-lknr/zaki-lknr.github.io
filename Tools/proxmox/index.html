@@ -911,6 +911,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kubernetes/minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1332,13 +1344,33 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワーク">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ブリッジポート無しで作成したブリッジに物理ポートを追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ストレージ定義ファイル
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     バックアップとリストア
   </a>
   
@@ -1346,14 +1378,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     リストア
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     バックアップデータの実データ保存先
   </a>
   
@@ -1581,13 +1613,33 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    ネットワーク
+  </a>
+  
+    <nav class="md-nav" aria-label="ネットワーク">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ブリッジポート無しで作成したブリッジに物理ポートを追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ストレージ定義ファイル
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     バックアップとリストア
   </a>
   
@@ -1595,14 +1647,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     リストア
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     バックアップデータの実データ保存先
   </a>
   
@@ -1675,7 +1727,32 @@
 <span style="color: #888888">/dev/dm-15: block special (253/15)</span>
 </code></pre></div>
 
-<h2 id="_1">ストレージ定義ファイル</h2>
+<h2 id="_1">ネットワーク</h2>
+<h3 id="_2">ブリッジポート無しで作成したブリッジに物理ポートを追加</h3>
+<p>UIでLinux Bridgeの「ブリッジポート」にポート名を追加し「OK」押下。<br />
+画面下部にメッセージが表示される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>## 変更を保留中 (有効にするには再起動か、 &#39;Apply Configuration&#39; (needs ifupdown2)を使用)
+<span style="color: #A00000">--- /etc/network/interfaces 2023-05-21 15:33:29.906403987 +0900</span>
+<span style="color: #00A000">+++ /etc/network/interfaces.new 2023-10-17 09:10:38.701832421 +0900</span>
+<span style="color: #800080; font-weight: bold">@@ -29,7 +29,7 @@</span>
+<span style="color: #bbbbbb"> </span>auto vmbr1
+<span style="color: #bbbbbb"> </span>iface vmbr1 inet static
+<span style="color: #bbbbbb"> </span>   address 172.16.0.1/23
+<span style="color: #A00000">-   bridge-ports none</span>
+<span style="color: #00A000">+   bridge-ports enp3s0</span>
+<span style="color: #bbbbbb"> </span>   bridge-stp off
+<span style="color: #bbbbbb"> </span>   bridge-fd 0
+<span style="color: #bbbbbb"> </span>#private-network-1
+</code></pre></div>
+
+<p>シェルを起動し</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ifdown<span style="color: #bbbbbb"> </span>vmbr1<span style="color: #bbbbbb"> </span>
+<span style="color: #000080; font-weight: bold">root@pve:~# </span>ifup<span style="color: #bbbbbb"> </span>vmbr1<span style="color: #bbbbbb"> </span>
+</code></pre></div>
+
+<p>…だけだと反映されてなさそうだったので(<code>ifup enp3s0</code>も実施したが変化なし)rebootした。</p>
+<p>※ <code>ifupdown2</code>というコマンドを別途インストールすれば良かったかも</p>
+<h2 id="_3">ストレージ定義ファイル</h2>
 <p><code>/etc/pve/storage.cfg</code>にある。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #bbbbbb"> </span>/etc/pve/storage.cfg
 <span style="color: #888888">dir: local</span>
@@ -1696,8 +1773,8 @@
 <span style="color: #888888">        prune-backups keep-all=1</span>
 </code></pre></div>
 
-<h2 id="_2">バックアップとリストア</h2>
-<h3 id="_3">リストア</h3>
+<h2 id="_4">バックアップとリストア</h2>
+<h3 id="_5">リストア</h3>
 <p>VM削除済みの場合はCLIで実行する。<br />
 以下はバックアップデータをVM ID:500としてリストア。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qmrestore<span style="color: #bbbbbb"> </span>/mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst<span style="color: #bbbbbb"> </span><span style="color: #666666">500</span>
@@ -1721,7 +1798,7 @@
 <p>ストレージはデフォルトだとバックアップ時と同じところへリストアされる？それともデフォルトのストレージかな？<br />
 <code>--storage</code>で指定できそう</p>
 <p>Web UIでリストアする場合は、VMのメニューでなくストレージのメニューからリストアを選ぶと、全バックアップデータが表示されるのでそこからリストアを行う。</p>
-<h3 id="_4">バックアップデータの実データ保存先</h3>
+<h3 id="_6">バックアップデータの実データ保存先</h3>
 <p>内蔵ストレージの場合は<code>/var/lib/vz/dump/</code></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #bbbbbb"> </span>/var/lib/vz/dump/
 <span style="color: #888888">vzdump-qemu-500-2023_09_24-01_05_17.log</span>
