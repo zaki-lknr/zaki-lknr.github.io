@@ -1175,6 +1175,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2008,6 +2015,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2270,6 +2284,11 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">kubectl get pod -l app=rsync --show-labels</span>
 <span style="color: #888888">NAME        READY   STATUS    RESTARTS   AGE   LABELS</span>
 <span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
+</code></pre></div>
+
+<h3 id="_9">削除</h3>
+<p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl label pod rsync-pod state-</span>
 </code></pre></div>
                 
               
