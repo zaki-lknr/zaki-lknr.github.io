@@ -1208,6 +1208,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#git-blame" class="md-nav__link">
+    この行をコミットしたのは誰 (git blame)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-blame_1" class="md-nav__link">
+    git blameで特定コミットを除く
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1215,6 +1229,26 @@
       
         <li class="md-nav__item">
   <a href="#_30" class="md-nav__link">
+    前の状態に戻す
+  </a>
+  
+    <nav class="md-nav" aria-label="前の状態に戻す">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    指定コミットの状態に戻す
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
     その他
   </a>
   
@@ -2425,6 +2459,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#git-blame" class="md-nav__link">
+    この行をコミットしたのは誰 (git blame)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-blame_1" class="md-nav__link">
+    git blameで特定コミットを除く
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2432,6 +2480,26 @@
       
         <li class="md-nav__item">
   <a href="#_30" class="md-nav__link">
+    前の状態に戻す
+  </a>
+  
+    <nav class="md-nav" aria-label="前の状態に戻す">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    指定コミットの状態に戻す
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
     その他
   </a>
   
@@ -2816,7 +2884,25 @@ M<span style="color: #bbbbbb">       </span>docs/Ansible/directives.md
 </code></pre></div>
 
 </blockquote>
-<h2 id="_30">その他</h2>
+<h3 id="git-blame">この行をコミットしたのは誰 (git blame)</h3>
+<p>これで行ごとの最終コミットのID、ユーザー名、コミット日時が出力される</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git blame &lt;filename&gt;</span>
+</code></pre></div>
+
+<h3 id="git-blame_1">git blameで特定コミットを除く</h3>
+<p>例えば過去に「ファイルの改行コードを変更」というコミットがあると、全ての行で変更が発生することになるため、<code>git blame</code>を使ってもそれ以前のコミットを確認できない。<br />
+こういう時は特定のコミットを除く<code>--ignore-rev</code>オプションを使って除外したいコミットを指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git blame --ignore-rev &lt;除外したいコミットID&gt; &lt;filename&gt;</span>
+</code></pre></div>
+
+<p>除外対象が複数ある場合は、その分指定すればOK</p>
+<h2 id="_30">前の状態に戻す</h2>
+<h3 id="_31">指定コミットの状態に戻す</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git reset --hard &#39;対象のコミットID&#39;</span>
+</code></pre></div>
+
+<p><code>reset --hard</code>は<a href="trouble/#_6">コミットの取り消し</a>にも使用する</p>
+<h2 id="_32">その他</h2>
 <h3 id="head">HEAD</h3>
 <p>概略(語弊あるかも)</p>
 <ul>

@@ -919,6 +919,19 @@
     docs
   </a>
   
+    <nav class="md-nav" aria-label="docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    起動パラメタ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -944,7 +957,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     穴あけ
   </a>
   
@@ -958,7 +971,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -970,7 +983,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1596,6 +1609,19 @@
     docs
   </a>
   
+    <nav class="md-nav" aria-label="docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    起動パラメタ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1621,7 +1647,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     穴あけ
   </a>
   
@@ -1635,7 +1661,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -1647,7 +1673,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1675,6 +1701,13 @@
 <ul>
 <li><a href="https://docs.k3s.io/">K3s - Lightweight Kubernetes | K3s</a></li>
 <li><a href="https://www.rancher.co.jp/pdfs/K3s-eBook4Styles0507.pdf">日本語版 K3sマニュアル</a></li>
+</ul>
+<h3 id="_1">起動パラメタ</h3>
+<ul>
+<li><a href="https://docs.k3s.io/cli/server">server | K3s</a></li>
+<li><a href="https://docs.k3s.io/cli/agent">agent | K3s</a></li>
+<li><a href="https://docs.k3s.io/installation/configuration">Configuration Options | K3s</a></li>
+<li><a href="https://docs.k3s.io/installation/network-options">Network Options | K3s</a></li>
 </ul>
 <h2 id="k3d-compose">K3d (compose)</h2>
 <p><a href="https://github.com/k3s-io/k3s/blob/master/docker-compose.yml">k3s/docker-compose.yml at master · k3s-io/k3s</a></p>
@@ -1736,7 +1769,7 @@
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
-<h3 id="_1">穴あけ</h3>
+<h3 id="_2">穴あけ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--add-port<span style="color: #666666">=6443</span>/tcp<span style="color: #bbbbbb"> </span>--permanent
 <span style="color: #888888">success</span>
 <span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--reload
@@ -1760,7 +1793,7 @@
 <span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
-<h3 id="_2">ノードスペック</h3>
+<h3 id="_3">ノードスペック</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>describe<span style="color: #bbbbbb"> </span>node
 
 <span style="color: #888888">[...]</span>
@@ -1785,7 +1818,7 @@
 
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
-<h2 id="_3">アンインストール</h2>
+<h2 id="_4">アンインストール</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #bbbbbb"> </span>
 </code></pre></div>
                 
