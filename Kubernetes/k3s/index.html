@@ -919,19 +919,33 @@
     docs
   </a>
   
-    <nav class="md-nav" aria-label="docs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     起動パラメタ
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     デフォルト値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    オフライン環境
+  </a>
+  
+    <nav class="md-nav" aria-label="オフライン環境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    プライベートレジストリ設定
   </a>
   
 </li>
@@ -964,7 +978,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     穴あけ
   </a>
   
@@ -978,7 +992,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -990,7 +1004,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1616,19 +1630,33 @@
     docs
   </a>
   
-    <nav class="md-nav" aria-label="docs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     起動パラメタ
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     デフォルト値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    オフライン環境
+  </a>
+  
+    <nav class="md-nav" aria-label="オフライン環境">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    プライベートレジストリ設定
   </a>
   
 </li>
@@ -1661,7 +1689,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     穴あけ
   </a>
   
@@ -1675,7 +1703,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -1687,7 +1715,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1716,14 +1744,14 @@
 <li><a href="https://docs.k3s.io/">K3s - Lightweight Kubernetes | K3s</a></li>
 <li><a href="https://www.rancher.co.jp/pdfs/K3s-eBook4Styles0507.pdf">日本語版 K3sマニュアル</a></li>
 </ul>
-<h3 id="_1">起動パラメタ</h3>
+<h2 id="_1">起動パラメタ</h2>
 <ul>
 <li><a href="https://docs.k3s.io/cli/server">server | K3s</a></li>
 <li><a href="https://docs.k3s.io/cli/agent">agent | K3s</a></li>
 <li><a href="https://docs.k3s.io/installation/configuration">Configuration Options | K3s</a></li>
 <li><a href="https://docs.k3s.io/installation/network-options">Network Options | K3s</a></li>
 </ul>
-<h3 id="_2">デフォルト値</h3>
+<h2 id="_2">デフォルト値</h2>
 <table>
 <thead>
 <tr>
@@ -1746,6 +1774,25 @@
 </tr>
 </tbody>
 </table>
+<h2 id="_3">オフライン環境</h2>
+<h3 id="_4">プライベートレジストリ設定</h3>
+<p>プライベートレジストリを利用するには「デフォルトで<code>docker.io</code>向きになっている通信をローカルにフォワードする」設定を追加する。
+ローカル環境にたてたGitLabのコンテナレジストリを使う場合でパスが深くなる場合も<code>rewrite</code>を使って調整可能。(イメージ名は変更しない)</p>
+<p><code>/etc/rancher/k3s/registries.yaml</code>に以下のように設定。<br />
+証明書の検証をスキップする場合は<code>insecure_skip_verify</code>を追加する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">mirrors</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">docker.io</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">endpoint</span>:
+<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://gitlab.example.org:25000&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">rewrite</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #BB4444">&quot;^rancher/(.*)&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;zaki/images/$1&quot;</span>
+<span style="color: #008000; font-weight: bold">configs</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #BB4444">&quot;gitlab.example.org:25000&quot;</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">tls</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">insecure_skip_verify</span>:<span style="color: #bbbbbb"> </span>true
+</code></pre></div>
+
+<p>また、この設定はノード毎に必要なので、マルチノード構成の場合は全てのノードに設定する。</p>
 <h2 id="k3d-compose">K3d (compose)</h2>
 <p><a href="https://github.com/k3s-io/k3s/blob/master/docker-compose.yml">k3s/docker-compose.yml at master · k3s-io/k3s</a></p>
 <h2 id="always-freeocia1flex-2cpu12gb-ram">Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る</h2>
@@ -1806,7 +1853,7 @@
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
-<h3 id="_3">穴あけ</h3>
+<h3 id="_5">穴あけ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--add-port<span style="color: #666666">=6443</span>/tcp<span style="color: #bbbbbb"> </span>--permanent
 <span style="color: #888888">success</span>
 <span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--reload
@@ -1830,7 +1877,7 @@
 <span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
-<h3 id="_4">ノードスペック</h3>
+<h3 id="_6">ノードスペック</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>describe<span style="color: #bbbbbb"> </span>node
 
 <span style="color: #888888">[...]</span>
@@ -1855,7 +1902,7 @@
 
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
-<h2 id="_5">アンインストール</h2>
+<h2 id="_7">アンインストール</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #bbbbbb"> </span>
 </code></pre></div>
                 

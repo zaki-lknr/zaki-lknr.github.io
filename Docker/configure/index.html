@@ -711,6 +711,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dns" class="md-nav__link">
     DNS
   </a>
@@ -1564,6 +1571,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dns" class="md-nav__link">
     DNS
   </a>
@@ -1615,6 +1629,17 @@
                 
                 
                 <h1 id="_1">設定</h1>
+<h2 id="insecure">insecureなレジストリ設定</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
+</code></pre></div>
+
+<p>ローカルに立てたレジストリとかでこんなエラーが出る場合。<br />
+<code>/etc/docker/daemon.json</code>に、TLS検証を無視したいサイトを以下のように追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;insecure-registries&quot;</span><span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;gitlab-ce.example.org:25000&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;gitlab-ce.local:25000&quot;</span><span style="color: #bbbbbb"> </span>]
+}
+</code></pre></div>
+
 <h2 id="dns">DNS</h2>
 <p>コンテナ内で使用するDNS設定を指定するには、<code>--dns</code>を指定するか、ホストの<code>/etc/docker/daemon.json</code>で一律指定する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{

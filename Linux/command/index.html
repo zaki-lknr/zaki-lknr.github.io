@@ -1508,6 +1508,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ipstatic" class="md-nav__link">
+    IPアドレスをstaticに変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dns" class="md-nav__link">
     DNSの設定変更
   </a>
@@ -2686,6 +2693,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ipstatic" class="md-nav__link">
+    IPアドレスをstaticに変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dns" class="md-nav__link">
     DNSの設定変更
   </a>
@@ -3313,6 +3327,19 @@
 
 <h3 id="_30">インタフェースの削除</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">nmcli c delete ens224</span>
+</code></pre></div>
+
+<h3 id="ipstatic">IPアドレスをstaticに変更</h3>
+<p>DHCPでインストールしたあとに変更したいときとか。<br />
+methodをmanualに変更するのはaddressesをセットしたあとでないとエラーになるので注意。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">nmcli c m ens192 ipv4.addresses &quot;192.168.0.79/24&quot;</span>
+<span style="color: #888888">nmcli c m ens192 ipv4.gateway &quot;192.168.0.1&quot;</span>
+<span style="color: #888888">nmcli c m ens192 ipv4.method manual</span>
+</code></pre></div>
+
+<p>最後に再起動</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">nmcli c down ens192</span>
+<span style="color: #888888">nmcli c up ens192</span>
 </code></pre></div>
 
 <h3 id="dns">DNSの設定変更</h3>
