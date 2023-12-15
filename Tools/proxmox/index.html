@@ -1294,6 +1294,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -1327,6 +1339,13 @@
       目次
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uivmip" class="md-nav__link">
+    UIでVMのIPアドレス確認
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#ovf" class="md-nav__link">
@@ -1598,6 +1617,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#uivmip" class="md-nav__link">
+    UIでVMのIPアドレス確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ovf" class="md-nav__link">
     ovfインポート
   </a>
@@ -1683,6 +1709,12 @@
                 
                 
                 <h1 id="proxmox-pve">Proxmox (PVE)</h1>
+<h2 id="uivmip">UIでVMのIPアドレス確認</h2>
+<p>VMの「サマリー」でIPアドレスを確認するには、以下実行する</p>
+<ul>
+<li>オプションの「QEMU Guest Agent」を有効にする</li>
+<li>VMで<code>qemu-guest-agent</code>パッケージをインストールしサービスを有効にする</li>
+</ul>
 <h2 id="ovf">ovfインポート</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">qm importovf &lt;VM ID&gt; &lt;OVFファイルのパス&gt; &lt;VM用ストレージ名&gt;</span>
 </code></pre></div>
@@ -1837,7 +1869,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../openssl/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../postgresql/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1846,7 +1878,7 @@
               <span class="md-footer__direction">
                 前
               </span>
-              openssl
+              PostgreSQL
             </div>
           </div>
         </a>
