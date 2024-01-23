@@ -1383,13 +1383,33 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    ストレージ定義ファイル
+    ストレージ
   </a>
+  
+    <nav class="md-nav" aria-label="ストレージ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    定義ファイル
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    登録済みストレージの設定変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     バックアップとリストア
   </a>
   
@@ -1397,14 +1417,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     リストア
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     バックアップデータの実データ保存先
   </a>
   
@@ -1659,13 +1679,33 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    ストレージ定義ファイル
+    ストレージ
   </a>
+  
+    <nav class="md-nav" aria-label="ストレージ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    定義ファイル
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    登録済みストレージの設定変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     バックアップとリストア
   </a>
   
@@ -1673,14 +1713,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     リストア
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     バックアップデータの実データ保存先
   </a>
   
@@ -1784,7 +1824,8 @@
 
 <p>…だけだと反映されてなさそうだったので(<code>ifup enp3s0</code>も実施したが変化なし)rebootした。</p>
 <p>※ <code>ifupdown2</code>というコマンドを別途インストールすれば良かったかも</p>
-<h2 id="_3">ストレージ定義ファイル</h2>
+<h2 id="_3">ストレージ</h2>
+<h3 id="_4">定義ファイル</h3>
 <p><code>/etc/pve/storage.cfg</code>にある。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #bbbbbb"> </span>/etc/pve/storage.cfg
 <span style="color: #888888">dir: local</span>
@@ -1805,8 +1846,10 @@
 <span style="color: #888888">        prune-backups keep-all=1</span>
 </code></pre></div>
 
-<h2 id="_4">バックアップとリストア</h2>
-<h3 id="_5">リストア</h3>
+<h3 id="_5">登録済みストレージの設定変更</h3>
+<p>用途とかNFSのバージョンとかを変更するには、ノードでもストレージでもなく「データセンター」から。</p>
+<h2 id="_6">バックアップとリストア</h2>
+<h3 id="_7">リストア</h3>
 <p>VM削除済みの場合はCLIで実行する。<br />
 以下はバックアップデータをVM ID:500としてリストア。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qmrestore<span style="color: #bbbbbb"> </span>/mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst<span style="color: #bbbbbb"> </span><span style="color: #666666">500</span>
@@ -1830,7 +1873,7 @@
 <p>ストレージはデフォルトだとバックアップ時と同じところへリストアされる？それともデフォルトのストレージかな？<br />
 <code>--storage</code>で指定できそう</p>
 <p>Web UIでリストアする場合は、VMのメニューでなくストレージのメニューからリストアを選ぶと、全バックアップデータが表示されるのでそこからリストアを行う。</p>
-<h3 id="_6">バックアップデータの実データ保存先</h3>
+<h3 id="_8">バックアップデータの実データ保存先</h3>
 <p>内蔵ストレージの場合は<code>/var/lib/vz/dump/</code></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #bbbbbb"> </span>/var/lib/vz/dump/
 <span style="color: #888888">vzdump-qemu-500-2023_09_24-01_05_17.log</span>

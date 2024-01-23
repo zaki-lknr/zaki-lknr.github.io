@@ -717,6 +717,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    build
+  </a>
+  
+    <nav class="md-nav" aria-label="build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile指定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#inspect" class="md-nav__link">
     inspect
   </a>
@@ -1774,6 +1794,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    build
+  </a>
+  
+    <nav class="md-nav" aria-label="build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile指定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#inspect" class="md-nav__link">
     inspect
   </a>
@@ -1962,6 +2002,12 @@
 </code></pre></div>
 
 <p>これでコンテナ内の<code>/etc/hosts</code>に<code>host.docker.internal</code>のエントリが追加され、ホストOSへのアドレスが設定される。</p>
+<h3 id="build">build</h3>
+<h4 id="dockerfile">Dockerfile指定</h4>
+<p><code>-f</code>で指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker build -f my-dockerfile . -t image:tag</span>
+</code></pre></div>
+
 <h3 id="inspect">inspect</h3>
 <p>コンテナの状態を確認する</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker inspect &lt;container name or ID&gt;</span>

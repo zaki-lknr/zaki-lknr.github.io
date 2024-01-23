@@ -1060,6 +1060,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#patch" class="md-nav__link">
+    patch
+  </a>
+  
+    <nav class="md-nav" aria-label="patch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    値の更新
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run" class="md-nav__link">
     run
   </a>
@@ -1162,21 +1182,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     削除
   </a>
   
@@ -1912,6 +1932,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#patch" class="md-nav__link">
+    patch
+  </a>
+  
+    <nav class="md-nav" aria-label="patch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    値の更新
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run" class="md-nav__link">
     run
   </a>
@@ -2014,21 +2054,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     削除
   </a>
   
@@ -2169,6 +2209,11 @@ apiVersion:<span style="color: #bbbbbb"> </span>v1
 <span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque
 </code></pre></div>
 
+<h2 id="patch">patch</h2>
+<h3 id="_7">値の更新</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl patch -n namespace pdb resource -p &#39;{ &quot;spec&quot;: { &quot;maxUnavailable&quot;: 0 }}&#39;</span>
+</code></pre></div>
+
 <h2 id="run">run</h2>
 <h3 id="pod">ワーク用のpodをデプロイする</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>work-pod<span style="color: #bbbbbb"> </span>--image<span style="color: #666666">=</span>fedora<span style="color: #bbbbbb"> </span>--command<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>tail<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>/dev/null
@@ -2267,7 +2312,7 @@ podがrunningになるまで待つには以下。</p>
 
 <h2 id="label">label</h2>
 <p>リソースのラベルを追加/変更/削除する</p>
-<h3 id="_7">追加</h3>
+<h3 id="_8">追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">app</span><span style="color: #666666">=</span>rsync
 <span style="color: #888888">pod/rsync-pod labeled</span>
 <span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>--show-labels
@@ -2284,7 +2329,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=normal</span>
 </code></pre></div>
 
-<h3 id="_8">更新</h3>
+<h3 id="_9">更新</h3>
 <p>既に存在する場合はエラーになる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">state</span><span style="color: #666666">=</span>error
 <span style="color: #888888">error: &#39;state&#39; already has a value (normal), and --overwrite is false</span>
@@ -2298,7 +2343,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
 </code></pre></div>
 
-<h3 id="_9">削除</h3>
+<h3 id="_10">削除</h3>
 <p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl label pod rsync-pod state-</span>
 </code></pre></div>

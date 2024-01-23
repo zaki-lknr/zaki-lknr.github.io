@@ -1539,6 +1539,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    ノードのスケーリング
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2184,6 +2191,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    ノードのスケーリング
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2484,6 +2498,14 @@
 <span style="color: #888888">  --node-vm-size Standard_B2s \</span>
 <span style="color: #888888">  --node-count 2 \</span>
 <span style="color: #888888">  --max-pods 32</span>
+</code></pre></div>
+
+<h3 id="_18">ノードのスケーリング</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks scale \</span>
+<span style="color: #888888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888888">  --name ${nodepool_name} \</span>
+<span style="color: #888888">  --nodepool-name ${nodepool_name} \</span>
+<span style="color: #888888">  --node-count 3</span>
 </code></pre></div>
                 
               

@@ -981,20 +981,48 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    チャートのバージョン指定インストール
+    チャートのインストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    リリース一覧
+    アップグレード
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    チャートのバージョン指定インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    チャートインストールに使われるマニフェスト生成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リリースの削除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -1006,7 +1034,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     チャートインストール例
   </a>
   
@@ -1026,7 +1054,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     環境変数
   </a>
   
@@ -1750,20 +1778,48 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    チャートのバージョン指定インストール
+    チャートのインストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    リリース一覧
+    アップグレード
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    チャートのバージョン指定インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    チャートインストールに使われるマニフェスト生成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リリースの削除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     リリースの設定値
   </a>
   
@@ -1775,7 +1831,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     チャートインストール例
   </a>
   
@@ -1795,7 +1851,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     環境変数
   </a>
   
@@ -1905,17 +1961,39 @@
 </code></pre></div>
 
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
-<h3 id="_10">チャートのバージョン指定インストール</h3>
+<h3 id="_10">チャートのインストール</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm install stable/mysql --generate-name --create-namespace -n mysql</span>
+</code></pre></div>
+
+<h3 id="_11">アップグレード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade &lt;release&gt; &lt;chart&gt; [-n &lt;namespace&gt;] [-f values.yaml]</span>
+</code></pre></div>
+
+<p>未インストールであればインストールし、インストール済みであればアップグレードするには<code>--install</code>を付加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install sample-logstash elastic/logstash -f values.yaml --create-namespace -n logging</span>
+</code></pre></div>
+
+<h3 id="_12">チャートのバージョン指定インストール</h3>
 <p>インストール時にチャートのバージョンを指定するには<code>--version</code>を使う</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm install ... --version x.y.z</span>
 </code></pre></div>
 
-<h3 id="_11">リリース一覧</h3>
+<h3 id="_13">チャートインストールに使われるマニフェスト生成</h3>
+<p><code>install</code>の代わりに<code>template</code>を使う</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm template stable/mysql --generate-name --create-namespace -n mysql</span>
+</code></pre></div>
+
+<p>※ heml 3.14だと<code>--create-namespace</code>が効かない</p>
+<h3 id="_14">リリース一覧</h3>
 <p>実行中のリリースの一覧</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-n<span style="color: #bbbbbb"> </span>&lt;namespace-name&gt;<span style="color: #666666">]</span>
 </code></pre></div>
 
-<h3 id="_12">リリースの設定値</h3>
+<h3 id="_15">リリースの削除</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm uninstall &lt;char-name&gt; [-n &lt;namespace-name&gt;]</span>
+</code></pre></div>
+
+<h3 id="_16">リリースの設定値</h3>
 <p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-A
 <span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
@@ -1933,7 +2011,7 @@
 <span style="color: #888888">  type: LoadBalancer</span>
 </code></pre></div>
 
-<h2 id="_13">チャートインストール例</h2>
+<h2 id="_17">チャートインストール例</h2>
 <h3 id="fluent-bit">Fluent Bit</h3>
 <p><a href="https://github.com/fluent/helm-charts">fluent/helm-charts: Helm Charts for Fluentd and Fluent Bit</a></p>
 <p>リポジトリ追加</p>
@@ -1944,7 +2022,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install fluent-bit fluent/fluent-bit -n logging --create-namespace -f values.yaml</span>
 </code></pre></div>
 
-<h2 id="_14">環境変数</h2>
+<h2 id="_18">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>env
 <span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
