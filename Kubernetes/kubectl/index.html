@@ -2329,6 +2329,11 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=normal</span>
 </code></pre></div>
 
+<p>複数まとめても可</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span>k3s-node1<span style="color: #bbbbbb"> </span><span style="color: #B8860B">label1</span><span style="color: #666666">=</span>foo<span style="color: #bbbbbb"> </span><span style="color: #B8860B">label2</span><span style="color: #666666">=</span>bar<span style="color: #bbbbbb"> </span><span style="color: #B8860B">label3</span><span style="color: #666666">=</span>baz
+<span style="color: #888888">node/k3s-node1 labeled</span>
+</code></pre></div>
+
 <h3 id="_9">更新</h3>
 <p>既に存在する場合はエラーになる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">state</span><span style="color: #666666">=</span>error
