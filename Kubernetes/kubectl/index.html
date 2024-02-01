@@ -1168,6 +1168,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ヘルスチェック
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1182,21 +1189,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     削除
   </a>
   
@@ -2040,6 +2047,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ヘルスチェック
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2054,21 +2068,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     削除
   </a>
   
@@ -2310,9 +2324,53 @@ podがrunningになるまで待つには以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get event --sort-by=&#39;.metadata.creationTimestamp&#39;</span>
 </code></pre></div>
 
+<h3 id="_8">ヘルスチェック</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$</span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>--raw<span style="color: #666666">=</span><span style="color: #BB4444">&#39;/readyz&#39;</span>
+<span style="color: #888888">ok</span>
+</code></pre></div>
+
+<p>あるいは</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>--raw<span style="color: #666666">=</span><span style="color: #BB4444">&#39;/readyz?verbose&#39;</span>
+<span style="color: #888888">[+]ping ok</span>
+<span style="color: #888888">[+]log ok</span>
+<span style="color: #888888">[+]etcd ok</span>
+<span style="color: #888888">[+]etcd-readiness ok</span>
+<span style="color: #888888">[+]informer-sync ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-apiserver-admission-initializer ok</span>
+<span style="color: #888888">[+]poststarthook/generic-apiserver-start-informers ok</span>
+<span style="color: #888888">[+]poststarthook/priority-and-fairness-config-consumer ok</span>
+<span style="color: #888888">[+]poststarthook/priority-and-fairness-filter ok</span>
+<span style="color: #888888">[+]poststarthook/storage-object-count-tracker-hook ok</span>
+<span style="color: #888888">[+]poststarthook/start-apiextensions-informers ok</span>
+<span style="color: #888888">[+]poststarthook/start-apiextensions-controllers ok</span>
+<span style="color: #888888">[+]poststarthook/crd-informer-synced ok</span>
+<span style="color: #888888">[+]poststarthook/start-service-ip-repair-controllers ok</span>
+<span style="color: #888888">[+]poststarthook/rbac/bootstrap-roles ok</span>
+<span style="color: #888888">[+]poststarthook/scheduling/bootstrap-system-priority-classes ok</span>
+<span style="color: #888888">[+]poststarthook/priority-and-fairness-config-producer ok</span>
+<span style="color: #888888">[+]poststarthook/start-system-namespaces-controller ok</span>
+<span style="color: #888888">[+]poststarthook/bootstrap-controller ok</span>
+<span style="color: #888888">[+]poststarthook/start-cluster-authentication-info-controller ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-apiserver-identity-lease-controller ok</span>
+<span style="color: #888888">[+]poststarthook/start-deprecated-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span style="color: #888888">[+]poststarthook/start-legacy-token-tracking-controller ok</span>
+<span style="color: #888888">[+]poststarthook/aggregator-reload-proxy-client-cert ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-aggregator-informers ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-registration-controller ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-status-available-controller ok</span>
+<span style="color: #888888">[+]poststarthook/kube-apiserver-autoregistration ok</span>
+<span style="color: #888888">[+]autoregister-completion ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-openapi-controller ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-openapiv3-controller ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-discovery-controller ok</span>
+<span style="color: #888888">[+]shutdown ok</span>
+<span style="color: #888888">readyz check passed</span>
+</code></pre></div>
+
 <h2 id="label">label</h2>
 <p>リソースのラベルを追加/変更/削除する</p>
-<h3 id="_8">追加</h3>
+<h3 id="_9">追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">app</span><span style="color: #666666">=</span>rsync
 <span style="color: #888888">pod/rsync-pod labeled</span>
 <span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>--show-labels
@@ -2334,7 +2392,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">node/k3s-node1 labeled</span>
 </code></pre></div>
 
-<h3 id="_9">更新</h3>
+<h3 id="_10">更新</h3>
 <p>既に存在する場合はエラーになる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">state</span><span style="color: #666666">=</span>error
 <span style="color: #888888">error: &#39;state&#39; already has a value (normal), and --overwrite is false</span>
@@ -2348,7 +2406,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
 </code></pre></div>
 
-<h3 id="_10">削除</h3>
+<h3 id="_11">削除</h3>
 <p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl label pod rsync-pod state-</span>
 </code></pre></div>
