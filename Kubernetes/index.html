@@ -886,6 +886,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ヘルスチェック
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
     pod
   </a>
@@ -1596,6 +1603,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ヘルスチェック
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
     pod
   </a>
@@ -1663,6 +1677,51 @@
 </ul>
 </li>
 </ul>
+<h2 id="_1">ヘルスチェック</h2>
+<p><a href="https://kubernetes.io/docs/reference/using-api/health-checks/">Kubernetes API health endpoints | Kubernetes</a></p>
+<p>APIエンドポイントとして <code>/readyz</code> と <code>/livez</code> が用意されている。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-k<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;https://192.168.0.131:6443/readyz&#39;</span>
+<span style="color: #888888">ok</span>
+</code></pre></div>
+
+<p>K3sだと認証が必要</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-k<span style="color: #bbbbbb"> </span>-H<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;Authorization: Bearer </span><span style="color: #B8860B">$TOKEN</span><span style="color: #BB4444">&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;https://192.168.0.75:6443/livez?verbose&#39;</span>
+<span style="color: #888888">[+]ping ok</span>
+<span style="color: #888888">[+]log ok</span>
+<span style="color: #888888">[+]etcd ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-apiserver-admission-initializer ok</span>
+<span style="color: #888888">[+]poststarthook/generic-apiserver-start-informers ok</span>
+<span style="color: #888888">[+]poststarthook/priority-and-fairness-config-consumer ok</span>
+<span style="color: #888888">[+]poststarthook/priority-and-fairness-filter ok</span>
+<span style="color: #888888">[+]poststarthook/storage-object-count-tracker-hook ok</span>
+<span style="color: #888888">[+]poststarthook/start-apiextensions-informers ok</span>
+<span style="color: #888888">[+]poststarthook/start-apiextensions-controllers ok</span>
+<span style="color: #888888">[+]poststarthook/crd-informer-synced ok</span>
+<span style="color: #888888">[+]poststarthook/start-service-ip-repair-controllers ok</span>
+<span style="color: #888888">[+]poststarthook/rbac/bootstrap-roles ok</span>
+<span style="color: #888888">[+]poststarthook/scheduling/bootstrap-system-priority-classes ok</span>
+<span style="color: #888888">[+]poststarthook/priority-and-fairness-config-producer ok</span>
+<span style="color: #888888">[+]poststarthook/start-system-namespaces-controller ok</span>
+<span style="color: #888888">[+]poststarthook/bootstrap-controller ok</span>
+<span style="color: #888888">[+]poststarthook/start-cluster-authentication-info-controller ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-apiserver-identity-lease-controller ok</span>
+<span style="color: #888888">[+]poststarthook/start-deprecated-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span style="color: #888888">[+]poststarthook/start-legacy-token-tracking-controller ok</span>
+<span style="color: #888888">[+]poststarthook/aggregator-reload-proxy-client-cert ok</span>
+<span style="color: #888888">[+]poststarthook/start-kube-aggregator-informers ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-registration-controller ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-status-available-controller ok</span>
+<span style="color: #888888">[+]poststarthook/kube-apiserver-autoregistration ok</span>
+<span style="color: #888888">[+]autoregister-completion ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-openapi-controller ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-openapiv3-controller ok</span>
+<span style="color: #888888">[+]poststarthook/apiservice-discovery-controller ok</span>
+<span style="color: #888888">livez check passed</span>
+</code></pre></div>
+
+<p>tokenはsecretリソースを作成して取得する。<br />
+<a href="https://zaki-hmkc.hatenablog.com/entry/2024/02/05/101259">[Kubernetes] ヘルスチェックAPIを試す (bearer token認証付き) - zaki work log</a></p>
 <h2 id="pod">pod</h2>
 <h3 id="crashloopbackoff">CrashLoopBackOff</h3>
 <p><code>describe</code>または<code>event</code>で</p>

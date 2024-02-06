@@ -957,13 +957,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    デフォルト値
+    証明書
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    デフォルト値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     ネットワーク
   </a>
   
@@ -990,7 +997,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -998,7 +1005,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -1032,7 +1039,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     穴あけ
   </a>
   
@@ -1046,7 +1053,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -1058,7 +1065,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1734,13 +1741,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    デフォルト値
+    証明書
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    デフォルト値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     ネットワーク
   </a>
   
@@ -1767,7 +1781,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -1775,7 +1789,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -1809,7 +1823,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     穴あけ
   </a>
   
@@ -1823,7 +1837,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -1835,7 +1849,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1881,7 +1895,13 @@
 <li><a href="https://docs.k3s.io/installation/configuration">Configuration Options | K3s</a></li>
 <li><a href="https://docs.k3s.io/installation/network-options">Network Options | K3s</a></li>
 </ul>
-<h2 id="_3">デフォルト値</h2>
+<h2 id="_3">証明書</h2>
+<p><a href="https://docs.k3s.io/cli/certificate">certificate | K3s</a></p>
+<p>デフォルトではデプロイ時起点で1年の証明書が作成される。90日を切った時点でクラスターを再起動するとその日から1年の期限の新しい証明書にローテートされる。<br />
+強制的にローテートしたい場合は<code>k3s certificate rotate</code>を実行し再起動する。</p>
+<p>期限をカスタマイズする場合は環境変数 <code>CATTLE_NEW_SIGNED_CERT_EXPIRATION_DAYS</code> を使用する。<br />
+<a href="https://zaki-hmkc.hatenablog.com/entry/2024/01/24/221706">[Kubernetes] K3sにおける証明書の期限の延長や設定（平たく言うと塩漬け運用したい場合のｘ年設定）について - zaki work log</a></p>
+<h2 id="_4">デフォルト値</h2>
 <table>
 <thead>
 <tr>
@@ -1904,15 +1924,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">ネットワーク</h2>
+<h2 id="_5">ネットワーク</h2>
 <h2 id="loadbalancer-service">LoadBalancer Service</h2>
 <h3 id="listen">特定のノードのみでlistenするには</h3>
 <p>ノードに以下のラベルを付与するとallow-list modeになり、このラベルが付いたノードのみでlistenするようになる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">svccontroller.k3s.cattle.io/enablelb=true</span>
 </code></pre></div>
 
-<h2 id="_5">オフライン環境</h2>
-<h3 id="_6">プライベートレジストリ設定</h3>
+<h2 id="_6">オフライン環境</h2>
+<h3 id="_7">プライベートレジストリ設定</h3>
 <p><a href="https://docs.k3s.io/installation/private-registry">Private Registry Configuration | K3s</a></p>
 <p>プライベートレジストリを利用するには「デフォルトで<code>docker.io</code>向きになっている通信をローカルにフォワードする」設定を追加する。
 ローカル環境にたてたGitLabのコンテナレジストリを使う場合でパスが深くなる場合も<code>rewrite</code>を使って調整可能。(イメージ名は変更しない)</p>
@@ -1991,7 +2011,7 @@
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
-<h3 id="_7">穴あけ</h3>
+<h3 id="_8">穴あけ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--add-port<span style="color: #666666">=6443</span>/tcp<span style="color: #bbbbbb"> </span>--permanent
 <span style="color: #888888">success</span>
 <span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--reload
@@ -2015,7 +2035,7 @@
 <span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
-<h3 id="_8">ノードスペック</h3>
+<h3 id="_9">ノードスペック</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>describe<span style="color: #bbbbbb"> </span>node
 
 <span style="color: #888888">[...]</span>
@@ -2040,7 +2060,7 @@
 
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
-<h2 id="_9">アンインストール</h2>
+<h2 id="_10">アンインストール</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #bbbbbb"> </span>
 </code></pre></div>
                 
