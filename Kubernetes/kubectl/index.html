@@ -1214,6 +1214,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#drain" class="md-nav__link">
+    drain
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1665,6 +1672,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Tools/vault/" class="md-nav__link">
+        HashiCorp Vault
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Tools/vi/" class="md-nav__link">
         vi
       </a>
@@ -2093,6 +2112,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#drain" class="md-nav__link">
+    drain
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2410,6 +2436,13 @@ podがrunningになるまで待つには以下。</p>
 <p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl label pod rsync-pod state-</span>
 </code></pre></div>
+
+<h2 id="drain">drain</h2>
+<p>大抵はDaemonSetのpodが動いているので<code>--ignore-daemonsets</code>オプションを付ける。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl drain k3s-node2 --force --ignore-daemonsets</span>
+</code></pre></div>
+
+<p>ノードを完全にクラスタから除外するにはさらに<code>kubectl delete node &lt;node-name&gt;</code>する。</p>
                 
               
               
