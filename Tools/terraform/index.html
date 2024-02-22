@@ -1412,6 +1412,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#provider_1" class="md-nav__link">
+    providerバージョンアップグレード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     リソース一覧
   </a>
@@ -1656,6 +1663,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#provider_1" class="md-nav__link">
+    providerバージョンアップグレード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     リソース一覧
   </a>
@@ -1720,6 +1734,11 @@
 </code></pre></div>
 
 <p>といわれてるけど<code>providers</code>が無くても出力は同じ。</p>
+<h3 id="provider_1">providerバージョンアップグレード</h3>
+<p>tfファイルのprovicersの定義で指定バージョンを変更して、以下コマンド実行。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform init -upgrade</span>
+</code></pre></div>
+
 <h3 id="_2">リソース一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform state list</span>
 </code></pre></div>
