@@ -1674,6 +1674,18 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>attach<span style="color: #bbbbbb"> </span>--pool<span style="color: #666666">=</span>****
 </code></pre></div>
 
+<p>利用可能なサブスクリプションの確認</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>--available
+</code></pre></div>
+
+<p>リポジトリの状態</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>repos<span style="color: #bbbbbb"> </span>--list-enabled
+</code></pre></div>
+
+<p>利用可能になっていないリポジトリは以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>repos<span style="color: #bbbbbb"> </span>--list-disabled
+</code></pre></div>
+
 <h2 id="package">package</h2>
 <h3 id="rhel8epel">RHEL8にEPELリポジトリを追加</h3>
 <ul>
