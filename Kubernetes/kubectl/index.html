@@ -1162,6 +1162,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    全てのリソース
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#event" class="md-nav__link">
     eventで作成時ソート
   </a>
@@ -1169,7 +1176,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -1189,21 +1196,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     削除
   </a>
   
@@ -2060,6 +2067,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    全てのリソース
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#event" class="md-nav__link">
     eventで作成時ソート
   </a>
@@ -2067,7 +2081,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -2087,21 +2101,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     削除
   </a>
   
@@ -2346,11 +2360,32 @@ podがrunningになるまで待つには以下。</p>
 </code></pre></div>
 
 <h2 id="get">get</h2>
+<h3 id="_8">全てのリソース</h3>
+<p><code>kubectl get all</code>だと全リソースが対象ではないが、本当にすべてのリソースを取得するには以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get &quot;$(kubectl api-resources --namespaced=true --verbs=list -o name | tr &quot;\n&quot; &quot;,&quot; | sed -e &#39;s/,$//&#39;)&quot;</span>
+</code></pre></div>
+
+<p>pluginを使ってサブコマンドにしておくと便利。<br />
+※ rootで実行</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">cat &lt;&lt;&#39;EOL&#39; &gt; /usr/local/bin/kubectl-get_all</span>
+<span style="color: #000080; font-weight: bold">#</span>!/usr/bin/env<span style="color: #bbbbbb"> </span>bash
+
+<span style="color: #888888">set -e -o pipefail; [[ -n &quot;$DEBUG&quot; ]] &amp;&amp; set -x</span>
+
+<span style="color: #888888">exec kubectl get &quot;$(kubectl api-resources --namespaced=true --verbs=list --output=name | tr &quot;\n&quot; &quot;,&quot; | sed -e &#39;s/,$//&#39;)&quot; &quot;$@&quot;</span>
+<span style="color: #888888">EOL</span>
+<span style="color: #888888">chmod +x /usr/local/bin/kubectl-get_all</span>
+</code></pre></div>
+
+<p>実行</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get-all -n awx</span>
+</code></pre></div>
+
 <h3 id="event">eventで作成時ソート</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get event --sort-by=&#39;.metadata.creationTimestamp&#39;</span>
 </code></pre></div>
 
-<h3 id="_8">ヘルスチェック</h3>
+<h3 id="_9">ヘルスチェック</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$</span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>--raw<span style="color: #666666">=</span><span style="color: #BB4444">&#39;/readyz&#39;</span>
 <span style="color: #888888">ok</span>
 </code></pre></div>
@@ -2396,7 +2431,7 @@ podがrunningになるまで待つには以下。</p>
 
 <h2 id="label">label</h2>
 <p>リソースのラベルを追加/変更/削除する</p>
-<h3 id="_9">追加</h3>
+<h3 id="_10">追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">app</span><span style="color: #666666">=</span>rsync
 <span style="color: #888888">pod/rsync-pod labeled</span>
 <span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>--show-labels
@@ -2418,7 +2453,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">node/k3s-node1 labeled</span>
 </code></pre></div>
 
-<h3 id="_10">更新</h3>
+<h3 id="_11">更新</h3>
 <p>既に存在する場合はエラーになる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">state</span><span style="color: #666666">=</span>error
 <span style="color: #888888">error: &#39;state&#39; already has a value (normal), and --overwrite is false</span>
@@ -2432,7 +2467,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
 </code></pre></div>
 
-<h3 id="_11">削除</h3>
+<h3 id="_12">削除</h3>
 <p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl label pod rsync-pod state-</span>
 </code></pre></div>

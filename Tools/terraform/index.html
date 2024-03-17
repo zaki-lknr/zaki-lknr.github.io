@@ -1425,6 +1425,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workspace" class="md-nav__link">
+    workspace
+  </a>
+  
+    <nav class="md-nav" aria-label="workspace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workspace_1" class="md-nav__link">
+    現在のworkspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1676,6 +1710,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workspace" class="md-nav__link">
+    workspace
+  </a>
+  
+    <nav class="md-nav" aria-label="workspace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workspace_1" class="md-nav__link">
+    現在のworkspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1743,6 +1811,26 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform state list</span>
 </code></pre></div>
 
+<h3 id="workspace">workspace</h3>
+<h4 id="workspace_1">現在のworkspace</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #bbbbbb"> </span>workspace<span style="color: #bbbbbb"> </span>show
+<span style="color: #888888">default</span>
+</code></pre></div>
+
+<h4 id="_3">一覧</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #bbbbbb"> </span>workspace<span style="color: #bbbbbb"> </span>list
+<span style="color: #888888">  default</span>
+<span style="color: #888888">* 1</span>
+<span style="color: #888888">  2</span>
+</code></pre></div>
+
+<h4 id="_4">変更</h4>
+<p>workspace <code>2</code> に変更</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #bbbbbb"> </span>workspace<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">select</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>
+<span style="color: #888888">Switched to workspace &quot;2&quot;.</span>
+</code></pre></div>
+
+<p>設定値は<code>.terraform/environment</code>に記録される。</p>
 <h2 id="backend">backend設定</h2>
 <h3 id="s3">S3</h3>
 <p>backendの定義を追加</p>
