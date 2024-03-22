@@ -16,7 +16,7 @@
     
     
       
-        <title>kind - 戯術memo</title>
+        <title>Dockerインストール - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kind" class="md-skip">
+        <a href="#docker" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              kind
+              Dockerインストール
             
           </span>
         </div>
@@ -195,14 +195,16 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Docker/" class="md-tabs__link">
-        Docker
+      <a href="../AKS/" class="md-tabs__link md-tabs__link--active">
+        Container
       </a>
     </li>
   
@@ -219,24 +221,6 @@
     <li class="md-tabs__item">
       <a href="../../Git/" class="md-tabs__link">
         Git
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Kubernetes
       </a>
     </li>
   
@@ -617,21 +601,23 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
-        Docker
+        Container
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+      <nav class="md-nav" aria-label="Container" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker
+          Container
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -640,8 +626,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/" class="md-nav__link">
-        基本・ネタ帳
+      <a href="../AKS/" class="md-nav__link">
+        AKS
       </a>
     </li>
   
@@ -652,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/build/" class="md-nav__link">
+      <a href="../build/" class="md-nav__link">
         イメージビルド
       </a>
     </li>
@@ -664,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/compose/" class="md-nav__link">
+      <a href="../compose/" class="md-nav__link">
         Docker Compose
       </a>
     </li>
@@ -676,8 +662,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/configure/" class="md-nav__link">
-        設定
+      <a href="../configure/" class="md-nav__link">
+        Docker設定
       </a>
     </li>
   
@@ -688,8 +674,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/install/" class="md-nav__link">
-        インストール
+      <a href="../docker/" class="md-nav__link">
+        Docker
       </a>
     </li>
   
@@ -700,7 +686,184 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/registry/" class="md-nav__link">
+      <a href="../helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dockerインストール
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Dockerインストール
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_2" class="md-nav__link">
+    dockerグループへユーザーを追加するアレ(コピペ用)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oracle-linux" class="md-nav__link">
+    Oracle Linux
+  </a>
+  
+    <nav class="md-nav" aria-label="Oracle Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    標準
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#centos" class="md-nav__link">
+    centos版
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k3s/" class="md-nav__link">
+        K3s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kind/" class="md-nav__link">
+        kind
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubectl/" class="md-nav__link">
+        kubectl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        Podman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
         Registry
       </a>
     </li>
@@ -821,196 +984,19 @@
 
   
   
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
-      
-      <label class="md-nav__link" for="__nav_5">
-        Kubernetes
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Kubernetes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        Kubernetes
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AKS/" class="md-nav__link">
-        AKS
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../helm/" class="md-nav__link">
-        Helm
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../k3s/" class="md-nav__link">
-        K3s
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          kind
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        kind
-      </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    クラスタ作成
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    停止
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    マルチノード
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    クラスタバージョンの指定
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kubectl/" class="md-nav__link">
-        kubectl
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../minikube/" class="md-nav__link">
-        minikube
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
   
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_6">
+      <label class="md-nav__link" for="__nav_5">
         Linux
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Linux
         </label>
@@ -1177,14 +1163,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_7">
+      <label class="md-nav__link" for="__nav_6">
         Network
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Network" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Network
         </label>
@@ -1219,14 +1205,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_8">
+      <label class="md-nav__link" for="__nav_7">
         Tools
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Tools
         </label>
@@ -1477,14 +1463,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_9">
+      <label class="md-nav__link" for="__nav_8">
         Lang
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Lang" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Lang
         </label>
@@ -1582,30 +1568,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_2" class="md-nav__link">
+    dockerグループへユーザーを追加するアレ(コピペ用)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oracle-linux" class="md-nav__link">
+    Oracle Linux
+  </a>
+  
+    <nav class="md-nav" aria-label="Oracle Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    クラスタ作成
+    標準
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    停止
+        
+          <li class="md-nav__item">
+  <a href="#centos" class="md-nav__link">
+    centos版
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    マルチノード
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    クラスタバージョンの指定
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1621,73 +1627,60 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Kubernetes/kind.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Container/install.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="kind">kind</h1>
-<p>DockerやPodman上にKubernetesのノードとして動くコンテナをデプロイ</p>
-<p><a href="https://kind.sigs.k8s.io/">kind</a></p>
+                <h1 id="docker">Dockerインストール</h1>
+<h2 id="docker_1">Docker</h2>
+<p><a href="https://docs.docker.com/engine/install/">Install Docker Engine | Docker Documentation</a></p>
+<p>各ディストリビューション毎のページ参照。</p>
+<p>Windowsもhome含めてOK<br />
+<a href="https://qiita.com/zaki-lknr/items/db99909ba1eb27803456">Windows 10 HomeへのDocker Desktop (ver 3.0.0) インストールが何事もなく簡単にできるようになっていた (2020.12時点) - Qiita</a></p>
+<h2 id="docker-compose">Docker Compose</h2>
 <ul>
-<li><a href="https://zaki-hmkc.hatenablog.com/entry/2020/08/01/135922">[Kubernetes / kind] kindを使ってDocker上にクラスタを高速作成し、MetalLBも併用してクラスタ横断した通信お試し - zaki work log</a></li>
+<li>v1: <a href="https://docs.docker.com/compose/install/">Install Docker Compose | Docker Documentation</a></li>
+<li>v2: <a href="https://docs.docker.com/compose/cli-command/">Compose V2 | Docker Documentation</a></li>
 </ul>
-<h2 id="_1">クラスタ作成</h2>
-<p>基本 (<code>kind</code>という名前のクラスタを作成すｒ)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>cluster
+<h2 id="docker_2">dockerグループへユーザーを追加するアレ(コピペ用)</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>usermod<span style="color: #bbbbbb"> </span>-aG<span style="color: #bbbbbb"> </span>docker<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$USER</span>
 </code></pre></div>
 
-<p>名前指定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>cluster<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>sample-cluster
+<h2 id="oracle-linux">Oracle Linux</h2>
+<h3 id="_1">標準</h3>
+<p>OCIでOL7.9の場合、デフォルトのリポジトリだとこれがヒットする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>opc@instance-20210801-1151 ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>yum<span style="color: #bbbbbb"> </span>info<span style="color: #bbbbbb"> </span>docker<span style="color: #666666">-</span>engine.aarch64
+<span style="color: #A0A000">読み込んだプラグイン</span>:langpacks,<span style="color: #bbbbbb"> </span>ulninfo
+利用可能なパッケージ
+名前<span style="color: #bbbbbb">                </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>docker<span style="color: #666666">-</span>engine
+アーキテクチャー<span style="color: #bbbbbb">    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>aarch64
+バージョン<span style="color: #bbbbbb">          </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">19.03.11</span>.ol
+リリース<span style="color: #bbbbbb">            </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">13.</span>el7
+容量<span style="color: #bbbbbb">                </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">14</span><span style="color: #bbbbbb"> </span>M
+リポジトリー<span style="color: #bbbbbb">        </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>ol7_oci_included<span style="color: #666666">/</span>aarch64
+要約<span style="color: #bbbbbb">                </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>The<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">open</span><span style="color: #666666">-</span>source<span style="color: #bbbbbb"> </span>application<span style="color: #bbbbbb"> </span>container<span style="color: #bbbbbb"> </span>engine
+URL<span style="color: #bbbbbb">                 </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #A0A000">https</span>:<span style="color: #666666">//</span>dockerproject.org
+ライセンス<span style="color: #bbbbbb">          </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>ASL<span style="color: #bbbbbb"> </span><span style="color: #666666">2.0</span>
+説明<span style="color: #bbbbbb">                </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Docker<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">is</span><span style="color: #bbbbbb"> </span>an<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">open</span><span style="color: #bbbbbb"> </span>source<span style="color: #bbbbbb"> </span>project<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span>build,<span style="color: #bbbbbb"> </span>ship<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span><span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">any</span><span style="color: #bbbbbb"> </span>application<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">as</span><span style="color: #bbbbbb"> </span>a
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>lightweight<span style="color: #bbbbbb"> </span>container.
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Docker<span style="color: #bbbbbb"> </span>containers<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">are</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">both</span><span style="color: #bbbbbb"> </span>hardware<span style="color: #666666">-</span>agnostic<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span><span style="color: #bbbbbb"> </span>platform<span style="color: #666666">-</span>agnostic.<span style="color: #bbbbbb"> </span>This<span style="color: #bbbbbb"> </span>means
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>they<span style="color: #bbbbbb"> </span>can<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>anywhere,<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">from</span><span style="color: #bbbbbb"> </span>your<span style="color: #bbbbbb"> </span>laptop<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>largest<span style="color: #bbbbbb"> </span>EC2<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">compute</span><span style="color: #bbbbbb"> </span>instance<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span>
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>everything<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">between</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span><span style="color: #bbbbbb"> </span>they<span style="color: #bbbbbb"> </span>don<span style="border: 1px solid #FF0000">&#39;</span>t<span style="color: #bbbbbb"> </span>require<span style="color: #bbbbbb"> </span>you<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">to</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">use</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>particular
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">language</span>,<span style="color: #bbbbbb"> </span>framework<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">or</span><span style="color: #bbbbbb"> </span>packaging<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">system</span>.<span style="color: #bbbbbb"> </span>That<span style="color: #bbbbbb"> </span>makes<span style="color: #bbbbbb"> </span>them<span style="color: #bbbbbb"> </span>great<span style="color: #bbbbbb"> </span>building<span style="color: #bbbbbb"> </span>blocks
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>deploying<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span><span style="color: #bbbbbb"> </span>scaling<span style="color: #bbbbbb"> </span>web<span style="color: #bbbbbb"> </span>apps,<span style="color: #bbbbbb"> </span>databases,<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span><span style="color: #bbbbbb"> </span>backend<span style="color: #bbbbbb"> </span>services<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">without</span>
+<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>depending<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">on</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>particular<span style="color: #bbbbbb"> </span>stack<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">or</span><span style="color: #bbbbbb"> </span>provider.
 </code></pre></div>
 
-<h2 id="_2">停止</h2>
-<p>kindクラスタの停止は無い。<br />
-クラスタを削除するか、ノードとして動作してるコンテナを停止する。</p>
-<p>コンテナを停止するには<code>docker stop</code>するが、停止対象コンテナは<code>kind get nodes</code>で取得できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>nodes
-<span style="color: #888888">kind-control-plane</span>
+<h3 id="centos">centos版</h3>
+<p>互換性が高そうなCentOS版の手順・リポジトリでもインストール・お試しにnginxコンテナデプロイはできた。</p>
+<p><a href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS | Docker Documentation</a></p>
+<p>ただし依存パッケージ(<code>slirp4netns</code>, <code>fuse-overlayfs</code>)のインストール用に、<code>ol7_developer</code>リポジトリを有効にしておく必要あり。(デフォルト無効)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>yum-config-manager<span style="color: #bbbbbb"> </span>--enable<span style="color: #bbbbbb"> </span>ol7_developer
 </code></pre></div>
 
-<p>引数無しの場合は、デフォルト設定で作成したクラスタ名<code>kind</code>のノードになる。<br />
-クラスタ名を指定する場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>nodes<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>cluster-name
-</code></pre></div>
-
-<p>この結果を<code>docker stop</code>に渡すために、全体としてはこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>nodes<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>cluster-name<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>xargs<span style="color: #bbbbbb"> </span>docker<span style="color: #bbbbbb"> </span>stop
-</code></pre></div>
-
-<h2 id="_3">マルチノード</h2>
-<p>ノード設定用のファイル作成する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Cluster
-<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>kind.x-k8s.io/v1alpha4
-<span style="color: #008000; font-weight: bold">nodes</span>:
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>control-plane
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
-</code></pre></div>
-
-<p>で、このファイルを指定してクラスタ作成する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>cluster<span style="color: #bbbbbb"> </span>--config<span style="color: #bbbbbb"> </span>kind-config.yaml
-</code></pre></div>
-
-<h2 id="_4">クラスタバージョンの指定</h2>
-<p><a href="https://github.com/kubernetes-sigs/kind/releases">Releases · kubernetes-sigs/kind</a></p>
-<p>リリースノートに各種バージョンのコンテナIDの記載があるのでそれを指定する。<br />
-v1.19ならこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Cluster
-<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>kind.x-k8s.io/v1alpha4
-<span style="color: #008000; font-weight: bold">nodes</span>:
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>control-plane
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
-</code></pre></div>
+<p><a href="https://yum.oracle.com/repo/OracleLinux/OL7/developer/aarch64/index.html">Oracle Linux 7 (aarch64) Development | Oracle, Software. Hardware. Complete.</a></p>
                 
               
               
@@ -1706,7 +1699,7 @@ v1.19ならこんな感じ。</p>
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../k3s/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../helm/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1715,19 +1708,19 @@ v1.19ならこんな感じ。</p>
               <span class="md-footer__direction">
                 前
               </span>
-              K3s
+              Helm
             </div>
           </div>
         </a>
       
       
-        <a href="../kubectl/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../k3s/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              kubectl
+              K3s
             </div>
           </div>
           <div class="md-footer__button md-icon">

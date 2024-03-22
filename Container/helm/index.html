@@ -1,0 +1,2110 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="zaki">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>Helm - 戯術memo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffa724">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-199279483-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="pink">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#helm" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="戯術memo" class="md-header__button md-logo" aria-label="戯術memo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            戯術memo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Helm
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/zaki-lknr/docs" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      戯術memo
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Ansible/" class="md-tabs__link">
+        Ansible
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../AKS/" class="md-tabs__link md-tabs__link--active">
+        Container
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Git/" class="md-tabs__link">
+        Git
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Network/" class="md-tabs__link">
+        Network
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Tools/aws/" class="md-tabs__link">
+        Tools
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lang/bash/" class="md-tabs__link">
+        Lang
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="戯術memo" class="md-nav__button md-logo" aria-label="戯術memo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    戯術memo
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/zaki-lknr/docs" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        戯術memo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Ansible
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Ansible" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Ansible
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/" class="md-nav__link">
+        基本・ネタ帳
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/awx/" class="md-nav__link">
+        AWX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/builder/" class="md-nav__link">
+        Ansible Builder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/collection/" class="md-nav__link">
+        コレクション
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/config/" class="md-nav__link">
+        設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/directives/" class="md-nav__link">
+        ディレクティブ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/filter/" class="md-nav__link">
+        フィルタ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/galaxy/" class="md-nav__link">
+        Galaxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/install/" class="md-nav__link">
+        インストール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/inventory/" class="md-nav__link">
+        インベントリ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/jinja2/" class="md-nav__link">
+        Jinja2テンプレート
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/lint/" class="md-nav__link">
+        Ansible Lint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/lookup/" class="md-nav__link">
+        Lookupプラグイン
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/module/" class="md-nav__link">
+        モジュール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/playbook/" class="md-nav__link">
+        プレイブック
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/role/" class="md-nav__link">
+        Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/tower/" class="md-nav__link">
+        Ansible Tower
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible/variable/" class="md-nav__link">
+        変数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Container
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Container" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Container
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AKS/" class="md-nav__link">
+        AKS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build/" class="md-nav__link">
+        イメージビルド
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compose/" class="md-nav__link">
+        Docker Compose
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure/" class="md-nav__link">
+        Docker設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Helm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Helm
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    インストール
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コマンド
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リポジトリ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    リポジトリを追加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ローカルのリポジトリ情報を更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    チャート一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    チャートの検索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    チャートのバージョン一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    チャートのデフォルト値
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    チャートのインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    アップグレード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    チャートのバージョン指定インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    チャートインストールに使われるマニフェスト生成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リリースの削除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    リリースの設定値
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    チャートインストール例
+  </a>
+  
+    <nav class="md-nav" aria-label="チャートインストール例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluent-bit" class="md-nav__link">
+    Fluent Bit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Dockerインストール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k3s/" class="md-nav__link">
+        K3s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kind/" class="md-nav__link">
+        kind
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubectl/" class="md-nav__link">
+        kubectl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        Podman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
+        Registry
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/" class="md-nav__link">
+        Git基本操作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/codecommit/" class="md-nav__link">
+        CodeCommit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/configure/" class="md-nav__link">
+        Git設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/github/" class="md-nav__link">
+        GitHub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/gitlab/" class="md-nav__link">
+        GitLab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/trouble/" class="md-nav__link">
+        やらかしたとき
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Linux
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/cert/" class="md-nav__link">
+        証明書
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/command/" class="md-nav__link">
+        コマンドメモ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/disk/" class="md-nav__link">
+        ディスク
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/kvm/" class="md-nav__link">
+        KVM
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/openssl/" class="md-nav__link">
+        openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/package/" class="md-nav__link">
+        パッケージ操作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/rhel/" class="md-nav__link">
+        RHEL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/selinux/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/server/" class="md-nav__link">
+        サーバー関連
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/ssh/" class="md-nav__link">
+        ssh関連
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/wsl/" class="md-nav__link">
+        WSL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Network
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Network" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network/" class="md-nav__link">
+        ネットワーク
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/aws/" class="md-nav__link">
+        AWS CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/az/" class="md-nav__link">
+        Azure CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/cygwin/" class="md-nav__link">
+        Cygwin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/esxi/" class="md-nav__link">
+        ESXi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/github/" class="md-nav__link">
+        GitHub
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/gitlab/" class="md-nav__link">
+        GitLab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/googledrive/" class="md-nav__link">
+        Google Drive
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/mkdocs/" class="md-nav__link">
+        MkDocs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/msedge/" class="md-nav__link">
+        Microsoft Edge Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/openssl/" class="md-nav__link">
+        openssl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/postgresql/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/proxmox/" class="md-nav__link">
+        Proxmox (PVE)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/qnap/" class="md-nav__link">
+        QNAP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/slack/" class="md-nav__link">
+        Slack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/vault/" class="md-nav__link">
+        HashiCorp Vault
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/vi/" class="md-nav__link">
+        vi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/vscode/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Lang
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Lang" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Lang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/bash/" class="md-nav__link">
+        bash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/powershell/" class="md-nav__link">
+        PowerShell
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/yaml/" class="md-nav__link">
+        YAML
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    インストール
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コマンド
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リポジトリ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    リポジトリを追加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ローカルのリポジトリ情報を更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    チャート一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    チャートの検索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    チャートのバージョン一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    チャートのデフォルト値
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    チャートのインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    アップグレード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    チャートのバージョン指定インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    チャートインストールに使われるマニフェスト生成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    リリース一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リリースの削除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    リリースの設定値
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    チャートインストール例
+  </a>
+  
+    <nav class="md-nav" aria-label="チャートインストール例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluent-bit" class="md-nav__link">
+    Fluent Bit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Container/helm.md" title="編集" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="helm">Helm</h1>
+<h2 id="_1">インストール</h2>
+<p><a href="https://helm.sh/ja/docs/intro/install/">Helm | Helm のインストール</a></p>
+<p>OSのパッケージ管理で対応してなければ、バイナリを<code>/usr/local/bin/helm</code>に置けばOK.<br />
+インストール用スクリプトもある。</p>
+<p>aptはあるけど、今のとこyun/dnfはないんだよな。</p>
+<h3 id="apt">apt</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
+<span style="color: #888888">sudo apt-get install apt-transport-https --yes</span>
+<span style="color: #888888">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list</span>
+<span style="color: #888888">sudo apt-get update</span>
+<span style="color: #888888">sudo apt-get install helm</span>
+</code></pre></div>
+
+<h2 id="_2">コマンド</h2>
+<h3 id="_3">リポジトリ一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>list
+<span style="color: #888888">NAME                    URL                                               </span>
+<span style="color: #888888">prometheus-community    https://prometheus-community.github.io/helm-charts</span>
+<span style="color: #888888">rook-release            https://charts.rook.io/release                    </span>
+<span style="color: #888888">stable                  https://charts.helm.sh/stable                     </span>
+<span style="color: #888888">grafana                 https://grafana.github.io/helm-charts             </span>
+<span style="color: #888888">elastic                 https://helm.elastic.co                           </span>
+<span style="color: #888888">metallb                 https://metallb.github.io/metallb   </span>
+</code></pre></div>
+
+<h3 id="_4">リポジトリを追加</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>stable<span style="color: #bbbbbb"> </span>https://charts.helm.sh/stable
+</code></pre></div>
+
+<p>とか</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>prometheus-community<span style="color: #bbbbbb"> </span>https://prometheus-community.github.io/helm-charts
+</code></pre></div>
+
+<p>とか</p>
+<h3 id="_5">ローカルのリポジトリ情報を更新</h3>
+<p>多分<code>apt-get update</code>的な動作。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>update
+</code></pre></div>
+
+<h3 id="_6">チャート一覧</h3>
+<p>登録済み全リポジトリのチャート一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo
+</code></pre></div>
+
+<p>指定リポジトリのチャート一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>&lt;repository-name&gt;
+</code></pre></div>
+
+<h3 id="_7">チャートの検索</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>prometheus
+<span style="color: #888888">NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       </span>
+<span style="color: #888888">prometheus-community/kube-prometheus-stack              16.12.1         0.48.1          kube-prometheus-stack collects Kubernetes manif...</span>
+<span style="color: #888888">prometheus-community/prometheus                         14.3.0          2.26.0          Prometheus is a monitoring system and time seri...</span>
+<span style="color: #888888">prometheus-community/prometheus-adapter                 2.14.2          v0.8.4          A Helm chart for k8s prometheus adapter           </span>
+<span style="color: #888888">prometheus-community/prometheus-blackbox-exporter       4.15.0          0.19.0          Prometheus Blackbox Exporter                      </span>
+<span style="color: #888888">prometheus-community/prometheus-cloudwatch-expo...      0.16.0          0.10.0          A Helm chart for prometheus cloudwatch-exporter   </span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+</code></pre></div>
+
+<h3 id="_8">チャートのバージョン一覧</h3>
+<p>チャート検索でチャート名を付与しつつ<code>-l</code>を追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>fluent/fluentd<span style="color: #bbbbbb"> </span>-l
+<span style="color: #888888">NAME            CHART VERSION   APP VERSION     DESCRIPTION                </span>
+<span style="color: #888888">fluent/fluentd  0.3.9           v1.14.6         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.8           v1.12.4         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.7           v1.12.4         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.6           v1.12.4         A Helm chart for Kubernetes</span>
+<span style="color: #888888">fluent/fluentd  0.3.5           v1.12.4         A Helm chart for Kubernetes</span>
+</code></pre></div>
+
+<h3 id="_9">チャートのデフォルト値</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>show<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>metallb/metallb
+<span style="color: #000080; font-weight: bold"># </span>Default<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>metallb.
+<span style="color: #000080; font-weight: bold"># </span>This<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>YAML-formatted<span style="color: #bbbbbb"> </span>file.
+<span style="color: #000080; font-weight: bold"># </span>Declare<span style="color: #bbbbbb"> </span>variables<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>be<span style="color: #bbbbbb"> </span>passed<span style="color: #bbbbbb"> </span>into<span style="color: #bbbbbb"> </span>your<span style="color: #bbbbbb"> </span>templates.
+
+<span style="color: #888888">imagePullSecrets: []</span>
+<span style="color: #888888">nameOverride: &quot;&quot;</span>
+<span style="color: #888888">fullnameOverride: &quot;&quot;</span>
+
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+</code></pre></div>
+
+<p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
+<h3 id="_10">チャートのインストール</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm install stable/mysql --generate-name --create-namespace -n mysql</span>
+</code></pre></div>
+
+<h3 id="_11">アップグレード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade &lt;release&gt; &lt;chart&gt; [-n &lt;namespace&gt;] [-f values.yaml]</span>
+</code></pre></div>
+
+<p>未インストールであればインストールし、インストール済みであればアップグレードするには<code>--install</code>を付加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install sample-logstash elastic/logstash -f values.yaml --create-namespace -n logging</span>
+</code></pre></div>
+
+<h3 id="_12">チャートのバージョン指定インストール</h3>
+<p>インストール時にチャートのバージョンを指定するには<code>--version</code>を使う</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm install ... --version x.y.z</span>
+</code></pre></div>
+
+<h3 id="_13">チャートインストールに使われるマニフェスト生成</h3>
+<p><code>install</code>の代わりに<code>template</code>を使う</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm template stable/mysql --generate-name --create-namespace -n mysql</span>
+</code></pre></div>
+
+<p>※ heml 3.14だと<code>--create-namespace</code>が効かない</p>
+<h3 id="_14">リリース一覧</h3>
+<p>実行中のリリースの一覧</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-n<span style="color: #bbbbbb"> </span>&lt;namespace-name&gt;<span style="color: #666666">]</span>
+</code></pre></div>
+
+<h3 id="_15">リリースの削除</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm uninstall &lt;char-name&gt; [-n &lt;namespace-name&gt;]</span>
+</code></pre></div>
+
+<h3 id="_16">リリースの設定値</h3>
+<p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-A
+<span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
+<span style="color: #888888">grafana         monitoring      1               2021-07-26 16:23:47.276215637 +0900 JST deployed        grafana-6.14.1          8.0.5      </span>
+<span style="color: #888888">prometheus      monitoring      1               2021-07-26 14:24:12.737306448 +0900 JST deployed        prometheus-14.4.1       2.26.0     </span>
+<span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>monitoring<span style="color: #bbbbbb"> </span>grafana
+<span style="color: #888888">USER-SUPPLIED VALUES:</span>
+<span style="color: #888888">persistence:</span>
+<span style="color: #888888">  accessModes:</span>
+<span style="color: #888888">  - ReadWriteOnce</span>
+<span style="color: #888888">  enabled: true</span>
+<span style="color: #888888">  size: 1Gi</span>
+<span style="color: #888888">  type: pvc</span>
+<span style="color: #888888">service:</span>
+<span style="color: #888888">  type: LoadBalancer</span>
+</code></pre></div>
+
+<h2 id="_17">チャートインストール例</h2>
+<h3 id="fluent-bit">Fluent Bit</h3>
+<p><a href="https://github.com/fluent/helm-charts">fluent/helm-charts: Helm Charts for Fluentd and Fluent Bit</a></p>
+<p>リポジトリ追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm repo add fluent https://fluent.github.io/helm-charts</span>
+</code></pre></div>
+
+<p>インストール</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install fluent-bit fluent/fluent-bit -n logging --create-namespace -f values.yaml</span>
+</code></pre></div>
+
+<h2 id="_18">環境変数</h2>
+<p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>env
+<span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
+<span style="color: #888888">HELM_CACHE_HOME=&quot;/home/zaki/.cache/helm&quot;</span>
+<span style="color: #888888">HELM_CONFIG_HOME=&quot;/home/zaki/.config/helm&quot;</span>
+<span style="color: #888888">HELM_DATA_HOME=&quot;/home/zaki/.local/share/helm&quot;</span>
+<span style="color: #888888">HELM_DEBUG=&quot;false&quot;</span>
+<span style="color: #888888">HELM_KUBEAPISERVER=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBEASGROUPS=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBEASUSER=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBECAFILE=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBECONTEXT=&quot;&quot;</span>
+<span style="color: #888888">HELM_KUBETOKEN=&quot;&quot;</span>
+<span style="color: #888888">HELM_MAX_HISTORY=&quot;10&quot;</span>
+<span style="color: #888888">HELM_NAMESPACE=&quot;default&quot;</span>
+<span style="color: #888888">HELM_PLUGINS=&quot;/home/zaki/.local/share/helm/plugins&quot;</span>
+<span style="color: #888888">HELM_REGISTRY_CONFIG=&quot;/home/zaki/.config/helm/registry.json&quot;</span>
+<span style="color: #888888">HELM_REPOSITORY_CACHE=&quot;/home/zaki/.cache/helm/repository&quot;</span>
+<span style="color: #888888">HELM_REPOSITORY_CONFIG=&quot;/home/zaki/.config/helm/repositories.yaml&quot;</span>
+</code></pre></div>
+
+<p><code>HELM_CONFIG_HOME</code>を設定すれば、<code>HELM_REGISTRY_CONFIG</code>などは連動する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span><span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span>/var/tmp<span style="color: #bbbbbb"> </span>helm<span style="color: #bbbbbb"> </span>env<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>var
+<span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp&quot;</span>
+<span style="color: #B8860B">HELM_REGISTRY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/registry.json&quot;</span>
+<span style="color: #B8860B">HELM_REPOSITORY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/repositories.yaml&quot;</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        <a href="../docker/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              Docker
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../install/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              Dockerインストール
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2021 zaki
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.d351de03.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+    
+  </body>
+</html>

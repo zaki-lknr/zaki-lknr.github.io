@@ -16,7 +16,7 @@
     
     
       
-        <title>設定 - 戯術memo</title>
+        <title>Registry - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#registry" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              設定
+              Registry
             
           </span>
         </div>
@@ -203,8 +203,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Docker
+      <a href="../AKS/" class="md-tabs__link md-tabs__link--active">
+        Container
       </a>
     </li>
   
@@ -221,22 +221,6 @@
     <li class="md-tabs__item">
       <a href="../../Git/" class="md-tabs__link">
         Git
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../Kubernetes/" class="md-tabs__link">
-        Kubernetes
       </a>
     </li>
   
@@ -627,13 +611,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
-        Docker
+        Container
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+      <nav class="md-nav" aria-label="Container" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker
+          Container
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -642,8 +626,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        基本・ネタ帳
+      <a href="../AKS/" class="md-nav__link">
+        AKS
       </a>
     </li>
   
@@ -676,6 +660,126 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../configure/" class="md-nav__link">
+        Docker設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Dockerインストール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k3s/" class="md-nav__link">
+        K3s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kind/" class="md-nav__link">
+        kind
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubectl/" class="md-nav__link">
+        kubectl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        Podman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -688,12 +792,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          設定
+          Registry
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        設定
+        Registry
       </a>
       
         
@@ -711,30 +815,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#insecure" class="md-nav__link">
-    insecureなレジストリ設定
+  <a href="#api" class="md-nav__link">
+    API
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dns" class="md-nav__link">
-    DNS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proxy" class="md-nav__link">
-    proxy設定
-  </a>
-  
-    <nav class="md-nav" aria-label="proxy設定">
+    <nav class="md-nav" aria-label="API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#docker-engineproxy" class="md-nav__link">
-    Docker Engineのproxy設定
+  <a href="#_1" class="md-nav__link">
+    リポジトリ一覧(イメージ一覧)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    イメージのタグ一覧
   </a>
   
 </li>
@@ -745,9 +842,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tcp" class="md-nav__link">
-    リモートからのTCP接続
+  <a href="#saas" class="md-nav__link">
+    SaaS
   </a>
+  
+    <nav class="md-nav" aria-label="SaaS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-container-registry" class="md-nav__link">
+    GitHub Container Registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecr-elastic-container-registry" class="md-nav__link">
+    ECR (Elastic Container Registry)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acr" class="md-nav__link">
+    ACR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -755,30 +879,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
-        インストール
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../registry/" class="md-nav__link">
-        Registry
-      </a>
     </li>
   
 
@@ -905,125 +1005,11 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       <label class="md-nav__link" for="__nav_5">
-        Kubernetes
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Kubernetes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/" class="md-nav__link">
-        Kubernetes
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/AKS/" class="md-nav__link">
-        AKS
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/helm/" class="md-nav__link">
-        Helm
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/k3s/" class="md-nav__link">
-        K3s
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/kind/" class="md-nav__link">
-        kind
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/kubectl/" class="md-nav__link">
-        kubectl
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/minikube/" class="md-nav__link">
-        minikube
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      <label class="md-nav__link" for="__nav_6">
         Linux
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Linux
         </label>
@@ -1190,14 +1176,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_7">
+      <label class="md-nav__link" for="__nav_6">
         Network
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Network" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Network
         </label>
@@ -1232,14 +1218,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_8">
+      <label class="md-nav__link" for="__nav_7">
         Tools
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Tools
         </label>
@@ -1490,14 +1476,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_9">
+      <label class="md-nav__link" for="__nav_8">
         Lang
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Lang" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Lang
         </label>
@@ -1595,30 +1581,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#insecure" class="md-nav__link">
-    insecureなレジストリ設定
+  <a href="#api" class="md-nav__link">
+    API
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dns" class="md-nav__link">
-    DNS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proxy" class="md-nav__link">
-    proxy設定
-  </a>
-  
-    <nav class="md-nav" aria-label="proxy設定">
+    <nav class="md-nav" aria-label="API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#docker-engineproxy" class="md-nav__link">
-    Docker Engineのproxy設定
+  <a href="#_1" class="md-nav__link">
+    リポジトリ一覧(イメージ一覧)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    イメージのタグ一覧
   </a>
   
 </li>
@@ -1629,9 +1608,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tcp" class="md-nav__link">
-    リモートからのTCP接続
+  <a href="#saas" class="md-nav__link">
+    SaaS
   </a>
+  
+    <nav class="md-nav" aria-label="SaaS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-container-registry" class="md-nav__link">
+    GitHub Container Registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecr-elastic-container-registry" class="md-nav__link">
+    ECR (Elastic Container Registry)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acr" class="md-nav__link">
+    ACR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1647,60 +1653,52 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Docker/configure.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Container/registry.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">設定</h1>
-<h2 id="insecure">insecureなレジストリ設定</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
+                <h1 id="registry">Registry</h1>
+<h2 id="api">API</h2>
+<h3 id="_1">リポジトリ一覧(イメージ一覧)</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://registry.example.org/v2/_catalog</span>
 </code></pre></div>
 
-<p>ローカルに立てたレジストリとかでこんなエラーが出る場合。<br />
-<code>/etc/docker/daemon.json</code>に、TLS検証を無視したいサイトを以下のように追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;insecure-registries&quot;</span><span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;gitlab-ce.example.org:25000&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;gitlab-ce.local:25000&quot;</span><span style="color: #bbbbbb"> </span>]
-}
+<h3 id="_2">イメージのタグ一覧</h3>
+<p>リポジトリ一覧でヒットしたリポジトリ名をパスに含める</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://registry.example.org/v2/&lt;repository-name&gt;/tags/list</span>
 </code></pre></div>
 
-<h2 id="dns">DNS</h2>
-<p>コンテナ内で使用するDNS設定を指定するには、<code>--dns</code>を指定するか、ホストの<code>/etc/docker/daemon.json</code>で一律指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;dns&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;8.8.8.8&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;8.8.4.4&quot;</span>]
-}
+<h2 id="saas">SaaS</h2>
+<h3 id="github-container-registry">GitHub Container Registry</h3>
+<p>手順は以下。<br />
+<a href="https://docs.github.com/ja/packages/working-with-a-github-packages-registry/working-with-the-container-registry">コンテナレジストリの利用 - GitHub Docs</a></p>
+<p>認証に使用するパスワードは、個人用アクセストークンを作成する。<br />
+<a href="https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">個人アクセストークンを使用する - GitHub Docs</a></p>
+<p><a href="https://github.com/settings/tokens">Personal Access Tokens (Classic)</a>で[Generate new token]押下、Select scopesの<code>write:packages</code>にチェックして[Generate token]押下すればトークンが生成される。<br />
+GitHubのユーザー名と、入手したトークンをパスワードとして、</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>login<span style="color: #bbbbbb"> </span>ghcr.io
 </code></pre></div>
 
-<h2 id="proxy">proxy設定</h2>
-<h3 id="docker-engineproxy">Docker Engineのproxy設定</h3>
-<p><a href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">HTTP/HTTPS proxy</a></p>
-<p>systemdのユニットファイルの設定に変数設定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>mkdir<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>/etc/systemd/system/docker.service.d
-<span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>/etc/systemd/system/docker.service.d/http-proxy.conf
-<span style="color: #888888">[Service]</span>
-<span style="color: #888888">Environment=&quot;HTTP_PROXY=http://proxy.example.com:8080&quot;</span>
-<span style="color: #888888">Environment=&quot;HTTPS_PROXY=http://proxy.example.com:8080&quot;</span>
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>daemon-reload
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>docker
+<p>すれば認証できる。</p>
+<p>あとは<code>ghcr.io/zaki-lknr/squid:5.0.4-alpine-3.13</code>とかの名前のタグをつければ<code>push</code>もできる。<br />
+pushされたイメージは、GitHubのweb画面の「Packages」で確認できる。デフォルトはprivate設定。</p>
+<h3 id="ecr-elastic-container-registry">ECR (Elastic Container Registry)</h3>
+<p>認証用パスワードは <code>aws</code> CLIを使用。<br />
+<code>aws ecr get-login-password</code> を実行するとレジストリ認証に使用するパスワードを取得できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #bbbbbb"> </span>ecr<span style="color: #bbbbbb"> </span>get-login-password<span style="color: #bbbbbb"> </span>--region<span style="color: #bbbbbb"> </span>ap-northeast-1
+<span style="color: #888888">eyJwYXls ......</span>
 </code></pre></div>
 
-<p>これでproxy環境下にあるホストノード上で<code>docker pull</code>などできる。</p>
-<h2 id="tcp">リモートからのTCP接続</h2>
-<p>/lib/systemd/system/docker.service</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A00000">--- /lib/systemd/system/_docker.service 2021-04-10 07:46:42.000000000 +0900</span>
-<span style="color: #00A000">+++ /lib/systemd/system/docker.service  2021-08-10 09:39:32.451408694 +0900</span>
-<span style="color: #800080; font-weight: bold">@@ -10,7 +10,7 @@</span>
-<span style="color: #bbbbbb"> </span># the default is not to use systemd for cgroups because the delegate issues still
-<span style="color: #bbbbbb"> </span># exists and systemd currently does not support the cgroup feature set required
-<span style="color: #bbbbbb"> </span># for containers run by docker
-<span style="color: #A00000">-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
-<span style="color: #00A000">+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0 --containerd=/run/containerd/containerd.sock</span>
-<span style="color: #bbbbbb"> </span>ExecReload=/bin/kill -s HUP $MAINPID
-<span style="color: #bbbbbb"> </span>TimeoutSec=0
-<span style="color: #bbbbbb"> </span>RestartSec=2
+<p>ログイン時のユーザー名は <code>AWS</code> 固定のため、レジストリログイン用のコマンドは以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #bbbbbb"> </span>login<span style="color: #bbbbbb"> </span>&lt;registry<span style="color: #bbbbbb"> </span>URL&gt;<span style="color: #bbbbbb"> </span>-u<span style="color: #bbbbbb"> </span>AWS<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$(</span>aws<span style="color: #bbbbbb"> </span>ecr<span style="color: #bbbbbb"> </span>get-login-password<span style="color: #AA22FF; font-weight: bold">)</span>
 </code></pre></div>
 
-<p>これで2375/TCPでListenする。</p>
+<p><a href="https://docs.aws.amazon.com/ja_jp/AmazonECR/latest/userguide/registry_auth.html">プライベートレジストリの認証 - Amazon ECR</a></p>
+<h3 id="acr">ACR</h3>
+<p>ポータルからの場合は、レジストリメニューの「トークン」から、「追加」でトークンを作成する。スコープマップに権限を入力。<br />
+作成したトークンの「詳細」からパスワードを生成できる。<br />
+生成されるのはj<code>docker login</code>で指定するパスワード、およびDockerコマンド列全体(<code>docker login -u ... -p ...</code>)も得られる。(ユーザー名はトークン名になる)</p>
                 
               
               
@@ -1719,7 +1717,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../compose/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../podman/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1728,19 +1726,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              Docker Compose
+              Podman
             </div>
           </div>
         </a>
       
       
-        <a href="../install/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../../Git/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              インストール
+              Git基本操作
             </div>
           </div>
           <div class="md-footer__button md-icon">

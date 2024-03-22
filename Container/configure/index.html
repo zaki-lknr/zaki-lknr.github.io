@@ -16,7 +16,7 @@
     
     
       
-        <title>Helm - 戯術memo</title>
+        <title>Docker設定 - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#helm" class="md-skip">
+        <a href="#docker" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Helm
+              Docker設定
             
           </span>
         </div>
@@ -195,14 +195,16 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Docker/" class="md-tabs__link">
-        Docker
+      <a href="../AKS/" class="md-tabs__link md-tabs__link--active">
+        Container
       </a>
     </li>
   
@@ -219,24 +221,6 @@
     <li class="md-tabs__item">
       <a href="../../Git/" class="md-tabs__link">
         Git
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Kubernetes
       </a>
     </li>
   
@@ -617,21 +601,23 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
-        Docker
+        Container
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+      <nav class="md-nav" aria-label="Container" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker
+          Container
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -640,8 +626,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/" class="md-nav__link">
-        基本・ネタ帳
+      <a href="../AKS/" class="md-nav__link">
+        AKS
       </a>
     </li>
   
@@ -652,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/build/" class="md-nav__link">
+      <a href="../build/" class="md-nav__link">
         イメージビルド
       </a>
     </li>
@@ -664,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/compose/" class="md-nav__link">
+      <a href="../compose/" class="md-nav__link">
         Docker Compose
       </a>
     </li>
@@ -674,10 +660,96 @@
             
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker設定
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Docker設定
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy設定
+  </a>
+  
+    <nav class="md-nav" aria-label="proxy設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-engineproxy" class="md-nav__link">
+    Docker Engineのproxy設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    リモートからのTCP接続
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
   
     <li class="md-nav__item">
-      <a href="../../Docker/configure/" class="md-nav__link">
-        設定
+      <a href="../docker/" class="md-nav__link">
+        Docker
       </a>
     </li>
   
@@ -688,8 +760,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/install/" class="md-nav__link">
-        インストール
+      <a href="../helm/" class="md-nav__link">
+        Helm
       </a>
     </li>
   
@@ -700,7 +772,91 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Docker/registry/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
+        Dockerインストール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k3s/" class="md-nav__link">
+        K3s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kind/" class="md-nav__link">
+        kind
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubectl/" class="md-nav__link">
+        kubectl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        Podman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
         Registry
       </a>
     </li>
@@ -821,326 +977,19 @@
 
   
   
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
-      
-      <label class="md-nav__link" for="__nav_5">
-        Kubernetes
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Kubernetes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        Kubernetes
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AKS/" class="md-nav__link">
-        AKS
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Helm
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Helm
-      </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    インストール
-  </a>
-  
-    <nav class="md-nav" aria-label="インストール">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    apt
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    コマンド
-  </a>
-  
-    <nav class="md-nav" aria-label="コマンド">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    リポジトリ一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    リポジトリを追加
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    ローカルのリポジトリ情報を更新
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    チャート一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    チャートの検索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    チャートのバージョン一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    チャートのデフォルト値
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    チャートのインストール
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    アップグレード
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    チャートのバージョン指定インストール
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    チャートインストールに使われるマニフェスト生成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    リリース一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    リリースの削除
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    リリースの設定値
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    チャートインストール例
-  </a>
-  
-    <nav class="md-nav" aria-label="チャートインストール例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fluent-bit" class="md-nav__link">
-    Fluent Bit
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    環境変数
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../k3s/" class="md-nav__link">
-        K3s
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kind/" class="md-nav__link">
-        kind
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kubectl/" class="md-nav__link">
-        kubectl
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../minikube/" class="md-nav__link">
-        minikube
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
   
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_6">
+      <label class="md-nav__link" for="__nav_5">
         Linux
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Linux
         </label>
@@ -1307,14 +1156,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_7">
+      <label class="md-nav__link" for="__nav_6">
         Network
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Network" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Network
         </label>
@@ -1349,14 +1198,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_8">
+      <label class="md-nav__link" for="__nav_7">
         Tools
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Tools
         </label>
@@ -1607,14 +1456,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_9">
+      <label class="md-nav__link" for="__nav_8">
         Lang
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Lang" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Lang
         </label>
@@ -1712,16 +1561,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    インストール
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
   </a>
   
-    <nav class="md-nav" aria-label="インストール">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy設定
+  </a>
+  
+    <nav class="md-nav" aria-label="proxy設定">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    apt
+  <a href="#docker-engineproxy" class="md-nav__link">
+    Docker Engineのproxy設定
   </a>
   
 </li>
@@ -1732,139 +1595,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    コマンド
-  </a>
-  
-    <nav class="md-nav" aria-label="コマンド">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    リポジトリ一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    リポジトリを追加
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    ローカルのリポジトリ情報を更新
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    チャート一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    チャートの検索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    チャートのバージョン一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    チャートのデフォルト値
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    チャートのインストール
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    アップグレード
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    チャートのバージョン指定インストール
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    チャートインストールに使われるマニフェスト生成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    リリース一覧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    リリースの削除
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    リリースの設定値
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    チャートインストール例
-  </a>
-  
-    <nav class="md-nav" aria-label="チャートインストール例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fluent-bit" class="md-nav__link">
-    Fluent Bit
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    環境変数
+  <a href="#tcp" class="md-nav__link">
+    リモートからのTCP接続
   </a>
   
 </li>
@@ -1881,187 +1613,60 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Kubernetes/helm.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Container/configure.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="helm">Helm</h1>
-<h2 id="_1">インストール</h2>
-<p><a href="https://helm.sh/ja/docs/intro/install/">Helm | Helm のインストール</a></p>
-<p>OSのパッケージ管理で対応してなければ、バイナリを<code>/usr/local/bin/helm</code>に置けばOK.<br />
-インストール用スクリプトもある。</p>
-<p>aptはあるけど、今のとこyun/dnfはないんだよな。</p>
-<h3 id="apt">apt</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
-<span style="color: #888888">sudo apt-get install apt-transport-https --yes</span>
-<span style="color: #888888">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list</span>
-<span style="color: #888888">sudo apt-get update</span>
-<span style="color: #888888">sudo apt-get install helm</span>
+                <h1 id="docker">Docker設定</h1>
+<h2 id="insecure">insecureなレジストリ設定</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
 </code></pre></div>
 
-<h2 id="_2">コマンド</h2>
-<h3 id="_3">リポジトリ一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>list
-<span style="color: #888888">NAME                    URL                                               </span>
-<span style="color: #888888">prometheus-community    https://prometheus-community.github.io/helm-charts</span>
-<span style="color: #888888">rook-release            https://charts.rook.io/release                    </span>
-<span style="color: #888888">stable                  https://charts.helm.sh/stable                     </span>
-<span style="color: #888888">grafana                 https://grafana.github.io/helm-charts             </span>
-<span style="color: #888888">elastic                 https://helm.elastic.co                           </span>
-<span style="color: #888888">metallb                 https://metallb.github.io/metallb   </span>
+<p>ローカルに立てたレジストリとかでこんなエラーが出る場合。<br />
+<code>/etc/docker/daemon.json</code>に、TLS検証を無視したいサイトを以下のように追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;insecure-registries&quot;</span><span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;gitlab-ce.example.org:25000&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;gitlab-ce.local:25000&quot;</span><span style="color: #bbbbbb"> </span>]
+}
 </code></pre></div>
 
-<h3 id="_4">リポジトリを追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>stable<span style="color: #bbbbbb"> </span>https://charts.helm.sh/stable
+<h2 id="dns">DNS</h2>
+<p>コンテナ内で使用するDNS設定を指定するには、<code>--dns</code>を指定するか、ホストの<code>/etc/docker/daemon.json</code>で一律指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;dns&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;8.8.8.8&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;8.8.4.4&quot;</span>]
+}
 </code></pre></div>
 
-<p>とか</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>prometheus-community<span style="color: #bbbbbb"> </span>https://prometheus-community.github.io/helm-charts
+<h2 id="proxy">proxy設定</h2>
+<h3 id="docker-engineproxy">Docker Engineのproxy設定</h3>
+<p><a href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">HTTP/HTTPS proxy</a></p>
+<p>systemdのユニットファイルの設定に変数設定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>mkdir<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>/etc/systemd/system/docker.service.d
+<span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>/etc/systemd/system/docker.service.d/http-proxy.conf
+<span style="color: #888888">[Service]</span>
+<span style="color: #888888">Environment=&quot;HTTP_PROXY=http://proxy.example.com:8080&quot;</span>
+<span style="color: #888888">Environment=&quot;HTTPS_PROXY=http://proxy.example.com:8080&quot;</span>
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>daemon-reload
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>docker
 </code></pre></div>
 
-<p>とか</p>
-<h3 id="_5">ローカルのリポジトリ情報を更新</h3>
-<p>多分<code>apt-get update</code>的な動作。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>update
+<p>これでproxy環境下にあるホストノード上で<code>docker pull</code>などできる。</p>
+<h2 id="tcp">リモートからのTCP接続</h2>
+<p>/lib/systemd/system/docker.service</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A00000">--- /lib/systemd/system/_docker.service 2021-04-10 07:46:42.000000000 +0900</span>
+<span style="color: #00A000">+++ /lib/systemd/system/docker.service  2021-08-10 09:39:32.451408694 +0900</span>
+<span style="color: #800080; font-weight: bold">@@ -10,7 +10,7 @@</span>
+<span style="color: #bbbbbb"> </span># the default is not to use systemd for cgroups because the delegate issues still
+<span style="color: #bbbbbb"> </span># exists and systemd currently does not support the cgroup feature set required
+<span style="color: #bbbbbb"> </span># for containers run by docker
+<span style="color: #A00000">-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
+<span style="color: #00A000">+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0 --containerd=/run/containerd/containerd.sock</span>
+<span style="color: #bbbbbb"> </span>ExecReload=/bin/kill -s HUP $MAINPID
+<span style="color: #bbbbbb"> </span>TimeoutSec=0
+<span style="color: #bbbbbb"> </span>RestartSec=2
 </code></pre></div>
 
-<h3 id="_6">チャート一覧</h3>
-<p>登録済み全リポジトリのチャート一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo
-</code></pre></div>
-
-<p>指定リポジトリのチャート一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>&lt;repository-name&gt;
-</code></pre></div>
-
-<h3 id="_7">チャートの検索</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>prometheus
-<span style="color: #888888">NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       </span>
-<span style="color: #888888">prometheus-community/kube-prometheus-stack              16.12.1         0.48.1          kube-prometheus-stack collects Kubernetes manif...</span>
-<span style="color: #888888">prometheus-community/prometheus                         14.3.0          2.26.0          Prometheus is a monitoring system and time seri...</span>
-<span style="color: #888888">prometheus-community/prometheus-adapter                 2.14.2          v0.8.4          A Helm chart for k8s prometheus adapter           </span>
-<span style="color: #888888">prometheus-community/prometheus-blackbox-exporter       4.15.0          0.19.0          Prometheus Blackbox Exporter                      </span>
-<span style="color: #888888">prometheus-community/prometheus-cloudwatch-expo...      0.16.0          0.10.0          A Helm chart for prometheus cloudwatch-exporter   </span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-</code></pre></div>
-
-<h3 id="_8">チャートのバージョン一覧</h3>
-<p>チャート検索でチャート名を付与しつつ<code>-l</code>を追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>repo<span style="color: #bbbbbb"> </span>fluent/fluentd<span style="color: #bbbbbb"> </span>-l
-<span style="color: #888888">NAME            CHART VERSION   APP VERSION     DESCRIPTION                </span>
-<span style="color: #888888">fluent/fluentd  0.3.9           v1.14.6         A Helm chart for Kubernetes</span>
-<span style="color: #888888">fluent/fluentd  0.3.8           v1.12.4         A Helm chart for Kubernetes</span>
-<span style="color: #888888">fluent/fluentd  0.3.7           v1.12.4         A Helm chart for Kubernetes</span>
-<span style="color: #888888">fluent/fluentd  0.3.6           v1.12.4         A Helm chart for Kubernetes</span>
-<span style="color: #888888">fluent/fluentd  0.3.5           v1.12.4         A Helm chart for Kubernetes</span>
-</code></pre></div>
-
-<h3 id="_9">チャートのデフォルト値</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>show<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>metallb/metallb
-<span style="color: #000080; font-weight: bold"># </span>Default<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>metallb.
-<span style="color: #000080; font-weight: bold"># </span>This<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>YAML-formatted<span style="color: #bbbbbb"> </span>file.
-<span style="color: #000080; font-weight: bold"># </span>Declare<span style="color: #bbbbbb"> </span>variables<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>be<span style="color: #bbbbbb"> </span>passed<span style="color: #bbbbbb"> </span>into<span style="color: #bbbbbb"> </span>your<span style="color: #bbbbbb"> </span>templates.
-
-<span style="color: #888888">imagePullSecrets: []</span>
-<span style="color: #888888">nameOverride: &quot;&quot;</span>
-<span style="color: #888888">fullnameOverride: &quot;&quot;</span>
-
-<span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-</code></pre></div>
-
-<p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
-<h3 id="_10">チャートのインストール</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm install stable/mysql --generate-name --create-namespace -n mysql</span>
-</code></pre></div>
-
-<h3 id="_11">アップグレード</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade &lt;release&gt; &lt;chart&gt; [-n &lt;namespace&gt;] [-f values.yaml]</span>
-</code></pre></div>
-
-<p>未インストールであればインストールし、インストール済みであればアップグレードするには<code>--install</code>を付加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install sample-logstash elastic/logstash -f values.yaml --create-namespace -n logging</span>
-</code></pre></div>
-
-<h3 id="_12">チャートのバージョン指定インストール</h3>
-<p>インストール時にチャートのバージョンを指定するには<code>--version</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm install ... --version x.y.z</span>
-</code></pre></div>
-
-<h3 id="_13">チャートインストールに使われるマニフェスト生成</h3>
-<p><code>install</code>の代わりに<code>template</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm template stable/mysql --generate-name --create-namespace -n mysql</span>
-</code></pre></div>
-
-<p>※ heml 3.14だと<code>--create-namespace</code>が効かない</p>
-<h3 id="_14">リリース一覧</h3>
-<p>実行中のリリースの一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-n<span style="color: #bbbbbb"> </span>&lt;namespace-name&gt;<span style="color: #666666">]</span>
-</code></pre></div>
-
-<h3 id="_15">リリースの削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm uninstall &lt;char-name&gt; [-n &lt;namespace-name&gt;]</span>
-</code></pre></div>
-
-<h3 id="_16">リリースの設定値</h3>
-<p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-A
-<span style="color: #888888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
-<span style="color: #888888">grafana         monitoring      1               2021-07-26 16:23:47.276215637 +0900 JST deployed        grafana-6.14.1          8.0.5      </span>
-<span style="color: #888888">prometheus      monitoring      1               2021-07-26 14:24:12.737306448 +0900 JST deployed        prometheus-14.4.1       2.26.0     </span>
-<span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>values<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>monitoring<span style="color: #bbbbbb"> </span>grafana
-<span style="color: #888888">USER-SUPPLIED VALUES:</span>
-<span style="color: #888888">persistence:</span>
-<span style="color: #888888">  accessModes:</span>
-<span style="color: #888888">  - ReadWriteOnce</span>
-<span style="color: #888888">  enabled: true</span>
-<span style="color: #888888">  size: 1Gi</span>
-<span style="color: #888888">  type: pvc</span>
-<span style="color: #888888">service:</span>
-<span style="color: #888888">  type: LoadBalancer</span>
-</code></pre></div>
-
-<h2 id="_17">チャートインストール例</h2>
-<h3 id="fluent-bit">Fluent Bit</h3>
-<p><a href="https://github.com/fluent/helm-charts">fluent/helm-charts: Helm Charts for Fluentd and Fluent Bit</a></p>
-<p>リポジトリ追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm repo add fluent https://fluent.github.io/helm-charts</span>
-</code></pre></div>
-
-<p>インストール</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">helm upgrade --install fluent-bit fluent/fluent-bit -n logging --create-namespace -f values.yaml</span>
-</code></pre></div>
-
-<h2 id="_18">環境変数</h2>
-<p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #bbbbbb"> </span>env
-<span style="color: #888888">HELM_BIN=&quot;helm&quot;</span>
-<span style="color: #888888">HELM_CACHE_HOME=&quot;/home/zaki/.cache/helm&quot;</span>
-<span style="color: #888888">HELM_CONFIG_HOME=&quot;/home/zaki/.config/helm&quot;</span>
-<span style="color: #888888">HELM_DATA_HOME=&quot;/home/zaki/.local/share/helm&quot;</span>
-<span style="color: #888888">HELM_DEBUG=&quot;false&quot;</span>
-<span style="color: #888888">HELM_KUBEAPISERVER=&quot;&quot;</span>
-<span style="color: #888888">HELM_KUBEASGROUPS=&quot;&quot;</span>
-<span style="color: #888888">HELM_KUBEASUSER=&quot;&quot;</span>
-<span style="color: #888888">HELM_KUBECAFILE=&quot;&quot;</span>
-<span style="color: #888888">HELM_KUBECONTEXT=&quot;&quot;</span>
-<span style="color: #888888">HELM_KUBETOKEN=&quot;&quot;</span>
-<span style="color: #888888">HELM_MAX_HISTORY=&quot;10&quot;</span>
-<span style="color: #888888">HELM_NAMESPACE=&quot;default&quot;</span>
-<span style="color: #888888">HELM_PLUGINS=&quot;/home/zaki/.local/share/helm/plugins&quot;</span>
-<span style="color: #888888">HELM_REGISTRY_CONFIG=&quot;/home/zaki/.config/helm/registry.json&quot;</span>
-<span style="color: #888888">HELM_REPOSITORY_CACHE=&quot;/home/zaki/.cache/helm/repository&quot;</span>
-<span style="color: #888888">HELM_REPOSITORY_CONFIG=&quot;/home/zaki/.config/helm/repositories.yaml&quot;</span>
-</code></pre></div>
-
-<p><code>HELM_CONFIG_HOME</code>を設定すれば、<code>HELM_REGISTRY_CONFIG</code>などは連動する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span><span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span>/var/tmp<span style="color: #bbbbbb"> </span>helm<span style="color: #bbbbbb"> </span>env<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>var
-<span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp&quot;</span>
-<span style="color: #B8860B">HELM_REGISTRY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/registry.json&quot;</span>
-<span style="color: #B8860B">HELM_REPOSITORY_CONFIG</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;/var/tmp/repositories.yaml&quot;</span>
-</code></pre></div>
+<p>これで2375/TCPでListenする。</p>
                 
               
               
@@ -2080,7 +1685,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../AKS/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../compose/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2089,19 +1694,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              AKS
+              Docker Compose
             </div>
           </div>
         </a>
       
       
-        <a href="../k3s/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../docker/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              K3s
+              Docker
             </div>
           </div>
           <div class="md-footer__button md-icon">

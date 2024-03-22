@@ -16,7 +16,7 @@
     
     
       
-        <title>Registry - 戯術memo</title>
+        <title>イメージビルド - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#registry" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Registry
+              イメージビルド
             
           </span>
         </div>
@@ -203,8 +203,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Docker
+      <a href="../AKS/" class="md-tabs__link md-tabs__link--active">
+        Container
       </a>
     </li>
   
@@ -221,22 +221,6 @@
     <li class="md-tabs__item">
       <a href="../../Git/" class="md-tabs__link">
         Git
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../Kubernetes/" class="md-tabs__link">
-        Kubernetes
       </a>
     </li>
   
@@ -627,13 +611,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
-        Docker
+        Container
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+      <nav class="md-nav" aria-label="Container" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Docker
+          Container
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -642,8 +626,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        基本・ネタ帳
+      <a href="../AKS/" class="md-nav__link">
+        AKS
       </a>
     </li>
   
@@ -652,11 +636,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../build/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          イメージビルド
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         イメージビルド
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ロケールの追加
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -679,7 +703,31 @@
   
     <li class="md-nav__item">
       <a href="../configure/" class="md-nav__link">
-        設定
+        Docker設定
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm/" class="md-nav__link">
+        Helm
       </a>
     </li>
   
@@ -691,7 +739,7 @@
   
     <li class="md-nav__item">
       <a href="../install/" class="md-nav__link">
-        インストール
+        Dockerインストール
       </a>
     </li>
   
@@ -700,71 +748,83 @@
             
   
   
-    
+  
+    <li class="md-nav__item">
+      <a href="../k3s/" class="md-nav__link">
+        K3s
+      </a>
+    </li>
+  
+
+          
+            
   
   
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Registry
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+  
+    <li class="md-nav__item">
+      <a href="../kind/" class="md-nav__link">
+        kind
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubectl/" class="md-nav__link">
+        kubectl
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minikube/" class="md-nav__link">
+        minikube
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        Podman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
         Registry
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-    <nav class="md-nav" aria-label="API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    リポジトリ一覧(イメージ一覧)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    イメージのタグ一覧
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -891,125 +951,11 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       <label class="md-nav__link" for="__nav_5">
-        Kubernetes
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Kubernetes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/" class="md-nav__link">
-        Kubernetes
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/AKS/" class="md-nav__link">
-        AKS
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/helm/" class="md-nav__link">
-        Helm
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/k3s/" class="md-nav__link">
-        K3s
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/kind/" class="md-nav__link">
-        kind
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/kubectl/" class="md-nav__link">
-        kubectl
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Kubernetes/minikube/" class="md-nav__link">
-        minikube
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      <label class="md-nav__link" for="__nav_6">
         Linux
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Linux
         </label>
@@ -1176,14 +1122,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_7">
+      <label class="md-nav__link" for="__nav_6">
         Network
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Network" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Network
         </label>
@@ -1218,14 +1164,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_8">
+      <label class="md-nav__link" for="__nav_7">
         Tools
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Tools
         </label>
@@ -1476,14 +1422,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_9">
+      <label class="md-nav__link" for="__nav_8">
         Lang
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Lang" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Lang
         </label>
@@ -1581,29 +1527,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    API
-  </a>
-  
-    <nav class="md-nav" aria-label="API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    リポジトリ一覧(イメージ一覧)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    イメージのタグ一覧
+    ロケールの追加
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1619,20 +1545,25 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Docker/registry.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Container/build.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="registry">Registry</h1>
-<h2 id="api">API</h2>
-<h3 id="_1">リポジトリ一覧(イメージ一覧)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://registry.example.org/v2/_catalog</span>
-</code></pre></div>
+                <h1 id="_1">イメージビルド</h1>
+<h2 id="_2">ロケールの追加</h2>
+<p>Debian系の場合はこんな感じ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">FROM</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">guacamole/guacamole:1.4.0</span>
 
-<h3 id="_2">イメージのタグ一覧</h3>
-<p>リポジトリ一覧でヒットしたリポジトリ名をパスに含める</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://registry.example.org/v2/&lt;repository-name&gt;/tags/list</span>
+<span style="color: #AA22FF; font-weight: bold">USER</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">0</span>
+<span style="color: #AA22FF; font-weight: bold">RUN</span><span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>update<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-y<span style="color: #bbbbbb"> </span>locales<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>sed<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>-E<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;s/# (ja_JP.UTF-8)/\1/&#39;</span><span style="color: #bbbbbb"> </span>/etc/locale.gen<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>locale-gen<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
+<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>update-locale<span style="color: #bbbbbb"> </span><span style="color: #B8860B">LANG</span><span style="color: #666666">=</span>ja_JP.UTF-8
+<span style="color: #AA22FF; font-weight: bold">ENV</span><span style="color: #bbbbbb"> </span>LANG<span style="color: #bbbbbb"> </span>ja_JP.UTF-8
+
+<span style="color: #AA22FF; font-weight: bold">USER</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">1001</span>
 </code></pre></div>
                 
               
@@ -1652,7 +1583,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../install/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../AKS/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1661,19 +1592,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              インストール
+              AKS
             </div>
           </div>
         </a>
       
       
-        <a href="../../Git/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../compose/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              Git基本操作
+              Docker Compose
             </div>
           </div>
           <div class="md-footer__button md-icon">
