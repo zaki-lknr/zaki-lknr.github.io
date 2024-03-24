@@ -1750,6 +1750,13 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <p>最後に編集したファイルをパラメタに、以下コマンドを実行</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl replace --raw &quot;/api/v1/namespaces/hoge/finalize&quot; -f deletens.json </span>
 </code></pre></div>
+
+<p>これで削除できるはず。</p>
+<p>namespaceの定義が簡単な場合は以下コマンドでも行ける。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get ns ${namespace} -o json | grep -v -- &#39;&quot;kubernetes&quot;&#39; | kubectl replace --raw &quot;/api/v1/namespaces/${namespace}/finalize&quot; -f -</span>
+</code></pre></div>
+
+<p>※ <code>kubectl get ns hoge -o json | grep -2 -- '"kubernetes"'</code>を実行して、1か所しかヒットしない場合</p>
                 
               
               
