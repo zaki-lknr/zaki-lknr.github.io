@@ -792,20 +792,27 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    証明書
+    停止
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    デフォルト値
+    証明書
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    デフォルト値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     ネットワーク
   </a>
   
@@ -845,7 +852,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -853,7 +860,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -873,7 +880,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ワーカーのスケーリング
   </a>
   
@@ -900,7 +907,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     穴あけ
   </a>
   
@@ -914,7 +921,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -926,7 +933,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1759,20 +1766,27 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    証明書
+    停止
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    デフォルト値
+    証明書
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    デフォルト値
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     ネットワーク
   </a>
   
@@ -1812,7 +1826,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -1820,7 +1834,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -1840,7 +1854,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ワーカーのスケーリング
   </a>
   
@@ -1867,7 +1881,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     穴あけ
   </a>
   
@@ -1881,7 +1895,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -1893,7 +1907,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1950,13 +1964,17 @@
 <li><a href="https://docs.k3s.io/installation/configuration">Configuration Options | K3s</a></li>
 <li><a href="https://docs.k3s.io/installation/network-options">Network Options | K3s</a></li>
 </ul>
-<h2 id="_4">証明書</h2>
+<h2 id="_4">停止</h2>
+<p>k3sサービス自体は<code>systemctl</code>で停止できAPIエンドポイントなどは停止されるが実はコンテナは動作したまま。
+コンテナも停止するには<code>k3s-killall.sh</code>を実行する。</p>
+<p><a href="https://docs.k3s.io/upgrades/killall">Stopping K3s | K3s</a></p>
+<h2 id="_5">証明書</h2>
 <p><a href="https://docs.k3s.io/cli/certificate">certificate | K3s</a></p>
 <p>デフォルトではデプロイ時起点で1年の証明書が作成される。90日を切った時点でクラスターを再起動するとその日から1年の期限の新しい証明書にローテートされる。<br />
 強制的にローテートしたい場合は<code>k3s certificate rotate</code>を実行し再起動する。</p>
 <p>期限をカスタマイズする場合は環境変数 <code>CATTLE_NEW_SIGNED_CERT_EXPIRATION_DAYS</code> を使用する。<br />
 <a href="https://zaki-hmkc.hatenablog.com/entry/2024/01/24/221706">[Kubernetes] K3sにおける証明書の期限の延長や設定（平たく言うと塩漬け運用したい場合のｘ年設定）について - zaki work log</a></p>
-<h2 id="_5">デフォルト値</h2>
+<h2 id="_6">デフォルト値</h2>
 <table>
 <thead>
 <tr>
@@ -1979,7 +1997,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_6">ネットワーク</h2>
+<h2 id="_7">ネットワーク</h2>
 <h3 id="resolvconf">resolv.conf</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>cat<span style="color: #bbbbbb"> </span>/etc/k3s.resolve.conf<span style="color: #bbbbbb"> </span>
 nameserver<span style="color: #bbbbbb"> </span><span style="color: #666666">8</span>.8.8.8
@@ -1992,8 +2010,8 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">svccontroller.k3s.cattle.io/enablelb=true</span>
 </code></pre></div>
 
-<h2 id="_7">オフライン環境</h2>
-<h3 id="_8">プライベートレジストリ設定</h3>
+<h2 id="_8">オフライン環境</h2>
+<h3 id="_9">プライベートレジストリ設定</h3>
 <p><a href="https://docs.k3s.io/installation/private-registry">Private Registry Configuration | K3s</a></p>
 <p>プライベートレジストリを利用するには「デフォルトで<code>docker.io</code>向きになっている通信をローカルにフォワードする」設定を追加する。
 ローカル環境にたてたGitLabのコンテナレジストリを使う場合でパスが深くなる場合も<code>rewrite</code>を使って調整可能。(イメージ名は変更しない)</p>
@@ -2014,7 +2032,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 <p>また、この設定はノード毎に必要なので、マルチノード構成の場合は全てのノードに設定する。</p>
 <h2 id="k3d-compose">K3d (compose)</h2>
 <p><a href="https://github.com/k3s-io/k3s/blob/master/docker-compose.yml">k3s/docker-compose.yml at master · k3s-io/k3s</a></p>
-<h3 id="_9">ワーカーのスケーリング</h3>
+<h3 id="_10">ワーカーのスケーリング</h3>
 <p>初期構築時であれば<code>--scale</code>で指定できる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>compose<span style="color: #bbbbbb"> </span>up<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>--scale<span style="color: #bbbbbb"> </span><span style="color: #B8860B">agent</span><span style="color: #666666">=5</span>
 <span style="color: #888888">[+] Running 6/8</span>
@@ -2095,7 +2113,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
-<h3 id="_10">穴あけ</h3>
+<h3 id="_11">穴あけ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--add-port<span style="color: #666666">=6443</span>/tcp<span style="color: #bbbbbb"> </span>--permanent
 <span style="color: #888888">success</span>
 <span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--reload
@@ -2119,7 +2137,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 <span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
-<h3 id="_11">ノードスペック</h3>
+<h3 id="_12">ノードスペック</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>describe<span style="color: #bbbbbb"> </span>node
 
 <span style="color: #888888">[...]</span>
@@ -2144,7 +2162,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
-<h2 id="_12">アンインストール</h2>
+<h2 id="_13">アンインストール</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #bbbbbb"> </span>
 </code></pre></div>
                 

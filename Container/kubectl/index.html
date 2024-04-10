@@ -2143,6 +2143,10 @@
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/03/02/205509">[oc / kubectl] コマンドや引数の補完設定 【completion】 - zaki work log</a></p>
 <p><code>kind</code>や<code>helm</code>も同じ要領。</p>
+<p>tab押下で <code>_get_comp_words_by_ref: command not found</code> エラーが出るときは、<code>bash-completion</code>が無いのでパッケージ追加する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>-bash:<span style="color: #bbbbbb"> </span>_get_comp_words_by_ref:<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">command</span><span style="color: #bbbbbb"> </span>not<span style="color: #bbbbbb"> </span>found
+</code></pre></div>
+
 <h2 id="create">create</h2>
 <h3 id="secret">secret</h3>
 <h4 id="secret_1">ファイルのsecret</h4>

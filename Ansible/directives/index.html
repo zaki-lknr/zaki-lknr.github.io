@@ -529,6 +529,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    基本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#int" class="md-nav__link">
     条件がint型
   </a>
@@ -543,7 +550,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     リストで複数条件
   </a>
   
@@ -557,7 +564,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     定義されてる場合/されてない場合
   </a>
   
@@ -1707,6 +1714,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    基本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#int" class="md-nav__link">
     条件がint型
   </a>
@@ -1721,7 +1735,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     リストで複数条件
   </a>
   
@@ -1735,7 +1749,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     定義されてる場合/されてない場合
   </a>
   
@@ -1969,6 +1983,16 @@
 <p>このタスクは<code>users</code>の要素のループごとに当然毎回実行される。<br />
 ループ内で毎回実行される必要がないのであれば、includeの外で実行しましょう。</p>
 <h2 id="when">when</h2>
+<h3 id="_5">基本</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">tasks</span>:
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">module</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">cond</span>:<span style="color: #bbbbbb"> </span>(bool)
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">when</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>cond
+</code></pre></div>
+
+<p><code>when</code>部分は変数参照の <code>"{{ values }}"</code> の表記は不要で、bool型の条件式・変数をそのまま書けば良い。</p>
 <h3 id="int">条件がint型</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #B8860B">tasks</span>:
 <span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">name</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">len</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">bool</span>
@@ -1995,7 +2019,7 @@
 <p><code>""</code>の場合はskip。<br />
 <code>"a"</code>の場合は処理される。</p>
 <p>ansible-core 2.11.3で確認 / 2.9だと構文エラー(文字列のみの判定はできないっぽい？何かと比較するなど評価すればもちろんOK)</p>
-<h3 id="_5">リストで複数条件</h3>
+<h3 id="_6">リストで複数条件</h3>
 <p><code>when</code>にはリスト形式で条件を複数指定できる。リストの場合は「すべての条件がtrueの場合」にタスクは実行。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
 -<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
@@ -2018,7 +2042,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"> </span>cond == &quot;foobar&quot; or cond == &quot;bazqux&quot;
 </code></pre></div>
 
-<h3 id="_6">定義されてる場合/されてない場合</h3>
+<h3 id="_7">定義されてる場合/されてない場合</h3>
 <p><code>foobar_value</code>が未定義の場合にタスク実行するには以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #bbbbbb"> </span>foobar_value is not defined
 </code></pre></div>

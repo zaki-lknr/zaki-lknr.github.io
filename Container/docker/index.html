@@ -817,6 +817,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    image
+  </a>
+  
+    <nav class="md-nav" aria-label="image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    サイズ順にソート
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#prune" class="md-nav__link">
     prune
   </a>
@@ -849,7 +869,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     実行サンプル
   </a>
   
@@ -876,7 +896,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ビルド
   </a>
   
@@ -884,7 +904,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -1819,6 +1839,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    image
+  </a>
+  
+    <nav class="md-nav" aria-label="image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    サイズ順にソート
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#prune" class="md-nav__link">
     prune
   </a>
@@ -1851,7 +1891,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     実行サンプル
   </a>
   
@@ -1878,7 +1918,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ビルド
   </a>
   
@@ -1886,7 +1926,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -1992,6 +2032,13 @@ Compose使用時もこのパターン。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>volume<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span><span style="color: #B8860B">dangling</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span>
 </code></pre></div>
 
+<h3 id="image">image</h3>
+<h4 id="_1">サイズ順にソート</h4>
+<p>テンプレート付きのtableフォーマットでサイズをまず出力し、<code>sort</code>を<code>-h (--human-numeric-sort)</code>オプション付けてソートする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker image ls --format &quot;table {{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}&quot; | sort -h</span>
+</code></pre></div>
+
+<p><a href="https://qiita.com/peaceiris/items/e38648a1e8614c7d5083">Docker image 一覧を容量順でソートする #Docker - Qiita</a></p>
 <h3 id="prune">prune</h3>
 <p>不要オブジェクトを削除するには<code>docker prune</code>を使う。</p>
 <h4 id="prune_1">コンテナのprune</h4>
@@ -2014,7 +2061,7 @@ Compose使用時もこのパターン。</p>
 
 <p>デフォルトは、タグが設定されずに<code>&lt;none&gt;</code>になっているイメージが削除される。<br />
 <code>&lt;none&gt;</code>のイメージをリストアップするだけであれば <code>docker image ls -f "dangling=true"</code> でリストアップできる。</p>
-<h2 id="_1">実行サンプル</h2>
+<h2 id="_2">実行サンプル</h2>
 <h3 id="webhttpd">ローカルのwebコンテンツをhttpdに持たせる</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
 </code></pre></div>
@@ -2024,8 +2071,8 @@ Compose使用時もこのパターン。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
 </code></pre></div>
 
-<h2 id="_2">ビルド</h2>
-<h3 id="_3">ヘルスチェック</h3>
+<h2 id="_3">ビルド</h2>
+<h3 id="_4">ヘルスチェック</h3>
 <p>30秒後にhttpdが起動するようになっているコンテナイメージ。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">FROM</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">httpd:2.4</span>
 
