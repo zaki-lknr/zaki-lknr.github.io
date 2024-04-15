@@ -1898,7 +1898,12 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>st
 </code></pre></div>
 
 <h2 id="-amendcommit">--amendを忘れてcommit</h2>
-<p>未コミットの変更でなく、コミット済みAとBをまとめるには<code>git rebase</code>を使う</p>
+<p>未コミットの変更でなく、コミット済みAとBをまとめるには<code>git rebase</code>を使う
+直前のコミット二つであれば</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git rebase -i HEAD^^</span>
+</code></pre></div>
+
+<p>でエディタが起動するので2行目(直近の新しい方)のコミットを<code>pick</code>から<code>squash</code>に変更して保存、コミットメッセージ編集のエディタになるので内容を編集して終了する。</p>
 <h2 id="_3">過去のコミットに対する打ち消しコミット</h2>
 <p>コミットログ上は「過去コミット」「打ち消しコミット」が残るもの</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>revert<span style="color: #bbbbbb"> </span>&lt;取り消したいコミットID&gt;
