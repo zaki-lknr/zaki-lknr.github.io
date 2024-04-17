@@ -766,6 +766,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    git
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1915,6 +1922,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    git
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2327,6 +2341,15 @@ Ansibleも同様で、タスクでグループの更新を行っても、後続�
 
 <p>このタスクの場合は、ローカルにある<code>quay.io/ansible/awx-ee</code>イメージをDocker Hubへ<code>zakihmkc/awx-ee:0.6.0</code>として<code>push</code>する。<br />
 このとき、<code>zakihmkc/awx-ee:0.6.0</code>が既にローカルにある場合はtagの上書きが発生しないため、pushされない。ここでpushしたい場合は、tag設定を上書きする<code>force_tag: true</code>も追加する。</p>
+<h2 id="git">git</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.git</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">repo</span>:<span style="color: #bbbbbb"> </span>https://github.com/zaki-lknr/awx_build_and_deploy.git
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>feature/awx-ver-21.13.0
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #bbbbbb"> </span>/var/tmp/work-dir
+</code></pre></div>
+
+<p>destのディレクトリは事前に作成しておく。<br />
+GitモジュールはCLIの<code>git clone</code>と異なり、上の例でいうと<code>awx_build_and_deploy</code>サブディレクトリは作成されない。</p>
                 
               
               
