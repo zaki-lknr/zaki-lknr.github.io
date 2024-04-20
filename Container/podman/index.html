@@ -822,6 +822,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    volume
+  </a>
+  
+    <nav class="md-nav" aria-label="volume">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied" class="md-nav__link">
+    permission denied
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1559,6 +1579,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    volume
+  </a>
+  
+    <nav class="md-nav" aria-label="volume">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied" class="md-nav__link">
+    permission denied
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1584,6 +1624,11 @@
 </code></pre></div>
 
 <p><code>-m</code>が無いと最初のイメージのみになる。</p>
+<h2 id="volume">volume</h2>
+<h3 id="permission-denied">permission denied</h3>
+<p>だいたいSELinux周り。<code>Z</code>をつければOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">podman run -d --name serv1 -p 8080:80 -v ./serv1:/usr/local/apache2/htdocs/:Z httpd:2.4</span>
+</code></pre></div>
                 
               
               
