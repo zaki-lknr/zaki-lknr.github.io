@@ -842,6 +842,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    service
+  </a>
+  
+    <nav class="md-nav" aria-label="service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#os" class="md-nav__link">
+    OS起動時にコンテナ起動するには
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1599,6 +1619,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    service
+  </a>
+  
+    <nav class="md-nav" aria-label="service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#os" class="md-nav__link">
+    OS起動時にコンテナ起動するには
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1629,6 +1669,14 @@
 <p>だいたいSELinux周り。<code>Z</code>をつければOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">podman run -d --name serv1 -p 8080:80 -v ./serv1:/usr/local/apache2/htdocs/:Z httpd:2.4</span>
 </code></pre></div>
+
+<h2 id="service">service</h2>
+<h3 id="os">OS起動時にコンテナ起動するには</h3>
+<p><code>podman-restart.service</code>を使用する(デフォルト無効)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">systemctl enable --now podman-restart.service</span>
+</code></pre></div>
+
+<p>これでrootユーザーのコンテナは<code>--restart=always</code>が有効(OS起動時にコンテナ起動)になる。</p>
                 
               
               

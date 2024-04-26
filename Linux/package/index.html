@@ -1107,6 +1107,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    強制インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpm" class="md-nav__link">
+    rpmファイルダウンロード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1121,14 +1135,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リポジトリ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     リポジトリの有効化
   </a>
   
@@ -1144,6 +1158,19 @@
     apt
   </a>
   
+    <nav class="md-nav" aria-label="apt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    強制インストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1154,7 +1181,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     リポジトリ
   </a>
   
@@ -1726,6 +1753,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    強制インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpm" class="md-nav__link">
+    rpmファイルダウンロード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1740,14 +1781,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リポジトリ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     リポジトリの有効化
   </a>
   
@@ -1763,6 +1804,19 @@
     apt
   </a>
   
+    <nav class="md-nav" aria-label="apt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    強制インストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1773,7 +1827,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     リポジトリ
   </a>
   
@@ -1881,8 +1935,17 @@ rhel<span style="color: #666666">-8-</span><span style="color: #AA22FF; font-wei
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">#</span> dnf config-manager --disable ansible-2.9-for-rhel-8-x86_64-rpms
 </code></pre></div>
 
+<h3 id="_8">強制インストール</h3>
+<p>自動化するときとか</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">dnf install -y &lt;package-name&gt;</span>
+</code></pre></div>
+
+<h3 id="rpm">rpmファイルダウンロード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">dnf install --downloadonly --destdir /path/to &lt;package-name&gt;</span>
+</code></pre></div>
+
 <h2 id="yum_1">yum</h2>
-<h3 id="_8">リポジトリ一覧</h3>
+<h3 id="_9">リポジトリ一覧</h3>
 <p>有効なもの一覧</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>yum<span style="color: #bbbbbb"> </span>repolist
 </code></pre></div>
@@ -1891,7 +1954,7 @@ rhel<span style="color: #666666">-8-</span><span style="color: #AA22FF; font-wei
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>yum<span style="color: #bbbbbb"> </span>repolist<span style="color: #bbbbbb"> </span>disabled
 </code></pre></div>
 
-<h3 id="_9">リポジトリの有効化</h3>
+<h3 id="_10">リポジトリの有効化</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">#</span> yum-config-manager --enable ol7_developer_EPEL
 </code></pre></div>
 
@@ -1909,6 +1972,11 @@ rhel<span style="color: #666666">-8-</span><span style="color: #AA22FF; font-wei
 </ul>
 </li>
 </ul>
+<h3 id="_11">強制インストール</h3>
+<p>自動化するときとか</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">apt-get install -y &lt;package-name&gt;</span>
+</code></pre></div>
+
 <h2 id="apk">apk</h2>
 <p>インストール</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># apk add squid
@@ -1918,7 +1986,7 @@ rhel<span style="color: #666666">-8-</span><span style="color: #AA22FF; font-wei
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># apk del squid
 </code></pre></div>
 
-<h2 id="_10">リポジトリ</h2>
+<h2 id="_12">リポジトリ</h2>
 <ul>
 <li><a href="https://www.debian.org/distrib/packages">Debian -- パッケージ</a></li>
 <li><a href="https://packages.ubuntu.com/ja/">Ubuntu – Ubuntu パッケージ検索</a></li>
