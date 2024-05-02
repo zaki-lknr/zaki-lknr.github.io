@@ -1861,27 +1861,33 @@ myfunc<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span
 </tr>
 <tr>
 <td><code>-eq</code></td>
-<td><code>[ n -eq 123 ]</code></td>
+<td><code>[ $n -eq 123 ]</code></td>
 <td>数値比較(一致)</td>
 </tr>
 <tr>
 <td><code>-ne</code></td>
-<td><code>[ n -ne 200 ]</code></td>
+<td><code>[ $n -ne 200 ]</code></td>
 <td>数値比較(不一致)</td>
 </tr>
 <tr>
 <td><code>==</code></td>
-<td><code>[ s == "abc" ]</code></td>
+<td><code>[ $s == "abc" ]</code></td>
 <td>文字列比較(一致)</td>
 </tr>
 <tr>
 <td><code>!=</code></td>
-<td><code>[ s != "xyz" ]</code></td>
+<td><code>[ $s != "xyz" ]</code></td>
 <td>文字列比較(不一致)</td>
 </tr>
 </tbody>
 </table>
-<p>文字列一致は <code>=</code> も有効。</p>
+<ul>
+<li>文字列一致は <code>=</code> も有効。</li>
+<li>文字列の空文字判定は <code>[ $s == "" ]</code> は不可(<code>$s</code>が空の場合 <code>[ == "" ]</code>と解釈される)<ul>
+<li><code>-z</code>を使うか<code>[ "$s" == "" ]</code>と書く</li>
+</ul>
+</li>
+</ul>
 <h3 id="if">if</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">if</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span><span style="color: #bbbbbb"> </span>-z<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$value1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span><span style="color: #bbbbbb"> </span>-z<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$value2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">]</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">then</span>
 <span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;$value1 or $value2 is not defined&#39;</span>
