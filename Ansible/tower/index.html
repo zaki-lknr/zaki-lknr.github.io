@@ -682,15 +682,29 @@
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    ジョブテンプレート一覧
+    ジョブテンプレート
   </a>
   
-    <nav class="md-nav" aria-label="ジョブテンプレート一覧">
+    <nav class="md-nav" aria-label="ジョブテンプレート">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     テンプレートの検索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ジョブの起動
   </a>
   
 </li>
@@ -708,7 +722,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -1712,15 +1726,29 @@
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    ジョブテンプレート一覧
+    ジョブテンプレート
   </a>
   
-    <nav class="md-nav" aria-label="ジョブテンプレート一覧">
+    <nav class="md-nav" aria-label="ジョブテンプレート">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     テンプレートの検索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ジョブの起動
   </a>
   
 </li>
@@ -1738,7 +1766,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -1807,12 +1835,17 @@ Towerは実行中で良い。<br />
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://server/api/v2/ping/
 </code></pre></div>
 
-<h3 id="_7">ジョブテンプレート一覧</h3>
+<h3 id="_7">ジョブテンプレート</h3>
+<h4 id="_8">一覧</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://192.168.0.27/api/v2/job_templates/?page_size<span style="color: #666666">=1000</span><span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>json.tool
 </code></pre></div>
 
-<h4 id="_8">テンプレートの検索</h4>
+<h4 id="_9">テンプレートの検索</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://server/api/v2/job_templates/?search=Demo+Job+Template</span>
+</code></pre></div>
+
+<h4 id="_10">ジョブの起動</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -XPost https://server/api/v2/job_templates/${TEMPLATE_ID}/launch/</span>
 </code></pre></div>
 
 <h3 id="category_slug">設定のcategory_slug確認</h3>
@@ -1927,7 +1960,7 @@ Towerは実行中で良い。<br />
 <span style="color: #888888">}</span>
 </code></pre></div>
 
-<h3 id="_9">その他のシステム設定</h3>
+<h3 id="_11">その他のシステム設定</h3>
 <p>category_slugに<code>system</code>を指定。<br />
 キー一覧は以下の通り</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://tower.example.org/api/v2/settings/system/<span style="color: #bbbbbb"> </span>...<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>python3<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>json.tool
