@@ -1033,6 +1033,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    GRUB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     アップグレード
   </a>
@@ -1688,6 +1695,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    GRUB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     アップグレード
   </a>
@@ -1781,6 +1795,35 @@ __EOL__
 
 <p>の<code>linux</code>で始まる行の末尾に<code>single</code>を追記して<code>Ctrl-x</code>で起動する。<br />
 ルートファイルシステムをmountしたくない場合は<code>single</code>でなく<code>break</code>を追記。</p>
+<h2 id="grub">GRUB</h2>
+<p>ブートローダーが壊れてgrub rescueモードになった場合。<br />
+まず<code>ls</code>で/bootがあるパーティションを探す。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">grub rescue&gt; ls</span>
+<span style="color: #000080; font-weight: bold">(hd0)</span> <span style="color: #888888">(hd0,gpt3) (hd0,gpt2) (hd0,gpt1)</span>
+<span style="color: #888888">grub rescue&gt; ls (hd0,gpt1)</span>
+<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888888">: Filesystem is unknown.</span>
+<span style="color: #888888">grub rescue&gt; ls (hd0,gpt3)</span>
+<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888888">: Filesystem is ext2.</span>
+<span style="color: #888888">grub rescue&gt; ls (hd0,gpt3)/</span>
+<span style="color: #888888">./ ../ lost+found/ bin boot/ dev/ etc/ home/ lib lib32 lib64 libx32 media/ mnt/</span>
+<span style="color: #888888">opt/ proc/ root/ run/ sbin snap/ srv/ sys/ tmp/ usr/ var/</span>
+<span style="color: #888888">grub rescue&gt;</span>
+</code></pre></div>
+
+<p>みつかったら<code>set prefix</code></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">grub rescue&gt;set prefix=(hd0,gpt3)/boot/grub</span>
+<span style="color: #888888">grub rescue&gt;set root=(hd0,gpt3)</span>
+<span style="color: #888888">grub rescue&gt;insmod normal</span>
+<span style="color: #888888">grub rescue&gt;insmod linux</span>
+<span style="color: #888888">grub rescue&gt;normal</span>
+</code></pre></div>
+
+<p>これでブートできる。<br />
+Linuxが起動したらGRUBを再インストール</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">sudo update-grub</span>
+<span style="color: #888888">sudo grub-install /dev/sda</span>
+</code></pre></div>
+
 <h2 id="_7">アップグレード</h2>
 <h3 id="fedora">Fedora</h3>
 <p><a href="https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/">Upgrading Fedora Using DNF System Plugin :: Fedora Docs</a></p>
