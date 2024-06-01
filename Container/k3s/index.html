@@ -820,6 +820,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    IPアドレス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#resolvconf" class="md-nav__link">
     resolv.conf
   </a>
@@ -1806,6 +1813,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    IPアドレス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#resolvconf" class="md-nav__link">
     resolv.conf
   </a>
@@ -2010,6 +2024,25 @@
 </tbody>
 </table>
 <h2 id="_7">ネットワーク</h2>
+<h3 id="ip">IPアドレス</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>変更方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pod IPs</td>
+<td>--cluster-cidr 0.0.0.0/16</td>
+</tr>
+<tr>
+<td>Service IPs</td>
+<td>--service-cidr 0.0.0.0/16</td>
+</tr>
+</tbody>
+</table>
 <h3 id="resolvconf">resolv.conf</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>cat<span style="color: #bbbbbb"> </span>/etc/k3s.resolve.conf<span style="color: #bbbbbb"> </span>
 nameserver<span style="color: #bbbbbb"> </span><span style="color: #666666">8</span>.8.8.8

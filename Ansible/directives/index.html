@@ -2005,9 +2005,14 @@
 </code></pre></div>
 
 <p><code>when</code>部分は変数参照の <code>"{{ values }}"</code> の表記は不要で、bool型の条件式・変数をそのまま書けば良い。<br />
-否定は<code>not</code>でなく<code>!</code></p>
+否定は<code>not</code></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">when</span>:
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #00BB00; font-weight: bold">!</span><span style="color: #bbbbbb"> </span>enable_foobar
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>not disable_foobar
+</code></pre></div>
+
+<p>インベントリファイル(ini形式)のbooleanっぽい変数を使う場合は<code>bool</code>に変換して使う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">when</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>not (flag | bool)
 </code></pre></div>
 
 <h3 id="int">条件がint型</h3>
