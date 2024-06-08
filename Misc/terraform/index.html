@@ -1442,6 +1442,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#s3-dynamodb" class="md-nav__link">
+    S3 + DynamoDBでのロック
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1816,6 +1823,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#s3-dynamodb" class="md-nav__link">
+    S3 + DynamoDBでのロック
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1951,6 +1965,23 @@
 <li><code>terraform plan</code>で差分がないことを確認</li>
 </ol>
 <p>でいける。</p>
+<h3 id="s3-dynamodb">S3 + DynamoDBでのロック</h3>
+<p>DynamoDBでテーブルを作成</p>
+<ul>
+<li>名前は任意</li>
+<li>パーティションキーは<code>LockID</code></li>
+<li>その他はデフォルト</li>
+</ul>
+<p>あとはバックエンド設定に以下追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #AA22FF; font-weight: bold">backend</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">bucket</span><span style="color: #bbbbbb">         </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">S</span><span style="color: #666666">3</span><span style="border: 1px solid #FF0000">バケット名</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">key</span><span style="color: #bbbbbb">            </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">region</span><span style="color: #bbbbbb">         </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">リージョン</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">dynamodb_table</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">DynamoDBテーブル名</span>
+<span style="color: #bbbbbb">    </span><span style="color: #BB4444">encrypt</span><span style="color: #bbbbbb">        </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #880000">true</span>
+<span style="color: #bbbbbb">  </span>}
+</code></pre></div>
+
 <h2 id="_7">構文</h2>
 <h3 id="count">count</h3>
 <p>EC2を3つ立てNameタグに連番を振る</p>

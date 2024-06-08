@@ -1088,6 +1088,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#firewalld" class="md-nav__link">
+    firewalld設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selinux" class="md-nav__link">
+    SELinux設定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1607,6 +1621,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#firewalld" class="md-nav__link">
+    firewalld設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selinux" class="md-nav__link">
+    SELinux設定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1665,6 +1693,24 @@
 
 <h3 id="_3">登録済みユーザー一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">pdbedit -L</span>
+</code></pre></div>
+
+<h3 id="firewalld">firewalld設定</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>使用してるインタフェースがどのゾーンか確認
+<span style="color: #888888">firewall-cmd --get-active-zones</span>
+<span style="color: #000080; font-weight: bold"># </span>対象ゾーンに許可追加
+<span style="color: #888888">firewall-cmd --permanent --zone=FedoraServer --add-service=samba</span>
+<span style="color: #888888">firewall-cmd --reload</span>
+</code></pre></div>
+
+<h3 id="selinux">SELinux設定</h3>
+<p>ホームは見えるけどアクセスできない場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">setsebool -P samba_enable_home_dirs on</span>
+</code></pre></div>
+
+<p>共有ディレクトリの場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">semanage fcontext -a -t samba_share_t /share</span>
+<span style="color: #888888">restorecon -R /share/</span>
 </code></pre></div>
 
 <h2 id="haproxy">HAProxy</h2>

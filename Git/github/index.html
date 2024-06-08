@@ -987,6 +987,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#release" class="md-nav__link">
+    Release
+  </a>
+  
+    <nav class="md-nav" aria-label="Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webtagrelease" class="md-nav__link">
+    webでtag作成とrelease作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     API
   </a>
@@ -1747,6 +1767,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#release" class="md-nav__link">
+    Release
+  </a>
+  
+    <nav class="md-nav" aria-label="Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webtagrelease" class="md-nav__link">
+    webでtag作成とrelease作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     API
   </a>
@@ -1823,6 +1863,12 @@
 <h3 id="pr_1">PRマージ時のブランチ自動削除</h3>
 <p>リポジトリの設定から。</p>
 <p><a href="https://docs.github.com/ja/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches">ブランチの自動的削除を管理する - GitHub Docs</a></p>
+<h2 id="release">Release</h2>
+<h3 id="webtagrelease">webでtag作成とrelease作成</h3>
+<p>まずリリース一覧ページへ遷移、[Draft a new release]押下し、[Choose a tag]から[Find or create a new tag]に作成するタグ名を入力してCreateする。<br />
+[Generate release notes]押下すると、それっぽい情報が自動入力されるのでそれを編集。</p>
+<p>下部の"Attach binaries by dropping them here or selecting them"にzipなどのバイナリファイルがあれば添付する。</p>
+<p>あとは[Publish release]すればtagとreleaseが作成され公開される。</p>
 <h2 id="api">API</h2>
 <h3 id="_5">デフォルトブランチを取得する</h3>
 <p><code>https://api.github.com/repos/{owner}/{repo}</code> を<code>GET</code>すると、対象リポジトリの情報を取得できる。<br />
