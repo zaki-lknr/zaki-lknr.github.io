@@ -1254,6 +1254,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    秘密鍵作成
+  </a>
+  
+    <nav class="md-nav" aria-label="秘密鍵作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rsa" class="md-nav__link">
+    RSA秘密鍵
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     証明書作成
   </a>
   
@@ -1274,13 +1294,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    国や都道府県等の指定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ファイル内容確認
   </a>
   
@@ -1288,7 +1315,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rsa" class="md-nav__link">
+  <a href="#rsa_1" class="md-nav__link">
     RSA秘密鍵の確認
   </a>
   
@@ -1302,7 +1329,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     証明書ファイルの確認
   </a>
   
@@ -1594,6 +1621,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    秘密鍵作成
+  </a>
+  
+    <nav class="md-nav" aria-label="秘密鍵作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rsa" class="md-nav__link">
+    RSA秘密鍵
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     証明書作成
   </a>
   
@@ -1614,13 +1661,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    国や都道府県等の指定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ファイル内容確認
   </a>
   
@@ -1628,7 +1682,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rsa" class="md-nav__link">
+  <a href="#rsa_1" class="md-nav__link">
     RSA秘密鍵の確認
   </a>
   
@@ -1642,7 +1696,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     証明書ファイルの確認
   </a>
   
@@ -1671,7 +1725,20 @@
                 
                 
                 <h1 id="openssl">openssl</h1>
-<h2 id="_1">証明書作成</h2>
+<h2 id="_1">秘密鍵作成</h2>
+<h3 id="rsa">RSA秘密鍵</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">openssl genrsa &gt; private.key</span>
+</code></pre></div>
+
+<p>鍵長を指定するには引数に指定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>openssl<span style="color: #bbbbbb"> </span>genrsa<span style="color: #bbbbbb"> </span><span style="color: #666666">4096</span><span style="color: #bbbbbb"> </span>&gt;<span style="color: #bbbbbb"> </span>private.key
+<span style="color: #000080; font-weight: bold">$ </span>openssl<span style="color: #bbbbbb"> </span>rsa<span style="color: #bbbbbb"> </span>-text<span style="color: #bbbbbb"> </span>-noout<span style="color: #bbbbbb"> </span>-in<span style="color: #bbbbbb"> </span>private.key<span style="color: #bbbbbb"> </span>
+<span style="color: #888888">Private-Key: (4096 bit, 2 primes)</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+</code></pre></div>
+
+<h2 id="_2">証明書作成</h2>
 <h3 id="commonname">オレオレ証明書作成(CommonName)</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">openssl req -newkey rsa:4096 -nodes -sha256 -keyout /path/to/example.org.key -x509 -days 365 -out /path/to/example.org.crt -subj &#39;/CN=example.org/&#39;</span>
 </code></pre></div>
@@ -1681,8 +1748,20 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">openssl req -newkey rsa:4096 -nodes -sha256 -keyout server.key -x509 -days 365  -out server.crt -subj &#39;/C=JP/&#39; -addext &quot;subjectAltName=DNS:appserv,DNS:appserv.example.org&quot; </span>
 </code></pre></div>
 
-<h2 id="_2">ファイル内容確認</h2>
-<h3 id="rsa">RSA秘密鍵の確認</h3>
+<h3 id="_3">国や都道府県等の指定</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">openssl req ... -subj &#39;/C=JP/ST=Tokyo/L=Daiba/CN=example.org&#39;</span>
+</code></pre></div>
+
+<ul>
+<li>C(Country Name): 国(2文字)</li>
+<li>ST(State or Province Name): 都道府県</li>
+<li>L(Locality Name): 市区町村</li>
+<li>O(Organization Name): 組織名</li>
+<li>OU(Organization Unit Name): 部門名</li>
+<li>CN(Common Name): FQDN</li>
+</ul>
+<h2 id="_4">ファイル内容確認</h2>
+<h3 id="rsa_1">RSA秘密鍵の確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN RSA PRIVATE KEY-----</span>
 <span style="color: #BB4444">MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........</span>
 <span style="color: #BB4444">:</span>
@@ -1708,7 +1787,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl<span style="color: #bbbbbb"> </span>req<span style="color: #bbbbbb"> </span>-text<span style="color: #bbbbbb"> </span>-noout<span style="color: #bbbbbb"> </span>-in<span style="color: #bbbbbb"> </span>server.csr
 </code></pre></div>
 
-<h3 id="_3">証明書ファイルの確認</h3>
+<h3 id="_5">証明書ファイルの確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE-----</span>
 <span style="color: #BB4444">MIIGKTCCBRGg.......</span>
 <span style="color: #BB4444">:</span>

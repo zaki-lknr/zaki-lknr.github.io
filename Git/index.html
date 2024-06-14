@@ -987,6 +987,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stash-popconflict" class="md-nav__link">
+    stash pop後のconflict
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2181,6 +2188,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stash-popconflict" class="md-nav__link">
+    stash pop後のconflict
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2689,6 +2703,16 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 </code></pre></div>
 
 <p>マージ前の状態に戻る</p>
+<h3 id="stash-popconflict">stash pop後のconflict</h3>
+<p>メッセージが以下のようになり<code>git merge --abort</code>は効かない。<br />
+状態としてはステージングになっている。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Unmerged paths:</span>
+<span style="color: #888888">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span style="color: #888888">  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)</span>
+<span style="color: #888888">        both modified:   filename</span>
+</code></pre></div>
+
+<p>メッセージにある通り、コンフリクトを解決したのであれば<code>git add</code>を、変更を破棄したい場合は<code>git restore --staged</code>で<code>add</code>を取り消し、さらに<code>git restore</code>すれば変更前の状態に戻る。</p>
 <h2 id="add_1">add (ステージング)</h2>
 <h3 id="_5">ステージングに追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>&lt;path&gt;
