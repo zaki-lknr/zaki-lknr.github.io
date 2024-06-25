@@ -972,6 +972,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Linux/ec2/" class="md-nav__link">
+        EC2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Linux/kvm/" class="md-nav__link">
         KVM
       </a>
@@ -1186,6 +1198,18 @@
     <li class="md-nav__item">
       <a href="../googledrive/" class="md-nav__link">
         Google Drive
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jq/" class="md-nav__link">
+        jq
       </a>
     </li>
   
@@ -1465,6 +1489,73 @@
           <li class="md-nav__item">
   <a href="#count" class="md-nav__link">
     count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    変数
+  </a>
+  
+    <nav class="md-nav" aria-label="変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    変数参照
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    補完
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    テンプレート
+  </a>
+  
+    <nav class="md-nav" aria-label="テンプレート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    エスケープ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource" class="md-nav__link">
+    resource
+  </a>
+  
+    <nav class="md-nav" aria-label="resource">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    デフォルトのルートテーブル
   </a>
   
 </li>
@@ -1850,6 +1941,73 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    変数
+  </a>
+  
+    <nav class="md-nav" aria-label="変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    変数参照
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    補完
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    テンプレート
+  </a>
+  
+    <nav class="md-nav" aria-label="テンプレート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    エスケープ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource" class="md-nav__link">
+    resource
+  </a>
+  
+    <nav class="md-nav" aria-label="resource">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    デフォルトのルートテーブル
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1994,6 +2152,31 @@
 <span style="color: #bbbbbb">    </span><span style="color: #BB4444">Name</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;cloud-${count.index}&quot;</span>
 <span style="color: #bbbbbb">  </span>}
 }
+</code></pre></div>
+
+<h3 id="_8">変数</h3>
+<h4 id="_9">変数参照</h4>
+<p><code>vm_ami_id</code>という変数を定義しているなら以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">ami</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">var.vm_ami_id</span>
+</code></pre></div>
+
+<h4 id="_10">補完</h4>
+<p>文字列リテラルの中で参照する場合は「補完」で書式は以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">tags</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">  </span><span style="color: #BB4444">Name</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;${var.name_prefix}-server&quot;</span>
+}
+</code></pre></div>
+
+<h3 id="_11">テンプレート</h3>
+<h4 id="_12">エスケープ</h4>
+<p><code>%{...}</code>という文字をそのまま使いたい場合は<code>%%{...}</code></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl -k https://localhost:6443 -w &#39;%%{http_code}\n&#39; -sS -o /dev/null 2&gt;/dev/null
+</code></pre></div>
+
+<h2 id="resource">resource</h2>
+<h3 id="_13">デフォルトのルートテーブル</h3>
+<p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">route_table_ids</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">aws_vpc.my_vpc.default_route_table_id</span>]
 </code></pre></div>
                 
               

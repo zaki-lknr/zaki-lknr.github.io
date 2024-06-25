@@ -833,6 +833,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    デプロイ後のアドレス変更は不可
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -859,7 +866,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -867,7 +874,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -887,7 +894,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ワーカーのスケーリング
   </a>
   
@@ -914,7 +921,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     穴あけ
   </a>
   
@@ -928,7 +935,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -940,7 +947,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     アンインストール
   </a>
   
@@ -1211,6 +1218,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Linux/ec2/" class="md-nav__link">
+        EC2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Linux/kvm/" class="md-nav__link">
         KVM
       </a>
@@ -1423,6 +1442,18 @@
     <li class="md-nav__item">
       <a href="../../Misc/googledrive/" class="md-nav__link">
         Google Drive
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/jq/" class="md-nav__link">
+        jq
       </a>
     </li>
   
@@ -1826,6 +1857,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    デプロイ後のアドレス変更は不可
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1852,7 +1890,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -1860,7 +1898,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -1880,7 +1918,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ワーカーのスケーリング
   </a>
   
@@ -1907,7 +1945,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     穴あけ
   </a>
   
@@ -1921,7 +1959,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -1933,7 +1971,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     アンインストール
   </a>
   
@@ -2043,20 +2081,33 @@
 </tr>
 </tbody>
 </table>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -sfL https://get.k3s.io | sh -s - \</span>
+<span style="color: #888888">  --cluster-cidr &quot;172.28.0.0/16&quot; \</span>
+<span style="color: #888888">  --service-cidr &quot;172.29.0.0/16&quot; \</span>
+<span style="color: #888888">  --kube-controller-manager-arg=node-cidr-mask-size=24 \</span>
+<span style="color: #888888">  --kubelet-arg=max-pods=200</span>
+</code></pre></div>
+
 <h3 id="resolvconf">resolv.conf</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>cat<span style="color: #bbbbbb"> </span>/etc/k3s.resolve.conf<span style="color: #bbbbbb"> </span>
 nameserver<span style="color: #bbbbbb"> </span><span style="color: #666666">8</span>.8.8.8
 $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-sfL<span style="color: #bbbbbb"> </span>https://get.k3s.io<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>sh<span style="color: #bbbbbb"> </span>-s<span style="color: #bbbbbb"> </span>-<span style="color: #bbbbbb"> </span>--write-kubeconfig-mode<span style="color: #bbbbbb"> </span><span style="color: #666666">644</span><span style="color: #bbbbbb"> </span>--resolv-conf<span style="color: #bbbbbb"> </span>/etc/k3s.resolv.conf<span style="color: #bbbbbb"> </span>
 </code></pre></div>
 
+<h3 id="_8">デプロイ後のアドレス変更は不可</h3>
+<blockquote>
+<p>You cannot change the CIDRs or add a new address family to an existing cluster. Cluster networking should be established when the cluster is initially started.</p>
+<p>https://github.com/k3s-io/k3s/issues/93#issuecomment-1551967292</p>
+</blockquote>
+<p>systemdユニットファイルに記載のアドレス指定部分を変更しても、クラスターには反映されず動作が不安定になる</p>
 <h2 id="loadbalancer-service">LoadBalancer Service</h2>
 <h3 id="listen">特定のノードのみでlistenするには</h3>
 <p>ノードに以下のラベルを付与するとallow-list modeになり、このラベルが付いたノードのみでlistenするようになる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">svccontroller.k3s.cattle.io/enablelb=true</span>
 </code></pre></div>
 
-<h2 id="_8">オフライン環境</h2>
-<h3 id="_9">プライベートレジストリ設定</h3>
+<h2 id="_9">オフライン環境</h2>
+<h3 id="_10">プライベートレジストリ設定</h3>
 <p><a href="https://docs.k3s.io/installation/private-registry">Private Registry Configuration | K3s</a></p>
 <p>プライベートレジストリを利用するには「デフォルトで<code>docker.io</code>向きになっている通信をローカルにフォワードする」設定を追加する。
 ローカル環境にたてたGitLabのコンテナレジストリを使う場合でパスが深くなる場合も<code>rewrite</code>を使って調整可能。(イメージ名は変更しない)</p>
@@ -2077,7 +2128,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 <p>また、この設定はノード毎に必要なので、マルチノード構成の場合は全てのノードに設定する。</p>
 <h2 id="k3d-compose">K3d (compose)</h2>
 <p><a href="https://github.com/k3s-io/k3s/blob/master/docker-compose.yml">k3s/docker-compose.yml at master · k3s-io/k3s</a></p>
-<h3 id="_10">ワーカーのスケーリング</h3>
+<h3 id="_11">ワーカーのスケーリング</h3>
 <p>初期構築時であれば<code>--scale</code>で指定できる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>compose<span style="color: #bbbbbb"> </span>up<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>--scale<span style="color: #bbbbbb"> </span><span style="color: #B8860B">agent</span><span style="color: #666666">=5</span>
 <span style="color: #888888">[+] Running 6/8</span>
@@ -2158,7 +2209,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
-<h3 id="_11">穴あけ</h3>
+<h3 id="_12">穴あけ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--add-port<span style="color: #666666">=6443</span>/tcp<span style="color: #bbbbbb"> </span>--permanent
 <span style="color: #888888">success</span>
 <span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #bbbbbb"> </span>firewall-cmd<span style="color: #bbbbbb"> </span>--reload
@@ -2182,7 +2233,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 <span style="color: #888888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
-<h3 id="_12">ノードスペック</h3>
+<h3 id="_13">ノードスペック</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666666">=</span>oci-ap-n1-k3s.yaml<span style="color: #bbbbbb"> </span>kubectl<span style="color: #bbbbbb"> </span>describe<span style="color: #bbbbbb"> </span>node
 
 <span style="color: #888888">[...]</span>
@@ -2207,7 +2258,7 @@ $<span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-
 
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
-<h2 id="_13">アンインストール</h2>
+<h2 id="_14">アンインストール</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #bbbbbb"> </span>
 </code></pre></div>
                 

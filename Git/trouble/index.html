@@ -1178,6 +1178,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Linux/ec2/" class="md-nav__link">
+        EC2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Linux/kvm/" class="md-nav__link">
         KVM
       </a>
@@ -1390,6 +1402,18 @@
     <li class="md-nav__item">
       <a href="../../Misc/googledrive/" class="md-nav__link">
         Google Drive
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/jq/" class="md-nav__link">
+        jq
       </a>
     </li>
   
@@ -1917,8 +1941,13 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>st
 
 <p>でエディタが起動するので2行目(直近の新しい方)のコミットを<code>pick</code>から<code>squash</code>に変更して保存、コミットメッセージ編集のエディタになるので内容を編集して終了する。</p>
 <h2 id="_3">過去のコミットに対する打ち消しコミット</h2>
-<p>コミットログ上は「過去コミット」「打ち消しコミット」が残るもの</p>
+<p>コミットログ上は「過去コミット」「打ち消しコミット」が残るもの。<br />
+(※ コミットしたことそのものを取り消したい場合は<code>git reset</code>を使う)</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>revert<span style="color: #bbbbbb"> </span>&lt;取り消したいコミットID&gt;
+</code></pre></div>
+
+<p>範囲指定も可能</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>revert<span style="color: #bbbbbb"> </span>HEAD~5..HEAD~3
 </code></pre></div>
 
 <p>対象コミット後に変更があったりするとコンフリクトになるので、手動で修正し、<code>add</code>,<code>commit</code>する。</p>
