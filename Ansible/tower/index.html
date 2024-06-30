@@ -715,6 +715,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    チーム
+  </a>
+  
+    <nav class="md-nav" aria-label="チーム">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    チーム一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#category_slug" class="md-nav__link">
     設定のcategory_slug確認
   </a>
@@ -722,7 +742,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -1795,6 +1815,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    チーム
+  </a>
+  
+    <nav class="md-nav" aria-label="チーム">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    チーム一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#category_slug" class="md-nav__link">
     設定のcategory_slug確認
   </a>
@@ -1802,7 +1842,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -1882,6 +1922,11 @@ Towerは実行中で良い。<br />
 
 <h4 id="_10">ジョブの起動</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -XPost https://server/api/v2/job_templates/${TEMPLATE_ID}/launch/</span>
+</code></pre></div>
+
+<h3 id="_11">チーム</h3>
+<h4 id="_12">チーム一覧</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -XGET https://server/api/v2/teams/</span>
 </code></pre></div>
 
 <h3 id="category_slug">設定のcategory_slug確認</h3>
@@ -1996,7 +2041,7 @@ Towerは実行中で良い。<br />
 <span style="color: #888888">}</span>
 </code></pre></div>
 
-<h3 id="_11">その他のシステム設定</h3>
+<h3 id="_13">その他のシステム設定</h3>
 <p>category_slugに<code>system</code>を指定。<br />
 キー一覧は以下の通り</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://tower.example.org/api/v2/settings/system/<span style="color: #bbbbbb"> </span>...<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>python3<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>json.tool
