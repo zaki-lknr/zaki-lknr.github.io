@@ -1129,6 +1129,13 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    タイムアウト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     外部コマンドを使った死活チェック
   </a>
   
@@ -1674,6 +1681,13 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    タイムアウト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     外部コマンドを使った死活チェック
   </a>
   
@@ -1738,7 +1752,31 @@
 </code></pre></div>
 
 <h2 id="haproxy">HAProxy</h2>
-<h3 id="_4">外部コマンドを使った死活チェック</h3>
+<p><a href="https://docs.haproxy.org/2.9/configuration.html#4.2-timeout">https://docs.haproxy.org/2.9/configuration.html#4.2-timeout</a></p>
+<h3 id="_4">タイムアウト</h3>
+<table>
+<thead>
+<tr>
+<th>設定</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connect</td>
+<td>バックエンドへの接続タイムアウト</td>
+</tr>
+<tr>
+<td>server</td>
+<td>バックエンドとの無応答タイムアウト</td>
+</tr>
+<tr>
+<td>client</td>
+<td>フロントエンド(接続元クライアント)との無応答タイムアウト</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">外部コマンドを使った死活チェック</h3>
 <p>スクリプトはUPの場合は戻り値を0、DOWNは非0を返すように用意する。
 スクリプト実行の際には、第3引数に接続先ホストのアドレス、第4引数にポート番号が渡される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>global
