@@ -251,7 +251,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Misc/adobe/" class="md-tabs__link">
+      <a href="../../Misc/4sq/" class="md-tabs__link">
         Misc
       </a>
     </li>
@@ -706,6 +706,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#slurp" class="md-nav__link">
+    slurp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#make" class="md-nav__link">
     make
   </a>
@@ -769,6 +776,40 @@
         <li class="md-nav__item">
   <a href="#git" class="md-nav__link">
     git
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    ssh
+  </a>
+  
+    <nav class="md-nav" aria-label="ssh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openssh_keypair" class="md-nav__link">
+    openssh_keypair
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorized_key" class="md-nav__link">
+    authorized_key
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pause" class="md-nav__link">
+    pause
   </a>
   
 </li>
@@ -1350,6 +1391,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/4sq/" class="md-nav__link">
+        Forsquare API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/adobe/" class="md-nav__link">
         Adobe
       </a>
@@ -1376,6 +1429,18 @@
     <li class="md-nav__item">
       <a href="../../Misc/az/" class="md-nav__link">
         Azure CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/chrome/" class="md-nav__link">
+        Chrome
       </a>
     </li>
   
@@ -1898,6 +1963,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#slurp" class="md-nav__link">
+    slurp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#make" class="md-nav__link">
     make
   </a>
@@ -1961,6 +2033,40 @@
         <li class="md-nav__item">
   <a href="#git" class="md-nav__link">
     git
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    ssh
+  </a>
+  
+    <nav class="md-nav" aria-label="ssh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openssh_keypair" class="md-nav__link">
+    openssh_keypair
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorized_key" class="md-nav__link">
+    authorized_key
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pause" class="md-nav__link">
+    pause
   </a>
   
 </li>
@@ -2294,6 +2400,25 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 </blockquote>
 <p>fetchモジュールの使い方全般ははてブに書いた。<br />
 <a href="https://zaki-hmkc.hatenablog.com/entry/2021/12/13/060649">[Ansible] fetchモジュールを使ってリモートのファイルを実行ノードへ転送・集約する - zaki work log</a></p>
+<h2 id="slurp">slurp</h2>
+<p>ターゲットノード上のファイルの中身を取得する。<br />
+fetchと異なりファイルシステム上へ保存せずにオンメモリ処理。<br />
+base64エンコードされているのででコードして使用する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>get private key
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.slurp</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #bbbbbb"> </span>/home/ec2-user/.ssh/id_rsa
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>ssh_private_key
+
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create repository credential on awx
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">awx.awx.credential</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>git-repository-credential
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">organization</span>:<span style="color: #bbbbbb"> </span>Default
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">credential_type</span>:<span style="color: #bbbbbb"> </span>Source Control
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">inputs</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #bbbbbb"> </span>ec2-user
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">ssh_key_data</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ssh_private_key.content</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">b64decode</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
 <h2 id="make">make</h2>
 <p><code>/path/to/awx-operator</code>ディレクトリ上で<code>make deploy IMG=zakihmkc/awx-operator:0.17.0</code>を実行するタスクであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>deploy awx-operator
@@ -2386,6 +2511,42 @@ Ansibleも同様で、タスクでグループの更新を行っても、後続�
 
 <p>destのディレクトリは事前に作成しておく。<br />
 GitモジュールはCLIの<code>git clone</code>と異なり、上の例でいうと<code>awx_build_and_deploy</code>サブディレクトリは作成されない。</p>
+<h2 id="ssh">ssh</h2>
+<h3 id="openssh_keypair">openssh_keypair</h3>
+<p>ssh key pair作成</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">community.crypto.openssh_keypair</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">path</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_env.HOME</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}/.ssh/id_rsa&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">size</span>:<span style="color: #bbbbbb"> </span>4096<span style="color: #bbbbbb">  </span><span style="color: #008800; font-style: italic"># default</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>rsa<span style="color: #bbbbbb">   </span><span style="color: #008800; font-style: italic"># default</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #bbbbbb"> </span>ssh_keypair_result
+</code></pre></div>
+
+<h3 id="authorized_key">authorized_key</h3>
+<p><code>authorized_keys</code>への公開鍵登録</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.posix.authorized_key</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">user</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_env.USER</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ssh_keypair_result.public_key</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># key: &quot;{{ lookup(&#39;file&#39;, &#39;~/.ssh/id_rsa.pub&#39;) }}&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">delegate_to</span>:<span style="color: #bbbbbb"> </span>localhost
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">run_once</span>:<span style="color: #bbbbbb"> </span>true
+</code></pre></div>
+
+<h2 id="pause">pause</h2>
+<p>sleepする</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>sleep
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">ansible.builtin.pause</span>:
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">seconds</span>:<span style="color: #bbbbbb"> </span>10
+</code></pre></div>
+
+<p>単純なsleepでなく、最大で指定時間だけwaitがかかり、その間に<code>Ctrl-c</code>押下で「即再開 or 処理中断」の選択が可能になる。<br />
+<code>a</code>で中断した場合はそこで処理が終了する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [sleep] *************************************************************************</span>
+<span style="color: #888888">Pausing for 10 seconds</span>
+<span style="color: #000080; font-weight: bold">(ctrl+C then &#39;C&#39; = continue early, ctrl+C then &#39;A&#39; = abort)</span>
+<span style="color: #888888">Press &#39;C&#39; to continue the play or &#39;A&#39; to abort </span>
+<span style="color: #888888">fatal: [localhost]: FAILED! =&gt; </span>
+<span style="color: #888888">  msg: user requested abort!</span>
+</code></pre></div>
                 
               
               

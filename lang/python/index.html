@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Misc/adobe/" class="md-tabs__link">
+      <a href="../../Misc/4sq/" class="md-tabs__link">
         Misc
       </a>
     </li>
@@ -1110,6 +1110,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/4sq/" class="md-nav__link">
+        Forsquare API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/adobe/" class="md-nav__link">
         Adobe
       </a>
@@ -1136,6 +1148,18 @@
     <li class="md-nav__item">
       <a href="../../Misc/az/" class="md-nav__link">
         Azure CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/chrome/" class="md-nav__link">
+        Chrome
       </a>
     </li>
   
@@ -2086,6 +2110,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    バージョン指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#requirementstxt" class="md-nav__link">
     requirements.txtの利用
   </a>
@@ -2100,21 +2131,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
+  <a href="#_38" class="md-nav__link">
     パッケージのダウングレード
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
+  <a href="#_39" class="md-nav__link">
     パッケージアンインストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_39" class="md-nav__link">
+  <a href="#_40" class="md-nav__link">
     全てアンインストール
   </a>
   
@@ -2134,21 +2165,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_40" class="md-nav__link">
+  <a href="#_41" class="md-nav__link">
     インストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     設定追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     依存パッケージのインストール
   </a>
   
@@ -2182,8 +2213,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipsetuptools" class="md-nav__link">
+    作成時にpipとsetuptoolsを更新する
   </a>
   
 </li>
@@ -2852,6 +2890,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    バージョン指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#requirementstxt" class="md-nav__link">
     requirements.txtの利用
   </a>
@@ -2866,21 +2911,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
+  <a href="#_38" class="md-nav__link">
     パッケージのダウングレード
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
+  <a href="#_39" class="md-nav__link">
     パッケージアンインストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_39" class="md-nav__link">
+  <a href="#_40" class="md-nav__link">
     全てアンインストール
   </a>
   
@@ -2900,21 +2945,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_40" class="md-nav__link">
+  <a href="#_41" class="md-nav__link">
     インストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     設定追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     依存パッケージのインストール
   </a>
   
@@ -2948,8 +2993,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipsetuptools" class="md-nav__link">
+    作成時にpipとsetuptoolsを更新する
   </a>
   
 </li>
@@ -3568,9 +3620,17 @@ dict_val <span style="color: #666666">=</span> {<span style="color: #BB4444">&qu
 </ul>
 <h2 id="_36">環境</h2>
 <h3 id="pip">pip</h3>
+<h4 id="_37">バージョン指定</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">pip install ansible==9</span>
+</code></pre></div>
+
+<p>「以上」の場合は以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">pip install ansible&gt;=8</span>
+</code></pre></div>
+
 <h4 id="requirementstxt">requirements.txtの利用</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ansible==2.9.7
-jmespath=0.10.0
+jmespath==0.10.0
 </code></pre></div>
 
 <p>という内容の<code>requirements.txt</code>ファイルを作成し、これで</p>
@@ -3579,11 +3639,12 @@ jmespath=0.10.0
 
 <p>※ ファイル名は任意</p>
 <h4 id="pip_1">pipのアップデート</h4>
-<p>venvとか作った直後は<code>pip</code>自体のバージョンが古いので(目的にパッケージ入れるときにエラーになる前に先に)アップデートする</p>
+<p>venvとか作った直後は<code>pip</code>自体のバージョンが古いので(目的にパッケージ入れるときにエラーになる前に先に)アップデートする<br />
+※ そもそもvenv作成時に <code>--upgrade-deps</code> をつけておけば自動更新されて環境が作成される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>--upgrade<span style="color: #bbbbbb"> </span>pip
 </code></pre></div>
 
-<h4 id="_37">パッケージのダウングレード</h4>
+<h4 id="_38">パッケージのダウングレード</h4>
 <p>基本的には古いバージョンを指定して以下でOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span><span style="color: #B8860B">hogehoge</span><span style="color: #666666">=0</span>.0.1
 </code></pre></div>
@@ -3598,7 +3659,7 @@ jmespath=0.10.0
 <span style="color: #888888">Successfully installed rich-9.5.1 typing-extensions-3.10.0.2</span>
 </code></pre></div>
 
-<h4 id="_38">パッケージアンインストール</h4>
+<h4 id="_39">パッケージアンインストール</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>uninstall<span style="color: #bbbbbb"> </span>docker
 <span style="color: #888888">Found existing installation: docker 5.0.3</span>
 <span style="color: #888888">Uninstalling docker-5.0.3:</span>
@@ -3616,17 +3677,17 @@ jmespath=0.10.0
 <span style="color: #888888">  -y, --yes                   Don&#39;t ask for confirmation of uninstall deletions.</span>
 </code></pre></div>
 
-<h4 id="_39">全てアンインストール</h4>
+<h4 id="_40">全てアンインストール</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>uninstall<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>pip<span style="color: #bbbbbb"> </span>freeze<span style="color: #666666">)</span>
 </code></pre></div>
 
 <h3 id="pyenv">pyenv</h3>
 <p><a href="https://github.com/pyenv/pyenv">pyenv/pyenv: Simple Python version management</a></p>
-<h4 id="_40">インストール</h4>
+<h4 id="_41">インストール</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://pyenv.run | bash</span>
 </code></pre></div>
 
-<h4 id="_41">設定追加</h4>
+<h4 id="_42">設定追加</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">cat &lt;&lt;&#39;__EOL__&#39; &gt;&gt; $HOME/.bashrc</span>
 <span style="color: #888888">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span>
 <span style="color: #888888">command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;</span>
@@ -3635,7 +3696,7 @@ jmespath=0.10.0
 <span style="color: #888888">. $HOME/.bashrc</span>
 </code></pre></div>
 
-<h4 id="_42">依存パッケージのインストール</h4>
+<h4 id="_43">依存パッケージのインストール</h4>
 <p>以下はUbuntuの場合。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \</span>
 <span style="color: #888888">libbz2-dev libreadline-dev libsqlite3-dev curl \</span>
@@ -3654,8 +3715,12 @@ jmespath=0.10.0
 
 <p>切替可能なPythonは<code>pyenv versions</code>で確認</p>
 <h3 id="venv">venv</h3>
-<h4 id="_43">作成</h4>
+<h4 id="_44">作成</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>venv<span style="color: #bbbbbb"> </span>venv/ansible
+</code></pre></div>
+
+<h4 id="pipsetuptools">作成時にpipとsetuptoolsを更新する</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>venv<span style="color: #bbbbbb"> </span>~/venv/dev<span style="color: #bbbbbb"> </span>--upgrade-deps
 </code></pre></div>
 
 <h4 id="system">systemのパッケージパスも参照</h4>
