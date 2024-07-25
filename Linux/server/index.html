@@ -1153,6 +1153,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dnsmasq" class="md-nav__link">
+    dnsmasq
+  </a>
+  
+    <nav class="md-nav" aria-label="dnsmasq">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    dhcp
+  </a>
+  
+    <nav class="md-nav" aria-label="dhcp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    IPアドレス固定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1729,6 +1762,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dnsmasq" class="md-nav__link">
+    dnsmasq
+  </a>
+  
+    <nav class="md-nav" aria-label="dnsmasq">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    dhcp
+  </a>
+  
+    <nav class="md-nav" aria-label="dhcp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    IPアドレス固定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1821,6 +1887,13 @@ backend bazqux
 <h3 id="ssl">ssl検証無視</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>backend servers
   server host1 192.168.0.68:6443 ssl verify none check
+</code></pre></div>
+
+<h2 id="dnsmasq">dnsmasq</h2>
+<h3 id="dhcp">dhcp</h3>
+<h4 id="ip">IPアドレス固定</h4>
+<p>書式：<code>dhcp-host=hwaddr,hostname,ipaddr</code></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dhcp-host=00:00:5E:00:53:00,raclette,192.168.0.129
 </code></pre></div>
                 
               
