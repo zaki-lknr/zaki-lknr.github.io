@@ -1020,6 +1020,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Linux/raspberrypi/" class="md-nav__link">
+        Raspberry Pi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Linux/rhel/" class="md-nav__link">
         RHEL
       </a>
@@ -1589,6 +1601,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docs" class="md-nav__link">
+    docs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2037,6 +2056,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docs" class="md-nav__link">
+    docs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2201,6 +2227,14 @@
 <h3 id="_13">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">route_table_ids</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">aws_vpc.my_vpc.default_route_table_id</span>]
+</code></pre></div>
+
+<h2 id="docs">docs</h2>
+<p><a href="https://terraform-docs.io/">terraform-docs</a><br />
+Terraformコードからドキュメント生成するツール。</p>
+<p>CLIをインストールできるがコンテナ実行でも生成できる。<br />
+Podmanであれば、Terraformコードのあるディレクトリで以下を実行すれば<code>README.md</code>が生成される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">podman run --rm -v &quot;$(pwd):/terraform-docs&quot; quay.io/terraform-docs/terraform-docs:0.18.0 markdown /terraform-docs --output-file README.md</span>
 </code></pre></div>
                 
               
