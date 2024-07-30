@@ -1821,6 +1821,7 @@ KVシークレットエンジンであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv put &lt;secret-engine-name&gt;/&lt;key-name&gt; key1=value1 key2=value2 ...</span>
 </code></pre></div>
 
+<p>繰り返し実行すればversion更新される。</p>
 <h4 id="_5">データ参照</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv get -mount=&lt;secret-engine-name&gt; &lt;key-name&gt;</span>
 </code></pre></div>
