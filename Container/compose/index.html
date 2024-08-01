@@ -705,6 +705,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    composeファイル指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     コマンド起動
   </a>
@@ -724,7 +731,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compose" class="md-nav__link">
+  <a href="#compose_1" class="md-nav__link">
     Composeファイル
   </a>
   
@@ -1675,6 +1682,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    composeファイル指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     コマンド起動
   </a>
@@ -1694,7 +1708,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compose" class="md-nav__link">
+  <a href="#compose_1" class="md-nav__link">
     Composeファイル
   </a>
   
@@ -1759,6 +1773,11 @@
 <span style="color: #888888">docker compose rm myapp</span>
 </code></pre></div>
 
+<h3 id="compose">composeファイル指定</h3>
+<p><code>-f</code>で指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose -f compose-v1.2.3.yml up -d</span>
+</code></pre></div>
+
 <h3 id="_3">コマンド起動</h3>
 <p><code>docker exec</code>と異なり<code>-it</code>オプションは不要。アプリ名とコマンド名のみでOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose exec &lt;app名&gt; bash</span>
@@ -1768,7 +1787,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose cp app:/path/to/file ./file</span>
 </code></pre></div>
 
-<h2 id="compose">Composeファイル</h2>
+<h2 id="compose_1">Composeファイル</h2>
 <ul>
 <li><a href="https://docs.docker.com/compose/compose-file/compose-file-v3/">Compose file version 3 reference | Docker Documentation</a></li>
 </ul>
