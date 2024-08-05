@@ -745,6 +745,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bind" class="md-nav__link">
+    ファイルのbindマウント
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1309,6 +1316,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/gas/" class="md-nav__link">
+        Google Apps Script
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1585,8 +1604,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../../lang/js/" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../lang/json/" class="md-nav__link">
         JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/nodejs/" class="md-nav__link">
+        Node.js
       </a>
     </li>
   
@@ -1722,6 +1765,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bind" class="md-nav__link">
+    ファイルのbindマウント
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1805,6 +1855,17 @@
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">db</span>:
 <span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>mysql
 <span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">network_mode</span>:<span style="color: #bbbbbb"> </span>service:app
+</code></pre></div>
+
+<h3 id="bind">ファイルのbindマウント</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">server</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;rancher/k3s:v1.30.2-k3s2&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #bbbbbb"> </span>server
+<span style="color: #bbbbbb">    </span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>./registries.yaml:/etc/rancher/k3s/registries.yaml
 </code></pre></div>
                 
               

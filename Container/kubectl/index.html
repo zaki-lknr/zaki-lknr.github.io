@@ -1551,6 +1551,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/gas/" class="md-nav__link">
+        Google Apps Script
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/github/" class="md-nav__link">
         GitHub
       </a>
@@ -1827,8 +1839,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../../lang/js/" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../lang/json/" class="md-nav__link">
         JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lang/nodejs/" class="md-nav__link">
+        Node.js
       </a>
     </li>
   
@@ -2428,6 +2464,26 @@ oci-k3s-le
 <p>コンテキストをセットする</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>use-context<span style="color: #bbbbbb"> </span>k3d-k3s-default
 <span style="color: #888888">Switched to context &quot;k3d-k3s-default&quot;.</span>
+</code></pre></div>
+
+<p>複数のkubeconfigのマージするには、<code>:</code>で繋げて<code>view --merge --flatten</code>する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">KUBECONFIG=~/.kube/config:kubeconfig-1.yaml:kubeconfig-2.yaml kubectl config view --merge --flatten &gt; tmp.yaml</span>
+<span style="color: #888888">mv tmp.yaml ~/.kube/config</span>
+</code></pre></div>
+
+<p>コンテキスト名の変更</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>get-contexts<span style="color: #bbbbbb"> </span>
+<span style="color: #888888">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
+<span style="color: #888888">*         default                 default                 default                 </span>
+<span style="color: #888888">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
+<span style="color: #888888">          kind-awx-sample         kind-awx-sample         kind-awx-sample</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>rename-context<span style="color: #bbbbbb"> </span>default<span style="color: #bbbbbb"> </span>rasp5-01
+<span style="color: #888888">Context &quot;default&quot; renamed to &quot;rasp5-01&quot;.</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>config<span style="color: #bbbbbb"> </span>get-contexts<span style="color: #bbbbbb"> </span>
+<span style="color: #888888">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
+<span style="color: #888888">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
+<span style="color: #888888">          kind-awx-sample         kind-awx-sample         kind-awx-sample         </span>
+<span style="color: #888888">*         rasp5-01                default                 default</span>
 </code></pre></div>
 
 <h2 id="delete">delete</h2>
