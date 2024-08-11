@@ -1069,6 +1069,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    状態取得
+  </a>
+  
+    <nav class="md-nav" aria-label="状態取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    温度
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1662,6 +1682,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    状態取得
+  </a>
+  
+    <nav class="md-nav" aria-label="状態取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    温度
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1690,6 +1730,11 @@
 <p>デフォルトでは入ってないので<code>/var/log/syslog</code>は無い。<br />
 <code>sudo apt-get install rsyslog</code>すればログファイルに出力されるようになる。</p>
 <p>rsyslogが無くても<code>journalctl</code>でログは確認できる。</p>
+<h3 id="_2">状態取得</h3>
+<h4 id="_3">温度</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp4-01:~ $ </span>vcgencmd<span style="color: #bbbbbb"> </span>measure_temp
+<span style="color: #888888">temp=44.3&#39;C</span>
+</code></pre></div>
                 
               
               
