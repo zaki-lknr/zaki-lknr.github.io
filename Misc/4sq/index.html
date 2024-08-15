@@ -1217,6 +1217,26 @@
     Get User Checkins
   </a>
   
+    <nav class="md-nav" aria-label="Get User Checkins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#photos" class="md-nav__link">
+    photos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    location
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1763,6 +1783,26 @@
     Get User Checkins
   </a>
   
+    <nav class="md-nav" aria-label="Get User Checkins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#photos" class="md-nav__link">
+    photos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    location
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1859,6 +1899,7 @@
 </code></pre></div>
 
 <p>このチェックインIDでdetailsを取得する。</p>
+<h4 id="photos">photos</h4>
 <p>photosに関しては以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;count&quot;</span>:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">枚数</span>,
@@ -1876,6 +1917,27 @@
 
 <p>このときの画像のリンクは <code>prefix + width + "x" + height + suffix</code> でアクセスできる。<br />
 (厳密にはwidth x heightは指定した値に拡縮・トリミングされる)</p>
+<h4 id="location">location</h4>
+<p>旧シェア文字列のアドレスの「港区, 東京都」は <code>venue.location.formattedAddress</code> に配列要素の一つとしてセットされている。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;location&quot;</span>:<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;address&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;台場一丁目&quot;</span>,
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;postalCode&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;135-0091&quot;</span>,
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;cc&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;JP&quot;</span>,
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;city&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;東京&quot;</span>,
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;state&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;東京都&quot;</span>,
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;country&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;日本&quot;</span>,
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;formattedAddress&quot;</span>:<span style="color: #bbbbbb"> </span>[
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;台場一丁目&quot;</span>,
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;港区, 東京都&quot;</span>,
+<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;135-0091&quot;</span>
+<span style="color: #bbbbbb">        </span>]
+<span style="color: #bbbbbb">    </span>},
+</code></pre></div>
+
+<p>ただし、<code>location</code>の要素の<code>postalCode</code>が無い場合は3つ目の"135-0091"相当が、<code>address</code>が無い場合は1つ目の"台場一丁目"が無いため、配列要素は固定ではない。<br />
+(2番目の"港区, 東京都"が無いパターンの有無は不明)</p>
+<p>また、<code>formattedAddress</code>自体が無いヴェニューもある。</p>
 <h3 id="get-check-in-details">Get Check-in Details</h3>
 <p>CheckinsでチェックインのIDが取れたらDetailsでシェア用URLなども取れる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>

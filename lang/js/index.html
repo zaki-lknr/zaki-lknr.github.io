@@ -1572,8 +1572,82 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    配列
+  </a>
+  
+    <nav class="md-nav" aria-label="配列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    定義
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最後の要素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     型の確認
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    プロパティの存在チェック
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    時刻処理
+  </a>
+  
+    <nav class="md-nav" aria-label="時刻処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unixdate" class="md-nav__link">
+    UNIXタイムからDate型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    非同期処理
+  </a>
+  
+    <nav class="md-nav" aria-label="非同期処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#promise" class="md-nav__link">
+    Promise変数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1725,8 +1799,82 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    配列
+  </a>
+  
+    <nav class="md-nav" aria-label="配列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    定義
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最後の要素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     型の確認
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    プロパティの存在チェック
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    時刻処理
+  </a>
+  
+    <nav class="md-nav" aria-label="時刻処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unixdate" class="md-nav__link">
+    UNIXタイムからDate型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    非同期処理
+  </a>
+  
+    <nav class="md-nav" aria-label="非同期処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#promise" class="md-nav__link">
+    Promise変数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1773,9 +1921,65 @@
 <p>ループを抜ける</p>
 <h4 id="continue">continue</h4>
 <p>次のループへ</p>
-<h3 id="_3">型の確認</h3>
+<h3 id="_3">配列</h3>
+<h4 id="_4">定義</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_array<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>];
+</code></pre></div>
+
+<h4 id="_5">最後の要素</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_array<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>];
+console.log(sample_array.at(<span style="color: #666666">-1</span>));
+</code></pre></div>
+
+<p>結果は <code>3</code></p>
+<h3 id="_6">型の確認</h3>
 <p><code>typeof</code>を使う。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>console.log(<span style="color: #BB4444">&quot;type: &quot;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">typeof</span>(users))
+</code></pre></div>
+
+<h3 id="_7">プロパティの存在チェック</h3>
+<p><code>in</code>を使う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>host<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;192.168.0.1&#39;</span>,
+<span style="color: #bbbbbb">    </span>user<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;zaki&#39;</span>,
+<span style="color: #bbbbbb">    </span>home<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;/home/zaki&#39;</span>
+}
+
+<span style="color: #AA22FF; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #BB4444">&#39;password&#39;</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span>data)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>console.log(<span style="color: #BB4444">&#39;defined password&#39;</span>);
+}
+<span style="color: #AA22FF; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>console.log(<span style="color: #BB4444">&#39;not defined password&#39;</span>);
+}
+</code></pre></div>
+
+<p>これは<code>not defined</code>の方が動作する。</p>
+<h3 id="_8">時刻処理</h3>
+<h4 id="unixdate">UNIXタイムからDate型</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">// Date()の引数はミリ秒で指定する</span>
+unix_date_sec<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;1723426784&#39;</span>
+<span style="color: #AA22FF; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>datetime<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Date</span>(unix_date_sec<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1000</span>);
+
+console.log(datetime);
+console.log(datetime.toLocaleDateString());
+console.log(datetime.toLocaleTimeString());
+</code></pre></div>
+
+<p>出力は以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">2024-08-12T01:39:44.000Z</span>
+<span style="color: #888888">2024/8/12</span>
+<span style="color: #888888">10:39:44</span>
+</code></pre></div>
+
+<h3 id="_9">非同期処理</h3>
+<h4 id="promise">Promise変数</h4>
+<p>resolve()で中身を取り出す</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>promise_value<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>async_func();
+<span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>promise<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Promise</span>((resolve)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>resolve(promise_value);
+}).then((val)<span style="color: #bbbbbb"> </span>=&gt;<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>console.log(val);<span style="color: #bbbbbb">  </span><span style="color: #008800; font-style: italic">// Promiseをresolve()したので取れる</span>
+})
 </code></pre></div>
                 
               
