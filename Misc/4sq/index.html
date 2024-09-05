@@ -787,6 +787,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Container/skopeo/" class="md-nav__link">
+        skopeo
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1213,6 +1225,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#get-user-detail" class="md-nav__link">
+    Get User Detail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-user-checkins" class="md-nav__link">
     Get User Checkins
   </a>
@@ -1242,6 +1261,13 @@
           <li class="md-nav__item">
   <a href="#get-check-in-details" class="md-nav__link">
     Get Check-in Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-place-details" class="md-nav__link">
+    Get Place Details
   </a>
   
 </li>
@@ -1791,6 +1817,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#get-user-detail" class="md-nav__link">
+    Get User Detail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-user-checkins" class="md-nav__link">
     Get User Checkins
   </a>
@@ -1820,6 +1853,13 @@
           <li class="md-nav__item">
   <a href="#get-check-in-details" class="md-nav__link">
     Get Check-in Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-place-details" class="md-nav__link">
+    Get Place Details
   </a>
   
 </li>
@@ -1878,6 +1918,18 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
 <span style="color: #888888">     --url &#39;https://api.foursquare.com/v3/places/search?query=%E3%81%8A%E5%8F%B0%E5%A0%B4&amp;ll=35.6325714%2C139.7738516&#39; \</span>
 <span style="color: #888888">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
+<span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
+</code></pre></div>
+
+<h3 id="get-user-detail">Get User Detail</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
+<span style="color: #888888">     --url &quot;https://api.foursquare.com/v2/users/self?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
+</code></pre></div>
+
+<p>任意のユーザーの情報であれば以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
+<span style="color: #888888">     --url &quot;https://api.foursquare.com/v2/users/${USER_ID}?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
 <span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
 
@@ -1958,6 +2010,7 @@
 </code></pre></div>
 
 <p>このレスポンスにアクセス可能な<code>response.checkin.checkinShortUrl</code>がある。<br />
+Twitterなどのシェアを有効にしていると<code>shares</code>フィールドが追加される。<br />
 レスポンスの基本的な構造は以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #bbbbbb"> </span>{
@@ -1973,7 +2026,28 @@
 <span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">      </span>},
 <span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;checkinShortUrl&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://www.swarmapp.com/.../checkin/...&quot;</span>,
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;shares&quot;</span>:<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">true</span>
+<span style="color: #bbbbbb">      </span>}
 <span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">  </span>}
+}
+</code></pre></div>
+
+<h3 id="get-place-details">Get Place Details</h3>
+<p>APIはv2がすでに無くなりv3を使う必要がある。<br />
+<a href="https://docs.foursquare.com/developer/reference/place-details">Get Place Details</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
+<span style="color: #888888">     --url &quot;https://api.foursquare.com/v3/places/${PLACE_ID}?fields=social_media&quot; \</span>
+<span style="color: #888888">     --header &quot;Authorization: ${FSQ_APP_API_KEY}&quot; \</span>
+<span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
+</code></pre></div>
+
+<p><code>?fields=</code>で返すフィールドを指定できる。<br />
+TwitterIDなどのソーシャルメディア情報であれば<code>?fields=social_media</code>を指定。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;social_media&quot;</span>:<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;3rdhakatadaruma&quot;</span>
 <span style="color: #bbbbbb">  </span>}
 }
 </code></pre></div>

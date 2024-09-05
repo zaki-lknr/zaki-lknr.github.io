@@ -787,6 +787,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Container/skopeo/" class="md-nav__link">
+        skopeo
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1229,6 +1241,13 @@
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     リンク付き
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#via" class="md-nav__link">
+    クライアント名(via)
   </a>
   
 </li>
@@ -1702,6 +1721,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#via" class="md-nav__link">
+    クライアント名(via)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1813,6 +1839,21 @@ Get Startedにコード例がある。</p>
 });
 
 <span style="color: #AA22FF; font-weight: bold">await</span><span style="color: #bbbbbb"> </span>fetch(url,<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span>method<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;POST&quot;</span>,<span style="color: #bbbbbb"> </span>body<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>body,<span style="color: #bbbbbb"> </span>headers<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>headers<span style="color: #bbbbbb"> </span>});
+</code></pre></div>
+
+<h3 id="via">クライアント名(via)</h3>
+<p>公式にはないパラメタで、一部のクライアントが非公式に使っている。<br />
+<code>via</code>に指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>body<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>repo<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>bsky_id,
+<span style="color: #bbbbbb">    </span>collection<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;app.bsky.feed.post&quot;</span>,
+<span style="color: #bbbbbb">    </span>record<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>text<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>message,
+<span style="color: #bbbbbb">        </span>createdAt<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Date</span>().toISOString(),
+<span style="color: #bbbbbb">        </span>$type<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;app.bsky.feed.post&quot;</span>,
+<span style="color: #bbbbbb">        </span>via<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;NJGK&#39;</span>
+<span style="color: #bbbbbb">    </span>}
+};
 </code></pre></div>
                 
               
