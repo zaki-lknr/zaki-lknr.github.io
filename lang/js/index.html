@@ -1914,6 +1914,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#checkbox" class="md-nav__link">
+    checkbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    label
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2392,6 +2406,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#checkbox" class="md-nav__link">
+    checkbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    label
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2699,6 +2727,24 @@ btn.addEventListener(<span style="color: #BB4444">&#39;click&#39;</span>,<span s
 image_item.src<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>image_url;
 </code></pre></div>
 
+<h4 id="checkbox">checkbox</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>checkbox_item<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">document</span>.createElement(<span style="color: #BB4444">&quot;input&quot;</span>);
+checkbox_item.type<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;checkbox&#39;</span>;
+checkbox_item.id<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;sample&#39;</span>;
+checkbox_item.name<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;sample&#39;</span>;
+checkbox_item.value<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;sample&#39;</span>;
+checkbox_item.checked<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">true</span>;
+</code></pre></div>
+
+<p>チェックボックスのチェック状態を参照するには<code>.checked</code>を見ればOK</p>
+<h4 id="label">label</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>label_item<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">document</span>.createElement(<span style="color: #BB4444">&quot;label&quot;</span>);
+label_item.htmlFor<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;sample&#39;</span>;
+label_item.textContent<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;設定&#39;</span>;
+</code></pre></div>
+
+<p><code>id</code>の指定は<code>for</code>でなく<code>htmlFor</code>であることに注意。<br />
+<a href="https://teratail.com/questions/140944">JSでlabel要素にfor属性が追加できない</a></p>
 <h3 id="_27">複数の子要素を全て削除する</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>component<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">document</span>.getElementById(<span style="color: #BB4444">&quot;component&quot;</span>);
 <span style="color: #AA22FF; font-weight: bold">while</span>(component.firstChild)<span style="color: #bbbbbb"> </span>{
