@@ -1019,6 +1019,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    バージョン確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cloud-init" class="md-nav__link">
     cloud-init
   </a>
@@ -1027,7 +1034,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     パスワード設定
   </a>
   
@@ -1041,7 +1048,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     コマンドの実行
   </a>
   
@@ -1241,6 +1248,18 @@
     <li class="md-nav__item">
       <a href="../../Misc/az/" class="md-nav__link">
         Azure CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/backlog/" class="md-nav__link">
+        Backlog
       </a>
     </li>
   
@@ -1686,6 +1705,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    バージョン確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cloud-init" class="md-nav__link">
     cloud-init
   </a>
@@ -1694,7 +1720,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     パスワード設定
   </a>
   
@@ -1708,7 +1734,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     コマンドの実行
   </a>
   
@@ -1737,8 +1763,26 @@
                 
                 
                 <h1 id="ec2">EC2</h1>
+<h2 id="_1">バージョン確認</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #bbbbbb"> </span>/etc/system-release
+<span style="color: #888888">Amazon Linux release 2 (Karoo)</span>
+</code></pre></div>
+
+<p>または</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #bbbbbb"> </span>/etc/os-release<span style="color: #bbbbbb"> </span>
+<span style="color: #888888">NAME=&quot;Amazon Linux&quot;</span>
+<span style="color: #888888">VERSION=&quot;2&quot;</span>
+<span style="color: #888888">ID=&quot;amzn&quot;</span>
+<span style="color: #888888">ID_LIKE=&quot;centos rhel fedora&quot;</span>
+<span style="color: #888888">VERSION_ID=&quot;2&quot;</span>
+<span style="color: #888888">PRETTY_NAME=&quot;Amazon Linux 2&quot;</span>
+<span style="color: #888888">ANSI_COLOR=&quot;0;33&quot;</span>
+<span style="color: #888888">CPE_NAME=&quot;cpe:2.3:o:amazon:amazon_linux:2&quot;</span>
+<span style="color: #888888">HOME_URL=&quot;https://amazonlinux.com/&quot;</span>
+</code></pre></div>
+
 <h2 id="cloud-init">cloud-init</h2>
-<h3 id="_1">パスワード設定</h3>
+<h3 id="_2">パスワード設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#cloud-config</span>
 <span style="color: #008000; font-weight: bold">password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;p@ssword&#39;</span>
 <span style="color: #008000; font-weight: bold">chpasswd</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #008000; font-weight: bold"> expire</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">false</span><span style="color: #bbbbbb"> </span>}
@@ -1750,7 +1794,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ssh_pwauth</span>:<span style="color: #bbbbbb"> </span>true
 </code></pre></div>
 
-<h3 id="_2">コマンドの実行</h3>
+<h3 id="_3">コマンドの実行</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">runcmd</span>:
 -<span style="color: #bbbbbb"> </span>systemctl disable --now ...
 </code></pre></div>
