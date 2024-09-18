@@ -1530,6 +1530,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../html/" class="md-nav__link">
+        html
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -1907,6 +1919,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#catch" class="md-nav__link">
+    catchする
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1983,6 +2002,26 @@
           <li class="md-nav__item">
   <a href="#_31" class="md-nav__link">
     複数の子要素を全て削除する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    html関連
+  </a>
+  
+    <nav class="md-nav" aria-label="html関連">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    画面遷移(動画面)
   </a>
   
 </li>
@@ -2434,6 +2473,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#catch" class="md-nav__link">
+    catchする
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2510,6 +2556,26 @@
           <li class="md-nav__item">
   <a href="#_31" class="md-nav__link">
     複数の子要素を全て削除する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    html関連
+  </a>
+  
+    <nav class="md-nav" aria-label="html関連">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    画面遷移(動画面)
   </a>
   
 </li>
@@ -2809,6 +2875,15 @@ reader.onload<span style="color: #bbbbbb"> </span><span style="color: #666666">=
 }
 </code></pre></div>
 
+<h4 id="catch">catchする</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">try</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>res_img<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">await</span><span style="color: #bbbbbb"> </span>fetch(url);
+}
+<span style="color: #AA22FF; font-weight: bold">catch</span>(err)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">throw</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #D2413A; font-weight: bold">Error</span>(<span style="color: #BB4444">&#39;http access failed: &#39;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>err<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;\nurl: &quot;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>url);
+}
+</code></pre></div>
+
 <h2 id="dom">DOM</h2>
 <h3 id="_28">要素の取得</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>niji<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">document</span>.getElementById(<span style="color: #BB4444">&quot;niji&quot;</span>);
@@ -2867,6 +2942,11 @@ label_item.textContent<span style="color: #bbbbbb"> </span><span style="color: #
 <span style="color: #bbbbbb">    </span>component.removeChild(child);
 }
 </code></pre></div>
+
+<h2 id="html">html関連</h2>
+<h3 id="_32">画面遷移(動画面)</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">window</span>.location.href<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>url;
+</code></pre></div>
                 
               
               
@@ -2885,7 +2965,7 @@ label_item.textContent<span style="color: #bbbbbb"> </span><span style="color: #
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../bash/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../html/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2894,7 +2974,7 @@ label_item.textContent<span style="color: #bbbbbb"> </span><span style="color: #
               <span class="md-footer__direction">
                 前
               </span>
-              bash
+              html
             </div>
           </div>
         </a>
