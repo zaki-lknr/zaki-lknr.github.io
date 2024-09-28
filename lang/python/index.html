@@ -2281,6 +2281,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    依存関係の確認
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2295,21 +2302,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     インストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     設定追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     依存パッケージのインストール
   </a>
   
@@ -2343,7 +2350,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     作成
   </a>
   
@@ -3095,6 +3102,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    依存関係の確認
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3109,21 +3123,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     インストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     設定追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     依存パッケージのインストール
   </a>
   
@@ -3157,7 +3171,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     作成
   </a>
   
@@ -3873,13 +3887,22 @@ jmespath==0.10.0
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>uninstall<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>pip<span style="color: #bbbbbb"> </span>freeze<span style="color: #666666">)</span>
 </code></pre></div>
 
+<h4 id="_43">依存関係の確認</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>show<span style="color: #bbbbbb"> </span>ansible-core
+<span style="color: #888888">:</span>
+<span style="color: #888888">:</span>
+<span style="color: #888888">Requires: cryptography, jinja2, packaging, PyYAML, resolvelib</span>
+<span style="color: #888888">Required-by: ansible</span>
+</code></pre></div>
+
+<p>Required-byの<code>ansible</code>によってインストールされ、このパッケージによって<code>cryptography</code>, <code>jinja2</code>, <code>packaging</code>, <code>PyYAML</code>, <code>resolvelib</code>がインストールされる。</p>
 <h3 id="pyenv">pyenv</h3>
 <p><a href="https://github.com/pyenv/pyenv">pyenv/pyenv: Simple Python version management</a></p>
-<h4 id="_43">インストール</h4>
+<h4 id="_44">インストール</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://pyenv.run | bash</span>
 </code></pre></div>
 
-<h4 id="_44">設定追加</h4>
+<h4 id="_45">設定追加</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">cat &lt;&lt;&#39;__EOL__&#39; &gt;&gt; $HOME/.bashrc</span>
 <span style="color: #888888">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span>
 <span style="color: #888888">command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;</span>
@@ -3888,7 +3911,7 @@ jmespath==0.10.0
 <span style="color: #888888">. $HOME/.bashrc</span>
 </code></pre></div>
 
-<h4 id="_45">依存パッケージのインストール</h4>
+<h4 id="_46">依存パッケージのインストール</h4>
 <p>以下はUbuntuの場合。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \</span>
 <span style="color: #888888">libbz2-dev libreadline-dev libsqlite3-dev curl \</span>
@@ -3907,7 +3930,7 @@ jmespath==0.10.0
 
 <p>切替可能なPythonは<code>pyenv versions</code>で確認</p>
 <h3 id="venv">venv</h3>
-<h4 id="_46">作成</h4>
+<h4 id="_47">作成</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>venv<span style="color: #bbbbbb"> </span>venv/ansible
 </code></pre></div>
 
