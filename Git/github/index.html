@@ -984,10 +984,23 @@
     issueとの関連付け
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="issueとの関連付け">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    マージで自動クローズするキーワード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     レビュー
   </a>
   
@@ -1048,7 +1061,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     デフォルトブランチを取得する
   </a>
   
@@ -1917,10 +1930,23 @@
     issueとの関連付け
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="issueとの関連付け">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    マージで自動クローズするキーワード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     レビュー
   </a>
   
@@ -1981,7 +2007,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     デフォルトブランチを取得する
   </a>
   
@@ -2039,7 +2065,19 @@
 <h2 id="pr">PR</h2>
 <h3 id="issue">issueとの関連付け</h3>
 <p><a href="https://docs.github.com/ja/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue">Pull RequestをIssueにリンクする - GitHub Docs</a></p>
-<h3 id="_5">レビュー</h3>
+<h4 id="_5">マージで自動クローズするキーワード</h4>
+<ul>
+<li>close</li>
+<li>closes</li>
+<li>closed</li>
+<li>fix</li>
+<li>fixes</li>
+<li>fixed</li>
+<li>resolve</li>
+<li>resolves</li>
+<li>resolved</li>
+</ul>
+<h3 id="_6">レビュー</h3>
 <ul>
 <li><a href="https://docs.github.com/ja/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request">プルリクエストで提案された変更をレビューする - GitHub Docs</a></li>
 </ul>
@@ -2065,7 +2103,7 @@
 <p>下部の"Attach binaries by dropping them here or selecting them"にzipなどのバイナリファイルがあれば添付する。</p>
 <p>あとは[Publish release]すればtagとreleaseが作成され公開される。</p>
 <h2 id="api">API</h2>
-<h3 id="_6">デフォルトブランチを取得する</h3>
+<h3 id="_7">デフォルトブランチを取得する</h3>
 <p><code>https://api.github.com/repos/{owner}/{repo}</code> を<code>GET</code>すると、対象リポジトリの情報を取得できる。<br />
 JSON形式のレスポンスのうち、<code>default_branch</code>キーの値にデフォルトブランチがセットされている。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>https://api.github.com/repos/netbox-community/ansible_modules
