@@ -943,6 +943,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#commit_1" class="md-nav__link">
+    ブランチ作成せずにcommitしまくってた
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#-amendcommit" class="md-nav__link">
     --amendを忘れてcommit
   </a>
@@ -1861,6 +1868,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#commit_1" class="md-nav__link">
+    ブランチ作成せずにcommitしまくってた
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#-amendcommit" class="md-nav__link">
     --amendを忘れてcommit
   </a>
@@ -2051,6 +2065,14 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>stash<span style="color: #bbbbbb"> </span>save
 $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>checkout<span style="color: #bbbbbb"> </span>&lt;branch-name&gt;
 $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>stash<span style="color: #bbbbbb"> </span>pop
+</code></pre></div>
+
+<h2 id="commit_1">ブランチ作成せずにcommitしまくってた</h2>
+<p>その時点で新しいブランチを作成し、mainはorigin/mainで上書きする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git switch -c new-branch</span>
+<span style="color: #888888">git switch main</span>
+<span style="color: #888888">git reset origin/main --hard</span>
+<span style="color: #888888">git switch new-branch</span>
 </code></pre></div>
 
 <h2 id="-amendcommit">--amendを忘れてcommit</h2>
