@@ -1437,13 +1437,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    サブモジュールを更新する
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     前の状態に戻す
   </a>
   
@@ -1451,7 +1458,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     指定コミットの状態に戻す
   </a>
   
@@ -1463,7 +1470,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     その他
   </a>
   
@@ -2865,13 +2872,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    サブモジュールを更新する
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     前の状態に戻す
   </a>
   
@@ -2879,7 +2893,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     指定コミットの状態に戻す
   </a>
   
@@ -2891,7 +2905,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     その他
   </a>
   
@@ -3375,13 +3389,26 @@ M<span style="color: #bbbbbb">       </span>docs/Ansible/directives.md
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git submodule add https://github.com/zaki-lknr/bsky-client.git bsky-client</span>
 </code></pre></div>
 
-<h2 id="_41">前の状態に戻す</h2>
-<h3 id="_42">指定コミットの状態に戻す</h3>
+<h3 id="_41">サブモジュールを更新する</h3>
+<p>対象ディレクトリで<code>git pull</code>を実行する。<br />
+親リポジトリで<code>git diff</code>すれば更新されていることを確認できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git diff
+<span style="color: #000080; font-weight: bold">diff --git a/bsky-client b/bsky-client</span>
+<span style="color: #000080; font-weight: bold">index ae590a7..2a0550c 160000</span>
+<span style="color: #A00000">--- a/bsky-client</span>
+<span style="color: #00A000">+++ b/bsky-client</span>
+<span style="color: #800080; font-weight: bold">@@ -1 +1 @@</span>
+<span style="color: #A00000">-Subproject commit ae590a7142b82f0cb77d4fd7b970c6ab3a9dc8fa</span>
+<span style="color: #00A000">+Subproject commit 2a0550cfc11ca1d06f13596f2eb087cc75dcdf9b</span>
+</code></pre></div>
+
+<h2 id="_42">前の状態に戻す</h2>
+<h3 id="_43">指定コミットの状態に戻す</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git reset --hard &#39;対象のコミットID&#39;</span>
 </code></pre></div>
 
 <p><code>reset --hard</code>は<a href="trouble/#_6">コミットの取り消し</a>にも使用する</p>
-<h2 id="_43">その他</h2>
+<h2 id="_44">その他</h2>
 <h3 id="head">HEAD</h3>
 <p>概略(語弊あるかも)</p>
 <ul>

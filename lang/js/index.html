@@ -1675,6 +1675,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#split" class="md-nav__link">
+    split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     文字列長のバイト換算
   </a>
@@ -2296,6 +2303,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#split" class="md-nav__link">
+    split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     文字列長のバイト換算
   </a>
@@ -2792,6 +2806,12 @@ console.log(sample_str.length);
 </code></pre></div>
 
 <p>出力は<code>11</code></p>
+<h4 id="split">split</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>string<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;abc,def,ghi&#39;</span>;
+<span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>items<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>string.split(<span style="color: #BB4444">&quot;,&quot;</span>);
+</code></pre></div>
+
+<p>結果は <code>[ 'abc', 'def', 'ghi' ]</code> になる。</p>
 <h4 id="_9">文字列長のバイト換算</h4>
 <p><code>string.length</code>は文字数を返す。<br />
 バイト数を得るには以下。</p>
