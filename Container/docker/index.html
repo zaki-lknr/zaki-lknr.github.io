@@ -723,6 +723,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#-u-user" class="md-nav__link">
+    -u | --user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#-p-publish" class="md-nav__link">
     -p | --publish
   </a>
@@ -1901,6 +1908,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#-u-user" class="md-nav__link">
+    -u | --user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#-p-publish" class="md-nav__link">
     -p | --publish
   </a>
@@ -2114,6 +2128,20 @@
 <h2 id="docker_1">dockerコマンド</h2>
 <p><a href="https://qiita.com/zembutsu/items/6e1ad18f0d548ce6c266">docker container / image コマンド新旧比較 - Qiita</a></p>
 <h3 id="run">run</h3>
+<h4 id="-u-user">-u | --user</h4>
+<p>ユーザーIDを指定して実行。<br />
+例えばroot権限でシェル起動とか。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --rm -it localhost:5000/my-image sh</span>
+<span style="color: #000080; font-weight: bold">sh-5.1$ </span>id
+<span style="color: #888888">uid=1000(1000) gid=0(root) groups=0(root)</span>
+<span style="color: #000080; font-weight: bold">sh-5.1$ </span><span style="color: #AA22FF">exit</span>
+<span style="color: #888888">exit</span>
+<span style="color: #888888">docker run --rm -it --user root localhost:5000/my-image sh</span>
+<span style="color: #000080; font-weight: bold">sh-5.1# </span>id
+<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #000080; font-weight: bold">sh-5.1# </span>
+</code></pre></div>
+
 <h4 id="-p-publish">-p | --publish</h4>
 <p><code>localでlistenするポート</code>:<code>コンテナに接続するポート</code>を指定する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">-p 8081:80</span>

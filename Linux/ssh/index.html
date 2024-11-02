@@ -1266,13 +1266,20 @@
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
-    鍵形式の指定
+    パスフレーズ変更
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
+    鍵形式の指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     鍵形式の変更
   </a>
   
@@ -1280,14 +1287,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     秘密鍵
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     公開鍵
   </a>
   
@@ -1299,7 +1306,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     鍵サイズ指定
   </a>
   
@@ -1326,28 +1333,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     メタ文字のエスケープ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     ディレクトリのコピー
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     属性維持してコピー
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     ワイルドカード
   </a>
   
@@ -1359,7 +1366,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     その他
   </a>
   
@@ -2078,13 +2085,20 @@
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
-    鍵形式の指定
+    パスフレーズ変更
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
+    鍵形式の指定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     鍵形式の変更
   </a>
   
@@ -2092,14 +2106,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     秘密鍵
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     公開鍵
   </a>
   
@@ -2111,7 +2125,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     鍵サイズ指定
   </a>
   
@@ -2138,28 +2152,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     メタ文字のエスケープ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     ディレクトリのコピー
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     属性維持してコピー
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     ワイルドカード
   </a>
   
@@ -2171,7 +2185,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     その他
   </a>
   
@@ -2337,7 +2351,20 @@ systemd[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </s
 </code></pre></div>
 
 <p>STDOUTへ出力されるので、<code>&gt; id_rsa.pub</code>とかファイルへ出力すればOK</p>
-<h3 id="_14">鍵形式の指定</h3>
+<h3 id="_14">パスフレーズ変更</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ssh-keygen -f &lt;private-key&gt; -p</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>/path/to/id_rsa<span style="color: #bbbbbb"> </span>-p
+<span style="color: #888888">Enter old passphrase:</span>
+<span style="color: #888888">Key has comment &#39;&#39;</span>
+<span style="color: #888888">Enter new passphrase (empty for no passphrase):</span>
+<span style="color: #888888">Enter same passphrase again:</span>
+<span style="color: #888888">Your identification has been saved with the new passphrase.</span>
+</code></pre></div>
+
+<p>空入力すればパスフレーズを解除できる</p>
+<h3 id="_15">鍵形式の指定</h3>
 <p>デフォルトでは以下で始まるOpenSSH形式で作成される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-----BEGIN OPENSSH PRIVATE KEY-----
 </code></pre></div>
@@ -2351,8 +2378,8 @@ PEM形式であれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-----BEGIN RSA PRIVATE KEY-----
 </code></pre></div>
 
-<h3 id="_15">鍵形式の変更</h3>
-<h4 id="_16">秘密鍵</h4>
+<h3 id="_16">鍵形式の変更</h3>
+<h4 id="_17">秘密鍵</h4>
 <p><code>-p</code>を使ったパスフレーズ更新の際に、<code>-m</code>で鍵形式を指定することで変換できる。<br />
 実行することで鍵ファイルが更新される。<br />
 PEM形式に変換するのであれば以下の通り。</p>
@@ -2360,7 +2387,7 @@ PEM形式に変換するのであれば以下の通り。</p>
 </code></pre></div>
 
 <p>デフォルトは<code>RFC4716</code>。OpenSSH形式にする場合は、<code>-m RFC4716</code>を指定すればOK</p>
-<h4 id="_17">公開鍵</h4>
+<h4 id="_18">公開鍵</h4>
 <p>OpenSSH形式(<code>ssh-rsa</code>などで始まる1行の書式) -&gt; PEM形式(<code>BEGIN PUBLIC KEY</code>から<code>END</code>までの複数行形式)</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa.pub<span style="color: #bbbbbb"> </span>-e<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>PKCS8
 </code></pre></div>
@@ -2370,7 +2397,7 @@ PEM形式に変換するのであれば以下の通り。</p>
 </code></pre></div>
 
 <p>「OpenSSH形式と〇〇の変換」で、出力(<code>-e</code>export)や入力(<code>-i</code>import)の鍵形式を<code>-m</code>で指定するっぽい。(片方は指定できるがもう片方はOpenSSH形式固定)</p>
-<h3 id="_18">鍵サイズ指定</h3>
+<h3 id="_19">鍵サイズ指定</h3>
 <p><code>-b</code>で指定する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>rsa<span style="color: #bbbbbb"> </span>-b<span style="color: #bbbbbb"> </span><span style="color: #666666">4096</span>
 </code></pre></div>
@@ -2380,28 +2407,28 @@ PEM形式に変換するのであれば以下の通り。</p>
 </code></pre></div>
 
 <h2 id="scp">scp</h2>
-<h3 id="_19">メタ文字のエスケープ</h3>
+<h3 id="_20">メタ文字のエスケープ</h3>
 <p>クォートが無いとエラーになる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp server:&#39;/path/to/file\(...\)&#39; dest</span>
 </code></pre></div>
 
-<h3 id="_20">ディレクトリのコピー</h3>
+<h3 id="_21">ディレクトリのコピー</h3>
 <p><code>-r</code>を付与して再帰コピーする</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -r src dst</span>
 </code></pre></div>
 
-<h3 id="_21">属性維持してコピー</h3>
+<h3 id="_22">属性維持してコピー</h3>
 <p><code>-p</code>を付与する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -p src dst</span>
 </code></pre></div>
 
-<h3 id="_22">ワイルドカード</h3>
+<h3 id="_23">ワイルドカード</h3>
 <p>リモートのファイル・ディレクトリに対してもワイルドカートは有効。<br />
 ただしローカルに同じパスがあるとローカル側で展開されてしまうのでクォートで囲んでおくのが無難。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -pr 192.168.1.10:&quot;/path/to/file*&quot; .</span>
 </code></pre></div>
 
-<h2 id="_23">その他</h2>
+<h2 id="_24">その他</h2>
 <ul>
 <li><a href="https://tkuchiki.hatenablog.com/entry/2013/05/27/211051">パスワードを設定していないユーザで ssh ログインしようとすると公開鍵認証でもログインに失敗する - tkuchikiの日記</a><ul>
 <li><code>/etc/shadow</code>の<code>USERNAME</code>の次に<code>!!</code>と書かれている場合はアカウントがロックされている</li>
