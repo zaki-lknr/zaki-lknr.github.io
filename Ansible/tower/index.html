@@ -2113,6 +2113,11 @@ Towerは実行中で良い。<br />
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span>https://192.168.0.27/api/v2/jobs/?page_size<span style="color: #666666">=200</span>
 </code></pre></div>
 
+<p>ソートするには<code>order_by</code>を使う。キーは<code>-</code>を先頭につけると逆順。<br />
+以下で最新のジョブが先頭に来る。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-sk<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://192.168.0.27/api/v2/jobs/?page_size=200&amp;order_by=-created&quot;</span>
+</code></pre></div>
+
 <p><code>page_size</code>に指定できるのはMAX200？(オーバー時は無視されて200扱い)</p>
 <h3 id="_10">ジョブテンプレート</h3>
 <h4 id="_11">一覧</h4>

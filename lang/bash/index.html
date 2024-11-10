@@ -1650,6 +1650,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    case
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     ループ
   </a>
@@ -1951,6 +1958,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    case
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     ループ
   </a>
@@ -2205,6 +2219,30 @@ myfunc<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span
 <span style="color: #AA22FF; font-weight: bold">else</span>
 <span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span>OK
 <span style="color: #AA22FF; font-weight: bold">fi</span>
+</code></pre></div>
+
+<h3 id="case">case</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
+
+<span style="color: #B8860B">arg</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;</span><span style="color: #B8860B">$1</span><span style="color: #BB4444">&quot;</span>
+
+<span style="color: #AA22FF; font-weight: bold">case</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">$arg</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span>
+<span style="color: #bbbbbb">    </span>start<span style="color: #666666">)</span>
+<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;start&quot;</span>
+<span style="color: #bbbbbb">        </span>;;
+<span style="color: #bbbbbb">    </span>stop<span style="color: #666666">)</span>
+<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;stop&quot;</span>
+<span style="color: #bbbbbb">        </span>;;
+<span style="color: #bbbbbb">    </span>reload|restart<span style="color: #666666">)</span>
+<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;restart&quot;</span>
+<span style="color: #bbbbbb">        </span>;;
+<span style="color: #bbbbbb">    </span>st|status<span style="color: #666666">)</span>
+<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;status&quot;</span>
+<span style="color: #bbbbbb">        </span>;;
+<span style="color: #bbbbbb">    </span>*<span style="color: #666666">)</span>
+<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;unknown arg&quot;</span>
+<span style="color: #bbbbbb">        </span>;;
+<span style="color: #AA22FF; font-weight: bold">esac</span>
 </code></pre></div>
 
 <h3 id="_8">ループ</h3>
