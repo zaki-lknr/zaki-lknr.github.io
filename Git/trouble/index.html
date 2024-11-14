@@ -1101,6 +1101,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pullneed-to-specify-how-to-reconcile-divergent-branches" class="md-nav__link">
+    pullでNeed to specify how to reconcile divergent branches
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2026,6 +2033,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pullneed-to-specify-how-to-reconcile-divergent-branches" class="md-nav__link">
+    pullでNeed to specify how to reconcile divergent branches
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2209,6 +2223,25 @@ fatal:<span style="color: #bbbbbb"> </span>Cannot<span style="color: #bbbbbb"> <
 </code></pre></div>
 
 <p>リモートブランチの削除とローカルの<code>origin/feature</code>を削除すればOK</p>
+<h3 id="pullneed-to-specify-how-to-reconcile-divergent-branches">pullでNeed to specify how to reconcile divergent branches</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>pull
+<span style="color: #888888">hint: You have divergent branches and need to specify how to reconcile them.</span>
+<span style="color: #888888">hint: You can do so by running one of the following commands sometime before</span>
+<span style="color: #888888">hint: your next pull:</span>
+<span style="color: #888888">hint:</span>
+<span style="color: #888888">hint:   git config pull.rebase false  # merge</span>
+<span style="color: #888888">hint:   git config pull.rebase true   # rebase</span>
+<span style="color: #888888">hint:   git config pull.ff only       # fast-forward only</span>
+<span style="color: #888888">hint:</span>
+<span style="color: #888888">hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default</span>
+<span style="color: #888888">hint: preference for all repositories. You can also pass --rebase, --no-rebase,</span>
+<span style="color: #888888">hint: or --ff-only on the command line to override the configured default per</span>
+<span style="color: #888888">hint: invocation.</span>
+<span style="color: #888888">fatal: Need to specify how to reconcile divergent branches.</span>
+</code></pre></div>
+
+<p>push済みのコミットとrebaseして追加されたコミットで情報が食い違ってる場合などで発生。<br />
+<code>git pull --rebase</code>すれば取り込める。</p>
                 
               
               
