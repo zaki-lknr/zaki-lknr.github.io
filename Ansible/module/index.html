@@ -814,6 +814,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    debug
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2167,6 +2174,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    debug
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2642,6 +2656,28 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span style="color: #888888">Press &#39;C&#39; to continue the play or &#39;A&#39; to abort </span>
 <span style="color: #888888">fatal: [localhost]: FAILED! =&gt; </span>
 <span style="color: #888888">  msg: user requested abort!</span>
+</code></pre></div>
+
+<h2 id="debug">debug</h2>
+<p><code>msg</code>を使えば(変数を含め)任意の文字列をプリントする。<br />
+変数だけで良ければ<code>var</code>を使う方が楽。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">val1</span>:<span style="color: #bbbbbb"> </span>1234
+
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">var</span>:<span style="color: #bbbbbb"> </span>val1
+</code></pre></div>
+
+<p>ただし<code>var</code>の場合はリスト出力は不可</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">var</span>:
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>val1
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>val2
+<span style="color: #bbbbbb">  </span><span style="color: #008800; font-style: italic"># 不可</span>
 </code></pre></div>
                 
               
