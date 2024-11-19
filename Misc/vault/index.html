@@ -1460,6 +1460,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    初期処理
+  </a>
+  
+    <nav class="md-nav" aria-label="初期処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unseal" class="md-nav__link">
+    unseal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#secret-engine" class="md-nav__link">
     secret engine
   </a>
@@ -1490,21 +1517,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     キー一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     データ保存
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     データ参照
   </a>
   
@@ -1791,6 +1818,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    初期処理
+  </a>
+  
+    <nav class="md-nav" aria-label="初期処理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unseal" class="md-nav__link">
+    unseal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#secret-engine" class="md-nav__link">
     secret engine
   </a>
@@ -1821,21 +1875,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     キー一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     データ保存
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     データ参照
   </a>
   
@@ -1879,6 +1933,18 @@
 </code></pre></div>
 
 <p>トークンを省略すれば対話的に聞いてくる</p>
+<h2 id="_3">初期処理</h2>
+<h3 id="init">init</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault operator init</span>
+</code></pre></div>
+
+<p>Unseal KeyとRoot Tokenが出力されるのでメモしておく</p>
+<h3 id="unseal">unseal</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault operator unseal</span>
+</code></pre></div>
+
+<p>Unseal keyの入力を求められるので<code>init</code>実行時に出力されたキーを入力する。<br />
+<code>Sealed  true</code>が<code>Sealed  false</code>になるまで繰り返す。</p>
 <h2 id="secret-engine">secret engine</h2>
 <h3 id="secret">secret一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault secrets list</span>
@@ -1892,11 +1958,11 @@ KVシークレットエンジンであれば以下の通り。</p>
 
 <p>これで<code>my-secret</code>というパスにKVシークレットエンジンが作成される。</p>
 <h3 id="kv-secret-engine">KV secret engine</h3>
-<h4 id="_3">キー一覧</h4>
+<h4 id="_4">キー一覧</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv list &lt;secret-engine-name&gt;</span>
 </code></pre></div>
 
-<h4 id="_4">データ保存</h4>
+<h4 id="_5">データ保存</h4>
 <p>データはkey-value形式。ややこしいけど。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv put -mount=&lt;secret-engine-name&gt; &lt;key-name&gt; key1=value1 key2=value2 ...</span>
 </code></pre></div>
@@ -1906,7 +1972,7 @@ KVシークレットエンジンであれば以下の通り。</p>
 </code></pre></div>
 
 <p>繰り返し実行すればversion更新される。</p>
-<h4 id="_5">データ参照</h4>
+<h4 id="_6">データ参照</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv get -mount=&lt;secret-engine-name&gt; &lt;key-name&gt;</span>
 </code></pre></div>
 
