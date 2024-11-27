@@ -576,6 +576,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#set_fact" class="md-nav__link">
+    set_fact
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assert" class="md-nav__link">
     assert
   </a>
@@ -750,6 +757,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fail" class="md-nav__link">
+    fail
+  </a>
   
 </li>
       
@@ -1470,6 +1484,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/backlog/" class="md-nav__link">
         Backlog
       </a>
@@ -1936,6 +1962,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#set_fact" class="md-nav__link">
+    set_fact
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assert" class="md-nav__link">
     assert
   </a>
@@ -2114,6 +2147,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fail" class="md-nav__link">
+    fail
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker" class="md-nav__link">
     Docker
   </a>
@@ -2204,6 +2244,21 @@
 <p>facts変数を収集する。<br />
 ad-hocで実行する方が多いかも？</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>inventory.ini<span style="color: #bbbbbb"> </span>all<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>setup<span style="color: #bbbbbb"> </span>
+</code></pre></div>
+
+<h2 id="set_fact">set_fact</h2>
+<p><code>vars</code>ディレクティブと異なりホスト変数を定義するので、セット後の以降のタスク・プレイでも変数参照できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>define variable
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.set_fact</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">_state_val</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default(true)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+</code></pre></div>
+
+<p><code>vars</code>ディレクティブと異なり定義した変数を即参照することはできない。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># ダメな例</span>
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>define variable
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.set_fact</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">_state_val</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default(true)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">_mode</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">_state_val</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ternary(...)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
 </code></pre></div>
 
 <h2 id="assert">assert</h2>
@@ -2599,6 +2654,12 @@ Ansibleも同様で、タスクでグループの更新を行っても、後続�
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2022/11/09/203145">[Ansible] 任意のタイミングでダイナミックインベントリのホスト情報収集を行う - zaki work log</a></p>
+<h2 id="fail">fail</h2>
+<p>指定のメッセージを出力してplayを失敗させる</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible.builtin.fail</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span>failed task
+</code></pre></div>
+
 <h2 id="docker">Docker</h2>
 <h3 id="push-image">push image</h3>
 <p><code>docker_image</code>を使用しパラメタに<code>push: true</code>を指定。</p>

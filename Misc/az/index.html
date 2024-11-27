@@ -1592,6 +1592,13 @@
         
           <li class="md-nav__item">
   <a href="#_23" class="md-nav__link">
+    ノードプールの詳細
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
     ノードのスケーリング
   </a>
   
@@ -1606,6 +1613,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/" class="md-nav__link">
+        Azure
+      </a>
     </li>
   
 
@@ -2461,6 +2480,13 @@
         
           <li class="md-nav__item">
   <a href="#_23" class="md-nav__link">
+    ノードプールの詳細
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
     ノードのスケーリング
   </a>
   
@@ -2796,7 +2822,11 @@
 <span style="color: #888888">  --max-pods 32</span>
 </code></pre></div>
 
-<h3 id="_23">ノードのスケーリング</h3>
+<h3 id="_23">ノードプールの詳細</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks nodepool show -g ${resource_group} --cluster-name ${cluster_name} -n ${nodepool_name}</span>
+</code></pre></div>
+
+<h3 id="_24">ノードのスケーリング</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks scale \</span>
 <span style="color: #888888">  --resoure-group ${resource_group} \</span>
 <span style="color: #888888">  --name ${nodepool_name} \</span>
@@ -2836,13 +2866,13 @@
         </a>
       
       
-        <a href="../backlog/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../azure/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              Backlog
+              Azure
             </div>
           </div>
           <div class="md-footer__button md-icon">
