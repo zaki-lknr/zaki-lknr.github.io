@@ -462,6 +462,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    依存コレクションの確認
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1715,6 +1722,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    依存コレクションの確認
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1745,6 +1759,14 @@
 <p><a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml">https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml</a></p>
 <p>このymlファイルの定義に従い、FQCN表記でないものはリダイレクトされる。<br />
 moduleに限らずactionプラグインやconnectionプラグインの定義もある。</p>
+<h2 id="_4">依存コレクションの確認</h2>
+<p><code>galaxy.yml</code>の<code>dependencies</code>を確認する。<br />
+例えばcisco.iosのv7.0.0であれば以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">dependencies</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #BB4444">&quot;ansible.netcommon&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&gt;=6.0.0&quot;</span>
+</code></pre></div>
+
+<p><a href="https://github.com/ansible-collections/cisco.ios/blob/v7.0.0/galaxy.yml#L4-L5">https://github.com/ansible-collections/cisco.ios/blob/v7.0.0/galaxy.yml#L4-L5</a></p>
                 
               
               
