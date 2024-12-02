@@ -829,6 +829,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wait_for" class="md-nav__link">
+    wait_for
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     debug
   </a>
@@ -2215,6 +2222,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wait_for" class="md-nav__link">
+    wait_for
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     debug
   </a>
@@ -2719,6 +2733,18 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span style="color: #888888">  msg: user requested abort!</span>
 </code></pre></div>
 
+<h2 id="wait_for">wait_for</h2>
+<p>処理対象ホストの80/TCPがAnsible実行ホストから接続可能になるまで最大300秒waitするタスク</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">ansible.builtin.wait_for</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">host</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ansible_host</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">port</span>:<span style="color: #bbbbbb"> </span>80
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">delay</span>:<span style="color: #bbbbbb"> </span>5
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #bbbbbb"> </span>started
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">timeout</span>:<span style="color: #bbbbbb"> </span>300
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">delegate_to</span>:<span style="color: #bbbbbb"> </span>localhost
+</code></pre></div>
+
+<p>逆に終了処理の確認などで接続不可になるまでwaitするのであれば、<code>state: stopped</code>を指定する。</p>
 <h2 id="debug">debug</h2>
 <p><code>msg</code>を使えば(変数を含め)任意の文字列をプリントする。<br />
 変数だけで良ければ<code>var</code>を使う方が楽。</p>
