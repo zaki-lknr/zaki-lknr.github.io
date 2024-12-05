@@ -891,6 +891,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tlssecret" class="md-nav__link">
+    TLS証明書のsecret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#secret_2" class="md-nav__link">
     マニフェストでsecret
   </a>
@@ -2169,6 +2176,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tlssecret" class="md-nav__link">
+    TLS証明書のsecret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#secret_2" class="md-nav__link">
     マニフェストでsecret
   </a>
@@ -2507,6 +2521,28 @@ apiVersion:<span style="color: #bbbbbb"> </span>v1
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;298054&quot;</span>
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>35c9b58a-247d-4243-b292-193d811f140a
 <span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>Opaque
+</code></pre></div>
+
+<h4 id="tlssecret">TLS証明書のsecret</h4>
+<p>事前に<code>server.crt</code>と<code>server.key</code>は生成しておく。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl create secret tls host-secret -n kube-system \</span>
+<span style="color: #888888">  --cert=server.crt \</span>
+<span style="color: #888888">  --key=server.key</span>
+</code></pre></div>
+
+<p>以下のsecretリソースが作成される</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>v1
+<span style="color: #008000; font-weight: bold">data</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tls.crt</span>:<span style="color: #bbbbbb"> </span>...
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tls.key</span>:<span style="color: #bbbbbb"> </span>...
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Secret
+<span style="color: #008000; font-weight: bold">metadata</span>:
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2024-11-24T08:30:11Z&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>host-secret
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #bbbbbb"> </span>kube-system
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;140527&quot;</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #bbbbbb"> </span>e5399e4b-7d62-4c57-b97e-a9b2d65d1375
+<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>kubernetes.io/tls
 </code></pre></div>
 
 <h4 id="secret_2">マニフェストでsecret</h4>
