@@ -1044,6 +1044,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pod_1" class="md-nav__link">
+    pod
+  </a>
+  
+    <nav class="md-nav" aria-label="pod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    イメージ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod_2" class="md-nav__link">
+    podとコンテナ名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1078,21 +1105,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     削除
   </a>
   
@@ -1119,7 +1146,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     証明書検証無視
   </a>
   
@@ -2329,6 +2356,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pod_1" class="md-nav__link">
+    pod
+  </a>
+  
+    <nav class="md-nav" aria-label="pod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    イメージ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod_2" class="md-nav__link">
+    podとコンテナ名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2363,21 +2417,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     削除
   </a>
   
@@ -2404,7 +2458,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     証明書検証無視
   </a>
   
@@ -2773,6 +2827,35 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">readyz check passed</span>
 </code></pre></div>
 
+<h3 id="pod_1">pod</h3>
+<h4 id="_11">イメージ一覧</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get pod -n awx -o jsonpath=&quot;{..image}&quot; | sed &#39;s/ /\n/g&#39; | sort | uniq</span>
+</code></pre></div>
+
+<p>これでもいいかな？</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get pod -n awx -o yaml | grep image: | sort | uniq</span>
+</code></pre></div>
+
+<p>podに紐づけるには</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span>custom-columns<span style="color: #666666">=</span>NAMESPACE:.metadata.namespace,NAME:.metadata.name,IMAGE:.spec.containers<span style="color: #666666">[</span>*<span style="color: #666666">]</span>.image
+<span style="color: #888888">NAMESPACE   NAME                                               IMAGE</span>
+<span style="color: #888888">awx         awx-migration-24.6.1-dh8l8                         quay.io/ansible/awx:24.6.1</span>
+<span style="color: #888888">awx         awx-operator-controller-manager-745b55d94b-trdrs   gcr.io/kubebuilder/kube-rbac-proxy:v0.15.0,quay.io/ansible/awx-operator:2.19.1</span>
+<span style="color: #888888">awx         awx-postgres-15-0                                  quay.io/sclorg/postgresql-15-c9s:latest</span>
+<span style="color: #888888">awx         awx-task-dc97f74f7-fmbbn                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx-ee:24.6.1,quay.io/ansible/awx:24.6.1</span>
+<span style="color: #888888">awx         awx-web-769f8f749f-s4qkz                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx:24.6.1</span>
+</code></pre></div>
+
+<h4 id="pod_2">podとコンテナ名</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span>custom-columns<span style="color: #666666">=</span>NAMESPACE:.metadata.namespace,NAME:.metadata.name,IMAGE:.spec.containers<span style="color: #666666">[</span>*<span style="color: #666666">]</span>.name
+<span style="color: #888888">NAMESPACE   NAME                                               IMAGE</span>
+<span style="color: #888888">awx         awx-migration-24.6.1-dh8l8                         migration-job</span>
+<span style="color: #888888">awx         awx-operator-controller-manager-745b55d94b-trdrs   kube-rbac-proxy,awx-manager</span>
+<span style="color: #888888">awx         awx-postgres-15-0                                  postgres</span>
+<span style="color: #888888">awx         awx-task-dc97f74f7-fmbbn                           redis,awx-task,awx-ee,awx-rsyslog</span>
+<span style="color: #888888">awx         awx-web-769f8f749f-s4qkz                           redis,awx-web,awx-rsyslog</span>
+</code></pre></div>
+
 <h2 id="rollout">rollout</h2>
 <h3 id="restart">restart</h3>
 <p>podの再作成 (delete podでも同じ)</p>
@@ -2781,7 +2864,7 @@ podがrunningになるまで待つには以下。</p>
 
 <h2 id="label">label</h2>
 <p>リソースのラベルを追加/変更/削除する</p>
-<h3 id="_11">追加</h3>
+<h3 id="_12">追加</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">app</span><span style="color: #666666">=</span>rsync
 <span style="color: #888888">pod/rsync-pod labeled</span>
 <span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>--show-labels
@@ -2803,7 +2886,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">node/k3s-node1 labeled</span>
 </code></pre></div>
 
-<h3 id="_12">更新</h3>
+<h3 id="_13">更新</h3>
 <p>既に存在する場合はエラーになる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>label<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>rsync-pod<span style="color: #bbbbbb"> </span><span style="color: #B8860B">state</span><span style="color: #666666">=</span>error
 <span style="color: #888888">error: &#39;state&#39; already has a value (normal), and --overwrite is false</span>
@@ -2817,7 +2900,7 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888888">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
 </code></pre></div>
 
-<h3 id="_13">削除</h3>
+<h3 id="_14">削除</h3>
 <p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl label pod rsync-pod state-</span>
 </code></pre></div>
@@ -2829,7 +2912,7 @@ podがrunningになるまで待つには以下。</p>
 
 <p>ノードを完全にクラスタから除外するにはさらに<code>kubectl delete node &lt;node-name&gt;</code>する。</p>
 <h2 id="kubeconfig_2">KUBECONFIG</h2>
-<h3 id="_14">証明書検証無視</h3>
+<h3 id="_15">証明書検証無視</h3>
 <p><a href="https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/#Cluster">https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/#Cluster</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>v1
 <span style="color: #008000; font-weight: bold">clusters</span>:
