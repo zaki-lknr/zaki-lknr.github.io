@@ -1654,6 +1654,26 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    コマンドレット
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンドレット">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ファイルのハッシュ値
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     コーディング
   </a>
   
@@ -1661,7 +1681,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     型
   </a>
   
@@ -1669,21 +1689,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     配列
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     連想配列
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     型を確認する
   </a>
   
@@ -1715,14 +1735,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -1826,6 +1846,26 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    コマンドレット
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンドレット">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ファイルのハッシュ値
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     コーディング
   </a>
   
@@ -1833,7 +1873,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     型
   </a>
   
@@ -1841,21 +1881,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     配列
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     連想配列
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     型を確認する
   </a>
   
@@ -1887,14 +1927,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -1949,9 +1989,19 @@ om/fwlink/?LinkID=135170) を参照してください。
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/get-help">https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/get-help</a></p>
 <h2 id="http">httpアクセス</h2>
 <p><a href="https://qiita.com/zaki-lknr/items/8950f6acea20961a8afc">curl/PowerShellでHTTPアクセスいろいろ - Qiita</a></p>
-<h2 id="_2">コーディング</h2>
-<h3 id="_3">型</h3>
-<h4 id="_4">配列</h4>
+<h2 id="_2">コマンドレット</h2>
+<h3 id="_3">ファイルのハッシュ値</h3>
+<p><code>Get-FileHash</code>で取れる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zakih\Downloads&gt; <span style="color: #AA22FF">Get-FileHash</span> .\r2tokimeki-0.1.0.zip
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          04B71F5099FDBC96A8497AD88D16C4169F978E931F0D59B7AAE3E2DC8B383CE1       C:\Users\zakih\Downloads\r2to...
+</code></pre></div>
+
+<h2 id="_4">コーディング</h2>
+<h3 id="_5">型</h3>
+<h4 id="_6">配列</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span> = @(1,2,3,<span style="color: #BB4444">&quot;foo&quot;</span>,<span style="color: #BB4444">&quot;bar&quot;</span>,<span style="color: #BB4444">&quot;baz&quot;</span>)
 <span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span>
 1
@@ -1963,7 +2013,7 @@ baz
 <span style="color: #AA22FF">PS </span>C:\Users\zaki&gt;
 </code></pre></div>
 
-<h4 id="_5">連想配列</h4>
+<h4 id="_7">連想配列</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span> = @{key1=<span style="color: #BB4444">&quot;value1&quot;</span>; key2=123}
 <span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span>
 
@@ -1976,7 +2026,7 @@ key2                           123
 <span style="color: #AA22FF">PS </span>C:\Users\zaki&gt;
 </code></pre></div>
 
-<h4 id="_6">型を確認する</h4>
+<h4 id="_8">型を確認する</h4>
 <p><code>GetType()</code>を使用する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B8860B">$flen_values</span>.GetType()
 </code></pre></div>
@@ -1994,7 +2044,7 @@ key2                           123
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Install-Module</span> -Name Az -Scope CurrentUser -Repository PSGallery -Force
 </code></pre></div>
 
-<h3 id="_7">サインイン</h3>
+<h3 id="_9">サインイン</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Connect-AzAccount</span>
 </code></pre></div>
 
@@ -2002,7 +2052,7 @@ key2                           123
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Connect-AzAccount</span> -TenantId ********
 </code></pre></div>
 
-<h3 id="_8">ディレクトリ切り替え</h3>
+<h3 id="_10">ディレクトリ切り替え</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Select-AzContext</span> ...
 </code></pre></div>
 
