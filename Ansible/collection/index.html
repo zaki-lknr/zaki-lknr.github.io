@@ -453,6 +453,19 @@
     インストール
   </a>
   
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirementsyml" class="md-nav__link">
+    requirements.yml書式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1713,6 +1726,19 @@
     インストール
   </a>
   
+    <nav class="md-nav" aria-label="インストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirementsyml" class="md-nav__link">
+    requirements.yml書式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1753,6 +1779,32 @@
 
 <p><code>requirements.yml</code>使用時は以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-galaxy<span style="color: #bbbbbb"> </span>collection<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>collections/requirements.yml
+</code></pre></div>
+
+<h3 id="requirementsyml">requirements.yml書式</h3>
+<p>コレクション名のみ(バージョンは最新)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+<span style="color: #008000; font-weight: bold">collections</span>:
+-<span style="color: #bbbbbb"> </span>community.general
+</code></pre></div>
+
+<p>バージョン指定</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+<span style="color: #008000; font-weight: bold">collections</span>:
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>ansible.netcommon
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>2.1.0
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>ansible.utils
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>2.2.0
+-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>seiko.smartcs
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>1.3.0
+</code></pre></div>
+
+<p>Gitリポジトリ</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+<span style="color: #008000; font-weight: bold">collections</span>:
+<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>https://github.com/zaki-lknr/esxissh-ansible.git
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>main
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>git
 </code></pre></div>
 
 <h2 id="_3">リダイレクト設定</h2>
