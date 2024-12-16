@@ -1650,6 +1650,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#rdp" class="md-nav__link">
+    RDPファイルからの起動で全画面表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     全画面表示時にキーボード操作をローカルに戻す
   </a>
@@ -2038,6 +2045,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#rdp" class="md-nav__link">
+    RDPファイルからの起動で全画面表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     全画面表示時にキーボード操作をローカルに戻す
   </a>
@@ -2152,6 +2166,11 @@ DISKPART&gt; list partition
 <li>エクスプローラーから指定パスで起動するには<code>wt -d .</code></li>
 </ul>
 <h2 id="_11">リモートデスクトップ</h2>
+<h3 id="rdp">RDPファイルからの起動で全画面表示</h3>
+<p><code>screen mode id:i:</code>の値を<code>2</code>にする。(初期値は<code>1</code>になってるはず)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>screen mode id:i:2
+</code></pre></div>
+
 <h3 id="_12">全画面表示時にキーボード操作をローカルに戻す</h3>
 <p>以下で接続バーにフォーカスが移るのでローカルのデスクトップが操作対象になる。これでAlt-Tabがローカルで効く。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Ctrl + Alt + Home
