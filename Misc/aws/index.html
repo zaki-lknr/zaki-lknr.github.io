@@ -1253,6 +1253,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
+    S3
+  </a>
+  
+    <nav class="md-nav" aria-label="S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ダウンロード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1809,6 +1836,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
+    S3
+  </a>
+  
+    <nav class="md-nav" aria-label="S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ダウンロード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1908,6 +1962,15 @@
 
 <p>上記の「FortiOS 5.0+」のID(<code>9d9470de</code>)を変数セットするには<code>--query</code>を使って以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">devicetypeid=$(aws ec2 get-vpn-connection-device-types --region ${region} --query &quot;VpnConnectionDeviceTypes[?Vendor==&#39;Fortinet&#39; &amp;&amp; Software==&#39;FortiOS 5.0+&#39;].VpnConnectionDeviceTypeId&quot; --output text)</span>
+</code></pre></div>
+
+<h2 id="s3">S3</h2>
+<h3 id="_5">一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">aws s3 ls &lt;backet-name&gt;</span>
+</code></pre></div>
+
+<h3 id="_6">ダウンロード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">aws s3 cp s3://&lt;backet-name&gt;/path/to/file /path/to/file</span>
 </code></pre></div>
                 
               

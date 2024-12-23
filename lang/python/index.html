@@ -2129,11 +2129,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#http_1" class="md-nav__link">
-    HTTP
+  <a href="#httprequests" class="md-nav__link">
+    HTTP(requests)
   </a>
   
-    <nav class="md-nav" aria-label="HTTP">
+    <nav class="md-nav" aria-label="HTTP(requests)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2188,6 +2188,26 @@
           <li class="md-nav__item">
   <a href="#_36" class="md-nav__link">
     接続エラーのハンドリング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-urllibrequest" class="md-nav__link">
+    HTTP (urllib.request)
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP (urllib.request)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    GET
   </a>
   
 </li>
@@ -2970,11 +2990,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#http_1" class="md-nav__link">
-    HTTP
+  <a href="#httprequests" class="md-nav__link">
+    HTTP(requests)
   </a>
   
-    <nav class="md-nav" aria-label="HTTP">
+    <nav class="md-nav" aria-label="HTTP(requests)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3029,6 +3049,26 @@
           <li class="md-nav__item">
   <a href="#_36" class="md-nav__link">
     接続エラーのハンドリング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-urllibrequest" class="md-nav__link">
+    HTTP (urllib.request)
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP (urllib.request)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    GET
   </a>
   
 </li>
@@ -3723,8 +3763,8 @@ ret <span style="color: #666666">=</span> subprocess<span style="color: #666666"
 </code></pre></div>
 
 <h3 id="_32">通信</h3>
-<h4 id="http_1">HTTP</h4>
-<p><code>Requests</code>を使うと楽。</p>
+<h4 id="httprequests">HTTP(requests)</h4>
+<p><code>requests</code>を使うと楽。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">requests</span>
 r <span style="color: #666666">=</span> requests<span style="color: #666666">.</span>get(<span style="color: #BB4444">&quot;http://www.example.org&quot;</span>)
 </code></pre></div>
@@ -3764,6 +3804,10 @@ requests<span style="color: #666666">.</span>get(url, headers<span style="color:
 </code></pre></div>
 
 <p>REST APIのようにレスポンスがJSON形式のテキストの場合は、<code>r.json()</code>を使うとオブジェクトとして値をとれる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">for</span> item <span style="color: #AA22FF; font-weight: bold">in</span> r<span style="color: #666666">.</span>json()[<span style="color: #BB4444">&#39;items&#39;</span>]:
+    <span style="color: #AA22FF">print</span>(item[<span style="color: #BB4444">&#39;metadata&#39;</span>][<span style="color: #BB4444">&#39;name&#39;</span>])
+</code></pre></div>
+
 <h5 id="ssl">SSL検証無視</h5>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>r <span style="color: #666666">=</span> requests<span style="color: #666666">.</span>get(<span style="color: #BB4444">&quot;https://www.example.org&quot;</span>, verify<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">False</span>)
 </code></pre></div>
@@ -3783,6 +3827,21 @@ requests<span style="color: #666666">.</span>get(url, timeout<span style="color:
     requests<span style="color: #666666">.</span>post(url)
 <span style="color: #AA22FF; font-weight: bold">except</span> (requests<span style="color: #666666">.</span>ConnectionError, requests<span style="color: #666666">.</span>ConnectTimeout) <span style="color: #AA22FF; font-weight: bold">as</span> e:
     <span style="color: #AA22FF">print</span>(e)
+</code></pre></div>
+
+<h4 id="http-urllibrequest">HTTP (urllib.request)</h4>
+<p>requestsを追加できない場合など。</p>
+<h5 id="get">GET</h5>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">urllib.request</span>
+
+url <span style="color: #666666">=</span> <span style="color: #BB4444">&#39;https://example.org&#39;</span>
+header <span style="color: #666666">=</span> {
+    <span style="color: #BB4444">&#39;Authorization&#39;</span>: <span style="color: #BB4444">&#39;Bearer &#39;</span> <span style="color: #666666">+</span> token
+}
+
+req <span style="color: #666666">=</span> urllib<span style="color: #666666">.</span>request<span style="color: #666666">.</span>Request(url, headers<span style="color: #666666">=</span>headers)
+<span style="color: #AA22FF; font-weight: bold">with</span> urllib<span style="color: #666666">.</span>request<span style="color: #666666">.</span>urlopen(req) <span style="color: #AA22FF; font-weight: bold">as</span> res:
+    j <span style="color: #666666">=</span> json<span style="color: #666666">.</span>load(res)
 </code></pre></div>
 
 <h3 id="isinstance">isinstance()で型チェック</h3>
