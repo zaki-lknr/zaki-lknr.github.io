@@ -3770,7 +3770,8 @@ r <span style="color: #666666">=</span> requests<span style="color: #666666">.</
 </code></pre></div>
 
 <h5 id="post">POST</h5>
-<p>辞書型データをJSON形式のリクエストヘッダにするなら<code>json.dumps</code>を使うと楽。</p>
+<p>リクエストボディは<code>data</code>で指定する。<br />
+辞書型データをJSON形式のリクエストボディにするなら<code>json.dumps</code>を使うと楽。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>payload <span style="color: #666666">=</span> json<span style="color: #666666">.</span>dumps(dict_params)
 headers <span style="color: #666666">=</span> {
     <span style="color: #BB4444">&#39;Content-Type&#39;</span>: <span style="color: #BB4444">&#39;application/json&#39;</span>,

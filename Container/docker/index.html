@@ -757,6 +757,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-e" class="md-nav__link">
+    環境変数(-e)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1961,6 +1968,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-e" class="md-nav__link">
+    環境変数(-e)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2197,6 +2211,11 @@
 その場合は<code>--entrypoint</code>オプションで上書きする。</p>
 <p>ただしイメージ指定より手前に指定する必要がある。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run -it --entrypoint sh image:tag</span>
+</code></pre></div>
+
+<h4 id="-e">環境変数(-e)</h4>
+<p>コンテナ環境へ環境変数を渡すには<code>-e</code>を使う</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --rm -e APP_VAL=foobar image:tag</span>
 </code></pre></div>
 
 <h3 id="build">build</h3>
