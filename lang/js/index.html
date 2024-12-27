@@ -1687,6 +1687,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    Dateへの変換
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     文字列長
   </a>
@@ -1774,6 +1781,20 @@
   
     <nav class="md-nav" aria-label="正規表現">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    単純なマッチング(test)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match" class="md-nav__link">
+    マッチした結果を配列で参照する(match)
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#replace" class="md-nav__link">
@@ -1926,7 +1947,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#date" class="md-nav__link">
+  <a href="#date_1" class="md-nav__link">
     あるDateオブジェクトの翌日
   </a>
   
@@ -2383,6 +2404,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    Dateへの変換
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     文字列長
   </a>
@@ -2470,6 +2498,20 @@
   
     <nav class="md-nav" aria-label="正規表現">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    単純なマッチング(test)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match" class="md-nav__link">
+    マッチした結果を配列で参照する(match)
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#replace" class="md-nav__link">
@@ -2622,7 +2664,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#date" class="md-nav__link">
+  <a href="#date_1" class="md-nav__link">
     あるDateオブジェクトの翌日
   </a>
   
@@ -2951,6 +2993,15 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Number</span>(string_value);
 </code></pre></div>
 
+<h4 id="date">Dateへの変換</h4>
+<p>コード上単純な変換は、決められた書式になっていればそのままDateインスタンスを作成できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>date_str<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;2024.12.26 23:39:22.12345&quot;</span>;
+date<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Date</span>(date_str);
+console.log(date);
+<span style="color: #008800; font-style: italic">// 2024-12-26T14:39:22.123Z</span>
+</code></pre></div>
+
+<p>区切り文字がない場合や、24時などは<code>Invalid Date</code>となる。</p>
 <h4 id="_9">文字列長</h4>
 <p>文字数は<code>length</code>メソッド。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>sample_str<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;完全にときめいちゃった&#39;</span>;
@@ -3062,6 +3113,34 @@ console.log(size);
 
 <h3 id="_14">正規表現</h3>
 <p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_expressions">正規表現 - JavaScript | MDN</a></p>
+<h4 id="test">単純なマッチング(test)</h4>
+<p>true/falseの判定だけなら(StringでなくRegExpのメソッドの)<code>test</code>が使える。  </p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;hello world&#39;</span>;
+<span style="color: #AA22FF; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #BB6688">/world/</span>.test(sample))<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>console.log(<span style="color: #BB4444">&quot;match&quot;</span>);
+}
+</code></pre></div>
+
+<h4 id="match">マッチした結果を配列で参照する(match)</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>date_str<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;20241226&quot;</span>;
+
+<span style="color: #AA22FF; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(r<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>date_str.match(<span style="color: #BB6688">/^(\d{4})(\d{2})(\d{2})$/</span>))<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>console.log(r);
+}
+</code></pre></div>
+
+<p>結果は以下の通り</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">[</span>
+<span style="color: #888888">  &#39;20241226&#39;,</span>
+<span style="color: #888888">  &#39;2024&#39;,</span>
+<span style="color: #888888">  &#39;12&#39;,</span>
+<span style="color: #888888">  &#39;26&#39;,</span>
+<span style="color: #888888">  index: 0,</span>
+<span style="color: #888888">  input: &#39;20241226 &#39;,</span>
+<span style="color: #888888">  groups: undefined</span>
+<span style="color: #888888">]</span>
+</code></pre></div>
+
 <h4 id="replace">置換(replace)</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>sample_string<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;......&#39;</span>;
 <span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>new_string<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>sample_string.replace(<span style="color: #BB6688">/regexp/gi</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;replace-string&#39;</span>);
@@ -3198,7 +3277,7 @@ console.log(datetime.toLocaleTimeString());
 <span style="color: #888888">10:39:44</span>
 </code></pre></div>
 
-<h4 id="date">あるDateオブジェクトの翌日</h4>
+<h4 id="date_1">あるDateオブジェクトの翌日</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>tomorrow<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Date</span>(foobar_date);
 tomorrow.setDate(tomorrow.getDate()<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);
 </code></pre></div>
