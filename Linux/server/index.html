@@ -1205,6 +1205,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ワイルドカード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1898,6 +1918,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ワイルドカード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1992,6 +2032,7 @@ backend bazqux
   server host2 192.168.0.122:8080 check
 </code></pre></div>
 
+<p>checkでなくbackupもある。check対象が全滅したらbackupを使う動作</p>
 <h3 id="ssl">ssl検証無視</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>backend servers
   server host1 192.168.0.68:6443 ssl verify none check
@@ -2003,6 +2044,14 @@ backend bazqux
 <p>書式：<code>dhcp-host=hwaddr,hostname,ipaddr</code></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dhcp-host=00:00:5E:00:53:00,raclette,192.168.0.129
 </code></pre></div>
+
+<h3 id="dns">DNS</h3>
+<h4 id="_6">ワイルドカード</h4>
+<p>ワイルドカード的に任意の文字列をサブドメイン扱いですべて特定のアドレスに名前解決する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>address=<span style="color: #666666">/</span>exmaple.org<span style="color: #666666">/192.168.0.15</span>
+</code></pre></div>
+
+<p>これで<code>example.org</code>だけでなく、<code>foo.example.org</code>も<code>foo.bar.baz.example.org</code>も<code>192.168.0.15</code>となる。</p>
                 
               
               
