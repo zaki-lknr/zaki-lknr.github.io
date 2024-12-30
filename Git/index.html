@@ -1020,6 +1020,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#rebase_1" class="md-nav__link">
+    rebaseのコンフリクト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stash-popconflict" class="md-nav__link">
     stash pop後のconflict
   </a>
@@ -2474,6 +2481,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#rebase_1" class="md-nav__link">
+    rebaseのコンフリクト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stash-popconflict" class="md-nav__link">
     stash pop後のconflict
   </a>
@@ -3091,6 +3105,39 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 </code></pre></div>
 
 <p>マージ前の状態に戻る</p>
+<h3 id="rebase_1">rebaseのコンフリクト</h3>
+<p><code>git rebase main</code>したらこのエラー</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Auto-merging &lt;filename&gt;</span>
+<span style="color: #888888">CONFLICT (content): Merge conflict in &lt;filename&gt;</span>
+<span style="color: #888888">error: could not apply e91cdab... &lt;commit message&gt;</span>
+<span style="color: #888888">hint: Resolve all conflicts manually, mark them as resolved with</span>
+<span style="color: #888888">hint: &quot;git add/rm &lt;conflicted_files&gt;&quot;, then run &quot;git rebase --continue&quot;.</span>
+<span style="color: #888888">hint: You can instead skip this commit: run &quot;git rebase --skip&quot;.</span>
+<span style="color: #888888">hint: To abort and get back to the state before &quot;git rebase&quot;, run &quot;git rebase --abort&quot;.</span>
+<span style="color: #888888">hint: Disable this message with &quot;git config advice.mergeConflict false&quot;</span>
+<span style="color: #888888">Could not apply e91cdab... &lt;commit message&gt;</span>
+</code></pre></div>
+
+<p><code>git-prompt</code>を使っていると、プロンプトの表示は以下のようになる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(feature/branch *+|REBASE 1/1)</span> 
+</code></pre></div>
+
+<p>コンフリクト箇所の修正と修正後の<code>add</code>は<code>merge</code>の時と同様。<br />
+<code>add</code>した状態の<code>status</code></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>st
+<span style="color: #888888">interactive rebase in progress; onto a4650f8</span>
+<span style="color: #888888">Last command done (1 command done):</span>
+<span style="color: #888888">   pick e91cdab add: 24時間以内のチェックイン数の表示 #59</span>
+<span style="color: #888888">No commands remaining.</span>
+<span style="color: #888888">You are currently rebasing branch &#39;feature/count-24&#39; on &#39;a4650f8&#39;.</span>
+<span style="color: #888888">  (all conflicts fixed: run &quot;git rebase --continue&quot;)</span>
+
+<span style="color: #888888">Changes to be committed:</span>
+<span style="color: #888888">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span style="color: #888888">        modified:   swarm.js</span>
+</code></pre></div>
+
+<p>ここで<code>rebase</code>を続けるために、メッセージに出てる通り<code>git rebase --continue</code>を実行するとエディタが起動するのでコミットメッセージを編集すればrebaseが完了する。</p>
 <h3 id="stash-popconflict">stash pop後のconflict</h3>
 <p>メッセージが以下のようになり<code>git merge --abort</code>は効かない。<br />
 状態としてはステージングになっている。</p>
