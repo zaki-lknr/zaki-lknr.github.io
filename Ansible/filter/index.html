@@ -2057,30 +2057,30 @@
 <p>未定義だったらこの値に置き換える、というもの。<br />
 以下は<code>foobar_values</code>が未定義の場合は<code>value</code>は<code>zzz</code>となる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">value</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">foobar_values</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default(&#39;zzz&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">value</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">foobar_values</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">default(&#39;zzz&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>よく使うのは初期値が無い場合にループでリストを作るとき。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>curry
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">item</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">yasai</span><span style="color: #B8860B"> </span><span style="color: #BB4444">+</span><span style="color: #B8860B"> </span><span style="color: #BB4444">(niku</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default([]))</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>curry
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">item</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">yasai</span><span style="color: #B8860B"> </span><span style="color: #B44">+</span><span style="color: #B8860B"> </span><span style="color: #B44">(niku</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">default([]))</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>とか</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>set_fact list value
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">list_values</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item3
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">set_fact</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">list_items</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_items|default([])</span><span style="color: #B8860B"> </span><span style="color: #BB4444">+</span><span style="color: #B8860B"> </span><span style="color: #BB4444">[item]</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_values</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>set_fact list value
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">list_values</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item1
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item2
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item3
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">set_fact</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">list_items</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list_items|default([])</span><span style="color: #B8860B"> </span><span style="color: #B44">+</span><span style="color: #B8860B"> </span><span style="color: #B44">[item]</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">loop</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list_values</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>未定義でなくfalseだったら置き換えるのであれば、第2引数に<code>true</code>をセットする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{{<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;&#39;</span><span style="border: 1px solid #FF0000">|</span><span style="color: #B8860B">default(&#39;the string was empty&#39;</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">true)</span><span style="color: #bbbbbb"> </span>}}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{{<span style="color: #BBB"> </span><span style="color: #B44">&#39;&#39;</span><span style="border: 1px solid #F00">|</span><span style="color: #B8860B">default(&#39;the string was empty&#39;</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">true)</span><span style="color: #BBB"> </span>}}
 </code></pre></div>
 
 <ul>
@@ -2091,84 +2091,84 @@
 <h2 id="_2">三項演算子</h2>
 <p><code>ternary</code>を使う。</p>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#defining-different-values-for-true-false-null-ternary">Defining different values for true/false/null (ternary)</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>ternary sample
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #BB4444">==</span><span style="color: #B8860B"> </span><span style="color: #BB4444">1)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ternary(&#39;sample_valueは1だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;sample_valueは1じゃないよ&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># やってることは (sample_value == 1) ? &#39;sample_valueは1だよ&#39;: &#39;sample_valueは1じゃないよ&#39; と同じ</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>ternary sample
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #B44">==</span><span style="color: #B8860B"> </span><span style="color: #B44">1)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">ternary(&#39;sample_valueは1だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;sample_valueは1じゃないよ&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #080; font-style: italic"># やってることは (sample_value == 1) ? &#39;sample_valueは1だよ&#39;: &#39;sample_valueは1じゃないよ&#39; と同じ</span>
 
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>ternary nest sample
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #BB4444">==</span><span style="color: #B8860B"> </span><span style="color: #BB4444">1)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span>
-<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">ternary(&#39;sample_valueは1だよ&#39;,</span>
-<span style="color: #bbbbbb">                              </span><span style="color: #BB4444">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #BB4444">==</span><span style="color: #B8860B"> </span><span style="color: #BB4444">2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">ternary(&#39;sample_valueは2だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;sample_valueは1でも2でもないよ&#39;)</span>
-<span style="color: #bbbbbb">                            </span><span style="color: #BB4444">)</span>
-<span style="color: #bbbbbb">              </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">        </span><span style="color: #008800; font-style: italic"># 入れ子にしたternary()</span>
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>ternary nest sample
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #B44">==</span><span style="color: #B8860B"> </span><span style="color: #B44">1)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span>
+<span style="color: #BBB">                    </span><span style="color: #B44">ternary(&#39;sample_valueは1だよ&#39;,</span>
+<span style="color: #BBB">                              </span><span style="color: #B44">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #B44">==</span><span style="color: #B8860B"> </span><span style="color: #B44">2)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">ternary(&#39;sample_valueは2だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;sample_valueは1でも2でもないよ&#39;)</span>
+<span style="color: #BBB">                            </span><span style="color: #B44">)</span>
+<span style="color: #BBB">              </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># 入れ子にしたternary()</span>
 
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>ternary nest sample
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #BB4444">==</span><span style="color: #B8860B"> </span><span style="color: #BB4444">1)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span>
-<span style="color: #bbbbbb">                    </span><span style="color: #BB4444">ternary(&#39;sample_valueは1だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">undefined)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span>
-<span style="color: #bbbbbb">                  </span><span style="color: #BB4444">default((sample_value</span><span style="color: #B8860B"> </span><span style="color: #BB4444">==</span><span style="color: #B8860B"> </span><span style="color: #BB4444">2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span>
-<span style="color: #bbbbbb">                           </span><span style="color: #BB4444">ternary(&#39;sample_valueは2だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;sample_valueは1でも2でもないよ&#39;)</span>
-<span style="color: #bbbbbb">                         </span><span style="color: #BB4444">)</span>
-<span style="color: #bbbbbb">              </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># 入れ子にせずに、defaultフィルタを併用。ピタゴラスイッチ感。</span>
-<span style="color: #bbbbbb">      </span><span style="color: #008800; font-style: italic"># if-elsif-else っぽく見せるインデント難しい</span>
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>ternary nest sample
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">(sample_value</span><span style="color: #B8860B"> </span><span style="color: #B44">==</span><span style="color: #B8860B"> </span><span style="color: #B44">1)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span>
+<span style="color: #BBB">                    </span><span style="color: #B44">ternary(&#39;sample_valueは1だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #B44">undefined)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span>
+<span style="color: #BBB">                  </span><span style="color: #B44">default((sample_value</span><span style="color: #B8860B"> </span><span style="color: #B44">==</span><span style="color: #B8860B"> </span><span style="color: #B44">2)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span>
+<span style="color: #BBB">                           </span><span style="color: #B44">ternary(&#39;sample_valueは2だよ&#39;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;sample_valueは1でも2でもないよ&#39;)</span>
+<span style="color: #BBB">                         </span><span style="color: #B44">)</span>
+<span style="color: #BBB">              </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #080; font-style: italic"># 入れ子にせずに、defaultフィルタを併用。ピタゴラスイッチ感。</span>
+<span style="color: #BBB">      </span><span style="color: #080; font-style: italic"># if-elsif-else っぽく見せるインデント難しい</span>
 </code></pre></div>
 
 <h2 id="key-valuevalue">辞書を<code>{ key=辞書のキー名, value=辞書のvalueデータ }</code>のリストに変換</h2>
 <p><code>dict2items</code>を使う。</p>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#transforming-dictionaries-into-lists">Transforming dictionaries into lists</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>dict2items sample
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">menu</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">curry</span>:
-<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">vegetable</span>:
-<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>carrot
-<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>potato
-<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>onion
-<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">meat</span>:
-<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>cow
-<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">chicken</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">pasta</span>:
-<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">vegetable</span>:
-<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>spinach
-<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>garlic
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">menu</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">dict2items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>dict2items sample
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">menu</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">curry</span>:
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">vegetable</span>:
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>carrot
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>potato
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>onion
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">meat</span>:
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>cow
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">chicken</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">pasta</span>:
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">vegetable</span>:
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>spinach
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>garlic
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">menu</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">dict2items</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;msg&quot;</span>:<span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">    </span>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;key&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;curry&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;value&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;chicken&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">null</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;meat&quot;</span>:<span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">                </span><span style="color: #BB4444">&quot;cow&quot;</span>
-<span style="color: #bbbbbb">            </span>],
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;vegetable&quot;</span>:<span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">                </span><span style="color: #BB4444">&quot;carrot&quot;</span>,
-<span style="color: #bbbbbb">                </span><span style="color: #BB4444">&quot;potato&quot;</span>,
-<span style="color: #bbbbbb">                </span><span style="color: #BB4444">&quot;onion&quot;</span>
-<span style="color: #bbbbbb">            </span>]
-<span style="color: #bbbbbb">        </span>}
-<span style="color: #bbbbbb">    </span>},
-<span style="color: #bbbbbb">    </span>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;key&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;pasta&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;value&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;vegetable&quot;</span>:<span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">                </span><span style="color: #BB4444">&quot;spinach&quot;</span>,
-<span style="color: #bbbbbb">                </span><span style="color: #BB4444">&quot;garlic&quot;</span>
-<span style="color: #bbbbbb">            </span>]
-<span style="color: #bbbbbb">        </span>}
-<span style="color: #bbbbbb">    </span>}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;msg&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">    </span>{
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;key&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;curry&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;value&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;chicken&quot;</span>:<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">null</span>,
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;meat&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">                </span><span style="color: #B44">&quot;cow&quot;</span>
+<span style="color: #BBB">            </span>],
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;vegetable&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">                </span><span style="color: #B44">&quot;carrot&quot;</span>,
+<span style="color: #BBB">                </span><span style="color: #B44">&quot;potato&quot;</span>,
+<span style="color: #BBB">                </span><span style="color: #B44">&quot;onion&quot;</span>
+<span style="color: #BBB">            </span>]
+<span style="color: #BBB">        </span>}
+<span style="color: #BBB">    </span>},
+<span style="color: #BBB">    </span>{
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;key&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;pasta&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;value&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;vegetable&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">                </span><span style="color: #B44">&quot;spinach&quot;</span>,
+<span style="color: #BBB">                </span><span style="color: #B44">&quot;garlic&quot;</span>
+<span style="color: #BBB">            </span>]
+<span style="color: #BBB">        </span>}
+<span style="color: #BBB">    </span>}
 ]
 </code></pre></div>
 
@@ -2177,22 +2177,22 @@
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/02/18/000228">[Ansible / Jinja2] select / selectattr を使った配列と辞書のフィルタリング - zaki work log</a></p>
 <h2 id="map">リスト要素への一律処理 (map)</h2>
 <h3 id="_3">別フィルタの適用</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(&#39;length&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">items</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">map(&#39;length&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>リスト<code>items</code>の各要素に対して<code>length</code>フィルタをかます</p>
 <h3 id="_4">要素抜き出し</h3>
 <p>辞書のキーを<code>attribute</code>で指定することで、各要素(辞書型からなる)の指定キーの値のみ抜き出す。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(attribute=&#39;hostname&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">items</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">map(attribute=&#39;hostname&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>キーが無い場合は<code>AnsibleUndefined</code>になるが、オプションか更にフィルタすることで対処できる。<br />
 <code>default</code>を指定すればキーが無い場合はその値に置き換える。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(attribute=&#39;hostname&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">default=&#39;no</span><span style="color: #B8860B"> </span><span style="color: #BB4444">data&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">items</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">map(attribute=&#39;hostname&#39;,</span><span style="color: #B8860B"> </span><span style="color: #B44">default=&#39;no</span><span style="color: #B8860B"> </span><span style="color: #B44">data&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p><code>select</code>を使ったフィルタに繋げれば、undefの項目を除外もできる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">items</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">map(attribute=&#39;hostname&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">select(&#39;none&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">items</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">map(attribute=&#39;hostname&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">select(&#39;none&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p><code>none</code>は<a href="https://jinja.palletsprojects.com/en/latest/templates/#jinja-tests.none">Jinja2のTest</a>の一つ。</p>
@@ -2203,29 +2203,29 @@
 <li><a href="https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.first">first</a></li>
 <li><a href="https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.last">last</a></li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>first
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">list</span>:
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span>item2
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span>item3
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">foobar</span>:<span style="color: #bbbbbb"> </span>hogehoge
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">msg</span>:
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">first</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list[0]</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">last</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">          </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list[-1]</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>first
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">list</span>:
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span>item1
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span>item2
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span>item3
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">foobar</span>:<span style="color: #BBB"> </span>hogehoge
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">msg</span>:
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">first</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list[0]</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">last</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list[-1]</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>結果</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>first<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*******************************************</span>
-<span style="color: #A0A000">ok</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>localhost<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=&gt;</span><span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">  </span><span style="color: #A0A000">msg</span>:
-<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item3
-<span style="color: #bbbbbb">  </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TASK<span style="color: #BBB"> </span><span style="color: #666">[</span>first<span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">*******************************************</span>
+<span style="color: #A0A000">ok</span>:<span style="color: #BBB"> </span><span style="color: #666">[</span>localhost<span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">=&gt;</span><span style="color: #BBB"> </span>
+<span style="color: #BBB">  </span><span style="color: #A0A000">msg</span>:
+<span style="color: #BBB">  </span><span style="color: #666">-</span><span style="color: #BBB"> </span>item1
+<span style="color: #BBB">  </span><span style="color: #666">-</span><span style="color: #BBB"> </span>item1
+<span style="color: #BBB">  </span><span style="color: #666">-</span><span style="color: #BBB"> </span>item3
+<span style="color: #BBB">  </span><span style="color: #666">-</span><span style="color: #BBB"> </span>item3
 </code></pre></div>
 
 <p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
@@ -2233,135 +2233,135 @@
 <p>リストから特定要素を除外するには<code>difference</code>フィルタを使う。<br />
 入力のリストの要素から、<code>difference</code>フィルタの引数に指定したリストの要素を除外したリストを返す。<br />
 <code>difference</code>にもリストを指定する必要がある(iterableな変数でなければエラーとなる)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">int_list1</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">3</span>]
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">int_list2</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #B8860B">4</span>]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">int_list1</span>:<span style="color: #BBB"> </span>[<span style="color: #B8860B">1</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">2</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">3</span>]
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">int_list2</span>:<span style="color: #BBB"> </span>[<span style="color: #B8860B">3</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">4</span>]
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>defference filter sample
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">int_list1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">difference(int_list2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>defference filter sample
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">int_list1</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">difference(int_list2)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>出力は<code>[1, 2]</code>になる。</p>
 <p>なお、文字列の場合は元々iterableのため、<code>difference</code>の引数はリストでなくても一応動作する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;foo&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;bar&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;baz&quot;</span>]
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">list2</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;baz&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;qux&quot;</span>]
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">str_item</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;baz&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">list1</span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;foo&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;bar&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;baz&quot;</span>]
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">list2</span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;baz&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;qux&quot;</span>]
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">str_item</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;baz&quot;</span>
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>defference filter sample
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">difference(list2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
-<span style="color: #bbbbbb">      </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">difference(str_item)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>defference filter sample
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list1</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">difference(list2)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">list1</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">difference(str_item)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>どちらの結果も<code>["foo", "bar"]</code>になる。</p>
 <h2 id="combine">辞書のマージ(combine)</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>merge 2 dicts
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var1</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list1</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item1
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item2
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var2</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list2</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemA
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemB
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">var1</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">combine(var2)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>2つの辞書をマージする。<br />
 重複キーの無い辞書同士は単純合成になり、上のタスクの実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
-<span style="color: #888888">ok: [localhost] =&gt; {</span>
-<span style="color: #888888">    &quot;msg&quot;: {</span>
-<span style="color: #888888">        &quot;list1&quot;: [</span>
-<span style="color: #888888">            &quot;item1&quot;,</span>
-<span style="color: #888888">            &quot;item2&quot;</span>
-<span style="color: #888888">        ],</span>
-<span style="color: #888888">        &quot;list2&quot;: [</span>
-<span style="color: #888888">            &quot;itemA&quot;,</span>
-<span style="color: #888888">            &quot;itemB&quot;</span>
-<span style="color: #888888">        ]</span>
-<span style="color: #888888">    }</span>
-<span style="color: #888888">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888">ok: [localhost] =&gt; {</span>
+<span style="color: #888">    &quot;msg&quot;: {</span>
+<span style="color: #888">        &quot;list1&quot;: [</span>
+<span style="color: #888">            &quot;item1&quot;,</span>
+<span style="color: #888">            &quot;item2&quot;</span>
+<span style="color: #888">        ],</span>
+<span style="color: #888">        &quot;list2&quot;: [</span>
+<span style="color: #888">            &quot;itemA&quot;,</span>
+<span style="color: #888">            &quot;itemB&quot;</span>
+<span style="color: #888">        ]</span>
+<span style="color: #888">    }</span>
+<span style="color: #888">}</span>
 </code></pre></div>
 
 <p>同じキーを含む場合は上書きする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item3
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>merge 2 dicts
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var1</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list1</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item1
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item2
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var2</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list1</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item3
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list2</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemA
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemB
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">var1</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">combine(var2)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p><code>combine</code>する辞書に同じ<code>lsit1</code>キーを含む場合、このタスクの実行結果は以下の通りで、<code>combine</code>に指定した辞書側の<code>list1</code>キーの値で上書きされる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] ******************************************************************</span>
-<span style="color: #888888">ok: [localhost] =&gt; {</span>
-<span style="color: #888888">    &quot;msg&quot;: {</span>
-<span style="color: #888888">        &quot;list1&quot;: [</span>
-<span style="color: #888888">            &quot;item3&quot;</span>
-<span style="color: #888888">        ],</span>
-<span style="color: #888888">        &quot;list2&quot;: [</span>
-<span style="color: #888888">            &quot;itemA&quot;,</span>
-<span style="color: #888888">            &quot;itemB&quot;</span>
-<span style="color: #888888">        ]</span>
-<span style="color: #888888">    }</span>
-<span style="color: #888888">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TASK [merge 2 dicts] ******************************************************************</span>
+<span style="color: #888">ok: [localhost] =&gt; {</span>
+<span style="color: #888">    &quot;msg&quot;: {</span>
+<span style="color: #888">        &quot;list1&quot;: [</span>
+<span style="color: #888">            &quot;item3&quot;</span>
+<span style="color: #888">        ],</span>
+<span style="color: #888">        &quot;list2&quot;: [</span>
+<span style="color: #888">            &quot;itemA&quot;,</span>
+<span style="color: #888">            &quot;itemB&quot;</span>
+<span style="color: #888">        ]</span>
+<span style="color: #888">    }</span>
+<span style="color: #888">}</span>
 </code></pre></div>
 
 <h3 id="list_merge">list_merge</h3>
 <p>辞書の要素がリストの場合、キーが同じ場合の上書き動作のデフォルトは、<code>list_merge</code>パラメタで動作を変更できる。</p>
 <p><code>append</code>を指定すると、要素の末尾に追加。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item3
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_merge=&#39;append&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>merge 2 dicts
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var1</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list1</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item1
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item2
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var2</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list1</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item3
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list2</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemA
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemB
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">var1</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">combine(var2,</span><span style="color: #B8860B"> </span><span style="color: #B44">list_merge=&#39;append&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p><code>list1</code>キーが重複した入力で、<code>list_merge=append</code>を指定した場合の実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
-<span style="color: #888888">ok: [localhost] =&gt; {</span>
-<span style="color: #888888">    &quot;msg&quot;: {</span>
-<span style="color: #888888">        &quot;list1&quot;: [</span>
-<span style="color: #888888">            &quot;item1&quot;,</span>
-<span style="color: #888888">            &quot;item2&quot;,</span>
-<span style="color: #888888">            &quot;item3&quot;</span>
-<span style="color: #888888">        ],</span>
-<span style="color: #888888">        &quot;list2&quot;: [</span>
-<span style="color: #888888">            &quot;itemA&quot;,</span>
-<span style="color: #888888">            &quot;itemB&quot;</span>
-<span style="color: #888888">        ]</span>
-<span style="color: #888888">    }</span>
-<span style="color: #888888">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888">ok: [localhost] =&gt; {</span>
+<span style="color: #888">    &quot;msg&quot;: {</span>
+<span style="color: #888">        &quot;list1&quot;: [</span>
+<span style="color: #888">            &quot;item1&quot;,</span>
+<span style="color: #888">            &quot;item2&quot;,</span>
+<span style="color: #888">            &quot;item3&quot;</span>
+<span style="color: #888">        ],</span>
+<span style="color: #888">        &quot;list2&quot;: [</span>
+<span style="color: #888">            &quot;itemA&quot;,</span>
+<span style="color: #888">            &quot;itemB&quot;</span>
+<span style="color: #888">        ]</span>
+<span style="color: #888">    }</span>
+<span style="color: #888">}</span>
 </code></pre></div>
 
 <p><code>list1</code>キーの値のリストもマージ(<code>combime</code>の引数に指定する方が末尾に追加)されている。<br />
@@ -2393,80 +2393,80 @@
 </tbody>
 </table>
 <p><code>append_rp</code>の動作は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>merge 2 dicts
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var1</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item2
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">var2</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list1</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item3
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>item4
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">list2</span>:
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemA
-<span style="color: #bbbbbb">        </span>-<span style="color: #bbbbbb"> </span>itemB
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">var1</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">combine(var2,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">list_merge=&#39;append_rp&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>merge 2 dicts
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var1</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list1</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item1
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item2
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">var2</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list1</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item3
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item1
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>item4
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">list2</span>:
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemA
+<span style="color: #BBB">        </span>-<span style="color: #BBB"> </span>itemB
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">var1</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">combine(var2,</span><span style="color: #B8860B"> </span><span style="color: #B44">list_merge=&#39;append_rp&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>このタスクを実行すると以下の通り。<br />
 リスト要素にどちらも<code>item1</code>が含まれるためこれが<code>var1</code>から削除され、<code>var2</code>の要素(<code>item3</code>,<code>item1</code>,<code>item4</code>)が末尾へ追加される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
-<span style="color: #888888">ok: [localhost] =&gt; {</span>
-<span style="color: #888888">    &quot;msg&quot;: {</span>
-<span style="color: #888888">        &quot;list1&quot;: [</span>
-<span style="color: #888888">            &quot;item2&quot;,</span>
-<span style="color: #888888">            &quot;item3&quot;,</span>
-<span style="color: #888888">            &quot;item1&quot;,</span>
-<span style="color: #888888">            &quot;item4&quot;</span>
-<span style="color: #888888">        ],</span>
-<span style="color: #888888">        &quot;list2&quot;: [</span>
-<span style="color: #888888">            &quot;itemA&quot;,</span>
-<span style="color: #888888">            &quot;itemB&quot;</span>
-<span style="color: #888888">        ]</span>
-<span style="color: #888888">    }</span>
-<span style="color: #888888">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888">ok: [localhost] =&gt; {</span>
+<span style="color: #888">    &quot;msg&quot;: {</span>
+<span style="color: #888">        &quot;list1&quot;: [</span>
+<span style="color: #888">            &quot;item2&quot;,</span>
+<span style="color: #888">            &quot;item3&quot;,</span>
+<span style="color: #888">            &quot;item1&quot;,</span>
+<span style="color: #888">            &quot;item4&quot;</span>
+<span style="color: #888">        ],</span>
+<span style="color: #888">        &quot;list2&quot;: [</span>
+<span style="color: #888">            &quot;itemA&quot;,</span>
+<span style="color: #888">            &quot;itemB&quot;</span>
+<span style="color: #888">        ]</span>
+<span style="color: #888">    }</span>
+<span style="color: #888">}</span>
 </code></pre></div>
 
 <p><code>prepend_rp</code>の動作は、↑と同じ条件でパラメタのみ変更して実行すると以下の通り。<br />
 重複する<code>item1</code>が<code>var1</code>から削除される動作は同じで、<code>var2</code>の要素(<code>item3</code>,<code>item1</code>,<code>item4</code>)が先頭へ追加される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [merge 2 dicts] *********************************************</span>
-<span style="color: #888888">ok: [localhost] =&gt; {</span>
-<span style="color: #888888">    &quot;msg&quot;: {</span>
-<span style="color: #888888">        &quot;list1&quot;: [</span>
-<span style="color: #888888">            &quot;item3&quot;,</span>
-<span style="color: #888888">            &quot;item1&quot;,</span>
-<span style="color: #888888">            &quot;item4&quot;,</span>
-<span style="color: #888888">            &quot;item2&quot;</span>
-<span style="color: #888888">        ],</span>
-<span style="color: #888888">        &quot;list2&quot;: [</span>
-<span style="color: #888888">            &quot;itemA&quot;,</span>
-<span style="color: #888888">            &quot;itemB&quot;</span>
-<span style="color: #888888">        ]</span>
-<span style="color: #888888">    }</span>
-<span style="color: #888888">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TASK [merge 2 dicts] *********************************************</span>
+<span style="color: #888">ok: [localhost] =&gt; {</span>
+<span style="color: #888">    &quot;msg&quot;: {</span>
+<span style="color: #888">        &quot;list1&quot;: [</span>
+<span style="color: #888">            &quot;item3&quot;,</span>
+<span style="color: #888">            &quot;item1&quot;,</span>
+<span style="color: #888">            &quot;item4&quot;,</span>
+<span style="color: #888">            &quot;item2&quot;</span>
+<span style="color: #888">        ],</span>
+<span style="color: #888">        &quot;list2&quot;: [</span>
+<span style="color: #888">            &quot;itemA&quot;,</span>
+<span style="color: #888">            &quot;itemB&quot;</span>
+<span style="color: #888">        ]</span>
+<span style="color: #888">    }</span>
+<span style="color: #888">}</span>
 </code></pre></div>
 
 <h2 id="_6">パス処理</h2>
 <h3 id="path_join">パスの合成 (path_join)</h3>
 <p><code>path_join</code>を使うと、リストの文字列をディレクトリセパレータで繋ぐ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>create repository url
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">(registry_url,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">registry_username,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;awx&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">path_join</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>create repository url
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">(registry_url,</span><span style="color: #B8860B"> </span><span style="color: #B44">registry_username,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;awx&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">path_join</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">registry_username</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">zaki-lknr</span>
-<span style="color: #BB4444">registry_url</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">ghcr.io</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">registry_username</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">zaki-lknr</span>
+<span style="color: #B44">registry_url</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">ghcr.io</span>
 </code></pre></div>
 
 <p>という変数が設定されていれば、実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [create repository url] ************************************</span>
-<span style="color: #888888">ok: [oci-g-a1-ubuntu] =&gt; </span>
-<span style="color: #888888">  msg:</span>
-<span style="color: #888888">  - ghcr.io/zaki-lknr/awx</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TASK [create repository url] ************************************</span>
+<span style="color: #888">ok: [oci-g-a1-ubuntu] =&gt; </span>
+<span style="color: #888">  msg:</span>
+<span style="color: #888">  - ghcr.io/zaki-lknr/awx</span>
 </code></pre></div>
 
 <h2 id="_7">暗号化パスワード</h2>
@@ -2475,17 +2475,17 @@
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#encrypting-and-checksumming-strings-and-passwords">Encrypting and checksumming strings and passwords</a></li>
 </ul>
 <h3 id="password_hash">password_hash</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_plain_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_hash(&#39;sha512&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">password_plain_text</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">password_hash(&#39;sha512&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>デフォルトは<code>sha512</code>で暗号化される。<br />
 <a href="https://github.com/ansible/ansible/blob/v2.10.5/lib/ansible/plugins/filter/core.py#L266">https://github.com/ansible/ansible/blob/v2.10.5/lib/ansible/plugins/filter/core.py#L266</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">def</span> <span style="color: #00A000">get_encrypted_password</span>(password, hashtype<span style="color: #666666">=</span><span style="color: #BB4444">&#39;sha512&#39;</span>, salt<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">None</span>, salt_size<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">None</span>, rounds<span style="color: #666666">=</span><span style="color: #AA22FF; font-weight: bold">None</span>):
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">def</span><span style="color: #BBB"> </span><span style="color: #00A000">get_encrypted_password</span>(password, hashtype<span style="color: #666">=</span><span style="color: #B44">&#39;sha512&#39;</span>, salt<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">None</span>, salt_size<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">None</span>, rounds<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">None</span>):
 </code></pre></div>
 
 <p>saltの指定が無い場合はランダムになるため、実行のたびに結果の値は変化する。(つまり、このパスワードを設定したりすれば毎回<code>changed</code>になる)<br />
 冪等にしたければ、saltに固定の値をセットする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_plain_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">password_hash(&#39;sha512&#39;,</span><span style="color: #B8860B"> </span><span style="color: #BB4444">&#39;hoge&#39;)</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">password_plain_text</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">password_hash(&#39;sha512&#39;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;hoge&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <ul>
@@ -2494,64 +2494,64 @@
 </ul>
 <h2 id="base64">base64</h2>
 <h3 id="_8">エンコード</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>base64 enc
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">sample_text</span>:<span style="color: #bbbbbb"> </span>zaki
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">sample_text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">b64encode</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>base64 enc
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">sample_text</span>:<span style="color: #BBB"> </span>zaki
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">sample_text</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">b64encode</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>↓</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ok: [localhost] =&gt; </span>
-<span style="color: #888888">  msg: emFraQ==</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ok: [localhost] =&gt; </span>
+<span style="color: #888">  msg: emFraQ==</span>
 </code></pre></div>
 
 <h3 id="_9">デコード</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>base64 dec
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">b64text</span>:<span style="color: #bbbbbb"> </span>emFraQ==
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">b64text</span><span style="color: #B8860B"> </span><span style="color: #BB4444">|</span><span style="color: #B8860B"> </span><span style="color: #BB4444">b64decode</span><span style="color: #B8860B"> </span><span style="color: #BB4444">}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>base64 dec
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">b64text</span>:<span style="color: #BBB"> </span>emFraQ==
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">b64text</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">b64decode</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <p>↓</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ok: [localhost] =&gt; </span>
-<span style="color: #888888">  msg: zaki</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ok: [localhost] =&gt; </span>
+<span style="color: #888">  msg: zaki</span>
 </code></pre></div>
 
 <h2 id="type_debug">オブジェクトの型を調べる (type_debug)</h2>
 <p>任意のオブジェクトの型をチェックするには <code>type_debug</code> を使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>name:<span style="color: #bbbbbb"> </span>type<span style="color: #bbbbbb"> </span>debug
-<span style="color: #bbbbbb">  </span>debug:
-<span style="color: #bbbbbb">    </span>msg:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ item }}&quot;</span>
-<span style="color: #bbbbbb">  </span>vars:
-<span style="color: #bbbbbb">    </span>num_val:<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>
-<span style="color: #bbbbbb">    </span>str_val:<span style="color: #bbbbbb"> </span>zzz
-<span style="color: #bbbbbb">    </span>list_val:
-<span style="color: #bbbbbb">      </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item1
-<span style="color: #bbbbbb">      </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item2
-<span style="color: #bbbbbb">      </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>item3
-<span style="color: #bbbbbb">    </span>dict_val:
-<span style="color: #bbbbbb">      </span>key1:<span style="color: #bbbbbb"> </span>val1
-<span style="color: #bbbbbb">      </span>key2:<span style="color: #bbbbbb"> </span>val2
-<span style="color: #bbbbbb">      </span>key3:<span style="color: #bbbbbb"> </span>val3
-<span style="color: #bbbbbb">  </span>loop:
-<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ num_val | type_debug }}&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ str_val | type_debug }}&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ list_val | type_debug }}&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{ dict_val | type_debug }}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">-</span><span style="color: #BBB"> </span>name:<span style="color: #BBB"> </span>type<span style="color: #BBB"> </span>debug
+<span style="color: #BBB">  </span>debug:
+<span style="color: #BBB">    </span>msg:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{ item }}&quot;</span>
+<span style="color: #BBB">  </span>vars:
+<span style="color: #BBB">    </span>num_val:<span style="color: #BBB"> </span><span style="color: #666">1</span>
+<span style="color: #BBB">    </span>str_val:<span style="color: #BBB"> </span>zzz
+<span style="color: #BBB">    </span>list_val:
+<span style="color: #BBB">      </span><span style="color: #666">-</span><span style="color: #BBB"> </span>item1
+<span style="color: #BBB">      </span><span style="color: #666">-</span><span style="color: #BBB"> </span>item2
+<span style="color: #BBB">      </span><span style="color: #666">-</span><span style="color: #BBB"> </span>item3
+<span style="color: #BBB">    </span>dict_val:
+<span style="color: #BBB">      </span>key1:<span style="color: #BBB"> </span>val1
+<span style="color: #BBB">      </span>key2:<span style="color: #BBB"> </span>val2
+<span style="color: #BBB">      </span>key3:<span style="color: #BBB"> </span>val3
+<span style="color: #BBB">  </span>loop:
+<span style="color: #BBB">    </span><span style="color: #666">-</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;{{ num_val | type_debug }}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #666">-</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;{{ str_val | type_debug }}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #666">-</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;{{ list_val | type_debug }}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #666">-</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;{{ dict_val | type_debug }}&quot;</span>
 </code></pre></div>
 
 <p>結果</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TASK [type debug] ***********************************************************</span>
-<span style="color: #888888">ok: [localhost] =&gt; (item=int) =&gt; </span>
-<span style="color: #888888">  msg: int</span>
-<span style="color: #888888">ok: [localhost] =&gt; (item=AnsibleUnicode) =&gt; </span>
-<span style="color: #888888">  msg: AnsibleUnicode</span>
-<span style="color: #888888">ok: [localhost] =&gt; (item=list) =&gt; </span>
-<span style="color: #888888">  msg: list</span>
-<span style="color: #888888">ok: [localhost] =&gt; (item=dict) =&gt; </span>
-<span style="color: #888888">  msg: dict</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TASK [type debug] ***********************************************************</span>
+<span style="color: #888">ok: [localhost] =&gt; (item=int) =&gt; </span>
+<span style="color: #888">  msg: int</span>
+<span style="color: #888">ok: [localhost] =&gt; (item=AnsibleUnicode) =&gt; </span>
+<span style="color: #888">  msg: AnsibleUnicode</span>
+<span style="color: #888">ok: [localhost] =&gt; (item=list) =&gt; </span>
+<span style="color: #888">  msg: list</span>
+<span style="color: #888">ok: [localhost] =&gt; (item=dict) =&gt; </span>
+<span style="color: #888">  msg: dict</span>
 </code></pre></div>
                 
               

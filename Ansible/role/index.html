@@ -1774,30 +1774,30 @@
                 
                 <h1 id="role">Role</h1>
 <h2 id="_1">ロールの雛形を作る</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-galaxy<span style="color: #bbbbbb"> </span>role<span style="color: #bbbbbb"> </span>init<span style="color: #bbbbbb"> </span>sample_role
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-galaxy<span style="color: #BBB"> </span>role<span style="color: #BBB"> </span>init<span style="color: #BBB"> </span>sample_role
 </code></pre></div>
 
 <p>こんな感じ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">.</span>
-<span style="color: #888888">./sample_role</span>
-<span style="color: #888888">./sample_role/.travis.yml</span>
-<span style="color: #888888">./sample_role/README.md</span>
-<span style="color: #888888">./sample_role/defaults</span>
-<span style="color: #888888">./sample_role/defaults/main.yml</span>
-<span style="color: #888888">./sample_role/files</span>
-<span style="color: #888888">./sample_role/handlers</span>
-<span style="color: #888888">./sample_role/handlers/main.yml</span>
-<span style="color: #888888">./sample_role/meta</span>
-<span style="color: #888888">./sample_role/meta/main.yml</span>
-<span style="color: #888888">./sample_role/tasks</span>
-<span style="color: #888888">./sample_role/tasks/main.yml</span>
-<span style="color: #888888">./sample_role/templates</span>
-<span style="color: #888888">./sample_role/tests</span>
-<span style="color: #888888">./sample_role/tests/inventory</span>
-<span style="color: #888888">./sample_role/tests/test.yml</span>
-<span style="color: #888888">./sample_role/vars</span>
-<span style="color: #888888">./sample_role/vars/main.yml</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find<span style="color: #BBB"> </span>
+<span style="color: #888">.</span>
+<span style="color: #888">./sample_role</span>
+<span style="color: #888">./sample_role/.travis.yml</span>
+<span style="color: #888">./sample_role/README.md</span>
+<span style="color: #888">./sample_role/defaults</span>
+<span style="color: #888">./sample_role/defaults/main.yml</span>
+<span style="color: #888">./sample_role/files</span>
+<span style="color: #888">./sample_role/handlers</span>
+<span style="color: #888">./sample_role/handlers/main.yml</span>
+<span style="color: #888">./sample_role/meta</span>
+<span style="color: #888">./sample_role/meta/main.yml</span>
+<span style="color: #888">./sample_role/tasks</span>
+<span style="color: #888">./sample_role/tasks/main.yml</span>
+<span style="color: #888">./sample_role/templates</span>
+<span style="color: #888">./sample_role/tests</span>
+<span style="color: #888">./sample_role/tests/inventory</span>
+<span style="color: #888">./sample_role/tests/test.yml</span>
+<span style="color: #888">./sample_role/vars</span>
+<span style="color: #888">./sample_role/vars/main.yml</span>
 </code></pre></div>
 
 <h2 id="_2">ロールから別のロールを実行する</h2>
@@ -1805,45 +1805,45 @@
 <ul>
 <li>role2 (呼ばれる側)</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-<span style="color: #008800; font-style: italic"># roles/test2/tasks/main.yml</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>...省略
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+<span style="color: #080; font-style: italic"># roles/test2/tasks/main.yml</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>...省略
 </code></pre></div>
 
 <ul>
 <li>role3 (呼ぶ側)</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-<span style="color: #008800; font-style: italic"># roles/test3/tasks/main.yml</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>this is test3
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;this</span><span style="color: #B8860B"> </span><span style="color: #BB4444">is</span><span style="color: #B8860B"> </span><span style="color: #BB4444">test3&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+<span style="color: #080; font-style: italic"># roles/test3/tasks/main.yml</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>this is test3
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;this</span><span style="color: #B8860B"> </span><span style="color: #B44">is</span><span style="color: #B8860B"> </span><span style="color: #B44">test3&quot;</span>
 
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>exec other role
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">import_role</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>test2
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec other role
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">import_role</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>test2
 </code></pre></div>
 
 <ul>
 <li>playbook</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
-<span style="color: #008800; font-style: italic"># playbook.yml</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+<span style="color: #080; font-style: italic"># playbook.yml</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">roles</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>test2
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>test3
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">roles</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>test2
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>test3
 </code></pre></div>
 
 <h2 id="_3">ディレクトリ構成</h2>
 <h3 id="meta">meta</h3>
 <p><code>meta/main.yml</code>ファイルに以下のような定義を記述しておくことで、ロール実行時に<code>builde</code>と<code>runner</code>ロールを事前に実行することができる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
 <span style="color: #008000; font-weight: bold">dependencies</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>builder
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>runner
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>builder
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>runner
 </code></pre></div>
 
 <p>ロールAがロールXとロールY、ロールBもロールXとロールYに依存する設定にしてる場合、ロールXとロールYは1回ずつ呼ばれる。(AとBのロール実行前でそれぞれ計2回ずつ呼ばれることは無い)</p>

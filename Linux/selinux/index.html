@@ -1815,45 +1815,45 @@ AH00558: httpd: Could not reliably determine the server&#39;s fully qualified do
 </code></pre></div>
 
 <h3 id="_2">ポート状態</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>-w<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;http_port_t&quot;</span>
-<span style="color: #888888">http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-w<span style="color: #BBB"> </span><span style="color: #B44">&quot;http_port_t&quot;</span>
+<span style="color: #888">http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
 </code></pre></div>
 
 <p>なるほど、8081は無い。</p>
 <h3 id="_3">追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-a<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>http_port_t<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span><span style="color: #666666">8081</span>
-<span style="color: #888888">ValueError: ポート tcp/8081 はすでに定義されています</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>-w<span style="color: #bbbbbb"> </span><span style="color: #666666">8081</span>
-<span style="color: #888888">transproxy_port_t              tcp      8081</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-a<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>http_port_t<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>tcp<span style="color: #BBB"> </span><span style="color: #666">8081</span>
+<span style="color: #888">ValueError: ポート tcp/8081 はすでに定義されています</span>
+<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-w<span style="color: #BBB"> </span><span style="color: #666">8081</span>
+<span style="color: #888">transproxy_port_t              tcp      8081</span>
 </code></pre></div>
 
 <p>あー、別で使ってるのか。なるほど。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>-w<span style="color: #bbbbbb"> </span><span style="color: #666666">808</span>.
-<span style="color: #888888">http_cache_port_t              tcp      8080, 8118, 8123, 10001-10010</span>
-<span style="color: #888888">luci_port_t                    tcp      8084</span>
-<span style="color: #888888">transproxy_port_t              tcp      8081</span>
-<span style="color: #888888">us_cli_port_t                  tcp      8082, 8083</span>
-<span style="color: #888888">us_cli_port_t                  udp      8082, 8083</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-w<span style="color: #BBB"> </span><span style="color: #666">808</span>.
+<span style="color: #888">http_cache_port_t              tcp      8080, 8118, 8123, 10001-10010</span>
+<span style="color: #888">luci_port_t                    tcp      8084</span>
+<span style="color: #888">transproxy_port_t              tcp      8081</span>
+<span style="color: #888">us_cli_port_t                  tcp      8082, 8083</span>
+<span style="color: #888">us_cli_port_t                  udp      8082, 8083</span>
 </code></pre></div>
 
 <p>8085空いてる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-a<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>http_port_t<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span><span style="color: #666666">8085</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>-w<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;http_port_t&quot;</span>
-<span style="color: #888888">http_port_t                    tcp      8085, 80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-a<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>http_port_t<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>tcp<span style="color: #BBB"> </span><span style="color: #666">8085</span>
+<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-w<span style="color: #BBB"> </span><span style="color: #B44">&quot;http_port_t&quot;</span>
+<span style="color: #888">http_port_t                    tcp      8085, 80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
 </code></pre></div>
 
 <p>うむ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>vi<span style="color: #bbbbbb"> </span>/etc/httpd/conf/httpd.conf<span style="color: #bbbbbb"> </span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>httpd
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>curl<span style="color: #bbbbbb"> </span>http://localhost:8085<span style="color: #bbbbbb"> </span>-I
-<span style="color: #888888">HTTP/1.1 403 Forbidden</span>
-<span style="color: #888888">Date: Tue, 06 Jul 2021 01:55:15 GMT</span>
-<span style="color: #888888">Server: Apache/2.4.48 (Fedora)</span>
-<span style="color: #888888">Last-Modified: Fri, 26 Mar 2021 17:49:58 GMT</span>
-<span style="color: #888888">ETag: &quot;211a-5be742910bd80&quot;</span>
-<span style="color: #888888">Accept-Ranges: bytes</span>
-<span style="color: #888888">Content-Length: 8474</span>
-<span style="color: #888888">Content-Type: text/html; charset=UTF-8</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>vi<span style="color: #BBB"> </span>/etc/httpd/conf/httpd.conf<span style="color: #BBB"> </span>
+<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>systemctl<span style="color: #BBB"> </span>restart<span style="color: #BBB"> </span>httpd
+<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>curl<span style="color: #BBB"> </span>http://localhost:8085<span style="color: #BBB"> </span>-I
+<span style="color: #888">HTTP/1.1 403 Forbidden</span>
+<span style="color: #888">Date: Tue, 06 Jul 2021 01:55:15 GMT</span>
+<span style="color: #888">Server: Apache/2.4.48 (Fedora)</span>
+<span style="color: #888">Last-Modified: Fri, 26 Mar 2021 17:49:58 GMT</span>
+<span style="color: #888">ETag: &quot;211a-5be742910bd80&quot;</span>
+<span style="color: #888">Accept-Ranges: bytes</span>
+<span style="color: #888">Content-Length: 8474</span>
+<span style="color: #888">Content-Type: text/html; charset=UTF-8</span>
 
 <span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>
 </code></pre></div>
@@ -1862,37 +1862,37 @@ AH00558: httpd: Could not reliably determine the server&#39;s fully qualified do
 <h3 id="_4">更新</h3>
 <p><code>-a</code>だと他で使ってるとエラーになる。<br />
 <code>-m</code>なら更新され、他で使ってるものと多重に定義できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-a<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>http_port_t<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span><span style="color: #666666">8082</span>
-<span style="color: #888888">ValueError: ポート tcp/8082 はすでに定義されています</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>-w<span style="color: #bbbbbb"> </span><span style="color: #666666">8082</span>
-<span style="color: #888888">us_cli_port_t                  tcp      8082, 8083</span>
-<span style="color: #888888">us_cli_port_t                  udp      8082, 8083</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>http_port_t<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span><span style="color: #666666">8082</span>
-<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>-w<span style="color: #bbbbbb"> </span><span style="color: #666666">8082</span>
-<span style="color: #888888">http_port_t                    tcp      8082, 8081, 8087, 8086, 8085, 80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
-<span style="color: #888888">us_cli_port_t                  tcp      8082, 8083</span>
-<span style="color: #888888">us_cli_port_t                  udp      8082, 8083</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-a<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>http_port_t<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>tcp<span style="color: #BBB"> </span><span style="color: #666">8082</span>
+<span style="color: #888">ValueError: ポート tcp/8082 はすでに定義されています</span>
+<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-w<span style="color: #BBB"> </span><span style="color: #666">8082</span>
+<span style="color: #888">us_cli_port_t                  tcp      8082, 8083</span>
+<span style="color: #888">us_cli_port_t                  udp      8082, 8083</span>
+<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>http_port_t<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>tcp<span style="color: #BBB"> </span><span style="color: #666">8082</span>
+<span style="color: #000080; font-weight: bold">[root@fedora-node ~]# </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-w<span style="color: #BBB"> </span><span style="color: #666">8082</span>
+<span style="color: #888">http_port_t                    tcp      8082, 8081, 8087, 8086, 8085, 80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
+<span style="color: #888">us_cli_port_t                  tcp      8082, 8083</span>
+<span style="color: #888">us_cli_port_t                  udp      8082, 8083</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">[</span>root@fedora-node ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>httpd
-<span style="color: #666666">[</span>root@fedora-node ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span><span style="color: #A0A000">http</span>:<span style="color: #666666">//</span><span style="color: #A0A000">localhost</span>:<span style="color: #666666">8082</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>I
-HTTP<span style="color: #666666">/1.1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">403</span><span style="color: #bbbbbb"> </span>Forbidden
-<span style="color: #0000FF">Date</span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>Tue,<span style="color: #bbbbbb"> </span><span style="color: #666666">06</span><span style="color: #bbbbbb"> </span>Jul<span style="color: #bbbbbb"> </span><span style="color: #666666">2021</span><span style="color: #bbbbbb"> </span><span style="color: #666666">04</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">06</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">38</span><span style="color: #bbbbbb"> </span>GMT
-<span style="color: #A0A000">Server</span>:<span style="color: #bbbbbb"> </span>Apache<span style="color: #666666">/2.4.48</span><span style="color: #bbbbbb"> </span>(Fedora)
-<span style="color: #AA22FF; font-weight: bold">Last</span><span style="color: #666666">-</span><span style="color: #A0A000">Modified</span>:<span style="color: #bbbbbb"> </span>Fri,<span style="color: #bbbbbb"> </span><span style="color: #666666">26</span><span style="color: #bbbbbb"> </span>Mar<span style="color: #bbbbbb"> </span><span style="color: #666666">2021</span><span style="color: #bbbbbb"> </span><span style="color: #666666">17</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">49</span><span style="border: 1px solid #FF0000">:</span><span style="color: #666666">58</span><span style="color: #bbbbbb"> </span>GMT
-<span style="color: #A0A000">ETag</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;211a-5be742910bd80&quot;</span>
-Accept<span style="color: #666666">-</span><span style="color: #A0A000">Ranges</span>:<span style="color: #bbbbbb"> </span>bytes
-Content<span style="color: #666666">-</span><span style="color: #A0A000">Length</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">8474</span>
-Content<span style="color: #666666">-</span><span style="color: #A0A000">Type</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">text</span><span style="color: #666666">/</span>html;<span style="color: #bbbbbb"> </span>charset<span style="color: #666666">=</span>UTF<span style="color: #666666">-8</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">[</span>root@fedora-node ~<span style="color: #666">]</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>systemctl<span style="color: #BBB"> </span>restart<span style="color: #BBB"> </span>httpd
+<span style="color: #666">[</span>root@fedora-node ~<span style="color: #666">]</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span><span style="color: #A0A000">http</span>:<span style="color: #666">//</span><span style="color: #A0A000">localhost</span>:<span style="color: #666">8082</span><span style="color: #BBB"> </span><span style="color: #666">-</span>I
+HTTP<span style="color: #666">/1.1</span><span style="color: #BBB"> </span><span style="color: #666">403</span><span style="color: #BBB"> </span>Forbidden
+<span style="color: #00F">Date</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>Tue,<span style="color: #BBB"> </span><span style="color: #666">06</span><span style="color: #BBB"> </span>Jul<span style="color: #BBB"> </span><span style="color: #666">2021</span><span style="color: #BBB"> </span><span style="color: #666">04</span><span style="border: 1px solid #F00">:</span><span style="color: #666">06</span><span style="border: 1px solid #F00">:</span><span style="color: #666">38</span><span style="color: #BBB"> </span>GMT
+<span style="color: #A0A000">Server</span>:<span style="color: #BBB"> </span>Apache<span style="color: #666">/2.4.48</span><span style="color: #BBB"> </span>(Fedora)
+<span style="color: #A2F; font-weight: bold">Last</span><span style="color: #666">-</span><span style="color: #A0A000">Modified</span>:<span style="color: #BBB"> </span>Fri,<span style="color: #BBB"> </span><span style="color: #666">26</span><span style="color: #BBB"> </span>Mar<span style="color: #BBB"> </span><span style="color: #666">2021</span><span style="color: #BBB"> </span><span style="color: #666">17</span><span style="border: 1px solid #F00">:</span><span style="color: #666">49</span><span style="border: 1px solid #F00">:</span><span style="color: #666">58</span><span style="color: #BBB"> </span>GMT
+<span style="color: #A0A000">ETag</span>:<span style="color: #BBB"> </span><span style="color: #B8860B">&quot;211a-5be742910bd80&quot;</span>
+Accept<span style="color: #666">-</span><span style="color: #A0A000">Ranges</span>:<span style="color: #BBB"> </span>bytes
+Content<span style="color: #666">-</span><span style="color: #A0A000">Length</span>:<span style="color: #BBB"> </span><span style="color: #666">8474</span>
+Content<span style="color: #666">-</span><span style="color: #A0A000">Type</span>:<span style="color: #BBB"> </span><span style="color: #00F">text</span><span style="color: #666">/</span>html;<span style="color: #BBB"> </span>charset<span style="color: #666">=</span>UTF<span style="color: #666">-8</span>
 
-<span style="color: #666666">[</span>root@fedora-node ~<span style="color: #666666">]</span><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>
+<span style="color: #666">[</span>root@fedora-node ~<span style="color: #666">]</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>
 </code></pre></div>
 
 <p><a href="https://zaki-lknr.github.io/Linux/ssh/#sshd">sshdの場合はこちら</a></p>
 <h2 id="semanage">semanage</h2>
 <p>コマンドがない場合は <code>policycoreutils-python-utils</code> パッケージをインストールする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>rpm<span style="color: #bbbbbb"> </span>-qf<span style="color: #bbbbbb"> </span>/usr/sbin/semanage
-<span style="color: #888888">policycoreutils-python-utils-3.3-1.fc35.noarch</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>rpm<span style="color: #BBB"> </span>-qf<span style="color: #BBB"> </span>/usr/sbin/semanage
+<span style="color: #888">policycoreutils-python-utils-3.3-1.fc35.noarch</span>
 </code></pre></div>
                 
               

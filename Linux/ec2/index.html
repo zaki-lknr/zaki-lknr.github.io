@@ -1788,39 +1788,39 @@
                 
                 <h1 id="ec2">EC2</h1>
 <h2 id="_1">バージョン確認</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #bbbbbb"> </span>/etc/system-release
-<span style="color: #888888">Amazon Linux release 2 (Karoo)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #BBB"> </span>/etc/system-release
+<span style="color: #888">Amazon Linux release 2 (Karoo)</span>
 </code></pre></div>
 
 <p>または</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #bbbbbb"> </span>/etc/os-release<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">NAME=&quot;Amazon Linux&quot;</span>
-<span style="color: #888888">VERSION=&quot;2&quot;</span>
-<span style="color: #888888">ID=&quot;amzn&quot;</span>
-<span style="color: #888888">ID_LIKE=&quot;centos rhel fedora&quot;</span>
-<span style="color: #888888">VERSION_ID=&quot;2&quot;</span>
-<span style="color: #888888">PRETTY_NAME=&quot;Amazon Linux 2&quot;</span>
-<span style="color: #888888">ANSI_COLOR=&quot;0;33&quot;</span>
-<span style="color: #888888">CPE_NAME=&quot;cpe:2.3:o:amazon:amazon_linux:2&quot;</span>
-<span style="color: #888888">HOME_URL=&quot;https://amazonlinux.com/&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #BBB"> </span>/etc/os-release<span style="color: #BBB"> </span>
+<span style="color: #888">NAME=&quot;Amazon Linux&quot;</span>
+<span style="color: #888">VERSION=&quot;2&quot;</span>
+<span style="color: #888">ID=&quot;amzn&quot;</span>
+<span style="color: #888">ID_LIKE=&quot;centos rhel fedora&quot;</span>
+<span style="color: #888">VERSION_ID=&quot;2&quot;</span>
+<span style="color: #888">PRETTY_NAME=&quot;Amazon Linux 2&quot;</span>
+<span style="color: #888">ANSI_COLOR=&quot;0;33&quot;</span>
+<span style="color: #888">CPE_NAME=&quot;cpe:2.3:o:amazon:amazon_linux:2&quot;</span>
+<span style="color: #888">HOME_URL=&quot;https://amazonlinux.com/&quot;</span>
 </code></pre></div>
 
 <h2 id="cloud-init">cloud-init</h2>
 <h3 id="_2">パスワード設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#cloud-config</span>
-<span style="color: #008000; font-weight: bold">password</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;p@ssword&#39;</span>
-<span style="color: #008000; font-weight: bold">chpasswd</span>:<span style="color: #bbbbbb"> </span>{<span style="color: #008000; font-weight: bold"> expire</span>:<span style="color: #bbbbbb"> </span><span style="color: #B8860B">false</span><span style="color: #bbbbbb"> </span>}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#cloud-config</span>
+<span style="color: #008000; font-weight: bold">password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;p@ssword&#39;</span>
+<span style="color: #008000; font-weight: bold">chpasswd</span>:<span style="color: #BBB"> </span>{<span style="color: #008000; font-weight: bold"> expire</span>:<span style="color: #BBB"> </span><span style="color: #B8860B">false</span><span style="color: #BBB"> </span>}
 </code></pre></div>
 
 <p>記号を含む場合はクォートするのが無難。
 <code>expire: false</code>は初回ログイン時にパスワード変更を行わない。</p>
 <h3 id="ssh">sshのパスワード認証許可</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ssh_pwauth</span>:<span style="color: #bbbbbb"> </span>true
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ssh_pwauth</span>:<span style="color: #BBB"> </span>true
 </code></pre></div>
 
 <h3 id="_3">コマンドの実行</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">runcmd</span>:
--<span style="color: #bbbbbb"> </span>systemctl disable --now ...
+-<span style="color: #BBB"> </span>systemctl disable --now ...
 </code></pre></div>
                 
               

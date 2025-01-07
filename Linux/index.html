@@ -1943,35 +1943,35 @@
 <a href="https://itlogs.net/ubuntu-bootable-usb/">Linux UbuntuのブータブルUSBドライブを作成する手順 | 俺の開発研究所</a></p>
 <h2 id="sudo">sudo</h2>
 <p>パスワード不要にする雑な設定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800"># cat /etc/sudoers.d/nopass </span>
-<span style="color: #00A000">%wheel</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080"># cat /etc/sudoers.d/nopass </span>
+<span style="color: #00A000">%wheel</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
 </code></pre></div>
 
 <p>Debian系はグループ名は<code>wheel</code>でなく<code>sudo</code>になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00A000">%sudo</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00A000">%sudo</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
 </code></pre></div>
 
 <h3 id="_2">コマンドでパス不要設定</h3>
 <p>rhel系</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span>__EOL__<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>sudoers.d<span style="color: #666666">/</span>nopass
-<span style="color: #00A000">%wheel</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #BBB"> </span><span style="color: #666">&lt;&lt;</span>__EOL__<span style="color: #BBB"> </span><span style="color: #666">&gt;</span><span style="color: #BBB"> </span><span style="color: #666">/</span>etc<span style="color: #666">/</span>sudoers.d<span style="color: #666">/</span>nopass
+<span style="color: #00A000">%wheel</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
 __EOL__
 </code></pre></div>
 
 <p>debian系</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span>__EOL__<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span>etc<span style="color: #666666">/</span>sudoers.d<span style="color: #666666">/</span>nopass
-<span style="color: #00A000">%sudo</span><span style="color: #bbbbbb"> </span>ALL<span style="color: #666666">=</span>(ALL)<span style="color: #bbbbbb"> </span>NOPASSWD<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>ALL
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #BBB"> </span><span style="color: #666">&lt;&lt;</span>__EOL__<span style="color: #BBB"> </span><span style="color: #666">&gt;</span><span style="color: #BBB"> </span><span style="color: #666">/</span>etc<span style="color: #666">/</span>sudoers.d<span style="color: #666">/</span>nopass
+<span style="color: #00A000">%sudo</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
 __EOL__
 </code></pre></div>
 
 <h2 id="_3">環境変数</h2>
 <h3 id="_4">設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">export PATH=$PATH:~/bin</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">export PATH=$PATH:~/bin</span>
 </code></pre></div>
 
 <h3 id="_5">削除</h3>
 <p>環境変数<code>EDITOR</code>を削除するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">export -n EDITOR</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">export -n EDITOR</span>
 </code></pre></div>
 
 <p>シェル変数に残るので<code>echo $EDITOR</code>の出力は変化しないが環境変数としては消える。</p>
@@ -2027,30 +2027,30 @@ __EOL__
 <h2 id="grub">GRUB</h2>
 <p>ブートローダーが壊れてgrub rescueモードになった場合。<br />
 まず<code>ls</code>で/bootがあるパーティションを探す。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">grub rescue&gt; ls</span>
-<span style="color: #000080; font-weight: bold">(hd0)</span> <span style="color: #888888">(hd0,gpt3) (hd0,gpt2) (hd0,gpt1)</span>
-<span style="color: #888888">grub rescue&gt; ls (hd0,gpt1)</span>
-<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888888">: Filesystem is unknown.</span>
-<span style="color: #888888">grub rescue&gt; ls (hd0,gpt3)</span>
-<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888888">: Filesystem is ext2.</span>
-<span style="color: #888888">grub rescue&gt; ls (hd0,gpt3)/</span>
-<span style="color: #888888">./ ../ lost+found/ bin boot/ dev/ etc/ home/ lib lib32 lib64 libx32 media/ mnt/</span>
-<span style="color: #888888">opt/ proc/ root/ run/ sbin snap/ srv/ sys/ tmp/ usr/ var/</span>
-<span style="color: #888888">grub rescue&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">grub rescue&gt; ls</span>
+<span style="color: #000080; font-weight: bold">(hd0)</span> <span style="color: #888">(hd0,gpt3) (hd0,gpt2) (hd0,gpt1)</span>
+<span style="color: #888">grub rescue&gt; ls (hd0,gpt1)</span>
+<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888">: Filesystem is unknown.</span>
+<span style="color: #888">grub rescue&gt; ls (hd0,gpt3)</span>
+<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888">: Filesystem is ext2.</span>
+<span style="color: #888">grub rescue&gt; ls (hd0,gpt3)/</span>
+<span style="color: #888">./ ../ lost+found/ bin boot/ dev/ etc/ home/ lib lib32 lib64 libx32 media/ mnt/</span>
+<span style="color: #888">opt/ proc/ root/ run/ sbin snap/ srv/ sys/ tmp/ usr/ var/</span>
+<span style="color: #888">grub rescue&gt;</span>
 </code></pre></div>
 
 <p>みつかったら<code>set prefix</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">grub rescue&gt;set prefix=(hd0,gpt3)/boot/grub</span>
-<span style="color: #888888">grub rescue&gt;set root=(hd0,gpt3)</span>
-<span style="color: #888888">grub rescue&gt;insmod normal</span>
-<span style="color: #888888">grub rescue&gt;insmod linux</span>
-<span style="color: #888888">grub rescue&gt;normal</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">grub rescue&gt;set prefix=(hd0,gpt3)/boot/grub</span>
+<span style="color: #888">grub rescue&gt;set root=(hd0,gpt3)</span>
+<span style="color: #888">grub rescue&gt;insmod normal</span>
+<span style="color: #888">grub rescue&gt;insmod linux</span>
+<span style="color: #888">grub rescue&gt;normal</span>
 </code></pre></div>
 
 <p>これでブートできる。<br />
 Linuxが起動したらGRUBを再インストール</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">sudo update-grub</span>
-<span style="color: #888888">sudo grub-install /dev/sda</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">sudo update-grub</span>
+<span style="color: #888">sudo grub-install /dev/sda</span>
 </code></pre></div>
 
 <h2 id="_8">アップグレード</h2>
@@ -2070,8 +2070,8 @@ Linuxが起動したらGRUBを再インストール</p>
 <li><code>sudo apt-get autoremove</code></li>
 <li><code>sudo do-release-upgrade</code></li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">If you continue, an additional ssh daemon will be started at port &#39;1022&#39;. </span>
-<span style="color: #888888">Do you want to continue? </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">If you continue, an additional ssh daemon will be started at port &#39;1022&#39;. </span>
+<span style="color: #888">Do you want to continue? </span>
 </code></pre></div>
 
 <p>SSH経由だと上記警告が出るが続けるなら続ける。

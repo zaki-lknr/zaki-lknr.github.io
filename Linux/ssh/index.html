@@ -2277,20 +2277,20 @@
                 <h1 id="ssh">ssh関連</h1>
 <h2 id="ssh-client">ssh client</h2>
 <h3 id="ssh_1">鍵指定してssh</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa_nopass<span style="color: #bbbbbb"> </span><span style="color: #666666">192</span>.168.0.31
-<span style="color: #888888">Last login: Tue Aug 11 14:52:32 2020 from 192.168.0.18</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>~/.ssh/id_rsa_nopass<span style="color: #BBB"> </span><span style="color: #666">192</span>.168.0.31
+<span style="color: #888">Last login: Tue Aug 11 14:52:32 2020 from 192.168.0.18</span>
 <span style="color: #000080; font-weight: bold">$ </span>
 </code></pre></div>
 
 <h3 id="config">任意のパスのconfig使用</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #bbbbbb"> </span>-F<span style="color: #bbbbbb"> </span>my-ssh/config<span style="color: #bbbbbb"> </span>user@host
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #BBB"> </span>-F<span style="color: #BBB"> </span>my-ssh/config<span style="color: #BBB"> </span>user@host
 </code></pre></div>
 
 <h3 id="_1">多段アクセス</h3>
 <p>追記: 詳細はこちら -&gt; <a href="https://zaki-hmkc.hatenablog.com/entry/2022/02/03/000245">[Linux] ProxyJump設定でSSHの多段アクセスとscp/ポートフォワード - zaki work log</a></p>
 <p><code>ProxyCommand</code>を使った情報がたくさんヒットするけど、<code>ProxyJump (-J)</code>を使うと簡単。<br />
 ローカルから192.168.0.19→172.16.1.0→172.29.0.89という順でssh多段アクセスしたい場合は、以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #bbbbbb"> </span><span style="color: #666666">172</span>.29.0.89<span style="color: #bbbbbb"> </span>-J<span style="color: #bbbbbb"> </span><span style="color: #666666">192</span>.168.0.19,172.16.1.0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #BBB"> </span><span style="color: #666">172</span>.29.0.89<span style="color: #BBB"> </span>-J<span style="color: #BBB"> </span><span style="color: #666">192</span>.168.0.19,172.16.1.0
 </code></pre></div>
 
 <p>記述の仕方は</p>
@@ -2304,13 +2304,13 @@
 <p><code>-L</code>で普通に指定すればOK。<br />
 機能自体は後述。</p>
 <p>上の多段アクセス例であれば、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #bbbbbb"> </span><span style="color: #666666">172</span>.29.0.89<span style="color: #bbbbbb"> </span>-J<span style="color: #bbbbbb"> </span><span style="color: #666666">192</span>.168.0.19,172.16.1.0<span style="color: #bbbbbb"> </span>-L<span style="color: #bbbbbb"> </span><span style="color: #666666">8899</span>:localhost:8080
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #BBB"> </span><span style="color: #666">172</span>.29.0.89<span style="color: #BBB"> </span>-J<span style="color: #BBB"> </span><span style="color: #666">192</span>.168.0.19,172.16.1.0<span style="color: #BBB"> </span>-L<span style="color: #BBB"> </span><span style="color: #666">8899</span>:localhost:8080
 </code></pre></div>
 
 <p>とすれば、「<code>172.29.0.89</code>から見た<code>localhost:8080</code>」へ対して、「ローカル(sshを実行してる出発点)の<code>localhost:8899</code>」をフォワードする。</p>
 <h3 id="_3">ポートフォワード</h3>
 <h4 id="_4">ローカルフォワード</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #bbbbbb"> </span>rhel8<span style="color: #bbbbbb"> </span>-L<span style="color: #bbbbbb"> </span><span style="color: #666666">25080</span>:10.88.250.10:80
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh<span style="color: #BBB"> </span>rhel8<span style="color: #BBB"> </span>-L<span style="color: #BBB"> </span><span style="color: #666">25080</span>:10.88.250.10:80
 </code></pre></div>
 
 <p><code>rhel8</code>へsshログインしつつ、<code>rhel8</code>から見て<code>10.88.250.10:80</code>へのアクセスをローカルの<code>25080/TCP</code>でListenする。<br />
@@ -2320,50 +2320,50 @@
 <h4 id="_6">切断する</h4>
 <p>リモートホストから切断する。<br />
 ネットワーク機器などでssh経由のコンソール接続などで <code>exit</code> が打てないような場合に使える。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">~.</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">~.</span>
 </code></pre></div>
 
 <h3 id="sshpass">sshpass</h3>
 <h4 id="_7">パスワード認証をバッチ処理</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">sshpass -p $(cat password.txt) ssh user@hostname</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">sshpass -p $(cat password.txt) ssh user@hostname</span>
 </code></pre></div>
 
 <h2 id="sshd">sshd</h2>
 <h3 id="syntax-check">設定ファイルsyntax check</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>sshd<span style="color: #bbbbbb"> </span>-t
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>sshd<span style="color: #BBB"> </span>-t
 </code></pre></div>
 
 <p>規定に無い設定キー(というかゴミ)があったりするとエラーになる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>sshd<span style="color: #bbbbbb"> </span>-t
-<span style="color: #888888">/etc/ssh/sshd_config: line 140: Bad configuration option: a</span>
-<span style="color: #888888">/etc/ssh/sshd_config: terminating, 1 bad configuration options</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>sshd<span style="color: #BBB"> </span>-t
+<span style="color: #888">/etc/ssh/sshd_config: line 140: Bad configuration option: a</span>
+<span style="color: #888">/etc/ssh/sshd_config: terminating, 1 bad configuration options</span>
 </code></pre></div>
 
 <h3 id="_8">有効になる設定のリスト</h3>
 <p>実行する環境の<code>/etc/ssh/sshd_config</code>の結果、どの設定が適用されるかのすべての内容が表示される。<br />
 (<code>/etc/ssh_sshd_config</code>に書かなかったデフォルトの設定含めて出力される)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>sshd<span style="color: #bbbbbb"> </span>-T
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>sshd<span style="color: #BBB"> </span>-T
 </code></pre></div>
 
 <p>デフォルトとの差分を見たい場合は以下で見ようと思えば見れる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>diff<span style="color: #bbbbbb"> </span>-u<span style="color: #bbbbbb"> </span>&lt;<span style="color: #666666">(</span>sshd<span style="color: #bbbbbb"> </span>-T<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>/dev/null<span style="color: #666666">)</span><span style="color: #bbbbbb">  </span>&lt;<span style="color: #666666">(</span>sshd<span style="color: #bbbbbb"> </span>-T<span style="color: #666666">)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>diff<span style="color: #BBB"> </span>-u<span style="color: #BBB"> </span>&lt;<span style="color: #666">(</span>sshd<span style="color: #BBB"> </span>-T<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>/dev/null<span style="color: #666">)</span><span style="color: #BBB">  </span>&lt;<span style="color: #666">(</span>sshd<span style="color: #BBB"> </span>-T<span style="color: #666">)</span>
 </code></pre></div>
 
 <h3 id="_9">ポート番号の変更</h3>
 <p>SELinuxが有効の場合はsshdの設定変更だけでは有効にならない。<br />
 <code>Port 25022</code>を設定したときに、、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>sshd
-Job<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>sshd.service<span style="color: #bbbbbb"> </span>failed<span style="color: #bbbbbb"> </span>because<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>control<span style="color: #bbbbbb"> </span>process<span style="color: #bbbbbb"> </span>exited<span style="color: #bbbbbb"> </span>with<span style="color: #bbbbbb"> </span>error<span style="color: #bbbbbb"> </span>code.<span style="color: #bbbbbb"> </span>See<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;systemctl status sshd.service&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">and</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;journalctl -xe&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>details.
-<span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>journalctl<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span>xe
-sshd[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span>error:<span style="color: #bbbbbb"> </span>Bind<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span><span style="color: #666666">25022</span><span style="color: #bbbbbb"> </span>on<span style="color: #bbbbbb"> </span><span style="color: #666666">0.0.0.0</span><span style="color: #bbbbbb"> </span>failed:<span style="color: #bbbbbb"> </span>Permission<span style="color: #bbbbbb"> </span>denied.
-sshd[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span>error:<span style="color: #bbbbbb"> </span>Bind<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span><span style="color: #666666">25022</span><span style="color: #bbbbbb"> </span>on<span style="color: #bbbbbb"> </span><span style="color: #666666">::</span><span style="color: #bbbbbb"> </span>failed:<span style="color: #bbbbbb"> </span>Permission<span style="color: #bbbbbb"> </span>denied.
-sshd[<span style="color: #666666">20141</span>]:<span style="color: #bbbbbb"> </span>fatal:<span style="color: #bbbbbb"> </span>Cannot<span style="color: #bbbbbb"> </span>bind<span style="color: #bbbbbb"> </span>any<span style="color: #bbbbbb"> </span>address.
-systemd[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </span>sshd.service:<span style="color: #bbbbbb"> </span>main<span style="color: #bbbbbb"> </span>process<span style="color: #bbbbbb"> </span>exited,<span style="color: #bbbbbb"> </span>code=exited,<span style="color: #bbbbbb"> </span>status=<span style="color: #666666">255/</span>n<span style="color: #666666">/</span>a
-systemd[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </span>Failed<span style="color: #bbbbbb"> </span>to<span style="color: #bbbbbb"> </span>start<span style="color: #bbbbbb"> </span>OpenSSH<span style="color: #bbbbbb"> </span>server<span style="color: #bbbbbb"> </span>daemon.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>systemctl<span style="color: #BBB"> </span>restart<span style="color: #BBB"> </span>sshd
+Job<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>sshd.service<span style="color: #BBB"> </span>failed<span style="color: #BBB"> </span>because<span style="color: #BBB"> </span>the<span style="color: #BBB"> </span>control<span style="color: #BBB"> </span>process<span style="color: #BBB"> </span>exited<span style="color: #BBB"> </span>with<span style="color: #BBB"> </span>error<span style="color: #BBB"> </span>code.<span style="color: #BBB"> </span>See<span style="color: #BBB"> </span><span style="color: #B44">&quot;systemctl status sshd.service&quot;</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;journalctl -xe&quot;</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>details.
+<span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>journalctl<span style="color: #BBB"> </span><span style="color: #666">-</span>xe
+sshd[<span style="color: #666">20141</span>]:<span style="color: #BBB"> </span>error:<span style="color: #BBB"> </span>Bind<span style="color: #BBB"> </span>to<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span><span style="color: #666">25022</span><span style="color: #BBB"> </span>on<span style="color: #BBB"> </span><span style="color: #666">0.0.0.0</span><span style="color: #BBB"> </span>failed:<span style="color: #BBB"> </span>Permission<span style="color: #BBB"> </span>denied.
+sshd[<span style="color: #666">20141</span>]:<span style="color: #BBB"> </span>error:<span style="color: #BBB"> </span>Bind<span style="color: #BBB"> </span>to<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span><span style="color: #666">25022</span><span style="color: #BBB"> </span>on<span style="color: #BBB"> </span><span style="color: #666">::</span><span style="color: #BBB"> </span>failed:<span style="color: #BBB"> </span>Permission<span style="color: #BBB"> </span>denied.
+sshd[<span style="color: #666">20141</span>]:<span style="color: #BBB"> </span>fatal:<span style="color: #BBB"> </span>Cannot<span style="color: #BBB"> </span>bind<span style="color: #BBB"> </span>any<span style="color: #BBB"> </span>address.
+systemd[<span style="color: #666">1</span>]:<span style="color: #BBB"> </span>sshd.service:<span style="color: #BBB"> </span>main<span style="color: #BBB"> </span>process<span style="color: #BBB"> </span>exited,<span style="color: #BBB"> </span>code=exited,<span style="color: #BBB"> </span>status=<span style="color: #666">255/</span>n<span style="color: #666">/</span>a
+systemd[<span style="color: #666">1</span>]:<span style="color: #BBB"> </span>Failed<span style="color: #BBB"> </span>to<span style="color: #BBB"> </span>start<span style="color: #BBB"> </span>OpenSSH<span style="color: #BBB"> </span>server<span style="color: #BBB"> </span>daemon.
 </code></pre></div>
 
 <p>こんなエラーが出る場合は、以下を実行。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>semanage<span style="color: #bbbbbb"> </span>port<span style="color: #bbbbbb"> </span>-a<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>ssh_port_t<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>tcp<span style="color: #bbbbbb"> </span><span style="color: #666666">25022</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>semanage<span style="color: #BBB"> </span>port<span style="color: #BBB"> </span>-a<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>ssh_port_t<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>tcp<span style="color: #BBB"> </span><span style="color: #666">25022</span>
 </code></pre></div>
 
 <p>これで<code>systemctl restart sshd</code>が有効になる。
@@ -2374,67 +2374,67 @@ systemd[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </s
 <li><code>-f</code> で作成先鍵ファイル (デフォルトは<code>$HOME/.ssh/id_***</code>)</li>
 <li><code>-N</code> でパスフレーズ (デフォルトは対話的に聞かれる)</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>rsa<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa_nopass<span style="color: #bbbbbb"> </span>-N<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&quot;</span><span style="color: #bbbbbb"> </span>-C<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;comments&quot;</span>
-<span style="color: #888888">Generating public/private rsa key pair.</span>
-<span style="color: #888888">Your identification has been saved in /home/zaki/.ssh/id_rsa_nopass.</span>
-<span style="color: #888888">Your public key has been saved in /home/zaki/.ssh/id_rsa_nopass.pub.</span>
-<span style="color: #888888">The key fingerprint is:</span>
-<span style="color: #888888">SHA256:vDhmhHyGepTu929HGu0oPPKS/2HrJexF97CBWu9k0M4 zaki@cloud-dev</span>
-<span style="color: #888888">The key&#39;s randomart image is:</span>
-<span style="color: #888888">+---[RSA 2048]----+</span>
-<span style="color: #888888">|                 |</span>
-<span style="color: #888888">|                 |</span>
-<span style="color: #888888">|                 |</span>
-<span style="color: #888888">|   . + .     o   |</span>
-<span style="color: #888888">|    * + S  .= =  |</span>
-<span style="color: #888888">|   + + . o.+o* = |</span>
-<span style="color: #888888">|  . o =o. **o E .|</span>
-<span style="color: #888888">|   o o=.+o+*o+   |</span>
-<span style="color: #888888">|    .. *+B*.  .  |</span>
-<span style="color: #888888">+----[SHA256]-----+</span>
-<span style="color: #000080; font-weight: bold">$ </span>ls<span style="color: #bbbbbb"> </span>~/.ssh/
-<span style="color: #888888">id_rsa  id_rsa.pub  id_rsa_nopass  id_rsa_nopass.pub  known_hosts</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>rsa<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.ssh/id_rsa_nopass<span style="color: #BBB"> </span>-N<span style="color: #BBB"> </span><span style="color: #B44">&quot;&quot;</span><span style="color: #BBB"> </span>-C<span style="color: #BBB"> </span><span style="color: #B44">&quot;comments&quot;</span>
+<span style="color: #888">Generating public/private rsa key pair.</span>
+<span style="color: #888">Your identification has been saved in /home/zaki/.ssh/id_rsa_nopass.</span>
+<span style="color: #888">Your public key has been saved in /home/zaki/.ssh/id_rsa_nopass.pub.</span>
+<span style="color: #888">The key fingerprint is:</span>
+<span style="color: #888">SHA256:vDhmhHyGepTu929HGu0oPPKS/2HrJexF97CBWu9k0M4 zaki@cloud-dev</span>
+<span style="color: #888">The key&#39;s randomart image is:</span>
+<span style="color: #888">+---[RSA 2048]----+</span>
+<span style="color: #888">|                 |</span>
+<span style="color: #888">|                 |</span>
+<span style="color: #888">|                 |</span>
+<span style="color: #888">|   . + .     o   |</span>
+<span style="color: #888">|    * + S  .= =  |</span>
+<span style="color: #888">|   + + . o.+o* = |</span>
+<span style="color: #888">|  . o =o. **o E .|</span>
+<span style="color: #888">|   o o=.+o+*o+   |</span>
+<span style="color: #888">|    .. *+B*.  .  |</span>
+<span style="color: #888">+----[SHA256]-----+</span>
+<span style="color: #000080; font-weight: bold">$ </span>ls<span style="color: #BBB"> </span>~/.ssh/
+<span style="color: #888">id_rsa  id_rsa.pub  id_rsa_nopass  id_rsa_nopass.pub  known_hosts</span>
 </code></pre></div>
 
 <h3 id="_12">リモートへ公開鍵コピー</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-copy-id<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa_nopass<span style="color: #bbbbbb"> </span><span style="color: #666666">192</span>.168.0.31
-<span style="color: #888888">/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/home/zaki/.ssh/id_rsa_nopass.pub&quot;</span>
-<span style="color: #888888">The authenticity of host &#39;192.168.0.31 (192.168.0.31)&#39; can&#39;t be established.</span>
-<span style="color: #888888">ECDSA key fingerprint is SHA256:WQpvcX7UfYAmdFIMfhak4pCevQvOjZkIZ/fpE4Sofm4.</span>
-<span style="color: #888888">ECDSA key fingerprint is MD5:97:15:37:72:88:ab:59:01:ad:3c:a2:e9:10:90:11:59.</span>
-<span style="color: #888888">Are you sure you want to continue connecting (yes/no)? yes</span>
-<span style="color: #888888">/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span>
-<span style="color: #888888">/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</span>
-<span style="color: #888888">zaki@192.168.0.31&#39;s password: </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-copy-id<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>~/.ssh/id_rsa_nopass<span style="color: #BBB"> </span><span style="color: #666">192</span>.168.0.31
+<span style="color: #888">/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/home/zaki/.ssh/id_rsa_nopass.pub&quot;</span>
+<span style="color: #888">The authenticity of host &#39;192.168.0.31 (192.168.0.31)&#39; can&#39;t be established.</span>
+<span style="color: #888">ECDSA key fingerprint is SHA256:WQpvcX7UfYAmdFIMfhak4pCevQvOjZkIZ/fpE4Sofm4.</span>
+<span style="color: #888">ECDSA key fingerprint is MD5:97:15:37:72:88:ab:59:01:ad:3c:a2:e9:10:90:11:59.</span>
+<span style="color: #888">Are you sure you want to continue connecting (yes/no)? yes</span>
+<span style="color: #888">/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span>
+<span style="color: #888">/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</span>
+<span style="color: #888">zaki@192.168.0.31&#39;s password: </span>
 
-<span style="color: #888888">Number of key(s) added: 1</span>
+<span style="color: #888">Number of key(s) added: 1</span>
 
-<span style="color: #888888">Now try logging into the machine, with:   &quot;ssh &#39;192.168.0.31&#39;&quot;</span>
-<span style="color: #888888">and check to make sure that only the key(s) you wanted were added.</span>
+<span style="color: #888">Now try logging into the machine, with:   &quot;ssh &#39;192.168.0.31&#39;&quot;</span>
+<span style="color: #888">and check to make sure that only the key(s) you wanted were added.</span>
 
 <span style="color: #000080; font-weight: bold">$</span>
 </code></pre></div>
 
 <h3 id="_13">フィンガープリント確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa.pub
-<span style="color: #888888">4096 SHA256:6Qt0+Nikcx/NpgM4xu/4WnDpqhj8L+OjtDEP5O2a7lw no comment (RSA)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.ssh/id_rsa.pub
+<span style="color: #888">4096 SHA256:6Qt0+Nikcx/NpgM4xu/4WnDpqhj8L+OjtDEP5O2a7lw no comment (RSA)</span>
 </code></pre></div>
 
 <h3 id="_14">秘密鍵から公開鍵を作成</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-y<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-y<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.ssh/id_rsa
 </code></pre></div>
 
 <p>STDOUTへ出力されるので、<code>&gt; id_rsa.pub</code>とかファイルへ出力すればOK</p>
 <h3 id="_15">パスフレーズ変更</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ssh-keygen -f &lt;private-key&gt; -p</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ssh-keygen -f &lt;private-key&gt; -p</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>/path/to/id_rsa<span style="color: #bbbbbb"> </span>-p
-<span style="color: #888888">Enter old passphrase:</span>
-<span style="color: #888888">Key has comment &#39;&#39;</span>
-<span style="color: #888888">Enter new passphrase (empty for no passphrase):</span>
-<span style="color: #888888">Enter same passphrase again:</span>
-<span style="color: #888888">Your identification has been saved with the new passphrase.</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>/path/to/id_rsa<span style="color: #BBB"> </span>-p
+<span style="color: #888">Enter old passphrase:</span>
+<span style="color: #888">Key has comment &#39;&#39;</span>
+<span style="color: #888">Enter new passphrase (empty for no passphrase):</span>
+<span style="color: #888">Enter same passphrase again:</span>
+<span style="color: #888">Your identification has been saved with the new passphrase.</span>
 </code></pre></div>
 
 <p>空入力すればパスフレーズを解除できる</p>
@@ -2445,7 +2445,7 @@ systemd[<span style="color: #666666">1</span>]:<span style="color: #bbbbbb"> </s
 
 <p><code>-m</code>を使うと、形式を指定できる。<br />
 PEM形式であれば以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>PEM
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>PEM
 </code></pre></div>
 
 <p>出力される鍵は以下で始まる。</p>
@@ -2457,49 +2457,49 @@ PEM形式であれば以下の通り。</p>
 <p><code>-p</code>を使ったパスフレーズ更新の際に、<code>-m</code>で鍵形式を指定することで変換できる。<br />
 実行することで鍵ファイルが更新される。<br />
 PEM形式に変換するのであれば以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>PEM<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>PEM<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.ssh/id_rsa
 </code></pre></div>
 
 <p>デフォルトは<code>RFC4716</code>。OpenSSH形式にする場合は、<code>-m RFC4716</code>を指定すればOK</p>
 <h4 id="_19">公開鍵</h4>
 <p>OpenSSH形式(<code>ssh-rsa</code>などで始まる1行の書式) -&gt; PEM形式(<code>BEGIN PUBLIC KEY</code>から<code>END</code>までの複数行形式)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa.pub<span style="color: #bbbbbb"> </span>-e<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>PKCS8
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.ssh/id_rsa.pub<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>PKCS8
 </code></pre></div>
 
 <p>PEM形式 -&gt; OpenSSH形式</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>~/.ssh/id_rsa.pub<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>PKCS8
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.ssh/id_rsa.pub<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>PKCS8
 </code></pre></div>
 
 <p>「OpenSSH形式と〇〇の変換」で、出力(<code>-e</code>export)や入力(<code>-i</code>import)の鍵形式を<code>-m</code>で指定するっぽい。(片方は指定できるがもう片方はOpenSSH形式固定)</p>
 <h3 id="_20">鍵サイズ指定</h3>
 <p><code>-b</code>で指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>rsa<span style="color: #bbbbbb"> </span>-b<span style="color: #bbbbbb"> </span><span style="color: #666666">4096</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-keygen<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>rsa<span style="color: #BBB"> </span>-b<span style="color: #BBB"> </span><span style="color: #666">4096</span>
 </code></pre></div>
 
 <h3 id="ssh-copy-id">ssh-copy-id</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-copy-id<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-i<span style="color: #bbbbbb"> </span>identity_file<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>-p<span style="color: #bbbbbb"> </span>port<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>username@<span style="color: #666666">]</span>hostname
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ssh-copy-id<span style="color: #BBB"> </span><span style="color: #666">[</span>-i<span style="color: #BBB"> </span>identity_file<span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">[</span>-p<span style="color: #BBB"> </span>port<span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">[</span>username@<span style="color: #666">]</span>hostname
 </code></pre></div>
 
 <h2 id="scp">scp</h2>
 <h3 id="_21">メタ文字のエスケープ</h3>
 <p>クォートが無いとエラーになる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp server:&#39;/path/to/file\(...\)&#39; dest</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">scp server:&#39;/path/to/file\(...\)&#39; dest</span>
 </code></pre></div>
 
 <h3 id="_22">ディレクトリのコピー</h3>
 <p><code>-r</code>を付与して再帰コピーする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -r src dst</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">scp -r src dst</span>
 </code></pre></div>
 
 <h3 id="_23">属性維持してコピー</h3>
 <p><code>-p</code>を付与する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -p src dst</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">scp -p src dst</span>
 </code></pre></div>
 
 <h3 id="_24">ワイルドカード</h3>
 <p>リモートのファイル・ディレクトリに対してもワイルドカートは有効。<br />
 ただしローカルに同じパスがあるとローカル側で展開されてしまうのでクォートで囲んでおくのが無難。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">scp -pr 192.168.1.10:&quot;/path/to/file*&quot; .</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">scp -pr 192.168.1.10:&quot;/path/to/file*&quot; .</span>
 </code></pre></div>
 
 <h2 id="_25">その他</h2>

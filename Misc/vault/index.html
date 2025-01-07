@@ -1937,63 +1937,63 @@
                 <h1 id="hashicorp-vault">HashiCorp Vault</h1>
 <h2 id="_1">認証</h2>
 <h3 id="_2">ログイン</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault login [認証トークン]</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault login [認証トークン]</span>
 </code></pre></div>
 
 <h3 id="token">ログイン中のtoken情の報等</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault token lookup</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault token lookup</span>
 </code></pre></div>
 
 <p>トークンを省略すれば対話的に聞いてくる</p>
 <h2 id="_3">初期処理</h2>
 <h3 id="init">init</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault operator init</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault operator init</span>
 </code></pre></div>
 
 <p>Unseal KeyとRoot Tokenが出力されるのでメモしておく</p>
 <h3 id="unseal">unseal</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault operator unseal</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault operator unseal</span>
 </code></pre></div>
 
 <p>Unseal keyの入力を求められるので<code>init</code>実行時に出力されたキーを入力する。<br />
 <code>Sealed  true</code>が<code>Sealed  false</code>になるまで繰り返す。</p>
 <h2 id="secret-engine">secret engine</h2>
 <h3 id="secret">secret一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault secrets list</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault secrets list</span>
 </code></pre></div>
 
 <h3 id="secret-engine_1">secret engineの有効化</h3>
 <p>データ保持用の入れ物を作るイメージ。<br />
 KVシークレットエンジンであれば以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault secrets enable -path=my-secret kv</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault secrets enable -path=my-secret kv</span>
 </code></pre></div>
 
 <p>これで<code>my-secret</code>というパスにKVシークレットエンジンが作成される。</p>
 <h3 id="kv-secret-engine">KV secret engine</h3>
 <h4 id="_4">キー一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv list &lt;secret-engine-name&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault kv list &lt;secret-engine-name&gt;</span>
 </code></pre></div>
 
 <h4 id="_5">データ保存</h4>
 <p>データはkey-value形式。ややこしいけど。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv put -mount=&lt;secret-engine-name&gt; &lt;key-name&gt; key1=value1 key2=value2 ...</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault kv put -mount=&lt;secret-engine-name&gt; &lt;key-name&gt; key1=value1 key2=value2 ...</span>
 </code></pre></div>
 
 <p>これも一緒</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv put &lt;secret-engine-name&gt;/&lt;key-name&gt; key1=value1 key2=value2 ...</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault kv put &lt;secret-engine-name&gt;/&lt;key-name&gt; key1=value1 key2=value2 ...</span>
 </code></pre></div>
 
 <p>繰り返し実行すればversion更新される。</p>
 <h4 id="_6">データ参照</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv get -mount=&lt;secret-engine-name&gt; &lt;key-name&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault kv get -mount=&lt;secret-engine-name&gt; &lt;key-name&gt;</span>
 </code></pre></div>
 
 <p>これも一緒</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">vault kv get &lt;secret-engine-name&gt;/&lt;key-name&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault kv get &lt;secret-engine-name&gt;/&lt;key-name&gt;</span>
 </code></pre></div>
 
 <p>RESTであれば</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -H &quot;X-Vault-Token: ${token}&quot; http://server:port/v1/&lt;secret-engine-name&gt;/data/&lt;key-name&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -H &quot;X-Vault-Token: ${token}&quot; http://server:port/v1/&lt;secret-engine-name&gt;/data/&lt;key-name&gt;</span>
 </code></pre></div>
 
 <p><code>curl -H "X-Vault-Token: ${token}" http://192.168.0.75:8200/v1/kv/data/zzz?version=1</code>とか。<br />

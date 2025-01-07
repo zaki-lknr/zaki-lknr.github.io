@@ -1944,74 +1944,74 @@
 <p>これでtokenが表示される</p>
 <h2 id="api_1">API</h2>
 <h3 id="place-search">Place Search</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
-<span style="color: #888888">     --url https://api.foursquare.com/v3/places/search \</span>
-<span style="color: #888888">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
-<span style="color: #888888">     --header &#39;accept: application/json&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">     --url https://api.foursquare.com/v3/places/search \</span>
+<span style="color: #888">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
+<span style="color: #888">     --header &#39;accept: application/json&#39;</span>
 </code></pre></div>
 
 <p>緯度経度・検索文字列追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
-<span style="color: #888888">     --url &#39;https://api.foursquare.com/v3/places/search?query=%E3%81%8A%E5%8F%B0%E5%A0%B4&amp;ll=35.6325714%2C139.7738516&#39; \</span>
-<span style="color: #888888">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
-<span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">     --url &#39;https://api.foursquare.com/v3/places/search?query=%E3%81%8A%E5%8F%B0%E5%A0%B4&amp;ll=35.6325714%2C139.7738516&#39; \</span>
+<span style="color: #888">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
+<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
 
 <h3 id="get-user-detail">Get User Detail</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
-<span style="color: #888888">     --url &quot;https://api.foursquare.com/v2/users/self?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/users/self?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
 
 <p>任意のユーザーの情報であれば以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
-<span style="color: #888888">     --url &quot;https://api.foursquare.com/v2/users/${USER_ID}?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/users/${USER_ID}?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
 
 <h3 id="get-user-checkins">Get User Checkins</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
-<span style="color: #888888">     --url &quot;https://api.foursquare.com/v2/users/self/checkins?v=20231010&amp;limit=5&amp;offset=0&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888888">     --header &#39;accept: application/json&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/users/self/checkins?v=20231010&amp;limit=5&amp;offset=0&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span style="color: #888">     --header &#39;accept: application/json&#39;</span>
 </code></pre></div>
 
 <p><code>offset</code>から<code>limit</code>件数分のチェックイン一覧。<br />
 レスポンスの基本的な構造は以下の通り。(<code>shout</code>はコメントが無ければキーも無い)</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;checkins&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;count&quot;</span>:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">総チェックイン数</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;items&quot;</span>:<span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">                </span>{
-<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;チェックインID&quot;</span>,
-<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">&quot;shout&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;コメント&quot;</span>,
-<span style="color: #bbbbbb">                    </span><span style="border: 1px solid #FF0000">...</span>
-<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">                        </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ヴェニューID&quot;</span>,
-<span style="color: #bbbbbb">                        </span><span style="color: #008000; font-weight: bold">&quot;name&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ヴェニュー名&quot;</span>,
-<span style="color: #bbbbbb">                        </span><span style="border: 1px solid #FF0000">...</span>
-<span style="color: #bbbbbb">                    </span>},
-<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">                        </span><span style="border: 1px solid #FF0000">...</span>
-<span style="color: #bbbbbb">                    </span>}
-<span style="color: #bbbbbb">                </span>}
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;checkins&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;count&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">総チェックイン数</span>,
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;items&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">                </span>{
+<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;チェックインID&quot;</span>,
+<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;shout&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;コメント&quot;</span>,
+<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">...</span>
+<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">                        </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;ヴェニューID&quot;</span>,
+<span style="color: #BBB">                        </span><span style="color: #008000; font-weight: bold">&quot;name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;ヴェニュー名&quot;</span>,
+<span style="color: #BBB">                        </span><span style="border: 1px solid #F00">...</span>
+<span style="color: #BBB">                    </span>},
+<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">                        </span><span style="border: 1px solid #F00">...</span>
+<span style="color: #BBB">                    </span>}
+<span style="color: #BBB">                </span>}
 }
 </code></pre></div>
 
 <p>このチェックインIDでdetailsを取得する。</p>
 <h4 id="photos">photos</h4>
 <p>photosに関しては以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;count&quot;</span>:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">枚数</span>,
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;items&quot;</span>:<span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">        </span>{
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;...&quot;</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;prefix&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://fastly.4sqi.net/img/general/&quot;</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;suffix&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/.........jpg&quot;</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;width&quot;</span>:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">wid</span><span style="color: #AA22FF; font-weight: bold">t</span><span style="border: 1px solid #FF0000">h</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">&quot;height&quot;</span>:<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">heigh</span><span style="color: #AA22FF; font-weight: bold">t</span>,
-<span style="color: #bbbbbb">        </span>}
-<span style="color: #bbbbbb">    </span>]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;count&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">枚数</span>,
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;items&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">        </span>{
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;...&quot;</span>,
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;prefix&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://fastly.4sqi.net/img/general/&quot;</span>,
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;suffix&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;/.........jpg&quot;</span>,
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;width&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">wid</span><span style="color: #A2F; font-weight: bold">t</span><span style="border: 1px solid #F00">h</span>,
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;height&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">heigh</span><span style="color: #A2F; font-weight: bold">t</span>,
+<span style="color: #BBB">        </span>}
+<span style="color: #BBB">    </span>]
 }
 </code></pre></div>
 
@@ -2019,20 +2019,20 @@
 (厳密にはwidth x heightは指定した値に拡縮・トリミングされる)</p>
 <h4 id="location">location</h4>
 <p>旧シェア文字列のアドレスの「港区, 東京都」は <code>venue.location.formattedAddress</code> に配列要素の一つとしてセットされている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;location&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;address&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;台場一丁目&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;postalCode&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;135-0091&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;cc&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;JP&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;city&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;東京&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;state&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;東京都&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;country&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;日本&quot;</span>,
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;formattedAddress&quot;</span>:<span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;台場一丁目&quot;</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;港区, 東京都&quot;</span>,
-<span style="color: #bbbbbb">            </span><span style="color: #BB4444">&quot;135-0091&quot;</span>
-<span style="color: #bbbbbb">        </span>]
-<span style="color: #bbbbbb">    </span>},
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;location&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;address&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;台場一丁目&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;postalCode&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;135-0091&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;cc&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;JP&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;city&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;東京&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;state&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;東京都&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;country&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;日本&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;formattedAddress&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">            </span><span style="color: #B44">&quot;台場一丁目&quot;</span>,
+<span style="color: #BBB">            </span><span style="color: #B44">&quot;港区, 東京都&quot;</span>,
+<span style="color: #BBB">            </span><span style="color: #B44">&quot;135-0091&quot;</span>
+<span style="color: #BBB">        </span>]
+<span style="color: #BBB">    </span>},
 </code></pre></div>
 
 <p>ただし、<code>location</code>の要素の<code>postalCode</code>が無い場合は3つ目の"135-0091"相当が、<code>address</code>が無い場合は1つ目の"台場一丁目"が無いため、配列要素は固定ではない。<br />
@@ -2040,51 +2040,51 @@
 <p>また、<code>formattedAddress</code>自体が無いヴェニューもある。</p>
 <h3 id="get-check-in-details">Get Check-in Details</h3>
 <p>CheckinsでチェックインのIDが取れたらDetailsでシェア用URLなども取れる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
-<span style="color: #888888">     --url &quot;https://api.foursquare.com/v2/checkins/$CHECKIN_ID?v=20231010&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888888">     --header &#39;accept: application/json&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/checkins/$CHECKIN_ID?v=20231010&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span style="color: #888">     --header &#39;accept: application/json&#39;</span>
 </code></pre></div>
 
 <p>このレスポンスにアクセス可能な<code>response.checkin.checkinShortUrl</code>がある。<br />
 Twitterなどのシェアを有効にしていると<code>shares</code>フィールドが追加される。<br />
 レスポンスの基本的な構造は以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;checkin&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;チェックインID&quot;</span>,
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;shout&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;233日記念日&quot;</span>,
-<span style="color: #bbbbbb">      </span>:
-<span style="color: #bbbbbb">      </span>,
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;user&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">      </span>},
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">      </span>},
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">      </span>},
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;checkinShortUrl&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://www.swarmapp.com/.../checkin/...&quot;</span>,
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">&quot;shares&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">true</span>
-<span style="color: #bbbbbb">      </span>}
-<span style="color: #bbbbbb">    </span>}
-<span style="color: #bbbbbb">  </span>}
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;checkin&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;チェックインID&quot;</span>,
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;shout&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;233日記念日&quot;</span>,
+<span style="color: #BBB">      </span>:
+<span style="color: #BBB">      </span>,
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;user&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">      </span>},
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">      </span>},
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">      </span>},
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;checkinShortUrl&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://www.swarmapp.com/.../checkin/...&quot;</span>,
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;shares&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">true</span>
+<span style="color: #BBB">      </span>}
+<span style="color: #BBB">    </span>}
+<span style="color: #BBB">  </span>}
 }
 </code></pre></div>
 
 <h3 id="get-place-details">Get Place Details</h3>
 <p>APIはv2がすでに無くなりv3を使う必要がある。<br />
 <a href="https://docs.foursquare.com/developer/reference/place-details">Get Place Details</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl --request GET \</span>
-<span style="color: #888888">     --url &quot;https://api.foursquare.com/v3/places/${PLACE_ID}?fields=social_media&quot; \</span>
-<span style="color: #888888">     --header &quot;Authorization: ${FSQ_APP_API_KEY}&quot; \</span>
-<span style="color: #888888">     --header &quot;accept: application/json&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">     --url &quot;https://api.foursquare.com/v3/places/${PLACE_ID}?fields=social_media&quot; \</span>
+<span style="color: #888">     --header &quot;Authorization: ${FSQ_APP_API_KEY}&quot; \</span>
+<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
 
 <p><code>?fields=</code>で返すフィールドを指定できる。<br />
 TwitterIDなどのソーシャルメディア情報であれば<code>?fields=social_media</code>を指定。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;social_media&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;3rdhakatadaruma&quot;</span>
-<span style="color: #bbbbbb">  </span>}
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;social_media&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;3rdhakatadaruma&quot;</span>
+<span style="color: #BBB">  </span>}
 }
 </code></pre></div>
                 

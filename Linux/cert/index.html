@@ -1819,57 +1819,57 @@
 <p>ちなみに<code>/etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt</code>にマージされる。</p>
 <h3 id="debian">Debian系</h3>
 <p><code>/usr/local/share/ca-certificates/</code>以下に同じようにPEM形式の証明書ファイルを配置し<code>update-ca-certificates</code>を実行する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>update-ca-certificates<span style="color: #bbbbbb"> </span>
-Updating<span style="color: #bbbbbb"> </span>certificates<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span>/etc/ssl/certs...
-<span style="color: #666666">1</span><span style="color: #bbbbbb"> </span>added,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span>removed;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">done</span>.
-Running<span style="color: #bbbbbb"> </span>hooks<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span>/etc/ca-certificates/update.d...
-<span style="color: #AA22FF; font-weight: bold">done</span>.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>update-ca-certificates<span style="color: #BBB"> </span>
+Updating<span style="color: #BBB"> </span>certificates<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span>/etc/ssl/certs...
+<span style="color: #666">1</span><span style="color: #BBB"> </span>added,<span style="color: #BBB"> </span><span style="color: #666">0</span><span style="color: #BBB"> </span>removed;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">done</span>.
+Running<span style="color: #BBB"> </span>hooks<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span>/etc/ca-certificates/update.d...
+<span style="color: #A2F; font-weight: bold">done</span>.
 </code></pre></div>
 
 <p>こちらは<code>/etc/ssl/certs/</code>以下に実ファイルへのsymlinkが作成される。</p>
 <h2 id="root-ca">Root CA削除</h2>
 <h3 id="trust">trust</h3>
 <p>RHEL系かな？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@cloud-dev ~]# </span>trust<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">local</span><span style="color: #bbbbbb"> </span>-3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@cloud-dev ~]# </span>trust<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span><span style="color: #A2F">local</span><span style="color: #BBB"> </span>-3
 
-<span style="color: #000080; font-weight: bold">pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%</span>3f;<span style="color: #B8860B">type</span><span style="color: #666666">=</span>cert
-<span style="color: #888888">    type: certificate</span>
-<span style="color: #888888">    label: local.example.org</span>
-<span style="color: #888888">    trust: anchor</span>
-<span style="color: #888888">    category: other-entry</span>
+<span style="color: #000080; font-weight: bold">pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%</span>3f;<span style="color: #B8860B">type</span><span style="color: #666">=</span>cert
+<span style="color: #888">    type: certificate</span>
+<span style="color: #888">    label: local.example.org</span>
+<span style="color: #888">    trust: anchor</span>
+<span style="color: #888">    category: other-entry</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[root<span style="border: 1px solid #FF0000">@</span>cloud<span style="color: #666666">-</span>dev<span style="color: #bbbbbb"> </span><span style="color: #666666">~</span>]<span style="color: #008800; font-style: italic"># trust anchor --remove &quot;pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%3f;type=cert&quot;</span>
-p11<span style="color: #666666">-</span>kit:<span style="color: #bbbbbb"> </span>couldn<span style="color: #BB4444">&#39;t remove read-only certificate</span>
-[root<span style="border: 1px solid #FF0000">@</span>cloud<span style="color: #666666">-</span>dev<span style="color: #bbbbbb"> </span><span style="color: #666666">~</span>]<span style="color: #008800; font-style: italic"># trust anchor --remove /var/tmp/ansible-work/ca.crt </span>
-p11<span style="color: #666666">-</span>kit:<span style="color: #bbbbbb"> </span>couldn<span style="color: #BB4444">&#39;t remove read-only certificate</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[root<span style="border: 1px solid #F00">@</span>cloud<span style="color: #666">-</span>dev<span style="color: #BBB"> </span><span style="color: #666">~</span>]<span style="color: #080; font-style: italic"># trust anchor --remove &quot;pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%3f;type=cert&quot;</span>
+p11<span style="color: #666">-</span>kit:<span style="color: #BBB"> </span>couldn<span style="color: #B44">&#39;t remove read-only certificate</span>
+[root<span style="border: 1px solid #F00">@</span>cloud<span style="color: #666">-</span>dev<span style="color: #BBB"> </span><span style="color: #666">~</span>]<span style="color: #080; font-style: italic"># trust anchor --remove /var/tmp/ansible-work/ca.crt </span>
+p11<span style="color: #666">-</span>kit:<span style="color: #BBB"> </span>couldn<span style="color: #B44">&#39;t remove read-only certificate</span>
 </code></pre></div>
 
 <p>これで消せるらしいんだけど、<code>update-ca-trust</code>で追加してるCAはダメなのかな。。</p>
 <p><a href="https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/8/html/security_hardening/using-shared-system-certificates_security-hardening">第6章 共通システム証明書の使用 Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></p>
 <h3 id="trust_1">trustで追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #bbbbbb"> </span>anchor<span style="color: #bbbbbb"> </span>--store<span style="color: #bbbbbb"> </span>/var/tmp/ansible-work/ca.crt<span style="color: #bbbbbb"> </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #BBB"> </span>anchor<span style="color: #BBB"> </span>--store<span style="color: #BBB"> </span>/var/tmp/ansible-work/ca.crt<span style="color: #BBB"> </span>
 <span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[root<span style="border: 1px solid #FF0000">@</span>rhel8<span style="color: #666666">-</span>ansible<span style="color: #666666">-</span>ctrl<span style="color: #bbbbbb"> </span><span style="color: #666666">~</span>]<span style="border: 1px solid #FF0000">#</span><span style="color: #bbbbbb"> </span>trust<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">|</span><span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>local<span style="color: #bbbbbb"> </span><span style="color: #666666">-3</span>
-pkcs11:id=<span style="color: #666666">%8</span>C<span style="color: #666666">%88%6</span>C<span style="color: #666666">%</span>FB<span style="color: #666666">%9</span>A<span style="color: #666666">%</span>C8<span style="color: #666666">%</span>ED<span style="color: #666666">%0</span>E<span style="color: #666666">%65%</span>DA<span style="color: #666666">%59%30%99%</span>AF<span style="color: #666666">%3</span>D<span style="color: #666666">%</span>FC<span style="color: #666666">%</span>B6<span style="color: #666666">%11%86%73</span>;<span style="color: #AA22FF; font-weight: bold">type</span>=cert
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>certificate
-<span style="color: #bbbbbb">    </span>label:<span style="color: #bbbbbb"> </span>localca.example.org
-<span style="color: #bbbbbb">    </span>trust:<span style="color: #bbbbbb"> </span>anchor
-<span style="color: #bbbbbb">    </span>category:<span style="color: #bbbbbb"> </span>other<span style="color: #666666">-</span>entry
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[root<span style="border: 1px solid #F00">@</span>rhel8<span style="color: #666">-</span>ansible<span style="color: #666">-</span>ctrl<span style="color: #BBB"> </span><span style="color: #666">~</span>]<span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>trust<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span><span style="color: #666">|</span><span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>local<span style="color: #BBB"> </span><span style="color: #666">-3</span>
+pkcs11:id=<span style="color: #666">%8</span>C<span style="color: #666">%88%6</span>C<span style="color: #666">%</span>FB<span style="color: #666">%9</span>A<span style="color: #666">%</span>C8<span style="color: #666">%</span>ED<span style="color: #666">%0</span>E<span style="color: #666">%65%</span>DA<span style="color: #666">%59%30%99%</span>AF<span style="color: #666">%3</span>D<span style="color: #666">%</span>FC<span style="color: #666">%</span>B6<span style="color: #666">%11%86%73</span>;<span style="color: #A2F; font-weight: bold">type</span>=cert
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">type</span>:<span style="color: #BBB"> </span>certificate
+<span style="color: #BBB">    </span>label:<span style="color: #BBB"> </span>localca.example.org
+<span style="color: #BBB">    </span>trust:<span style="color: #BBB"> </span>anchor
+<span style="color: #BBB">    </span>category:<span style="color: #BBB"> </span>other<span style="color: #666">-</span>entry
 </code></pre></div>
 
 <p><code>trust anchor --store</code>で追加したのであれば</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">local</span><span style="color: #bbbbbb"> </span>-3
-<span style="color: #000080; font-weight: bold">pkcs11:id=%8C%88%6C%FB%9A%C8%ED%0E%65%DA%59%30%99%AF%3D%FC%B6%11%86%</span><span style="color: #666666">73</span>;<span style="color: #B8860B">type</span><span style="color: #666666">=</span>cert
-<span style="color: #888888">    type: certificate</span>
-<span style="color: #888888">    label: localca.example.org</span>
-<span style="color: #888888">    trust: anchor</span>
-<span style="color: #888888">    category: other-entry</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span><span style="color: #A2F">local</span><span style="color: #BBB"> </span>-3
+<span style="color: #000080; font-weight: bold">pkcs11:id=%8C%88%6C%FB%9A%C8%ED%0E%65%DA%59%30%99%AF%3D%FC%B6%11%86%</span><span style="color: #666">73</span>;<span style="color: #B8860B">type</span><span style="color: #666">=</span>cert
+<span style="color: #888">    type: certificate</span>
+<span style="color: #888">    label: localca.example.org</span>
+<span style="color: #888">    trust: anchor</span>
+<span style="color: #888">    category: other-entry</span>
 
-<span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #bbbbbb"> </span>anchor<span style="color: #bbbbbb"> </span>--remove<span style="color: #bbbbbb"> </span>/var/tmp/ansible-work/ca.crt<span style="color: #bbbbbb"> </span>
-<span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">local</span><span style="color: #bbbbbb"> </span>-3
+<span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #BBB"> </span>anchor<span style="color: #BBB"> </span>--remove<span style="color: #BBB"> </span>/var/tmp/ansible-work/ca.crt<span style="color: #BBB"> </span>
+<span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>trust<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span><span style="color: #A2F">local</span><span style="color: #BBB"> </span>-3
 <span style="color: #000080; font-weight: bold">[root@rhel8-ansible-ctrl ~]# </span>
 </code></pre></div>
 

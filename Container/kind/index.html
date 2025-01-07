@@ -1768,59 +1768,59 @@
 </ul>
 <h2 id="_1">クラスタ作成</h2>
 <p>基本 (<code>kind</code>という名前のクラスタを作成すｒ)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>cluster
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #BBB"> </span>create<span style="color: #BBB"> </span>cluster
 </code></pre></div>
 
 <p>名前指定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>cluster<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>sample-cluster
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #BBB"> </span>create<span style="color: #BBB"> </span>cluster<span style="color: #BBB"> </span>--name<span style="color: #BBB"> </span>sample-cluster
 </code></pre></div>
 
 <h2 id="_2">停止</h2>
 <p>kindクラスタの停止は無い。<br />
 クラスタを削除するか、ノードとして動作してるコンテナを停止する。</p>
 <p>コンテナを停止するには<code>docker stop</code>するが、停止対象コンテナは<code>kind get nodes</code>で取得できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>nodes
-<span style="color: #888888">kind-control-plane</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>nodes
+<span style="color: #888">kind-control-plane</span>
 </code></pre></div>
 
 <p>引数無しの場合は、デフォルト設定で作成したクラスタ名<code>kind</code>のノードになる。<br />
 クラスタ名を指定する場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>nodes<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>cluster-name
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>nodes<span style="color: #BBB"> </span>--name<span style="color: #BBB"> </span>cluster-name
 </code></pre></div>
 
 <p>この結果を<code>docker stop</code>に渡すために、全体としてはこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>nodes<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>cluster-name<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>xargs<span style="color: #bbbbbb"> </span>docker<span style="color: #bbbbbb"> </span>stop
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>nodes<span style="color: #BBB"> </span>--name<span style="color: #BBB"> </span>cluster-name<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>xargs<span style="color: #BBB"> </span>docker<span style="color: #BBB"> </span>stop
 </code></pre></div>
 
 <h2 id="_3">マルチノード</h2>
 <p>ノード設定用のファイル作成する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Cluster
-<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>kind.x-k8s.io/v1alpha4
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># three node (two workers) cluster config</span>
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Cluster
+<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #BBB"> </span>kind.x-k8s.io/v1alpha4
 <span style="color: #008000; font-weight: bold">nodes</span>:
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>control-plane
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>control-plane
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>worker
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>worker
 </code></pre></div>
 
 <p>で、このファイルを指定してクラスタ作成する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #bbbbbb"> </span>create<span style="color: #bbbbbb"> </span>cluster<span style="color: #bbbbbb"> </span>--config<span style="color: #bbbbbb"> </span>kind-config.yaml
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kind<span style="color: #BBB"> </span>create<span style="color: #BBB"> </span>cluster<span style="color: #BBB"> </span>--config<span style="color: #BBB"> </span>kind-config.yaml
 </code></pre></div>
 
 <h2 id="_4">クラスタバージョンの指定</h2>
 <p><a href="https://github.com/kubernetes-sigs/kind/releases">Releases · kubernetes-sigs/kind</a></p>
 <p>リリースノートに各種バージョンのコンテナIDの記載があるのでそれを指定する。<br />
 v1.19ならこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic"># three node (two workers) cluster config</span>
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #bbbbbb"> </span>Cluster
-<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #bbbbbb"> </span>kind.x-k8s.io/v1alpha4
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># three node (two workers) cluster config</span>
+<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Cluster
+<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #BBB"> </span>kind.x-k8s.io/v1alpha4
 <span style="color: #008000; font-weight: bold">nodes</span>:
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>control-plane
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #bbbbbb"> </span>worker
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>control-plane
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>worker
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">role</span>:<span style="color: #BBB"> </span>worker
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>kindest/node:v1.19.11@sha256:07db187ae84b4b7de440a73886f008cf903fcf5764ba8106a9fd5243d6f32729
 </code></pre></div>
                 
               

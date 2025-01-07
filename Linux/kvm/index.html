@@ -1776,34 +1776,34 @@
                 
                 <h1 id="kvm">KVM</h1>
 <h2 id="_1">一覧</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>--all
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span>--all
 </code></pre></div>
 
 <h2 id="vm">VMの起動</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #bbbbbb"> </span>start<span style="color: #bbbbbb"> </span>&lt;domain-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>start<span style="color: #BBB"> </span>&lt;domain-name&gt;
 </code></pre></div>
 
 <h2 id="vm_1">実行中VMへコンソール接続</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #bbbbbb"> </span>console<span style="color: #bbbbbb"> </span>&lt;domain-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>console<span style="color: #BBB"> </span>&lt;domain-name&gt;
 </code></pre></div>
 
 <p>VM(domain)名は<code>list</code>で確認する。</p>
 <h2 id="_2">停止</h2>
 <p>シャットダウンするには<code>shutdown</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #bbbbbb"> </span>shutdown<span style="color: #bbbbbb"> </span>&lt;domain-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>shutdown<span style="color: #BBB"> </span>&lt;domain-name&gt;
 </code></pre></div>
 
 <p>強制停止は<code>destroy</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #bbbbbb"> </span>destroy<span style="color: #bbbbbb"> </span>&lt;domain-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>destroy<span style="color: #BBB"> </span>&lt;domain-name&gt;
 </code></pre></div>
 
 <h2 id="_3">自動起動</h2>
 <p>有効化</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #bbbbbb"> </span>autostart<span style="color: #bbbbbb"> </span>&lt;domain-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>autostart<span style="color: #BBB"> </span>&lt;domain-name&gt;
 </code></pre></div>
 
 <p>無効化</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #bbbbbb"> </span>autostart<span style="color: #bbbbbb"> </span>--disable<span style="color: #bbbbbb"> </span>&lt;domain-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>autostart<span style="color: #BBB"> </span>--disable<span style="color: #BBB"> </span>&lt;domain-name&gt;
 </code></pre></div>
 
 <p>確認は<code>virsh dominfo &lt;domain-name&gt;</code>かな？</p>

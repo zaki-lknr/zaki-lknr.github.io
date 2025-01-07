@@ -1932,7 +1932,7 @@
 <p><a href="http://blog.keshi.org/hogememo/2015/12/07/exploiting-ansible-jinja2">ほげめも: Ansible の Jinja2 を活用する</a></p>
 </blockquote>
 <p>辞書をリストの要素として追加は普通にOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #FF0000">{</span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">set</span><span style="color: #bbbbbb"> </span>_<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>host_list.append(<span style="border: 1px solid #FF0000">{</span><span style="color: #BB4444">&#39;host&#39;</span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">host</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;name&#39;</span><span style="border: 1px solid #FF0000">:</span><span style="color: #bbbbbb"> </span>hostvars<span style="color: #666666">[</span>host<span style="color: #666666">]</span>.tags.<span style="color: #AA22FF; font-weight: bold">User</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">}</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="border: 1px solid #FF0000">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">{</span><span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">set</span><span style="color: #BBB"> </span>_<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>host_list.append(<span style="border: 1px solid #F00">{</span><span style="color: #B44">&#39;host&#39;</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">host</span>,<span style="color: #BBB"> </span><span style="color: #B44">&#39;name&#39;</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>hostvars<span style="color: #666">[</span>host<span style="color: #666">]</span>.tags.<span style="color: #A2F; font-weight: bold">User</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">}</span>)<span style="color: #BBB"> </span><span style="color: #666">%</span><span style="border: 1px solid #F00">}</span>
 </code></pre></div>
 
 <h2 id="_5">制御構文</h2>
@@ -1952,37 +1952,37 @@
 
 <p>複数行もOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{#
-{<span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">item</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">in</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">list</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span>}
-{<span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">endfor</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span>}
+{<span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span><span style="color: #B8860B">item</span><span style="color: #BBB"> </span><span style="color: #B8860B">in</span><span style="color: #BBB"> </span><span style="color: #B8860B">list</span><span style="color: #BBB"> </span><span style="color: #666">%</span>}
+{<span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #B8860B">endfor</span><span style="color: #BBB"> </span><span style="color: #666">%</span>}
 #}
 </code></pre></div>
 
 <h2 id="lookup">lookupプラグイン実行</h2>
 <p>playbook等で書くときと同じ要領で記述可能</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{{</span> <span style="color: #B8860B">lookup</span><span style="color: #666666">(</span><span style="color: #BB4444">&#39;pipe&#39;</span><span style="color: #666666">,</span> <span style="color: #BB4444">&#39;date +%s&#39;</span><span style="color: #666666">)</span> <span style="color: #008800">}}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{{</span> <span style="color: #B8860B">lookup</span><span style="color: #666">(</span><span style="color: #B44">&#39;pipe&#39;</span><span style="color: #666">,</span> <span style="color: #B44">&#39;date +%s&#39;</span><span style="color: #666">)</span> <span style="color: #080">}}</span>
 </code></pre></div>
 
 <h2 id="_9">指定部分へのフィルタの実行</h2>
 <h3 id="indent">indent()</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800">{%</span> <span style="color: #AA22FF; font-weight: bold">filter</span> <span style="color: #00A000">indent</span><span style="color: #666666">(4,</span> <span style="color: #AA22FF">true</span><span style="color: #666666">)</span> <span style="color: #008800">%}</span>
-<span style="color: #008800">{{</span> <span style="color: #B8860B">sample_string</span> <span style="color: #008800">}}</span>
-<span style="color: #008800">{%</span> <span style="color: #AA22FF; font-weight: bold">endfilter</span> <span style="color: #008800">%}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{%</span> <span style="color: #A2F; font-weight: bold">filter</span> <span style="color: #00A000">indent</span><span style="color: #666">(4,</span> <span style="color: #A2F">true</span><span style="color: #666">)</span> <span style="color: #080">%}</span>
+<span style="color: #080">{{</span> <span style="color: #B8860B">sample_string</span> <span style="color: #080">}}</span>
+<span style="color: #080">{%</span> <span style="color: #A2F; font-weight: bold">endfilter</span> <span style="color: #080">%}</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">sample_string</span>:<span style="color: #bbbbbb"> </span>|
-<span style="color: #bbbbbb">      </span><span style="color: #880000">int main() {</span>
-<span style="color: #bbbbbb">        </span><span style="color: #880000">return 0;</span>
-<span style="color: #bbbbbb">      </span><span style="color: #880000">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">sample_string</span>:<span style="color: #BBB"> </span>|
+<span style="color: #BBB">      </span><span style="color: #800">int main() {</span>
+<span style="color: #BBB">        </span><span style="color: #800">return 0;</span>
+<span style="color: #BBB">      </span><span style="color: #800">}</span>
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>j2 saple
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">template</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #bbbbbb"> </span>indent_sample.txt.j2
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #bbbbbb"> </span>/var/tmp/indent_sample.txt
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>j2 saple
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">template</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #BBB"> </span>indent_sample.txt.j2
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #BBB"> </span>/var/tmp/indent_sample.txt
 </code></pre></div>
 
 <p>実行結果は以下の通り、スペース4文字分のインデントが入る。</p>

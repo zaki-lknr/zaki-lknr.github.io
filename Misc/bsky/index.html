@@ -1793,59 +1793,59 @@ Get Startedにコード例がある。</p>
 <p><a href="https://docs.bsky.app/docs/get-started">Get Started | Bluesky</a></p>
 <h3 id="_2">セッション作成</h3>
 <p><code>$BLUESKY_HANDLE</code>はユーザー名(<your-id>.bsky.socialとか)、<code>$BLUESKY_PASSWORD</code>はアプリパスワード</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -X POST https://bsky.social/xrpc/com.atproto.server.createSession \</span>
-<span style="color: #888888">    -H &quot;Content-Type: application/json&quot; \</span>
-<span style="color: #888888">    -d &#39;{&quot;identifier&quot;: &quot;&#39;&quot;$BLUESKY_HANDLE&quot;&#39;&quot;, &quot;password&quot;: &quot;&#39;&quot;$BLUESKY_PASSWORD&quot;&#39;&quot;}&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -X POST https://bsky.social/xrpc/com.atproto.server.createSession \</span>
+<span style="color: #888">    -H &quot;Content-Type: application/json&quot; \</span>
+<span style="color: #888">    -d &#39;{&quot;identifier&quot;: &quot;&#39;&quot;$BLUESKY_HANDLE&quot;&#39;&quot;, &quot;password&quot;: &quot;&#39;&quot;$BLUESKY_PASSWORD&quot;&#39;&quot;}&#39;</span>
 </code></pre></div>
 
 <p>成功すれば、レスポンスのJSONに<code>accessJwt</code>というキーがあり、この値が投稿を行う際のベアラトークンとなる。</p>
 <p>JavaScriptの場合は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #008800; font-style: italic">// user_id: ユーザーID</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008800; font-style: italic">// password: アプリパスワード</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>url<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://bsky.social/xrpc/com.atproto.server.createSession&quot;</span>;
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>headers<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Headers();
-<span style="color: #bbbbbb">    </span>headers.append(<span style="color: #BB4444">&#39;Content-Type&#39;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;application/json&#39;</span>);
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #080; font-style: italic">// user_id: ユーザーID</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic">// password: アプリパスワード</span>
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>url<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;https://bsky.social/xrpc/com.atproto.server.createSession&quot;</span>;
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>headers<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">new</span><span style="color: #BBB"> </span>Headers();
+<span style="color: #BBB">    </span>headers.append(<span style="color: #B44">&#39;Content-Type&#39;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&#39;application/json&#39;</span>);
 
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>body<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">JSON</span>.stringify({
-<span style="color: #bbbbbb">        </span>identifier<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>user_id,
-<span style="color: #bbbbbb">        </span>password<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>password
-<span style="color: #bbbbbb">    </span>});
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>body<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F">JSON</span>.stringify({
+<span style="color: #BBB">        </span>identifier<span style="color: #666">:</span><span style="color: #BBB"> </span>user_id,
+<span style="color: #BBB">        </span>password<span style="color: #666">:</span><span style="color: #BBB"> </span>password
+<span style="color: #BBB">    </span>});
 
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">await</span><span style="color: #bbbbbb"> </span>fetch(url,<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span>method<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;POST&quot;</span>,<span style="color: #bbbbbb"> </span>body<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>body,<span style="color: #bbbbbb"> </span>headers<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>headers<span style="color: #bbbbbb"> </span>});
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>res<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">await</span><span style="color: #BBB"> </span>fetch(url,<span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>method<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;POST&quot;</span>,<span style="color: #BBB"> </span>body<span style="color: #666">:</span><span style="color: #BBB"> </span>body,<span style="color: #BBB"> </span>headers<span style="color: #666">:</span><span style="color: #BBB"> </span>headers<span style="color: #BBB"> </span>});
 
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>response<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">await</span><span style="color: #bbbbbb"> </span>res.json();
-<span style="color: #bbbbbb">    </span>console.log(response.accessJwt);
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>response<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">await</span><span style="color: #BBB"> </span>res.json();
+<span style="color: #BBB">    </span>console.log(response.accessJwt);
 </code></pre></div>
 
 <h3 id="_3">投稿</h3>
 <p>エンドポイントは<code>com.atproto.repo.createRecord</code>で、<code>$ACCESS_JWT</code>はセッション作成で得た<code>accessJwt</code>の値。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -X POST https://bsky.social/xrpc/com.atproto.repo.createRecord \</span>
-<span style="color: #888888">    -H &quot;Authorization: Bearer $ACCESS_JWT&quot; \</span>
-<span style="color: #888888">    -H &quot;Content-Type: application/json&quot; \</span>
-<span style="color: #888888">    -d &quot;{\&quot;repo\&quot;: \&quot;$BLUESKY_HANDLE\&quot;, \&quot;collection\&quot;: \&quot;app.bsky.feed.post\&quot;, \&quot;record\&quot;: {\&quot;text\&quot;: \&quot;Hello world! I posted this via the API.\&quot;, \&quot;createdAt\&quot;: \&quot;$(date -u +%Y-%m-%dT%H:%M:%SZ)\&quot;}}&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -X POST https://bsky.social/xrpc/com.atproto.repo.createRecord \</span>
+<span style="color: #888">    -H &quot;Authorization: Bearer $ACCESS_JWT&quot; \</span>
+<span style="color: #888">    -H &quot;Content-Type: application/json&quot; \</span>
+<span style="color: #888">    -d &quot;{\&quot;repo\&quot;: \&quot;$BLUESKY_HANDLE\&quot;, \&quot;collection\&quot;: \&quot;app.bsky.feed.post\&quot;, \&quot;record\&quot;: {\&quot;text\&quot;: \&quot;Hello world! I posted this via the API.\&quot;, \&quot;createdAt\&quot;: \&quot;$(date -u +%Y-%m-%dT%H:%M:%SZ)\&quot;}}&quot;</span>
 </code></pre></div>
 
 <p><code>createdAt</code>には実行時のタイムスタンプをセットする必要がある。<br />
 上記サンプルは秒までだが、ミリ秒が入っていてもかまわない。</p>
 <p>JavaScriptの場合は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #008800; font-style: italic">// accessJwt: session id</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008800; font-style: italic">// user_id: ユーザーID</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008800; font-style: italic">// message: 投稿メッセージ本文</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>url<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;https://bsky.social/xrpc/com.atproto.repo.createRecord&quot;</span>;
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>headers<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Headers();
-<span style="color: #bbbbbb">    </span>headers.append(<span style="color: #BB4444">&#39;Authorization&#39;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;Bearer &quot;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>accessJwt);
-<span style="color: #bbbbbb">    </span>headers.append(<span style="color: #BB4444">&#39;Content-Type&#39;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;application/json&#39;</span>);
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #080; font-style: italic">// accessJwt: session id</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic">// user_id: ユーザーID</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic">// message: 投稿メッセージ本文</span>
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>url<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;https://bsky.social/xrpc/com.atproto.repo.createRecord&quot;</span>;
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>headers<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">new</span><span style="color: #BBB"> </span>Headers();
+<span style="color: #BBB">    </span>headers.append(<span style="color: #B44">&#39;Authorization&#39;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;Bearer &quot;</span><span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span>accessJwt);
+<span style="color: #BBB">    </span>headers.append(<span style="color: #B44">&#39;Content-Type&#39;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&#39;application/json&#39;</span>);
 
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>body<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">JSON</span>.stringify({
-<span style="color: #bbbbbb">        </span>repo<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>user_id,
-<span style="color: #bbbbbb">        </span>collection<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;app.bsky.feed.post&quot;</span>,
-<span style="color: #bbbbbb">        </span>record<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">            </span>text<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>message,
-<span style="color: #bbbbbb">            </span>createdAt<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Date</span>().toISOString(),
-<span style="color: #bbbbbb">        </span>}
-<span style="color: #bbbbbb">    </span>});
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">let</span><span style="color: #BBB"> </span>body<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F">JSON</span>.stringify({
+<span style="color: #BBB">        </span>repo<span style="color: #666">:</span><span style="color: #BBB"> </span>user_id,
+<span style="color: #BBB">        </span>collection<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;app.bsky.feed.post&quot;</span>,
+<span style="color: #BBB">        </span>record<span style="color: #666">:</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">            </span>text<span style="color: #666">:</span><span style="color: #BBB"> </span>message,
+<span style="color: #BBB">            </span>createdAt<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">new</span><span style="color: #BBB"> </span><span style="color: #A2F">Date</span>().toISOString(),
+<span style="color: #BBB">        </span>}
+<span style="color: #BBB">    </span>});
 
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">await</span><span style="color: #bbbbbb"> </span>fetch(url,<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span>method<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;POST&quot;</span>,<span style="color: #bbbbbb"> </span>body<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>body,<span style="color: #bbbbbb"> </span>headers<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>headers<span style="color: #bbbbbb"> </span>});
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>res<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">await</span><span style="color: #BBB"> </span>fetch(url,<span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>method<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;POST&quot;</span>,<span style="color: #BBB"> </span>body<span style="color: #666">:</span><span style="color: #BBB"> </span>body,<span style="color: #BBB"> </span>headers<span style="color: #666">:</span><span style="color: #BBB"> </span>headers<span style="color: #BBB"> </span>});
 </code></pre></div>
 
 <h3 id="_4">リンク付き</h3>
@@ -1853,42 +1853,42 @@ Get Startedにコード例がある。</p>
 セッションを作成するところは同じで、投稿時のリクエストBodyのパラメタが増える。<br />
 <code>facets</code>に指定する位置とURLが本文テキスト中のリンクになる仕様のため、本文にURLがある必要はない。</p>
 <p><a href="https://docs.bsky.app/docs/advanced-guides/post-richtext">Links, mentions, and rich text | Bluesky</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">let</span><span style="color: #bbbbbb"> </span>body<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">JSON</span>.stringify({
-<span style="color: #bbbbbb">    </span>repo<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>user_id,
-<span style="color: #bbbbbb">    </span>collection<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;app.bsky.feed.post&quot;</span>,
-<span style="color: #bbbbbb">    </span>record<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">        </span>text<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>message,
-<span style="color: #bbbbbb">        </span>createdAt<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Date</span>().toISOString(),
-<span style="color: #bbbbbb">        </span>facets<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[
-<span style="color: #bbbbbb">            </span>{
-<span style="color: #bbbbbb">                </span>index<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">                    </span>byteStart<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">＜</span>message中のリンクURLの開始バイト位置<span style="border: 1px solid #FF0000">＞</span>,
-<span style="color: #bbbbbb">                    </span>byteEnd<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">＜</span>message中のリンクURLの終了バイト位置<span style="border: 1px solid #FF0000">＞</span>
-<span style="color: #bbbbbb">                </span>},
-<span style="color: #bbbbbb">                </span>features<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>[{
-<span style="color: #bbbbbb">                    </span>$type<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;app.bsky.richtext.facet#link&#39;</span>,
-<span style="color: #bbbbbb">                    </span>uri<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">＜</span>URL<span style="border: 1px solid #FF0000">＞</span>
-<span style="color: #bbbbbb">                </span>}]
-<span style="color: #bbbbbb">            </span>}
-<span style="color: #bbbbbb">        </span>]
-<span style="color: #bbbbbb">    </span>}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">let</span><span style="color: #BBB"> </span>body<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F">JSON</span>.stringify({
+<span style="color: #BBB">    </span>repo<span style="color: #666">:</span><span style="color: #BBB"> </span>user_id,
+<span style="color: #BBB">    </span>collection<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;app.bsky.feed.post&quot;</span>,
+<span style="color: #BBB">    </span>record<span style="color: #666">:</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span>text<span style="color: #666">:</span><span style="color: #BBB"> </span>message,
+<span style="color: #BBB">        </span>createdAt<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">new</span><span style="color: #BBB"> </span><span style="color: #A2F">Date</span>().toISOString(),
+<span style="color: #BBB">        </span>facets<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[
+<span style="color: #BBB">            </span>{
+<span style="color: #BBB">                </span>index<span style="color: #666">:</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">                    </span>byteStart<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">＜</span>message中のリンクURLの開始バイト位置<span style="border: 1px solid #F00">＞</span>,
+<span style="color: #BBB">                    </span>byteEnd<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">＜</span>message中のリンクURLの終了バイト位置<span style="border: 1px solid #F00">＞</span>
+<span style="color: #BBB">                </span>},
+<span style="color: #BBB">                </span>features<span style="color: #666">:</span><span style="color: #BBB"> </span>[{
+<span style="color: #BBB">                    </span>$type<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;app.bsky.richtext.facet#link&#39;</span>,
+<span style="color: #BBB">                    </span>uri<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">＜</span>URL<span style="border: 1px solid #F00">＞</span>
+<span style="color: #BBB">                </span>}]
+<span style="color: #BBB">            </span>}
+<span style="color: #BBB">        </span>]
+<span style="color: #BBB">    </span>}
 });
 
-<span style="color: #AA22FF; font-weight: bold">await</span><span style="color: #bbbbbb"> </span>fetch(url,<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span>method<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;POST&quot;</span>,<span style="color: #bbbbbb"> </span>body<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>body,<span style="color: #bbbbbb"> </span>headers<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>headers<span style="color: #bbbbbb"> </span>});
+<span style="color: #A2F; font-weight: bold">await</span><span style="color: #BBB"> </span>fetch(url,<span style="color: #BBB"> </span>{<span style="color: #BBB"> </span>method<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;POST&quot;</span>,<span style="color: #BBB"> </span>body<span style="color: #666">:</span><span style="color: #BBB"> </span>body,<span style="color: #BBB"> </span>headers<span style="color: #666">:</span><span style="color: #BBB"> </span>headers<span style="color: #BBB"> </span>});
 </code></pre></div>
 
 <h3 id="via">クライアント名(via)</h3>
 <p>公式にはないパラメタで、一部のクライアントが非公式に使っている。<br />
 <code>via</code>に指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>body<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span>repo<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>bsky_id,
-<span style="color: #bbbbbb">    </span>collection<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;app.bsky.feed.post&quot;</span>,
-<span style="color: #bbbbbb">    </span>record<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">        </span>text<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>message,
-<span style="color: #bbbbbb">        </span>createdAt<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">Date</span>().toISOString(),
-<span style="color: #bbbbbb">        </span>$type<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;app.bsky.feed.post&quot;</span>,
-<span style="color: #bbbbbb">        </span>via<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;NJGK&#39;</span>
-<span style="color: #bbbbbb">    </span>}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>body<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span>repo<span style="color: #666">:</span><span style="color: #BBB"> </span>bsky_id,
+<span style="color: #BBB">    </span>collection<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;app.bsky.feed.post&quot;</span>,
+<span style="color: #BBB">    </span>record<span style="color: #666">:</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span>text<span style="color: #666">:</span><span style="color: #BBB"> </span>message,
+<span style="color: #BBB">        </span>createdAt<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">new</span><span style="color: #BBB"> </span><span style="color: #A2F">Date</span>().toISOString(),
+<span style="color: #BBB">        </span>$type<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;app.bsky.feed.post&quot;</span>,
+<span style="color: #BBB">        </span>via<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;NJGK&#39;</span>
+<span style="color: #BBB">    </span>}
 };
 </code></pre></div>
                 

@@ -1788,20 +1788,20 @@
                 
                 <h1 id="docker">Docker設定</h1>
 <h2 id="insecure">insecureなレジストリ設定</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
 </code></pre></div>
 
 <p>ローカルに立てたレジストリとかでこんなエラーが出る場合。<br />
 <code>/etc/docker/daemon.json</code>に、TLS検証を無視したいサイトを以下のように追加</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">&quot;insecure-registries&quot;</span><span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;gitlab-ce.example.org:25000&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;gitlab-ce.local:25000&quot;</span><span style="color: #bbbbbb"> </span>]
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;insecure-registries&quot;</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;gitlab-ce.example.org:25000&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;gitlab-ce.local:25000&quot;</span><span style="color: #BBB"> </span>]
 }
 </code></pre></div>
 
 <h2 id="dns">DNS</h2>
 <p>コンテナ内で使用するDNS設定を指定するには、<code>--dns</code>を指定するか、ホストの<code>/etc/docker/daemon.json</code>で一律指定する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;dns&quot;</span>:<span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;8.8.8.8&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;8.8.4.4&quot;</span>]
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;dns&quot;</span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;8.8.8.8&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;8.8.4.4&quot;</span>]
 }
 </code></pre></div>
 
@@ -1809,13 +1809,13 @@
 <h3 id="docker-engineproxy">Docker Engineのproxy設定</h3>
 <p><a href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">HTTP/HTTPS proxy</a></p>
 <p>systemdのユニットファイルの設定に変数設定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>mkdir<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span>/etc/systemd/system/docker.service.d
-<span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>/etc/systemd/system/docker.service.d/http-proxy.conf
-<span style="color: #888888">[Service]</span>
-<span style="color: #888888">Environment=&quot;HTTP_PROXY=http://proxy.example.com:8080&quot;</span>
-<span style="color: #888888">Environment=&quot;HTTPS_PROXY=http://proxy.example.com:8080&quot;</span>
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>daemon-reload
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>systemctl<span style="color: #bbbbbb"> </span>restart<span style="color: #bbbbbb"> </span>docker
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>mkdir<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>/etc/systemd/system/docker.service.d
+<span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>/etc/systemd/system/docker.service.d/http-proxy.conf
+<span style="color: #888">[Service]</span>
+<span style="color: #888">Environment=&quot;HTTP_PROXY=http://proxy.example.com:8080&quot;</span>
+<span style="color: #888">Environment=&quot;HTTPS_PROXY=http://proxy.example.com:8080&quot;</span>
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>systemctl<span style="color: #BBB"> </span>daemon-reload
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>systemctl<span style="color: #BBB"> </span>restart<span style="color: #BBB"> </span>docker
 </code></pre></div>
 
 <p>これでproxy環境下にあるホストノード上で<code>docker pull</code>などできる。</p>
@@ -1824,14 +1824,14 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A00000">--- /lib/systemd/system/_docker.service 2021-04-10 07:46:42.000000000 +0900</span>
 <span style="color: #00A000">+++ /lib/systemd/system/docker.service  2021-08-10 09:39:32.451408694 +0900</span>
 <span style="color: #800080; font-weight: bold">@@ -10,7 +10,7 @@</span>
-<span style="color: #bbbbbb"> </span># the default is not to use systemd for cgroups because the delegate issues still
-<span style="color: #bbbbbb"> </span># exists and systemd currently does not support the cgroup feature set required
-<span style="color: #bbbbbb"> </span># for containers run by docker
+<span style="color: #BBB"> </span># the default is not to use systemd for cgroups because the delegate issues still
+<span style="color: #BBB"> </span># exists and systemd currently does not support the cgroup feature set required
+<span style="color: #BBB"> </span># for containers run by docker
 <span style="color: #A00000">-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
 <span style="color: #00A000">+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0 --containerd=/run/containerd/containerd.sock</span>
-<span style="color: #bbbbbb"> </span>ExecReload=/bin/kill -s HUP $MAINPID
-<span style="color: #bbbbbb"> </span>TimeoutSec=0
-<span style="color: #bbbbbb"> </span>RestartSec=2
+<span style="color: #BBB"> </span>ExecReload=/bin/kill -s HUP $MAINPID
+<span style="color: #BBB"> </span>TimeoutSec=0
+<span style="color: #BBB"> </span>RestartSec=2
 </code></pre></div>
 
 <p>これで2375/TCPでListenする。</p>

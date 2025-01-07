@@ -1874,47 +1874,47 @@
 <li><a href="https://docs.docker.com/compose/reference/">Overview of docker compose CLI | Docker Documentation</a></li>
 </ul>
 <h3 id="_1">起動</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose up</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose up</span>
 </code></pre></div>
 
 <p>この場合フォアグラウンドで起動する。<br />
 バックグラウンドで起動するには<code>-d</code>を付ける。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose up -d</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose up -d</span>
 </code></pre></div>
 
 <h3 id="_2">プロジェクト名を指定</h3>
 <p>デフォルトではディレクトリ名が使用されるが、そのままだと異なるコンテナ環境でもディレクトリ名がたまたまでも同一だと競合してしまう。その場合はプロジェクト名を指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose -p project-name up -d</span>
-<span style="color: #888888">docker compose -p project-name ps</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose -p project-name up -d</span>
+<span style="color: #888">docker compose -p project-name ps</span>
 </code></pre></div>
 
 <h3 id="_3">停止と削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose down</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose down</span>
 </code></pre></div>
 
 <p><code>down</code>でコンテナは削除されるが、ボリュームは残る。<br />
 ボリュームも削除するには<code>-v</code>オプションを追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose down -v</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose down -v</span>
 </code></pre></div>
 
 <p>特定のコンテナのみ停止・削除するには、引数にCompose Fileで指定している名称を指定する。<br />
 ただし<code>down</code>ではこの指定はできない。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose stop myapp</span>
-<span style="color: #888888">docker compose rm myapp</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose stop myapp</span>
+<span style="color: #888">docker compose rm myapp</span>
 </code></pre></div>
 
 <h3 id="compose">composeファイル指定</h3>
 <p><code>-f</code>で指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose -f compose-v1.2.3.yml up -d</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose -f compose-v1.2.3.yml up -d</span>
 </code></pre></div>
 
 <h3 id="_4">コマンド起動</h3>
 <p><code>docker exec</code>と異なり<code>-it</code>オプションは不要。アプリ名とコマンド名のみでOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose exec &lt;app名&gt; bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose exec &lt;app名&gt; bash</span>
 </code></pre></div>
 
 <h3 id="_5">ファイルコピー</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker compose cp app:/path/to/file ./file</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose cp app:/path/to/file ./file</span>
 </code></pre></div>
 
 <h2 id="compose_1">Composeファイル</h2>
@@ -1925,27 +1925,27 @@
 <p><code>"service:[service name]"</code>と記述すると、対象サービスのネットワーク設定を使用する。<br />
 記述例</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">app</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>myapp
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">ports</span>:
-<span style="color: #bbbbbb">            </span>-<span style="color: #bbbbbb"> </span>8080:8080
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">networks</span>:
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">default</span>:
-<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">ipv4_address</span>:<span style="color: #bbbbbb"> </span>192.168.0.100
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">db</span>:
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span>mysql
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">network_mode</span>:<span style="color: #bbbbbb"> </span>service:app
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">app</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>myapp
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">ports</span>:
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>8080:8080
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">networks</span>:
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">default</span>:
+<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">ipv4_address</span>:<span style="color: #BBB"> </span>192.168.0.100
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">db</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>mysql
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">network_mode</span>:<span style="color: #BBB"> </span>service:app
 </code></pre></div>
 
 <h3 id="bind">ファイルのbindマウント</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">server</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;rancher/k3s:v1.30.2-k3s2&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #bbbbbb"> </span>server
-<span style="color: #bbbbbb">    </span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>./registries.yaml:/etc/rancher/k3s/registries.yaml
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">server</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;rancher/k3s:v1.30.2-k3s2&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>server
+<span style="color: #BBB">    </span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>./registries.yaml:/etc/rancher/k3s/registries.yaml
 </code></pre></div>
                 
               

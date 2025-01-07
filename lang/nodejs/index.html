@@ -1749,78 +1749,78 @@
                 <h1 id="nodejs">Node.js</h1>
 <h2 id="_1">インストール</h2>
 <p>Fedora40</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">dnf info nodejs</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">名前         : nodejs</span>
-<span style="color: #888888">エポック     : 1</span>
-<span style="color: #888888">バージョン   : 20.12.2</span>
-<span style="color: #888888">リリース     : 1.fc40</span>
-<span style="color: #888888">Arch         : x86_64</span>
-<span style="color: #888888">:</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">dnf info nodejs</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
+<span style="color: #888">名前         : nodejs</span>
+<span style="color: #888">エポック     : 1</span>
+<span style="color: #888">バージョン   : 20.12.2</span>
+<span style="color: #888">リリース     : 1.fc40</span>
+<span style="color: #888">Arch         : x86_64</span>
+<span style="color: #888">:</span>
 </code></pre></div>
 
 <p><code>dnf</code>でインストールする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>dnf<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>nodejs
-<span style="color: #888888">依存関係が解決しました。</span>
-<span style="color: #888888">===============================================================================================================================</span>
-<span style="color: #888888"> パッケージ                           アーキテクチャー    バージョン                                リポジトリー         サイズ</span>
-<span style="color: #888888">===============================================================================================================================</span>
-<span style="color: #888888">インストール:</span>
-<span style="color: #888888"> nodejs                               x86_64              1:20.12.2-1.fc40                          updates               51 k</span>
-<span style="color: #888888">依存関係のインストール:</span>
-<span style="color: #888888"> nodejs-cjs-module-lexer              noarch              1.2.3-5.fc40                              fedora                37 k</span>
-<span style="color: #888888"> nodejs-libs                          x86_64              1:20.12.2-1.fc40                          updates               16 M</span>
-<span style="color: #888888"> nodejs-undici                        noarch              6.11.1-2.fc40                             updates              292 k</span>
-<span style="color: #888888">弱い依存関係のインストール:</span>
-<span style="color: #888888"> nodejs-docs                          noarch              1:20.12.2-1.fc40                          updates              8.2 M</span>
-<span style="color: #888888"> nodejs-full-i18n                     x86_64              1:20.12.2-1.fc40                          updates              8.4 M</span>
-<span style="color: #888888"> nodejs-npm                           x86_64              1:10.5.0-1.20.12.2.1.fc40                 updates              2.2 M</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>nodejs
+<span style="color: #888">依存関係が解決しました。</span>
+<span style="color: #888">===============================================================================================================================</span>
+<span style="color: #888"> パッケージ                           アーキテクチャー    バージョン                                リポジトリー         サイズ</span>
+<span style="color: #888">===============================================================================================================================</span>
+<span style="color: #888">インストール:</span>
+<span style="color: #888"> nodejs                               x86_64              1:20.12.2-1.fc40                          updates               51 k</span>
+<span style="color: #888">依存関係のインストール:</span>
+<span style="color: #888"> nodejs-cjs-module-lexer              noarch              1.2.3-5.fc40                              fedora                37 k</span>
+<span style="color: #888"> nodejs-libs                          x86_64              1:20.12.2-1.fc40                          updates               16 M</span>
+<span style="color: #888"> nodejs-undici                        noarch              6.11.1-2.fc40                             updates              292 k</span>
+<span style="color: #888">弱い依存関係のインストール:</span>
+<span style="color: #888"> nodejs-docs                          noarch              1:20.12.2-1.fc40                          updates              8.2 M</span>
+<span style="color: #888"> nodejs-full-i18n                     x86_64              1:20.12.2-1.fc40                          updates              8.4 M</span>
+<span style="color: #888"> nodejs-npm                           x86_64              1:10.5.0-1.20.12.2.1.fc40                 updates              2.2 M</span>
 
-<span style="color: #888888">トランザクションの概要</span>
-<span style="color: #888888">===============================================================================================================================</span>
-<span style="color: #888888">インストール  7 パッケージ</span>
+<span style="color: #888">トランザクションの概要</span>
+<span style="color: #888">===============================================================================================================================</span>
+<span style="color: #888">インストール  7 パッケージ</span>
 
-<span style="color: #888888">ダウンロードサイズの合計: 35 M</span>
-<span style="color: #888888">インストール後のサイズ: 185 M</span>
-<span style="color: #888888">これでよろしいですか? [y/N]: </span>
+<span style="color: #888">ダウンロードサイズの合計: 35 M</span>
+<span style="color: #888">インストール後のサイズ: 185 M</span>
+<span style="color: #888">これでよろしいですか? [y/N]: </span>
 </code></pre></div>
 
 <h2 id="yarn">yarnのインストール</h2>
 <p>root権限が必要</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>npm<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-g<span style="color: #bbbbbb"> </span>yarn
-<span style="color: #888888">npm ERR! code EACCES</span>
-<span style="color: #888888">npm ERR! syscall mkdir</span>
-<span style="color: #888888">npm ERR! path /usr/local/lib/node_modules</span>
-<span style="color: #888888">npm ERR! errno -13</span>
-<span style="color: #888888">npm ERR! Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;</span>
-<span style="color: #888888">npm ERR!  [Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;] {</span>
-<span style="color: #888888">npm ERR!   errno: -13,</span>
-<span style="color: #888888">npm ERR!   code: &#39;EACCES&#39;,</span>
-<span style="color: #888888">npm ERR!   syscall: &#39;mkdir&#39;,</span>
-<span style="color: #888888">npm ERR!   path: &#39;/usr/local/lib/node_modules&#39;</span>
-<span style="color: #888888">npm ERR! }</span>
-<span style="color: #888888">npm ERR! </span>
-<span style="color: #888888">npm ERR! The operation was rejected by your operating system.</span>
-<span style="color: #888888">npm ERR! It is likely you do not have the permissions to access this file as the current user</span>
-<span style="color: #888888">npm ERR! </span>
-<span style="color: #888888">npm ERR! If you believe this might be a permissions issue, please double-check the</span>
-<span style="color: #888888">npm ERR! permissions of the file and its containing directories, or try running</span>
-<span style="color: #888888">npm ERR! the command again as root/Administrator.</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>npm<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-g<span style="color: #BBB"> </span>yarn
+<span style="color: #888">npm ERR! code EACCES</span>
+<span style="color: #888">npm ERR! syscall mkdir</span>
+<span style="color: #888">npm ERR! path /usr/local/lib/node_modules</span>
+<span style="color: #888">npm ERR! errno -13</span>
+<span style="color: #888">npm ERR! Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;</span>
+<span style="color: #888">npm ERR!  [Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;] {</span>
+<span style="color: #888">npm ERR!   errno: -13,</span>
+<span style="color: #888">npm ERR!   code: &#39;EACCES&#39;,</span>
+<span style="color: #888">npm ERR!   syscall: &#39;mkdir&#39;,</span>
+<span style="color: #888">npm ERR!   path: &#39;/usr/local/lib/node_modules&#39;</span>
+<span style="color: #888">npm ERR! }</span>
+<span style="color: #888">npm ERR! </span>
+<span style="color: #888">npm ERR! The operation was rejected by your operating system.</span>
+<span style="color: #888">npm ERR! It is likely you do not have the permissions to access this file as the current user</span>
+<span style="color: #888">npm ERR! </span>
+<span style="color: #888">npm ERR! If you believe this might be a permissions issue, please double-check the</span>
+<span style="color: #888">npm ERR! permissions of the file and its containing directories, or try running</span>
+<span style="color: #888">npm ERR! the command again as root/Administrator.</span>
 
-<span style="color: #888888">npm ERR! A complete log of this run can be found in: /home/zaki/.npm/_logs/2024-08-04T07_02_22_789Z-debug-0.log</span>
+<span style="color: #888">npm ERR! A complete log of this run can be found in: /home/zaki/.npm/_logs/2024-08-04T07_02_22_789Z-debug-0.log</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>npm<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-g<span style="color: #bbbbbb"> </span>yarn
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>npm<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-g<span style="color: #BBB"> </span>yarn
 
-<span style="color: #888888">added 1 package in 720ms</span>
-<span style="color: #888888">npm notice </span>
-<span style="color: #888888">npm notice New minor version of npm available! 10.5.0 -&gt; 10.8.2</span>
-<span style="color: #888888">npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.2</span>
-<span style="color: #888888">npm notice Run npm install -g npm@10.8.2 to update!</span>
-<span style="color: #888888">npm notice </span>
-<span style="color: #000080; font-weight: bold">$ </span>which<span style="color: #bbbbbb"> </span>yarn
-<span style="color: #888888">/usr/local/bin/yarn</span>
+<span style="color: #888">added 1 package in 720ms</span>
+<span style="color: #888">npm notice </span>
+<span style="color: #888">npm notice New minor version of npm available! 10.5.0 -&gt; 10.8.2</span>
+<span style="color: #888">npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.2</span>
+<span style="color: #888">npm notice Run npm install -g npm@10.8.2 to update!</span>
+<span style="color: #888">npm notice </span>
+<span style="color: #000080; font-weight: bold">$ </span>which<span style="color: #BBB"> </span>yarn
+<span style="color: #888">/usr/local/bin/yarn</span>
 </code></pre></div>
 
 <h2 id="_2">実行</h2>

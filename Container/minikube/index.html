@@ -1767,49 +1767,49 @@
 <a href="https://minikube.sigs.k8s.io/docs/start/">minikube start | minikube</a></p>
 <p>Linux/macOS/Windows用それぞれのインストール手順が用意されているので、環境に合わせたバイナリやパッケージを入手してセットアップする。</p>
 <p>例えばLinux用バイナリを直接インストールするなら以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64</span>
-<span style="color: #888888">sudo install minikube-linux-amd64 /usr/local/bin/minikube</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64</span>
+<span style="color: #888">sudo install minikube-linux-amd64 /usr/local/bin/minikube</span>
 </code></pre></div>
 
 <p><code>curl -L https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 -o /path/to/minikube</code>して<code>chmod 755</code>でも良さそうだけど。</p>
 <h2 id="_2">クラスタ作成</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">minikube start</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">minikube start</span>
 </code></pre></div>
 
 <p>起動に成功すると<code>$HOME/.kube/config</code>も更新(既存設定がある場合はマージ)される。</p>
 <p>マルチノード(ノード3)の場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">minikube start -n 3</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">minikube start -n 3</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>node
-<span style="color: #888888">NAME           STATUS   ROLES           AGE   VERSION</span>
-<span style="color: #888888">minikube       Ready    control-plane   89m   v1.27.4</span>
-<span style="color: #888888">minikube-m02   Ready    &lt;none&gt;          89m   v1.27.4</span>
-<span style="color: #888888">minikube-m03   Ready    &lt;none&gt;          88m   v1.27.4</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>node
+<span style="color: #888">NAME           STATUS   ROLES           AGE   VERSION</span>
+<span style="color: #888">minikube       Ready    control-plane   89m   v1.27.4</span>
+<span style="color: #888">minikube-m02   Ready    &lt;none&gt;          89m   v1.27.4</span>
+<span style="color: #888">minikube-m03   Ready    &lt;none&gt;          88m   v1.27.4</span>
 </code></pre></div>
 
 <h2 id="_3">クラスタの状態</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>minikube<span style="color: #bbbbbb"> </span>status
-<span style="color: #888888">minikube</span>
-<span style="color: #888888">type: Control Plane</span>
-<span style="color: #888888">host: Running</span>
-<span style="color: #888888">kubelet: Running</span>
-<span style="color: #888888">apiserver: Running</span>
-<span style="color: #888888">kubeconfig: Configured</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>minikube<span style="color: #BBB"> </span>status
+<span style="color: #888">minikube</span>
+<span style="color: #888">type: Control Plane</span>
+<span style="color: #888">host: Running</span>
+<span style="color: #888">kubelet: Running</span>
+<span style="color: #888">apiserver: Running</span>
+<span style="color: #888">kubeconfig: Configured</span>
 
-<span style="color: #888888">minikube-m02</span>
-<span style="color: #888888">type: Worker</span>
-<span style="color: #888888">host: Running</span>
-<span style="color: #888888">kubelet: Running</span>
+<span style="color: #888">minikube-m02</span>
+<span style="color: #888">type: Worker</span>
+<span style="color: #888">host: Running</span>
+<span style="color: #888">kubelet: Running</span>
 
-<span style="color: #888888">minikube-m03</span>
-<span style="color: #888888">type: Worker</span>
-<span style="color: #888888">host: Running</span>
-<span style="color: #888888">kubelet: Running</span>
+<span style="color: #888">minikube-m03</span>
+<span style="color: #888">type: Worker</span>
+<span style="color: #888">host: Running</span>
+<span style="color: #888">kubelet: Running</span>
 </code></pre></div>
 
 <h2 id="_4">クラスタの停止</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>minikube<span style="color: #bbbbbb"> </span>stop
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>minikube<span style="color: #BBB"> </span>stop
 </code></pre></div>
 
 <p>これでstatusはstopになる。コンテナの状態はExitedになっており、APIサーバー不在の状態なので<code>kubectl</code>コマンドは不通になる。<br />

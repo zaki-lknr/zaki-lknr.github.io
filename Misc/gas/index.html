@@ -1801,22 +1801,22 @@
                 <h1 id="google-apps-script">Google Apps Script</h1>
 <h2 id="spreadsheet">Spreadsheet</h2>
 <h3 id="_1">シートの読み込み</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">var</span><span style="color: #bbbbbb"> </span>ss<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>SpreadsheetApp.getActiveSpreadsheet();
-<span style="color: #AA22FF; font-weight: bold">var</span><span style="color: #bbbbbb"> </span>sheet<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>ss.getSheetByName(<span style="color: #BB4444">&quot;シート1&quot;</span>);
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">var</span><span style="color: #BBB"> </span>ss<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>SpreadsheetApp.getActiveSpreadsheet();
+<span style="color: #A2F; font-weight: bold">var</span><span style="color: #BBB"> </span>sheet<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>ss.getSheetByName(<span style="color: #B44">&quot;シート1&quot;</span>);
 </code></pre></div>
 
 <h3 id="_2">セルにアクセス</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">// 参照</span>
-<span style="color: #AA22FF; font-weight: bold">var</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>sheet.getRange(<span style="color: #BB4444">&quot;B10&quot;</span>).getValue();
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">// 参照</span>
+<span style="color: #A2F; font-weight: bold">var</span><span style="color: #BBB"> </span>val<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>sheet.getRange(<span style="color: #B44">&quot;B10&quot;</span>).getValue();
 
-<span style="color: #008800; font-style: italic">// 更新</span>
-sheet.getRange(<span style="color: #BB4444">&quot;B10&quot;</span>).setValue(<span style="color: #BB4444">&quot;ここはB10&quot;</span>)
+<span style="color: #080; font-style: italic">// 更新</span>
+sheet.getRange(<span style="color: #B44">&quot;B10&quot;</span>).setValue(<span style="color: #B44">&quot;ここはB10&quot;</span>)
 </code></pre></div>
 
 <h2 id="http">HTTP通信</h2>
 <p><code>UrlFetchApp.fetch()</code>を使う。</p>
 <h3 id="get">Get</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>resp<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>UrlFetchApp.fetch(url);
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>resp<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>UrlFetchApp.fetch(url);
 </code></pre></div>
                 
               

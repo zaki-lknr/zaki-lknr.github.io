@@ -2519,106 +2519,106 @@
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/query-azure-cli?tabs=concepts%2Cbash">Azure CLI での JMESPath クエリ コマンドの結果 | Microsoft Learn</a></p>
 <h3 id="_1">辞書型データのリストから指定キーの値一覧</h3>
 <p>AKSのクラスター名一覧を取得</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks list [-g resource-group] --query &#39;[].name&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks list [-g resource-group] --query &#39;[].name&#39;</span>
 </code></pre></div>
 
 <h3 id="and">辞書型データのリストから指定キーが特定の値のものを検索(and)</h3>
 <p>VNetの一覧からリソースグループ名とVNet名が指定のもののリソースIDを取得</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet list --query &quot;[?name==&#39;${vnet_name}&#39; &amp;&amp; resourceGroup==&#39;${resource_group}&#39;].id&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet list --query &quot;[?name==&#39;${vnet_name}&#39; &amp;&amp; resourceGroup==&#39;${resource_group}&#39;].id&quot;</span>
 </code></pre></div>
 
 <h4 id="_2">文字列を含む(部分一致)検索</h4>
 <p><code>name</code>キーに<code>dev</code>を含むデータの検索</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks list --query &quot;[?contains(name,&#39;dev&#39;)]&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks list --query &quot;[?contains(name,&#39;dev&#39;)]&quot;</span>
 </code></pre></div>
 
 <p>オブジェクト全体でなくここからさらにnameのみの一覧を出力するなら以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks list --query &quot;[?contains(name,&#39;dev&#39;)].name&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks list --query &quot;[?contains(name,&#39;dev&#39;)].name&quot;</span>
 </code></pre></div>
 
 <h2 id="_3">アカウント</h2>
 <h3 id="_4">アカウント情報</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az account list</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az account list</span>
 </code></pre></div>
 
 <h3 id="id">テナントID一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az account tenant list</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az account tenant list</span>
 </code></pre></div>
 
 <h2 id="network">network</h2>
 <h3 id="vnet">VNet</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/network/vnet?view=azure-cli-latest">az network vnet | Microsoft Learn</a></p>
 <h4 id="vnetid">VNetID取得</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet show \</span>
-<span style="color: #888888">  --name ${vnet_name} \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --query id</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet show \</span>
+<span style="color: #888">  --name ${vnet_name} \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --query id</span>
 </code></pre></div>
 
 <h4 id="vnet_1">VNet作成</h4>
 <p>VNetを単体で作成する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet create \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --name ${vnet_name} \</span>
-<span style="color: #888888">  --address-prefixes 192.168.0.0/16</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet create \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --name ${vnet_name} \</span>
+<span style="color: #888">  --address-prefixes 192.168.0.0/16</span>
 </code></pre></div>
 
 <p>VNetとサブネットを同時に作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet create \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --name ${vnet_name} \</span>
-<span style="color: #888888">  --address-prefixes 192.168.0.0/16 \</span>
-<span style="color: #888888">  --subnet-name ${subnet_name} \</span>
-<span style="color: #888888">  --subnet-prefixes 102.168.10.0/24 \</span>
-<span style="color: #888888">  --network-security-group ${nsg_name}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet create \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --name ${vnet_name} \</span>
+<span style="color: #888">  --address-prefixes 192.168.0.0/16 \</span>
+<span style="color: #888">  --subnet-name ${subnet_name} \</span>
+<span style="color: #888">  --subnet-prefixes 102.168.10.0/24 \</span>
+<span style="color: #888">  --network-security-group ${nsg_name}</span>
 </code></pre></div>
 
 <h3 id="_5">サブネット</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/network/vnet/subnet?view=azure-cli-latest">az network vnet subnet | Microsoft Learn</a></p>
 <h4 id="id_1">サブネットID取得</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet subnet show \</span>
-<span style="color: #888888">  --vnet-name ${vnet_name} \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --name ${subnet_name} \</span>
-<span style="color: #888888">  --query id</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet subnet show \</span>
+<span style="color: #888">  --vnet-name ${vnet_name} \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --name ${subnet_name} \</span>
+<span style="color: #888">  --query id</span>
 </code></pre></div>
 
 <h4 id="_6">サブネット作成</h4>
 <p>VNetのアドレス範囲であることは必須</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet subnet create \</span>
-<span style="color: #888888">  --name ${subnet_name} \</span>
-<span style="color: #888888">  --vnet-name ${vnet_name} \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --network-security-group ${nsg_name} \</span>
-<span style="color: #888888">  --address-prefixes 192.168.10.0/24</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet subnet create \</span>
+<span style="color: #888">  --name ${subnet_name} \</span>
+<span style="color: #888">  --vnet-name ${vnet_name} \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --network-security-group ${nsg_name} \</span>
+<span style="color: #888">  --address-prefixes 192.168.10.0/24</span>
 </code></pre></div>
 
 <h4 id="_7">サービスエンドポイント一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet list-endpoint-services</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet list-endpoint-services</span>
 </code></pre></div>
 
 <h3 id="_8">ネットワークセキュリティグループ</h3>
 <h4 id="nsg">NSG作成</h4>
 <p>NSGの箱を作る</p>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/network/nsg?view=azure-cli-latest">az network nsg | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network nsg create \</span>
-<span style="color: #888888">  --name ${nsg_name} \</span>
-<span style="color: #888888">  --resource-group ${resource_group}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network nsg create \</span>
+<span style="color: #888">  --name ${nsg_name} \</span>
+<span style="color: #888">  --resource-group ${resource_group}</span>
 </code></pre></div>
 
 <h4 id="_9">ルール作成</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/network/nsg/rule?view=azure-cli-latest">az network nsg rule | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network nsg rule create \</span>
-<span style="color: #888888">  --nsg-name ${nsg_name} \</span>
-<span style="color: #888888">  --resource-group ${resoure_group} \</span>
-<span style="color: #888888">  --name ${nsg_rule_name} \</span>
-<span style="color: #888888">  --access Allow \</span>
-<span style="color: #888888">  --priority 256 \</span>
-<span style="color: #888888">  --source-address-prefixes ${src_address_prefixes} \</span>
-<span style="color: #888888">  --source-port-ranges ${src_port_ranges} \</span>
-<span style="color: #888888">  --destination-address-prefixes ${dst_address_prefixes} \</span>
-<span style="color: #888888">  --destination-port-ranges ${dst_port_ranges} \</span>
-<span style="color: #888888">  --protocol ${protocol}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network nsg rule create \</span>
+<span style="color: #888">  --nsg-name ${nsg_name} \</span>
+<span style="color: #888">  --resource-group ${resoure_group} \</span>
+<span style="color: #888">  --name ${nsg_rule_name} \</span>
+<span style="color: #888">  --access Allow \</span>
+<span style="color: #888">  --priority 256 \</span>
+<span style="color: #888">  --source-address-prefixes ${src_address_prefixes} \</span>
+<span style="color: #888">  --source-port-ranges ${src_port_ranges} \</span>
+<span style="color: #888">  --destination-address-prefixes ${dst_address_prefixes} \</span>
+<span style="color: #888">  --destination-port-ranges ${dst_port_ranges} \</span>
+<span style="color: #888">  --protocol ${protocol}</span>
 </code></pre></div>
 
 <table>
@@ -2641,48 +2641,48 @@
 </table>
 <h3 id="public-ip">public ip</h3>
 <h4 id="_10">アドレス一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network public-ip list \</span>
-<span style="color: #888888">  --resoure-group ${resource_group}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network public-ip list \</span>
+<span style="color: #888">  --resoure-group ${resource_group}</span>
 </code></pre></div>
 
 <p>必要なアドレスは<code>--query</code>で取り出す。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network public-ip list \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --query &quot;[?id==&#39;$publicip_id&#39;].ipAddress&quot; \</span>
-<span style="color: #888888">  --o tsv</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network public-ip list \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --query &quot;[?id==&#39;$publicip_id&#39;].ipAddress&quot; \</span>
+<span style="color: #888">  --o tsv</span>
 </code></pre></div>
 
 <h3 id="dns">DNS</h3>
 <h4 id="_11">レコード作成</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network dns record-set a add-record \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --zone-name &quot;example.org&quot; \</span>
-<span style="color: #888888">  --ipv4-address ${publicip_address} \</span>
-<span style="color: #888888">  --record-set-name ${recordset_name}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network dns record-set a add-record \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --zone-name &quot;example.org&quot; \</span>
+<span style="color: #888">  --ipv4-address ${publicip_address} \</span>
+<span style="color: #888">  --record-set-name ${recordset_name}</span>
 </code></pre></div>
 
 <h3 id="private-dns">Private DNS</h3>
 <h4 id="_12">ゾーン作成</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network private-dns zone create \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --name &quot;private.example.org&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network private-dns zone create \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --name &quot;private.example.org&quot;</span>
 </code></pre></div>
 
 <h4 id="a">Aレコード作成</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network private-dns record-set a add-record \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --zone-name &quot;private.example.org&quot;</span>
-<span style="color: #888888">  --ipv4-adderss ${ipaddr} \</span>
-<span style="color: #888888">  --record-set-name hostname</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network private-dns record-set a add-record \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --zone-name &quot;private.example.org&quot;</span>
+<span style="color: #888">  --ipv4-adderss ${ipaddr} \</span>
+<span style="color: #888">  --record-set-name hostname</span>
 </code></pre></div>
 
 <h4 id="_13">仮想ネットワークとのリンク作成</h4>
 <p>ゾーンと仮想ネットワークが同じリソースグループであれば、<code>--virtual-network</code>は仮想ネットワーク名だけで良い。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network private-dns link vnet create \</span>
-<span style="color: #888888">  --zone &quot;private.example.org&quot; \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --virtual-network ${vnet_name} \</span>
-<span style="color: #888888">  --name ${link_name}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network private-dns link vnet create \</span>
+<span style="color: #888">  --zone &quot;private.example.org&quot; \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --virtual-network ${vnet_name} \</span>
+<span style="color: #888">  --name ${link_name}</span>
 </code></pre></div>
 
 <h3 id="application-gateway">Application Gateway</h3>
@@ -2691,27 +2691,27 @@
 <p>基本構文は<code>az network application-gateway update --resource-group ${rg} --name ${appgw} --sku WAF_v2</code>だが、これだけだとエラーになる。
 「WAF v2に変更」と「WAFポリシーの設定」を同時に行う必要がある。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>WAFポリシーの作成
-<span style="color: #888888">az network application-gateway waf-policy create \</span>
-<span style="color: #888888">  --name ${waf_policy_name} \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --version 3.2</span>
+<span style="color: #888">az network application-gateway waf-policy create \</span>
+<span style="color: #888">  --name ${waf_policy_name} \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --version 3.2</span>
 
 <span style="color: #000080; font-weight: bold"># </span>WAFポリシー設定
-<span style="color: #888888">az network application-gateway waf-policy policy-setting update \</span>
-<span style="color: #888888">  --policy-name ${waf_policy_name} \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --request-body-check ${check} \</span>
-<span style="color: #888888">  --mode ${waf_mode} \</span>
-<span style="color: #888888">  --state ${waf_state}</span>
+<span style="color: #888">az network application-gateway waf-policy policy-setting update \</span>
+<span style="color: #888">  --policy-name ${waf_policy_name} \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --request-body-check ${check} \</span>
+<span style="color: #888">  --mode ${waf_mode} \</span>
+<span style="color: #888">  --state ${waf_state}</span>
 
 <span style="color: #000080; font-weight: bold"># </span>WAFのSKUをWAF_v2に更新
-<span style="color: #888888">waf_id=$(az network application-gateway waf-policy show -g ${resource_group} -n ${waf_policy_name} --query id -o tsv)</span>
-<span style="color: #888888">az network application-gateway update \</span>
-<span style="color: #888888">  --name ${appgw_name} \</span>
-<span style="color: #888888">  --resource-group ${resouce_group} \</span>
-<span style="color: #888888">  --sku WAF_v2 \</span>
-<span style="color: #888888">  --set sku.tier=WAF_v2 \</span>
-<span style="color: #888888">  --set firewallPolicy.id=${waf_id}</span>
+<span style="color: #888">waf_id=$(az network application-gateway waf-policy show -g ${resource_group} -n ${waf_policy_name} --query id -o tsv)</span>
+<span style="color: #888">az network application-gateway update \</span>
+<span style="color: #888">  --name ${appgw_name} \</span>
+<span style="color: #888">  --resource-group ${resouce_group} \</span>
+<span style="color: #888">  --sku WAF_v2 \</span>
+<span style="color: #888">  --set sku.tier=WAF_v2 \</span>
+<span style="color: #888">  --set firewallPolicy.id=${waf_id}</span>
 </code></pre></div>
 
 <h2 id="storage-account">storage account</h2>
@@ -2719,119 +2719,119 @@
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/file?view=azure-cli-latest">az storage file | Microsoft Learn</a></p>
 <h4 id="_15">ファイル一覧</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-list">az storage file | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage file list \</span>
-<span style="color: #888888">  --account-name ${account_name} \</span>
-<span style="color: #888888">  --account-key ${account_key} \</span>
-<span style="color: #888888">  --share-name ${share_name}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az storage file list \</span>
+<span style="color: #888">  --account-name ${account_name} \</span>
+<span style="color: #888">  --account-key ${account_key} \</span>
+<span style="color: #888">  --share-name ${share_name}</span>
 </code></pre></div>
 
 <h4 id="_16">ファイルダウンロード</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download">az storage file | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage file download \</span>
-<span style="color: #888888">  --path ${shared_file_path} \</span>
-<span style="color: #888888">  --dest ${output_dir_name} \</span>
-<span style="color: #888888">  --share-name ${share_name} \</span>
-<span style="color: #888888">  --account-name ${account_name} \</span>
-<span style="color: #888888">  --account-key ${account_key}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az storage file download \</span>
+<span style="color: #888">  --path ${shared_file_path} \</span>
+<span style="color: #888">  --dest ${output_dir_name} \</span>
+<span style="color: #888">  --share-name ${share_name} \</span>
+<span style="color: #888">  --account-name ${account_name} \</span>
+<span style="color: #888">  --account-key ${account_key}</span>
 </code></pre></div>
 
 <p><code>dest</code>はドキュメントには「パス」と書かれているが、実際に動かすとディレクトリ名になる。<br />
 (<code>destのディレクトリ名</code>/<code>元のファイル名</code>で保存される)</p>
 <h4 id="blob">ファイルBlobのダウンロード</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-download">az storage blob | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage blob download \</span>
-<span style="color: #888888">  --container-name ${container_name} \</span>
-<span style="color: #888888">  --name ${blob_filepath} \</span>
-<span style="color: #888888">  --file ${output_dir_name} \</span>
-<span style="color: #888888">  --account-name ${storage_account} \</span>
-<span style="color: #888888">  --account-key ${account_key}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az storage blob download \</span>
+<span style="color: #888">  --container-name ${container_name} \</span>
+<span style="color: #888">  --name ${blob_filepath} \</span>
+<span style="color: #888">  --file ${output_dir_name} \</span>
+<span style="color: #888">  --account-name ${storage_account} \</span>
+<span style="color: #888">  --account-key ${account_key}</span>
 </code></pre></div>
 
 <p><code>container_name</code>はコンテナーの名称、<code>blob_filepath</code>はコンテナー内におけるファイルのパス、<code>output_dir_name</code>は出力先(ダウンロード先のファイル名)</p>
 <h3 id="_17">セキュリティ</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/storage/common/storage-network-security?tabs=azure-cli">Azure Storage ファイアウォールおよび仮想ネットワークを構成する | Microsoft Learn</a></p>
 <h4 id="_18">トラフィックのデフォルト拒否設定</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account update \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --name ${storage_account_name} \</span>
-<span style="color: #888888">  --default-action Deny</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az storage account update \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --name ${storage_account_name} \</span>
+<span style="color: #888">  --default-action Deny</span>
 </code></pre></div>
 
 <h4 id="vnet_2">VNET/サブネットを追加</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account network-rule add \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --account-name ${storage_account_name} \</span>
-<span style="color: #888888">  --subnet ${subnet_id}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az storage account network-rule add \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --account-name ${storage_account_name} \</span>
+<span style="color: #888">  --subnet ${subnet_id}</span>
 </code></pre></div>
 
 <p>ただしこれを実行するにはサブネット側エンドポイントのポリシー設定が必要</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az network vnet subnet update \</span>
-<span style="color: #888888">  --name ${subnet} \</span>
-<span style="color: #888888">  --vnet-name ${vnet} \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --service-endpoints Microsoft.Storage</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network vnet subnet update \</span>
+<span style="color: #888">  --name ${subnet} \</span>
+<span style="color: #888">  --vnet-name ${vnet} \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --service-endpoints Microsoft.Storage</span>
 </code></pre></div>
 
 <h4 id="ip">許可IPアドレスの追加</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account network-rule add \</span>
-<span style="color: #888888">  --resource-group ${resource_group} \</span>
-<span style="color: #888888">  --account-name ${storage_account_name} \</span>
-<span style="color: #888888">  --ip-address ${ip_address}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az storage account network-rule add \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --account-name ${storage_account_name} \</span>
+<span style="color: #888">  --ip-address ${ip_address}</span>
 </code></pre></div>
 
 <h3 id="_19">キーの取得</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/storage/account/keys?view=azure-cli-latest">az storage account keys | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az storage account keys list \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --account-name ${storage_account_name}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az storage account keys list \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --account-name ${storage_account_name}</span>
 </code></pre></div>
 
 <p>2つヒットするはずなので、<code>--query '[0].value' -o tsv</code> とかやれば取り出せる。</p>
 <h2 id="aks">AKS</h2>
 <h3 id="_20">クラスター一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks list [-g &lt;resource-group&gt;]</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks list [-g &lt;resource-group&gt;]</span>
 </code></pre></div>
 
 <h3 id="_21">使用可能バージョンの確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks get-versions --query &#39;orchestrators[].orchestratorVersion&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks get-versions --query &#39;orchestrators[].orchestratorVersion&#39;</span>
 </code></pre></div>
 
 <p>ロケールを指定するには以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks get-versions -l eastus --query &#39;orchestrators[].orchestratorVersion&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks get-versions -l eastus --query &#39;orchestrators[].orchestratorVersion&#39;</span>
 </code></pre></div>
 
 <h3 id="kubeconfig">KUBECONFIGの取得</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks get-credentials \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --name ${cluster_name}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks get-credentials \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --name ${cluster_name}</span>
 </code></pre></div>
 
 <p><code>--overwrite-existing</code>を付与すると確認無しで上書きされる。</p>
 <h3 id="_22">ノードプールの追加</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add">az aks nodepool | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks nodepool add \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --name ${nodepool_name} \</span>
-<span style="color: #888888">  --cluster-name ${cluster_name} \</span>
-<span style="color: #888888">  --kubernetes-version ${k8s_version} \</span>
-<span style="color: #888888">  --mode User \</span>
-<span style="color: #888888">  --os-type Linux \</span>
-<span style="color: #888888">  --vnet-subnet-id ${vnet_subnet_id} \</span>
-<span style="color: #888888">  --node-vm-size Standard_B2s \</span>
-<span style="color: #888888">  --node-count 2 \</span>
-<span style="color: #888888">  --max-pods 32</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks nodepool add \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --name ${nodepool_name} \</span>
+<span style="color: #888">  --cluster-name ${cluster_name} \</span>
+<span style="color: #888">  --kubernetes-version ${k8s_version} \</span>
+<span style="color: #888">  --mode User \</span>
+<span style="color: #888">  --os-type Linux \</span>
+<span style="color: #888">  --vnet-subnet-id ${vnet_subnet_id} \</span>
+<span style="color: #888">  --node-vm-size Standard_B2s \</span>
+<span style="color: #888">  --node-count 2 \</span>
+<span style="color: #888">  --max-pods 32</span>
 </code></pre></div>
 
 <h3 id="_23">ノードプールの詳細</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks nodepool show -g ${resource_group} --cluster-name ${cluster_name} -n ${nodepool_name}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks nodepool show -g ${resource_group} --cluster-name ${cluster_name} -n ${nodepool_name}</span>
 </code></pre></div>
 
 <h3 id="_24">ノードのスケーリング</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">az aks scale \</span>
-<span style="color: #888888">  --resoure-group ${resource_group} \</span>
-<span style="color: #888888">  --name ${nodepool_name} \</span>
-<span style="color: #888888">  --nodepool-name ${nodepool_name} \</span>
-<span style="color: #888888">  --node-count 3</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks scale \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --name ${nodepool_name} \</span>
+<span style="color: #888">  --nodepool-name ${nodepool_name} \</span>
+<span style="color: #888">  --node-count 3</span>
 </code></pre></div>
                 
               

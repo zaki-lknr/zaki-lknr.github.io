@@ -1820,31 +1820,31 @@
 <p>rsyslogが無くても<code>journalctl</code>でログは確認できる。</p>
 <h2 id="_2">状態取得</h2>
 <h3 id="_3">本体モデル名の確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp5-01:~ $ </span>cat<span style="color: #bbbbbb"> </span>/proc/device-tree/model<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">Raspberry Pi 5 Model B Rev 1.0</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp5-01:~ $ </span>cat<span style="color: #BBB"> </span>/proc/device-tree/model<span style="color: #BBB"> </span>
+<span style="color: #888">Raspberry Pi 5 Model B Rev 1.0</span>
 </code></pre></div>
 
 <h3 id="os">OS確認</h3>
 <p><code>lsb_release -a</code>を実行</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp4-01:~ $ </span>lsb_release<span style="color: #bbbbbb"> </span>-a
-<span style="color: #888888">No LSB modules are available.</span>
-<span style="color: #888888">Distributor ID: Raspbian</span>
-<span style="color: #888888">Description:    Raspbian GNU/Linux 11 (bullseye)</span>
-<span style="color: #888888">Release:        11</span>
-<span style="color: #888888">Codename:       bullseye</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp4-01:~ $ </span>lsb_release<span style="color: #BBB"> </span>-a
+<span style="color: #888">No LSB modules are available.</span>
+<span style="color: #888">Distributor ID: Raspbian</span>
+<span style="color: #888">Description:    Raspbian GNU/Linux 11 (bullseye)</span>
+<span style="color: #888">Release:        11</span>
+<span style="color: #888">Codename:       bullseye</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp5-01:~ $ </span>lsb_release<span style="color: #bbbbbb"> </span>-a
-<span style="color: #888888">No LSB modules are available.</span>
-<span style="color: #888888">Distributor ID: Debian</span>
-<span style="color: #888888">Description:    Debian GNU/Linux 12 (bookworm)</span>
-<span style="color: #888888">Release:        12</span>
-<span style="color: #888888">Codename:       bookworm</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp5-01:~ $ </span>lsb_release<span style="color: #BBB"> </span>-a
+<span style="color: #888">No LSB modules are available.</span>
+<span style="color: #888">Distributor ID: Debian</span>
+<span style="color: #888">Description:    Debian GNU/Linux 12 (bookworm)</span>
+<span style="color: #888">Release:        12</span>
+<span style="color: #888">Codename:       bookworm</span>
 </code></pre></div>
 
 <h3 id="_4">温度</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp4-01:~ $ </span>vcgencmd<span style="color: #bbbbbb"> </span>measure_temp
-<span style="color: #888888">temp=44.3&#39;C</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@rasp4-01:~ $ </span>vcgencmd<span style="color: #BBB"> </span>measure_temp
+<span style="color: #888">temp=44.3&#39;C</span>
 </code></pre></div>
                 
               

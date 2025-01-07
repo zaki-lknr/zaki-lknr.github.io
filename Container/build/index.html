@@ -1735,22 +1735,22 @@
                 <h1 id="_1">イメージビルド</h1>
 <h2 id="_2">ロケールの追加</h2>
 <p>Debian系の場合はこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">FROM</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">guacamole/guacamole:1.4.0</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">FROM</span><span style="color: #BBB"> </span><span style="color: #B44">guacamole/guacamole:1.4.0</span>
 
-<span style="color: #AA22FF; font-weight: bold">USER</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">0</span>
-<span style="color: #AA22FF; font-weight: bold">RUN</span><span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>update<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-y<span style="color: #bbbbbb"> </span>locales<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>sed<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>-E<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;s/# (ja_JP.UTF-8)/\1/&#39;</span><span style="color: #bbbbbb"> </span>/etc/locale.gen<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>locale-gen<span style="color: #bbbbbb"> </span><span style="color: #BB6622; font-weight: bold">\</span>
-<span style="color: #bbbbbb">    </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>update-locale<span style="color: #bbbbbb"> </span><span style="color: #B8860B">LANG</span><span style="color: #666666">=</span>ja_JP.UTF-8
-<span style="color: #AA22FF; font-weight: bold">ENV</span><span style="color: #bbbbbb"> </span>LANG<span style="color: #bbbbbb"> </span>ja_JP.UTF-8
+<span style="color: #A2F; font-weight: bold">USER</span><span style="color: #BBB"> </span><span style="color: #B44">0</span>
+<span style="color: #A2F; font-weight: bold">RUN</span><span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>update<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
+<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-y<span style="color: #BBB"> </span>locales<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
+<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>sed<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>-E<span style="color: #BBB"> </span><span style="color: #B44">&#39;s/# (ja_JP.UTF-8)/\1/&#39;</span><span style="color: #BBB"> </span>/etc/locale.gen<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
+<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>locale-gen<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
+<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>update-locale<span style="color: #BBB"> </span><span style="color: #B8860B">LANG</span><span style="color: #666">=</span>ja_JP.UTF-8
+<span style="color: #A2F; font-weight: bold">ENV</span><span style="color: #BBB"> </span>LANG<span style="color: #BBB"> </span>ja_JP.UTF-8
 
-<span style="color: #AA22FF; font-weight: bold">USER</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">1001</span>
+<span style="color: #A2F; font-weight: bold">USER</span><span style="color: #BBB"> </span><span style="color: #B44">1001</span>
 </code></pre></div>
 
 <h2 id="copy">ファイルコピー(COPY)</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">COPY</span><span style="color: #bbbbbb"> </span>script.py<span style="color: #bbbbbb"> </span>/usr/local/src
-<span style="color: #AA22FF; font-weight: bold">CMD</span><span style="color: #bbbbbb"> </span>python<span style="color: #bbbbbb"> </span>/usr/local/src/script.py
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">COPY</span><span style="color: #BBB"> </span>script.py<span style="color: #BBB"> </span>/usr/local/src
+<span style="color: #A2F; font-weight: bold">CMD</span><span style="color: #BBB"> </span>python<span style="color: #BBB"> </span>/usr/local/src/script.py
 </code></pre></div>
 
 <p>ビルドするホストのカレントにある<code>script.py</code>をコンテナの<code>/usr/local/src/script.py</code>へコピーする</p>

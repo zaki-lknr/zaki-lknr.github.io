@@ -1787,36 +1787,36 @@
                 <h1 id="ansible-builder">Ansible Builder</h1>
 <h2 id="ansible-builder_1">ansible-builder</h2>
 <h3 id="_1">タグ指定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-builder<span style="color: #bbbbbb"> </span>build<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>net-ee:latest
-<span style="color: #888888">Running command:</span>
-<span style="color: #888888">  podman build -f context/Containerfile -t net-ee:latest context</span>
-<span style="color: #888888">Complete! The build context can be found at: /home/zaki/local/ansible-builder/net-runner/context</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-builder<span style="color: #BBB"> </span>build<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>net-ee:latest
+<span style="color: #888">Running command:</span>
+<span style="color: #888">  podman build -f context/Containerfile -t net-ee:latest context</span>
+<span style="color: #888">Complete! The build context can be found at: /home/zaki/local/ansible-builder/net-runner/context</span>
 </code></pre></div>
 
 <p><code>image-name:tag</code>のみだと、<code>localhost/</code>が自動で付与される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>net
-<span style="color: #888888">localhost/net-ee                 latest             119f99382b23  7 minutes ago   819 MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>net
+<span style="color: #888">localhost/net-ee                 latest             119f99382b23  7 minutes ago   819 MB</span>
 </code></pre></div>
 
 <p><code>repository-name/image-name:tag</code>を指定すると…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-builder<span style="color: #bbbbbb"> </span>build<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>zakihmkc/net-ee:latest
-<span style="color: #888888">Running command:</span>
-<span style="color: #888888">  podman build -f context/Containerfile -t zakihmkc/net-ee:latest context</span>
-<span style="color: #888888">Complete! The build context can be found at: /home/zaki/local/ansible-builder/net-runner/context</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-builder<span style="color: #BBB"> </span>build<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>zakihmkc/net-ee:latest
+<span style="color: #888">Running command:</span>
+<span style="color: #888">  podman build -f context/Containerfile -t zakihmkc/net-ee:latest context</span>
+<span style="color: #888">Complete! The build context can be found at: /home/zaki/local/ansible-builder/net-runner/context</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>zakihmkc
-<span style="color: #888888">localhost/zakihmkc/net-ee        latest             119f99382b23  9 minutes ago   819 MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>zakihmkc
+<span style="color: #888">localhost/zakihmkc/net-ee        latest             119f99382b23  9 minutes ago   819 MB</span>
 </code></pre></div>
 
 <p>それでも<code>localhost/</code>が付与された。</p>
 <p>レジストリURLを付与すると、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-builder<span style="color: #bbbbbb"> </span>build<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>docker.io/zakihmkc/net-ee:latest
-<span style="color: #888888">Running command:</span>
-<span style="color: #888888">  podman build -f context/Containerfile -t docker.io/zakihmkc/net-ee:latest context</span>
-<span style="color: #888888">Complete! The build context can be found at: /home/zaki/local/ansible-builder/net-runner/context</span>
-<span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>grep<span style="color: #bbbbbb"> </span>docker
-<span style="color: #888888">docker.io/zakihmkc/net-ee        latest             119f99382b23  13 minutes ago  819 MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-builder<span style="color: #BBB"> </span>build<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>docker.io/zakihmkc/net-ee:latest
+<span style="color: #888">Running command:</span>
+<span style="color: #888">  podman build -f context/Containerfile -t docker.io/zakihmkc/net-ee:latest context</span>
+<span style="color: #888">Complete! The build context can be found at: /home/zaki/local/ansible-builder/net-runner/context</span>
+<span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>docker
+<span style="color: #888">docker.io/zakihmkc/net-ee        latest             119f99382b23  13 minutes ago  819 MB</span>
 </code></pre></div>
 
 <p>レジストリのURLを省略すると<code>localhost</code>が付与されるみたいね。</p>

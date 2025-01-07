@@ -2208,84 +2208,84 @@
 <h2 id="_1">インストール</h2>
 <p><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">Install Terraform | Terraform - HashiCorp Learn</a></p>
 <h3 id="apt">apt</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>update<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-y<span style="color: #bbbbbb"> </span>gnupg<span style="color: #bbbbbb"> </span>software-properties-common<span style="color: #bbbbbb"> </span>curl
-<span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-fsSL<span style="color: #bbbbbb"> </span>https://apt.releases.hashicorp.com/gpg<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>apt-key<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>-
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>apt-add-repository<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span style="color: #AA22FF; font-weight: bold">$(</span>lsb_release<span style="color: #bbbbbb"> </span>-cs<span style="color: #AA22FF; font-weight: bold">)</span><span style="color: #BB4444"> main&quot;</span>
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>update<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>sudo<span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>terraform
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>update<span style="color: #BBB"> </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-y<span style="color: #BBB"> </span>gnupg<span style="color: #BBB"> </span>software-properties-common<span style="color: #BBB"> </span>curl
+<span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-fsSL<span style="color: #BBB"> </span>https://apt.releases.hashicorp.com/gpg<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>apt-key<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>-
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>apt-add-repository<span style="color: #BBB"> </span><span style="color: #B44">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span style="color: #A2F; font-weight: bold">$(</span>lsb_release<span style="color: #BBB"> </span>-cs<span style="color: #A2F; font-weight: bold">)</span><span style="color: #B44"> main&quot;</span>
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>update<span style="color: #BBB"> </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>terraform
 </code></pre></div>
 
 <h2 id="cli">CLI</h2>
 <h3 id="_2">フォーマッタ</h3>
 <p>standard styleへ変換する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform fmt -recursive</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform fmt -recursive</span>
 </code></pre></div>
 
 <p><code>-recursive</code>無しの場合はカレントディレクトリのみが対象</p>
 <h3 id="provider">providerバージョン確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform providers -version</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform providers -version</span>
 </code></pre></div>
 
 <p>といわれてるけど<code>providers</code>が無くても出力は同じ。</p>
 <h3 id="provider_1">providerバージョンアップグレード</h3>
 <p>tfファイルのprovicersの定義で指定バージョンを変更して、以下コマンド実行。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform init -upgrade</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform init -upgrade</span>
 </code></pre></div>
 
 <h3 id="_3">リソース一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform state list</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform state list</span>
 </code></pre></div>
 
 <h3 id="workspace">workspace</h3>
 <h4 id="workspace_1">現在のworkspace</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #bbbbbb"> </span>workspace<span style="color: #bbbbbb"> </span>show
-<span style="color: #888888">default</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #BBB"> </span>workspace<span style="color: #BBB"> </span>show
+<span style="color: #888">default</span>
 </code></pre></div>
 
 <h4 id="_4">一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #bbbbbb"> </span>workspace<span style="color: #bbbbbb"> </span>list
-<span style="color: #888888">  default</span>
-<span style="color: #888888">* 1</span>
-<span style="color: #888888">  2</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #BBB"> </span>workspace<span style="color: #BBB"> </span>list
+<span style="color: #888">  default</span>
+<span style="color: #888">* 1</span>
+<span style="color: #888">  2</span>
 </code></pre></div>
 
 <h4 id="_5">変更</h4>
 <p>workspace <code>2</code> に変更</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #bbbbbb"> </span>workspace<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">select</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>
-<span style="color: #888888">Switched to workspace &quot;2&quot;.</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #BBB"> </span>workspace<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">select</span><span style="color: #BBB"> </span><span style="color: #666">2</span>
+<span style="color: #888">Switched to workspace &quot;2&quot;.</span>
 </code></pre></div>
 
 <p>設定値は<code>.terraform/environment</code>に記録される。</p>
 <h3 id="variable">variable</h3>
 <h4 id="_6">引数</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">terraform plan -var=&#39;enable_wan=false&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -var=&#39;enable_wan=false&#39;</span>
 </code></pre></div>
 
 <h3 id="_7">デバッグログ</h3>
 <p>verboseオプション的なものはなく、変数指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">TF_LOG=DEBUG terraform command</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TF_LOG=DEBUG terraform command</span>
 </code></pre></div>
 
 <p><a href="https://developer.hashicorp.com/terraform/internals/debugging">Debugging | Terraform | HashiCorp Developer</a></p>
 <h2 id="backend">backend設定</h2>
 <h3 id="s3">S3</h3>
 <p>backendの定義を追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">terraform</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">required_providers</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">aws</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">      </span><span style="color: #BB4444">source</span><span style="color: #bbbbbb">  </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;hashicorp/aws&quot;</span>
-<span style="color: #bbbbbb">      </span><span style="color: #BB4444">version</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;~&gt; 3.0&quot;</span>
-<span style="color: #bbbbbb">    </span>}
-<span style="color: #bbbbbb">  </span>}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">terraform</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #A2F">required_providers</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #A2F">aws</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">      </span><span style="color: #B44">source</span><span style="color: #BBB">  </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;hashicorp/aws&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #B44">version</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;~&gt; 3.0&quot;</span>
+<span style="color: #BBB">    </span>}
+<span style="color: #BBB">  </span>}
 
-<span style="color: #bbbbbb">  </span><span style="color: #AA22FF; font-weight: bold">backend</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">bucket</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;bucket-name&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">key</span><span style="color: #bbbbbb">    </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">region</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
-<span style="color: #bbbbbb">  </span>}
+<span style="color: #BBB">  </span><span style="color: #A2F; font-weight: bold">backend</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #B44">bucket</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;bucket-name&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #B44">key</span><span style="color: #BBB">    </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;terraform.tfstate&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #B44">region</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;ap-northeast-1&quot;</span>
+<span style="color: #BBB">  </span>}
 }
 
-<span style="color: #AA22FF; font-weight: bold">provider</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;aws&quot;</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">  </span><span style="color: #BB4444">region</span><span style="color: #bbbbbb">  </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;ap-northeast-1&quot;</span>
+<span style="color: #A2F; font-weight: bold">provider</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;aws&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">region</span><span style="color: #BBB">  </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;ap-northeast-1&quot;</span>
 }
 </code></pre></div>
 
@@ -2311,56 +2311,56 @@
 <li>その他はデフォルト</li>
 </ul>
 <p>あとはバックエンド設定に以下追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">  </span><span style="color: #AA22FF; font-weight: bold">backend</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">bucket</span><span style="color: #bbbbbb">         </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">S</span><span style="color: #666666">3</span><span style="border: 1px solid #FF0000">バケット名</span>
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">key</span><span style="color: #bbbbbb">            </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;terraform.tfstate&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">region</span><span style="color: #bbbbbb">         </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">リージョン</span>
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">dynamodb_table</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">DynamoDBテーブル名</span>
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">encrypt</span><span style="color: #bbbbbb">        </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #880000">true</span>
-<span style="color: #bbbbbb">  </span>}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #A2F; font-weight: bold">backend</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #B44">bucket</span><span style="color: #BBB">         </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">S</span><span style="color: #666">3</span><span style="border: 1px solid #F00">バケット名</span>
+<span style="color: #BBB">    </span><span style="color: #B44">key</span><span style="color: #BBB">            </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;terraform.tfstate&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #B44">region</span><span style="color: #BBB">         </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">リージョン</span>
+<span style="color: #BBB">    </span><span style="color: #B44">dynamodb_table</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">DynamoDBテーブル名</span>
+<span style="color: #BBB">    </span><span style="color: #B44">encrypt</span><span style="color: #BBB">        </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #800">true</span>
+<span style="color: #BBB">  </span>}
 </code></pre></div>
 
 <h3 id="_8">ロックしたままになった場合の解除</h3>
 <p>処理中の強制中断や、実行ホストのシャットダウンなどで、ロック状態のままになると、次のTerraform実行はできなくなる。<br />
 解除するには <code>terraform force-unlock ID</code> を実行する。</p>
 <p>IDはエラーメッセージ中の以下の値</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Error message: operation error DynamoDB: PutItem, https response error</span>
-<span style="color: #888888">StatusCode: 400, RequestID: ....</span>
-<span style="color: #888888">ConditionalCheckFailedException: The conditional request failed</span>
-<span style="color: #888888">Lock Info:</span>
-<span style="color: #888888">  ID:        ********</span>
-<span style="color: #888888">  Path:      /path/to/terraform.tfstate</span>
-<span style="color: #888888">  Operation: OperationTypeApply</span>
-<span style="color: #888888">  Who:       ...</span>
-<span style="color: #888888">  Version:   1.9.1</span>
-<span style="color: #888888">  Created:   ...</span>
-<span style="color: #888888">  Info:</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error message: operation error DynamoDB: PutItem, https response error</span>
+<span style="color: #888">StatusCode: 400, RequestID: ....</span>
+<span style="color: #888">ConditionalCheckFailedException: The conditional request failed</span>
+<span style="color: #888">Lock Info:</span>
+<span style="color: #888">  ID:        ********</span>
+<span style="color: #888">  Path:      /path/to/terraform.tfstate</span>
+<span style="color: #888">  Operation: OperationTypeApply</span>
+<span style="color: #888">  Who:       ...</span>
+<span style="color: #888">  Version:   1.9.1</span>
+<span style="color: #888">  Created:   ...</span>
+<span style="color: #888">  Info:</span>
 </code></pre></div>
 
 <h2 id="_9">構文</h2>
 <h3 id="count">count</h3>
 <p>EC2を3つ立てNameタグに連番を振る</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">resource</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">&quot;aws_instance&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">&quot;cloud-vm&quot;</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">  </span><span style="color: #BB4444">count</span><span style="color: #bbbbbb">           </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>
-<span style="color: #bbbbbb">  </span><span style="color: #BB4444">instance_type</span><span style="color: #bbbbbb">   </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;t2.medium&quot;</span>
-<span style="color: #bbbbbb">  </span><span style="color: #666666">:</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_instance&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;cloud-vm&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">count</span><span style="color: #BBB">           </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #666">3</span>
+<span style="color: #BBB">  </span><span style="color: #B44">instance_type</span><span style="color: #BBB">   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;t2.medium&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #666">:</span>
 
-<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">tags</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">    </span><span style="color: #BB4444">Name</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;cloud-${count.index}&quot;</span>
-<span style="color: #bbbbbb">  </span>}
+<span style="color: #BBB">  </span><span style="color: #A2F">tags</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #B44">Name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;cloud-${count.index}&quot;</span>
+<span style="color: #BBB">  </span>}
 }
 </code></pre></div>
 
 <h3 id="_10">変数</h3>
 <h4 id="_11">変数参照</h4>
 <p><code>vm_ami_id</code>という変数を定義しているなら以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">ami</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">var.vm_ami_id</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">ami</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.vm_ami_id</span>
 </code></pre></div>
 
 <h4 id="_12">補完</h4>
 <p>文字列リテラルの中で参照する場合は「補完」で書式は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">tags</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">  </span><span style="color: #BB4444">Name</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;${var.name_prefix}-server&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">tags</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">Name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;${var.name_prefix}-server&quot;</span>
 }
 </code></pre></div>
 
@@ -2373,7 +2373,7 @@
 <h2 id="resource">resource</h2>
 <h3 id="_15">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BB4444">route_table_ids</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>[<span style="color: #B8860B">aws_vpc.my_vpc.default_route_table_id</span>]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">route_table_ids</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_vpc.my_vpc.default_route_table_id</span>]
 </code></pre></div>
 
 <h2 id="docs">docs</h2>
@@ -2381,7 +2381,7 @@
 Terraformコードからドキュメント生成するツール。</p>
 <p>CLIをインストールできるがコンテナ実行でも生成できる。<br />
 Podmanであれば、Terraformコードのあるディレクトリで以下を実行すれば<code>README.md</code>が生成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">podman run --rm -v &quot;$(pwd):/terraform-docs&quot; quay.io/terraform-docs/terraform-docs:0.18.0 markdown /terraform-docs --output-file README.md</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman run --rm -v &quot;$(pwd):/terraform-docs&quot; quay.io/terraform-docs/terraform-docs:0.18.0 markdown /terraform-docs --output-file README.md</span>
 </code></pre></div>
                 
               

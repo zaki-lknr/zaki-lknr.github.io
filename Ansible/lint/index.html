@@ -1734,56 +1734,56 @@
                 
                 <h1 id="ansible-lint">Ansible Lint</h1>
 <h2 id="install">install</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>pip<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>ansible-lint<span style="color: #666666">==4</span>.3.7
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>ansible-lint<span style="color: #666">==4</span>.3.7
 </code></pre></div>
 
 <h2 id="sample">sample</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #bbbbbb"> </span>localhost
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #bbbbbb"> </span>false
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">value</span>:<span style="color: #bbbbbb"> </span>hello
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">value</span>:<span style="color: #BBB"> </span>hello
 
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>print result
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #BB4444">value}}&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>print result
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">value}}&quot;</span>
 </code></pre></div>
 
 <p><code>"{{ value }}"</code>の参照と、あと<code>tasks</code>の前の行は空行でなく2文字スペースが入っている状態。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-lint<span style="color: #bbbbbb"> </span>sample.yml<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">WARNING  Listing 2 violation(s) that are fatal</span>
-<span style="color: #888888">[201] Trailing whitespace</span>
-<span style="color: #888888">sample.yml:6</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-lint<span style="color: #BBB"> </span>sample.yml<span style="color: #BBB"> </span>
+<span style="color: #888">WARNING  Listing 2 violation(s) that are fatal</span>
+<span style="color: #888">[201] Trailing whitespace</span>
+<span style="color: #888">sample.yml:6</span>
 
 
-<span style="color: #888888">[206] Variables should have spaces before and after: {{ var_name }}</span>
-<span style="color: #888888">sample.yml:10</span>
-<span style="color: #888888">      msg: &quot;{{ value}}&quot;</span>
+<span style="color: #888">[206] Variables should have spaces before and after: {{ var_name }}</span>
+<span style="color: #888">sample.yml:10</span>
+<span style="color: #888">      msg: &quot;{{ value}}&quot;</span>
 
-<span style="color: #888888">You can skip specific rules or tags by adding them to your configuration file:       </span>
+<span style="color: #888">You can skip specific rules or tags by adding them to your configuration file:       </span>
 
-<span style="color: #888888">┌───────────────────────────────────────────────────────────────────────────────────┐</span>
-<span style="color: #888888">│ # .ansible-lint                                                                   │</span>
-<span style="color: #888888">│ warn_list:  # or &#39;skip_list&#39; to silence them completely                           │</span>
-<span style="color: #888888">│   - &#39;201&#39;  # Trailing whitespace                                                  │</span>
-<span style="color: #888888">│   - &#39;206&#39;  # Variables should have spaces before and after: {{ var_name }}        │</span>
-<span style="color: #888888">└───────────────────────────────────────────────────────────────────────────────────┘</span>
+<span style="color: #888">┌───────────────────────────────────────────────────────────────────────────────────┐</span>
+<span style="color: #888">│ # .ansible-lint                                                                   │</span>
+<span style="color: #888">│ warn_list:  # or &#39;skip_list&#39; to silence them completely                           │</span>
+<span style="color: #888">│   - &#39;201&#39;  # Trailing whitespace                                                  │</span>
+<span style="color: #888">│   - &#39;206&#39;  # Variables should have spaces before and after: {{ var_name }}        │</span>
+<span style="color: #888">└───────────────────────────────────────────────────────────────────────────────────┘</span>
 </code></pre></div>
 
 <p>もしくは <code>-p</code> を付けて</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-lint<span style="color: #bbbbbb"> </span>sample.yml<span style="color: #bbbbbb"> </span>-p
-<span style="color: #888888">WARNING  Listing 2 violation(s) that are fatal</span>
-<span style="color: #888888">sample.yml:6: [E201] Trailing whitespace</span>
-<span style="color: #888888">sample.yml:10: [E206] Variables should have spaces before and after: {{ var_name }}</span>
-<span style="color: #888888">You can skip specific rules or tags by adding them to your configuration file:       </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-lint<span style="color: #BBB"> </span>sample.yml<span style="color: #BBB"> </span>-p
+<span style="color: #888">WARNING  Listing 2 violation(s) that are fatal</span>
+<span style="color: #888">sample.yml:6: [E201] Trailing whitespace</span>
+<span style="color: #888">sample.yml:10: [E206] Variables should have spaces before and after: {{ var_name }}</span>
+<span style="color: #888">You can skip specific rules or tags by adding them to your configuration file:       </span>
 
-<span style="color: #888888">┌───────────────────────────────────────────────────────────────────────────────────┐</span>
-<span style="color: #888888">│ # .ansible-lint                                                                   │</span>
-<span style="color: #888888">│ warn_list:  # or &#39;skip_list&#39; to silence them completely                           │</span>
-<span style="color: #888888">│   - &#39;201&#39;  # Trailing whitespace                                                  │</span>
-<span style="color: #888888">│   - &#39;206&#39;  # Variables should have spaces before and after: {{ var_name }}        │</span>
-<span style="color: #888888">└───────────────────────────────────────────────────────────────────────────────────┘</span>
+<span style="color: #888">┌───────────────────────────────────────────────────────────────────────────────────┐</span>
+<span style="color: #888">│ # .ansible-lint                                                                   │</span>
+<span style="color: #888">│ warn_list:  # or &#39;skip_list&#39; to silence them completely                           │</span>
+<span style="color: #888">│   - &#39;201&#39;  # Trailing whitespace                                                  │</span>
+<span style="color: #888">│   - &#39;206&#39;  # Variables should have spaces before and after: {{ var_name }}        │</span>
+<span style="color: #888">└───────────────────────────────────────────────────────────────────────────────────┘</span>
 </code></pre></div>
                 
               

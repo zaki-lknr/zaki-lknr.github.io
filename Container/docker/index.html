@@ -2171,123 +2171,123 @@
 <h4 id="-u-user">-u | --user</h4>
 <p>ユーザーIDを指定して実行。<br />
 例えばroot権限でシェル起動とか。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --rm -it localhost:5000/my-image sh</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --rm -it localhost:5000/my-image sh</span>
 <span style="color: #000080; font-weight: bold">sh-5.1$ </span>id
-<span style="color: #888888">uid=1000(1000) gid=0(root) groups=0(root)</span>
-<span style="color: #000080; font-weight: bold">sh-5.1$ </span><span style="color: #AA22FF">exit</span>
-<span style="color: #888888">exit</span>
-<span style="color: #888888">docker run --rm -it --user root localhost:5000/my-image sh</span>
+<span style="color: #888">uid=1000(1000) gid=0(root) groups=0(root)</span>
+<span style="color: #000080; font-weight: bold">sh-5.1$ </span><span style="color: #A2F">exit</span>
+<span style="color: #888">exit</span>
+<span style="color: #888">docker run --rm -it --user root localhost:5000/my-image sh</span>
 <span style="color: #000080; font-weight: bold">sh-5.1# </span>id
-<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #888">uid=0(root) gid=0(root) groups=0(root)</span>
 <span style="color: #000080; font-weight: bold">sh-5.1# </span>
 </code></pre></div>
 
 <h4 id="-p-publish">-p | --publish</h4>
 <p><code>localでlistenするポート</code>:<code>コンテナに接続するポート</code>を指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">-p 8081:80</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">-p 8081:80</span>
 </code></pre></div>
 
 <p>これでホスト上は<code>8081</code>でListenして、その接続をコンテナの80へ転送する。</p>
 <h4 id="-v">ボリューム (-v)</h4>
 <p><a href="https://matsuand.github.io/docs.docker.jp.onthefly/storage/volumes/">ボリュームの利用 | Docker ドキュメント</a></p>
 <p>ボリュームマウント</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>httpd<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>-v<span style="color: #bbbbbb"> </span>webvolume:/var/tmp<span style="color: #bbbbbb"> </span>httpd
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>--name<span style="color: #BBB"> </span>httpd<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>-v<span style="color: #BBB"> </span>webvolume:/var/tmp<span style="color: #BBB"> </span>httpd
 </code></pre></div>
 
 <p><code>webvolume</code>ボリュームを(無ければ自動作成して)<code>/var/tmp</code>にマウントしてコンテナ起動。<br />
 コンテナを停止・削除してもボリュームは残るので、このボリュームを別コンテナでマウントすればデータを保持できる。</p>
 <h4 id="-add-host">ホストのアドレス(--add-host)</h4>
 <p><code>host.docker.internal</code>をホストOSのアドレスに設定するには<code>host-gateway</code>を指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --add-host host.docker.internal:host-gateway --rm -it centos bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --add-host host.docker.internal:host-gateway --rm -it centos bash</span>
 </code></pre></div>
 
 <p>これでコンテナ内の<code>/etc/hosts</code>に<code>host.docker.internal</code>のエントリが追加され、ホストOSへのアドレスが設定される。</p>
 <h4 id="entrypoint-entrypoint">ENTRYPOINTの上書き(--entrypoint)</h4>
 <p><code>CMD</code>でコマンド指定されたイメージであれば</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run -it image:tag sh</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run -it image:tag sh</span>
 </code></pre></div>
 
 <p>などでコンテナ内のシェルを起動できるが、<code>ENTRYPOINT</code>が使われていると起動コマンドの上書きはできない。<br />
 その場合は<code>--entrypoint</code>オプションで上書きする。</p>
 <p>ただしイメージ指定より手前に指定する必要がある。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run -it --entrypoint sh image:tag</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run -it --entrypoint sh image:tag</span>
 </code></pre></div>
 
 <h4 id="-e">環境変数(-e)</h4>
 <p>コンテナ環境へ環境変数を渡すには<code>-e</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --rm -e APP_VAL=foobar image:tag</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --rm -e APP_VAL=foobar image:tag</span>
 </code></pre></div>
 
 <h3 id="build">build</h3>
 <h4 id="dockerfile">Dockerfile指定</h4>
 <p><code>-f</code>で指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker build -f my-dockerfile . -t image:tag</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker build -f my-dockerfile . -t image:tag</span>
 </code></pre></div>
 
 <h3 id="inspect">inspect</h3>
 <p>コンテナの状態を確認する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker inspect &lt;container name or ID&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker inspect &lt;container name or ID&gt;</span>
 </code></pre></div>
 
 <h4 id="formatip">formatでIPアドレス</h4>
 <p><code>docker run</code>でデフォルトのネットワークへデプロイしたコンテナであればこの通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>inspect<span style="color: #bbbbbb"> </span>&lt;container<span style="color: #bbbbbb"> </span>name<span style="color: #bbbbbb"> </span>or<span style="color: #bbbbbb"> </span>ID&gt;<span style="color: #bbbbbb"> </span>--format<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;{{ .NetworkSettings.IPAddress }}&#39;</span>
-<span style="color: #888888">172.17.0.2</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>inspect<span style="color: #BBB"> </span>&lt;container<span style="color: #BBB"> </span>name<span style="color: #BBB"> </span>or<span style="color: #BBB"> </span>ID&gt;<span style="color: #BBB"> </span>--format<span style="color: #BBB"> </span><span style="color: #B44">&#39;{{ .NetworkSettings.IPAddress }}&#39;</span>
+<span style="color: #888">172.17.0.2</span>
 </code></pre></div>
 
 <p>デフォルト以外のネットワークはこのパスの値は空になっているので、ネットワークの指定も必要。<br />
 Compose使用時もこのパターン。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>inspect<span style="color: #bbbbbb"> </span>&lt;container<span style="color: #bbbbbb"> </span>name<span style="color: #bbbbbb"> </span>or<span style="color: #bbbbbb"> </span>ID&gt;<span style="color: #bbbbbb"> </span>--format<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;{{ .NetworkSettings.Networks.&lt;network name&gt;.IPAddress }}&#39;</span>
-<span style="color: #888888">172.18.0.2</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>inspect<span style="color: #BBB"> </span>&lt;container<span style="color: #BBB"> </span>name<span style="color: #BBB"> </span>or<span style="color: #BBB"> </span>ID&gt;<span style="color: #BBB"> </span>--format<span style="color: #BBB"> </span><span style="color: #B44">&#39;{{ .NetworkSettings.Networks.&lt;network name&gt;.IPAddress }}&#39;</span>
+<span style="color: #888">172.18.0.2</span>
 </code></pre></div>
 
 <h3 id="save">save</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>save<span style="color: #bbbbbb"> </span>imagename:tag<span style="color: #bbbbbb"> </span>&gt;<span style="color: #bbbbbb"> </span>imagename-tag.tar
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>save<span style="color: #BBB"> </span>imagename:tag<span style="color: #BBB"> </span>&gt;<span style="color: #BBB"> </span>imagename-tag.tar
 </code></pre></div>
 
 <p>または</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>docker<span style="color: #bbbbbb"> </span>save<span style="color: #bbbbbb"> </span>imagename:tag<span style="color: #bbbbbb"> </span>-o<span style="color: #bbbbbb"> </span>imagename-tag.tar
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>docker<span style="color: #BBB"> </span>save<span style="color: #BBB"> </span>imagename:tag<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>imagename-tag.tar
 </code></pre></div>
 
 <h3 id="load">load</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>load<span style="color: #bbbbbb"> </span>-i<span style="color: #bbbbbb"> </span>image.tar
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>load<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>image.tar
 </code></pre></div>
 
 <p>あるいは</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>load<span style="color: #bbbbbb"> </span>&lt;<span style="color: #bbbbbb"> </span>image.tar
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>load<span style="color: #BBB"> </span>&lt;<span style="color: #BBB"> </span>image.tar
 </code></pre></div>
 
 <h3 id="pull">pull</h3>
 <p>sha256ハッシュ値指定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>pull<span style="color: #bbbbbb"> </span>httpd@sha256:f2179b693cfb49baa6e7500171deea7bef755338bf165b39aedacf2b4ae28455
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>pull<span style="color: #BBB"> </span>httpd@sha256:f2179b693cfb49baa6e7500171deea7bef755338bf165b39aedacf2b4ae28455
 </code></pre></div>
 
 <h3 id="volume">volume</h3>
 <p>リストする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>volume<span style="color: #bbbbbb"> </span>ls
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>volume<span style="color: #BBB"> </span>ls
 </code></pre></div>
 
 <p>参照されてないボリュームをリストアップする。<br />
 <a href="https://docs.docker.jp/engine/reference/commandline/volume_ls.html#id2">ダングリング</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>volume<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span><span style="color: #B8860B">dangling</span><span style="color: #666666">=</span><span style="color: #AA22FF">true</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>volume<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span><span style="color: #B8860B">dangling</span><span style="color: #666">=</span><span style="color: #A2F">true</span>
 </code></pre></div>
 
 <h3 id="image">image</h3>
 <h4 id="_1">サイズ順にソート</h4>
 <p>テンプレート付きのtableフォーマットでサイズをまず出力し、<code>sort</code>を<code>-h (--human-numeric-sort)</code>オプション付けてソートする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker image ls --format &quot;table {{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}&quot; | sort -h</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker image ls --format &quot;table {{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}&quot; | sort -h</span>
 </code></pre></div>
 
 <p><a href="https://qiita.com/peaceiris/items/e38648a1e8614c7d5083">Docker image 一覧を容量順でソートする #Docker - Qiita</a></p>
 <h3 id="prune">prune</h3>
 <p>不要オブジェクトを削除するには<code>docker prune</code>を使う。</p>
 <h4 id="prune_1">コンテナのprune</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>container<span style="color: #bbbbbb"> </span>prune
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>container<span style="color: #BBB"> </span>prune
 </code></pre></div>
 
 <p>デフォルトは停止している全コンテナが削除される。<br />
 10日以前に <del>停止している</del> 作成されて現在停止中のコンテナの場合は、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>container<span style="color: #bbbbbb"> </span>prune<span style="color: #bbbbbb"> </span>--filter<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;until=240h&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>container<span style="color: #BBB"> </span>prune<span style="color: #BBB"> </span>--filter<span style="color: #BBB"> </span><span style="color: #B44">&quot;until=240h&quot;</span>
 </code></pre></div>
 
 <p><a href="https://pkg.go.dev/time#ParseDuration">Go duration strings</a>を使って期間を指定できる。<br />
@@ -2296,47 +2296,47 @@ Compose使用時もこのパターン。</p>
 <p>Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h"</p>
 </blockquote>
 <h4 id="prune_2">イメージのprune</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>prune
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>prune
 </code></pre></div>
 
 <p>デフォルトは、タグが設定されずに<code>&lt;none&gt;</code>になっているイメージが削除される。<br />
 <code>&lt;none&gt;</code>のイメージをリストアップするだけであれば <code>docker image ls -f "dangling=true"</code> でリストアップできる。</p>
 <h2 id="_2">実行サンプル</h2>
 <h3 id="webhttpd">ローカルのwebコンテンツをhttpdに持たせる</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
 </code></pre></div>
 
 <h3 id="centosstream8">centos:stream8</h3>
 <p><a href="https://quay.io/repository/centos/centos?tab=tags">quayにあるイメージ</a>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
 </code></pre></div>
 
 <h2 id="_3">ビルド</h2>
 <h3 id="_4">ヘルスチェック</h3>
 <p>30秒後にhttpdが起動するようになっているコンテナイメージ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">FROM</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">httpd:2.4</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">FROM</span><span style="color: #BBB"> </span><span style="color: #B44">httpd:2.4</span>
 
-<span style="color: #AA22FF; font-weight: bold">COPY</span><span style="color: #bbbbbb"> </span>index.html<span style="color: #bbbbbb"> </span>/usr/local/apache2/htdocs/
-<span style="color: #AA22FF; font-weight: bold">RUN</span><span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>update;<span style="color: #bbbbbb"> </span>apt-get<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>curl
+<span style="color: #A2F; font-weight: bold">COPY</span><span style="color: #BBB"> </span>index.html<span style="color: #BBB"> </span>/usr/local/apache2/htdocs/
+<span style="color: #A2F; font-weight: bold">RUN</span><span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>update;<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>curl
 
-<span style="color: #AA22FF; font-weight: bold">HEALTHCHECK</span><span style="color: #bbbbbb"> </span>--interval<span style="color: #666666">=</span>5s<span style="color: #bbbbbb"> </span>--timeout<span style="color: #666666">=</span>5s<span style="color: #bbbbbb"> </span>--retries<span style="color: #666666">=15</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">CMD</span><span style="color: #bbbbbb"> </span>curl<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>http://127.0.0.1<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">exit</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>
+<span style="color: #A2F; font-weight: bold">HEALTHCHECK</span><span style="color: #BBB"> </span>--interval<span style="color: #666">=</span>5s<span style="color: #BBB"> </span>--timeout<span style="color: #666">=</span>5s<span style="color: #BBB"> </span>--retries<span style="color: #666">=15</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">CMD</span><span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>http://127.0.0.1<span style="color: #BBB"> </span><span style="color: #666">||</span><span style="color: #BBB"> </span><span style="color: #A2F">exit</span><span style="color: #BBB"> </span><span style="color: #666">1</span>
 
-<span style="color: #008800; font-style: italic">#CMD [&quot;httpd-foreground&quot;]</span>
-<span style="color: #AA22FF; font-weight: bold">CMD</span><span style="color: #bbbbbb"> </span>[<span style="color: #BB4444">&quot;sh&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;-c&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;sleep 30; httpd-foreground&quot;</span>]
+<span style="color: #080; font-style: italic">#CMD [&quot;httpd-foreground&quot;]</span>
+<span style="color: #A2F; font-weight: bold">CMD</span><span style="color: #BBB"> </span>[<span style="color: #B44">&quot;sh&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;-c&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;sleep 30; httpd-foreground&quot;</span>]
 </code></pre></div>
 
 <p>起動処理中は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>-d<span style="color: #bbbbbb"> </span>-p<span style="color: #bbbbbb"> </span><span style="color: #666666">8080</span>:80<span style="color: #bbbbbb"> </span>--name<span style="color: #bbbbbb"> </span>slowstart_httpd<span style="color: #bbbbbb"> </span>slowstart_httpd
-<span style="color: #888888">e5c366cb3bbab10284ab41bd3e23fbf24720c9c371c35a8137d78a3c138844c6</span>
-<span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker<span style="color: #bbbbbb"> </span>container<span style="color: #bbbbbb"> </span>ls
-<span style="color: #888888">CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS                            PORTS                                   NAMES</span>
-<span style="color: #888888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span><span style="color: #666">8080</span>:80<span style="color: #BBB"> </span>--name<span style="color: #BBB"> </span>slowstart_httpd<span style="color: #BBB"> </span>slowstart_httpd
+<span style="color: #888">e5c366cb3bbab10284ab41bd3e23fbf24720c9c371c35a8137d78a3c138844c6</span>
+<span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker<span style="color: #BBB"> </span>container<span style="color: #BBB"> </span>ls
+<span style="color: #888">CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS                            PORTS                                   NAMES</span>
+<span style="color: #888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
 
 <p>起動後は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker<span style="color: #bbbbbb"> </span>container<span style="color: #bbbbbb"> </span>ls
-<span style="color: #888888">CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                    PORTS                                   NAMES</span>
-<span style="color: #888888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@node slowstart_httpd]$ </span>docker<span style="color: #BBB"> </span>container<span style="color: #BBB"> </span>ls
+<span style="color: #888">CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                    PORTS                                   NAMES</span>
+<span style="color: #888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
                 
               

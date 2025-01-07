@@ -1842,26 +1842,26 @@
 <h2 id="podman_1">podmanコマンド</h2>
 <h3 id="save">save</h3>
 <p>複数イメージのtar保存</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">podman image save -o output.tar -m image1:tag image2:tag</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman image save -o output.tar -m image1:tag image2:tag</span>
 </code></pre></div>
 
 <p><code>-m</code>が無いと最初のイメージのみになる。</p>
 <h3 id="push">push</h3>
 <p>ローカルのイメージをpush</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">podman push localhost/image:tag docker://remote.example.org/image:tag</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman push localhost/image:tag docker://remote.example.org/image:tag</span>
 </code></pre></div>
 
 <p>push先を第2引数で指定できるのでtag(FQDN)の追加を行っておく必要はない。</p>
 <h2 id="volume">volume</h2>
 <h3 id="permission-denied">permission denied</h3>
 <p>だいたいSELinux周り。<code>Z</code>をつければOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">podman run -d --name serv1 -p 8080:80 -v ./serv1:/usr/local/apache2/htdocs/:Z httpd:2.4</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman run -d --name serv1 -p 8080:80 -v ./serv1:/usr/local/apache2/htdocs/:Z httpd:2.4</span>
 </code></pre></div>
 
 <h2 id="service">service</h2>
 <h3 id="os">OS起動時にコンテナ起動するには</h3>
 <p><code>podman-restart.service</code>を使用する(デフォルト無効)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">systemctl enable --now podman-restart.service</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">systemctl enable --now podman-restart.service</span>
 </code></pre></div>
 
 <p>これでrootユーザーのコンテナは<code>--restart=always</code>が有効(OS起動時にコンテナ起動)になる。</p>

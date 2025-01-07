@@ -2992,39 +2992,39 @@
 <p><a href="https://gist.github.com/zaki-lknr/5f323de8383baa41bda4839362d4c3a5">gist</a>から引っ越し。</p>
 <h2 id="git-clone">git clone</h2>
 <h3 id="branch">branchを指定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>clone<span style="color: #bbbbbb"> </span>-b<span style="color: #bbbbbb"> </span>&lt;branch-name&gt;<span style="color: #bbbbbb"> </span>&lt;repository-URL&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>-b<span style="color: #BBB"> </span>&lt;branch-name&gt;<span style="color: #BBB"> </span>&lt;repository-URL&gt;
 </code></pre></div>
 
 <p>tagの場合も同じように</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>clone<span style="color: #bbbbbb"> </span>-b<span style="color: #bbbbbb"> </span>&lt;tag-name&gt;<span style="color: #bbbbbb"> </span>&lt;repository&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>-b<span style="color: #BBB"> </span>&lt;tag-name&gt;<span style="color: #BBB"> </span>&lt;repository&gt;
 </code></pre></div>
 
 <h3 id="_1">出力先ディレクトリ指定</h3>
 <p><code>-l &lt;dirname&gt;</code>を付ける</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>clone<span style="color: #bbbbbb"> </span>-b<span style="color: #bbbbbb"> </span>&lt;branch-name&gt;<span style="color: #bbbbbb"> </span>&lt;repository-URL&gt;<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>app-src-work
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>-b<span style="color: #BBB"> </span>&lt;branch-name&gt;<span style="color: #BBB"> </span>&lt;repository-URL&gt;<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>app-src-work
 </code></pre></div>
 
 <p>実は<code>-l</code>は無くてもよい。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>clone<span style="color: #bbbbbb"> </span>&lt;repository-url&gt;<span style="color: #bbbbbb"> </span>&lt;local-path&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>&lt;repository-url&gt;<span style="color: #BBB"> </span>&lt;local-path&gt;
 </code></pre></div>
 
 <h2 id="_2">ローカルリポジトリ作成</h2>
 <p>リポジトリ用ディレクトリを作ってそのディレクトリ上で<code>git init</code>して<code>README.md</code>をinitial commitする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>init
-$<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;# this is hogehgoe repository&quot;</span><span style="color: #bbbbbb"> </span>&gt;&gt;<span style="color: #bbbbbb"> </span>README.md
-$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>README.md
-$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>commit<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;first commit&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>init
+$<span style="color: #BBB"> </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;# this is hogehgoe repository&quot;</span><span style="color: #BBB"> </span>&gt;&gt;<span style="color: #BBB"> </span>README.md
+$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>README.md
+$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>commit<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span><span style="color: #B44">&quot;first commit&quot;</span>
 </code></pre></div>
 
 <h2 id="_3">リモートリポジトリ作成</h2>
 <h3 id="ssh">ssh</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">cd</span><span style="color: #bbbbbb"> </span>/opt/repos
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>init<span style="color: #bbbbbb"> </span>--bare<span style="color: #bbbbbb"> </span>sample.git
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">cd</span><span style="color: #BBB"> </span>/opt/repos
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>init<span style="color: #BBB"> </span>--bare<span style="color: #BBB"> </span>sample.git
 </code></pre></div>
 
 <p>これで <code>/opt/repos/sample.git</code> リポジトリが出来る。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">cd</span><span style="color: #bbbbbb"> </span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #B8860B">workdir</span><span style="color: #BB6688; font-weight: bold">}</span>
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>clone<span style="color: #bbbbbb"> </span>ssh://localhost/opt/repos/sample.git
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">cd</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">workdir</span><span style="color: #B68; font-weight: bold">}</span>
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>ssh://localhost/opt/repos/sample.git
 </code></pre></div>
 
 <p>これでワークディレクトリにcloneできる。<br />
@@ -3032,36 +3032,36 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 <p>この<code>git init --bare &lt;path&gt;</code>は<code>git clone</code>したクローンしたリポジトリにも有効。</p>
 <h2 id="commit">commit</h2>
 <h3 id="add">まず対象をadd</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>path/file
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>path/file
 </code></pre></div>
 
 <h3 id="commit_1">commit</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>commit
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>commit
 </code></pre></div>
 
 <p>これ実行するとエディタが起動する。
 先頭<code>#</code>になってる行は全て無視されるので、任意の位置にコミットログを入力する</p>
 <h3 id="optioncommit">optionでコミットメッセージ付きcommit</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>commit<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;commit messages&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>commit<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span><span style="color: #B44">&quot;commit messages&quot;</span>
 </code></pre></div>
 
 <h3 id="amend">amend</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>commit<span style="color: #bbbbbb"> </span>--amend
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>commit<span style="color: #BBB"> </span>--amend
 </code></pre></div>
 
 <p>直前のコミットに内容をあとから追加できる。<br />
 コミット漏れのファイルがあった場合などに1コミットにまとめられる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>commit<span style="color: #bbbbbb"> </span>--amend<span style="color: #bbbbbb"> </span>--no-edit
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>commit<span style="color: #BBB"> </span>--amend<span style="color: #BBB"> </span>--no-edit
 </code></pre></div>
 
 <p><code>--no-edit</code>を付与すれば、コミットログは前と同じものを使用できる。</p>
 <h2 id="_4">マージ</h2>
 <h3 id="hogehoge">hogehogeブランチをマージする</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>merge<span style="color: #bbbbbb"> </span>hogehoge
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>merge<span style="color: #BBB"> </span>hogehoge
 </code></pre></div>
 
 <h3 id="-no-ff">マージコミットを作る (--no-ff)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>merge<span style="color: #bbbbbb"> </span>features/add_worker_node<span style="color: #bbbbbb"> </span>--no-ff<span style="color: #bbbbbb"> </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>merge<span style="color: #BBB"> </span>features/add_worker_node<span style="color: #BBB"> </span>--no-ff<span style="color: #BBB"> </span>
 </code></pre></div>
 
 <h3 id="rebase">rebaseでマージ</h3>
@@ -3073,23 +3073,23 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 </ul>
 <p><code>merge</code>は「他ブランチの内容を取り込む」で、<code>rebase</code>は「他ブランチの内容を適用済みだったことにする」かな？</p>
 <p>リモートブランチから最新を取得</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>fetch<span style="color: #bbbbbb"> </span>origin<span style="color: #bbbbbb"> </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>fetch<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>
 </code></pre></div>
 
 <p>指定ブランチの内容を<code>rebase</code>で現在のブランチへ取り込み</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>rebase<span style="color: #bbbbbb"> </span>origin/hogehoge
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>rebase<span style="color: #BBB"> </span>origin/hogehoge
 </code></pre></div>
 
 <p>変更がローカルに残ってる場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>rebase<span style="color: #bbbbbb"> </span>origin/hogehoge
-<span style="color: #888888">error: cannot rebase: You have unstaged changes.</span>
-<span style="color: #888888">error: Please commit or stash them.</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>rebase<span style="color: #BBB"> </span>origin/hogehoge
+<span style="color: #888">error: cannot rebase: You have unstaged changes.</span>
+<span style="color: #888">error: Please commit or stash them.</span>
 </code></pre></div>
 
 <p>エラーになるので、退避してrebaseする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>stash<span style="color: #bbbbbb"> </span>save
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>rebase<span style="color: #bbbbbb"> </span>origin/hogehoge
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>stash<span style="color: #bbbbbb"> </span>pop
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>stash<span style="color: #BBB"> </span>save
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>rebase<span style="color: #BBB"> </span>origin/hogehoge
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>stash<span style="color: #BBB"> </span>pop
 </code></pre></div>
 
 <p>origin/mainから取り込むときに<code>pull</code>するとmergeになってしまうので、rebaseしたい場合は<code>fetch</code>する。(たぶん)</p>
@@ -3101,7 +3101,7 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 </ol>
 <p>(「修正する」をもう少し詳しくあとで書こう)</p>
 <h3 id="merge">mergeをやめる場合(未修正)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>merge<span style="color: #bbbbbb"> </span>--abort
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>merge<span style="color: #BBB"> </span>--abort
 </code></pre></div>
 
 <p>マージ前の状態に戻る。</p>
@@ -3111,15 +3111,15 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 
 <h3 id="rebase_1">rebaseのコンフリクト</h3>
 <p><code>git rebase main</code>したらこのエラー</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Auto-merging &lt;filename&gt;</span>
-<span style="color: #888888">CONFLICT (content): Merge conflict in &lt;filename&gt;</span>
-<span style="color: #888888">error: could not apply e91cdab... &lt;commit message&gt;</span>
-<span style="color: #888888">hint: Resolve all conflicts manually, mark them as resolved with</span>
-<span style="color: #888888">hint: &quot;git add/rm &lt;conflicted_files&gt;&quot;, then run &quot;git rebase --continue&quot;.</span>
-<span style="color: #888888">hint: You can instead skip this commit: run &quot;git rebase --skip&quot;.</span>
-<span style="color: #888888">hint: To abort and get back to the state before &quot;git rebase&quot;, run &quot;git rebase --abort&quot;.</span>
-<span style="color: #888888">hint: Disable this message with &quot;git config advice.mergeConflict false&quot;</span>
-<span style="color: #888888">Could not apply e91cdab... &lt;commit message&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Auto-merging &lt;filename&gt;</span>
+<span style="color: #888">CONFLICT (content): Merge conflict in &lt;filename&gt;</span>
+<span style="color: #888">error: could not apply e91cdab... &lt;commit message&gt;</span>
+<span style="color: #888">hint: Resolve all conflicts manually, mark them as resolved with</span>
+<span style="color: #888">hint: &quot;git add/rm &lt;conflicted_files&gt;&quot;, then run &quot;git rebase --continue&quot;.</span>
+<span style="color: #888">hint: You can instead skip this commit: run &quot;git rebase --skip&quot;.</span>
+<span style="color: #888">hint: To abort and get back to the state before &quot;git rebase&quot;, run &quot;git rebase --abort&quot;.</span>
+<span style="color: #888">hint: Disable this message with &quot;git config advice.mergeConflict false&quot;</span>
+<span style="color: #888">Could not apply e91cdab... &lt;commit message&gt;</span>
 </code></pre></div>
 
 <p><code>git-prompt</code>を使っていると、プロンプトの表示は以下のようになる。</p>
@@ -3128,38 +3128,38 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>co
 
 <p>コンフリクト箇所の修正と修正後の<code>add</code>は<code>merge</code>の時と同様。<br />
 <code>add</code>した状態の<code>status</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>st
-<span style="color: #888888">interactive rebase in progress; onto a4650f8</span>
-<span style="color: #888888">Last command done (1 command done):</span>
-<span style="color: #888888">   pick e91cdab add: 24時間以内のチェックイン数の表示 #59</span>
-<span style="color: #888888">No commands remaining.</span>
-<span style="color: #888888">You are currently rebasing branch &#39;feature/count-24&#39; on &#39;a4650f8&#39;.</span>
-<span style="color: #888888">  (all conflicts fixed: run &quot;git rebase --continue&quot;)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>st
+<span style="color: #888">interactive rebase in progress; onto a4650f8</span>
+<span style="color: #888">Last command done (1 command done):</span>
+<span style="color: #888">   pick e91cdab add: 24時間以内のチェックイン数の表示 #59</span>
+<span style="color: #888">No commands remaining.</span>
+<span style="color: #888">You are currently rebasing branch &#39;feature/count-24&#39; on &#39;a4650f8&#39;.</span>
+<span style="color: #888">  (all conflicts fixed: run &quot;git rebase --continue&quot;)</span>
 
-<span style="color: #888888">Changes to be committed:</span>
-<span style="color: #888888">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
-<span style="color: #888888">        modified:   swarm.js</span>
+<span style="color: #888">Changes to be committed:</span>
+<span style="color: #888">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span style="color: #888">        modified:   swarm.js</span>
 </code></pre></div>
 
 <p>ここで<code>rebase</code>を続けるために、メッセージに出てる通り<code>git rebase --continue</code>を実行するとエディタが起動するのでコミットメッセージを編集すればrebaseが完了する。</p>
 <h3 id="stash-popconflict">stash pop後のconflict</h3>
 <p>メッセージが以下のようになり<code>git merge --abort</code>は効かない。<br />
 状態としてはステージングになっている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Unmerged paths:</span>
-<span style="color: #888888">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
-<span style="color: #888888">  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)</span>
-<span style="color: #888888">        both modified:   filename</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Unmerged paths:</span>
+<span style="color: #888">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span style="color: #888">  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)</span>
+<span style="color: #888">        both modified:   filename</span>
 </code></pre></div>
 
 <p>メッセージにある通り、コンフリクトを解決したのであれば<code>git add</code>を、変更を破棄したい場合は<code>git restore --staged</code>で<code>add</code>を取り消し、さらに<code>git restore</code>すれば変更前の状態に戻る。</p>
 <h2 id="add_1">add (ステージング)</h2>
 <h3 id="_6">ステージングに追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>&lt;path&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>&lt;path&gt;
 </code></pre></div>
 
 <p>パスはディレクトリ指定の場合は再帰的にファイルが追加される</p>
 <h3 id="add_2">行単位のadd</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>-p
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>-p
 </code></pre></div>
 
 <p>実行するとdiffが表示されるので、変更単位ごとに<code>y</code>で追加・<code>n</code>でスルーできる。<br />
@@ -3177,140 +3177,140 @@ If the patch applies cleanly, the edited hunk will immediately be marked for sta
 If it does not apply cleanly, you will be given an opportunity to</p>
 </blockquote>
 <h3 id="_7">追加の取り消し</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>reset<span style="color: #bbbbbb"> </span>HEAD<span style="color: #bbbbbb"> </span>&lt;path&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>reset<span style="color: #BBB"> </span>HEAD<span style="color: #BBB"> </span>&lt;path&gt;
 </code></pre></div>
 
 <h3 id="_8">ステージングのファイルの確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>status
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>status
 </code></pre></div>
 
 <h3 id="_9">ステージングに追加された差分を確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #FF0000">$</span><span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>diff<span style="color: #bbbbbb"> </span><span style="color: #008800; font-style: italic">--cached [file]</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">$</span><span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>diff<span style="color: #BBB"> </span><span style="color: #080; font-style: italic">--cached [file]</span>
 </code></pre></div>
 
 <h2 id="_10">ブランチ操作</h2>
 <h3 id="_11">今いるブランチどこ？</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">  </span>dev/calico
-<span style="color: #bbbbbb">  </span>devel
-<span style="color: #bbbbbb">  </span>features/cni_use_calico
-<span style="color: #bbbbbb">  </span>features/delete_node
-<span style="color: #bbbbbb">  </span>features/divide_playbook
-<span style="color: #bbbbbb">  </span>features/divide_roles
-<span style="color: #bbbbbb">  </span>features/separate_cni_firewalld_configure
-<span style="color: #bbbbbb">  </span>features/separate_parameters
-<span style="color: #bbbbbb">  </span>features/wait_new_node
-*<span style="color: #bbbbbb"> </span>master
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>
+<span style="color: #BBB">  </span>dev/calico
+<span style="color: #BBB">  </span>devel
+<span style="color: #BBB">  </span>features/cni_use_calico
+<span style="color: #BBB">  </span>features/delete_node
+<span style="color: #BBB">  </span>features/divide_playbook
+<span style="color: #BBB">  </span>features/divide_roles
+<span style="color: #BBB">  </span>features/separate_cni_firewalld_configure
+<span style="color: #BBB">  </span>features/separate_parameters
+<span style="color: #BBB">  </span>features/wait_new_node
+*<span style="color: #BBB"> </span>master
 </code></pre></div>
 
 <h3 id="_12">ブランチ作成</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>features/divide_playbook
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>features/divide_playbook
 </code></pre></div>
 
 <h3 id="_13">ブランチ切り替え</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>checkout<span style="color: #bbbbbb"> </span>features/divide_playbook
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>checkout<span style="color: #BBB"> </span>features/divide_playbook
 </code></pre></div>
 
 <p>Git 2.23以降は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>switch<span style="color: #bbbbbb"> </span>features/divide_playbook
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>switch<span style="color: #BBB"> </span>features/divide_playbook
 </code></pre></div>
 
 <h3 id="_14">ブランチ作成＆切り替え</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>checkout<span style="color: #bbbbbb"> </span>-b<span style="color: #bbbbbb"> </span>features/divide_playbook
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>checkout<span style="color: #BBB"> </span>-b<span style="color: #BBB"> </span>features/divide_playbook
 </code></pre></div>
 
 <p>Git 2.23以降は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>switch<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>features/divide_playbook
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>switch<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>features/divide_playbook
 </code></pre></div>
 
 <h3 id="_15">ブランチ間の差分</h3>
 <p>ブランチ名を引数に実行すればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git diff &lt;branch1-name&gt; &lt;branch2-name&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git diff &lt;branch1-name&gt; &lt;branch2-name&gt;</span>
 </code></pre></div>
 
 <h3 id="_16">ローカルブランチの削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>--delete<span style="color: #bbbbbb"> </span>features/swapoff<span style="color: #bbbbbb"> </span>features/replace-yum-config-manager<span style="color: #bbbbbb"> </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>--delete<span style="color: #BBB"> </span>features/swapoff<span style="color: #BBB"> </span>features/replace-yum-config-manager<span style="color: #BBB"> </span>
 </code></pre></div>
 
 <p>↑複数指定した場合</p>
 <h3 id="_17">ローカルブランチの強制削除</h3>
 <p>未マージのコミットがあったりすると削除できないけど、<code>-D</code>で強制的に削除できる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>features/foobar<span style="color: #bbbbbb"> </span>-D
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>features/foobar<span style="color: #BBB"> </span>-D
 </code></pre></div>
 
 <h3 id="_18">ローカルブランチ名の変更</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>現在のブランチ名を変更
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>&lt;new-branch-name&gt;
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>&lt;new-branch-name&gt;
 </code></pre></div>
 
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>指定ブランチを変更
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>-m<span style="color: #bbbbbb"> </span>&lt;current-branch-name&gt;<span style="color: #bbbbbb"> </span>&lt;new-branch-name&gt;
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>&lt;current-branch-name&gt;<span style="color: #BBB"> </span>&lt;new-branch-name&gt;
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>強制変更<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>GitHubのquick<span style="color: #bbbbbb"> </span>setupの表示だとこれ<span style="color: #666666">)</span>
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>-M<span style="color: #bbbbbb"> </span>main
-<span style="color: #000080; font-weight: bold"># </span>--helpを見る限り<span style="color: #BB4444">`</span>--move<span style="color: #bbbbbb"> </span>--force<span style="color: #BB4444">`</span>っぽい
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>強制変更<span style="color: #BBB"> </span><span style="color: #666">(</span>GitHubのquick<span style="color: #BBB"> </span>setupの表示だとこれ<span style="color: #666">)</span>
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>-M<span style="color: #BBB"> </span>main
+<span style="color: #000080; font-weight: bold"># </span>--helpを見る限り<span style="color: #B44">`</span>--move<span style="color: #BBB"> </span>--force<span style="color: #B44">`</span>っぽい
 </code></pre></div>
 
 <p>作成済みリポジトリの<code>master</code>を<code>main</code>に変更するのもこれ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git branch -m master main</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git branch -m master main</span>
 </code></pre></div>
 
 <h3 id="push">ブランチをpush</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>同じブランチ名でpush
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>origin<span style="color: #bbbbbb"> </span>&lt;local-branch-name&gt;
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>&lt;local-branch-name&gt;
 </code></pre></div>
 
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>異なるブランチ名でpush
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>origin<span style="color: #bbbbbb"> </span>&lt;local-branch-name&gt;:&lt;remote-branch-name&gt;
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>&lt;local-branch-name&gt;:&lt;remote-branch-name&gt;
 </code></pre></div>
 
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>複数ブランチまとめてpush
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>origin<span style="color: #bbbbbb"> </span>&lt;branch-name-1&gt;<span style="color: #bbbbbb"> </span>&lt;branch-name-2&gt;
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>&lt;branch-name-1&gt;<span style="color: #BBB"> </span>&lt;branch-name-2&gt;
 </code></pre></div>
 
 <h3 id="_19">リモートのブランチ一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>branch<span style="color: #bbbbbb"> </span>-r
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>branch<span style="color: #BBB"> </span>-r
 </code></pre></div>
 
 <h3 id="fetch">リモートブランチをfetch</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>fetch<span style="color: #bbbbbb"> </span>origin<span style="color: #bbbbbb"> </span>&lt;remote-branch&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>fetch<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>&lt;remote-branch&gt;
 </code></pre></div>
 
 <p>リモートのブランチをローカルの追跡ブランチに取り込む。<br />
 これでローカルブランチに<code>merge</code>や<code>rebase</code>出来る。</p>
 <h3 id="_20">リモートブランチを削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>origin<span style="color: #bbbbbb"> </span>:&lt;remote-branch-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>:&lt;remote-branch-name&gt;
 </code></pre></div>
 
 <p><code>git remote -r</code>で出力されるのにすでにリモートには無い場合は<code>git fetch --prune</code>で参照のないブランチは消える</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>origin<span style="color: #bbbbbb"> </span>:&lt;remote-branch-name&gt;
-<span style="color: #888888">error: failed to push some refs to &#39;github.com:******&#39;   # 消せない</span>
-<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>fetch<span style="color: #bbbbbb"> </span>--prune
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>:&lt;remote-branch-name&gt;
+<span style="color: #888">error: failed to push some refs to &#39;github.com:******&#39;   # 消せない</span>
+<span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>fetch<span style="color: #BBB"> </span>--prune
 </code></pre></div>
 
 <h2 id="stash">stash</h2>
 <h3 id="_21">一覧</h3>
 <p>stashに退避している内容の一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git stash list</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git stash list</span>
 </code></pre></div>
 
 <h3 id="_22">退避</h3>
 <p>現在の未コミットの変更をstashへ退避</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git stash save</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git stash save</span>
 </code></pre></div>
 
 <h3 id="_23">名前付きの退避</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git stash save comment</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git stash save comment</span>
 </code></pre></div>
 
 <p><code>list</code>実行時にコメントが表示される。</p>
 <h3 id="_24">退避データをもとに戻す</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git stash pop</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git stash pop</span>
 </code></pre></div>
 
 <h3 id="_25">退避データの詳細</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git stash show stash@{0} -p</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git stash show stash@{0} -p</span>
 </code></pre></div>
 
 <p>これでdiffを確認できるできる。<br />
@@ -3319,56 +3319,56 @@ If it does not apply cleanly, you will be given an opportunity to</p>
 <p>タグ操作は基本的にブランチと同じ。</p>
 <h3 id="tag_1">tagを作成</h3>
 <p>最新コミットへtagを作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git tag -a tag-name -m &#39;coment&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git tag -a tag-name -m &#39;coment&#39;</span>
 </code></pre></div>
 
 <h3 id="tagpush">tagをpushする</h3>
 <p>デフォルトではtagはpushされない</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>--tags
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>--tags
 </code></pre></div>
 
 <h3 id="tagclone">tagをcloneする</h3>
 <p>指定tagをcloneするのはブランチと同じ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>clone<span style="color: #bbbbbb"> </span>-b<span style="color: #bbbbbb"> </span>&lt;tag-name&gt;<span style="color: #bbbbbb"> </span>&lt;repository&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>-b<span style="color: #BBB"> </span>&lt;tag-name&gt;<span style="color: #BBB"> </span>&lt;repository&gt;
 </code></pre></div>
 
 <h3 id="tag_2">tag一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>tag
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>tag
 </code></pre></div>
 
 <p><code>-l</code>は付けても無くてもtag名一覧が表示される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>tag<span style="color: #bbbbbb"> </span>-n
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>tag<span style="color: #BBB"> </span>-n
 </code></pre></div>
 
 <p><code>-n</code>を付けるとタグのコメントも一緒に表示される。</p>
 <h3 id="tag-tag">指定tagにブランチ切り替え (tagをチェックアウト)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>checkout<span style="color: #bbbbbb"> </span>&lt;tag-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>checkout<span style="color: #BBB"> </span>&lt;tag-name&gt;
 </code></pre></div>
 
 <p>switchの場合はオプションが必要？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>switch<span style="color: #bbbbbb"> </span>--detach<span style="color: #bbbbbb"> </span>&lt;tag-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>switch<span style="color: #BBB"> </span>--detach<span style="color: #BBB"> </span>&lt;tag-name&gt;
 </code></pre></div>
 
 <h2 id="_26">移動</h2>
 <h3 id="_27">ディレクトリを新規作成しそこへ既存ファイルを移動</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>mkdir<span style="color: #bbbbbb"> </span>dir
-$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>add<span style="color: #bbbbbb"> </span>dir
-$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>mv<span style="color: #bbbbbb"> </span>managed.file<span style="color: #bbbbbb"> </span>dir/
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>mkdir<span style="color: #BBB"> </span>dir
+$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>dir
+$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>mv<span style="color: #BBB"> </span>managed.file<span style="color: #BBB"> </span>dir/
 </code></pre></div>
 
 <h2 id="_28">削除</h2>
 <h3 id="_29">ファイルを削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>rm<span style="color: #bbbbbb"> </span>/path/to/file
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>rm<span style="color: #BBB"> </span>/path/to/file
 </code></pre></div>
 
 <p>実ファイルも消える</p>
 <h3 id="_30">ディレクトリを削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>rm<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>/path/to/directory
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>rm<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>/path/to/directory
 </code></pre></div>
 
 <p>実ファイルも消える</p>
 <h3 id="_31">バージョン管理から外すのみ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>rm<span style="color: #bbbbbb"> </span>--cached<span style="color: #bbbbbb"> </span>/path/to/file
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>rm<span style="color: #BBB"> </span>--cached<span style="color: #BBB"> </span>/path/to/file
 </code></pre></div>
 
 <p>Git上は削除されるがファイルシステムには残る。<br />
@@ -3377,99 +3377,99 @@ $<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>mv
 <p><code>git rm</code>直後は、<code>git status</code>で削除したものが<code>deleted</code>と表示されステージング状態なので、<code>commit</code>すればリポジトリに反映される。</p>
 <h3 id="untracked">Untrackedファイルを削除する</h3>
 <p><code>-n</code>でファイルを確認</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>clean<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>path/to<span style="color: #666666">]</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>clean<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span><span style="color: #666">[</span>path/to<span style="color: #666">]</span>
 </code></pre></div>
 
 <p><code>-f</code>で削除する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>clean<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span><span style="color: #666666">[</span>path/to<span style="color: #666666">]</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>clean<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span><span style="color: #666">[</span>path/to<span style="color: #666">]</span>
 </code></pre></div>
 
 <h2 id="_32">コミットログ</h2>
 <h3 id="_33">ログを見る</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>log
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>log
 </code></pre></div>
 
 <p>k8sのクセで<code>logs</code>って入れると怒られる</p>
 <h3 id="1">1行のシンプルなログで出力</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>log<span style="color: #bbbbbb"> </span>--oneline<span style="color: #bbbbbb"> </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>log<span style="color: #BBB"> </span>--oneline<span style="color: #BBB"> </span>
 </code></pre></div>
 
 <h3 id="_34">マージ/ブランチなどのツリーも表示</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>log<span style="color: #bbbbbb"> </span>--oneline<span style="color: #bbbbbb"> </span>--graph
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>log<span style="color: #BBB"> </span>--oneline<span style="color: #BBB"> </span>--graph
 </code></pre></div>
 
 <h3 id="_35">別ブランチのログ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>log<span style="color: #bbbbbb"> </span>--oneline<span style="color: #bbbbbb"> </span>--first-parent<span style="color: #bbbbbb"> </span>&lt;branch-name&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>log<span style="color: #BBB"> </span>--oneline<span style="color: #BBB"> </span>--first-parent<span style="color: #BBB"> </span>&lt;branch-name&gt;
 </code></pre></div>
 
 <h3 id="_36">コミット時の対象ファイルを表示</h3>
 <p><code>pull</code>のように変更量などを表示</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>log<span style="color: #bbbbbb"> </span>--stat
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>log<span style="color: #BBB"> </span>--stat
 :
 :
-commit<span style="color: #bbbbbb"> </span>8331291c45b99411ee14076cc0e73dddfeafa153<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>HEAD<span style="color: #bbbbbb"> </span>-&gt;<span style="color: #bbbbbb"> </span>main,<span style="color: #bbbbbb"> </span>origin/main,<span style="color: #bbbbbb"> </span>origin/HEAD<span style="color: #666666">)</span>
-Author:<span style="color: #bbbbbb"> </span>zaki-lknr<span style="color: #bbbbbb"> </span>&lt;zaki.hmkc+github@gmail.com&gt;
-Date:<span style="color: #bbbbbb">   </span>Wed<span style="color: #bbbbbb"> </span>Sep<span style="color: #bbbbbb"> </span><span style="color: #666666">15</span><span style="color: #bbbbbb"> </span><span style="color: #666666">16</span>:44:39<span style="color: #bbbbbb"> </span><span style="color: #666666">2021</span><span style="color: #bbbbbb"> </span>+0900
+commit<span style="color: #BBB"> </span>8331291c45b99411ee14076cc0e73dddfeafa153<span style="color: #BBB"> </span><span style="color: #666">(</span>HEAD<span style="color: #BBB"> </span>-&gt;<span style="color: #BBB"> </span>main,<span style="color: #BBB"> </span>origin/main,<span style="color: #BBB"> </span>origin/HEAD<span style="color: #666">)</span>
+Author:<span style="color: #BBB"> </span>zaki-lknr<span style="color: #BBB"> </span>&lt;zaki.hmkc+github@gmail.com&gt;
+Date:<span style="color: #BBB">   </span>Wed<span style="color: #BBB"> </span>Sep<span style="color: #BBB"> </span><span style="color: #666">15</span><span style="color: #BBB"> </span><span style="color: #666">16</span>:44:39<span style="color: #BBB"> </span><span style="color: #666">2021</span><span style="color: #BBB"> </span>+0900
 
-<span style="color: #bbbbbb">    </span>add:<span style="color: #bbbbbb"> </span>ansible/directives:<span style="color: #bbbbbb"> </span>whenでリスト
+<span style="color: #BBB">    </span>add:<span style="color: #BBB"> </span>ansible/directives:<span style="color: #BBB"> </span>whenでリスト
 
-<span style="color: #bbbbbb"> </span>docs/Ansible/directives.md<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span><span style="color: #666666">24</span><span style="color: #bbbbbb"> </span>++++++++++++++++++++++++
-<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span>changed,<span style="color: #bbbbbb"> </span><span style="color: #666666">24</span><span style="color: #bbbbbb"> </span>insertions<span style="color: #666666">(</span>+<span style="color: #666666">)</span>
+<span style="color: #BBB"> </span>docs/Ansible/directives.md<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span><span style="color: #666">24</span><span style="color: #BBB"> </span>++++++++++++++++++++++++
+<span style="color: #BBB"> </span><span style="color: #666">1</span><span style="color: #BBB"> </span>file<span style="color: #BBB"> </span>changed,<span style="color: #BBB"> </span><span style="color: #666">24</span><span style="color: #BBB"> </span>insertions<span style="color: #666">(</span>+<span style="color: #666">)</span>
 </code></pre></div>
 
 <p><code>status</code>のときのように変更種別の表示</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #bbbbbb"> </span>git<span style="color: #bbbbbb"> </span>log<span style="color: #bbbbbb"> </span>--name-status
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>log<span style="color: #BBB"> </span>--name-status
 :
 :
-commit<span style="color: #bbbbbb"> </span>8331291c45b99411ee14076cc0e73dddfeafa153<span style="color: #bbbbbb"> </span><span style="color: #666666">(</span>HEAD<span style="color: #bbbbbb"> </span>-&gt;<span style="color: #bbbbbb"> </span>main,<span style="color: #bbbbbb"> </span>origin/main,<span style="color: #bbbbbb"> </span>origin/HEAD<span style="color: #666666">)</span>
-Author:<span style="color: #bbbbbb"> </span>zaki-lknr<span style="color: #bbbbbb"> </span>&lt;zaki.hmkc+github@gmail.com&gt;
-Date:<span style="color: #bbbbbb">   </span>Wed<span style="color: #bbbbbb"> </span>Sep<span style="color: #bbbbbb"> </span><span style="color: #666666">15</span><span style="color: #bbbbbb"> </span><span style="color: #666666">16</span>:44:39<span style="color: #bbbbbb"> </span><span style="color: #666666">2021</span><span style="color: #bbbbbb"> </span>+0900
+commit<span style="color: #BBB"> </span>8331291c45b99411ee14076cc0e73dddfeafa153<span style="color: #BBB"> </span><span style="color: #666">(</span>HEAD<span style="color: #BBB"> </span>-&gt;<span style="color: #BBB"> </span>main,<span style="color: #BBB"> </span>origin/main,<span style="color: #BBB"> </span>origin/HEAD<span style="color: #666">)</span>
+Author:<span style="color: #BBB"> </span>zaki-lknr<span style="color: #BBB"> </span>&lt;zaki.hmkc+github@gmail.com&gt;
+Date:<span style="color: #BBB">   </span>Wed<span style="color: #BBB"> </span>Sep<span style="color: #BBB"> </span><span style="color: #666">15</span><span style="color: #BBB"> </span><span style="color: #666">16</span>:44:39<span style="color: #BBB"> </span><span style="color: #666">2021</span><span style="color: #BBB"> </span>+0900
 
-<span style="color: #bbbbbb">    </span>add:<span style="color: #bbbbbb"> </span>ansible/directives:<span style="color: #bbbbbb"> </span>whenでリスト
+<span style="color: #BBB">    </span>add:<span style="color: #BBB"> </span>ansible/directives:<span style="color: #BBB"> </span>whenでリスト
 
-M<span style="color: #bbbbbb">       </span>docs/Ansible/directives.md
+M<span style="color: #BBB">       </span>docs/Ansible/directives.md
 </code></pre></div>
 
 <p><code>--oneline</code>との併用も可</p>
 <h2 id="_37">差分</h2>
 <h3 id="_38">直前のコミットの差分</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git diff HEAD^</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git diff HEAD^</span>
 </code></pre></div>
 
 <p>未コミットがあればそれも含めて表示される(<code>git diff</code>の結果とミックスされる)<br />
 未コミットを除くには <code>git diff HEAD^ HEAD</code></p>
 <h3 id="_39">ブランチ間の差分</h3>
 <p>ブランチ名を引数に実行すればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git diff &lt;branch1-name&gt; &lt;branch2-name&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git diff &lt;branch1-name&gt; &lt;branch2-name&gt;</span>
 </code></pre></div>
 
 <h3 id="whitespace">whitespace無視</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>diff<span style="color: #bbbbbb"> </span>-w
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>diff<span style="color: #BBB"> </span>-w
 </code></pre></div>
 
 <blockquote>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">   </span><span style="color: #666666">-</span><span style="color: #B8860B">w</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span><span style="color: #B8860B">ignore</span><span style="color: #666666">-</span><span style="color: #B8860B">all</span><span style="color: #666666">-</span><span style="color: #B8860B">space</span>
-<span style="color: #bbbbbb">       </span><span style="color: #B8860B">Ignore</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">whitespace</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">when</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">comparing</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">lines</span>.<span style="color: #bbbbbb"> </span><span style="color: #B8860B">This</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">ignores</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">differences</span>
-<span style="color: #bbbbbb">       </span><span style="color: #B8860B">even</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">if</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">one</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">line</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">has</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">whitespace</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">where</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">the</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">other</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">line</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">has</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">none</span>.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">   </span><span style="color: #666">-</span><span style="color: #B8860B">w</span>,<span style="color: #BBB"> </span><span style="color: #666">--</span><span style="color: #B8860B">ignore</span><span style="color: #666">-</span><span style="color: #B8860B">all</span><span style="color: #666">-</span><span style="color: #B8860B">space</span>
+<span style="color: #BBB">       </span><span style="color: #B8860B">Ignore</span><span style="color: #BBB"> </span><span style="color: #B8860B">whitespace</span><span style="color: #BBB"> </span><span style="color: #B8860B">when</span><span style="color: #BBB"> </span><span style="color: #B8860B">comparing</span><span style="color: #BBB"> </span><span style="color: #B8860B">lines</span>.<span style="color: #BBB"> </span><span style="color: #B8860B">This</span><span style="color: #BBB"> </span><span style="color: #B8860B">ignores</span><span style="color: #BBB"> </span><span style="color: #B8860B">differences</span>
+<span style="color: #BBB">       </span><span style="color: #B8860B">even</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">if</span><span style="color: #BBB"> </span><span style="color: #B8860B">one</span><span style="color: #BBB"> </span><span style="color: #B8860B">line</span><span style="color: #BBB"> </span><span style="color: #B8860B">has</span><span style="color: #BBB"> </span><span style="color: #B8860B">whitespace</span><span style="color: #BBB"> </span><span style="color: #B8860B">where</span><span style="color: #BBB"> </span><span style="color: #B8860B">the</span><span style="color: #BBB"> </span><span style="color: #B8860B">other</span><span style="color: #BBB"> </span><span style="color: #B8860B">line</span><span style="color: #BBB"> </span><span style="color: #B8860B">has</span><span style="color: #BBB"> </span><span style="color: #B8860B">none</span>.
 </code></pre></div>
 
 </blockquote>
 <h3 id="git-blame">この行をコミットしたのは誰 (git blame)</h3>
 <p>これで行ごとの最終コミットのID、ユーザー名、コミット日時が出力される</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git blame &lt;filename&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git blame &lt;filename&gt;</span>
 </code></pre></div>
 
 <h3 id="git-blame_1">git blameで特定コミットを除く</h3>
 <p>例えば過去に「ファイルの改行コードを変更」というコミットがあると、全ての行で変更が発生することになるため、<code>git blame</code>を使ってもそれ以前のコミットを確認できない。<br />
 こういう時は特定のコミットを除く<code>--ignore-rev</code>オプションを使って除外したいコミットを指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git blame --ignore-rev &lt;除外したいコミットID&gt; &lt;filename&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git blame --ignore-rev &lt;除外したいコミットID&gt; &lt;filename&gt;</span>
 </code></pre></div>
 
 <p>除外対象が複数ある場合は、その分指定すればOK</p>
 <h2 id="_40">サブモジュール</h2>
 <h3 id="_41">カレントのリポジトリに別のリポジトリをサブモジュールとして追加</h3>
 <p>ローカルリポジトリの作業ディレクトリ内に<code>bsky-client</code>ディレクトリへ別リポジトリのソースを取得する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git submodule add https://github.com/zaki-lknr/bsky-client.git bsky-client</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git submodule add https://github.com/zaki-lknr/bsky-client.git bsky-client</span>
 </code></pre></div>
 
 <h3 id="_42">サブモジュールを更新する</h3>
@@ -3487,7 +3487,7 @@ M<span style="color: #bbbbbb">       </span>docs/Ansible/directives.md
 
 <h2 id="_43">前の状態に戻す</h2>
 <h3 id="_44">指定コミットの状態に戻す</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">git reset --hard &#39;対象のコミットID&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git reset --hard &#39;対象のコミットID&#39;</span>
 </code></pre></div>
 
 <p><code>reset --hard</code>は<a href="trouble/#_6">コミットの取り消し</a>にも使用する</p>
@@ -3501,10 +3501,10 @@ M<span style="color: #bbbbbb">       </span>docs/Ansible/directives.md
 <li><code>HEAD~2</code> 2個前</li>
 </ul>
 <p><code>git log</code>した時の、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ec33978 (HEAD -&gt; main) add: docker: ボリュームのリンク追加</span>
-<span style="color: #888888">bd9aa93 add: ansible/config: ansible.cfgサンプル</span>
-<span style="color: #888888">bc5eb56 add: git/configure: git-prompt設定後のPS1環境変数</span>
-<span style="color: #888888">:</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ec33978 (HEAD -&gt; main) add: docker: ボリュームのリンク追加</span>
+<span style="color: #888">bd9aa93 add: ansible/config: ansible.cfgサンプル</span>
+<span style="color: #888">bc5eb56 add: git/configure: git-prompt設定後のPS1環境変数</span>
+<span style="color: #888">:</span>
 </code></pre></div>
 
 <p>に対して、</p>

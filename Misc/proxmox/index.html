@@ -1956,47 +1956,47 @@
 <li>VMで<code>qemu-guest-agent</code>パッケージをインストールしサービスを有効にする</li>
 </ul>
 <h2 id="ovf">ovfインポート</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">qm importovf &lt;VM ID&gt; &lt;OVFファイルのパス&gt; &lt;VM用ストレージ名&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm importovf &lt;VM ID&gt; &lt;OVFファイルのパス&gt; &lt;VM用ストレージ名&gt;</span>
 </code></pre></div>
 
 <p>実行例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qm<span style="color: #bbbbbb"> </span>importovf<span style="color: #bbbbbb"> </span><span style="color: #666666">201</span><span style="color: #bbbbbb"> </span>/mnt/pve/pecorino/archive/export/fedora-node/fedora-node.ovf<span style="color: #bbbbbb"> </span>wdblue1000gb
-<span style="color: #888888">  Logical volume &quot;vm-201-disk-0&quot; created.</span>
-<span style="color: #888888">transferred 0.0 B of 20.0 GiB (0.00%)</span>
-<span style="color: #888888">transferred 204.8 MiB of 20.0 GiB (1.00%)</span>
-<span style="color: #888888">transferred 409.6 MiB of 20.0 GiB (2.00%)</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">transferred 20.0 GiB of 20.0 GiB (100.00%)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qm<span style="color: #BBB"> </span>importovf<span style="color: #BBB"> </span><span style="color: #666">201</span><span style="color: #BBB"> </span>/mnt/pve/pecorino/archive/export/fedora-node/fedora-node.ovf<span style="color: #BBB"> </span>wdblue1000gb
+<span style="color: #888">  Logical volume &quot;vm-201-disk-0&quot; created.</span>
+<span style="color: #888">transferred 0.0 B of 20.0 GiB (0.00%)</span>
+<span style="color: #888">transferred 204.8 MiB of 20.0 GiB (1.00%)</span>
+<span style="color: #888">transferred 409.6 MiB of 20.0 GiB (2.00%)</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
+<span style="color: #888">transferred 20.0 GiB of 20.0 GiB (100.00%)</span>
 <span style="color: #000080; font-weight: bold">root@pve:~# </span>
 </code></pre></div>
 
 <h2 id="vm">VM定義ファイル関連</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #bbbbbb"> </span>-F<span style="color: #bbbbbb"> </span>/etc/pve/nodes/pve/qemu-server
-<span style="color: #888888">100.conf  102.conf  202.conf  301.conf  303.conf</span>
-<span style="color: #888888">101.conf  201.conf  203.conf  302.conf</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #BBB"> </span>-F<span style="color: #BBB"> </span>/etc/pve/nodes/pve/qemu-server
+<span style="color: #888">100.conf  102.conf  202.conf  301.conf  303.conf</span>
+<span style="color: #888">101.conf  201.conf  203.conf  302.conf</span>
 </code></pre></div>
 
 <p>中身は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #bbbbbb"> </span>/etc/pve/nodes/pve/qemu-server/301.conf<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">boot: order=scsi0</span>
-<span style="color: #888888">cores: 2</span>
-<span style="color: #888888">memory: 4096</span>
-<span style="color: #888888">name: k8su-master</span>
-<span style="color: #888888">net0: e1000=CA:0D:8C:5E:46:C3,bridge=vmbr0,firewall=1</span>
-<span style="color: #888888">scsi0: wdblue1000gb:vm-301-disk-0</span>
-<span style="color: #888888">scsihw: pvscsi</span>
-<span style="color: #888888">smbios1: uuid=b9b7f350-0b74-46df-bd59-0318fc99372c</span>
-<span style="color: #888888">vmgenid: 5e1f1e65-0eb0-4cd1-867c-277b48d91616</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #BBB"> </span>/etc/pve/nodes/pve/qemu-server/301.conf<span style="color: #BBB"> </span>
+<span style="color: #888">boot: order=scsi0</span>
+<span style="color: #888">cores: 2</span>
+<span style="color: #888">memory: 4096</span>
+<span style="color: #888">name: k8su-master</span>
+<span style="color: #888">net0: e1000=CA:0D:8C:5E:46:C3,bridge=vmbr0,firewall=1</span>
+<span style="color: #888">scsi0: wdblue1000gb:vm-301-disk-0</span>
+<span style="color: #888">scsihw: pvscsi</span>
+<span style="color: #888">smbios1: uuid=b9b7f350-0b74-46df-bd59-0318fc99372c</span>
+<span style="color: #888">vmgenid: 5e1f1e65-0eb0-4cd1-867c-277b48d91616</span>
 </code></pre></div>
 
 <p>実データはこれかな？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:/# </span>ls<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>/dev/wdblue1000gb/vm-301-disk-0<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">lrwxrwxrwx 1 root root 8 Aug  5 10:13 /dev/wdblue1000gb/vm-301-disk-0 -&gt; ../dm-15</span>
-<span style="color: #000080; font-weight: bold">root@pve:/# </span>ls<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>/dev/dm-15
-<span style="color: #888888">brw-rw---- 1 root disk 253, 15 Aug  5 10:13 /dev/dm-15</span>
-<span style="color: #000080; font-weight: bold">root@pve:/# </span>file<span style="color: #bbbbbb"> </span>/dev/dm-15
-<span style="color: #888888">/dev/dm-15: block special (253/15)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:/# </span>ls<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>/dev/wdblue1000gb/vm-301-disk-0<span style="color: #BBB"> </span>
+<span style="color: #888">lrwxrwxrwx 1 root root 8 Aug  5 10:13 /dev/wdblue1000gb/vm-301-disk-0 -&gt; ../dm-15</span>
+<span style="color: #000080; font-weight: bold">root@pve:/# </span>ls<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>/dev/dm-15
+<span style="color: #888">brw-rw---- 1 root disk 253, 15 Aug  5 10:13 /dev/dm-15</span>
+<span style="color: #000080; font-weight: bold">root@pve:/# </span>file<span style="color: #BBB"> </span>/dev/dm-15
+<span style="color: #888">/dev/dm-15: block special (253/15)</span>
 </code></pre></div>
 
 <h2 id="_1">ネットワーク</h2>
@@ -2007,19 +2007,19 @@
 <span style="color: #A00000">--- /etc/network/interfaces 2023-05-21 15:33:29.906403987 +0900</span>
 <span style="color: #00A000">+++ /etc/network/interfaces.new 2023-10-17 09:10:38.701832421 +0900</span>
 <span style="color: #800080; font-weight: bold">@@ -29,7 +29,7 @@</span>
-<span style="color: #bbbbbb"> </span>auto vmbr1
-<span style="color: #bbbbbb"> </span>iface vmbr1 inet static
-<span style="color: #bbbbbb"> </span>   address 172.16.0.1/23
+<span style="color: #BBB"> </span>auto vmbr1
+<span style="color: #BBB"> </span>iface vmbr1 inet static
+<span style="color: #BBB"> </span>   address 172.16.0.1/23
 <span style="color: #A00000">-   bridge-ports none</span>
 <span style="color: #00A000">+   bridge-ports enp3s0</span>
-<span style="color: #bbbbbb"> </span>   bridge-stp off
-<span style="color: #bbbbbb"> </span>   bridge-fd 0
-<span style="color: #bbbbbb"> </span>#private-network-1
+<span style="color: #BBB"> </span>   bridge-stp off
+<span style="color: #BBB"> </span>   bridge-fd 0
+<span style="color: #BBB"> </span>#private-network-1
 </code></pre></div>
 
 <p>シェルを起動し</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ifdown<span style="color: #bbbbbb"> </span>vmbr1<span style="color: #bbbbbb"> </span>
-<span style="color: #000080; font-weight: bold">root@pve:~# </span>ifup<span style="color: #bbbbbb"> </span>vmbr1<span style="color: #bbbbbb"> </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ifdown<span style="color: #BBB"> </span>vmbr1<span style="color: #BBB"> </span>
+<span style="color: #000080; font-weight: bold">root@pve:~# </span>ifup<span style="color: #BBB"> </span>vmbr1<span style="color: #BBB"> </span>
 </code></pre></div>
 
 <p>…だけだと反映されてなさそうだったので(<code>ifup enp3s0</code>も実施したが変化なし)rebootした。</p>
@@ -2029,23 +2029,23 @@
 <p>VMのハードウェア設定で、ハードディスクを選択、「ディスクの動作」メニューの「ストレージに移動」で、ターゲットを変更することで、VMのデータ領域を別ストレージへ移動できる。</p>
 <h3 id="_4">定義ファイル</h3>
 <p><code>/etc/pve/storage.cfg</code>にある。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #bbbbbb"> </span>/etc/pve/storage.cfg
-<span style="color: #888888">dir: local</span>
-<span style="color: #888888">        path /var/lib/vz</span>
-<span style="color: #888888">        content iso,vztmpl,backup</span>
-<span style="color: #888888">        shared 0</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #BBB"> </span>/etc/pve/storage.cfg
+<span style="color: #888">dir: local</span>
+<span style="color: #888">        path /var/lib/vz</span>
+<span style="color: #888">        content iso,vztmpl,backup</span>
+<span style="color: #888">        shared 0</span>
 
-<span style="color: #888888">lvmthin: local-lvm</span>
-<span style="color: #888888">        thinpool data</span>
-<span style="color: #888888">        vgname pve</span>
-<span style="color: #888888">        content rootdir,images</span>
+<span style="color: #888">lvmthin: local-lvm</span>
+<span style="color: #888">        thinpool data</span>
+<span style="color: #888">        vgname pve</span>
+<span style="color: #888">        content rootdir,images</span>
 
-<span style="color: #888888">nfs: pecorino</span>
-<span style="color: #888888">        export /share</span>
-<span style="color: #888888">        path /mnt/pve/pecorino</span>
-<span style="color: #888888">        server *.*.*.*</span>
-<span style="color: #888888">        content iso,backup</span>
-<span style="color: #888888">        prune-backups keep-all=1</span>
+<span style="color: #888">nfs: pecorino</span>
+<span style="color: #888">        export /share</span>
+<span style="color: #888">        path /mnt/pve/pecorino</span>
+<span style="color: #888">        server *.*.*.*</span>
+<span style="color: #888">        content iso,backup</span>
+<span style="color: #888">        prune-backups keep-all=1</span>
 </code></pre></div>
 
 <h3 id="_5">登録済みストレージの設定変更</h3>
@@ -2054,22 +2054,22 @@
 <h3 id="_7">リストア</h3>
 <p>VM削除済みの場合はCLIで実行する。<br />
 以下はバックアップデータをVM ID:500としてリストア。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qmrestore<span style="color: #bbbbbb"> </span>/mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst<span style="color: #bbbbbb"> </span><span style="color: #666666">500</span>
-<span style="color: #888888">restore vma archive: zstd -q -d -c /mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst | vma extract -v -r /var/tmp/vzdumptmp177197.fifo - /var/tmp/vzdumptmp177197</span>
-<span style="color: #888888">CFG: size: 458 name: qemu-server.conf</span>
-<span style="color: #888888">DEV: dev_id=1 size: 17179869184 devname: drive-scsi0</span>
-<span style="color: #888888">CTIME: Tue Sep  5 15:29:21 2023</span>
-<span style="color: #888888">  Logical volume &quot;vm-500-disk-0&quot; created.</span>
-<span style="color: #888888">new volume ID is &#39;WDS100T2BA0A:vm-500-disk-0&#39;</span>
-<span style="color: #888888">map &#39;drive-scsi0&#39; to &#39;/dev/WDS100T2BA0A/vm-500-disk-0&#39; (write zeros = 0)</span>
-<span style="color: #888888">progress 1% (read 171835392 bytes, duration 1 sec)</span>
-<span style="color: #888888">progress 2% (read 343605248 bytes, duration 2 sec)</span>
-<span style="color: #888888">progress 3% (read 515440640 bytes, duration 4 sec)</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">progress 100% (read 17179869184 bytes, duration 20 sec)</span>
-<span style="color: #888888">total bytes read 17179869184, sparse bytes 12563259392 (73.1%)</span>
-<span style="color: #888888">space reduction due to 4K zero blocks 2.95%</span>
-<span style="color: #888888">rescan volumes...</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qmrestore<span style="color: #BBB"> </span>/mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst<span style="color: #BBB"> </span><span style="color: #666">500</span>
+<span style="color: #888">restore vma archive: zstd -q -d -c /mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst | vma extract -v -r /var/tmp/vzdumptmp177197.fifo - /var/tmp/vzdumptmp177197</span>
+<span style="color: #888">CFG: size: 458 name: qemu-server.conf</span>
+<span style="color: #888">DEV: dev_id=1 size: 17179869184 devname: drive-scsi0</span>
+<span style="color: #888">CTIME: Tue Sep  5 15:29:21 2023</span>
+<span style="color: #888">  Logical volume &quot;vm-500-disk-0&quot; created.</span>
+<span style="color: #888">new volume ID is &#39;WDS100T2BA0A:vm-500-disk-0&#39;</span>
+<span style="color: #888">map &#39;drive-scsi0&#39; to &#39;/dev/WDS100T2BA0A/vm-500-disk-0&#39; (write zeros = 0)</span>
+<span style="color: #888">progress 1% (read 171835392 bytes, duration 1 sec)</span>
+<span style="color: #888">progress 2% (read 343605248 bytes, duration 2 sec)</span>
+<span style="color: #888">progress 3% (read 515440640 bytes, duration 4 sec)</span>
+<span style="color: #888">:</span>
+<span style="color: #888">progress 100% (read 17179869184 bytes, duration 20 sec)</span>
+<span style="color: #888">total bytes read 17179869184, sparse bytes 12563259392 (73.1%)</span>
+<span style="color: #888">space reduction due to 4K zero blocks 2.95%</span>
+<span style="color: #888">rescan volumes...</span>
 </code></pre></div>
 
 <p>ストレージはデフォルトだとバックアップ時と同じところへリストアされる？それともデフォルトのストレージかな？<br />
@@ -2077,29 +2077,29 @@
 <p>Web UIでリストアする場合は、VMのメニューでなくストレージのメニューからリストアを選ぶと、全バックアップデータが表示されるのでそこからリストアを行う。</p>
 <h3 id="_8">バックアップデータの実データ保存先</h3>
 <p>内蔵ストレージの場合は<code>/var/lib/vz/dump/</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #bbbbbb"> </span>/var/lib/vz/dump/
-<span style="color: #888888">vzdump-qemu-500-2023_09_24-01_05_17.log</span>
-<span style="color: #888888">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst</span>
-<span style="color: #888888">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst.notes</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #BBB"> </span>/var/lib/vz/dump/
+<span style="color: #888">vzdump-qemu-500-2023_09_24-01_05_17.log</span>
+<span style="color: #888">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst</span>
+<span style="color: #888">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst.notes</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
 </code></pre></div>
 
 <p>外部の場合はマウントポイント配下の<code>dump</code>以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #bbbbbb"> </span>/mnt/pve/pecorino/dump/
-<span style="color: #888888">vzdump-qemu-116-2023_09_04-18_23_48.log</span>
-<span style="color: #888888">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst</span>
-<span style="color: #888888">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst.notes</span>
-<span style="color: #888888">vzdump-qemu-116-2023_09_05-23_58_49.log</span>
-<span style="color: #888888">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst</span>
-<span style="color: #888888">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst.notes</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #BBB"> </span>/mnt/pve/pecorino/dump/
+<span style="color: #888">vzdump-qemu-116-2023_09_04-18_23_48.log</span>
+<span style="color: #888">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst</span>
+<span style="color: #888">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst.notes</span>
+<span style="color: #888">vzdump-qemu-116-2023_09_05-23_58_49.log</span>
+<span style="color: #888">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst</span>
+<span style="color: #888">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst.notes</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
 </code></pre></div>
 
 <h2 id="cli">CLI</h2>
 <h3 id="vm_2">VM削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">qm destroy &lt;vmid&gt; --destroy-unreferenced-disks=1</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm destroy &lt;vmid&gt; --destroy-unreferenced-disks=1</span>
 </code></pre></div>
                 
               

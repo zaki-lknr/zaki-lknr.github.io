@@ -1764,10 +1764,10 @@
 <h2 id="_1">複数行</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/07/17/220311">[YAML] 複数行テキストの行頭にインデントを設定するには (Ansible/Kubernetes) - zaki work log</a></p>
 <h3 id="_2">インデント</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #bbbbbb"> </span>|
-<span style="color: #bbbbbb">  </span><span style="color: #880000">hoge</span>
-<span style="color: #bbbbbb">  </span><span style="color: #880000">foo</span>
-<span style="color: #bbbbbb">  </span><span style="color: #880000">bar</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #BBB"> </span>|
+<span style="color: #BBB">  </span><span style="color: #800">hoge</span>
+<span style="color: #BBB">  </span><span style="color: #800">foo</span>
+<span style="color: #BBB">  </span><span style="color: #800">bar</span>
 </code></pre></div>
 
 <p>この場合の<code>block</code>の値は</p>
@@ -1779,10 +1779,10 @@ bar
 <p>となる。<br />
 これはインデント量を(各行同じ量ずつ)変化させても同じ。</p>
 <p><code>block</code>の値の文字列内でインデントが欲しい場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #bbbbbb"> </span>|2
-<span style="color: #bbbbbb">      </span><span style="color: #880000">hoge</span>
-<span style="color: #bbbbbb">      </span><span style="color: #880000">foo</span>
-<span style="color: #bbbbbb">      </span><span style="color: #880000">bar</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #BBB"> </span>|2
+<span style="color: #BBB">      </span><span style="color: #800">hoge</span>
+<span style="color: #BBB">      </span><span style="color: #800">foo</span>
+<span style="color: #BBB">      </span><span style="color: #800">bar</span>
 </code></pre></div>
 
 <p>と書くことで、「2文字分はYAMLの書式としてのインデント」と解釈され、残りのスペースは文字列部分として解釈される。</p>

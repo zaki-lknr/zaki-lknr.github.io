@@ -2080,77 +2080,77 @@
 <p><code>set</code>や、shebangで<code>#!/bin/bash -u</code>などでセットする</p>
 <h3 id="-u">未定義変数使用時にエラー (-u)</h3>
 <p><code>-u</code> (nounset)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span>cat<span style="color: #bbbbbb"> </span>set.sh<span style="color: #bbbbbb"> </span>
-<span style="color: #000080; font-weight: bold">#</span>!/bin/bash<span style="color: #bbbbbb"> </span>-u
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span>cat<span style="color: #BBB"> </span>set.sh<span style="color: #BBB"> </span>
+<span style="color: #000080; font-weight: bold">#</span>!/bin/bash<span style="color: #BBB"> </span>-u
 
-<span style="color: #888888">echo $hoge</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span>./set.sh<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">./set.sh: 行 3: hoge: 未割り当ての変数です</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span><span style="color: #AA22FF">export</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">hoge</span><span style="color: #666666">=123</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span>./set.sh<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">123</span>
+<span style="color: #888">echo $hoge</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span>./set.sh<span style="color: #BBB"> </span>
+<span style="color: #888">./set.sh: 行 3: hoge: 未割り当ての変数です</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">hoge</span><span style="color: #666">=123</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 sh]$ </span>./set.sh<span style="color: #BBB"> </span>
+<span style="color: #888">123</span>
 </code></pre></div>
 
 <h3 id="-x">コマンドと引数を表示 (-x)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>option.sh<span style="color: #bbbbbb"> </span>
-<span style="color: #000080; font-weight: bold">#</span>!/bin/bash<span style="color: #bbbbbb"> </span>-x
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>option.sh<span style="color: #BBB"> </span>
+<span style="color: #000080; font-weight: bold">#</span>!/bin/bash<span style="color: #BBB"> </span>-x
 
-<span style="color: #888888">ls /</span>
-<span style="color: #000080; font-weight: bold">$ </span>./option.sh<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">+ ls /</span>
-<span style="color: #888888">afs  boot  etc   lib    media  opt   root  sbin  sys  usr</span>
-<span style="color: #888888">bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</span>
+<span style="color: #888">ls /</span>
+<span style="color: #000080; font-weight: bold">$ </span>./option.sh<span style="color: #BBB"> </span>
+<span style="color: #888">+ ls /</span>
+<span style="color: #888">afs  boot  etc   lib    media  opt   root  sbin  sys  usr</span>
+<span style="color: #888">bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</span>
 </code></pre></div>
 
 <p>出力の先頭文字は変数<code>PS4</code>で指定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">PS4</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;---&quot;</span><span style="color: #bbbbbb"> </span>./option.sh<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">---ls /</span>
-<span style="color: #888888">afs  boot  etc   lib    media  opt   root  sbin  sys  usr</span>
-<span style="color: #888888">bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">PS4</span><span style="color: #666">=</span><span style="color: #B44">&quot;---&quot;</span><span style="color: #BBB"> </span>./option.sh<span style="color: #BBB"> </span>
+<span style="color: #888">---ls /</span>
+<span style="color: #888">afs  boot  etc   lib    media  opt   root  sbin  sys  usr</span>
+<span style="color: #888">bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</span>
 </code></pre></div>
 
 <h3 id="set-">set -* の解除</h3>
 <p><code>set -u</code>を解除するには<code>set +u</code></p>
 <h2 id="_2">算術演算</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">4</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">))</span>
-<span style="color: #888888">13</span>
-<span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">13</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #AA22FF; font-weight: bold">))</span>
-<span style="color: #888888">26</span>
-<span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">13</span><span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">))</span>
-<span style="color: #888888">4</span>
-<span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$((</span><span style="color: #666666">13</span><span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">))</span>
-<span style="color: #888888">1</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">$((</span><span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #666">3</span><span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #666">2</span><span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #666">4</span><span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #666">3</span><span style="color: #A2F; font-weight: bold">))</span>
+<span style="color: #888">13</span>
+<span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">$((</span><span style="color: #666">13</span><span style="color: #BBB"> </span><span style="color: #666">*</span><span style="color: #BBB"> </span><span style="color: #666">2</span><span style="color: #A2F; font-weight: bold">))</span>
+<span style="color: #888">26</span>
+<span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">$((</span><span style="color: #666">13</span><span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span><span style="color: #666">3</span><span style="color: #A2F; font-weight: bold">))</span>
+<span style="color: #888">4</span>
+<span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">$((</span><span style="color: #666">13</span><span style="color: #BBB"> </span><span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #666">3</span><span style="color: #A2F; font-weight: bold">))</span>
+<span style="color: #888">1</span>
 </code></pre></div>
 
 <p>インクリメント</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">    count=$((++count))</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">    count=$((++count))</span>
 </code></pre></div>
 
 <h2 id="_3">配列</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">list</span><span style="color: #666666">=(</span><span style="color: #BB4444">&quot;abc&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;123&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;xyz&quot;</span><span style="color: #666666">)</span>
-<span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #B8860B">list</span>[1]<span style="color: #BB6688; font-weight: bold">}</span>
-<span style="color: #888888">123</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">list</span><span style="color: #666">=(</span><span style="color: #B44">&quot;abc&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;123&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;xyz&quot;</span><span style="color: #666">)</span>
+<span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">list</span>[1]<span style="color: #B68; font-weight: bold">}</span>
+<span style="color: #888">123</span>
 </code></pre></div>
 
 <h2 id="_4">関数</h2>
 <h3 id="_5">引数</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash</span>
 
-<span style="color: #AA22FF; font-weight: bold">function</span><span style="color: #bbbbbb"> </span>myfunc<span style="color: #666666">()</span><span style="color: #bbbbbb"> </span><span style="color: #666666">{</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;function arg1(</span><span style="color: #B8860B">$1</span><span style="color: #BB4444">) arg2(</span><span style="color: #B8860B">$2</span><span style="color: #BB4444">)&quot;</span>
-<span style="color: #666666">}</span>
+<span style="color: #A2F; font-weight: bold">function</span><span style="color: #BBB"> </span>myfunc<span style="color: #666">()</span><span style="color: #BBB"> </span><span style="color: #666">{</span>
+<span style="color: #BBB">    </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;function arg1(</span><span style="color: #B8860B">$1</span><span style="color: #B44">) arg2(</span><span style="color: #B8860B">$2</span><span style="color: #B44">)&quot;</span>
+<span style="color: #666">}</span>
 
-myfunc<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>b
+myfunc<span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>b
 </code></pre></div>
 
 <h3 id="_6">戻り値</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">function</span><span style="color: #bbbbbb"> </span>myfunc<span style="color: #666666">()</span><span style="color: #bbbbbb"> </span><span style="color: #666666">{</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;function arg1(</span><span style="color: #B8860B">$1</span><span style="color: #BB4444">) arg2(</span><span style="color: #B8860B">$2</span><span style="color: #BB4444">)&quot;</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>
-<span style="color: #666666">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">function</span><span style="color: #BBB"> </span>myfunc<span style="color: #666">()</span><span style="color: #BBB"> </span><span style="color: #666">{</span>
+<span style="color: #BBB">    </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;function arg1(</span><span style="color: #B8860B">$1</span><span style="color: #B44">) arg2(</span><span style="color: #B8860B">$2</span><span style="color: #B44">)&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">return</span><span style="color: #BBB"> </span><span style="color: #666">1</span>
+<span style="color: #666">}</span>
 
-myfunc<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>b
-<span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">$?</span>
+myfunc<span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>b
+<span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B8860B">$?</span>
 </code></pre></div>
 
 <h2 id="_7">制御構文</h2>
@@ -2224,104 +2224,104 @@ myfunc<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span
 </li>
 </ul>
 <h3 id="if">if</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">if</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span><span style="color: #bbbbbb"> </span>-z<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$value1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span><span style="color: #bbbbbb"> </span>-z<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$value2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">]</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">then</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;$value1 or $value2 is not defined&#39;</span>
-<span style="color: #AA22FF; font-weight: bold">elif</span><span style="color: #bbbbbb"> </span><span style="color: #666666">[</span><span style="color: #bbbbbb"> </span>-z<span style="color: #bbbbbb"> </span><span style="color: #B8860B">$value3</span><span style="color: #bbbbbb"> </span><span style="color: #666666">]</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">then</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;$value3 is not defined&#39;</span>
-<span style="color: #AA22FF; font-weight: bold">else</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span>OK
-<span style="color: #AA22FF; font-weight: bold">fi</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span><span style="color: #BBB"> </span><span style="color: #666">[</span><span style="color: #BBB"> </span>-z<span style="color: #BBB"> </span><span style="color: #B8860B">$value1</span><span style="color: #BBB"> </span><span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">||</span><span style="color: #BBB"> </span><span style="color: #666">[</span><span style="color: #BBB"> </span>-z<span style="color: #BBB"> </span><span style="color: #B8860B">$value2</span><span style="color: #BBB"> </span><span style="color: #666">]</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">then</span>
+<span style="color: #BBB">    </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;$value1 or $value2 is not defined&#39;</span>
+<span style="color: #A2F; font-weight: bold">elif</span><span style="color: #BBB"> </span><span style="color: #666">[</span><span style="color: #BBB"> </span>-z<span style="color: #BBB"> </span><span style="color: #B8860B">$value3</span><span style="color: #BBB"> </span><span style="color: #666">]</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">then</span>
+<span style="color: #BBB">    </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;$value3 is not defined&#39;</span>
+<span style="color: #A2F; font-weight: bold">else</span>
+<span style="color: #BBB">    </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span>OK
+<span style="color: #A2F; font-weight: bold">fi</span>
 </code></pre></div>
 
 <h3 id="case">case</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash</span>
 
-<span style="color: #B8860B">arg</span><span style="color: #666666">=</span><span style="color: #BB4444">&quot;</span><span style="color: #B8860B">$1</span><span style="color: #BB4444">&quot;</span>
+<span style="color: #B8860B">arg</span><span style="color: #666">=</span><span style="color: #B44">&quot;</span><span style="color: #B8860B">$1</span><span style="color: #B44">&quot;</span>
 
-<span style="color: #AA22FF; font-weight: bold">case</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">$arg</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span>
-<span style="color: #bbbbbb">    </span>start<span style="color: #666666">)</span>
-<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;start&quot;</span>
-<span style="color: #bbbbbb">        </span>;;
-<span style="color: #bbbbbb">    </span>stop<span style="color: #666666">)</span>
-<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;stop&quot;</span>
-<span style="color: #bbbbbb">        </span>;;
-<span style="color: #bbbbbb">    </span>reload|restart<span style="color: #666666">)</span>
-<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;restart&quot;</span>
-<span style="color: #bbbbbb">        </span>;;
-<span style="color: #bbbbbb">    </span>st|status<span style="color: #666666">)</span>
-<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;status&quot;</span>
-<span style="color: #bbbbbb">        </span>;;
-<span style="color: #bbbbbb">    </span>*<span style="color: #666666">)</span>
-<span style="color: #bbbbbb">        </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;unknown arg&quot;</span>
-<span style="color: #bbbbbb">        </span>;;
-<span style="color: #AA22FF; font-weight: bold">esac</span>
+<span style="color: #A2F; font-weight: bold">case</span><span style="color: #BBB"> </span><span style="color: #B8860B">$arg</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span>
+<span style="color: #BBB">    </span>start<span style="color: #666">)</span>
+<span style="color: #BBB">        </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;start&quot;</span>
+<span style="color: #BBB">        </span>;;
+<span style="color: #BBB">    </span>stop<span style="color: #666">)</span>
+<span style="color: #BBB">        </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;stop&quot;</span>
+<span style="color: #BBB">        </span>;;
+<span style="color: #BBB">    </span>reload|restart<span style="color: #666">)</span>
+<span style="color: #BBB">        </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;restart&quot;</span>
+<span style="color: #BBB">        </span>;;
+<span style="color: #BBB">    </span>st|status<span style="color: #666">)</span>
+<span style="color: #BBB">        </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;status&quot;</span>
+<span style="color: #BBB">        </span>;;
+<span style="color: #BBB">    </span>*<span style="color: #666">)</span>
+<span style="color: #BBB">        </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;unknown arg&quot;</span>
+<span style="color: #BBB">        </span>;;
+<span style="color: #A2F; font-weight: bold">esac</span>
 </code></pre></div>
 
 <h3 id="_8">ループ</h3>
 <h4 id="_9">配列要素をループ処理</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash</span>
 
-<span style="color: #B8860B">list</span><span style="color: #666666">=(</span><span style="color: #BB4444">&quot;abc&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;123&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;xyz&quot;</span><span style="color: #666666">)</span>
-<span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #B8860B">list</span>[@]<span style="color: #BB6688; font-weight: bold">}</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">do</span>
-<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">$item</span>
-<span style="color: #AA22FF; font-weight: bold">done</span>
+<span style="color: #B8860B">list</span><span style="color: #666">=(</span><span style="color: #B44">&quot;abc&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;123&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;xyz&quot;</span><span style="color: #666">)</span>
+<span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>item<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">list</span>[@]<span style="color: #B68; font-weight: bold">}</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">  </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B8860B">$item</span>
+<span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
 <h4 id="_10">ループで参照(インデックス)</h4>
 <p>インデックスが必要であればこちら。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash</span>
 
-<span style="color: #B8860B">list</span><span style="color: #666666">=(</span><span style="color: #BB4444">&quot;abc&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;123&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;xyz&quot;</span><span style="color: #666666">)</span>
-<span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span><span style="color: #BB6688; font-weight: bold">${</span>!list[@]<span style="color: #BB6688; font-weight: bold">}</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">do</span>
-<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #B8860B">list</span>[<span style="color: #B8860B">$i</span>]<span style="color: #BB6688; font-weight: bold">}</span>
-<span style="color: #AA22FF; font-weight: bold">done</span>
+<span style="color: #B8860B">list</span><span style="color: #666">=(</span><span style="color: #B44">&quot;abc&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;123&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;xyz&quot;</span><span style="color: #666">)</span>
+<span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span>!list[@]<span style="color: #B68; font-weight: bold">}</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">  </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">list</span>[<span style="color: #B8860B">$i</span>]<span style="color: #B68; font-weight: bold">}</span>
+<span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
 <p>実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">abc</span>
-<span style="color: #888888">123</span>
-<span style="color: #888888">xyz</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">abc</span>
+<span style="color: #888">123</span>
+<span style="color: #888">xyz</span>
 </code></pre></div>
 
 <h4 id="nmseq">nからmまで(<code>seq</code>利用)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008800; font-style: italic">#!/bin/bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash</span>
 
-<span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">$(</span>seq<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span><span style="color: #AA22FF; font-weight: bold">)</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">do</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">$i</span>
-<span style="color: #AA22FF; font-weight: bold">done</span>
+<span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">$(</span>seq<span style="color: #BBB"> </span><span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #666">3</span><span style="color: #A2F; font-weight: bold">)</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">    </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B8860B">$i</span>
+<span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
 <p>実行結果は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">1</span>
-<span style="color: #888888">2</span>
-<span style="color: #888888">3</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">1</span>
+<span style="color: #888">2</span>
+<span style="color: #888">3</span>
 </code></pre></div>
 
 <h4 id="nm">nからmまで(ブレース)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">in</span><span style="color: #bbbbbb"> </span><span style="color: #666666">{1</span>..10<span style="color: #666666">}</span>;<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">do</span>
-<span style="color: #bbbbbb">    </span><span style="color: #AA22FF">echo</span><span style="color: #bbbbbb"> </span><span style="color: #B8860B">$i</span>
-<span style="color: #AA22FF; font-weight: bold">done</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>i<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span><span style="color: #666">{1</span>..10<span style="color: #666">}</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">    </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B8860B">$i</span>
+<span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
 <h4 id="while">whileで無限ループ</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>:
-<span style="color: #AA22FF; font-weight: bold">do</span>
-<span style="color: #bbbbbb">  </span><span style="color: #008800; font-style: italic"># 処理</span>
-<span style="color: #AA22FF; font-weight: bold">done</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">while</span><span style="color: #BBB"> </span>:
+<span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">  </span><span style="color: #080; font-style: italic"># 処理</span>
+<span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
 <h4 id="1">ファイルを1行ずつ</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF; font-weight: bold">while</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">read</span><span style="color: #bbbbbb"> </span>line
-<span style="color: #AA22FF; font-weight: bold">do</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008800; font-style: italic"># ${line}に行が入っている</span>
-<span style="color: #AA22FF; font-weight: bold">done</span><span style="color: #bbbbbb"> </span>&lt;<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;/path/to/file.txt&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">while</span><span style="color: #BBB"> </span><span style="color: #A2F">read</span><span style="color: #BBB"> </span>line
+<span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># ${line}に行が入っている</span>
+<span style="color: #A2F; font-weight: bold">done</span><span style="color: #BBB"> </span>&lt;<span style="color: #BBB"> </span><span style="color: #B44">&quot;/path/to/file.txt&quot;</span>
 </code></pre></div>
 
 <h4 id="1_1">コマンドの結果を1行ずつ</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">command</span><span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>filter<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span><span style="color: #AA22FF; font-weight: bold">while</span><span style="color: #bbbbbb"> </span><span style="color: #AA22FF">read</span><span style="color: #bbbbbb"> </span>line
-<span style="color: #AA22FF; font-weight: bold">do</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008800; font-style: italic"># ${line}の処理</span>
-<span style="color: #AA22FF; font-weight: bold">done</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">command</span><span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>filter<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">while</span><span style="color: #BBB"> </span><span style="color: #A2F">read</span><span style="color: #BBB"> </span>line
+<span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># ${line}の処理</span>
+<span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
 <h4 id="_11">途中で抜ける</h4>

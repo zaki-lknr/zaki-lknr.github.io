@@ -1971,11 +1971,11 @@ om/fwlink/?LinkID=135170) を参照してください。
 </code></pre></div>
 
 <p>そのときに一時的に許可するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #AA22FF">Set-ExecutionPolicy</span> RemoteSigned -Scope <span style="color: #AA22FF; font-weight: bold">Process</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #A2F">Set-ExecutionPolicy</span> RemoteSigned -Scope <span style="color: #A2F; font-weight: bold">Process</span>
 </code></pre></div>
 
 <p>システムワイドに設定するには、管理者権限で</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #AA22FF">Set-ExecutionPolicy</span> RemoteSigned
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #A2F">Set-ExecutionPolicy</span> RemoteSigned
 </code></pre></div>
 
 <h2 id="version">version確認</h2>
@@ -1983,7 +1983,7 @@ om/fwlink/?LinkID=135170) を参照してください。
 </code></pre></div>
 
 <h2 id="help">help</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Get-Help</span> 〇〇
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Get-Help</span> 〇〇
 </code></pre></div>
 
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/get-help">https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/get-help</a></p>
@@ -1992,7 +1992,7 @@ om/fwlink/?LinkID=135170) を参照してください。
 <h2 id="_2">コマンドレット</h2>
 <h3 id="_3">ファイルのハッシュ値</h3>
 <p><code>Get-FileHash</code>で取れる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zakih\Downloads&gt; <span style="color: #AA22FF">Get-FileHash</span> .\r2tokimeki-0.1.0.zip
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Downloads&gt; <span style="color: #A2F">Get-FileHash</span> .\r2tokimeki-0.1.0.zip
 
 Algorithm       Hash                                                                   Path
 ---------       ----                                                                   ----
@@ -2002,20 +2002,20 @@ SHA256          04B71F5099FDBC96A8497AD88D16C4169F978E931F0D59B7AAE3E2DC8B383CE1
 <h2 id="_4">コーディング</h2>
 <h3 id="_5">型</h3>
 <h4 id="_6">配列</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span> = @(1,2,3,<span style="color: #BB4444">&quot;foo&quot;</span>,<span style="color: #BB4444">&quot;bar&quot;</span>,<span style="color: #BB4444">&quot;baz&quot;</span>)
-<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span> = @(1,2,3,<span style="color: #B44">&quot;foo&quot;</span>,<span style="color: #B44">&quot;bar&quot;</span>,<span style="color: #B44">&quot;baz&quot;</span>)
+<span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span>
 1
 2
 3
 foo
 bar
 baz
-<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt;
+<span style="color: #A2F">PS </span>C:\Users\zaki&gt;
 </code></pre></div>
 
 <h4 id="_7">連想配列</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span> = @{key1=<span style="color: #BB4444">&quot;value1&quot;</span>; key2=123}
-<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span> = @{key1=<span style="color: #B44">&quot;value1&quot;</span>; key2=123}
+<span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span>
 
 Name                           Value
 ----                           -----
@@ -2023,7 +2023,7 @@ key1                           value1
 key2                           123
 
 
-<span style="color: #AA22FF">PS </span>C:\Users\zaki&gt;
+<span style="color: #A2F">PS </span>C:\Users\zaki&gt;
 </code></pre></div>
 
 <h4 id="_8">型を確認する</h4>
@@ -2033,27 +2033,27 @@ key2                           123
 
 <p>これで型を確認できる。<br />
 例えばこんな出力になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">IsPublic IsSerial Name                                     BaseType</span>
-<span style="color: #888888">-------- -------- ----                                     --------</span>
-<span style="color: #888888">True     True     Byte[]                                   System.Array</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">IsPublic IsSerial Name                                     BaseType</span>
+<span style="color: #888">-------- -------- ----                                     --------</span>
+<span style="color: #888">True     True     Byte[]                                   System.Array</span>
 </code></pre></div>
 
 <h2 id="azure-powershell">Azure PowerShell</h2>
 <h3 id="azure-az-powershell">Azure Az PowerShellインストール</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/azure/install-az-ps">Azure Az PowerShell モジュールをインストールする | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Install-Module</span> -Name Az -Scope CurrentUser -Repository PSGallery -Force
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Install-Module</span> -Name Az -Scope CurrentUser -Repository PSGallery -Force
 </code></pre></div>
 
 <h3 id="_9">サインイン</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Connect-AzAccount</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span>
 </code></pre></div>
 
 <p>ディレクトリが複数ある場合は指定の必要がある。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Connect-AzAccount</span> -TenantId ********
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span> -TenantId ********
 </code></pre></div>
 
 <h3 id="_10">ディレクトリ切り替え</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #AA22FF">Select-AzContext</span> ...
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Select-AzContext</span> ...
 </code></pre></div>
 
 <p>サインイン済みのディレクトリはtabでサジェストできる。</p>

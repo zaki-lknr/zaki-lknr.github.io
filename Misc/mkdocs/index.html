@@ -1878,13 +1878,13 @@
 <h2 id="github-pages">GitHub Pages設定</h2>
 <h3 id="github-pages_1">手動実行してGitHub Pages公開</h3>
 <p>ソースmarkdown用リポジトリは既に存在し、リモートリポジトリに設定されている状態で</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>mkdocs<span style="color: #bbbbbb"> </span>gh-deploy<span style="color: #bbbbbb"> </span>--clean
-<span style="color: #888888">INFO    -  Cleaning site directory </span>
-<span style="color: #888888">INFO    -  Building documentation to directory: /home/zaki/src/github-pages/site </span>
-<span style="color: #888888">INFO    -  Documentation built in 0.19 seconds </span>
-<span style="color: #888888">WARNING -  Version check skipped: No version specified in previous deployment. </span>
-<span style="color: #888888">INFO    -  Copying &#39;/home/zaki/src/github-pages/site&#39; to &#39;gh-pages&#39; branch and pushing to GitHub. </span>
-<span style="color: #888888">INFO    -  Your documentation should shortly be available at: https://zaki-lknr.github.io/pages/ </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>mkdocs<span style="color: #BBB"> </span>gh-deploy<span style="color: #BBB"> </span>--clean
+<span style="color: #888">INFO    -  Cleaning site directory </span>
+<span style="color: #888">INFO    -  Building documentation to directory: /home/zaki/src/github-pages/site </span>
+<span style="color: #888">INFO    -  Documentation built in 0.19 seconds </span>
+<span style="color: #888">WARNING -  Version check skipped: No version specified in previous deployment. </span>
+<span style="color: #888">INFO    -  Copying &#39;/home/zaki/src/github-pages/site&#39; to &#39;gh-pages&#39; branch and pushing to GitHub. </span>
+<span style="color: #888">INFO    -  Your documentation should shortly be available at: https://zaki-lknr.github.io/pages/ </span>
 </code></pre></div>
 
 <p>リモートリポジトリに<code>gh-pages</code>ブランチが作成され、ここにビルドされたコンテンツがpushされて以下のURLにコンテンツが公開された。<br />
@@ -1926,15 +1926,15 @@
 <h3 id="google-analytics">Google Analytics設定</h3>
 <p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/">Setting up site analytics - Material for MkDocs</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">google_analytics</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>UA-XXXXXXXX-X
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span>auto
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>UA-XXXXXXXX-X
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>auto
 </code></pre></div>
 
 <h3 id="_5">取り消し線の有効化</h3>
 <p>Material for MkDocsを使っていると(?)、<code>~~</code>による取り消し線が動作しない。<br />
 以下設定を追加すると有効になる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">markdown_extensions</span>:
-<span style="color: #bbbbbb">    </span>-<span style="color: #bbbbbb"> </span>pymdownx.tilde
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>pymdownx.tilde
 </code></pre></div>
                 
               

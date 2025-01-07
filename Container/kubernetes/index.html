@@ -1920,44 +1920,44 @@
 <h2 id="_1">ヘルスチェック</h2>
 <p><a href="https://kubernetes.io/docs/reference/using-api/health-checks/">Kubernetes API health endpoints | Kubernetes</a></p>
 <p>APIエンドポイントとして <code>/readyz</code> と <code>/livez</code> が用意されている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-k<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;https://192.168.0.131:6443/readyz&#39;</span>
-<span style="color: #888888">ok</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-k<span style="color: #BBB"> </span><span style="color: #B44">&#39;https://192.168.0.131:6443/readyz&#39;</span>
+<span style="color: #888">ok</span>
 </code></pre></div>
 
 <p>K3sだと認証が必要</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #bbbbbb"> </span>-k<span style="color: #bbbbbb"> </span>-H<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;Authorization: Bearer </span><span style="color: #B8860B">$TOKEN</span><span style="color: #BB4444">&quot;</span><span style="color: #bbbbbb"> </span><span style="color: #BB4444">&#39;https://192.168.0.75:6443/livez?verbose&#39;</span>
-<span style="color: #888888">[+]ping ok</span>
-<span style="color: #888888">[+]log ok</span>
-<span style="color: #888888">[+]etcd ok</span>
-<span style="color: #888888">[+]poststarthook/start-kube-apiserver-admission-initializer ok</span>
-<span style="color: #888888">[+]poststarthook/generic-apiserver-start-informers ok</span>
-<span style="color: #888888">[+]poststarthook/priority-and-fairness-config-consumer ok</span>
-<span style="color: #888888">[+]poststarthook/priority-and-fairness-filter ok</span>
-<span style="color: #888888">[+]poststarthook/storage-object-count-tracker-hook ok</span>
-<span style="color: #888888">[+]poststarthook/start-apiextensions-informers ok</span>
-<span style="color: #888888">[+]poststarthook/start-apiextensions-controllers ok</span>
-<span style="color: #888888">[+]poststarthook/crd-informer-synced ok</span>
-<span style="color: #888888">[+]poststarthook/start-service-ip-repair-controllers ok</span>
-<span style="color: #888888">[+]poststarthook/rbac/bootstrap-roles ok</span>
-<span style="color: #888888">[+]poststarthook/scheduling/bootstrap-system-priority-classes ok</span>
-<span style="color: #888888">[+]poststarthook/priority-and-fairness-config-producer ok</span>
-<span style="color: #888888">[+]poststarthook/start-system-namespaces-controller ok</span>
-<span style="color: #888888">[+]poststarthook/bootstrap-controller ok</span>
-<span style="color: #888888">[+]poststarthook/start-cluster-authentication-info-controller ok</span>
-<span style="color: #888888">[+]poststarthook/start-kube-apiserver-identity-lease-controller ok</span>
-<span style="color: #888888">[+]poststarthook/start-deprecated-kube-apiserver-identity-lease-garbage-collector ok</span>
-<span style="color: #888888">[+]poststarthook/start-kube-apiserver-identity-lease-garbage-collector ok</span>
-<span style="color: #888888">[+]poststarthook/start-legacy-token-tracking-controller ok</span>
-<span style="color: #888888">[+]poststarthook/aggregator-reload-proxy-client-cert ok</span>
-<span style="color: #888888">[+]poststarthook/start-kube-aggregator-informers ok</span>
-<span style="color: #888888">[+]poststarthook/apiservice-registration-controller ok</span>
-<span style="color: #888888">[+]poststarthook/apiservice-status-available-controller ok</span>
-<span style="color: #888888">[+]poststarthook/kube-apiserver-autoregistration ok</span>
-<span style="color: #888888">[+]autoregister-completion ok</span>
-<span style="color: #888888">[+]poststarthook/apiservice-openapi-controller ok</span>
-<span style="color: #888888">[+]poststarthook/apiservice-openapiv3-controller ok</span>
-<span style="color: #888888">[+]poststarthook/apiservice-discovery-controller ok</span>
-<span style="color: #888888">livez check passed</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-k<span style="color: #BBB"> </span>-H<span style="color: #BBB"> </span><span style="color: #B44">&quot;Authorization: Bearer </span><span style="color: #B8860B">$TOKEN</span><span style="color: #B44">&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;https://192.168.0.75:6443/livez?verbose&#39;</span>
+<span style="color: #888">[+]ping ok</span>
+<span style="color: #888">[+]log ok</span>
+<span style="color: #888">[+]etcd ok</span>
+<span style="color: #888">[+]poststarthook/start-kube-apiserver-admission-initializer ok</span>
+<span style="color: #888">[+]poststarthook/generic-apiserver-start-informers ok</span>
+<span style="color: #888">[+]poststarthook/priority-and-fairness-config-consumer ok</span>
+<span style="color: #888">[+]poststarthook/priority-and-fairness-filter ok</span>
+<span style="color: #888">[+]poststarthook/storage-object-count-tracker-hook ok</span>
+<span style="color: #888">[+]poststarthook/start-apiextensions-informers ok</span>
+<span style="color: #888">[+]poststarthook/start-apiextensions-controllers ok</span>
+<span style="color: #888">[+]poststarthook/crd-informer-synced ok</span>
+<span style="color: #888">[+]poststarthook/start-service-ip-repair-controllers ok</span>
+<span style="color: #888">[+]poststarthook/rbac/bootstrap-roles ok</span>
+<span style="color: #888">[+]poststarthook/scheduling/bootstrap-system-priority-classes ok</span>
+<span style="color: #888">[+]poststarthook/priority-and-fairness-config-producer ok</span>
+<span style="color: #888">[+]poststarthook/start-system-namespaces-controller ok</span>
+<span style="color: #888">[+]poststarthook/bootstrap-controller ok</span>
+<span style="color: #888">[+]poststarthook/start-cluster-authentication-info-controller ok</span>
+<span style="color: #888">[+]poststarthook/start-kube-apiserver-identity-lease-controller ok</span>
+<span style="color: #888">[+]poststarthook/start-deprecated-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span style="color: #888">[+]poststarthook/start-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span style="color: #888">[+]poststarthook/start-legacy-token-tracking-controller ok</span>
+<span style="color: #888">[+]poststarthook/aggregator-reload-proxy-client-cert ok</span>
+<span style="color: #888">[+]poststarthook/start-kube-aggregator-informers ok</span>
+<span style="color: #888">[+]poststarthook/apiservice-registration-controller ok</span>
+<span style="color: #888">[+]poststarthook/apiservice-status-available-controller ok</span>
+<span style="color: #888">[+]poststarthook/kube-apiserver-autoregistration ok</span>
+<span style="color: #888">[+]autoregister-completion ok</span>
+<span style="color: #888">[+]poststarthook/apiservice-openapi-controller ok</span>
+<span style="color: #888">[+]poststarthook/apiservice-openapiv3-controller ok</span>
+<span style="color: #888">[+]poststarthook/apiservice-discovery-controller ok</span>
+<span style="color: #888">livez check passed</span>
 </code></pre></div>
 
 <p>tokenはsecretリソースを作成して取得する。<br />
@@ -1965,18 +1965,18 @@
 <h2 id="pod">pod</h2>
 <h3 id="crashloopbackoff">CrashLoopBackOff</h3>
 <p><code>describe</code>または<code>event</code>で</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Failed to pull image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: rpc error: code = NotFound desc = failed to pull and unpack image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: failed to resolve reference &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: quay.io/ansible/awx-operator:0.16.1-12-g768bc2f: not found</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Failed to pull image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: rpc error: code = NotFound desc = failed to pull and unpack image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: failed to resolve reference &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: quay.io/ansible/awx-operator:0.16.1-12-g768bc2f: not found</span>
 </code></pre></div>
 
 <p>や、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Error: ImagePullBackOff</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error: ImagePullBackOff</span>
 </code></pre></div>
 
 <p>の場合は、イメージがリポジトリに無い。指定が合ってるか確認。<br />
 podのステータスも<code>ErrImagePull</code>になる。</p>
 <hr />
 <p><code>logs</code>で</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">standard_init_linux.go:228: exec user process caused: exec format error</span>
 </code></pre></div>
 
 <p>の場合、イメージのアーキテクチャと実行環境のアーキテクチャが合ってない。<br />
@@ -1991,28 +1991,28 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <p>podからは<code>&lt;service-name&gt;.&lt;namespace-name&gt;.svc.cluster.local</code>で名前解決できる。</p>
 <h2 id="namespace">消えないnamespace</h2>
 <p><code>kubectl delete ns hoge</code>が応答無くなりstatusがTerminatingのままになった場合の対処。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get ns hoge -o json &gt; deletens.json</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get ns hoge -o json &gt; deletens.json</span>
 </code></pre></div>
 
 <p>namespace定義の中から、<code>spec.finalizers["kubernetes"]</code>の定義を見つけ、中身を空にする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">&quot;spec&quot;</span>:<span style="color: #bbbbbb"> </span>{
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">&quot;finalizers&quot;</span>:<span style="color: #bbbbbb"> </span>[]
-<span style="color: #bbbbbb">    </span>},
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;spec&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;finalizers&quot;</span>:<span style="color: #BBB"> </span>[]
+<span style="color: #BBB">    </span>},
 </code></pre></div>
 
 <p>最後に編集したファイルをパラメタに、以下コマンドを実行</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl replace --raw &quot;/api/v1/namespaces/hoge/finalize&quot; -f deletens.json </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl replace --raw &quot;/api/v1/namespaces/hoge/finalize&quot; -f deletens.json </span>
 </code></pre></div>
 
 <p>これで削除できるはず。</p>
 <p>namespaceの定義が簡単な場合は以下コマンドでも行ける。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">kubectl get ns ${namespace} -o json | grep -v -- &#39;&quot;kubernetes&quot;&#39; | kubectl replace --raw &quot;/api/v1/namespaces/${namespace}/finalize&quot; -f -</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get ns ${namespace} -o json | grep -v -- &#39;&quot;kubernetes&quot;&#39; | kubectl replace --raw &quot;/api/v1/namespaces/${namespace}/finalize&quot; -f -</span>
 </code></pre></div>
 
 <p>※ <code>kubectl get ns hoge -o json | grep -2 -- '"kubernetes"'</code>を実行して、1か所しかヒットしない場合</p>
 <h2 id="rest">REST</h2>
 <h3 id="namespace_1">namespace一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">curl https://k8s.example.org:6443/api/v1/namespaces</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://k8s.example.org:6443/api/v1/namespaces</span>
 </code></pre></div>
 
 <p><code>NamespaceList</code>が返る。</p>

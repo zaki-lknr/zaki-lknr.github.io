@@ -1904,246 +1904,246 @@
 2022.02.15時点の内容。2.16にAWX 2.0.0がリリースされてる。</p>
 <h3 id="awx-operator">awx-operator</h3>
 <p>0.16.1 (devel)で実施</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>docker-build<span style="color: #bbbbbb"> </span><span style="color: #B8860B">IMAGE_TAG_BASE</span><span style="color: #666666">=</span>zakihmkc/awx-operator<span style="color: #bbbbbb"> </span><span style="color: #B8860B">VERSION</span><span style="color: #666666">=0</span>.16.1-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #BBB"> </span>docker-build<span style="color: #BBB"> </span><span style="color: #B8860B">IMAGE_TAG_BASE</span><span style="color: #666">=</span>zakihmkc/awx-operator<span style="color: #BBB"> </span><span style="color: #B8860B">VERSION</span><span style="color: #666">=0</span>.16.1-arm
 </code></pre></div>
 
 <p>これでビルドされるイメージ名は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">Step 5/8 : RUN ansible-galaxy collection install -r ${HOME}/requirements.yml  &amp;&amp; chmod -R ug+rwx ${HOME}/.ansible</span>
-<span style="color: #888888"> ---&gt; Running in bb9cc8cc61ee</span>
-<span style="color: #888888">Process install dependency map</span>
-<span style="color: #888888">Starting collection install process</span>
-<span style="color: #888888">Installing &#39;kubernetes.core:1.2.1&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/kubernetes/core&#39;</span>
-<span style="color: #888888">Installing &#39;operator_sdk.util:0.2.0&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/operator_sdk/util&#39;</span>
-<span style="color: #888888">Removing intermediate container bb9cc8cc61ee</span>
-<span style="color: #888888"> ---&gt; 7346f9bc9f4e</span>
-<span style="color: #888888">Step 6/8 : COPY watches.yaml ${HOME}/watches.yaml</span>
-<span style="color: #888888"> ---&gt; fdba769a7d2f</span>
-<span style="color: #888888">Step 7/8 : COPY roles/ ${HOME}/roles/</span>
-<span style="color: #888888"> ---&gt; 5326e818c7ed</span>
-<span style="color: #888888">Step 8/8 : COPY playbooks/ ${HOME}/playbooks/</span>
-<span style="color: #888888"> ---&gt; 28538a5f08b7</span>
-<span style="color: #888888">Successfully built 28538a5f08b7</span>
-<span style="color: #888888">Successfully tagged zakihmkc/awx-operator:0.16.1-arm</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">:</span>
+<span style="color: #888">:</span>
+<span style="color: #888">Step 5/8 : RUN ansible-galaxy collection install -r ${HOME}/requirements.yml  &amp;&amp; chmod -R ug+rwx ${HOME}/.ansible</span>
+<span style="color: #888"> ---&gt; Running in bb9cc8cc61ee</span>
+<span style="color: #888">Process install dependency map</span>
+<span style="color: #888">Starting collection install process</span>
+<span style="color: #888">Installing &#39;kubernetes.core:1.2.1&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/kubernetes/core&#39;</span>
+<span style="color: #888">Installing &#39;operator_sdk.util:0.2.0&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/operator_sdk/util&#39;</span>
+<span style="color: #888">Removing intermediate container bb9cc8cc61ee</span>
+<span style="color: #888"> ---&gt; 7346f9bc9f4e</span>
+<span style="color: #888">Step 6/8 : COPY watches.yaml ${HOME}/watches.yaml</span>
+<span style="color: #888"> ---&gt; fdba769a7d2f</span>
+<span style="color: #888">Step 7/8 : COPY roles/ ${HOME}/roles/</span>
+<span style="color: #888"> ---&gt; 5326e818c7ed</span>
+<span style="color: #888">Step 8/8 : COPY playbooks/ ${HOME}/playbooks/</span>
+<span style="color: #888"> ---&gt; 28538a5f08b7</span>
+<span style="color: #888">Successfully built 28538a5f08b7</span>
+<span style="color: #888">Successfully tagged zakihmkc/awx-operator:0.16.1-arm</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>zakihmkc/awx-operator
-<span style="color: #888888">REPOSITORY              TAG          IMAGE ID       CREATED          SIZE</span>
-<span style="color: #888888">zakihmkc/awx-operator   0.16.1-arm   28538a5f08b7   45 seconds ago   516MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>zakihmkc/awx-operator
+<span style="color: #888">REPOSITORY              TAG          IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888">zakihmkc/awx-operator   0.16.1-arm   28538a5f08b7   45 seconds ago   516MB</span>
 </code></pre></div>
 
 <p>イメージができたら<code>push</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>docker-push<span style="color: #bbbbbb"> </span><span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #BBB"> </span>docker-push<span style="color: #BBB"> </span><span style="color: #B8860B">IMG</span><span style="color: #666">=</span>zakihmkc/awx-operator:0.16.1-arm
 </code></pre></div>
 
 <p>ビルドしたカスタムイメージをデプロイするには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>deploy<span style="color: #bbbbbb"> </span><span style="color: #B8860B">IMG</span><span style="color: #666666">=</span>zakihmkc/awx-operator:0.16.1-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #BBB"> </span>deploy<span style="color: #BBB"> </span><span style="color: #B8860B">IMG</span><span style="color: #666">=</span>zakihmkc/awx-operator:0.16.1-arm
 </code></pre></div>
 
 <h3 id="awx_1">awx</h3>
 <p>19.5.1で実施。</p>
 <p>Makefileあるけど使い方がよくわからなかった。
 tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #AA22FF">cd</span><span style="color: #bbbbbb"> </span>tools/ansible/
-<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #bbbbbb"> </span>build.yml
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">cd</span><span style="color: #BBB"> </span>tools/ansible/
+<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>build.yml
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>images<span style="color: #bbbbbb"> </span>ansible/awx
-<span style="color: #888888">REPOSITORY    TAG             IMAGE ID       CREATED         SIZE</span>
-<span style="color: #888888">ansible/awx   19.5.2.dev117   5c0f58543bbc   5 minutes ago   696MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>images<span style="color: #BBB"> </span>ansible/awx
+<span style="color: #888">REPOSITORY    TAG             IMAGE ID       CREATED         SIZE</span>
+<span style="color: #888">ansible/awx   19.5.2.dev117   5c0f58543bbc   5 minutes ago   696MB</span>
 </code></pre></div>
 
 <p>ビルドできたらpush</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>tag<span style="color: #bbbbbb"> </span>ansible/awx:19.5.2.dev117<span style="color: #bbbbbb"> </span>zakihmkc/awx:19.5.2.dev117-arm
-<span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>zakihmkc/awx:19.5.2.dev117-arm
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>tag<span style="color: #BBB"> </span>ansible/awx:19.5.2.dev117<span style="color: #BBB"> </span>zakihmkc/awx:19.5.2.dev117-arm
+<span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>zakihmkc/awx:19.5.2.dev117-arm
 </code></pre></div>
 
 <p>この状態でデプロイすると、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">---</span>
-<span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
-<span style="color: #888888">kind: AWX</span>
-<span style="color: #888888">metadata:</span>
-<span style="color: #888888">  name: awx-demo</span>
-<span style="color: #888888">spec:</span>
-<span style="color: #888888">  service_type: nodeport</span>
-<span style="color: #888888">  image: zakihmkc/awx</span>
-<span style="color: #888888">  image_version: 19.5.2.dev117-arm</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>apply<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx
-<span style="color: #888888">awx.awx.ansible.com/awx-demo created</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>get<span style="color: #bbbbbb"> </span>pod<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">NAME                                             READY   STATUS    RESTARTS      AGE</span>
-<span style="color: #888888">awx-operator-controller-manager-59584d6d-cfvcw   2/2     Running   0             60m</span>
-<span style="color: #888888">awx-demo-postgres-0                              1/1     Running   0             83s</span>
-<span style="color: #888888">awx-demo-64b6ddfbb5-td57c                        3/4     Error     3 (30s ago)   73s</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>awx-demo.yml<span style="color: #BBB"> </span>
+<span style="color: #888">---</span>
+<span style="color: #888">apiVersion: awx.ansible.com/v1beta1</span>
+<span style="color: #888">kind: AWX</span>
+<span style="color: #888">metadata:</span>
+<span style="color: #888">  name: awx-demo</span>
+<span style="color: #888">spec:</span>
+<span style="color: #888">  service_type: nodeport</span>
+<span style="color: #888">  image: zakihmkc/awx</span>
+<span style="color: #888">  image_version: 19.5.2.dev117-arm</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>apply<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>awx-demo.yml<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx
+<span style="color: #888">awx.awx.ansible.com/awx-demo created</span>
+<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>
+<span style="color: #888">NAME                                             READY   STATUS    RESTARTS      AGE</span>
+<span style="color: #888">awx-operator-controller-manager-59584d6d-cfvcw   2/2     Running   0             60m</span>
+<span style="color: #888">awx-demo-postgres-0                              1/1     Running   0             83s</span>
+<span style="color: #888">awx-demo-64b6ddfbb5-td57c                        3/4     Error     3 (30s ago)   73s</span>
 </code></pre></div>
 
 <p>あー、、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(awx-build)</span> <span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~/src/awx-operator$ </span>kubectl<span style="color: #bbbbbb"> </span>logs<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-64b6ddfbb5-td57c<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee
-<span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(awx-build)</span> <span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~/src/awx-operator$ </span>kubectl<span style="color: #BBB"> </span>logs<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>awx-demo-64b6ddfbb5-td57c<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-ee
+<span style="color: #888">standard_init_linux.go:228: exec user process caused: exec format error</span>
 </code></pre></div>
 
 <p>このイメージもarm版必要だった。</p>
 <p>awx-eeもarm版をbuild&amp;pushして…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">---</span>
-<span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
-<span style="color: #888888">kind: AWX</span>
-<span style="color: #888888">metadata:</span>
-<span style="color: #888888">  name: awx-demo</span>
-<span style="color: #888888">spec:</span>
-<span style="color: #888888">  service_type: nodeport</span>
-<span style="color: #888888">  image: zakihmkc/awx</span>
-<span style="color: #888888">  image_version: 19.5.2.dev117-arm</span>
-<span style="color: #888888">  ee_images:</span>
-<span style="color: #888888">    - name: awx-demo-ee</span>
-<span style="color: #888888">      image: zakihmkc/awx-ee</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>awx-demo.yml<span style="color: #BBB"> </span>
+<span style="color: #888">---</span>
+<span style="color: #888">apiVersion: awx.ansible.com/v1beta1</span>
+<span style="color: #888">kind: AWX</span>
+<span style="color: #888">metadata:</span>
+<span style="color: #888">  name: awx-demo</span>
+<span style="color: #888">spec:</span>
+<span style="color: #888">  service_type: nodeport</span>
+<span style="color: #888">  image: zakihmkc/awx</span>
+<span style="color: #888">  image_version: 19.5.2.dev117-arm</span>
+<span style="color: #888">  ee_images:</span>
+<span style="color: #888">    - name: awx-demo-ee</span>
+<span style="color: #888">      image: zakihmkc/awx-ee</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>apply<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx
-<span style="color: #888888">awx.awx.ansible.com/awx-demo created</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>apply<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>awx-demo.yml<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx
+<span style="color: #888">awx.awx.ansible.com/awx-demo created</span>
 </code></pre></div>
 
 <p>反映されない。。
 <code>ee_images</code>の設定方法わからず。。
 ドキュメントよく見ると、すぐ近くに<code>control_plane_ee_image</code>について書かれている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #bbbbbb"> </span>awx-demo.yml<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">---</span>
-<span style="color: #888888">apiVersion: awx.ansible.com/v1beta1</span>
-<span style="color: #888888">kind: AWX</span>
-<span style="color: #888888">metadata:</span>
-<span style="color: #888888">  name: awx-demo</span>
-<span style="color: #888888">spec:</span>
-<span style="color: #888888">  service_type: nodeport</span>
-<span style="color: #888888">  image: zakihmkc/awx</span>
-<span style="color: #888888">  image_version: 19.5.2.dev117-arm</span>
-<span style="color: #888888">  ee_images:</span>
-<span style="color: #888888">    - name: awx-ee-arm64</span>
-<span style="color: #888888">      image: zakihmkc/awx-ee</span>
-<span style="color: #888888">  control_plane_ee_image: zakihmkc/awx-ee</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>awx-demo.yml<span style="color: #BBB"> </span>
+<span style="color: #888">---</span>
+<span style="color: #888">apiVersion: awx.ansible.com/v1beta1</span>
+<span style="color: #888">kind: AWX</span>
+<span style="color: #888">metadata:</span>
+<span style="color: #888">  name: awx-demo</span>
+<span style="color: #888">spec:</span>
+<span style="color: #888">  service_type: nodeport</span>
+<span style="color: #888">  image: zakihmkc/awx</span>
+<span style="color: #888">  image_version: 19.5.2.dev117-arm</span>
+<span style="color: #888">  ee_images:</span>
+<span style="color: #888">    - name: awx-ee-arm64</span>
+<span style="color: #888">      image: zakihmkc/awx-ee</span>
+<span style="color: #888">  control_plane_ee_image: zakihmkc/awx-ee</span>
 </code></pre></div>
 
 <p>これでarm用にビルドしたイメージをpullできた。<br />
 が…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #bbbbbb"> </span>logs<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-5888cdc5cc-dtqtt<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee
-<span style="color: #888888">/usr/bin/receptor: /usr/bin/receptor: cannot execute binary file</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>logs<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>awx-demo-5888cdc5cc-dtqtt<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-ee
+<span style="color: #888">/usr/bin/receptor: /usr/bin/receptor: cannot execute binary file</span>
 </code></pre></div>
 
 <p>中で使ってる実行バイナリがarmじゃない？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee<span style="color: #bbbbbb"> </span>cat<span style="color: #bbbbbb"> </span>/usr/bin/receptor<span style="color: #bbbbbb"> </span>|<span style="color: #bbbbbb"> </span>file<span style="color: #bbbbbb"> </span>-
-<span style="color: #888888">/dev/stdin: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, Go BuildID=dzUF3PWwMDDpxbzJG4PA/ROcMoX3MTms06DLSdROU/2q0gqTdR4VkvLhOjbFwW/_sKtclM7e0bA3VOTpJ50, not stripped</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>zakihmkc/awx-ee<span style="color: #BBB"> </span>cat<span style="color: #BBB"> </span>/usr/bin/receptor<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>file<span style="color: #BBB"> </span>-
+<span style="color: #888">/dev/stdin: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, Go BuildID=dzUF3PWwMDDpxbzJG4PA/ROcMoX3MTms06DLSdROU/2q0gqTdR4VkvLhOjbFwW/_sKtclM7e0bA3VOTpJ50, not stripped</span>
 </code></pre></div>
 
 <p>あぁ、、なるほど…<br />
 ビルドログを見返すと、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Step 21/26 : COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor</span>
-<span style="color: #888888">devel: Pulling from ansible/receptor</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Step 21/26 : COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor</span>
+<span style="color: #888">devel: Pulling from ansible/receptor</span>
 </code></pre></div>
 
 <p>ってのが出力されてた。(awx-ee)</p>
 <h3 id="awx-ee">awx-ee</h3>
 <p>0.6.0で実施</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>tox
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>tox
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tox<span style="color: #bbbbbb"> </span>-edocker
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>tox<span style="color: #BBB"> </span>-edocker
 </code></pre></div>
 
 <p>エラーになった。ベースイメージがこれもamd64しかないっぽい。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Digest: sha256:67164fe74446b5cc40f7ff48d69c2cf5a09d234103982a870e8dd90f0cce4fcf</span>
-<span style="color: #888888">Status: Downloaded newer image for quay.io/ansible/ansible-runner:latest</span>
-<span style="color: #888888"> ---&gt; fe0ebe0eae7f</span>
-<span style="color: #888888">Step 4/26 : ARG ANSIBLE_GALAXY_CLI_COLLECTION_OPTS=</span>
-<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
-<span style="color: #888888"> ---&gt; Running in ddcc58ce4a3e</span>
-<span style="color: #888888">Removing intermediate container ddcc58ce4a3e</span>
-<span style="color: #888888"> ---&gt; 29bdd8b42c78</span>
-<span style="color: #888888">Step 5/26 : USER root</span>
-<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
-<span style="color: #888888"> ---&gt; Running in ec96ecc53899</span>
-<span style="color: #888888">Removing intermediate container ec96ecc53899</span>
-<span style="color: #888888"> ---&gt; 047557a18fd9</span>
-<span style="color: #888888">Step 6/26 : ADD _build /build</span>
-<span style="color: #888888"> ---&gt; 4aae6069de8c</span>
-<span style="color: #888888">Step 7/26 : WORKDIR /build</span>
-<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
-<span style="color: #888888"> ---&gt; Running in 84bc2b6aa898</span>
-<span style="color: #888888">Removing intermediate container 84bc2b6aa898</span>
-<span style="color: #888888"> ---&gt; 96ca9bbcffce</span>
-<span style="color: #888888">Step 8/26 : RUN ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles</span>
-<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
-<span style="color: #888888"> ---&gt; Running in 52ab0ab8b6c9</span>
-<span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
-<span style="color: #888888">The command &#39;/bin/sh -c ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles&#39; returned a non-zero code: 1</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Digest: sha256:67164fe74446b5cc40f7ff48d69c2cf5a09d234103982a870e8dd90f0cce4fcf</span>
+<span style="color: #888">Status: Downloaded newer image for quay.io/ansible/ansible-runner:latest</span>
+<span style="color: #888"> ---&gt; fe0ebe0eae7f</span>
+<span style="color: #888">Step 4/26 : ARG ANSIBLE_GALAXY_CLI_COLLECTION_OPTS=</span>
+<span style="color: #888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888"> ---&gt; Running in ddcc58ce4a3e</span>
+<span style="color: #888">Removing intermediate container ddcc58ce4a3e</span>
+<span style="color: #888"> ---&gt; 29bdd8b42c78</span>
+<span style="color: #888">Step 5/26 : USER root</span>
+<span style="color: #888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888"> ---&gt; Running in ec96ecc53899</span>
+<span style="color: #888">Removing intermediate container ec96ecc53899</span>
+<span style="color: #888"> ---&gt; 047557a18fd9</span>
+<span style="color: #888">Step 6/26 : ADD _build /build</span>
+<span style="color: #888"> ---&gt; 4aae6069de8c</span>
+<span style="color: #888">Step 7/26 : WORKDIR /build</span>
+<span style="color: #888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888"> ---&gt; Running in 84bc2b6aa898</span>
+<span style="color: #888">Removing intermediate container 84bc2b6aa898</span>
+<span style="color: #888"> ---&gt; 96ca9bbcffce</span>
+<span style="color: #888">Step 8/26 : RUN ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles</span>
+<span style="color: #888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888"> ---&gt; Running in 52ab0ab8b6c9</span>
+<span style="color: #888">standard_init_linux.go:228: exec user process caused: exec format error</span>
+<span style="color: #888">The command &#39;/bin/sh -c ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles&#39; returned a non-zero code: 1</span>
 
-<span style="color: #888888">An error occured (rc=1), see output line(s) above for details.</span>
-<span style="color: #888888">ERROR: InvocationError for command /home/ubuntu/src/awx-ee/.tox/docker/bin/ansible-builder build -v3 -c . -t quay.io/ansible/awx-ee --container-runtime=docker (exited with code 1)</span>
+<span style="color: #888">An error occured (rc=1), see output line(s) above for details.</span>
+<span style="color: #888">ERROR: InvocationError for command /home/ubuntu/src/awx-ee/.tox/docker/bin/ansible-builder build -v3 -c . -t quay.io/ansible/awx-ee --container-runtime=docker (exited with code 1)</span>
 </code></pre></div>
 
 <p>runnerもbuilderもarm版が必要っぽいな</p>
 <p>runnerとbuilderを用意するとビルド成功。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Removing intermediate container dcdffc16d888</span>
-<span style="color: #888888"> ---&gt; 5b60adcb5b7b</span>
-<span style="color: #888888">Successfully built 5b60adcb5b7b</span>
-<span style="color: #888888">Successfully tagged quay.io/ansible/awx-ee:latest</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Removing intermediate container dcdffc16d888</span>
+<span style="color: #888"> ---&gt; 5b60adcb5b7b</span>
+<span style="color: #888">Successfully built 5b60adcb5b7b</span>
+<span style="color: #888">Successfully tagged quay.io/ansible/awx-ee:latest</span>
 
-<span style="color: #888888">Complete! The build context can be found at: /home/ubuntu/src/awx/awx-ee</span>
-<span style="color: #888888">______________________________________________________ summary _______________________________________________________</span>
-<span style="color: #888888">  docker: commands succeeded</span>
-<span style="color: #888888">  congratulations :)</span>
+<span style="color: #888">Complete! The build context can be found at: /home/ubuntu/src/awx/awx-ee</span>
+<span style="color: #888">______________________________________________________ summary _______________________________________________________</span>
+<span style="color: #888">  docker: commands succeeded</span>
+<span style="color: #888">  congratulations :)</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee
-<span style="color: #888888">REPOSITORY               TAG       IMAGE ID       CREATED         SIZE</span>
-<span style="color: #888888">quay.io/ansible/awx-ee   latest    5b60adcb5b7b   5 minutes ago   1.58GB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>quay.io/ansible/awx-ee
+<span style="color: #888">REPOSITORY               TAG       IMAGE ID       CREATED         SIZE</span>
+<span style="color: #888">quay.io/ansible/awx-ee   latest    5b60adcb5b7b   5 minutes ago   1.58GB</span>
 </code></pre></div>
 
 <p>あ、イメージ名…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>tag<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee:latest<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:latest
-<span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>push<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:latest
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>tag<span style="color: #BBB"> </span>quay.io/ansible/awx-ee:latest<span style="color: #BBB"> </span>zakihmkc/awx-ee:latest
+<span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>push<span style="color: #BBB"> </span>zakihmkc/awx-ee:latest
 </code></pre></div>
 
 <h3 id="ansible-runner">ansible-runner</h3>
 <p>develブランチで実施</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>image
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #BBB"> </span>image
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Status: Downloaded newer image for quay.io/ansible/python-builder:latest</span>
-<span style="color: #888888"> ---&gt; e86f8912b919</span>
-<span style="color: #888888">Step 6/21 : ARG ANSIBLE_BRANCH</span>
-<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
-<span style="color: #888888"> ---&gt; Running in 4efe4c1dbf0d</span>
-<span style="color: #888888">Removing intermediate container 4efe4c1dbf0d</span>
-<span style="color: #888888"> ---&gt; b29ee85f97c3</span>
-<span style="color: #888888">Step 7/21 : ARG ZUUL_SIBLINGS</span>
-<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
-<span style="color: #888888"> ---&gt; Running in e3770bf07693</span>
-<span style="color: #888888">Removing intermediate container e3770bf07693</span>
-<span style="color: #888888"> ---&gt; 3bc46246a2c3</span>
-<span style="color: #888888">Step 8/21 : COPY . /tmp/src</span>
-<span style="color: #888888"> ---&gt; 5c8193d3adec</span>
-<span style="color: #888888">Step 9/21 : RUN if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt</span>
-<span style="color: #888888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
-<span style="color: #888888"> ---&gt; Running in a3b89d0a4b54</span>
-<span style="color: #888888">standard_init_linux.go:228: exec user process caused: exec format error</span>
-<span style="color: #888888">The command &#39;/bin/sh -c if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt&#39; returned a non-zero code: 1</span>
-<span style="color: #888888">make: *** [Makefile:95: image] Error 1</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Status: Downloaded newer image for quay.io/ansible/python-builder:latest</span>
+<span style="color: #888"> ---&gt; e86f8912b919</span>
+<span style="color: #888">Step 6/21 : ARG ANSIBLE_BRANCH</span>
+<span style="color: #888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888"> ---&gt; Running in 4efe4c1dbf0d</span>
+<span style="color: #888">Removing intermediate container 4efe4c1dbf0d</span>
+<span style="color: #888"> ---&gt; b29ee85f97c3</span>
+<span style="color: #888">Step 7/21 : ARG ZUUL_SIBLINGS</span>
+<span style="color: #888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888"> ---&gt; Running in e3770bf07693</span>
+<span style="color: #888">Removing intermediate container e3770bf07693</span>
+<span style="color: #888"> ---&gt; 3bc46246a2c3</span>
+<span style="color: #888">Step 8/21 : COPY . /tmp/src</span>
+<span style="color: #888"> ---&gt; 5c8193d3adec</span>
+<span style="color: #888">Step 9/21 : RUN if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt</span>
+<span style="color: #888"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span style="color: #888"> ---&gt; Running in a3b89d0a4b54</span>
+<span style="color: #888">standard_init_linux.go:228: exec user process caused: exec format error</span>
+<span style="color: #888">The command &#39;/bin/sh -c if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt&#39; returned a non-zero code: 1</span>
+<span style="color: #888">make: *** [Makefile:95: image] Error 1</span>
 </code></pre></div>
 
 <p>これまたベースやビルドに使う <code>quay.io/ansible/python-base:latest</code> と <code>quay.io/ansible/python-builder:latest</code> がamd64向けっぽい。</p>
 <p>後述の<code>python-base</code>と<code>python-builder</code>を↑のイメージ名でビルドして再実行すればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Step 20/21 : ENTRYPOINT [&quot;entrypoint&quot;]</span>
-<span style="color: #888888"> ---&gt; Running in efe6471171c6</span>
-<span style="color: #888888">Removing intermediate container efe6471171c6</span>
-<span style="color: #888888"> ---&gt; 8b899620e92f</span>
-<span style="color: #888888">Step 21/21 : CMD [&quot;ansible-runner&quot;, &quot;run&quot;, &quot;/runner&quot;]</span>
-<span style="color: #888888"> ---&gt; Running in 5486cf162432</span>
-<span style="color: #888888">Removing intermediate container 5486cf162432</span>
-<span style="color: #888888"> ---&gt; 7db86ada250a</span>
-<span style="color: #888888">Successfully built 7db86ada250a</span>
-<span style="color: #888888">Successfully tagged quay.io/ansible/ansible-runner:latest</span>
-<span style="color: #888888">docker tag quay.io/ansible/ansible-runner quay.io/ansible/ansible-runner:devel</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Step 20/21 : ENTRYPOINT [&quot;entrypoint&quot;]</span>
+<span style="color: #888"> ---&gt; Running in efe6471171c6</span>
+<span style="color: #888">Removing intermediate container efe6471171c6</span>
+<span style="color: #888"> ---&gt; 8b899620e92f</span>
+<span style="color: #888">Step 21/21 : CMD [&quot;ansible-runner&quot;, &quot;run&quot;, &quot;/runner&quot;]</span>
+<span style="color: #888"> ---&gt; Running in 5486cf162432</span>
+<span style="color: #888">Removing intermediate container 5486cf162432</span>
+<span style="color: #888"> ---&gt; 7db86ada250a</span>
+<span style="color: #888">Successfully built 7db86ada250a</span>
+<span style="color: #888">Successfully tagged quay.io/ansible/ansible-runner:latest</span>
+<span style="color: #888">docker tag quay.io/ansible/ansible-runner quay.io/ansible/ansible-runner:devel</span>
 </code></pre></div>
 
 <h3 id="python-base">python-base</h3>
@@ -2151,60 +2151,60 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p><a href="https://github.com/ansible/python-base-image">ansible/python-base-image: A container image for running python projects</a></p>
 <p>ビルド用のMakefileの類はなにも無し。<br />
 <code>Containerfile</code>あるので、これで<code>docker build</code>した。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>build<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>Containerfile<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>quay.io/ansible/python-base<span style="color: #bbbbbb"> </span>.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>build<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>Containerfile<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>quay.io/ansible/python-base<span style="color: #BBB"> </span>.
 </code></pre></div>
 
 <p>これはうまく行った。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">Step 16/17 : RUN rm -rf $REMOTE_SOURCE_DIR</span>
-<span style="color: #888888"> ---&gt; Running in e45372606b30</span>
-<span style="color: #888888">Removing intermediate container e45372606b30</span>
-<span style="color: #888888"> ---&gt; 1fc6e4db77c4</span>
-<span style="color: #888888">Step 17/17 : ENTRYPOINT [&quot;/usr/local/bin/dumb-init&quot;, &quot;--&quot;]</span>
-<span style="color: #888888"> ---&gt; Running in e711f13da032</span>
-<span style="color: #888888">Removing intermediate container e711f13da032</span>
-<span style="color: #888888"> ---&gt; 84c14ff10f30</span>
-<span style="color: #888888">Successfully built 84c14ff10f30</span>
-<span style="color: #888888">Successfully tagged quay.io/ansible/python-base:latest</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">:</span>
+<span style="color: #888">:</span>
+<span style="color: #888">Step 16/17 : RUN rm -rf $REMOTE_SOURCE_DIR</span>
+<span style="color: #888"> ---&gt; Running in e45372606b30</span>
+<span style="color: #888">Removing intermediate container e45372606b30</span>
+<span style="color: #888"> ---&gt; 1fc6e4db77c4</span>
+<span style="color: #888">Step 17/17 : ENTRYPOINT [&quot;/usr/local/bin/dumb-init&quot;, &quot;--&quot;]</span>
+<span style="color: #888"> ---&gt; Running in e711f13da032</span>
+<span style="color: #888">Removing intermediate container e711f13da032</span>
+<span style="color: #888"> ---&gt; 84c14ff10f30</span>
+<span style="color: #888">Successfully built 84c14ff10f30</span>
+<span style="color: #888">Successfully tagged quay.io/ansible/python-base:latest</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/python-base
-<span style="color: #888888">REPOSITORY                    TAG       IMAGE ID       CREATED              SIZE</span>
-<span style="color: #888888">quay.io/ansible/python-base   latest    84c14ff10f30   About a minute ago   768MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>quay.io/ansible/python-base
+<span style="color: #888">REPOSITORY                    TAG       IMAGE ID       CREATED              SIZE</span>
+<span style="color: #888">quay.io/ansible/python-base   latest    84c14ff10f30   About a minute ago   768MB</span>
 </code></pre></div>
 
 <h3 id="python-builder">python-builder</h3>
 <p>mainブランチで実施</p>
 <p><a href="https://github.com/ansible/python-builder-image">ansible/python-builder-image: A container image for building python projects</a></p>
 <p>これも特にビルド用のツール無し。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>build<span style="color: #bbbbbb"> </span>-f<span style="color: #bbbbbb"> </span>Containerfile<span style="color: #bbbbbb"> </span>-t<span style="color: #bbbbbb"> </span>quay.io/ansible/python-builder:latest<span style="color: #bbbbbb"> </span>.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>build<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>Containerfile<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>quay.io/ansible/python-builder:latest<span style="color: #BBB"> </span>.
 </code></pre></div>
 
 <p>これもうまくいった。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">Step 18/19 : WORKDIR /</span>
-<span style="color: #888888"> ---&gt; Running in 561b64ed5ff6</span>
-<span style="color: #888888">Removing intermediate container 561b64ed5ff6</span>
-<span style="color: #888888"> ---&gt; 756c2f3aab76</span>
-<span style="color: #888888">Step 19/19 : RUN rm -rf $REMOTE_SOURCE_APP_DIR</span>
-<span style="color: #888888"> ---&gt; Running in 0315f4ab8cbc</span>
-<span style="color: #888888">Removing intermediate container 0315f4ab8cbc</span>
-<span style="color: #888888"> ---&gt; c832710ee7dd</span>
-<span style="color: #888888">Successfully built c832710ee7dd</span>
-<span style="color: #888888">Successfully tagged quay.io/ansible/python-builder:latest</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">:</span>
+<span style="color: #888">:</span>
+<span style="color: #888">Step 18/19 : WORKDIR /</span>
+<span style="color: #888"> ---&gt; Running in 561b64ed5ff6</span>
+<span style="color: #888">Removing intermediate container 561b64ed5ff6</span>
+<span style="color: #888"> ---&gt; 756c2f3aab76</span>
+<span style="color: #888">Step 19/19 : RUN rm -rf $REMOTE_SOURCE_APP_DIR</span>
+<span style="color: #888"> ---&gt; Running in 0315f4ab8cbc</span>
+<span style="color: #888">Removing intermediate container 0315f4ab8cbc</span>
+<span style="color: #888"> ---&gt; c832710ee7dd</span>
+<span style="color: #888">Successfully built c832710ee7dd</span>
+<span style="color: #888">Successfully tagged quay.io/ansible/python-builder:latest</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/python-builder
-<span style="color: #888888">REPOSITORY                       TAG       IMAGE ID       CREATED          SIZE</span>
-<span style="color: #888888">quay.io/ansible/python-builder   latest    c832710ee7dd   51 seconds ago   854MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>quay.io/ansible/python-builder
+<span style="color: #888">REPOSITORY                       TAG       IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888">quay.io/ansible/python-builder   latest    c832710ee7dd   51 seconds ago   854MB</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-runner
-<span style="color: #888888">REPOSITORY                       TAG       IMAGE ID       CREATED              SIZE</span>
-<span style="color: #888888">quay.io/ansible/ansible-runner   devel     7db86ada250a   About a minute ago   962MB</span>
-<span style="color: #888888">quay.io/ansible/ansible-runner   latest    7db86ada250a   About a minute ago   962MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>quay.io/ansible/ansible-runner
+<span style="color: #888">REPOSITORY                       TAG       IMAGE ID       CREATED              SIZE</span>
+<span style="color: #888">quay.io/ansible/ansible-runner   devel     7db86ada250a   About a minute ago   962MB</span>
+<span style="color: #888">quay.io/ansible/ansible-runner   latest    7db86ada250a   About a minute ago   962MB</span>
 </code></pre></div>
 
 <h3 id="ansible-builder">ansible-builder</h3>
@@ -2212,43 +2212,43 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p><a href="https://github.com/ansible/ansible-builder">ansible/ansible-builder: An Ansible execution environment builder</a></p>
 <p>これもrunnerと同じく、<code>Makefile</code>に<code>image</code>ターゲットがあるのでこれを実行。
 ビルド中のログを見るとpython-baseとpython-builderに依存している。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>image
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #BBB"> </span>image
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-builder
-<span style="color: #888888">REPOSITORY                        TAG                   IMAGE ID       CREATED          SIZE</span>
-<span style="color: #888888">quay.io/ansible/ansible-builder   1.0.0a2-99-g38a0104   e0d5adabb6c3   46 seconds ago   858MB</span>
-<span style="color: #888888">quay.io/ansible/ansible-builder   latest                e0d5adabb6c3   46 seconds ago   858MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>quay.io/ansible/ansible-builder
+<span style="color: #888">REPOSITORY                        TAG                   IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888">quay.io/ansible/ansible-builder   1.0.0a2-99-g38a0104   e0d5adabb6c3   46 seconds ago   858MB</span>
+<span style="color: #888">quay.io/ansible/ansible-builder   latest                e0d5adabb6c3   46 seconds ago   858MB</span>
 </code></pre></div>
 
 <h3 id="receptor">receptor</h3>
 <p>1.0.0a2ブランチで実施</p>
 <p><a href="https://github.com/ansible/receptor">ansible/receptor: Project Receptor is a flexible multi-service relayer with remote execution and orchestration capabilities linking controllers with executors across a mesh of nodes.</a></p>
 <p>デフォルトは<code>podman</code>を使うみたいなので<code>docker</code>を指定して実行。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #bbbbbb"> </span>container<span style="color: #bbbbbb"> </span><span style="color: #B8860B">CONTAINERCMD</span><span style="color: #666666">=</span>docker
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>make<span style="color: #BBB"> </span>container<span style="color: #BBB"> </span><span style="color: #B8860B">CONTAINERCMD</span><span style="color: #666">=</span>docker
 </code></pre></div>
 
 <p>エラーになった。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
-<span style="color: #888888">error in setup command: Error parsing /source/receptorctl/setup.cfg: Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
-<span style="color: #888888">make: git: Command not found</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
+<span style="color: #888">error in setup command: Error parsing /source/receptorctl/setup.cfg: Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
+<span style="color: #888">make: git: Command not found</span>
 </code></pre></div>
 
 <p>んー、develのままだったのが悪かったかな。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #bbbbbb"> </span>switch<span style="color: #bbbbbb"> </span>release_1.1<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">Switched to branch &#39;release_1.1&#39;</span>
-<span style="color: #888888">Your branch is up to date with &#39;origin/release_1.1&#39;.</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>switch<span style="color: #BBB"> </span>release_1.1<span style="color: #BBB"> </span>
+<span style="color: #888">Switched to branch &#39;release_1.1&#39;</span>
+<span style="color: #888">Your branch is up to date with &#39;origin/release_1.1&#39;.</span>
 </code></pre></div>
 
 <p>でも、別のエラーが出る。。よくわからん。<br />
 ディレクトリ掘ったら<code>packaging/container/Dockerfile</code>があった…が、このファイルは<code>make</code>でビルドするときに使われるのと一緒だ。。</p>
 <p>ビルドのログをよくみると</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Step 3/25 : RUN curl -LO https://go.dev/dl/go1.16.13.linux-amd64.tar.gz</span>
-<span style="color: #888888"> ---&gt; Using cache</span>
-<span style="color: #888888"> ---&gt; b1bf06de576f</span>
-<span style="color: #888888">Step 4/25 : RUN tar -C /usr/local -xzf go1.16.13.linux-amd64.tar.gz</span>
-<span style="color: #888888"> ---&gt; Using cache</span>
-<span style="color: #888888"> ---&gt; 7b134322bd9b</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Step 3/25 : RUN curl -LO https://go.dev/dl/go1.16.13.linux-amd64.tar.gz</span>
+<span style="color: #888"> ---&gt; Using cache</span>
+<span style="color: #888"> ---&gt; b1bf06de576f</span>
+<span style="color: #888">Step 4/25 : RUN tar -C /usr/local -xzf go1.16.13.linux-amd64.tar.gz</span>
+<span style="color: #888"> ---&gt; Using cache</span>
+<span style="color: #888"> ---&gt; 7b134322bd9b</span>
 </code></pre></div>
 
 <p>みたいなのあった。これか。<br />
@@ -2260,7 +2260,7 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span style="color: #00A000">+++ b/packaging/container/Dockerfile</span>
 <span style="color: #800080; font-weight: bold">@@ -2,9 +2,9 @@ FROM quay.io/centos/centos:stream8 as builder</span>
 
-<span style="color: #bbbbbb"> </span>RUN dnf -y update &amp;&amp; dnf install -y make python3 python3-pip python3-wheel
+<span style="color: #BBB"> </span>RUN dnf -y update &amp;&amp; dnf install -y make python3 python3-pip python3-wheel
 
 <span style="color: #A00000">-RUN curl -LO https://go.dev/dl/go1.16.13.linux-amd64.tar.gz</span>
 <span style="color: #00A000">+RUN curl -LO https://go.dev/dl/go1.16.13.linux-arm64.tar.gz</span>
@@ -2268,142 +2268,142 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span style="color: #A00000">-RUN tar -C /usr/local -xzf go1.16.13.linux-amd64.tar.gz</span>
 <span style="color: #00A000">+RUN tar -C /usr/local -xzf go1.16.13.linux-arm64.tar.gz</span>
 
-<span style="color: #bbbbbb"> </span>ADD source.tar.gz /source
-<span style="color: #bbbbbb"> </span>WORKDIR /source
+<span style="color: #BBB"> </span>ADD source.tar.gz /source
+<span style="color: #BBB"> </span>WORKDIR /source
 </code></pre></div>
 
 <p>これでビルド。同じエラーはでたが処理は続行した。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">:</span>
-<span style="color: #888888">:</span>
-<span style="color: #888888">Step 24/25 : ENTRYPOINT [&quot;/usr/bin/tini&quot;, &quot;--&quot;]</span>
-<span style="color: #888888"> ---&gt; Running in c19287787c6c</span>
-<span style="color: #888888">Removing intermediate container c19287787c6c</span>
-<span style="color: #888888"> ---&gt; d90dae43fbbf</span>
-<span style="color: #888888">Step 25/25 : CMD [&quot;/usr/bin/receptor&quot;, &quot;-c&quot;, &quot;/etc/receptor/receptor.conf&quot;]</span>
-<span style="color: #888888"> ---&gt; Running in e8debaee8c0c</span>
-<span style="color: #888888">Removing intermediate container e8debaee8c0c</span>
-<span style="color: #888888"> ---&gt; 376efbc54f61</span>
-<span style="color: #888888">Successfully built 376efbc54f61</span>
-<span style="color: #888888">Successfully tagged receptor:latest</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">:</span>
+<span style="color: #888">:</span>
+<span style="color: #888">Step 24/25 : ENTRYPOINT [&quot;/usr/bin/tini&quot;, &quot;--&quot;]</span>
+<span style="color: #888"> ---&gt; Running in c19287787c6c</span>
+<span style="color: #888">Removing intermediate container c19287787c6c</span>
+<span style="color: #888"> ---&gt; d90dae43fbbf</span>
+<span style="color: #888">Step 25/25 : CMD [&quot;/usr/bin/receptor&quot;, &quot;-c&quot;, &quot;/etc/receptor/receptor.conf&quot;]</span>
+<span style="color: #888"> ---&gt; Running in e8debaee8c0c</span>
+<span style="color: #888">Removing intermediate container e8debaee8c0c</span>
+<span style="color: #888"> ---&gt; 376efbc54f61</span>
+<span style="color: #888">Successfully built 376efbc54f61</span>
+<span style="color: #888">Successfully tagged receptor:latest</span>
 </code></pre></div>
 
 <p>あ、イメージ名…</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>image<span style="color: #bbbbbb"> </span>ls<span style="color: #bbbbbb"> </span>receptor
-<span style="color: #888888">REPOSITORY   TAG       IMAGE ID       CREATED          SIZE</span>
-<span style="color: #888888">receptor     latest    376efbc54f61   51 seconds ago   777MB</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>image<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>receptor
+<span style="color: #888">REPOSITORY   TAG       IMAGE ID       CREATED          SIZE</span>
+<span style="color: #888">receptor     latest    376efbc54f61   51 seconds ago   777MB</span>
 </code></pre></div>
 
 <p>とりあえずセット</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #bbbbbb"> </span>tag<span style="color: #bbbbbb"> </span>receptor:latest<span style="color: #bbbbbb"> </span>quay.io/ansible/receptor:devel
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>tag<span style="color: #BBB"> </span>receptor:latest<span style="color: #BBB"> </span>quay.io/ansible/receptor:devel
 </code></pre></div>
 
 <h2 id="awx_2">AWXでジョブが実行できない件(調査中)</h2>
 <p>AWXで以下のエラーが出てるやつ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">Traceback (most recent call last):</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 449, in run</span>
-<span style="color: #888888">    self.pre_run_hook(self.instance, private_data_dir)</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 979, in pre_run_hook</span>
-<span style="color: #888888">    RunProjectUpdate.make_local_copy(job.project, private_data_dir, scm_revision=job_revision)</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 1380, in make_local_copy</span>
-<span style="color: #888888">    source_branch = git_repo.create_head(tmp_branch_name, p.scm_revision)</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/repo/base.py&quot;, line 386, in create_head</span>
-<span style="color: #888888">    return Head.create(self, path, commit, force, logmsg)</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 543, in create</span>
-<span style="color: #888888">    return cls._create(repo, path, cls._resolve_ref_on_create, reference, force, logmsg)</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 510, in _create</span>
-<span style="color: #888888">    ref.set_reference(target, logmsg)</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 326, in set_reference</span>
-<span style="color: #888888">    assure_directory_exists(fpath, is_file=True)</span>
-<span style="color: #888888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/util.py&quot;, line 177, in assure_directory_exists</span>
-<span style="color: #888888">    os.makedirs(path, exist_ok=True)</span>
-<span style="color: #888888">  File &quot;/usr/lib64/python3.9/os.py&quot;, line 225, in makedirs</span>
-<span style="color: #888888">    mkdir(name, mode)</span>
-<span style="color: #888888">PermissionError: [Errno 13] Permission denied: &#39;/var/lib/awx/projects/_6__demo_project/.git/refs/heads/awx_internal&#39;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Traceback (most recent call last):</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 449, in run</span>
+<span style="color: #888">    self.pre_run_hook(self.instance, private_data_dir)</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 979, in pre_run_hook</span>
+<span style="color: #888">    RunProjectUpdate.make_local_copy(job.project, private_data_dir, scm_revision=job_revision)</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 1380, in make_local_copy</span>
+<span style="color: #888">    source_branch = git_repo.create_head(tmp_branch_name, p.scm_revision)</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/repo/base.py&quot;, line 386, in create_head</span>
+<span style="color: #888">    return Head.create(self, path, commit, force, logmsg)</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 543, in create</span>
+<span style="color: #888">    return cls._create(repo, path, cls._resolve_ref_on_create, reference, force, logmsg)</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 510, in _create</span>
+<span style="color: #888">    ref.set_reference(target, logmsg)</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 326, in set_reference</span>
+<span style="color: #888">    assure_directory_exists(fpath, is_file=True)</span>
+<span style="color: #888">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/util.py&quot;, line 177, in assure_directory_exists</span>
+<span style="color: #888">    os.makedirs(path, exist_ok=True)</span>
+<span style="color: #888">  File &quot;/usr/lib64/python3.9/os.py&quot;, line 225, in makedirs</span>
+<span style="color: #888">    mkdir(name, mode)</span>
+<span style="color: #888">PermissionError: [Errno 13] Permission denied: &#39;/var/lib/awx/projects/_6__demo_project/.git/refs/heads/awx_internal&#39;</span>
 </code></pre></div>
 
 <p>オリジナルのamd64版、Dockerイメージのユーザー権限</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/awx-ee:0.6.0<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-4.4# id</span>
-<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-4.4# exit</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/awx:20.0.0<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-5.1$ id</span>
-<span style="color: #888888">uid=1000 gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-5.1$ </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>quay.io/ansible/awx-ee:0.6.0<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-4.4# id</span>
+<span style="color: #888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-4.4# exit</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>quay.io/ansible/awx:20.0.0<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-5.1$ id</span>
+<span style="color: #888">uid=1000 gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-5.1$ </span>
 </code></pre></div>
 
 <p>arm64でビルドしたDockerイメージのユーザー権限</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>zakihmkc/awx-ee:0.6.0<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-4.4# id</span>
-<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-4.4# exit</span>
-<span style="color: #888888">exit</span>
-<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>zakihmkc/awx:20.0.0<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-5.1$ id</span>
-<span style="color: #888888">uid=1000 gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-5.1$ exit</span>
-<span style="color: #888888">exit</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>zakihmkc/awx-ee:0.6.0<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-4.4# id</span>
+<span style="color: #888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-4.4# exit</span>
+<span style="color: #888">exit</span>
+<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>zakihmkc/awx:20.0.0<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-5.1$ id</span>
+<span style="color: #888">uid=1000 gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-5.1$ exit</span>
+<span style="color: #888">exit</span>
 </code></pre></div>
 
 <p>Docker上だと同一。</p>
 <p>じゃあk8s上だと…
 amd64版はこれ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-74d8979549-bszp6<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash<span style="color: #bbbbbb"> </span>
-<span style="color: #888888">bash-4.4$ id</span>
-<span style="color: #888888">uid=1000(runner) gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-4.4$ exit</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-74d8979549-bszp6<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-task<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-5.1$ id</span>
-<span style="color: #888888">uid=1000(awx) gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-5.1$ exit</span>
-<span style="color: #888888">exit</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #BBB">  </span><span style="color: #A2F">exec</span><span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>awx-demo-74d8979549-bszp6<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-ee<span style="color: #BBB"> </span>--<span style="color: #BBB"> </span>bash<span style="color: #BBB"> </span>
+<span style="color: #888">bash-4.4$ id</span>
+<span style="color: #888">uid=1000(runner) gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-4.4$ exit</span>
+<span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #BBB">  </span><span style="color: #A2F">exec</span><span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>awx-demo-74d8979549-bszp6<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-task<span style="color: #BBB"> </span>--<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-5.1$ id</span>
+<span style="color: #888">uid=1000(awx) gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-5.1$ exit</span>
+<span style="color: #888">exit</span>
 </code></pre></div>
 
 <p>arm64版。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>awx-demo-7847cd4bb-wd4w4<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-4.4# id</span>
-<span style="color: #888888">uid=0(root) gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-4.4# exit</span>
-<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>awx-demo-7847cd4bb-wd4w4<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-task<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-5.1$ id</span>
-<span style="color: #888888">uid=1000(awx) gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-5.1$ </span>
-<span style="color: #888888">exit</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl<span style="color: #BBB"> </span><span style="color: #A2F">exec</span><span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>awx-demo-7847cd4bb-wd4w4<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-ee<span style="color: #BBB"> </span>--<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-4.4# id</span>
+<span style="color: #888">uid=0(root) gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-4.4# exit</span>
+<span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~$ </span>kubectl<span style="color: #BBB"> </span><span style="color: #A2F">exec</span><span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>awx-demo-7847cd4bb-wd4w4<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-task<span style="color: #BBB"> </span>--<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-5.1$ id</span>
+<span style="color: #888">uid=1000(awx) gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-5.1$ </span>
+<span style="color: #888">exit</span>
 </code></pre></div>
 
 <p>eeの実行権限がここだけ<code>root</code>になっている。</p>
 <p>実行権限じゃなくて<code>/etc/passwd</code>かも。</p>
 <p>amd64のオリジナル版</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #bbbbbb">  </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>awx-demo-74d8979549-bszp6<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-4.4$ id</span>
-<span style="color: #888888">uid=1000(runner) gid=0(root) groups=0(root)</span>
-<span style="color: #888888">bash-4.4$ cat /etc/passwd</span>
-<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
-<span style="color: #888888">runner:x:1000:0:,,,:/home/runner:/bin/bash</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>kubectl<span style="color: #BBB">  </span><span style="color: #A2F">exec</span><span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>awx-demo-74d8979549-bszp6<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-ee<span style="color: #BBB"> </span>--<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-4.4$ id</span>
+<span style="color: #888">uid=1000(runner) gid=0(root) groups=0(root)</span>
+<span style="color: #888">bash-4.4$ cat /etc/passwd</span>
+<span style="color: #888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888">runner:x:1000:0:,,,:/home/runner:/bin/bash</span>
 </code></pre></div>
 
 <p>arm64向けにビルドした版</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~/tmp$ </span>kubectl<span style="color: #bbbbbb"> </span><span style="color: #AA22FF">exec</span><span style="color: #bbbbbb"> </span>-n<span style="color: #bbbbbb"> </span>awx<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>awx-demo-84b4b75d85-9txt2<span style="color: #bbbbbb"> </span>-c<span style="color: #bbbbbb"> </span>awx-demo-ee<span style="color: #bbbbbb"> </span>--<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-4.4# cat /etc/passwd</span>
-<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
-<span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
-<span style="color: #888888">bash-4.4# exit</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-ap-a1-ubuntu02:~/tmp$ </span>kubectl<span style="color: #BBB"> </span><span style="color: #A2F">exec</span><span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>awx-demo-84b4b75d85-9txt2<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span>awx-demo-ee<span style="color: #BBB"> </span>--<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-4.4# cat /etc/passwd</span>
+<span style="color: #888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
+<span style="color: #888">bash-4.4# exit</span>
 </code></pre></div>
 
 <p>そもそも<code>runner</code>ユーザーのUIDがおかしい感じ。</p>
 <p>ベースイメージの<code>ansible-runner</code>は？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-runner:latest<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-4.4# cat /etc/passwd</span>
-<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
-<span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
-<span style="color: #888888">bash-4.4# </span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev2 ~]$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>quay.io/ansible/ansible-runner:latest<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-4.4# cat /etc/passwd</span>
+<span style="color: #888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
+<span style="color: #888">bash-4.4# </span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~$ </span>docker<span style="color: #bbbbbb"> </span>run<span style="color: #bbbbbb"> </span>-it<span style="color: #bbbbbb"> </span>--rm<span style="color: #bbbbbb"> </span>quay.io/ansible/ansible-runner:latest<span style="color: #bbbbbb"> </span>bash
-<span style="color: #888888">bash-4.4# cat /etc/passwd</span>
-<span style="color: #888888">root:x:0:0:root:/root:/bin/bash</span>
-<span style="color: #888888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
-<span style="color: #888888">bash-4.4# exit</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">ubuntu@oci-g-a1-ubuntu:~$ </span>docker<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>-it<span style="color: #BBB"> </span>--rm<span style="color: #BBB"> </span>quay.io/ansible/ansible-runner:latest<span style="color: #BBB"> </span>bash
+<span style="color: #888">bash-4.4# cat /etc/passwd</span>
+<span style="color: #888">root:x:0:0:root:/root:/bin/bash</span>
+<span style="color: #888">runner:x:0:0:,,,:/home/runner:/bin/bash</span>
+<span style="color: #888">bash-4.4# exit</span>
 </code></pre></div>
 
 <p>この時点では同じ模様。

@@ -1774,37 +1774,37 @@
                 
                 <h1 id="_1">コレクション</h1>
 <h2 id="_2">インストール</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888888">ansible-galaxy collection install amazon.aws</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ansible-galaxy collection install amazon.aws</span>
 </code></pre></div>
 
 <p><code>requirements.yml</code>使用時は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-galaxy<span style="color: #bbbbbb"> </span>collection<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>-r<span style="color: #bbbbbb"> </span>collections/requirements.yml
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-galaxy<span style="color: #BBB"> </span>collection<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>collections/requirements.yml
 </code></pre></div>
 
 <h3 id="requirementsyml">requirements.yml書式</h3>
 <p>コレクション名のみ(バージョンは最新)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
 <span style="color: #008000; font-weight: bold">collections</span>:
--<span style="color: #bbbbbb"> </span>community.general
+-<span style="color: #BBB"> </span>community.general
 </code></pre></div>
 
 <p>バージョン指定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
 <span style="color: #008000; font-weight: bold">collections</span>:
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>ansible.netcommon
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>2.1.0
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>ansible.utils
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>2.2.0
--<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>seiko.smartcs
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>1.3.0
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>ansible.netcommon
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #BBB"> </span>2.1.0
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>ansible.utils
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #BBB"> </span>2.2.0
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>seiko.smartcs
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #BBB"> </span>1.3.0
 </code></pre></div>
 
 <p>Gitリポジトリ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000FF; font-weight: bold">---</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
 <span style="color: #008000; font-weight: bold">collections</span>:
-<span style="color: #bbbbbb">  </span>-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #bbbbbb"> </span>https://github.com/zaki-lknr/esxissh-ansible.git
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #bbbbbb"> </span>main
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #bbbbbb"> </span>git
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>https://github.com/zaki-lknr/esxissh-ansible.git
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #BBB"> </span>main
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>git
 </code></pre></div>
 
 <h2 id="_3">リダイレクト設定</h2>
@@ -1815,7 +1815,7 @@ moduleに限らずactionプラグインやconnectionプラグインの定義も�
 <p><code>galaxy.yml</code>の<code>dependencies</code>を確認する。<br />
 例えばcisco.iosのv7.0.0であれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">dependencies</span>:
-<span style="color: #bbbbbb">  </span><span style="color: #BB4444">&quot;ansible.netcommon&quot;</span>:<span style="color: #bbbbbb"> </span><span style="color: #BB4444">&quot;&gt;=6.0.0&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #B44">&quot;ansible.netcommon&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;&gt;=6.0.0&quot;</span>
 </code></pre></div>
 
 <p><a href="https://github.com/ansible-collections/cisco.ios/blob/v7.0.0/galaxy.yml#L4-L5">https://github.com/ansible-collections/cisco.ios/blob/v7.0.0/galaxy.yml#L4-L5</a></p>

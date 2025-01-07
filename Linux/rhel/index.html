@@ -1793,31 +1793,31 @@
 <h2 id="_2">サブスクリプション</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/05/160946">制限ネットワーク環境のRHEL7でproxy経由でサブスクリプション登録とDockerインストール - zaki work log</a></p>
 <p>以下で登録とサブスクリプション割り当てをまとめてできる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>register<span style="color: #bbbbbb"> </span>--auto-attach
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>register<span style="color: #BBB"> </span>--auto-attach
 </code></pre></div>
 
 <p>登録のみは以下。アカウント情報を対話的に入力する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>register
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>register
 </code></pre></div>
 
 <p>登録後のサブスクリプション割り当ては以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>attach
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>attach
 </code></pre></div>
 
 <p>サブスクリプション割り当て時にpool IDを指定する場合は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>attach<span style="color: #bbbbbb"> </span>--pool<span style="color: #666666">=</span>****
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>attach<span style="color: #BBB"> </span>--pool<span style="color: #666">=</span>****
 </code></pre></div>
 
 <p>利用可能なサブスクリプションの確認</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span>--available
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span>--available
 </code></pre></div>
 
 <p>リポジトリの状態</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>repos<span style="color: #bbbbbb"> </span>--list-enabled
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>repos<span style="color: #BBB"> </span>--list-enabled
 </code></pre></div>
 
 <p>利用可能になっていないリポジトリは以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #bbbbbb"> </span>repos<span style="color: #bbbbbb"> </span>--list-disabled
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>repos<span style="color: #BBB"> </span>--list-disabled
 </code></pre></div>
 
 <h2 id="package">package</h2>
@@ -1827,61 +1827,61 @@
 <li><a href="https://fedoraproject.org/wiki/EPEL#Quickstart">EPEL - Fedora Project Wiki</a></li>
 </ul>
 <p>RHEL8用のコマンドを実行してリポジトリを追加する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #bbbbbb"> </span>dnf<span style="color: #bbbbbb"> </span>install<span style="color: #bbbbbb"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-<span style="color: #888888">Updating Subscription Management repositories.</span>
-<span style="color: #888888">Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                    13 kB/s | 4.1 kB     00:00    </span>
-<span style="color: #888888">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                 19 kB/s | 4.5 kB     00:00    </span>
-<span style="color: #888888">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                6.5 MB/s |  31 MB     00:04    </span>
-<span style="color: #888888">epel-release-latest-8.noarch.rpm                                         30 kB/s |  23 kB     00:00    </span>
-<span style="color: #888888">依存関係が解決しました。</span>
-<span style="color: #888888">========================================================================================================</span>
-<span style="color: #888888"> パッケージ                アーキテクチャー    バージョン               リポジトリー              サイズ</span>
-<span style="color: #888888">========================================================================================================</span>
-<span style="color: #888888">インストール:</span>
-<span style="color: #888888"> epel-release              noarch              8-11.el8                 @commandline               23 k</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+<span style="color: #888">Updating Subscription Management repositories.</span>
+<span style="color: #888">Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                    13 kB/s | 4.1 kB     00:00    </span>
+<span style="color: #888">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                 19 kB/s | 4.5 kB     00:00    </span>
+<span style="color: #888">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                6.5 MB/s |  31 MB     00:04    </span>
+<span style="color: #888">epel-release-latest-8.noarch.rpm                                         30 kB/s |  23 kB     00:00    </span>
+<span style="color: #888">依存関係が解決しました。</span>
+<span style="color: #888">========================================================================================================</span>
+<span style="color: #888"> パッケージ                アーキテクチャー    バージョン               リポジトリー              サイズ</span>
+<span style="color: #888">========================================================================================================</span>
+<span style="color: #888">インストール:</span>
+<span style="color: #888"> epel-release              noarch              8-11.el8                 @commandline               23 k</span>
 
-<span style="color: #888888">トランザクションの概要</span>
-<span style="color: #888888">========================================================================================================</span>
-<span style="color: #888888">インストール  1 パッケージ</span>
+<span style="color: #888">トランザクションの概要</span>
+<span style="color: #888">========================================================================================================</span>
+<span style="color: #888">インストール  1 パッケージ</span>
 
-<span style="color: #888888">合計サイズ: 23 k</span>
-<span style="color: #888888">インストール後のサイズ: 35 k</span>
-<span style="color: #888888">これでよろしいですか? [y/N]: y</span>
-<span style="color: #888888">パッケージのダウンロード:</span>
-<span style="color: #888888">トランザクションの確認を実行中</span>
-<span style="color: #888888">トランザクションの確認に成功しました。</span>
-<span style="color: #888888">トランザクションのテストを実行中</span>
-<span style="color: #888888">トランザクションのテストに成功しました。</span>
-<span style="color: #888888">トランザクションを実行中</span>
-<span style="color: #888888">  準備             :                                                                                1/1 </span>
-<span style="color: #888888">  インストール中   : epel-release-8-11.el8.noarch                                                   1/1 </span>
-<span style="color: #888888">  scriptletの実行中: epel-release-8-11.el8.noarch                                                   1/1 </span>
-<span style="color: #888888">  検証             : epel-release-8-11.el8.noarch                                                   1/1 </span>
-<span style="color: #888888">Installed products updated.</span>
+<span style="color: #888">合計サイズ: 23 k</span>
+<span style="color: #888">インストール後のサイズ: 35 k</span>
+<span style="color: #888">これでよろしいですか? [y/N]: y</span>
+<span style="color: #888">パッケージのダウンロード:</span>
+<span style="color: #888">トランザクションの確認を実行中</span>
+<span style="color: #888">トランザクションの確認に成功しました。</span>
+<span style="color: #888">トランザクションのテストを実行中</span>
+<span style="color: #888">トランザクションのテストに成功しました。</span>
+<span style="color: #888">トランザクションを実行中</span>
+<span style="color: #888">  準備             :                                                                                1/1 </span>
+<span style="color: #888">  インストール中   : epel-release-8-11.el8.noarch                                                   1/1 </span>
+<span style="color: #888">  scriptletの実行中: epel-release-8-11.el8.noarch                                                   1/1 </span>
+<span style="color: #888">  検証             : epel-release-8-11.el8.noarch                                                   1/1 </span>
+<span style="color: #888">Installed products updated.</span>
 
-<span style="color: #888888">インストール済み:</span>
-<span style="color: #888888">  epel-release-8-11.el8.noarch                                                                          </span>
+<span style="color: #888">インストール済み:</span>
+<span style="color: #888">  epel-release-8-11.el8.noarch                                                                          </span>
 
-<span style="color: #888888">完了しました!</span>
+<span style="color: #888">完了しました!</span>
 <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>ls<span style="color: #bbbbbb"> </span>-l<span style="color: #bbbbbb"> </span>/etc/yum.repos.d/
-<span style="color: #888888">合計 168</span>
-<span style="color: #888888">-rw-r--r--. 1 root root   1480  6月  8 09:29 epel-modular.repo</span>
-<span style="color: #888888">-rw-r--r--. 1 root root   1562  6月  8 09:29 epel-playground.repo</span>
-<span style="color: #888888">-rw-r--r--. 1 root root   1579  6月  8 09:29 epel-testing-modular.repo</span>
-<span style="color: #888888">-rw-r--r--. 1 root root   1516  6月  8 09:29 epel-testing.repo</span>
-<span style="color: #888888">-rw-r--r--. 1 root root   1417  6月  8 09:29 epel.repo</span>
-<span style="color: #888888">-rw-r--r--. 1 root root 149513  7月  2 19:58 redhat.repo</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>ls<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>/etc/yum.repos.d/
+<span style="color: #888">合計 168</span>
+<span style="color: #888">-rw-r--r--. 1 root root   1480  6月  8 09:29 epel-modular.repo</span>
+<span style="color: #888">-rw-r--r--. 1 root root   1562  6月  8 09:29 epel-playground.repo</span>
+<span style="color: #888">-rw-r--r--. 1 root root   1579  6月  8 09:29 epel-testing-modular.repo</span>
+<span style="color: #888">-rw-r--r--. 1 root root   1516  6月  8 09:29 epel-testing.repo</span>
+<span style="color: #888">-rw-r--r--. 1 root root   1417  6月  8 09:29 epel.repo</span>
+<span style="color: #888">-rw-r--r--. 1 root root 149513  7月  2 19:58 redhat.repo</span>
 </code></pre></div>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #bbbbbb"> </span>dnf<span style="color: #bbbbbb"> </span>search<span style="color: #bbbbbb"> </span>sshpass
-<span style="color: #888888">Updating Subscription Management repositories.</span>
-<span style="color: #888888">Extra Packages for Enterprise Linux Modular 8 - x86_64                  652 kB/s | 798 kB     00:01    </span>
-<span style="color: #888888">Extra Packages for Enterprise Linux 8 - x86_64                          7.2 MB/s |  10 MB     00:01    </span>
-<span style="color: #888888">======================================== 名前 完全一致: sshpass ========================================</span>
-<span style="color: #888888">sshpass.x86_64 : Non-interactive SSH authentication utility</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>sshpass
+<span style="color: #888">Updating Subscription Management repositories.</span>
+<span style="color: #888">Extra Packages for Enterprise Linux Modular 8 - x86_64                  652 kB/s | 798 kB     00:01    </span>
+<span style="color: #888">Extra Packages for Enterprise Linux 8 - x86_64                          7.2 MB/s |  10 MB     00:01    </span>
+<span style="color: #888">======================================== 名前 完全一致: sshpass ========================================</span>
+<span style="color: #888">sshpass.x86_64 : Non-interactive SSH authentication utility</span>
 </code></pre></div>
 
 <h2 id="simple-content-access">Simple Content Access設定</h2>
