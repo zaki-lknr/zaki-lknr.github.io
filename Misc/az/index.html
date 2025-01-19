@@ -1430,6 +1430,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    Aレコード削除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
     仮想ネットワークとのリンク作成
   </a>
@@ -2330,6 +2337,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    Aレコード削除
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
     仮想ネットワークとのリンク作成
   </a>
@@ -2688,6 +2702,14 @@
 <span style="color: #888">  --record-set-name hostname</span>
 </code></pre></div>
 
+<h4 id="a_1">Aレコード削除</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network private-dns record-set a delete \</span>
+<span style="color: #888">  --resoure-group ${resource_group} \</span>
+<span style="color: #888">  --zone-name &quot;private.example.org&quot;</span>
+<span style="color: #888">  --name hostname</span>
+</code></pre></div>
+
+<p>y/nを聞かれるが、<code>-y</code>を付与すれば強制削除</p>
 <h4 id="_13">仮想ネットワークとのリンク作成</h4>
 <p>ゾーンと仮想ネットワークが同じリソースグループであれば、<code>--virtual-network</code>は仮想ネットワーク名だけで良い。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az network private-dns link vnet create \</span>

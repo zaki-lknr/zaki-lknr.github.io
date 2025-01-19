@@ -778,6 +778,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker_3" class="md-nav__link">
+    古いDocker
+  </a>
+  
+    <nav class="md-nav" aria-label="古いDocker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker_4" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose_1" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1795,6 +1822,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker_3" class="md-nav__link">
+    古いDocker
+  </a>
+  
+    <nav class="md-nav" aria-label="古いDocker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker_4" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose_1" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1861,6 +1915,35 @@ URL<span style="color: #BBB">                 </span><span style="border: 1px so
 </code></pre></div>
 
 <p><a href="https://yum.oracle.com/repo/OracleLinux/OL7/developer/aarch64/index.html">Oracle Linux 7 (aarch64) Development | Oracle, Software. Hardware. Complete.</a></p>
+<h2 id="docker_3">古いDocker</h2>
+<p>検証用に古いバージョンを入れたい場合</p>
+<h3 id="docker_4">Docker</h3>
+<p>ディストリビューション毎のパッケージファイルがダウンロードサイトにある。<br />
+各ディストリビューションのバージョン毎に、その時期のDockerバージョンがアーカイブされている。<br />
+時間差があるような(新しいFedoraに古いDockerを入れる、みたいな)場合は、プラットフォームバージョン側のバージョンを落として探してみる。</p>
+<ul>
+<li><a href="https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/">Ubuntu 20.04 LTS: Docker 19.03.10 - 20.10.24</a></li>
+<li><a href="https://download.docker.com/linux/fedora/36/x86_64/stable/Packages/">Fedora 36: Docker 20.10.15 - 20.10.24</a></li>
+</ul>
+<h3 id="docker-compose_1">Docker Compose</h3>
+<p>例えば1.29.2であれば以下から直接バイナリをダウンロードし、<code>/usr/local/bin/docker-compose</code>あたりに配置し実行権限を付与する。</p>
+<p><a href="https://github.com/docker/compose/releases/tag/1.29.2">https://github.com/docker/compose/releases/tag/1.29.2</a></p>
+<p>エラーが出た場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker-compose<span style="color: #BBB"> </span>version
+<span style="color: #888">[21740] Error loading Python lib &#39;/tmp/_MEIy05DAM/libpython3.7m.so.1.0&#39;: dlopen: libcrypt.so.1: cannot open shared object file: No such file or directory</span>
+</code></pre></div>
+
+<p>Fedoraの場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>libxcrypt
+</code></pre></div>
+
+<p>これで動く</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora40-dev docker-20]$ </span>docker-compose<span style="color: #BBB"> </span>version
+<span style="color: #888">docker-compose version 1.29.2, build 5becea4c</span>
+<span style="color: #888">docker-py version: 5.0.0</span>
+<span style="color: #888">CPython version: 3.7.10</span>
+<span style="color: #888">OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019</span>
+</code></pre></div>
                 
               
               

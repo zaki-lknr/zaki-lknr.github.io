@@ -1520,6 +1520,20 @@
         
           <li class="md-nav__item">
   <a href="#vm_2" class="md-nav__link">
+    VM一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmqemu-guest-agent" class="md-nav__link">
+    VM詳細(qemu-guest-agent使用)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_3" class="md-nav__link">
     VM削除
   </a>
   
@@ -1527,6 +1541,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    ホスト名変更
+  </a>
   
 </li>
       
@@ -1933,6 +1954,20 @@
         
           <li class="md-nav__item">
   <a href="#vm_2" class="md-nav__link">
+    VM一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmqemu-guest-agent" class="md-nav__link">
+    VM詳細(qemu-guest-agent使用)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_3" class="md-nav__link">
     VM削除
   </a>
   
@@ -1940,6 +1975,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    ホスト名変更
+  </a>
   
 </li>
       
@@ -2110,8 +2152,97 @@
 </code></pre></div>
 
 <h2 id="cli">CLI</h2>
-<h3 id="vm_2">VM削除</h3>
+<h3 id="vm_2">VM一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm list</span>
+</code></pre></div>
+
+<p>ID、VM名、起動状態、RAMサイズ、ストレージサイズなどが一覧で出力される</p>
+<h3 id="vmqemu-guest-agent">VM詳細(qemu-guest-agent使用)</h3>
+<p>qemu-guest-agentが動作しているVMの情報を取得する。<br />
+NIC情報であれば以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>qm<span style="color: #BBB"> </span>guest<span style="color: #BBB"> </span>cmd<span style="color: #BBB"> </span><span style="color: #666">710</span><span style="color: #BBB"> </span>network-get-interfaces
+<span style="color: #888">[</span>
+<span style="color: #888">   {</span>
+<span style="color: #888">      &quot;hardware-address&quot; : &quot;00:00:00:00:00:00&quot;,</span>
+<span style="color: #888">      &quot;ip-addresses&quot; : [</span>
+<span style="color: #888">         {</span>
+<span style="color: #888">            &quot;ip-address&quot; : &quot;127.0.0.1&quot;,</span>
+<span style="color: #888">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
+<span style="color: #888">            &quot;prefix&quot; : 8</span>
+<span style="color: #888">         },</span>
+
+<span style="color: #888">         ...</span>
+<span style="color: #888">      ]</span>
+<span style="color: #888">   },</span>
+<span style="color: #888">   {</span>
+<span style="color: #888">      &quot;hardware-address&quot; : &quot;bc:24:11:d6:b0:61&quot;,</span>
+<span style="color: #888">      &quot;ip-addresses&quot; : [</span>
+<span style="color: #888">         {</span>
+<span style="color: #888">            &quot;ip-address&quot; : &quot;192.168.0.201&quot;,</span>
+<span style="color: #888">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
+<span style="color: #888">            &quot;prefix&quot; : 24</span>
+<span style="color: #888">         },</span>
+<span style="color: #888">         {</span>
+<span style="color: #888">            &quot;ip-address&quot; : &quot;fe80::be24:11ff:fed6:b061&quot;,</span>
+<span style="color: #888">            &quot;ip-address-type&quot; : &quot;ipv6&quot;,</span>
+<span style="color: #888">            &quot;prefix&quot; : 64</span>
+<span style="color: #888">         }</span>
+<span style="color: #888">      ],</span>
+
+<span style="color: #888">      ...</span>
+</code></pre></div>
+
+<p>使えるサブコマンドは<code>qm help</code>で確認できる。<br />
+<a href="https://pve.proxmox.com/pve-docs/qm.1.html">qm(1)</a></p>
+<p>(<code>qm guest</code>のヘルプは無さげ…)</p>
+<h3 id="vm_3">VM削除</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm destroy &lt;vmid&gt; --destroy-unreferenced-disks=1</span>
+</code></pre></div>
+
+<h2 id="_9">ホスト名変更</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>hostnamectl<span style="color: #BBB"> </span>set-hostname<span style="color: #BBB"> </span>pve01
+<span style="color: #000080; font-weight: bold">root@pve:~# </span>
+</code></pre></div>
+
+<p>他の変更ファイル(ファイル内にホスト名の記述があるものを探す)</p>
+<ul>
+<li>/etc/hosts</li>
+<li>/etc/hostname</li>
+<li>/etc/postfix/main.cf</li>
+<li>/etc/pve/storage.cfg</li>
+</ul>
+<p>VMとノード定義</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>-lF<span style="color: #BBB"> </span>/etc/pve/nodes/
+<span style="color: #888">total 0</span>
+<span style="color: #888">drwxr-xr-x 2 root www-data 0 May 14  2023 pve/</span>
+</code></pre></div>
+
+<p>しばらく待機すると、新ホスト名のノードが生えるが中身はブランク</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>-lF<span style="color: #BBB"> </span>/etc/pve/nodes/
+<span style="color: #888">total 0</span>
+<span style="color: #888">drwxr-xr-x 2 root www-data 0 May 14  2023 pve/</span>
+<span style="color: #888">drwxr-xr-x 2 root www-data 0 Jan  5 14:51 pve01/</span>
+<span style="color: #000080; font-weight: bold">root@pve01:~# </span>find<span style="color: #BBB"> </span>/etc/pve/nodes/pve01/
+<span style="color: #888">/etc/pve/nodes/pve01/</span>
+<span style="color: #888">/etc/pve/nodes/pve01/qemu-server</span>
+<span style="color: #888">/etc/pve/nodes/pve01/lxc</span>
+</code></pre></div>
+
+<p>念のためバックアップ</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>cp<span style="color: #BBB"> </span>-a<span style="color: #BBB"> </span>/etc/pve/nodes/pve<span style="color: #BBB"> </span>node-backup/
+<span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>-lF<span style="color: #BBB"> </span>node-backup/
+<span style="color: #888">total 4</span>
+<span style="color: #888">drwxr-xr-x 6 root www-data 4096 May 14  2023 pve/</span>
+<span style="color: #000080; font-weight: bold">root@pve01:~# </span>
+</code></pre></div>
+
+<p>VM定義ファイルを移動</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>mv<span style="color: #BBB"> </span>/etc/pve/nodes/pve/qemu-server/*<span style="color: #BBB"> </span>/etc/pve/nodes/pve01/qemu-server/
+<span style="color: #000080; font-weight: bold">root@pve01:~#</span>
+<span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>/etc/pve/nodes/pve01/qemu-server/
+<span style="color: #888">101.conf  116.conf  201.conf  210.conf  303.conf  312.conf  703.conf  709.conf  712.conf   9002.conf  9011.conf</span>
+<span style="color: #888">111.conf  119.conf  202.conf  301.conf  310.conf  313.conf  707.conf  710.conf  9000.conf  9003.conf  9020.conf</span>
+<span style="color: #888">114.conf  121.conf  203.conf  302.conf  311.conf  702.conf  708.conf  711.conf  9001.conf  9010.conf</span>
 </code></pre></div>
                 
               
