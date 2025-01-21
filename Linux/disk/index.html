@@ -1142,6 +1142,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fstab" class="md-nav__link">
+    fstab
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1971,6 +1978,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fstab" class="md-nav__link">
+    fstab
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2195,6 +2209,21 @@ HD<span style="color: #666">-</span>LDS<span style="color: #666">-</span>A
 <h3 id="nfs">NFS</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mount -t nfs -o rw pecorino:/dev /mnt/</span>
 </code></pre></div>
+
+<h2 id="fstab">fstab</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>/dev/mapper/centos-root  /      xfs   defaults  0 1
+192.168.0.200:/share     /mnt   nfs   rw        0 0
+</code></pre></div>
+
+<p>フィールドは左から順に</p>
+<ol>
+<li>デバイス</li>
+<li>マウントポイント</li>
+<li>ファイルシステムタイプ</li>
+<li>オプション</li>
+<li><code>dump</code>による出力対象フラグ(0:対象外)</li>
+<li>起動時<code>fsck</code>の対象フラグ(0:対象外)</li>
+</ol>
                 
               
               
