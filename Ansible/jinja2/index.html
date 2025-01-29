@@ -561,13 +561,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    辞書
+  </a>
+  
+    <nav class="md-nav" aria-label="辞書">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    値の参照
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     制御構文
   </a>
   
@@ -575,7 +595,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ループ
   </a>
   
@@ -583,7 +603,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ループインデックス
   </a>
   
@@ -600,7 +620,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     コメント
   </a>
   
@@ -614,7 +634,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -707,7 +727,7 @@
   
     <li class="md-nav__item">
       <a href="../tower/" class="md-nav__link">
-        Ansible Tower
+        Ansible Tower / AAP
       </a>
     </li>
   
@@ -1829,13 +1849,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    辞書
+  </a>
+  
+    <nav class="md-nav" aria-label="辞書">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    値の参照
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     制御構文
   </a>
   
@@ -1843,7 +1883,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ループ
   </a>
   
@@ -1851,7 +1891,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ループインデックス
   </a>
   
@@ -1868,7 +1908,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     コメント
   </a>
   
@@ -1882,7 +1922,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -1947,8 +1987,18 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">{</span><span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">set</span><span style="color: #BBB"> </span>_<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>host_list.append(<span style="border: 1px solid #F00">{</span><span style="color: #B44">&#39;host&#39;</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">host</span>,<span style="color: #BBB"> </span><span style="color: #B44">&#39;name&#39;</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>hostvars<span style="color: #666">[</span>host<span style="color: #666">]</span>.tags.<span style="color: #A2F; font-weight: bold">User</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">}</span>)<span style="color: #BBB"> </span><span style="color: #666">%</span><span style="border: 1px solid #F00">}</span>
 </code></pre></div>
 
-<h2 id="_5">制御構文</h2>
-<h3 id="_6">ループ</h3>
+<h3 id="_5">辞書</h3>
+<h4 id="_6">値の参照</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{{</span> <span style="color: #B8860B">foo.bar.baz</span> <span style="color: #080">}}</span>
+</code></pre></div>
+
+<p>または</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{{</span> <span style="color: #B8860B">foo</span><span style="color: #666">[</span><span style="color: #B44">&#39;bar&#39;</span><span style="color: #666">][</span><span style="color: #B44">&#39;baz&#39;</span><span style="color: #666">]</span> <span style="color: #080">}}</span>
+</code></pre></div>
+
+<p>後者の書式であればキー名に変数を使うこともできる。</p>
+<h2 id="_7">制御構文</h2>
+<h3 id="_8">ループ</h3>
 <p>リストに対する<code>for</code>構文は、foreach式で配列要素をループ毎に処理できる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% for item in array_value %}
 ...
@@ -1956,9 +2006,9 @@
 </code></pre></div>
 
 <p><code>array_value</code>の配列要素が<code>item</code>にセットされてループ処理される。</p>
-<h4 id="_7">ループインデックス</h4>
+<h4 id="_9">ループインデックス</h4>
 <p>ループブロック内で<code>loop.index0</code>という変数参照でループインデックスを取り出せる(ゼロオリジン)</p>
-<h2 id="_8">コメント</h2>
+<h2 id="_10">コメント</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{# comment #}
 </code></pre></div>
 
@@ -1974,7 +2024,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{{</span> <span style="color: #B8860B">lookup</span><span style="color: #666">(</span><span style="color: #B44">&#39;pipe&#39;</span><span style="color: #666">,</span> <span style="color: #B44">&#39;date +%s&#39;</span><span style="color: #666">)</span> <span style="color: #080">}}</span>
 </code></pre></div>
 
-<h2 id="_9">指定部分へのフィルタの実行</h2>
+<h2 id="_11">指定部分へのフィルタの実行</h2>
 <h3 id="indent">indent()</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{%</span> <span style="color: #A2F; font-weight: bold">filter</span> <span style="color: #00A000">indent</span><span style="color: #666">(4,</span> <span style="color: #A2F">true</span><span style="color: #666">)</span> <span style="color: #080">%}</span>
 <span style="color: #080">{{</span> <span style="color: #B8860B">sample_string</span> <span style="color: #080">}}</span>

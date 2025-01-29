@@ -571,7 +571,7 @@
   
     <li class="md-nav__item">
       <a href="../../Ansible/tower/" class="md-nav__link">
-        Ansible Tower
+        Ansible Tower / AAP
       </a>
     </li>
   
@@ -1706,6 +1706,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#padstart0" class="md-nav__link">
+    padStart()で0埋め
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     文字列長
   </a>
@@ -2451,6 +2458,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#padstart0" class="md-nav__link">
+    padStart()で0埋め
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     文字列長
   </a>
@@ -3070,6 +3084,23 @@ console.log(date);
 </code></pre></div>
 
 <p>区切り文字がない場合や、24時などは<code>Invalid Date</code>となる。</p>
+<h4 id="padstart0">padStart()で0埋め</h4>
+<blockquote>
+<p><code>padStart()</code>メソッドは、結果の文字列が指定した長さになるように、現在の文字列を他の文字列で（必要に応じて繰り返して）延長します。延長は、現在の文字列の先頭から適用されます。</p>
+</blockquote>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>d<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">new</span><span style="color: #BBB"> </span><span style="color: #A2F">Date</span>();
+<span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>s<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>d.getFullYear().toString().padStart(<span style="color: #666">4</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;0&quot;</span>)<span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;-&quot;</span>
+<span style="color: #BBB">        </span><span style="color: #666">+</span><span style="color: #BBB"> </span>(d.getMonth()<span style="color: #666">+1</span>).toString().padStart(<span style="color: #666">2</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;0&quot;</span>)<span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;-&quot;</span>
+<span style="color: #BBB">        </span><span style="color: #666">+</span><span style="color: #BBB"> </span>d.getDate().toString().padStart(<span style="color: #666">2</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;0&quot;</span>)<span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #B44">&quot; &quot;</span>
+<span style="color: #BBB">        </span><span style="color: #666">+</span><span style="color: #BBB"> </span>d.getHours().toString().padStart(<span style="color: #666">2</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;0&quot;</span>)<span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;:&quot;</span>
+<span style="color: #BBB">        </span><span style="color: #666">+</span><span style="color: #BBB"> </span>d.getMinutes().toString().padStart(<span style="color: #666">2</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;0&quot;</span>)<span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;:&quot;</span>
+<span style="color: #BBB">        </span><span style="color: #666">+</span><span style="color: #BBB"> </span>d.getSeconds().toString().padStart(<span style="color: #666">2</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;0&quot;</span>);
+
+console.log(s);
+</code></pre></div>
+
+<p>これで現在時刻の<code>YYYY-mm-dd HH:MM:ss</code>形式(0埋め)になる。</p>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/padStart">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/padStart</a></p>
 <h4 id="_9">文字列長</h4>
 <p>文字数は<code>length</code>メソッド。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>sample_str<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;完全にときめいちゃった&#39;</span>;
