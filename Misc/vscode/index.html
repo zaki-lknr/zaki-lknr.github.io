@@ -1160,6 +1160,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../auth0/" class="md-nav__link">
+        Auth0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../aws/" class="md-nav__link">
         AWS
       </a>
@@ -1512,6 +1524,13 @@
           <li class="md-nav__item">
   <a href="#git-bash" class="md-nav__link">
     ターミナルをGit Bashをデフォルトにする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allowedunchosts" class="md-nav__link">
+    allowedUNCHosts
   </a>
   
 </li>
@@ -1930,6 +1949,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#allowedunchosts" class="md-nav__link">
+    allowedUNCHosts
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2237,6 +2263,14 @@
 
 <h3 id="git-bash">ターミナルをGit Bashをデフォルトにする</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;terminal.integrated.defaultProfile.windows&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;Git Bash&quot;</span>,
+</code></pre></div>
+
+<h3 id="allowedunchosts">allowedUNCHosts</h3>
+<p>CIFS上のファイルを開こうとしたときにエラーになる場合「Allowed UNCHosts」に開きたいサーバーを加え、VSCodeを再起動する。<br />
+settings.jsonに直接記載する場合は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;security.allowedUNCHosts&quot;</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">        </span><span style="color: #B44">&quot;file-server&quot;</span>
+<span style="color: #BBB">    </span>],
 </code></pre></div>
 
 <h2 id="_4">ショートカット</h2>

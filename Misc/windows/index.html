@@ -1160,6 +1160,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../auth0/" class="md-nav__link">
+        Auth0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../aws/" class="md-nav__link">
         AWS
       </a>
@@ -1558,6 +1570,13 @@
           <li class="md-nav__item">
   <a href="#ipv6" class="md-nav__link">
     IPv6有効/無効
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    DHCPアドレスの再取得
   </a>
   
 </li>
@@ -1971,6 +1990,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    DHCPアドレスの再取得
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2147,6 +2173,12 @@
 <h3 id="ipv6">IPv6有効/無効</h3>
 <p>「設定」→「ネットワークとインターネット」→「ネットワークの詳細設定」→対象のアダプタをドロップダウンし「その他のアダプターオプションの編集」<br />
 ここから「インターネットプロトコルバージョン 6」のチェックを変更する。</p>
+<h3 id="dhcp">DHCPアドレスの再取得</h3>
+<p><code>/release</code>で解放し<code>/renew</code>で取得する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ipconfig /release
+ipconfig /renew
+</code></pre></div>
+
 <h2 id="disk">disk</h2>
 <h3 id="diskpart">diskpart</h3>
 <p>パーティション操作</p>

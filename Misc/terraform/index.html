@@ -1160,6 +1160,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../auth0/" class="md-nav__link">
+        Auth0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../aws/" class="md-nav__link">
         AWS
       </a>
@@ -2360,6 +2372,15 @@
 <span style="color: #BBB">  </span><span style="color: #A2F">tags</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
 <span style="color: #BBB">    </span><span style="color: #B44">Name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;cloud-${count.index}&quot;</span>
 <span style="color: #BBB">  </span>}
+}
+</code></pre></div>
+
+<p>EIPの付与と連動させるには、<a href="https://developer.hashicorp.com/terraform/language/functions/element">element function</a>を使って要素を参照する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_eip&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;cloud-eip&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">count</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #666">3</span>
+<span style="color: #BBB">  </span><span style="color: #B44">instance</span><span style="color: #BBB">   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;${element(aws_instance.cloud-vm.*.id, count.index)}&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #B44">depends_on</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #BBB"> </span><span style="color: #B8860B">aws_internet_gateway.igw</span><span style="color: #BBB"> </span>]
+
 }
 </code></pre></div>
 
