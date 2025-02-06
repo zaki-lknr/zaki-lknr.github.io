@@ -793,6 +793,14 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#k8s" class="md-nav__link">
+    k8sリソース
+  </a>
+  
+    <nav class="md-nav" aria-label="k8sリソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
     pod
   </a>
@@ -811,8 +819,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cronjob" class="md-nav__link">
     cronjob
   </a>
@@ -831,8 +839,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#service" class="md-nav__link">
     service
   </a>
@@ -851,10 +859,22 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#namespace" class="md-nav__link">
     消えないnamespace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    Initコンテナ
   </a>
   
 </li>
@@ -1827,6 +1847,14 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#k8s" class="md-nav__link">
+    k8sリソース
+  </a>
+  
+    <nav class="md-nav" aria-label="k8sリソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
     pod
   </a>
@@ -1845,8 +1873,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cronjob" class="md-nav__link">
     cronjob
   </a>
@@ -1865,8 +1893,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#service" class="md-nav__link">
     service
   </a>
@@ -1885,10 +1913,22 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#namespace" class="md-nav__link">
     消えないnamespace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    Initコンテナ
   </a>
   
 </li>
@@ -1986,8 +2026,9 @@
 
 <p>tokenはsecretリソースを作成して取得する。<br />
 <a href="https://zaki-hmkc.hatenablog.com/entry/2024/02/05/101259">[Kubernetes] ヘルスチェックAPIを試す (bearer token認証付き) - zaki work log</a></p>
-<h2 id="pod">pod</h2>
-<h3 id="crashloopbackoff">CrashLoopBackOff</h3>
+<h2 id="k8s">k8sリソース</h2>
+<h3 id="pod">pod</h3>
+<h4 id="crashloopbackoff">CrashLoopBackOff</h4>
 <p><code>describe</code>または<code>event</code>で</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Failed to pull image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: rpc error: code = NotFound desc = failed to pull and unpack image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: failed to resolve reference &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: quay.io/ansible/awx-operator:0.16.1-12-g768bc2f: not found</span>
 </code></pre></div>
@@ -2005,13 +2046,13 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 
 <p>の場合、イメージのアーキテクチャと実行環境のアーキテクチャが合ってない。<br />
 イメージはamd64だけど実行環境がarm64など。</p>
-<h2 id="cronjob">cronjob</h2>
-<h3 id="jobpod">Job/Podの自動削除</h3>
+<h3 id="cronjob">cronjob</h3>
+<h4 id="jobpod">Job/Podの自動削除</h4>
 <p>CronJobリソースの<code>.spec.successfulJobsHistoryLimit</code>と<code>.spec.failedJobsHistoryLimit</code>の値で成功と失敗それぞれの保持数が設定される。<br />
 超過分は自動で削除される。</p>
 <p><a href="https://kubernetes.io/ja/docs/tasks/job/automated-tasks-with-cron-jobs/#job-history-limit">https://kubernetes.io/ja/docs/tasks/job/automated-tasks-with-cron-jobs/#job-history-limit</a></p>
-<h2 id="service">service</h2>
-<h3 id="fqcn-aaaaa">FQCN (A/AAAAレコード)</h3>
+<h3 id="service">service</h3>
+<h4 id="fqcn-aaaaa">FQCN (A/AAAAレコード)</h4>
 <p>podからは<code>&lt;service-name&gt;.&lt;namespace-name&gt;.svc.cluster.local</code>で名前解決できる。</p>
 <h2 id="namespace">消えないnamespace</h2>
 <p><code>kubectl delete ns hoge</code>が応答無くなりstatusがTerminatingのままになった場合の対処。</p>
@@ -2034,6 +2075,11 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 </code></pre></div>
 
 <p>※ <code>kubectl get ns hoge -o json | grep -2 -- '"kubernetes"'</code>を実行して、1か所しかヒットしない場合</p>
+<h2 id="init">Initコンテナ</h2>
+<ul>
+<li><a href="https://kubernetes.io/ja/docs/concepts/workloads/pods/init-containers/">Initコンテナ | Kubernetes</a></li>
+<li><a href="https://kubernetes.io/ja/docs/tasks/debug/debug-application/debug-init-containers/">Initコンテナのデバッグ | Kubernetes</a></li>
+</ul>
 <h2 id="rest">REST</h2>
 <h3 id="namespace_1">namespace一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://k8s.example.org:6443/api/v1/namespaces</span>
