@@ -1579,6 +1579,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    HTTPをしゃべる
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3197,6 +3204,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    HTTPをしゃべる
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4004,6 +4018,21 @@
 <span style="color: #000080; font-weight: bold">$ </span>nc<span style="color: #BBB"> </span>-z<span style="color: #BBB"> </span>-v<span style="color: #BBB"> </span><span style="color: #666">192</span>.168.0.99<span style="color: #BBB"> </span><span style="color: #666">22</span>
 <span style="color: #888">Ncat: Version 7.92 ( https://nmap.org/ncat )</span>
 <span style="color: #888">Ncat: Connection refused.</span>
+</code></pre></div>
+
+<h3 id="http">HTTPをしゃべる</h3>
+<p><code>-v</code>のみで接続した、クライアントからの送信待ちの状態になったらそのまま入力すればOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>nc<span style="color: #BBB"> </span>-v<span style="color: #BBB"> </span><span style="color: #666">192</span>.168.0.1<span style="color: #BBB"> </span><span style="color: #666">80</span>
+<span style="color: #888">Ncat: Version 7.92 ( https://nmap.org/ncat )</span>
+<span style="color: #888">Ncat: Connected to 192.168.0.1:80.              # &lt;- ここでサーバーが入力待ち</span>
+<span style="color: #888">GET / HTTP/1.1                                  # &lt;- キーボードからHTTPの内容を入力</span>
+<span style="color: #888">Host: 192.168.0.1                               # &lt;- 2行目</span>
+<span style="color: #000080; font-weight: bold">                                                # </span>&lt;-<span style="color: #BBB"> </span>空行送信でHTTPとしてクライアントからのsend完了
+<span style="color: #888">HTTP/1.1 200 OK                                 # &lt;- 以降はサーバーのレスポンス</span>
+<span style="color: #888">Server: nginx/1.20.1</span>
+<span style="color: #888">Date: Sat, 08 Feb 2025 14:38:03 GMT</span>
+<span style="color: #888">Content-Type: text/html</span>
+<span style="color: #888">Content-Length: 2602</span>
 </code></pre></div>
 
 <h2 id="ip">ip</h2>

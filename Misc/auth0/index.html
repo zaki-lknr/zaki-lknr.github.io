@@ -1204,6 +1204,86 @@
     アカウント作成
   </a>
   
+    <nav class="md-nav" aria-label="アカウント作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    初期状態
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permissionscope" class="md-nav__link">
+    作成済みアプリケーションのPermission(scope)変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    認証トークン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application_1" class="md-nav__link">
+    Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    create
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1749,6 +1829,86 @@
     アカウント作成
   </a>
   
+    <nav class="md-nav" aria-label="アカウント作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    初期状態
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permissionscope" class="md-nav__link">
+    作成済みアプリケーションのPermission(scope)変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    認証トークン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application_1" class="md-nav__link">
+    Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    create
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1775,6 +1935,83 @@
 <h2 id="_2">アカウント作成</h2>
 <p>「無料トライアル」でサインアップすれば「Free」プランでアカウントを作成できる。<br />
 アカウント作成中に、米国のデータリージョンにテナント名が自動で割り当てられるが、変更する場合はチェックを入れて進める。その場合Japanを含むいくつかのリージョンから選択可能。</p>
+<h3 id="_3">初期状態</h3>
+<ul>
+<li>Applications<ul>
+<li>Default App</li>
+</ul>
+</li>
+<li>APIs<ul>
+<li>Auth0 Management API</li>
+</ul>
+</li>
+<li>Database<ul>
+<li>Username-Password-Authentication</li>
+</ul>
+</li>
+<li>Social Connections<ul>
+<li>google-oauth2</li>
+</ul>
+</li>
+</ul>
+<h2 id="application">Application</h2>
+<h3 id="permissionscope">作成済みアプリケーションのPermission(scope)変更</h3>
+<p>APIsタブで認可してるAPIの<code>∨(expand)</code>押下で選択画面が表示される。</p>
+<h2 id="api">API</h2>
+<h3 id="_4">認証トークン</h3>
+<p><a href="https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing">Get Management API Access Tokens for Testing</a></p>
+<p>Applications &gt; APIs &gt; Auth0 Management API &gt; API Explorer tabから。<br />
+初期状態ではAPI Explorerを使うためのテストアプリケーションが存在しないため、作成ボタンを押下する。<br />
+(作成すると、「API Explorer Application」がApplications以下へ作成される)</p>
+<p>デフォルトのトークン期限は86400秒</p>
+<p>プロダクション向けの処理で、web画面でなくAPIを使ってトークンを取得するには以下。<br />
+<a href="https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-production">Get Management API Access Tokens for Production</a></p>
+<p>権限を付与した「Machine-to-Machine Applications」のクライアントIDとSecretを使用し、以下のRESTでトークンを取得できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl<span style="color: #BBB"> </span>-H<span style="color: #BBB"> </span>&#39;content-type:<span style="color: #BBB"> </span>application/x-www-form-urlencoded&#39;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>-X<span style="color: #BBB"> </span>POST<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>grant_type=client_credentials<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>&quot;client_id=&quot;<span style="color: #080">${</span>AUTH0_CLIENT_ID<span style="color: #080">}</span><span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>&quot;client_secret=<span style="color: #080">${</span>AUTH0_CLIENT_SECRET<span style="color: #080">}</span>&quot;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>&quot;audience=https://YOUR-DOMAIN/api/v2/&quot;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>https://YOUR-DOMAIN/oauth/token
+</code></pre></div>
+
+<p>レスポンスは以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;access_token&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;eyJ...&quot;</span>,
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;scope&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;create:client_grants update:client_grants&quot;</span>,
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;expires_in&quot;</span>:<span style="color: #BBB"> </span><span style="color: #666">86400</span>,
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;token_type&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;Bearer&quot;</span>
+}
+</code></pre></div>
+
+<h3 id="application_1">Application</h3>
+<p>endpointは<code>/api/v2/clients</code></p>
+<h4 id="get">get</h4>
+<p><a href="https://auth0.com/docs/api/management/v2/clients/get-clients">Get clients | Auth0 Management API v2</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -X GET \</span>
+<span style="color: #888">  -H &#39;Accept: application/json&#39; \</span>
+<span style="color: #888">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
+<span style="color: #888">  &#39;https://YOUR-DOMAIN/api/v2/clients&#39;</span>
+</code></pre></div>
+
+<p>これで全てのApplicationをリスト形式で取得できる。<br />
+Application名の一覧であれば例えば<code>jq</code>を使って以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -X GET \</span>
+<span style="color: #888">  -H &#39;Accept: application/json&#39; \</span>
+<span style="color: #888">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
+<span style="color: #888">  &#39;https://YOUR-DOMAIN/api/v2/clients&#39; | jq &#39;.[].name&#39;</span>
+</code></pre></div>
+
+<h4 id="create">create</h4>
+<p><a href="https://auth0.com/docs/api/management/v2/clients/post-clients">Create a client | Auth0 Management API v2</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl<span style="color: #BBB"> </span>-X<span style="color: #BBB"> </span>POST<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Content-Type:<span style="color: #BBB"> </span>application/json&quot;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Accept:<span style="color: #BBB"> </span>application/json&quot;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Authorization:<span style="color: #BBB"> </span>Bearer<span style="color: #BBB"> </span><span style="color: #080">${</span>AUTH0_TOKEN<span style="color: #080">}</span>&quot;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>-d<span style="color: #BBB"> </span>&#39;{&quot;name&quot;:&quot;rest-sample-02&quot;,<span style="color: #BBB"> </span>&quot;app_type&quot;:<span style="color: #BBB"> </span>&quot;regular_web&quot;}&#39;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>&#39;https://YOUR-DOMAIN/api/v2/clients&#39;
+</code></pre></div>
                 
               
               

@@ -1840,6 +1840,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    マッチした位置を取得する(search)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#replace" class="md-nav__link">
     置換(replace)
   </a>
@@ -2620,6 +2627,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    マッチした位置を取得する(search)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#replace" class="md-nav__link">
     置換(replace)
   </a>
@@ -3324,6 +3338,16 @@ console.log(size);
 <span style="color: #888">]</span>
 </code></pre></div>
 
+<h4 id="search">マッチした位置を取得する(search)</h4>
+<p><code>search()</code>を使うと、最初にマッチした位置を返す。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>date_str<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;date: 20250209&quot;</span>;
+r<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>date_str.search(<span style="color: #B68">/\d/</span>);
+<span style="color: #A2F; font-weight: bold">if</span><span style="color: #BBB"> </span>(r<span style="color: #BBB"> </span><span style="color: #666">!=</span><span style="color: #BBB"> </span><span style="color: #666">-1</span>)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span>console.log(r);
+}
+</code></pre></div>
+
+<p>マッチしなかった場合は<code>-1</code>が返る。</p>
 <h4 id="replace">置換(replace)</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>sample_string<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;......&#39;</span>;
 <span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>new_string<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>sample_string.replace(<span style="color: #B68">/regexp/gi</span>,<span style="color: #BBB"> </span><span style="color: #B44">&#39;replace-string&#39;</span>);
@@ -3532,7 +3556,7 @@ console.log(d.getTimezoneOffset()<span style="color: #BBB"> </span><span style="
 </code></pre></div>
 
 <p>OSのタイムゾーン設定で決まる。
-JST(GMT+0900)設定で実行すると出力は以下の通り。</p>
+値は分で得られるためJST(GMT+0900)設定で実行すると出力は以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">-540</span>
 <span style="color: #888">-9</span>
 </code></pre></div>
