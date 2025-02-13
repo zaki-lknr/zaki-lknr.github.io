@@ -1276,6 +1276,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1901,6 +1908,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2012,6 +2026,15 @@ Application名の一覧であれば例えば<code>jq</code>を使って以下。
 <span style="color: #BBB">  </span>-d<span style="color: #BBB"> </span>&#39;{&quot;name&quot;:&quot;rest-sample-02&quot;,<span style="color: #BBB"> </span>&quot;app_type&quot;:<span style="color: #BBB"> </span>&quot;regular_web&quot;}&#39;<span style="color: #BBB"> </span>\
 <span style="color: #BBB">  </span>&#39;https://YOUR-DOMAIN/api/v2/clients&#39;
 </code></pre></div>
+
+<h4 id="delete">delete</h4>
+<p><a href="https://auth0.com/docs/api/management/v2/clients/delete-clients-by-id">Delete a client | Auth0 Management API v2</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl<span style="color: #BBB"> </span>-X<span style="color: #BBB"> </span>DELETE<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Authorization:<span style="color: #BBB"> </span>Bearer<span style="color: #BBB"> </span><span style="color: #080">${</span>AUTH0_TOKEN<span style="color: #080">}</span>&quot;<span style="color: #BBB"> </span>\
+<span style="color: #BBB">  </span>&#39;https://YOUR-DOMAIN/api/v2/clients/CLIENT-ID&#39;
+</code></pre></div>
+
+<p>成功すればレスポンスは204でボディは空</p>
                 
               
               
