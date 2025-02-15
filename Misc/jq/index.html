@@ -1369,6 +1369,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    配列要素を全て出力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     出力からクォーテーションを削除
   </a>
   
@@ -1746,6 +1753,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    配列要素を全て出力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     出力からクォーテーションを削除
   </a>
   
@@ -1773,7 +1787,11 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.list[0].key&#39;</span>
 </code></pre></div>
 
-<h2 id="_2">出力からクォーテーションを削除</h2>
+<h2 id="_2">配列要素を全て出力</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.list[].key&#39;</span>
+</code></pre></div>
+
+<h2 id="_3">出力からクォーテーションを削除</h2>
 <p><code>-r</code>を付与</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq -r &#39;.list[0].key&#39;</span>
 </code></pre></div>
