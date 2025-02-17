@@ -1462,6 +1462,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ovs-bridge" class="md-nav__link">
+    OVS Bridge作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     ブリッジポート無しで作成したブリッジに物理ポートを追加
   </a>
@@ -1896,6 +1903,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ovs-bridge" class="md-nav__link">
+    OVS Bridge作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     ブリッジポート無しで作成したブリッジに物理ポートを追加
   </a>
@@ -2078,6 +2092,10 @@
 </code></pre></div>
 
 <h2 id="_1">ネットワーク</h2>
+<h3 id="ovs-bridge">OVS Bridge作成</h3>
+<p>openvswitch-switchパッケージが必要なので、事前にノードで<code>apt-get install openvswitch-switch</code>を実行しておく。<br />
+ネットワークメニューの「作成」で「OVS Bridge」を選択し、名前はデフォルト、コメントとIPv4/CIDRを入力して「作成」押下する。</p>
+<p>差分が表示されるのでOKであれば画面上部の「設定を適用」押下</p>
 <h3 id="_2">ブリッジポート無しで作成したブリッジに物理ポートを追加</h3>
 <p>UIでLinux Bridgeの「ブリッジポート」にポート名を追加し「OK」押下。<br />
 画面下部にメッセージが表示される。</p>
@@ -2095,13 +2113,7 @@
 <span style="color: #BBB"> </span>#private-network-1
 </code></pre></div>
 
-<p>シェルを起動し</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ifdown<span style="color: #BBB"> </span>vmbr1<span style="color: #BBB"> </span>
-<span style="color: #000080; font-weight: bold">root@pve:~# </span>ifup<span style="color: #BBB"> </span>vmbr1<span style="color: #BBB"> </span>
-</code></pre></div>
-
-<p>…だけだと反映されてなさそうだったので(<code>ifup enp3s0</code>も実施したが変化なし)rebootした。</p>
-<p>※ <code>ifupdown2</code>というコマンドを別途インストールすれば良かったかも</p>
+<p>変更を適用するには画面上部の「設定を適用」押下</p>
 <h2 id="_3">ストレージ</h2>
 <h3 id="vm_1">VMのデータ領域を別ストレージに移動</h3>
 <p>VMのハードウェア設定で、ハードディスクを選択、「ディスクの動作」メニューの「ストレージに移動」で、ターゲットを変更することで、VMのデータ領域を別ストレージへ移動できる。</p>
@@ -2180,7 +2192,8 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm list</span>
 </code></pre></div>
 
-<p>ID、VM名、起動状態、RAMサイズ、ストレージサイズなどが一覧で出力される</p>
+<p>ID、VM名、起動状態、RAMサイズ、ストレージサイズなどが一覧で出力される。
+このコマンドはノード単位で出力される。</p>
 <h3 id="vmqemu-guest-agent">VM詳細(qemu-guest-agent使用)</h3>
 <p>qemu-guest-agentが動作しているVMの情報を取得する。<br />
 NIC情報であれば以下の通り。</p>

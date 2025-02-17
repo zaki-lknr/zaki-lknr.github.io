@@ -848,6 +848,13 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    コンポーネントの無効化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     インストールパラメタの設定ファイル化
   </a>
   
@@ -859,21 +866,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     アップグレード
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     停止
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     証明書
   </a>
   
@@ -900,7 +907,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -908,7 +915,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -928,7 +935,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     ワーカーのスケーリング
   </a>
   
@@ -955,7 +962,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     穴あけ
   </a>
   
@@ -969,7 +976,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -981,7 +988,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     アンインストール
   </a>
   
@@ -2074,6 +2081,13 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    コンポーネントの無効化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     インストールパラメタの設定ファイル化
   </a>
   
@@ -2085,21 +2099,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     アップグレード
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     停止
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     証明書
   </a>
   
@@ -2126,7 +2140,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     オフライン環境
   </a>
   
@@ -2134,7 +2148,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     プライベートレジストリ設定
   </a>
   
@@ -2154,7 +2168,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     ワーカーのスケーリング
   </a>
   
@@ -2181,7 +2195,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     穴あけ
   </a>
   
@@ -2195,7 +2209,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     ノードスペック
   </a>
   
@@ -2207,7 +2221,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     アンインストール
   </a>
   
@@ -2338,7 +2352,14 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <p>https://github.com/k3s-io/k3s/issues/93#issuecomment-1551967292</p>
 </blockquote>
 <p>systemdユニットファイルに記載のアドレス指定部分を変更しても、クラスターには反映されず動作が不安定になる</p>
-<h3 id="_8">インストールパラメタの設定ファイル化</h3>
+<h3 id="_8">コンポーネントの無効化</h3>
+<p>基本的にデフォルトon<br />
+リソース節約など使用しないものはoffにできる。</p>
+<p>Traefik Ingress Controllerとlocal storageをオフにする場合のインストールオプションは以下。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | sh -s - --disable traefik --disable local-storage</span>
+</code></pre></div>
+
+<h3 id="_9">インストールパラメタの設定ファイル化</h3>
 <p><code>/etc/rancher/k3s/config.yaml</code>ファイルに定義する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
 <span style="color: #008000; font-weight: bold">write-kubeconfig-mode</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;0644&quot;</span>
@@ -2352,7 +2373,7 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>system-reserved=cpu=100m,memory=100Mi
 </code></pre></div>
 
-<h2 id="_9">アップグレード</h2>
+<h2 id="_10">アップグレード</h2>
 <p><a href="https://docs.k3s.io/upgrades/manual">Manual Upgrades | K3s</a></p>
 <p>インストール時に指定した環境変数・パラメタを指定しつつ、インストールスクリプトを追加実行すればアップグレードできる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=vX.Y.Z+k3s1 &lt;EXISTING_K3S_ENV&gt; sh -s - &lt;EXISTING_K3S_ARGS&gt;</span>
@@ -2362,11 +2383,11 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <blockquote>
 <p>Ensure that your plan does not skip intermediate minor versions when upgrading.</p>
 </blockquote>
-<h2 id="_10">停止</h2>
+<h2 id="_11">停止</h2>
 <p>k3sサービス自体は<code>systemctl</code>で停止できAPIエンドポイントなどは停止されるが実はコンテナは動作したまま。
 コンテナも停止するには<code>k3s-killall.sh</code>を実行する。</p>
 <p><a href="https://docs.k3s.io/upgrades/killall">Stopping K3s | K3s</a></p>
-<h2 id="_11">証明書</h2>
+<h2 id="_12">証明書</h2>
 <p><a href="https://docs.k3s.io/cli/certificate">certificate | K3s</a></p>
 <p>デフォルトではデプロイ時起点で1年の証明書が作成される。90日を切った時点でクラスターを再起動するとその日から1年の期限の新しい証明書にローテートされる。<br />
 強制的にローテートしたい場合は<code>k3s certificate rotate</code>を実行し再起動する。</p>
@@ -2378,8 +2399,8 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">svccontroller.k3s.cattle.io/enablelb=true</span>
 </code></pre></div>
 
-<h2 id="_12">オフライン環境</h2>
-<h3 id="_13">プライベートレジストリ設定</h3>
+<h2 id="_13">オフライン環境</h2>
+<h3 id="_14">プライベートレジストリ設定</h3>
 <p><a href="https://docs.k3s.io/installation/private-registry">Private Registry Configuration | K3s</a></p>
 <p>プライベートレジストリを利用するには「デフォルトで<code>docker.io</code>向きになっている通信をローカルにフォワードする」設定を追加する。
 ローカル環境にたてたGitLabのコンテナレジストリを使う場合でパスが深くなる場合も<code>rewrite</code>を使って調整可能。(イメージ名は変更しない)</p>
@@ -2400,7 +2421,7 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <p>また、この設定はノード毎に必要なので、マルチノード構成の場合は全てのノードに設定する。</p>
 <h2 id="k3d-compose">K3d (compose)</h2>
 <p><a href="https://github.com/k3s-io/k3s/blob/master/docker-compose.yml">k3s/docker-compose.yml at master · k3s-io/k3s</a></p>
-<h3 id="_14">ワーカーのスケーリング</h3>
+<h3 id="_15">ワーカーのスケーリング</h3>
 <p>初期構築時であれば<code>--scale</code>で指定できる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>compose<span style="color: #BBB"> </span>up<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>--scale<span style="color: #BBB"> </span><span style="color: #B8860B">agent</span><span style="color: #666">=5</span>
 <span style="color: #888">[+] Running 6/8</span>
@@ -2481,7 +2502,7 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #BBB"> </span>true
 </code></pre></div>
 
-<h3 id="_15">穴あけ</h3>
+<h3 id="_16">穴あけ</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #BBB"> </span>firewall-cmd<span style="color: #BBB"> </span>--add-port<span style="color: #666">=6443</span>/tcp<span style="color: #BBB"> </span>--permanent
 <span style="color: #888">success</span>
 <span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #BBB"> </span>firewall-cmd<span style="color: #BBB"> </span>--reload
@@ -2505,7 +2526,7 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <span style="color: #888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
 
-<h3 id="_16">ノードスペック</h3>
+<h3 id="_17">ノードスペック</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666">=</span>oci-ap-n1-k3s.yaml<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>describe<span style="color: #BBB"> </span>node
 
 <span style="color: #888">[...]</span>
@@ -2530,7 +2551,7 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
-<h2 id="_17">アンインストール</h2>
+<h2 id="_18">アンインストール</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #BBB"> </span>
 </code></pre></div>
                 

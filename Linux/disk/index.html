@@ -1008,13 +1008,20 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    フォーマット確認
+    ブロックデバイスをツリー表示
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    フォーマット確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     ディスク追加
   </a>
   
@@ -1029,21 +1036,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     既存パーティション削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     パーティション作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     書き込み
   </a>
   
@@ -1057,7 +1064,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ラベル設定
   </a>
   
@@ -1868,13 +1875,20 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    フォーマット確認
+    ブロックデバイスをツリー表示
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    フォーマット確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     ディスク追加
   </a>
   
@@ -1889,21 +1903,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     既存パーティション削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     パーティション作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     書き込み
   </a>
   
@@ -1917,7 +1931,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ラベル設定
   </a>
   
@@ -2027,7 +2041,18 @@
                 
                 
                 <h1 id="_1">ディスク</h1>
-<h2 id="_2">フォーマット確認</h2>
+<h2 id="_2">ブロックデバイスをツリー表示</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>lsblk<span style="color: #BBB"> </span>
+<span style="color: #888">NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span>
+<span style="color: #888">sda               8:0    0   120G  0 disk </span>
+<span style="color: #888">├─sda1            8:1    0     1G  0 part /boot</span>
+<span style="color: #888">└─sda2            8:2    0   119G  0 part </span>
+<span style="color: #888">  ├─centos-root 253:0    0 115.5G  0 lvm  /</span>
+<span style="color: #888">  └─centos-swap 253:1    0   3.5G  0 lvm  [SWAP]</span>
+<span style="color: #888">zram0           252:0    0   7.5G  0 disk [SWAP]</span>
+</code></pre></div>
+
+<h2 id="_3">フォーマット確認</h2>
 <p><code>df -T</code>を実行</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>df<span style="color: #BBB"> </span>-T
 <span style="color: #888">ファイルシス            タイプ   1K-ブロック     使用   使用可 使用% マウント位置</span>
@@ -2051,7 +2076,7 @@
 <span style="color: #888">/dev/sdb2                 ext4  479594152 178667716 276490880  40% /media/zaki/376b22ca-a013-11e8-81fd-000180792463</span>
 </code></pre></div>
 
-<h2 id="_3">ディスク追加</h2>
+<h2 id="_4">ディスク追加</h2>
 <p>USB接続の外付けHDDが死にかけてたので交換してデータ移行。</p>
 <h3 id="hdd">HDD繋ぐ</h3>
 <p>デバイスの番号は<code>dmesg</code>で確認</p>
@@ -2078,7 +2103,7 @@ I<span style="color: #666">/</span>O<span style="color: #BBB"> </span>サイズ<
 <span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1<span style="color: #BBB">             </span><span style="color: #666">64</span><span style="color: #BBB"> </span><span style="color: #666">3907029119</span><span style="color: #BBB"> </span><span style="color: #666">3907029056</span><span style="color: #BBB">   </span><span style="color: #666">1.8</span>T<span style="color: #BBB">  </span><span style="color: #666">7</span><span style="color: #BBB"> </span>HPFS<span style="color: #666">/</span>NTFS<span style="color: #666">/</span>exFAT
 </code></pre></div>
 
-<h3 id="_4">既存パーティション削除</h3>
+<h3 id="_5">既存パーティション削除</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>fdisk<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb
 
 fdisk<span style="color: #BBB"> </span>(util<span style="color: #666">-</span>linux<span style="color: #BBB"> </span><span style="color: #666">2.34</span>)<span style="color: #BBB"> </span>へようこそ<span style="border: 1px solid #F00">。</span>
@@ -2118,7 +2143,7 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 </code></pre></div>
 
 <p>パーティションが1個しかないからか、<code>d</code>でｼｭｯと消えた。</p>
-<h3 id="_5">パーティション作成</h3>
+<h3 id="_6">パーティション作成</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド (m でヘルプ): n
 パーティションタイプ
    p   基本パーティション (0 プライマリ, 0 拡張, 4 空き)
@@ -2147,7 +2172,7 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 コマンド (m でヘルプ): 
 </code></pre></div>
 
-<h3 id="_6">書き込み</h3>
+<h3 id="_7">書き込み</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド<span style="color: #BBB"> </span>(m<span style="color: #BBB"> </span>でヘルプ)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>w
 パーティション情報が変更されました<span style="border: 1px solid #F00">。</span>
 Failed<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span>remove<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">partition</span><span style="color: #BBB"> </span><span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">system</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>デバイスもしくはリソースがビジー状態です
@@ -2199,7 +2224,7 @@ done
 sys<span style="color: #BBB">     </span><span style="color: #666">0</span>m0<span style="color: #666">.171</span>s
 </code></pre></div>
 
-<h3 id="_7">ラベル設定</h3>
+<h3 id="_8">ラベル設定</h3>
 <p><code>e2label</code>で設定・確認。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>e2label<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1<span style="color: #BBB"> </span><span style="color: #B8860B">&quot;HD-LDS-A&quot;</span>
 root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>e2label<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1

@@ -2293,16 +2293,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#html" class="md-nav__link">
-    html関連
+  <a href="#window" class="md-nav__link">
+    window関連
   </a>
   
-    <nav class="md-nav" aria-label="html関連">
+    <nav class="md-nav" aria-label="window関連">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_44" class="md-nav__link">
     画面遷移(同画面)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    先頭へスクロール
   </a>
   
 </li>
@@ -3080,16 +3087,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#html" class="md-nav__link">
-    html関連
+  <a href="#window" class="md-nav__link">
+    window関連
   </a>
   
-    <nav class="md-nav" aria-label="html関連">
+    <nav class="md-nav" aria-label="window関連">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_44" class="md-nav__link">
     画面遷移(同画面)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    先頭へスクロール
   </a>
   
 </li>
@@ -3736,10 +3750,21 @@ label_item.textContent<span style="color: #BBB"> </span><span style="color: #666
 });
 </code></pre></div>
 
-<h2 id="html">html関連</h2>
+<h2 id="window">window関連</h2>
 <h3 id="_44">画面遷移(同画面)</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">window</span>.location.href<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>url;
 </code></pre></div>
+
+<h3 id="_45">先頭へスクロール</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>scroll_to_top<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>()<span style="color: #BBB"> </span>=&gt;<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #A2F">window</span>.scroll({
+<span style="color: #BBB">        </span>top<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #666">0</span>,
+<span style="color: #BBB">        </span>behavior<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;smooth&quot;</span>,
+<span style="color: #BBB">    </span>});
+}
+</code></pre></div>
+
+<p><a href="https://github.com/zaki-lknr/swarm-sgbt/pull/75">add: タイトルバータップで先頭に移動お試し #71 by zaki-lknr · Pull Request #75 · zaki-lknr/swarm-sgbt</a></p>
                 
               
               
