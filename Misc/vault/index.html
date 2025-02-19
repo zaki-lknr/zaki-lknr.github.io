@@ -1595,6 +1595,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hvac" class="md-nav__link">
+    hvac
+  </a>
+  
+    <nav class="md-nav" aria-label="hvac">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    コンストラクタ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1953,6 +1973,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hvac" class="md-nav__link">
+    hvac
+  </a>
+  
+    <nav class="md-nav" aria-label="hvac">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    コンストラクタ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2034,6 +2074,26 @@ KVシークレットエンジンであれば以下の通り。</p>
 
 <p><code>curl -H "X-Vault-Token: ${token}" http://192.168.0.75:8200/v1/kv/data/zzz?version=1</code>とか。<br />
 <a href="https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2">KV - Secrets Engines - HTTP API | Vault | HashiCorp Developer</a></p>
+<h2 id="hvac">hvac</h2>
+<p>Hashicorp Vault用Pythonライブラリ</p>
+<ul>
+<li><a href="https://python-hvac.org/en/latest/overview.html">hvac documentation</a></li>
+<li><a href="https://github.com/hvac/hvac">hvac/hvac: :lock: Python 3.X client for HashiCorp Vault</a></li>
+</ul>
+<h3 id="_7">コンストラクタ</h3>
+<p>証明書検証オフは<code>verify=False</code>を加えればOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">urllib3</span>
+<span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os</span>
+<span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">hvac</span>
+
+urllib3<span style="color: #666">.</span>disable_warnings()
+
+client <span style="color: #666">=</span> hvac<span style="color: #666">.</span>Client(
+    url<span style="color: #666">=</span><span style="color: #B44">&#39;https://vault.example.org&#39;</span>,
+    token<span style="color: #666">=</span>os<span style="color: #666">.</span>environ[<span style="color: #B44">&#39;VAULT_TOKEN&#39;</span>],
+    verify<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">False</span>
+)
+</code></pre></div>
                 
               
               

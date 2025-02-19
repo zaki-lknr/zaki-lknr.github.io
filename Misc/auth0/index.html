@@ -1293,6 +1293,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-library" class="md-nav__link">
+    Python Library
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    認証トークン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1925,6 +1945,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-library" class="md-nav__link">
+    Python Library
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    認証トークン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2042,6 +2082,18 @@ Application名の一覧であれば例えば<code>jq</code>を使って以下。
 </code></pre></div>
 
 <p>成功すればレスポンスは204でボディは空</p>
+<h2 id="python-library">Python Library</h2>
+<ul>
+<li><a href="https://github.com/auth0/auth0-python">auth0/auth0-python: Auth0 SDK for Python</a></li>
+<li><a href="https://auth0-python.readthedocs.io/en/latest/">Auth0-Python documentation — auth0-python 4.4.0 documentation</a></li>
+</ul>
+<h3 id="_5">認証トークン</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">auth0.authentication</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">import</span> GetToken
+
+GetToken <span style="color: #666">=</span> GetToken(auth_domain, auth_client_id, client_secret<span style="color: #666">=</span>auth_client_secret)
+token <span style="color: #666">=</span> GetToken<span style="color: #666">.</span>client_credentials(<span style="color: #B44">&#39;https://</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">/api/v2/&#39;</span><span style="color: #666">.</span>format(auth_domain))
+<span style="color: #A2F">print</span>(token[<span style="color: #B44">&#39;access_token&#39;</span>])
+</code></pre></div>
                 
               
               

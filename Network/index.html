@@ -1704,6 +1704,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リブート
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2020,6 +2027,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リブート
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2185,6 +2199,21 @@
 <p>設定を反映するには<code>commit</code>を実行。保存は<code>save</code><br />
 反映せずに破棄するには<code>discard</code>を実行。</p>
 <p>設定モードを抜けるには<code>exit</code></p>
+<h3 id="_15">リブート</h3>
+<p>saveされていない設定がなくてもなぜか警告がでる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">vyos@vyos:~$ </span>reboot<span style="color: #BBB"> </span>
+<span style="color: #888">Warning: there are unsaved configuration changes!</span>
+<span style="color: #888">Run &#39;save&#39; command if you do not want to lose those changes after reboot/shutdown.</span>
+<span style="color: #888">Are you sure you want to reboot this system (vyos)? [y/N] y</span>
+
+<span style="color: #888">Broadcast message from root@vyos on pts/1 (Fri 2025-02-14 07:09:44 UTC):</span>
+
+<span style="color: #888">The system will reboot now!</span>
+
+
+<span style="color: #888">Connection to vyos closed by remote host.</span>
+<span style="color: #888">Connection to vyos closed.</span>
+</code></pre></div>
                 
               
               

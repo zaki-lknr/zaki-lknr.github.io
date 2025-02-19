@@ -1897,6 +1897,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lscpu" class="md-nav__link">
+    lscpu
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3529,6 +3536,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lscpu" class="md-nav__link">
+    lscpu
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4390,6 +4404,69 @@ iptables<span style="color: #BBB">                </span>auto<span style="color:
 <span style="color: #888">  link currently points to /usr/bin/python3</span>
 <span style="color: #888">  link python is /usr/bin/python</span>
 <span style="color: #888">/usr/bin/python3 - priority 10</span>
+</code></pre></div>
+
+<h2 id="lscpu">lscpu</h2>
+<p>CPU情報の出力</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>lscpu<span style="color: #BBB"> </span>
+<span style="color: #888">Architecture:             x86_64</span>
+<span style="color: #888">  CPU op-mode(s):         32-bit, 64-bit</span>
+<span style="color: #888">  Address sizes:          39 bits physical, 48 bits virtual</span>
+<span style="color: #888">  Byte Order:             Little Endian</span>
+<span style="color: #888">CPU(s):                   16</span>
+<span style="color: #888">  On-line CPU(s) list:    0-15</span>
+<span style="color: #888">Vendor ID:                GenuineIntel</span>
+<span style="color: #888">  BIOS Vendor ID:         Intel(R) Corporation</span>
+<span style="color: #888">  Model name:             12th Gen Intel(R) Core(TM) i7-12650H</span>
+<span style="color: #888">    BIOS Model name:      12th Gen Intel(R) Core(TM) i7-12650H To Be Filled By O.E.M. CPU @ 2.1GHz</span>
+<span style="color: #888">    BIOS CPU family:      198</span>
+<span style="color: #888">    CPU family:           6</span>
+<span style="color: #888">    Model:                154</span>
+<span style="color: #888">    Thread(s) per core:   2</span>
+<span style="color: #888">    Core(s) per socket:   10</span>
+<span style="color: #888">    Socket(s):            1</span>
+<span style="color: #888">    Stepping:             3</span>
+<span style="color: #888">    CPU(s) scaling MHz:   42%</span>
+<span style="color: #888">    CPU max MHz:          4700.0000</span>
+<span style="color: #888">    CPU min MHz:          400.0000</span>
+<span style="color: #888">    BogoMIPS:             5376.00</span>
+<span style="color: #888">    Flags:                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi</span>
+<span style="color: #888">                           mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfm</span>
+<span style="color: #888">                          on pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclm</span>
+<span style="color: #888">                          ulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 ss</span>
+<span style="color: #888">                          e4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowp</span>
+<span style="color: #888">                          refetch cpuid_fault epb cat_l2 cdp_l2 ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flex</span>
+<span style="color: #888">                          priority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdt_a rdse</span>
+<span style="color: #888">                          ed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_de</span>
+<span style="color: #888">                          tect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp h</span>
+<span style="color: #888">                          wp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b </span>
+<span style="color: #888">                          fsrm md_clear serialize arch_lbr ibt flush_l1d arch_capabilities</span>
+<span style="color: #888">Virtualization features:  </span>
+<span style="color: #888">  Virtualization:         VT-x</span>
+<span style="color: #888">Caches (sum of all):      </span>
+<span style="color: #888">  L1d:                    416 KiB (10 instances)</span>
+<span style="color: #888">  L1i:                    448 KiB (10 instances)</span>
+<span style="color: #888">  L2:                     9.5 MiB (7 instances)</span>
+<span style="color: #888">  L3:                     24 MiB (1 instance)</span>
+<span style="color: #888">NUMA:                     </span>
+<span style="color: #888">  NUMA node(s):           1</span>
+<span style="color: #888">  NUMA node0 CPU(s):      0-15</span>
+<span style="color: #888">Vulnerabilities:          </span>
+<span style="color: #888">  Gather data sampling:   Not affected</span>
+<span style="color: #888">  Itlb multihit:          Not affected</span>
+<span style="color: #888">  L1tf:                   Not affected</span>
+<span style="color: #888">  Mds:                    Not affected</span>
+<span style="color: #888">  Meltdown:               Not affected</span>
+<span style="color: #888">  Mmio stale data:        Not affected</span>
+<span style="color: #888">  Reg file data sampling: Vulnerable: No microcode</span>
+<span style="color: #888">  Retbleed:               Not affected</span>
+<span style="color: #888">  Spec rstack overflow:   Not affected</span>
+<span style="color: #888">  Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl</span>
+<span style="color: #888">  Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization</span>
+<span style="color: #888">  Spectre v2:             Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW seq</span>
+<span style="color: #888">                          uence; BHI SW loop, KVM SW loop</span>
+<span style="color: #888">  Srbds:                  Not affected</span>
+<span style="color: #888">  Tsx async abort:        Not affected</span>
 </code></pre></div>
                 
               
