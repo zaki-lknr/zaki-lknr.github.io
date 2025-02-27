@@ -1432,6 +1432,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    指定コミットの変更点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#whitespace" class="md-nav__link">
     whitespace無視
   </a>
@@ -1458,7 +1465,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     サブモジュール
   </a>
   
@@ -1466,14 +1473,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     カレントのリポジトリに別のリポジトリをサブモジュールとして追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     サブモジュールを更新する
   </a>
   
@@ -1485,7 +1492,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     前の状態に戻す
   </a>
   
@@ -1493,7 +1500,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_47" class="md-nav__link">
+  <a href="#_48" class="md-nav__link">
     指定コミットの状態に戻す
   </a>
   
@@ -1505,7 +1512,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_48" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     その他
   </a>
   
@@ -2962,6 +2969,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    指定コミットの変更点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#whitespace" class="md-nav__link">
     whitespace無視
   </a>
@@ -2988,7 +3002,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     サブモジュール
   </a>
   
@@ -2996,14 +3010,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     カレントのリポジトリに別のリポジトリをサブモジュールとして追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     サブモジュールを更新する
   </a>
   
@@ -3015,7 +3029,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     前の状態に戻す
   </a>
   
@@ -3023,7 +3037,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_47" class="md-nav__link">
+  <a href="#_48" class="md-nav__link">
     指定コミットの状態に戻す
   </a>
   
@@ -3035,7 +3049,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_48" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     その他
   </a>
   
@@ -3553,6 +3567,11 @@ M<span style="color: #BBB">       </span>docs/Ansible/directives.md
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git diff &lt;branch1-name&gt; &lt;branch2-name&gt;</span>
 </code></pre></div>
 
+<h3 id="_43">指定コミットの変更点</h3>
+<p>コミットAとコミットBの差分は<code>git diff A B</code>で見れるが、「コミットAによる変更点」はコミットAのSHA1値だけで<code>^</code>を付与する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git diff AのID^ AのID</span>
+</code></pre></div>
+
 <h3 id="whitespace">whitespace無視</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>diff<span style="color: #BBB"> </span>-w
 </code></pre></div>
@@ -3576,13 +3595,13 @@ M<span style="color: #BBB">       </span>docs/Ansible/directives.md
 </code></pre></div>
 
 <p>除外対象が複数ある場合は、その分指定すればOK</p>
-<h2 id="_43">サブモジュール</h2>
-<h3 id="_44">カレントのリポジトリに別のリポジトリをサブモジュールとして追加</h3>
+<h2 id="_44">サブモジュール</h2>
+<h3 id="_45">カレントのリポジトリに別のリポジトリをサブモジュールとして追加</h3>
 <p>ローカルリポジトリの作業ディレクトリ内に<code>bsky-client</code>ディレクトリへ別リポジトリのソースを取得する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git submodule add https://github.com/zaki-lknr/bsky-client.git bsky-client</span>
 </code></pre></div>
 
-<h3 id="_45">サブモジュールを更新する</h3>
+<h3 id="_46">サブモジュールを更新する</h3>
 <p>対象ディレクトリで<code>git pull</code>を実行する。<br />
 親リポジトリで<code>git diff</code>すれば更新されていることを確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ git diff
@@ -3595,13 +3614,13 @@ M<span style="color: #BBB">       </span>docs/Ansible/directives.md
 <span style="color: #00A000">+Subproject commit 2a0550cfc11ca1d06f13596f2eb087cc75dcdf9b</span>
 </code></pre></div>
 
-<h2 id="_46">前の状態に戻す</h2>
-<h3 id="_47">指定コミットの状態に戻す</h3>
+<h2 id="_47">前の状態に戻す</h2>
+<h3 id="_48">指定コミットの状態に戻す</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git reset --hard &#39;対象のコミットID&#39;</span>
 </code></pre></div>
 
 <p><code>reset --hard</code>は<a href="trouble/#_6">コミットの取り消し</a>にも使用する</p>
-<h2 id="_48">その他</h2>
+<h2 id="_49">その他</h2>
 <h3 id="head">HEAD</h3>
 <p>概略(語弊あるかも)</p>
 <ul>

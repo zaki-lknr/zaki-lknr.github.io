@@ -652,13 +652,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コネクションプラグイン
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     マジック変数
   </a>
   
@@ -685,7 +692,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     ノードのファクト変数
   </a>
   
@@ -693,7 +700,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     環境変数
   </a>
   
@@ -1859,13 +1866,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コネクションプラグイン
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     マジック変数
   </a>
   
@@ -1892,7 +1906,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     ノードのファクト変数
   </a>
   
@@ -1900,7 +1914,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     環境変数
   </a>
   
@@ -1972,7 +1986,23 @@
 <span style="color: #BBB">        </span>...
 </code></pre></div>
 
-<h2 id="_5">マジック変数</h2>
+<h3 id="_5">コネクションプラグイン</h3>
+<p>変数の場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[all]</span>
+<span style="color: #B44">local ansible_host</span><span style="color: #666">=</span><span style="color: #B44">localhost ansible_connection=local</span>
+</code></pre></div>
+
+<p>playで指定<br />
+<a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>all
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">connection</span>:<span style="color: #BBB"> </span>local
+
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>...
+</code></pre></div>
+
+<h2 id="_6">マジック変数</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables — Ansible Documentation</a></p>
 <h3 id="omit">omit</h3>
 <p>省略したいパラメタにセットすると無視されるようになる。<br />
@@ -1993,7 +2023,7 @@
 <p>ロールの中で参照できる変数なので、playbookで参照しても undefined エラーになる。</p>
 <p>ロール内のtaskから<code>import_tasks</code>で読んだ先のファイルのtaskで参照する<code>role_path</code>であれば参照可能。<br />
 (あくまで呼び出し元ロール基準のパスになる)</p>
-<h2 id="_6">ノードのファクト変数</h2>
+<h2 id="_7">ノードのファクト変数</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>true
 </code></pre></div>
 
@@ -2015,7 +2045,7 @@
 <code>ansible -i inventory all -m setup -a "gather_subset=network" | wc -l</code>だと365行。</p>
 <p>OS情報程度であれば<code>min</code>で取れる。<br />
 インタフェース毎のネットワーク設定は<code>network</code>も必要っぽい。</p>
-<h3 id="_7">環境変数</h3>
+<h3 id="_8">環境変数</h3>
 <p><code>gather_subset: min</code>で確認。<br />
 <code>become</code>なしの場合。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;ansible_env&quot;</span>:<span style="color: #BBB"> </span>{
