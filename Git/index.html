@@ -1240,6 +1240,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    退避したデータとのdiff
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1513,6 +1520,13 @@
       
         <li class="md-nav__item">
   <a href="#_49" class="md-nav__link">
+    リモートリポジトリ情報
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
     その他
   </a>
   
@@ -2777,6 +2791,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    退避したデータとのdiff
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3050,6 +3071,13 @@
       
         <li class="md-nav__item">
   <a href="#_49" class="md-nav__link">
+    リモートリポジトリ情報
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
     その他
   </a>
   
@@ -3435,6 +3463,10 @@ If it does not apply cleanly, you will be given an opportunity to</p>
 
 <p>これでdiffを確認できるできる。<br />
 <code>-p</code>無しの場合はサマリのみ。</p>
+<h3 id="diff">退避したデータとのdiff</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git diff stash@{0}</span>
+</code></pre></div>
+
 <h2 id="tag">tag操作</h2>
 <p>タグ操作は基本的にブランチと同じ。</p>
 <h3 id="tag_1">tagを作成</h3>
@@ -3620,7 +3652,12 @@ M<span style="color: #BBB">       </span>docs/Ansible/directives.md
 </code></pre></div>
 
 <p><code>reset --hard</code>は<a href="trouble/#_6">コミットの取り消し</a>にも使用する</p>
-<h2 id="_49">その他</h2>
+<h2 id="_49">リモートリポジトリ情報</h2>
+<p><code>git ls-remote リポジトリURL</code>でcloneしていなくてもリモートリポジトリの情報を参照できる</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git ls-remote https://github.com/zaki-lknr/swarm-sgbt.git</span>
+</code></pre></div>
+
+<h2 id="_50">その他</h2>
 <h3 id="head">HEAD</h3>
 <p>概略(語弊あるかも)</p>
 <ul>
