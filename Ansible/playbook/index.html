@@ -16,7 +16,7 @@
     
     
       
-        <title>プレイブック - 戯術memo</title>
+        <title>playbookサンプル - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#playbook" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              プレイブック
+              playbookサンプル
             
           </span>
         </div>
@@ -400,6 +400,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../collection/" class="md-nav__link">
         コレクション
       </a>
@@ -542,12 +554,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          プレイブック
+          playbookサンプル
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        プレイブック
+        playbookサンプル
       </a>
       
         
@@ -565,70 +577,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    共通
+  <a href="#_1" class="md-nav__link">
+    ディレクティブ
   </a>
-  
-    <nav class="md-nav" aria-label="共通">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-e-extra-vars" class="md-nav__link">
-    -e | --extra-vars
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-l-limit" class="md-nav__link">
-    -l | --limit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-connection-password-file" class="md-nav__link">
-    --connection-password-file
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ansible-playbook" class="md-nav__link">
-    ansible-playbook コマンド
-  </a>
-  
-    <nav class="md-nav" aria-label="ansible-playbook コマンド">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-check" class="md-nav__link">
-    --check
+  <a href="#playbook_1" class="md-nav__link">
+    playbook
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#-list-tasks" class="md-nav__link">
-    --list-tasks
+      
+        <li class="md-nav__item">
+  <a href="#inventory" class="md-nav__link">
+    inventory
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-start-at" class="md-nav__link">
-    --start-at
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1758,70 +1723,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    共通
+  <a href="#_1" class="md-nav__link">
+    ディレクティブ
   </a>
-  
-    <nav class="md-nav" aria-label="共通">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-e-extra-vars" class="md-nav__link">
-    -e | --extra-vars
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-l-limit" class="md-nav__link">
-    -l | --limit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-connection-password-file" class="md-nav__link">
-    --connection-password-file
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ansible-playbook" class="md-nav__link">
-    ansible-playbook コマンド
-  </a>
-  
-    <nav class="md-nav" aria-label="ansible-playbook コマンド">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-check" class="md-nav__link">
-    --check
+  <a href="#playbook_1" class="md-nav__link">
+    playbook
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#-list-tasks" class="md-nav__link">
-    --list-tasks
+      
+        <li class="md-nav__item">
+  <a href="#inventory" class="md-nav__link">
+    inventory
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-start-at" class="md-nav__link">
-    --start-at
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1842,202 +1760,12 @@
                   </a>
                 
                 
-                <h1 id="_1">プレイブック</h1>
-<p>これCLIとかコマンドってタイトルの方がいいか</p>
-<h2 id="_2">共通</h2>
-<h3 id="-e-extra-vars">-e | --extra-vars</h3>
-<p>スペースを含む値を与える場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span><span style="color: #B44">&#39;key=&quot;foo bar baz&quot;&#39;</span>
-</code></pre></div>
-
-<p>あるいはJSON形式で。(JSONだと辞書もリストもいける)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span><span style="color: #B44">&#39;{key: &quot;foo bar baz&quot;}&#39;</span>
-</code></pre></div>
-
-<p>変数ファイルを指定する場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
-<span style="color: #008000; font-weight: bold">netbox_url</span>:<span style="color: #BBB"> </span>http://netbox.example.org/
-<span style="color: #008000; font-weight: bold">netbox_token</span>:<span style="color: #BBB"> </span>hogehoge
-</code></pre></div>
-
-<p>こんなファイルを<code>netbox-vars.yml</code>として用意しておき、<code>ansible-playbook</code>実行時に</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span>@/path/to/netbox-vars.yml
-</code></pre></div>
-
-<p>で、このファイルで定義した変数を実行時にextra varsとして参照できる。</p>
-<h3 id="-l-limit">-l | --limit</h3>
-<p>playbookの<code>hosts</code>で指定してあるホストグループの内、特定のホストだけに処理したい場合に使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>host1
-</code></pre></div>
-
-<p>こうすると、playbookで例えば<code>hosts: servers</code>と指定されており、serversグループに <code>host1</code>, <code>host2</code>, <code>host3</code> が有ったとしても、この<code>ansible-playbook</code>実行のタスクは <code>host1</code> のみが処理対象で実行される。</p>
-<p>開発やデバッグのお供に。</p>
-<h3 id="-connection-password-file">--connection-password-file</h3>
-<p>リモートへのログインに使用するパスワードが書かれたファイルを指定し、対話的処理を回避する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ansible-playbook playbook.yml -i inventory.ini --connection-password-file password.txt </span>
-</code></pre></div>
-
-<p>指定するファイルはパスワードのみがtext/plainで書かれている。</p>
-<h2 id="ansible-playbook">ansible-playbook コマンド</h2>
-<h3 id="-check">--check</h3>
-<p>いわゆるDry Runで実行する。<br />
-checkに対応している<code>copy</code>モジュールの場合は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>command sample
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">copy</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #BBB"> </span>/home/zaki/tmp.yml
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #BBB"> </span>/var/tmp
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">mode</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;0644&#39;</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #BBB"> </span>result
-</code></pre></div>
-
-<p>このplaybook、コピー先が存在しない状態で、実際に動かすと<code>changed</code>になる状態で<code>--check</code>付けて実行すると</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls<span style="color: #BBB"> </span>/var/tmp/tmp.yml<span style="color: #BBB"> </span>
-<span style="color: #888">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
-<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook<span style="color: #BBB"> </span>copy.yml<span style="color: #BBB"> </span>--check
-
-<span style="color: #888">PLAY [localhost] ********************</span>
-
-<span style="color: #888">TASK [command sample] ***************</span>
-<span style="color: #888">changed: [localhost]</span>
-
-<span style="color: #888">TASK [print result] *****************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg:</span>
-<span style="color: #888">    changed: true</span>
-<span style="color: #888">    diff: []</span>
-<span style="color: #888">    failed: false</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls<span style="color: #BBB"> </span>/var/tmp/tmp.yml<span style="color: #BBB"> </span>
-<span style="color: #888">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
-</code></pre></div>
-
-<p>このとおり<code>changed</code>として処理され、resultもchangedになる。<br />
-ファイルが存在して<code>ok</code>となる状態で<code>--check</code>で実行すると、以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls<span style="color: #BBB"> </span>/var/tmp/tmp.yml
-<span style="color: #888">/var/tmp/tmp.yml</span>
-<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook<span style="color: #BBB"> </span>copy.yml<span style="color: #BBB"> </span>--check
-<span style="color: #888">PLAY [localhost] ********************</span>
-
-<span style="color: #888">TASK [command sample] ***************</span>
-<span style="color: #888">ok: [localhost]</span>
-
-<span style="color: #888">TASK [print result] *****************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg:</span>
-<span style="color: #888">    changed: false</span>
-<span style="color: #888">    checksum: e4012c7ec05eb3bd3d27774fa73b772426c02d74</span>
-<span style="color: #888">    dest: /var/tmp/tmp.yml</span>
-<span style="color: #888">    diff:</span>
-<span style="color: #888">      after:</span>
-<span style="color: #888">        path: /var/tmp/tmp.yml</span>
-<span style="color: #888">      before:</span>
-<span style="color: #888">        path: /var/tmp/tmp.yml</span>
-<span style="color: #888">    failed: false</span>
-<span style="color: #888">    gid: 1000</span>
-<span style="color: #888">    group: zaki</span>
-<span style="color: #888">    mode: &#39;0644&#39;</span>
-<span style="color: #888">    owner: zaki</span>
-<span style="color: #888">    path: /var/tmp/tmp.yml</span>
-<span style="color: #888">    secontext: unconfined_u:object_r:user_home_t:s0</span>
-<span style="color: #888">    size: 5447</span>
-<span style="color: #888">    state: file</span>
-<span style="color: #888">    uid: 1000</span>
-</code></pre></div>
-
-<p>タスク単位でチェックモードを指定する<code>check_mode</code>パラメタについては<a href="/Ansible/directives/#check-mode">directives</a>参照。</p>
-<h3 id="-list-tasks">--list-tasks</h3>
-<p>同時に指定する<code>--tags</code>などの実行条件を踏まえて、どのプレイとタスクが実行対象となるかをリストアップする。dry runのもう1段階手前な感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>setup.yml<span style="color: #BBB"> </span>--list-tasks
-
-<span style="color: #888">playbook: setup.yml</span>
-
-<span style="color: #888">  play #1 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
-<span style="color: #888">      subscription      TAGS: [subscription]</span>
-<span style="color: #888">      install packages  TAGS: [packages]</span>
-
-<span style="color: #888">  play #2 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
-<span style="color: #888">      ssh user config   TAGS: [ssh]</span>
-<span style="color: #888">      git config        TAGS: [git]</span>
-<span style="color: #888">      get git-prompt.sh TAGS: [git]</span>
-<span style="color: #888">      add prompt with git config        TAGS: [git]</span>
-<span style="color: #888">      add source gitprompt      TAGS: [git]</span>
-<span style="color: #888">      create venv       TAGS: [python]</span>
-<span style="color: #888">      clone repository (linux)  TAGS: [repository]</span>
-<span style="color: #888">      clone repository (container)      TAGS: [repository]</span>
-</code></pre></div>
-
-<p><code>--tags</code>指定ありの場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>setup.yml<span style="color: #BBB"> </span>--list-tasks<span style="color: #BBB"> </span>--tags<span style="color: #BBB"> </span>git
-
-<span style="color: #888">playbook: setup.yml</span>
-
-<span style="color: #888">  play #1 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
-
-<span style="color: #888">  play #2 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
-<span style="color: #888">      git config        TAGS: [git]</span>
-<span style="color: #888">      get git-prompt.sh TAGS: [git]</span>
-<span style="color: #888">      add prompt with git config        TAGS: [git]</span>
-<span style="color: #888">      add source gitprompt      TAGS: [git]</span>
-</code></pre></div>
-
-<h3 id="-start-at">--start-at</h3>
-<p>指定タスクから処理を開始する。開発・デバッグのお供に。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
-
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec 1st task
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;hello</span><span style="color: #B8860B"> </span><span style="color: #B44">world&quot;</span>
-
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec 2nd task
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;hello</span><span style="color: #B8860B"> </span><span style="color: #B44">worlds&quot;</span>
-
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec 3rd task
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;hello</span><span style="color: #B8860B"> </span><span style="color: #B44">worlds!!&quot;</span>
-</code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>sample.yml<span style="color: #BBB"> </span>--start-at<span style="color: #BBB"> </span><span style="color: #B44">&quot;exec 2nd task&quot;</span>
-</code></pre></div>
-
-<p>実行結果</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">PLAY [localhost] *****************************************************************************</span>
-
-<span style="color: #888">TASK [exec 2nd task] *************************************************************************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg: hello worlds</span>
-
-<span style="color: #888">TASK [exec 3rd task] *************************************************************************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg: hello worlds!!</span>
-</code></pre></div>
-
-<p>roleの場合は、ロール名含めて指定すればよい。(実行時の<code>TASK [***]</code>の<code>***</code>の部分を指定する)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>inventory-oci-l-dev.ini<span style="color: #BBB"> </span>playbook.yml<span style="color: #BBB"> </span>-v
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #888">TASK [build_awx/awx-ee : clone repository] ***************************************************</span>
-<span style="color: #888">fatal: [oci-l-a1-ubuntu]: FAILED! =&gt; {&quot;before&quot;: &quot;54de4047be742783f69678f942a515e991c097ab&quot;, &quot;changed&quot;: false, &quot;msg&quot;: &quot;Local modifications exist in repository (force=no).&quot;}</span>
-
-<span style="color: #888">PLAY RECAP ***********************************************************************************</span>
-<span style="color: #888">oci-l-a1-ubuntu            : ok=33   changed=5    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   </span>
-
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>inventory-oci-l-dev.ini<span style="color: #BBB"> </span>playbook.yml<span style="color: #BBB"> </span>-v<span style="color: #BBB"> </span>--start-at<span style="color: #BBB"> </span><span style="color: #B44">&quot;build_awx/awx-ee : create working directory&quot;</span>
-</code></pre></div>
-
-<h1 id="sample">sample</h1>
-<h2 id="playbook">playbook</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
+                <h1 id="playbook">playbookサンプル</h1>
+<h2 id="_1">ディレクティブ</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">Playbook Keywords — Ansible Documentation</a></p>
+<p><a href="../directives/">使用例</a></p>
+<h2 id="playbook_1">playbook</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>all
 <span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
 
 <span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
@@ -2046,7 +1774,7 @@ checkに対応している<code>copy</code>モジュールの場合は以下の�
 <span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span>hello world
 </code></pre></div>
 
-<h1 id="inventory">inventory</h1>
+<h2 id="inventory">inventory</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[server]</span>
 <span style="color: #B44">192.168.0.1</span>
 </code></pre></div>

@@ -400,6 +400,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../collection/" class="md-nav__link">
         コレクション
       </a>
@@ -806,6 +818,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pause" class="md-nav__link">
     pause
   </a>
@@ -840,7 +859,7 @@
   
     <li class="md-nav__item">
       <a href="../playbook/" class="md-nav__link">
-        プレイブック
+        playbookサンプル
       </a>
     </li>
   
@@ -2217,6 +2236,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pause" class="md-nav__link">
     pause
   </a>
@@ -2718,6 +2744,25 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">run_once</span>:<span style="color: #BBB"> </span>true
 </code></pre></div>
 
+<h2 id="pip">pip</h2>
+<p>venvを作り指定のPythonパッケージ入れる。<br />
+pipは最新にしつつ、バージョン指定のパッケージも入れるならこんな感じ。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>create venv
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">name</span>:
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span>pip
+<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span>ansible-core==2.18.0
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #BBB"> </span>latest
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">virtualenv</span>:<span style="color: #BBB"> </span>/path/to/venv/ansible
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">virtualenv_command</span>:<span style="color: #BBB"> </span>python3 -m venv
+</code></pre></div>
+
+<p>ターゲットノードのこのvenvを使ってAnsible実行するには以下。</p>
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/05/26/230432">[Ansible] ターゲットノードのvenvのPythonを指定して実行する (interpreter_python / ansible_python_interpreter / PYTHONPATH) - zaki work log</a></p>
+<p>この辺の設定をどこかに入れればOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>:<span style="color: #BBB"> </span>/path/to/venv/ansible/bin/python
+</code></pre></div>
+
 <h2 id="pause">pause</h2>
 <p>sleepする</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>sleep
@@ -2807,7 +2852,7 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
               <span class="md-footer__direction">
                 次
               </span>
-              プレイブック
+              playbookサンプル
             </div>
           </div>
           <div class="md-footer__button md-icon">

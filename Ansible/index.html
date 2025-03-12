@@ -465,13 +465,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#venv" class="md-nav__link">
-    venv作るタスク
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -499,6 +492,18 @@
     <li class="md-nav__item">
       <a href="builder/" class="md-nav__link">
         Ansible Builder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cli/" class="md-nav__link">
+        CLI
       </a>
     </li>
   
@@ -642,7 +647,7 @@
   
     <li class="md-nav__item">
       <a href="playbook/" class="md-nav__link">
-        プレイブック
+        playbookサンプル
       </a>
     </li>
   
@@ -1834,13 +1839,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#venv" class="md-nav__link">
-    venv作るタスク
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1895,33 +1893,6 @@
 <li><a href="https://docs.ansible.com/ansible/latest/network/user_guide/network_debug_troubleshooting.html">Network Debug and Troubleshooting Guide — Ansible Documentation</a></li>
 <li><a href="https://docs.ansible.com/ansible/latest/network/user_guide/platform_index.html">Platform Options — Ansible Documentation</a></li>
 </ul>
-<h2 id="venv">venv作るタスク</h2>
-<p>venvにopenshiftパッケージ入れる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>install openshift
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>openshift
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">virtualenv</span>:<span style="color: #BBB"> </span>/root/venv
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">virtualenv_command</span>:<span style="color: #BBB"> </span>python3 -m venv
-</code></pre></div>
-
-<p>このターゲットノードのvenvを使ってAnsible実行するには以下。</p>
-<p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/05/26/230432">[Ansible] ターゲットノードのvenvのPythonを指定して実行する (interpreter_python / ansible_python_interpreter / PYTHONPATH) - zaki work log</a></p>
-<p>この辺の設定をどこかに入れればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>:<span style="color: #BBB"> </span>/root/venv/bin/python
-</code></pre></div>
-
-<p>pipは最新にしつつ、バージョン指定のパッケージも入れるならこんな感じ。<br />
-最新だと<code>ansible==4.2.0</code>が入る場合でも、<code>4.1.0</code>がインストールされる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>create venv
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">ansible.builtin.pip</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">name</span>:
-<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span>pip
-<span style="color: #BBB">          </span>-<span style="color: #BBB"> </span>ansible==4.1.0
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">state</span>:<span style="color: #BBB"> </span>latest
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">virtualenv</span>:<span style="color: #BBB"> </span>~/venv/ansible4.1.0
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">virtualenv_command</span>:<span style="color: #BBB"> </span>python3 -m venv
-</code></pre></div>
-
 <h1 id="_9">ドキュメント</h1>
 <h2 id="_10">索引</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/genindex.html">Index — Ansible Documentation</a></p>
