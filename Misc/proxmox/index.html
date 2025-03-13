@@ -1556,6 +1556,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    バックアップデータの保存先ストレージの変更
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1596,7 +1603,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ホスト名変更
   </a>
   
@@ -1955,6 +1962,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    バックアップデータの保存先ストレージの変更
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1995,7 +2009,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ホスト名変更
   </a>
   
@@ -2165,6 +2179,9 @@
 <span style="color: #888">:</span>
 </code></pre></div>
 
+<h3 id="_9">バックアップデータの保存先ストレージの変更</h3>
+<p>8.3.3時点でUIでの操作はなさそう。<br />
+上記のパス情報を参照に<code>mv</code>で移動する。</p>
 <h2 id="cli">CLI</h2>
 <h3 id="vm_2">VM一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm list</span>
@@ -2214,7 +2231,7 @@ NIC情報であれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm destroy &lt;vmid&gt; --destroy-unreferenced-disks=1</span>
 </code></pre></div>
 
-<h2 id="_9">ホスト名変更</h2>
+<h2 id="_10">ホスト名変更</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>hostnamectl<span style="color: #BBB"> </span>set-hostname<span style="color: #BBB"> </span>pve01
 <span style="color: #000080; font-weight: bold">root@pve:~# </span>
 </code></pre></div>

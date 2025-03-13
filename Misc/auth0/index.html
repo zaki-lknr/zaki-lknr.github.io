@@ -2042,6 +2042,8 @@ Application名の一覧であれば例えば<code>jq</code>を使って以下。
 <span style="color: #888">  &#39;https://YOUR-DOMAIN/api/v2/clients?page=1&amp;per_page=4&#39; | jq &#39;.[].name&#39;</span>
 </code></pre></div>
 
+<p><code>page</code>の指定は<code>per_page</code>もセットしておく必要がある。(無い場合は無視される)<br />
+<code>per_page</code>で指定可能なのは100が最大値。101件以上ある場合はページング処理が必須。</p>
 <h4 id="create">create</h4>
 <p><a href="https://auth0.com/docs/api/management/v2/clients/post-clients">Create a client | Auth0 Management API v2</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl<span style="color: #BBB"> </span>-X<span style="color: #BBB"> </span>POST<span style="color: #BBB"> </span>\

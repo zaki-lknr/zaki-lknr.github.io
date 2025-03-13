@@ -1706,6 +1706,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    関数
+  </a>
+  
+    <nav class="md-nav" aria-label="関数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1720,7 +1740,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     デフォルトのルートテーブル
   </a>
   
@@ -2169,6 +2189,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    関数
+  </a>
+  
+    <nav class="md-nav" aria-label="関数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2183,7 +2223,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     デフォルトのルートテーブル
   </a>
   
@@ -2393,8 +2433,36 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl -k https://localhost:6443 -w &#39;%%{http_code}\n&#39; -sS -o /dev/null 2&gt;/dev/null
 </code></pre></div>
 
+<h3 id="_15">関数</h3>
+<h4 id="file">file</h4>
+<p><a href="https://developer.hashicorp.com/terraform/language/functions/file">file - Functions - Configuration Language | Terraform | HashiCorp Developer</a></p>
+<p>引数のファイルの内容を取り込む。<br />
+EC2のユーザーデータ/Cloud-initのファイルや、ポリシーのJSON等を外部ファイルに定義できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_instance&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;dev-vm&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">ami</span><span style="color: #BBB">                         </span><span style="color: #666">=</span><span style="color: #BBB"> </span>...
+<span style="color: #BBB">  </span><span style="color: #B44">instance_type</span><span style="color: #BBB">               </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;t2.medium&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #B44">key_name</span><span style="color: #BBB">                    </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">aws_key_pair.key.id</span>
+<span style="color: #BBB">  </span><span style="color: #B44">subnet_id</span><span style="color: #BBB">                   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">aws_subnet.subnet.id</span>
+<span style="color: #BBB">  </span><span style="color: #B44">vpc_security_group_ids</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_security_group.sg.id</span>]
+<span style="color: #BBB">  </span><span style="color: #B44">associate_public_ip_address</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #800">true</span>
+
+<span style="color: #BBB">  </span><span style="color: #B44">user_data</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">file</span>(<span style="color: #B44">&quot;${path.module}/cloud-config.yaml&quot;</span>)
+
+<span style="color: #BBB">  </span>...
+}
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#cloud-config</span>
+
+<span style="color: #008000; font-weight: bold">chpasswd</span>:<span style="color: #BBB"> </span>{<span style="color: #008000; font-weight: bold"> expire</span>:<span style="color: #BBB"> </span><span style="color: #B8860B">false</span><span style="color: #BBB"> </span>}
+<span style="color: #008000; font-weight: bold">ssh_pwauth</span>:<span style="color: #BBB"> </span>true
+
+<span style="color: #008000; font-weight: bold">packages</span>:
+-<span style="color: #BBB"> </span>python3.12
+</code></pre></div>
+
 <h2 id="resource">resource</h2>
-<h3 id="_15">デフォルトのルートテーブル</h3>
+<h3 id="_16">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">route_table_ids</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_vpc.my_vpc.default_route_table_id</span>]
 </code></pre></div>
