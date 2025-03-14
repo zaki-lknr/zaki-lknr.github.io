@@ -3260,8 +3260,9 @@ $<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>commit<s
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>git<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>-p
 </code></pre></div>
 
-<p>実行するとdiffが表示されるので、変更単位ごとに<code>y</code>で追加・<code>n</code>でスルーできる。<br />
-変更単位を細かく分割する場合は<code>e</code>でエディタが起動するので、</p>
+<p>実行するとadd対象の範囲がdiffが表示されるので、変更単位ごとに<code>y</code>で追加・<code>n</code>でスルーできる。<br />
+範囲が大きくて細分化したい場合は<code>s</code>押下。<br />
+それ以上に変更単位を細かく分割する場合は<code>e</code>でエディタが起動するので、</p>
 <ul>
 <li><code>-</code>の削除行を対象外にするにはスペースに変更</li>
 <li><code>+</code>の追加行を対象外にするには行削除</li>
@@ -3275,7 +3276,7 @@ If the patch applies cleanly, the edited hunk will immediately be marked for sta
 If it does not apply cleanly, you will be given an opportunity to</p>
 </blockquote>
 <h3 id="_7">追加の取り消し</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>reset<span style="color: #BBB"> </span>HEAD<span style="color: #BBB"> </span>&lt;path&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>restore<span style="color: #BBB"> </span>--staged<span style="color: #BBB"> </span>&lt;path&gt;
 </code></pre></div>
 
 <h3 id="_8">ステージングのファイルの確認</h3>
