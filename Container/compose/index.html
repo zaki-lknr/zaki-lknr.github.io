@@ -755,6 +755,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    リソース制限
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -764,18 +771,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configure/" class="md-nav__link">
-        Docker設定
-      </a>
     </li>
   
 
@@ -1571,6 +1566,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/sqlite/" class="md-nav__link">
+        SQLite3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -1860,6 +1867,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    リソース制限
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1961,6 +1975,21 @@
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
 <span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>./registries.yaml:/etc/rancher/k3s/registries.yaml
 </code></pre></div>
+
+<h3 id="_6">リソース制限</h3>
+<p>OSのリソースを使いつくさないようにCPUとメモリを制限</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">apps</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>...
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>...
+
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">deploy</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">resources</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">limits</span>:
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">cpus</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;0.5&#39;</span>
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">memory</span>:<span style="color: #BBB"> </span>512m
+</code></pre></div>
                 
               
               
@@ -1994,13 +2023,13 @@
         </a>
       
       
-        <a href="../configure/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../docker/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              Docker設定
+              Docker
             </div>
           </div>
           <div class="md-footer__button md-icon">

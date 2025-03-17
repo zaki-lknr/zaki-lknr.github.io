@@ -656,18 +656,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../configure/" class="md-nav__link">
-        Docker設定
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -786,6 +774,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    stats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#inspect" class="md-nav__link">
     inspect
   </a>
@@ -796,6 +791,13 @@
           <li class="md-nav__item">
   <a href="#formatip" class="md-nav__link">
     formatでIPアドレス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    Logのパス
   </a>
   
 </li>
@@ -923,6 +925,60 @@
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     ヘルスチェック
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    設定
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy設定
+  </a>
+  
+    <nav class="md-nav" aria-label="proxy設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-engineproxy" class="md-nav__link">
+    Docker Engineのproxy設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    リモートからのTCP接続
   </a>
   
 </li>
@@ -1719,6 +1775,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/sqlite/" class="md-nav__link">
+        SQLite3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -2015,6 +2083,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    stats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#inspect" class="md-nav__link">
     inspect
   </a>
@@ -2025,6 +2100,13 @@
           <li class="md-nav__item">
   <a href="#formatip" class="md-nav__link">
     formatでIPアドレス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    Logのパス
   </a>
   
 </li>
@@ -2161,6 +2243,60 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    設定
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy設定
+  </a>
+  
+    <nav class="md-nav" aria-label="proxy設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-engineproxy" class="md-nav__link">
+    Docker Engineのproxy設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    リモートからのTCP接続
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2238,6 +2374,13 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker build -f my-dockerfile . -t image:tag</span>
 </code></pre></div>
 
+<h3 id="stats">stats</h3>
+<p>リソース使用状況を確認。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">CONTAINER ID   NAME                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS </span>
+<span style="color: #888">f5948afa8097   gitlab-ce-gitlab-runner-1       0.00%     10.82MiB / 7.752GiB   0.14%     2.59kB / 126B     885kB / 0B       9 </span>
+<span style="color: #888">31ba18fa3004   gitlab-ce-gitlab-ce-1           1.33%     3.169GiB / 7.752GiB   40.88%    31.5kB / 1.75MB   107MB / 2.07GB   252 </span>
+</code></pre></div>
+
 <h3 id="inspect">inspect</h3>
 <p>コンテナの状態を確認する</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker inspect &lt;container name or ID&gt;</span>
@@ -2253,6 +2396,12 @@
 Compose使用時もこのパターン。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>inspect<span style="color: #BBB"> </span>&lt;container<span style="color: #BBB"> </span>name<span style="color: #BBB"> </span>or<span style="color: #BBB"> </span>ID&gt;<span style="color: #BBB"> </span>--format<span style="color: #BBB"> </span><span style="color: #B44">&#39;{{ .NetworkSettings.Networks.&lt;network name&gt;.IPAddress }}&#39;</span>
 <span style="color: #888">172.18.0.2</span>
+</code></pre></div>
+
+<h4 id="log">Logのパス</h4>
+<p>Logging Driverがjson-fileの場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker inspect &lt;container name or ID&gt; --format &#39;{{ .LogPath }}&#39;</span>
+<span style="color: #888">/var/lib/docker/containers/.../...-json.log</span>
 </code></pre></div>
 
 <h3 id="save">save</h3>
@@ -2352,6 +2501,56 @@ Compose使用時もこのパターン。</p>
 <span style="color: #888">CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                    PORTS                                   NAMES</span>
 <span style="color: #888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
+
+<h2 id="_5">設定</h2>
+<h3 id="insecure">insecureなレジストリ設定</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
+</code></pre></div>
+
+<p>ローカルに立てたレジストリとかでこんなエラーが出る場合。<br />
+<code>/etc/docker/daemon.json</code>に、TLS検証を無視したいサイトを以下のように追加</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;insecure-registries&quot;</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;gitlab-ce.example.org:25000&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;gitlab-ce.local:25000&quot;</span><span style="color: #BBB"> </span>]
+}
+</code></pre></div>
+
+<h3 id="dns">DNS</h3>
+<p>コンテナ内で使用するDNS設定を指定するには、<code>--dns</code>を指定するか、ホストの<code>/etc/docker/daemon.json</code>で一律指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;dns&quot;</span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;8.8.8.8&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;8.8.4.4&quot;</span>]
+}
+</code></pre></div>
+
+<h3 id="proxy">proxy設定</h3>
+<h4 id="docker-engineproxy">Docker Engineのproxy設定</h4>
+<p><a href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">HTTP/HTTPS proxy</a></p>
+<p>systemdのユニットファイルの設定に変数設定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>mkdir<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span>/etc/systemd/system/docker.service.d
+<span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>/etc/systemd/system/docker.service.d/http-proxy.conf
+<span style="color: #888">[Service]</span>
+<span style="color: #888">Environment=&quot;HTTP_PROXY=http://proxy.example.com:8080&quot;</span>
+<span style="color: #888">Environment=&quot;HTTPS_PROXY=http://proxy.example.com:8080&quot;</span>
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>systemctl<span style="color: #BBB"> </span>daemon-reload
+<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>systemctl<span style="color: #BBB"> </span>restart<span style="color: #BBB"> </span>docker
+</code></pre></div>
+
+<p>これでproxy環境下にあるホストノード上で<code>docker pull</code>などできる。</p>
+<h3 id="tcp">リモートからのTCP接続</h3>
+<p>/lib/systemd/system/docker.service</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A00000">--- /lib/systemd/system/_docker.service 2021-04-10 07:46:42.000000000 +0900</span>
+<span style="color: #00A000">+++ /lib/systemd/system/docker.service  2021-08-10 09:39:32.451408694 +0900</span>
+<span style="color: #800080; font-weight: bold">@@ -10,7 +10,7 @@</span>
+<span style="color: #BBB"> </span># the default is not to use systemd for cgroups because the delegate issues still
+<span style="color: #BBB"> </span># exists and systemd currently does not support the cgroup feature set required
+<span style="color: #BBB"> </span># for containers run by docker
+<span style="color: #A00000">-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
+<span style="color: #00A000">+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0 --containerd=/run/containerd/containerd.sock</span>
+<span style="color: #BBB"> </span>ExecReload=/bin/kill -s HUP $MAINPID
+<span style="color: #BBB"> </span>TimeoutSec=0
+<span style="color: #BBB"> </span>RestartSec=2
+</code></pre></div>
+
+<p>これで2375/TCPでListenする。</p>
                 
               
               
@@ -2370,7 +2569,7 @@ Compose使用時もこのパターン。</p>
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../configure/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../compose/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2379,7 +2578,7 @@ Compose使用時もこのパターン。</p>
               <span class="md-footer__direction">
                 前
               </span>
-              Docker設定
+              Docker Compose
             </div>
           </div>
         </a>

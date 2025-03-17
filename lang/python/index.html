@@ -656,18 +656,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/configure/" class="md-nav__link">
-        Docker設定
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Container/docker/" class="md-nav__link">
         Docker
       </a>
@@ -1454,6 +1442,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/sqlite/" class="md-nav__link">
+        SQLite3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/terraform/" class="md-nav__link">
         Terraform
       </a>
@@ -1734,6 +1734,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exit" class="md-nav__link">
+    exit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1757,6 +1764,13 @@
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     型の確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    isinstance()で型判定
   </a>
   
 </li>
@@ -2254,13 +2268,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#isinstance" class="md-nav__link">
-    isinstance()で型チェック
-  </a>
   
 </li>
         
@@ -2616,6 +2623,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exit" class="md-nav__link">
+    exit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2639,6 +2653,13 @@
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     型の確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    isinstance()で型判定
   </a>
   
 </li>
@@ -3140,13 +3161,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#isinstance" class="md-nav__link">
-    isinstance()で型チェック
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_39" class="md-nav__link">
     例外
   </a>
@@ -3435,6 +3449,13 @@
 <p>ループを途中で抜けるには<code>break</code></p>
 <h4 id="continue">continue</h4>
 <p>次のループへ飛ぶには<code>continue</code></p>
+<h4 id="exit">exit</h4>
+<p>Pythonのexitは組み込みでなく<code>sys</code>をimportする必要がある。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">sys</span>
+
+sys<span style="color: #666">.</span>exit(<span style="color: #666">1</span>)
+</code></pre></div>
+
 <h3 id="_5">変数</h3>
 <h4 id="_6">環境変数の参照</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os</span>
@@ -3448,6 +3469,32 @@ aws_access_key <span style="color: #666">=</span> os<span style="color: #666">.<
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">type</span>(value)
 </code></pre></div>
 
+<h4 id="isinstance">isinstance()で型判定</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>bool_val <span style="color: #666">=</span> <span style="color: #A2F; font-weight: bold">True</span>
+<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(bool_val, <span style="color: #A2F">bool</span>)):
+    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;bool_val is bool&quot;</span>)
+
+int_val <span style="color: #666">=</span> <span style="color: #666">123</span>
+<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(int_val, <span style="color: #A2F">int</span>)):
+    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;int_val is int&quot;</span>)
+
+list_val <span style="color: #666">=</span> [<span style="color: #666">1</span>, <span style="color: #666">2</span>, <span style="color: #666">3</span>]
+<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(list_val, <span style="color: #A2F">list</span>)):
+    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;list_val is list&quot;</span>)
+
+dict_val <span style="color: #666">=</span> {<span style="color: #B44">&quot;key1&quot;</span>: <span style="color: #B44">&quot;value1&quot;</span>, <span style="color: #B44">&quot;key2&quot;</span>: <span style="color: #B44">&quot;value2&quot;</span>}
+<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(dict_val, <span style="color: #A2F">dict</span>)):
+    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;dict_val is dict&quot;</span>)
+</code></pre></div>
+
+<p>実行結果は以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">bool_val is bool</span>
+<span style="color: #888">int_val is int</span>
+<span style="color: #888">list_val is list</span>
+<span style="color: #888">dict_val is dict</span>
+</code></pre></div>
+
+<p><code>list</code>型でもスカラー値でも引数に取れる関数の実装などで実行時に判定、などで使える。</p>
 <h4 id="none">None判定</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span> data <span style="color: #A2F; font-weight: bold">is</span> <span style="color: #A2F; font-weight: bold">not</span> <span style="color: #A2F; font-weight: bold">None</span>:
     <span style="color: #080; font-style: italic"># dataがNoneでない場合</span>
@@ -3928,31 +3975,6 @@ req <span style="color: #666">=</span> urllib<span style="color: #666">.</span>r
 r <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(url, headers<span style="color: #666">=</span>headers)
 <span style="color: #A2F; font-weight: bold">while</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(req, context<span style="color: #666">=</span>context) <span style="color: #A2F; font-weight: bold">as</span> res:
     <span style="color: #666">...</span>
-</code></pre></div>
-
-<h3 id="isinstance">isinstance()で型チェック</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>bool_val <span style="color: #666">=</span> <span style="color: #A2F; font-weight: bold">True</span>
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(bool_val, <span style="color: #A2F">bool</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;bool_val is bool&quot;</span>)
-
-int_val <span style="color: #666">=</span> <span style="color: #666">123</span>
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(int_val, <span style="color: #A2F">int</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;int_val is int&quot;</span>)
-
-list_val <span style="color: #666">=</span> [<span style="color: #666">1</span>, <span style="color: #666">2</span>, <span style="color: #666">3</span>]
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(list_val, <span style="color: #A2F">list</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;list_val is list&quot;</span>)
-
-dict_val <span style="color: #666">=</span> {<span style="color: #B44">&quot;key1&quot;</span>: <span style="color: #B44">&quot;value1&quot;</span>, <span style="color: #B44">&quot;key2&quot;</span>: <span style="color: #B44">&quot;value2&quot;</span>}
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(dict_val, <span style="color: #A2F">dict</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;dict_val is dict&quot;</span>)
-</code></pre></div>
-
-<p>実行結果は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">bool_val is bool</span>
-<span style="color: #888">int_val is int</span>
-<span style="color: #888">list_val is list</span>
-<span style="color: #888">dict_val is dict</span>
 </code></pre></div>
 
 <h3 id="_39">例外</h3>

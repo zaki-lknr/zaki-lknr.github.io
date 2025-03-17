@@ -656,18 +656,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/configure/" class="md-nav__link">
-        Docker設定
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Container/docker/" class="md-nav__link">
         Docker
       </a>
@@ -1454,6 +1442,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../sqlite/" class="md-nav__link">
+        SQLite3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -1717,6 +1717,13 @@
           <li class="md-nav__item">
   <a href="#file" class="md-nav__link">
     file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templatefile" class="md-nav__link">
+    templatefile
   </a>
   
 </li>
@@ -2204,6 +2211,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#templatefile" class="md-nav__link">
+    templatefile
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2461,6 +2475,20 @@ EC2のユーザーデータ/Cloud-initのファイルや、ポリシーのJSON�
 -<span style="color: #BBB"> </span>python3.12
 </code></pre></div>
 
+<h4 id="templatefile">templatefile</h4>
+<p><code>file()</code>は外部ファイルを固定値として読み込むのみだが、<code>templatefile()</code>ならテンプレートとして変数を展開する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #B44">user_data</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">templatefile</span>(<span style="color: #B44">&quot;${path.module}/user-data.sh&quot;</span>,<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #B44">git_username</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.git_username</span>
+<span style="color: #BBB">    </span><span style="color: #B44">git_password</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.git_password</span>
+<span style="color: #BBB">  </span>})
+</code></pre></div>
+
+<p>user-data.sh</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash -ex</span>
+
+git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>https://<span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">git_username</span><span style="color: #B68; font-weight: bold">}</span>:<span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">git_password</span><span style="color: #B68; font-weight: bold">}</span>@git.example.org/repos/apps<span style="color: #BBB"> </span>/root/apps
+</code></pre></div>
+
 <h2 id="resource">resource</h2>
 <h3 id="_16">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
@@ -2492,7 +2520,7 @@ Podmanであれば、Terraformコードのあるディレクトリで以下を�
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../slack/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../sqlite/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2501,7 +2529,7 @@ Podmanであれば、Terraformコードのあるディレクトリで以下を�
               <span class="md-footer__direction">
                 前
               </span>
-              Slack
+              SQLite3
             </div>
           </div>
         </a>
