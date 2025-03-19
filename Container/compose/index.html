@@ -762,6 +762,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ログファイルサイズ制限
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1874,6 +1881,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ログファイルサイズ制限
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1990,6 +2004,24 @@
 <span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">cpus</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;0.5&#39;</span>
 <span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">memory</span>:<span style="color: #BBB"> </span>512m
 </code></pre></div>
+
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/08/213857">[Docker] コンテナで動かすプロセスのCPU使用率を--cpusで、メモリ使用量を--memoryで制限する - zaki work log</a></p>
+<h3 id="_7">ログファイルサイズ制限</h3>
+<p><strong>デフォルト無制限のためストレージを使い切ってしまうので制限する</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">apps</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>...
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>...
+
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">logging</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">driver</span>:<span style="color: #BBB"> </span>json-file
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">options</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">max-size</span>:<span style="color: #BBB"> </span>10m
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">max-file</span>:<span style="color: #BBB"> </span>3
+</code></pre></div>
+
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/09/211117">[Docker]コンテナ実行時にlog-optsでログサイズ上限とローテート数を設定してホストのストレージが溢れないようにする - zaki work log</a></p>
                 
               
               
