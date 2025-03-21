@@ -732,13 +732,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    詳細
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ジョブテンプレート
   </a>
   
@@ -746,28 +760,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     詳細
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     テンプレートの検索
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     ジョブの起動
   </a>
   
@@ -779,7 +793,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     チーム
   </a>
   
@@ -787,7 +801,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     チーム一覧
   </a>
   
@@ -806,7 +820,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -2050,13 +2064,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    詳細
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ジョブテンプレート
   </a>
   
@@ -2064,28 +2092,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     詳細
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     テンプレートの検索
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     ジョブの起動
   </a>
   
@@ -2097,7 +2125,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     チーム
   </a>
   
@@ -2105,7 +2133,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     チーム一覧
   </a>
   
@@ -2124,7 +2152,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -2276,25 +2304,33 @@ Towerは実行中で良い。<br />
 </code></pre></div>
 
 <p><code>page_size</code>に指定できるのはMAX200？(オーバー時は無視されて200扱い)</p>
-<h3 id="_12">ジョブテンプレート</h3>
-<h4 id="_13">一覧</h4>
+<h4 id="_12">詳細</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sk https://192.168.0.27/api/v2/jobs/{JOB_ID}</span>
+</code></pre></div>
+
+<h4 id="_13">削除</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XDELETE -sk https://192.168.0.27/api/v2/jobs/{JOB_ID}</span>
+</code></pre></div>
+
+<h3 id="_14">ジョブテンプレート</h3>
+<h4 id="_15">一覧</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://192.168.0.27/api/v2/job_templates/?page_size<span style="color: #666">=1000</span><span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>python<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>json.tool
 </code></pre></div>
 
-<h4 id="_14">詳細</h4>
+<h4 id="_16">詳細</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://192.168.0.27/api/v2/job_templates/<span style="color: #666">{</span>template-ID<span style="color: #666">}</span>/
 </code></pre></div>
 
-<h4 id="_15">テンプレートの検索</h4>
+<h4 id="_17">テンプレートの検索</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://server/api/v2/job_templates/?search=Demo+Job+Template</span>
 </code></pre></div>
 
-<h4 id="_16">ジョブの起動</h4>
+<h4 id="_18">ジョブの起動</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XPost https://server/api/v2/job_templates/${TEMPLATE_ID}/launch/</span>
 </code></pre></div>
 
-<h3 id="_17">チーム</h3>
-<h4 id="_18">チーム一覧</h4>
+<h3 id="_19">チーム</h3>
+<h4 id="_20">チーム一覧</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XGET https://server/api/v2/teams/</span>
 </code></pre></div>
 
@@ -2410,7 +2446,7 @@ Towerは実行中で良い。<br />
 <span style="color: #888">}</span>
 </code></pre></div>
 
-<h3 id="_19">その他のシステム設定</h3>
+<h3 id="_21">その他のシステム設定</h3>
 <p>category_slugに<code>system</code>を指定。<br />
 キー一覧は以下の通り</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://tower.example.org/api/v2/settings/system/<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>python3<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>json.tool
