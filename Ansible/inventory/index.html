@@ -543,6 +543,19 @@
     EC2
   </a>
   
+    <nav class="md-nav" aria-label="EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    tagを使ったホストのグルーピング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1769,6 +1782,19 @@
     EC2
   </a>
   
+    <nav class="md-nav" aria-label="EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    tagを使ったホストのグルーピング
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1878,6 +1904,41 @@
 <span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>ap-northeast-1
 </code></pre></div>
 
+<p>デフォルトで<code>aws_ec2</code>グループに全EC2が所属する。</p>
+<h4 id="tag">tagを使ったホストのグルーピング</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
+<span style="color: #008000; font-weight: bold">plugin</span>:<span style="color: #BBB"> </span>amazon.aws.aws_ec2
+<span style="color: #008000; font-weight: bold">regions</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>ap-northeast-1
+<span style="color: #008000; font-weight: bold">keyed_groups</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #BBB"> </span>tags.Type
+</code></pre></div>
+
+<p><code>keyed_groups</code>配下にリストで<code>key: tags.&lt;タグ名&gt;</code>をセットすると、対象のタグの値でグループが作成される。<br />
+例えば上記の定義の場合、<code>Type</code>キーがセットされているEC2のグループができる。</p>
+<table>
+<thead>
+<tr>
+<th>EC2</th>
+<th>Typeタグの値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host1</td>
+<td>Type=server</td>
+</tr>
+<tr>
+<td>host2</td>
+<td>Type=client</td>
+</tr>
+<tr>
+<td>host3</td>
+<td>Type=client</td>
+</tr>
+</tbody>
+</table>
+<p>このような構成だった場合、<code>_server</code>グループにhost1、<code>_client</code>グループにhost2,host3がセットされる。</p>
 <h3 id="netbox">netbox</h3>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/01/29/002540">[NetBox / Ansible] ダイナミックインベントリを使ってNetBoxに登録されたホスト情報をターゲットノードにAnsibleを実行 - zaki work log</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">plugin</span>:<span style="color: #BBB"> </span>netbox.netbox.nb_inventory
