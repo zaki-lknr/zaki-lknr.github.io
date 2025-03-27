@@ -16,7 +16,7 @@
     
     
       
-        <title>Git設定 - 戯術memo</title>
+        <title>SQL - 戯術memo</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git" class="md-skip">
+        <a href="#sql" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git設定
+              SQL
             
           </span>
         </div>
@@ -211,15 +211,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Git/" class="md-tabs__link">
         Git
       </a>
     </li>
@@ -245,13 +243,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Misc/4sq/" class="md-tabs__link">
+      <a href="../4sq/" class="md-tabs__link md-tabs__link--active">
         Misc
       </a>
     </li>
@@ -795,14 +795,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       <label class="md-nav__link" for="__nav_4">
         Git
@@ -820,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../Git/" class="md-nav__link">
         Git基本操作
       </a>
     </li>
@@ -832,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../codecommit/" class="md-nav__link">
+      <a href="../../Git/codecommit/" class="md-nav__link">
         CodeCommit
       </a>
     </li>
@@ -842,206 +840,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Git設定
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Git/configure/" class="md-nav__link">
         Git設定
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ユーザー名・メールアドレスの設定
-  </a>
-  
-    <nav class="md-nav" aria-label="ユーザー名・メールアドレスの設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#home" class="md-nav__link">
-    共用アカウントなどで$HOMEに記録したくない場合
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    環境変数を使う場合
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    現在の設定確認
-  </a>
-  
-    <nav class="md-nav" aria-label="現在の設定確認">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    現在適用される設定全て
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    セクションごとの設定内容
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gitssh" class="md-nav__link">
-    Git+SSH
-  </a>
-  
-    <nav class="md-nav" aria-label="Git+SSH">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sshconfig" class="md-nav__link">
-    .ssh/config
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#homesshconfig" class="md-nav__link">
-    共用アカウントなどで$HOME/.ssh/config以外を使いたい場合
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    リモートリポジトリ
-  </a>
-  
-    <nav class="md-nav" aria-label="リモートリポジトリ">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    現在の設定
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    リポジトリを設定
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    リモートリポジトリを変更
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    別のリポジトリを別名で追加
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gitconfig" class="md-nav__link">
-    gitconfig
-  </a>
-  
-    <nav class="md-nav" aria-label="gitconfig">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alias" class="md-nav__link">
-    コマンドのalias
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-prompt" class="md-nav__link">
-    git prompt
-  </a>
-  
-    <nav class="md-nav" aria-label="git prompt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    記号
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1051,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
+      <a href="../../Git/github/" class="md-nav__link">
         GitHub
       </a>
     </li>
@@ -1063,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gitlab/" class="md-nav__link">
+      <a href="../../Git/gitlab/" class="md-nav__link">
         GitLab
       </a>
     </li>
@@ -1075,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trouble/" class="md-nav__link">
+      <a href="../../Git/trouble/" class="md-nav__link">
         やらかしたとき
       </a>
     </li>
@@ -1304,12 +1107,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         Misc
@@ -1327,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/4sq/" class="md-nav__link">
+      <a href="../4sq/" class="md-nav__link">
         Forsquare API
       </a>
     </li>
@@ -1339,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/adobe/" class="md-nav__link">
+      <a href="../adobe/" class="md-nav__link">
         Adobe
       </a>
     </li>
@@ -1351,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/auth0/" class="md-nav__link">
+      <a href="../auth0/" class="md-nav__link">
         Auth0
       </a>
     </li>
@@ -1363,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/aws/" class="md-nav__link">
+      <a href="../aws/" class="md-nav__link">
         AWS
       </a>
     </li>
@@ -1375,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/az/" class="md-nav__link">
+      <a href="../az/" class="md-nav__link">
         Azure CLI
       </a>
     </li>
@@ -1387,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/azure/" class="md-nav__link">
+      <a href="../azure/" class="md-nav__link">
         Azure
       </a>
     </li>
@@ -1399,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/backlog/" class="md-nav__link">
+      <a href="../backlog/" class="md-nav__link">
         Backlog
       </a>
     </li>
@@ -1411,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/bsky/" class="md-nav__link">
+      <a href="../bsky/" class="md-nav__link">
         Bluesky API
       </a>
     </li>
@@ -1423,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/chrome/" class="md-nav__link">
+      <a href="../chrome/" class="md-nav__link">
         Chrome
       </a>
     </li>
@@ -1435,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/cygwin/" class="md-nav__link">
+      <a href="../cygwin/" class="md-nav__link">
         Cygwin
       </a>
     </li>
@@ -1447,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/esxi/" class="md-nav__link">
+      <a href="../esxi/" class="md-nav__link">
         ESXi
       </a>
     </li>
@@ -1459,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/firefox/" class="md-nav__link">
+      <a href="../firefox/" class="md-nav__link">
         Firefox
       </a>
     </li>
@@ -1471,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/gas/" class="md-nav__link">
+      <a href="../gas/" class="md-nav__link">
         Google Apps Script
       </a>
     </li>
@@ -1483,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/github/" class="md-nav__link">
+      <a href="../github/" class="md-nav__link">
         GitHub
       </a>
     </li>
@@ -1495,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/gitlab/" class="md-nav__link">
+      <a href="../gitlab/" class="md-nav__link">
         GitLab
       </a>
     </li>
@@ -1507,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/googledrive/" class="md-nav__link">
+      <a href="../googledrive/" class="md-nav__link">
         Google Drive
       </a>
     </li>
@@ -1519,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/jq/" class="md-nav__link">
+      <a href="../jq/" class="md-nav__link">
         jq
       </a>
     </li>
@@ -1531,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/microsoft/" class="md-nav__link">
+      <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
     </li>
@@ -1543,7 +1348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/mise/" class="md-nav__link">
+      <a href="../mise/" class="md-nav__link">
         mise
       </a>
     </li>
@@ -1555,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/mkdocs/" class="md-nav__link">
+      <a href="../mkdocs/" class="md-nav__link">
         MkDocs
       </a>
     </li>
@@ -1567,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/network/" class="md-nav__link">
+      <a href="../network/" class="md-nav__link">
         ネットワーク
       </a>
     </li>
@@ -1579,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/openssl/" class="md-nav__link">
+      <a href="../openssl/" class="md-nav__link">
         openssl
       </a>
     </li>
@@ -1591,7 +1396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/postgresql/" class="md-nav__link">
+      <a href="../postgresql/" class="md-nav__link">
         PostgreSQL
       </a>
     </li>
@@ -1603,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/proxmox/" class="md-nav__link">
+      <a href="../proxmox/" class="md-nav__link">
         Proxmox (PVE)
       </a>
     </li>
@@ -1615,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/qnap/" class="md-nav__link">
+      <a href="../qnap/" class="md-nav__link">
         QNAP
       </a>
     </li>
@@ -1627,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/slack/" class="md-nav__link">
+      <a href="../slack/" class="md-nav__link">
         Slack
       </a>
     </li>
@@ -1637,11 +1442,64 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Misc/sql/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         SQL
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    table
+  </a>
+  
+    <nav class="md-nav" aria-label="table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    テーブルの削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1651,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/sqlite/" class="md-nav__link">
+      <a href="../sqlite/" class="md-nav__link">
         SQLite3
       </a>
     </li>
@@ -1663,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/terraform/" class="md-nav__link">
+      <a href="../terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -1675,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/vault/" class="md-nav__link">
+      <a href="../vault/" class="md-nav__link">
         HashiCorp Vault
       </a>
     </li>
@@ -1687,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/vi/" class="md-nav__link">
+      <a href="../vi/" class="md-nav__link">
         vi
       </a>
     </li>
@@ -1699,7 +1557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/vscode/" class="md-nav__link">
+      <a href="../vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -1711,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc/windows/" class="md-nav__link">
+      <a href="../windows/" class="md-nav__link">
         Windows
       </a>
     </li>
@@ -1876,158 +1734,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    table
+  </a>
+  
+    <nav class="md-nav" aria-label="table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    ユーザー名・メールアドレスの設定
-  </a>
-  
-    <nav class="md-nav" aria-label="ユーザー名・メールアドレスの設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#home" class="md-nav__link">
-    共用アカウントなどで$HOMEに記録したくない場合
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    環境変数を使う場合
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    現在の設定確認
-  </a>
-  
-    <nav class="md-nav" aria-label="現在の設定確認">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    現在適用される設定全て
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    セクションごとの設定内容
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gitssh" class="md-nav__link">
-    Git+SSH
-  </a>
-  
-    <nav class="md-nav" aria-label="Git+SSH">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sshconfig" class="md-nav__link">
-    .ssh/config
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#homesshconfig" class="md-nav__link">
-    共用アカウントなどで$HOME/.ssh/config以外を使いたい場合
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    リモートリポジトリ
-  </a>
-  
-    <nav class="md-nav" aria-label="リモートリポジトリ">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    現在の設定
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    リポジトリを設定
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    リモートリポジトリを変更
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    別のリポジトリを別名で追加
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gitconfig" class="md-nav__link">
-    gitconfig
-  </a>
-  
-    <nav class="md-nav" aria-label="gitconfig">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alias" class="md-nav__link">
-    コマンドのalias
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-prompt" class="md-nav__link">
-    git prompt
-  </a>
-  
-    <nav class="md-nav" aria-label="git prompt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    記号
+    テーブルの削除
   </a>
   
 </li>
@@ -2049,154 +1765,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Git/configure.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Misc/sql.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="git">Git設定</h1>
-<h2 id="_1">ユーザー名・メールアドレスの設定</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git config --global user.name zaki</span>
-<span style="color: #888">git config --global user.email zaki.hmkc@...</span>
+                <h1 id="sql">SQL</h1>
+<h2 id="table">table</h2>
+<h3 id="_1">テーブルの削除</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">DROP</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">TABLE</span><span style="color: #BBB"> </span>table_name1,<span style="color: #BBB"> </span>table_name2,<span style="color: #BBB"> </span>table_name3;
 </code></pre></div>
-
-<h3 id="home">共用アカウントなどで$HOMEに記録したくない場合</h3>
-<p><code>--local</code>を使えば、<code>$HOME/.gitconfig</code>でなく、現在のリポジトリの設定に記録される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git config --local user.name zaki</span>
-<span style="color: #888">git config --local user.email zaki.hmkc@...</span>
-</code></pre></div>
-
-<h3 id="_2">環境変数を使う場合</h3>
-<p>以下を設定することで、<code>user.name</code>と<code>user.email</code>を上書きできる。<br />
-共用アカウントで誰かが<code>$HOME/.gitconfig</code>を設定してしまい、自分のワークディレクトリの<code>.gitconfig</code>の設定忘れでの事故防止的にはこちらが良いかも。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_AUTHOR_NAME
-<span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_AUTHOR_EMAIL
-<span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_COMMITTER_NAME
-<span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_COMMITTER_EMAIL
-</code></pre></div>
-
-<h2 id="_3">現在の設定確認</h2>
-<h3 id="_4">現在適用される設定全て</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>-l
-</code></pre></div>
-
-<h3 id="_5">セクションごとの設定内容</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>--system<span style="color: #BBB"> </span>-l
-$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>--global<span style="color: #BBB"> </span>-l
-$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>--local<span style="color: #BBB"> </span>-l
-</code></pre></div>
-
-<h2 id="gitssh">Git+SSH</h2>
-<h3 id="sshconfig">.ssh/config</h3>
-<p>鍵を指定する場合はこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Host gitlab-ce.example.org
-    IdentityFile ~/.ssh/id_rsa_git
-
-Host github.com
-    IdentityFile ~/.ssh/id_rsa_git
-</code></pre></div>
-
-<p>cloneのパスが<code>git@github.com/...</code>とユーザー名が指定されているので、<code>User git</code>は不要</p>
-<p>Backlogも同様にclone用文字列コピーにユーザー名含んでいるので以下でOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Host &lt;space&gt;.git.backlog.com
-    IdentityFile ~/.ssh/id_rsa_git
-</code></pre></div>
-
-<h3 id="homesshconfig">共用アカウントなどで$HOME/.ssh/config以外を使いたい場合</h3>
-<p>以下設定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_SSH_COMMAND</span><span style="color: #666">=</span><span style="color: #B44">&quot;ssh -F /path/to/myconf/ssh/config&quot;</span>
-</code></pre></div>
-
-<h2 id="_6">リモートリポジトリ</h2>
-<h3 id="_7">現在の設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>-v
-</code></pre></div>
-
-<h3 id="_8">リポジトリを設定</h3>
-<p>GitHubとかでREADME無しでリポジトリ作るとコマンドが表示されるアレ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>&lt;URI<span style="color: #BBB"> </span>of<span style="color: #BBB"> </span>Repository&gt;
-</code></pre></div>
-
-<h3 id="_9">リモートリポジトリを変更</h3>
-<p>originをGitHubからプライベートGitLabに変更、とか。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>set-url<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>https://my-gitlab.example.org/user/repository.git
-</code></pre></div>
-
-<p>HTTPS -&gt; SSHもこれ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>set-url<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>git@github.com:zaki-lknr/ansible-sample.git
-</code></pre></div>
-
-<h3 id="_10">別のリポジトリを別名で追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>hoge<span style="color: #BBB"> </span>&lt;other<span style="color: #BBB"> </span>repository&gt;
-</code></pre></div>
-
-<h2 id="gitconfig">gitconfig</h2>
-<h3 id="alias">コマンドのalias</h3>
-<p><code>git st</code>で<code>git status</code>にしたい場合はこんな感じ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[user]</span>
-<span style="color: #BBB">    </span><span style="color: #B44">email</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">...</span>
-<span style="color: #BBB">    </span><span style="color: #B44">name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">...</span>
-<span style="color: #A2F; font-weight: bold">[alias]</span>
-<span style="color: #BBB">    </span><span style="color: #B44">st</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">status</span>
-</code></pre></div>
-
-<h2 id="git-prompt">git prompt</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o .git-prompt.sh</span>
-<span style="color: #888">chmod 755 .git-prompt.sh</span>
-</code></pre></div>
-
-<p>.bashrcへ以下追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">[</span><span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.git-prompt.sh<span style="color: #BBB"> </span><span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span><span style="color: #A2F">source</span><span style="color: #BBB"> </span>~/.git-prompt.sh
-</code></pre></div>
-
-<p>この状態で、<code>PS1</code>環境変数を設定する。<br />
-設定例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># prompt</span>
-<span style="color: #B8860B">PS1</span><span style="color: #666">=</span><span style="color: #B44">&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
-</code></pre></div>
-
-<p>既存の<code>PS1</code>設定に追加するのであればこんな感じが良いかも。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span><span style="color: #BBB"> </span><span style="color: #666">[</span><span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.git-prompt.sh<span style="color: #BBB"> </span><span style="color: #666">]</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">then</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">source</span><span style="color: #BBB"> </span>~/.git-prompt.sh
-<span style="color: #BBB">    </span><span style="color: #B8860B">PS1</span><span style="color: #666">=</span><span style="color: #B44">&#39;\[\e[31m\]$(__git_ps1 &quot;(%s) &quot;)\[\e[0m\]&#39;&quot;</span><span style="color: #B8860B">$PS1</span><span style="color: #B44">&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWDIRTYSTATE</span><span style="color: #666">=</span><span style="color: #A2F">true</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWUNTRACKEDFILES</span><span style="color: #666">=</span><span style="color: #A2F">true</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWSTASHSTATE</span><span style="color: #666">=</span><span style="color: #A2F">true</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWUPSTREAM</span><span style="color: #666">=</span>auto
-<span style="color: #A2F; font-weight: bold">fi</span>
-</code></pre></div>
-
-<h3 id="_11">記号</h3>
-<table>
-<thead>
-<tr>
-<th>記号</th>
-<th>意味</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>=</code>,<code>&lt;</code>, <code>&gt;</code></td>
-<td>upstreamと差分なし(<code>=</code>)より遅れてる(<code>&lt;</code>)進んでる(<code>&gt;</code>)</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>unstage (変更あるけど未add)</td>
-</tr>
-<tr>
-<td><code>+</code></td>
-<td>uncommit (add済み未commit)</td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>untrack</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>stashed</td>
-</tr>
-</tbody>
-</table>
                 
               
               
@@ -2215,7 +1793,7 @@ Host github.com
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../codecommit/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../slack/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2224,19 +1802,19 @@ Host github.com
               <span class="md-footer__direction">
                 前
               </span>
-              CodeCommit
+              Slack
             </div>
           </div>
         </a>
       
       
-        <a href="../github/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../sqlite/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              GitHub
+              SQLite3
             </div>
           </div>
           <div class="md-footer__button md-icon">

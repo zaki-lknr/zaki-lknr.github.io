@@ -1729,6 +1729,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/sql/" class="md-nav__link">
+        SQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/sqlite/" class="md-nav__link">
         SQLite3
       </a>
@@ -2337,6 +2349,8 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | sh -s - --disable traefik --disable local-storage</span>
 </code></pre></div>
 
+<p>構築済みのK3sに対してコンポーネントを無効化/有効化したい場合は、<code>/etc/systemd/system/k3s.service</code>へ起動パラメタを編集し、<code>systemctl daemon-reload</code>して<code>systemctl restart k3s</code>すればOK<br />
+(設定ファイル<code>/etc/rancher/k3s/config.yaml</code>管理であればk3sサービスの再起動のみ)</p>
 <h3 id="_9">インストールパラメタの設定ファイル化</h3>
 <p><code>/etc/rancher/k3s/config.yaml</code>ファイルに定義する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
