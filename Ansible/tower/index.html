@@ -794,6 +794,26 @@
         
           <li class="md-nav__item">
   <a href="#_19" class="md-nav__link">
+    ワークフジョブローテンプレート
+  </a>
+  
+    <nav class="md-nav" aria-label="ワークフジョブローテンプレート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
     チーム
   </a>
   
@@ -801,7 +821,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     チーム一覧
   </a>
   
@@ -820,7 +840,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -2138,6 +2158,26 @@
         
           <li class="md-nav__item">
   <a href="#_19" class="md-nav__link">
+    ワークフジョブローテンプレート
+  </a>
+  
+    <nav class="md-nav" aria-label="ワークフジョブローテンプレート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
     チーム
   </a>
   
@@ -2145,7 +2185,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     チーム一覧
   </a>
   
@@ -2164,7 +2204,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     その他のシステム設定
   </a>
   
@@ -2341,8 +2381,14 @@ Towerは実行中で良い。<br />
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XPost https://server/api/v2/job_templates/${TEMPLATE_ID}/launch/</span>
 </code></pre></div>
 
-<h3 id="_19">チーム</h3>
-<h4 id="_20">チーム一覧</h4>
+<h3 id="_19">ワークフジョブローテンプレート</h3>
+<p>ジョブテンプレートとは別</p>
+<h4 id="_20">一覧</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://tower.example.org/api/v2/workflow_job_templates/</span>
+</code></pre></div>
+
+<h3 id="_21">チーム</h3>
+<h4 id="_22">チーム一覧</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XGET https://server/api/v2/teams/</span>
 </code></pre></div>
 
@@ -2458,7 +2504,7 @@ Towerは実行中で良い。<br />
 <span style="color: #888">}</span>
 </code></pre></div>
 
-<h3 id="_21">その他のシステム設定</h3>
+<h3 id="_23">その他のシステム設定</h3>
 <p>category_slugに<code>system</code>を指定。<br />
 キー一覧は以下の通り</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://tower.example.org/api/v2/settings/system/<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>python3<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>json.tool
