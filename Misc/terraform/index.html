@@ -1617,6 +1617,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指定モジュールのみ処理
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1645,7 +1652,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ロックしたままになった場合の解除
   </a>
   
@@ -1657,7 +1664,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     構文
   </a>
   
@@ -1672,7 +1679,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     変数
   </a>
   
@@ -1680,14 +1687,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     変数参照
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     補完
   </a>
   
@@ -1699,7 +1706,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     テンプレート
   </a>
   
@@ -1707,7 +1714,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     エスケープ
   </a>
   
@@ -1719,7 +1726,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     関数
   </a>
   
@@ -1759,7 +1766,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     デフォルトのルートテーブル
   </a>
   
@@ -2107,6 +2114,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指定モジュールのみ処理
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2135,7 +2149,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ロックしたままになった場合の解除
   </a>
   
@@ -2147,7 +2161,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     構文
   </a>
   
@@ -2162,7 +2176,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     変数
   </a>
   
@@ -2170,14 +2184,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     変数参照
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     補完
   </a>
   
@@ -2189,7 +2203,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     テンプレート
   </a>
   
@@ -2197,7 +2211,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     エスケープ
   </a>
   
@@ -2209,7 +2223,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     関数
   </a>
   
@@ -2249,7 +2263,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     デフォルトのルートテーブル
   </a>
   
@@ -2346,6 +2360,11 @@
 </code></pre></div>
 
 <p><a href="https://developer.hashicorp.com/terraform/internals/debugging">Debugging | Terraform | HashiCorp Developer</a></p>
+<h3 id="_8">指定モジュールのみ処理</h3>
+<p><code>-module=module.モジュール名</code>で指定可能</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -module=.module.my-module</span>
+</code></pre></div>
+
 <h2 id="backend">backend設定</h2>
 <h3 id="s3">S3</h3>
 <p>backendの定義を追加</p>
@@ -2400,7 +2419,7 @@
 <span style="color: #BBB">  </span>}
 </code></pre></div>
 
-<h3 id="_8">ロックしたままになった場合の解除</h3>
+<h3 id="_9">ロックしたままになった場合の解除</h3>
 <p>処理中の強制中断や、実行ホストのシャットダウンなどで、ロック状態のままになると、次のTerraform実行はできなくなる。<br />
 解除するには <code>terraform force-unlock ID</code> を実行する。</p>
 <p>IDはエラーメッセージ中の以下の値</p>
@@ -2417,7 +2436,7 @@
 <span style="color: #888">  Info:</span>
 </code></pre></div>
 
-<h2 id="_9">構文</h2>
+<h2 id="_10">構文</h2>
 <h3 id="count">count</h3>
 <p>EC2を3つ立てNameタグに連番を振る</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_instance&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;cloud-vm&quot;</span><span style="color: #BBB"> </span>{
@@ -2440,26 +2459,26 @@
 }
 </code></pre></div>
 
-<h3 id="_10">変数</h3>
-<h4 id="_11">変数参照</h4>
+<h3 id="_11">変数</h3>
+<h4 id="_12">変数参照</h4>
 <p><code>vm_ami_id</code>という変数を定義しているなら以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">ami</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.vm_ami_id</span>
 </code></pre></div>
 
-<h4 id="_12">補完</h4>
+<h4 id="_13">補完</h4>
 <p>文字列リテラルの中で参照する場合は「補完」で書式は以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">tags</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
 <span style="color: #BBB">  </span><span style="color: #B44">Name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;${var.name_prefix}-server&quot;</span>
 }
 </code></pre></div>
 
-<h3 id="_13">テンプレート</h3>
-<h4 id="_14">エスケープ</h4>
+<h3 id="_14">テンプレート</h3>
+<h4 id="_15">エスケープ</h4>
 <p><code>%{...}</code>という文字をそのまま使いたい場合は<code>%%{...}</code></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl -k https://localhost:6443 -w &#39;%%{http_code}\n&#39; -sS -o /dev/null 2&gt;/dev/null
 </code></pre></div>
 
-<h3 id="_15">関数</h3>
+<h3 id="_16">関数</h3>
 <h4 id="file">file</h4>
 <p><a href="https://developer.hashicorp.com/terraform/language/functions/file">file - Functions - Configuration Language | Terraform | HashiCorp Developer</a></p>
 <p>引数のファイルの内容を取り込む。<br />
@@ -2502,7 +2521,7 @@ git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>http
 </code></pre></div>
 
 <h2 id="resource">resource</h2>
-<h3 id="_16">デフォルトのルートテーブル</h3>
+<h3 id="_17">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">route_table_ids</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_vpc.my_vpc.default_route_table_id</span>]
 </code></pre></div>
