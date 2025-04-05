@@ -850,6 +850,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ストレージ
+  </a>
+  
+    <nav class="md-nav" aria-label="ストレージ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pv" class="md-nav__link">
+    PV拡張
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#namespace" class="md-nav__link">
     消えないnamespace
   </a>
@@ -860,6 +880,26 @@
   <a href="#init" class="md-nav__link">
     Initコンテナ
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    RBAC
+  </a>
+  
+    <nav class="md-nav" aria-label="RBAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verbs" class="md-nav__link">
+    verbs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1922,6 +1962,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ストレージ
+  </a>
+  
+    <nav class="md-nav" aria-label="ストレージ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pv" class="md-nav__link">
+    PV拡張
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#namespace" class="md-nav__link">
     消えないnamespace
   </a>
@@ -1932,6 +1992,26 @@
   <a href="#init" class="md-nav__link">
     Initコンテナ
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    RBAC
+  </a>
+  
+    <nav class="md-nav" aria-label="RBAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verbs" class="md-nav__link">
+    verbs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1982,6 +2062,7 @@
 <li><a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/">kube-controller-manager | Kubernetes</a></li>
 </ul>
 </li>
+<li><a href="https://kubernetes.io/ja/docs/concepts/storage/persistent-volumes/">永続ボリューム | Kubernetes</a></li>
 </ul>
 <h2 id="_1">ヘルスチェック</h2>
 <p><a href="https://kubernetes.io/docs/reference/using-api/health-checks/">Kubernetes API health endpoints | Kubernetes</a></p>
@@ -2056,6 +2137,9 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <h3 id="service">service</h3>
 <h4 id="fqcn-aaaaa">FQCN (A/AAAAレコード)</h4>
 <p>podからは<code>&lt;service-name&gt;.&lt;namespace-name&gt;.svc.cluster.local</code>で名前解決できる。</p>
+<h2 id="_2">ストレージ</h2>
+<h3 id="pv">PV拡張</h3>
+<p><a href="https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/">Resizing Persistent Volumes using Kubernetes | Kubernetes</a></p>
 <h2 id="namespace">消えないnamespace</h2>
 <p><code>kubectl delete ns hoge</code>が応答無くなりstatusがTerminatingのままになった場合の対処。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get ns hoge -o json &gt; deletens.json</span>
@@ -2082,6 +2166,62 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <li><a href="https://kubernetes.io/ja/docs/concepts/workloads/pods/init-containers/">Initコンテナ | Kubernetes</a></li>
 <li><a href="https://kubernetes.io/ja/docs/tasks/debug/debug-application/debug-init-containers/">Initコンテナのデバッグ | Kubernetes</a></li>
 </ul>
+<h2 id="rbac">RBAC</h2>
+<p><a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/">Authorization | Kubernetes</a></p>
+<h3 id="verbs">verbs</h3>
+<table>
+<thead>
+<tr>
+<th>request</th>
+<th>HTTP</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td>POST</td>
+<td></td>
+</tr>
+<tr>
+<td>get</td>
+<td>GET / HEAD</td>
+<td></td>
+</tr>
+<tr>
+<td>list</td>
+<td>GET / HEAD</td>
+<td>一覧の参照</td>
+</tr>
+<tr>
+<td>watch</td>
+<td>GET / HEAD</td>
+<td>変更の監視</td>
+</tr>
+<tr>
+<td>update</td>
+<td>PUT</td>
+<td></td>
+</tr>
+<tr>
+<td>patch</td>
+<td>PATCH</td>
+<td></td>
+</tr>
+<tr>
+<td>delete</td>
+<td>DELETE</td>
+<td></td>
+</tr>
+<tr>
+<td>deletecollection</td>
+<td>DELETE</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://stackoverflow.com/questions/58159866/get-vs-list-in-kubernetes-rbac">get vs. list in Kubernetes RBAC - Stack Overflow</a></p>
+<p>リソース単位で操作に必要なverbsは<code>kubectl api-resources -o wide</code>で確認できる。</p>
 <h2 id="rest">REST</h2>
 <h3 id="namespace_1">namespace一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://k8s.example.org:6443/api/v1/namespaces</span>
