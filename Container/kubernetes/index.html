@@ -904,6 +904,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#crictl" class="md-nav__link">
+    crictl
+  </a>
+  
+    <nav class="md-nav" aria-label="crictl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod_1" class="md-nav__link">
+    pod一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    コンテナ一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rest" class="md-nav__link">
     REST
   </a>
@@ -2016,6 +2043,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#crictl" class="md-nav__link">
+    crictl
+  </a>
+  
+    <nav class="md-nav" aria-label="crictl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod_1" class="md-nav__link">
+    pod一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    コンテナ一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rest" class="md-nav__link">
     REST
   </a>
@@ -2222,6 +2276,25 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 </table>
 <p><a href="https://stackoverflow.com/questions/58159866/get-vs-list-in-kubernetes-rbac">get vs. list in Kubernetes RBAC - Stack Overflow</a></p>
 <p>リソース単位で操作に必要なverbsは<code>kubectl api-resources -o wide</code>で確認できる。</p>
+<h2 id="crictl">crictl</h2>
+<h3 id="pod_1">pod一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl pods</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl pods --namespace &lt;NAMESPACE&gt; --name &lt;POD_NAME&gt;</span>
+</code></pre></div>
+
+<h3 id="_3">コンテナ一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl ps</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl ps --name &lt;CONTAINER_NAME&gt;</span>
+</code></pre></div>
+
+<p><code>--name</code>は正規表現可能</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl ps --name &#39;awx-.*&#39;</span>
+</code></pre></div>
+
 <h2 id="rest">REST</h2>
 <h3 id="namespace_1">namespace一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://k8s.example.org:6443/api/v1/namespaces</span>

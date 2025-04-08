@@ -579,6 +579,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#become" class="md-nav__link">
+    become
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#includeimport" class="md-nav__link">
     includeとimport
   </a>
@@ -1969,6 +1976,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#become" class="md-nav__link">
+    become
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#includeimport" class="md-nav__link">
     includeとimport
   </a>
@@ -2273,6 +2287,18 @@
 <h3 id="_7">定義されてる場合/されてない場合</h3>
 <p><code>foobar_value</code>が未定義の場合にタスク実行するには以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">when</span>:<span style="color: #BBB"> </span>foobar_value is not defined
+</code></pre></div>
+
+<h2 id="become">become</h2>
+<p>特権ユーザーへの昇格に使う場合が多いが、基本的には「別ユーザー権限でタスクを実行」するためのもの。<br />
+<code>become_user</code>を使えば<code>su - &lt;USER_NAME&gt;</code>の動作になる。<br />
+ただしパスワードを指定するディレクティブはないため、認証のためのパスワードは<code>ansible_become_password</code>変数を併用する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec by other user
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">module</span>:
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">become</span>:<span style="color: #BBB"> </span>true
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">become_user</span>:<span style="color: #BBB"> </span>other-user-name
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">ansible_become_password</span>:<span style="color: #BBB"> </span>other-user-password
 </code></pre></div>
 
 <h2 id="includeimport">includeとimport</h2>

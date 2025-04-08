@@ -1740,6 +1740,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    ファイル情報
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル情報">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一覧表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    指定プロパティのみ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1761,14 +1788,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -1932,6 +1959,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    ファイル情報
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル情報">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一覧表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    指定プロパティのみ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1953,14 +2007,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -2064,13 +2118,68 @@ key2                           123
 <span style="color: #888">True     True     Byte[]                                   System.Array</span>
 </code></pre></div>
 
+<h3 id="_9">ファイル情報</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Get-ItemProperty</span> &lt;FILE_PATH&gt;
+</code></pre></div>
+
+<p><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.management/get-itemproperty?view=powershell-7.5">Get-ItemProperty (Microsoft.PowerShell.Management) - PowerShell | Microsoft Learn</a></p>
+<h4 id="_10">一覧表示</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg | <span style="color: #A2F">Format-List</span>
+
+
+    ディレクトリ: C:\Users\zakih\Desktop
+
+
+
+Name           : P1490954.jpg
+Length         : 110922
+CreationTime   : 2025/01/23 17:39:18
+LastWriteTime  : 2025/01/23 17:39:18
+LastAccessTime : 2025/04/06 12:00:01
+Mode           : -a----
+LinkType       :
+Target         : {}
+VersionInfo    : File:             C:\Users\zakih\Desktop\P1490954.jpg
+                 InternalName:
+                 OriginalFilename:
+                 FileVersion:
+                 FileDescription:
+                 Product:
+                 ProductVersion:
+                 Debug:            False
+                 Patched:          False
+                 PreRelease:       False
+                 PrivateBuild:     False
+                 SpecialBuild:     False
+                 Language:
+</code></pre></div>
+
+<h4 id="_11">指定プロパティのみ</h4>
+<p><code>-Name</code>を使用。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg -Name LastWriteTime
+
+
+LastWriteTime : 2025/01/23 17:39:18
+PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop\P1490954.jpg
+PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop
+PSChildName   : P1490954.jpg
+PSDrive       : C
+PSProvider    : Microsoft.PowerShell.Core\FileSystem
+</code></pre></div>
+
+<p>あるいは直接参照。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; (<span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg).LastWriteTime
+
+2025年1月23日 17:39:18
+</code></pre></div>
+
 <h2 id="azure-powershell">Azure PowerShell</h2>
 <h3 id="azure-az-powershell">Azure Az PowerShellインストール</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/azure/install-az-ps">Azure Az PowerShell モジュールをインストールする | Microsoft Learn</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Install-Module</span> -Name Az -Scope CurrentUser -Repository PSGallery -Force
 </code></pre></div>
 
-<h3 id="_9">サインイン</h3>
+<h3 id="_12">サインイン</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span>
 </code></pre></div>
 
@@ -2078,7 +2187,7 @@ key2                           123
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span> -TenantId ********
 </code></pre></div>
 
-<h3 id="_10">ディレクトリ切り替え</h3>
+<h3 id="_13">ディレクトリ切り替え</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Select-AzContext</span> ...
 </code></pre></div>
 
