@@ -1062,6 +1062,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rolebindings-clusterrolebindings" class="md-nav__link">
+    rolebindings / clusterrolebindings
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2423,6 +2430,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rolebindings-clusterrolebindings" class="md-nav__link">
+    rolebindings / clusterrolebindings
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2914,6 +2928,11 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888">awx         awx-postgres-15-0                                  postgres</span>
 <span style="color: #888">awx         awx-task-dc97f74f7-fmbbn                           redis,awx-task,awx-ee,awx-rsyslog</span>
 <span style="color: #888">awx         awx-web-769f8f749f-s4qkz                           redis,awx-web,awx-rsyslog</span>
+</code></pre></div>
+
+<h3 id="rolebindings-clusterrolebindings">rolebindings / clusterrolebindings</h3>
+<p>紐付いてるServiceAccountを確認する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get rolebindings,clusterrolebindings -A -o custom-columns=&#39;KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind==&quot;ServiceAccount&quot;)].name&#39; | grep &lt;SERVICE_ACCOUNT_NAME&gt;</span>
 </code></pre></div>
 
 <h2 id="rollout">rollout</h2>

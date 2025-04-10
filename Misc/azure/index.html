@@ -1271,6 +1271,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#log-analytics" class="md-nav__link">
+    Log Analytics
+  </a>
+  
+    <nav class="md-nav" aria-label="Log Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    クエリ
+  </a>
+  
+    <nav class="md-nav" aria-label="クエリ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#countername" class="md-nav__link">
+    使用可能なCounterNameの一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1807,6 +1840,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#log-analytics" class="md-nav__link">
+    Log Analytics
+  </a>
+  
+    <nav class="md-nav" aria-label="Log Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    クエリ
+  </a>
+  
+    <nav class="md-nav" aria-label="クエリ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#countername" class="md-nav__link">
+    使用可能なCounterNameの一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1848,6 +1914,15 @@
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli">Azure Kubernetes Service (AKS) クラスターの監視を有効にする - Azure Monitor | Microsoft Learn</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/containers/kubernetes-monitoring-disable">Kubernetes クラスターの監視を無効にする - Azure Monitor | Microsoft Learn</a></li>
 </ul>
+<h2 id="log-analytics">Log Analytics</h2>
+<h3 id="_4">クエリ</h3>
+<h4 id="countername">使用可能なCounterNameの一覧</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Perf
+|<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">where</span><span style="color: #BBB"> </span>ObjectName<span style="color: #BBB"> </span>==<span style="color: #BBB"> </span><span style="color: #B44">&quot;K8SContainer&quot;</span>
+|<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">summarize</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">count</span>()<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">by</span><span style="color: #BBB"> </span>CounterName
+</code></pre></div>
+
+<p>CounterNameの一覧とそれぞれの件数が出力される</p>
                 
               
               
