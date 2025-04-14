@@ -1762,6 +1762,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    更新
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1788,14 +1795,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -1981,6 +1988,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    更新
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2007,14 +2021,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -2173,13 +2187,27 @@ PSProvider    : Microsoft.PowerShell.Core\FileSystem
 2025年1月23日 17:39:18
 </code></pre></div>
 
+<h4 id="_12">更新</h4>
+<p><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.management/set-itemproperty?view=powershell-7.5">Set-ItemProperty (Microsoft.PowerShell.Management) - PowerShell | Microsoft Learn</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Set-ItemProperty</span> .\P1490954.jpg -Name LastWriteTime -Value <span style="color: #B44">&#39;2025/4/6 15:10:32&#39;</span>
+<span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg -Name LastWriteTime
+
+
+LastWriteTime : 2025/04/06 15:10:32
+PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop\P1490954.jpg
+PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop
+PSChildName   : P1490954.jpg
+PSDrive       : C
+PSProvider    : Microsoft.PowerShell.Core\FileSystem
+</code></pre></div>
+
 <h2 id="azure-powershell">Azure PowerShell</h2>
 <h3 id="azure-az-powershell">Azure Az PowerShellインストール</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/azure/install-az-ps">Azure Az PowerShell モジュールをインストールする | Microsoft Learn</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Install-Module</span> -Name Az -Scope CurrentUser -Repository PSGallery -Force
 </code></pre></div>
 
-<h3 id="_12">サインイン</h3>
+<h3 id="_13">サインイン</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span>
 </code></pre></div>
 
@@ -2187,7 +2215,7 @@ PSProvider    : Microsoft.PowerShell.Core\FileSystem
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span> -TenantId ********
 </code></pre></div>
 
-<h3 id="_13">ディレクトリ切り替え</h3>
+<h3 id="_14">ディレクトリ切り替え</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Select-AzContext</span> ...
 </code></pre></div>
 
