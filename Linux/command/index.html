@@ -1176,6 +1176,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#http-09" class="md-nav__link">
+    HTTP 0.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     ステータスコードのみ取得
   </a>
@@ -2904,6 +2911,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#http-09" class="md-nav__link">
+    HTTP 0.9
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     ステータスコードのみ取得
   </a>
@@ -3863,6 +3877,12 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl -u username:password http://example.org/
 </code></pre></div>
 
+<h3 id="http-09">HTTP 0.9</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>http://old.example.org/
+<span style="color: #888">curl: (1) Received HTTP/0.9 when not allowed</span>
+</code></pre></div>
+
+<p>HTTP/0.9のレスポンスは<code>curl</code>はデフォルトで処理しないが、<code>--http0.9</code>をオプションに加えるとOK</p>
 <h3 id="_11">ステータスコードのみ取得</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl http://www.example.org/ -w &#39;%{http_code}\n&#39; -sS -o /dev/null</span>
 </code></pre></div>

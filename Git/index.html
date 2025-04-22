@@ -1524,6 +1524,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    トレースログ出力
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3069,6 +3076,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    トレースログ出力
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3666,6 +3680,20 @@ M<span style="color: #BBB">       </span>docs/Ansible/directives.md
 <p>コミットを指定するときに、<sub>(チルダ)と^(キャレット)を使ってあるコミットからの相対位置で指定することもできます。この時に、よく使われるのがHEADです。</sub>(チルダ)を後ろに付け加えることで何世代前の親かを指定することができます。^(キャレット)は、ブランチのマージで親が複数ある場合に、何番目の親かを指定することができます。</p>
 <p><a href="https://backlog.com/ja/git-tutorial/stepup/03/">ブランチの切り替え｜サル先生のGit入門【プロジェクト管理ツールBacklog】</a></p>
 </blockquote>
+<h3 id="_51">トレースログ出力</h3>
+<p><code>GIT_TRACE</code>など有効にするとログが表示される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">GIT_TRACE=true git push</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">GIT_TRACE_CURL=true git clone https://github.com/zaki-lknr/r2tokimeki.git</span>
+</code></pre></div>
+
+<p>複数指定も可能</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">GIT_TRACE=true GIT_TRACE_PACKET=true git clone https://github.com/zaki-lknr/r2tokimeki.git</span>
+</code></pre></div>
+
+<p>sshのデバッグログを出したい場合は<code>GIT_SSH_COMMAND="ssh -v"</code>を使う。</p>
+<p><a href="https://git-scm.com/book/ja/v2/Git%E3%81%AE%E5%86%85%E5%81%B4-%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0">Git - 環境変数</a></p>
 <h2 id="gitignore">.gitignore</h2>
 <p><a href="https://qiita.com/ndxbn/items/f124d2b183b60cb074e2">空のディレクトリを維持するための、 .gitkeep と .gitignore の使い分け - Qiita</a></p>
                 

@@ -1238,6 +1238,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ec2" class="md-nav__link">
+    EC2
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vm" class="md-nav__link">
+    VMリストアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_1" class="md-nav__link">
+    指定タグのVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     ネットワーク
   </a>
@@ -1885,6 +1912,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ec2" class="md-nav__link">
+    EC2
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vm" class="md-nav__link">
+    VMリストアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_1" class="md-nav__link">
+    指定タグのVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     ネットワーク
   </a>
@@ -2041,6 +2095,18 @@
 
 <p><code>aws</code>を指定しないのがポイント</p>
 <h3 id="_4">各操作</h3>
+<h4 id="ec2">EC2</h4>
+<h5 id="vm">VMリストアップ</h5>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 describe-instances \</span>
+<span style="color: #888">  --region &lt;リージョン&gt;</span>
+</code></pre></div>
+
+<h5 id="vm_1">指定タグのVM</h5>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 describe-instances \</span>
+<span style="color: #888">  --region &lt;リージョン&gt; \</span>
+<span style="color: #888">  --query &quot;Reservations[].Instances[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]]&quot;</span>
+</code></pre></div>
+
 <h4 id="_5">ネットワーク</h4>
 <h5 id="id">ゲートウェイIDの取得</h5>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 describe-vpn-gateways \</span>

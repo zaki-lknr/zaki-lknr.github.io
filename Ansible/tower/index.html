@@ -670,6 +670,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#event_stdout_max_bytes_display" class="md-nav__link">
+    EVENT_STDOUT_MAX_BYTES_DISPLAY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_event_res_data" class="md-nav__link">
+    MAX_EVENT_RES_DATA
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2067,6 +2081,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#event_stdout_max_bytes_display" class="md-nav__link">
+    EVENT_STDOUT_MAX_BYTES_DISPLAY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_event_res_data" class="md-nav__link">
+    MAX_EVENT_RES_DATA
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2387,17 +2415,33 @@ Towerは実行中で良い。<br />
 <h2 id="_6">設定</h2>
 <h3 id="tower_url_base">TOWER_URL_BASE</h3>
 <p>通知時のホスト名</p>
+<h3 id="event_stdout_max_bytes_display">EVENT_STDOUT_MAX_BYTES_DISPLAY</h3>
+<p>ジョブストリームに表示されるログのバイト数。超過分は省略表示される。</p>
+<h3 id="max_event_res_data">MAX_EVENT_RES_DATA</h3>
+<p>大きなサイズのイベントデータの上限値。超過分は保存時に切り捨てられる。</p>
+<ul>
+<li><a href="https://docs.redhat.com/ja/documentation/red_hat_ansible_automation_platform/2.5/html/configuring_automation_execution/controller-tuning">3.7. Automation Controller のチューニング | Red Hat Product Documentation</a></li>
+<li><a href="https://github.com/ansible/awx/issues/1789">Returned JSON is empty when standard output is large · Issue #1789 · ansible/awx</a></li>
+</ul>
 <h2 id="tools">Tools</h2>
 <h3 id="awx-manage">awx-manage</h3>
 <h4 id="_7">ジョブ削除</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">awx-manage cleanup_jobs [--help]</span>
 </code></pre></div>
 
-<p><code>--dry-run</code>で実行すれば削除対象を確認できる。</p>
+<p><code>--dry-run</code>で実行すれば削除対象を確認できる。<br />
+デフォルト90日以前が削除対象。</p>
+<p>日付指定は<code>--days</code>で指定。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">awx-manage cleanup_jobs --days 3</span>
+</code></pre></div>
+
 <h2 id="api">API</h2>
 <p>API一覧は以下。<br />
-<a href="https://docs.ansible.com/automation-controller/latest/html/controllerapi/api_ref.html">11. Controller API Reference Guide — Automation Controller API Guide v4.2.1</a></p>
-<p>稼働中のAAP/AWXのAPI・エンドポイントを確認するには、ブラウザで<code>/api/</code>にアクセスすれば確認できる。</p>
+<del><a href="https://docs.ansible.com/automation-controller/latest/html/controllerapi/api_ref.html">11. Controller API Reference Guide — Automation Controller API Guide v4.2.1</a></del></p>
+<ul>
+<li><a href="https://ansible.readthedocs.io/projects/awx/en/latest/rest_api/api_ref.html">12. AWX API Reference Guide — Ansible AWX community documentation</a></li>
+</ul>
+<p>稼働中のAAP/AWXのAPI・エンドポイントを確認するには、ブラウザで<code>/api/v2/</code>にアクセスすれば確認できる。</p>
 <h3 id="_8">認証</h3>
 <h4 id="_9">ユーザー名とパスワード</h4>
 <p>webログイン時に使用するユーザー名とパスワードでRESTを実行するにはBasic認証を使用する。<br />

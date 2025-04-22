@@ -952,6 +952,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    接続不調時などにSSHのログを確認する
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1951,6 +1958,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    接続不調時などにSSHのログを確認する
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2105,6 +2119,12 @@ Host github.com
 <h3 id="homesshconfig">共用アカウントなどで$HOME/.ssh/config以外を使いたい場合</h3>
 <p>以下設定。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_SSH_COMMAND</span><span style="color: #666">=</span><span style="color: #B44">&quot;ssh -F /path/to/myconf/ssh/config&quot;</span>
+</code></pre></div>
+
+<h3 id="ssh">接続不調時などにSSHのログを確認する</h3>
+<p><code>-vvv</code>のように数を増やせばログ量は増える。<br />
+要は内部で使用する<code>ssh</code>コマンドを明示的に指定しつつverboseオプションを追加する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">GIT_SSH_COMMAND=&quot;ssh -v&quot; git push</span>
 </code></pre></div>
 
 <h2 id="_6">リモートリポジトリ</h2>
