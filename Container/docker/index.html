@@ -882,6 +882,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    network
+  </a>
+  
+    <nav class="md-nav" aria-label="network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ls" class="md-nav__link">
+    ls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2203,6 +2223,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    network
+  </a>
+  
+    <nav class="md-nav" aria-label="network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ls" class="md-nav__link">
+    ls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2476,6 +2516,22 @@ Compose使用時もこのパターン。</p>
 
 <p>デフォルトは、タグが設定されずに<code>&lt;none&gt;</code>になっているイメージが削除される。<br />
 <code>&lt;none&gt;</code>のイメージをリストアップするだけであれば <code>docker image ls -f "dangling=true"</code> でリストアップできる。</p>
+<h3 id="network">network</h3>
+<h4 id="ls">ls</h4>
+<p>Dockerネットワークのリスト表示</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>network<span style="color: #BBB"> </span>ls
+<span style="color: #888">NETWORK ID     NAME                        DRIVER    SCOPE</span>
+<span style="color: #888">34ef60dd22b5   ansible-semaphore_default   bridge    local</span>
+<span style="color: #888">69fdc4f1b801   bridge                      bridge    local</span>
+<span style="color: #888">5a51254c9202   compose-sample_default      bridge    local</span>
+<span style="color: #888">0ee332b7e247   guacamole-network           bridge    local</span>
+<span style="color: #888">a3434bde2af6   host                        host      local</span>
+<span style="color: #888">d2561ec39f0b   kind                        bridge    local</span>
+<span style="color: #888">11eb1e17b151   metrics_default             bridge    local</span>
+<span style="color: #888">75cd64743a98   minikube                    bridge    local</span>
+<span style="color: #888">550454724fbf   none                        null      local</span>
+</code></pre></div>
+
 <h2 id="_2">実行サンプル</h2>
 <h3 id="webhttpd">ローカルのwebコンテンツをhttpdに持たせる</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
