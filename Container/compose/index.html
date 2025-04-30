@@ -749,6 +749,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    依存
+  </a>
+  
+    <nav class="md-nav" aria-label="依存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    単純な依存設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#bind" class="md-nav__link">
     ファイルのbindマウント
   </a>
@@ -756,14 +776,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
@@ -1880,6 +1900,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    依存
+  </a>
+  
+    <nav class="md-nav" aria-label="依存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    単純な依存設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#bind" class="md-nav__link">
     ファイルのbindマウント
   </a>
@@ -1887,14 +1927,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
@@ -1991,6 +2031,19 @@
 <span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">network_mode</span>:<span style="color: #BBB"> </span>service:app
 </code></pre></div>
 
+<h3 id="_6">依存</h3>
+<h4 id="_7">単純な依存設定</h4>
+<p>depends_onで依存を設定することで起動・終了の順序を制御できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">db</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>postgres
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">app</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>app
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">depends_on</span>:
+<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>db
+</code></pre></div>
+
+<p>順序が制御できるのみなので、コンテナ内プロセスの状態までは感知しない。</p>
 <h3 id="bind">ファイルのbindマウント</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
@@ -2009,7 +2062,7 @@
 <span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #BBB"> </span>/etc/rancher/k3s/registries.yaml
 </code></pre></div>
 
-<h3 id="_6">リソース制限</h3>
+<h3 id="_8">リソース制限</h3>
 <p>OSのリソースを使いつくさないようにCPUとメモリを制限</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
@@ -2025,7 +2078,7 @@
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/08/213857">[Docker] コンテナで動かすプロセスのCPU使用率を--cpusで、メモリ使用量を--memoryで制限する - zaki work log</a></p>
-<h3 id="_7">ログファイルサイズ制限</h3>
+<h3 id="_9">ログファイルサイズ制限</h3>
 <p><strong>デフォルト無制限のためストレージを使い切ってしまうので制限する</strong></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 

@@ -1557,6 +1557,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tfstate" class="md-nav__link">
+    tfstateの確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspace" class="md-nav__link">
     workspace
   </a>
@@ -2054,6 +2061,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tfstate" class="md-nav__link">
+    tfstateの確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspace" class="md-nav__link">
     workspace
   </a>
@@ -2329,6 +2343,11 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform state list</span>
 </code></pre></div>
 
+<h3 id="tfstate">tfstateの確認</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform state pull</span>
+</code></pre></div>
+
+<p>stdoutへtfstateの内容が出力されるので、ファイルへ保存すればクラウドに配置している場合のtfstateも1コマンドで取得できる。</p>
 <h3 id="workspace">workspace</h3>
 <h4 id="workspace_1">現在のworkspace</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #BBB"> </span>workspace<span style="color: #BBB"> </span>show
