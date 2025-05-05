@@ -2273,13 +2273,33 @@
         
           <li class="md-nav__item">
   <a href="#_42" class="md-nav__link">
+    メソッド
+  </a>
+  
+    <nav class="md-nav" aria-label="メソッド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#textcontent" class="md-nav__link">
+    textContent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
     複数の子要素を全て削除する
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     イベントリスナ
   </a>
   
@@ -2287,7 +2307,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     ページの読み込み後
   </a>
   
@@ -2312,14 +2332,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     画面遷移(同画面)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     先頭へスクロール
   </a>
   
@@ -3088,13 +3108,33 @@
         
           <li class="md-nav__item">
   <a href="#_42" class="md-nav__link">
+    メソッド
+  </a>
+  
+    <nav class="md-nav" aria-label="メソッド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#textcontent" class="md-nav__link">
+    textContent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
     複数の子要素を全て削除する
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     イベントリスナ
   </a>
   
@@ -3102,7 +3142,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     ページの読み込み後
   </a>
   
@@ -3127,14 +3167,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_45" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     画面遷移(同画面)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     先頭へスクロール
   </a>
   
@@ -3795,7 +3835,15 @@ label_item.textContent<span style="color: #BBB"> </span><span style="color: #666
 
 <p><code>id</code>の指定は<code>for</code>でなく<code>htmlFor</code>であることに注意。<br />
 <a href="https://teratail.com/questions/140944">JSでlabel要素にfor属性が追加できない</a></p>
-<h3 id="_42">複数の子要素を全て削除する</h3>
+<h3 id="_42">メソッド</h3>
+<h4 id="textcontent">textContent</h4>
+<p>テキストをセットする。<br />
+書いたとおりに表現されるため、htmlを書いてもタグがそのまま表示される。</p>
+<p>以下のように書いても、アンカーとしては機能せず、そのまま<code>&lt;a href='...'&gt;not anchor text&lt;/a&gt;</code>と表示される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>v.textContent<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;&lt;a href=&#39;...&#39;&gt;not anchor text&lt;/a&gt;&quot;</span>;
+</code></pre></div>
+
+<h3 id="_43">複数の子要素を全て削除する</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>component<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F">document</span>.getElementById(<span style="color: #B44">&quot;component&quot;</span>);
 <span style="color: #A2F; font-weight: bold">while</span>(component.firstChild)<span style="color: #BBB"> </span>{
 <span style="color: #BBB">    </span>component.removeChild(component.firstChild);
@@ -3808,19 +3856,19 @@ label_item.textContent<span style="color: #BBB"> </span><span style="color: #666
 }
 </code></pre></div>
 
-<h3 id="_43">イベントリスナ</h3>
-<h4 id="_44">ページの読み込み後</h4>
+<h3 id="_44">イベントリスナ</h3>
+<h4 id="_45">ページの読み込み後</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">document</span>.addEventListener(<span style="color: #B44">&quot;DOMContentLoaded&quot;</span>,<span style="color: #BBB"> </span>()<span style="color: #BBB"> </span>=&gt;<span style="color: #BBB"> </span>{
 <span style="color: #BBB">    </span><span style="color: #080; font-style: italic">// ...</span>
 });
 </code></pre></div>
 
 <h2 id="window">window関連</h2>
-<h3 id="_45">画面遷移(同画面)</h3>
+<h3 id="_46">画面遷移(同画面)</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">window</span>.location.href<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>url;
 </code></pre></div>
 
-<h3 id="_46">先頭へスクロール</h3>
+<h3 id="_47">先頭へスクロール</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>scroll_to_top<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>()<span style="color: #BBB"> </span>=&gt;<span style="color: #BBB"> </span>{
 <span style="color: #BBB">    </span><span style="color: #A2F">window</span>.scroll({
 <span style="color: #BBB">        </span>top<span style="color: #666">:</span><span style="color: #BBB"> </span><span style="color: #666">0</span>,
