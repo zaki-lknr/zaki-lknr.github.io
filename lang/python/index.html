@@ -2267,6 +2267,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#post_1" class="md-nav__link">
+    POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ssl_1" class="md-nav__link">
     SSL検証無視
   </a>
@@ -3156,6 +3163,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#post_1" class="md-nav__link">
+    POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ssl_1" class="md-nav__link">
     SSL検証無視
   </a>
@@ -3980,6 +3994,17 @@ header <span style="color: #666">=</span> {
 req <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(url, headers<span style="color: #666">=</span>headers)
 <span style="color: #A2F; font-weight: bold">with</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(req) <span style="color: #A2F; font-weight: bold">as</span> res:
     j <span style="color: #666">=</span> json<span style="color: #666">.</span>load(res)
+</code></pre></div>
+
+<h5 id="post_1">POST</h5>
+<p>Requestオブジェクト作成時に送信するデータを指定すればPOSTメソッドになる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>auth_data <span style="color: #666">=</span> {
+    <span style="color: #B44">&#39;Username&#39;</span>: username,
+    <span style="color: #B44">&#39;Password&#39;</span>: password,
+}
+auth_req <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(auth_page, urllib<span style="color: #666">.</span>parse<span style="color: #666">.</span>urlencode(auth_data)<span style="color: #666">.</span>encode(<span style="color: #B44">&#39;ascii&#39;</span>))
+<span style="color: #A2F; font-weight: bold">with</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(auth_req) <span style="color: #A2F; font-weight: bold">as</span> auth_resp:
+    <span style="color: #A2F">print</span>(auth_resp<span style="color: #666">.</span>read())
 </code></pre></div>
 
 <h5 id="ssl_1">SSL検証無視</h5>
