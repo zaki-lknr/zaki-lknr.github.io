@@ -815,6 +815,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ps-external" class="md-nav__link">
+    ps --external
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1816,6 +1823,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ps-external" class="md-nav__link">
+    ps --external
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1894,6 +1908,20 @@
 </code></pre></div>
 
 <p>push先を第2引数で指定できるのでtag(FQDN)の追加を行っておく必要はない。</p>
+<h3 id="ps-external">ps --external</h3>
+<p>Podman外(buildahビルドなど)のコンテナもリストアップする</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>podman<span style="color: #BBB"> </span>ps<span style="color: #BBB"> </span>
+<span style="color: #888">CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES</span>
+
+<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>podman<span style="color: #BBB"> </span>ps<span style="color: #BBB"> </span>--external<span style="color: #BBB"> </span>
+<span style="color: #888">CONTAINER ID  IMAGE                                                                                          COMMAND     CREATED        STATUS      PORTS       NAMES</span>
+<span style="color: #888">3f09ea013c86  docker.io/library/almalinux:9                                                                  buildah     21 months ago  Storage                 almalinux-working-container</span>
+<span style="color: #888">7139e02472ae  docker.io/library/7420bdd2d63d87eb65afecc773f10d03de92d51098771d97746425c3043c3d95-tmp:latest  buildah     21 months ago  Storage                 83bdddbf089b-working-container</span>
+<span style="color: #888">76fa5ec79fb1  docker.io/library/eedc67f030eef81a46a39d553e82b5494e9602a619f248dd2dd377ea1194d536-tmp:latest  buildah     21 months ago  Storage                 c284335d223f-working-container</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
+</code></pre></div>
+
 <h2 id="volume">volume</h2>
 <h3 id="permission-denied">permission denied</h3>
 <p>だいたいSELinux周り。<code>Z</code>をつければOK</p>

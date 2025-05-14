@@ -909,18 +909,45 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    system
+  </a>
+  
+    <nav class="md-nav" aria-label="system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ストレージ使用状況
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     実行サンプル
   </a>
   
     <nav class="md-nav" aria-label="実行サンプル">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    何もしないコンテナ
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#webhttpd" class="md-nav__link">
@@ -942,7 +969,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     ビルド
   </a>
   
@@ -950,7 +977,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -962,7 +989,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     設定
   </a>
   
@@ -2257,18 +2284,45 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    system
+  </a>
+  
+    <nav class="md-nav" aria-label="system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ストレージ使用状況
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     実行サンプル
   </a>
   
     <nav class="md-nav" aria-label="実行サンプル">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    何もしないコンテナ
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#webhttpd" class="md-nav__link">
@@ -2290,7 +2344,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     ビルド
   </a>
   
@@ -2298,7 +2352,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -2310,7 +2364,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     設定
   </a>
   
@@ -2552,7 +2606,53 @@ Compose使用時もこのパターン。</p>
 <span style="color: #888">308817de4a7fd68fdf811af09ac00eceb20a20ac7b522d1b89bc16db8130d288</span>
 </code></pre></div>
 
-<h2 id="_2">実行サンプル</h2>
+<h3 id="system">system</h3>
+<h4 id="_2">ストレージ使用状況</h4>
+<p>コンテナ・イメージ・ボリューム・ビルドキャッシュ毎のサイズをサマライズする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>system<span style="color: #BBB"> </span>df
+<span style="color: #888">TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE</span>
+<span style="color: #888">Images          63        2         11.71GB   11.66GB (99%)</span>
+<span style="color: #888">Containers      2         1         0B        0B</span>
+<span style="color: #888">Local Volumes   251       1         51.49GB   51.34GB (99%)</span>
+<span style="color: #888">Build Cache     111       0         770.7MB   770.7MB</span>
+</code></pre></div>
+
+<p><code>-v</code>付与で全項目ごとにサイズを出力する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>system<span style="color: #BBB"> </span>df<span style="color: #BBB"> </span>-v
+<span style="color: #888">Images space usage:</span>
+
+<span style="color: #888">REPOSITORY                                              TAG                    IMAGE ID       CREATED         SIZE      SHARED SIZE   UNIQUE SIZE   CONTAINERS</span>
+<span style="color: #888">lscr.io/linuxserver/openssh-server                      latest                 8f57469f6bb9   4 weeks ago     35MB      0B            34.99MB       0</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
+<span style="color: #888">Containers space usage:</span>
+
+<span style="color: #888">CONTAINER ID   IMAGE                                     COMMAND                   LOCAL VOLUMES   SIZE      CREATED         STATUS                     NAMES</span>
+<span style="color: #888">e744ed9323d6   quay.io/prometheus/node-exporter:v1.9.0   &quot;/bin/node_exporter …&quot;   0               0B        8 weeks ago     Up 6 days                  node_exporter</span>
+<span style="color: #888">529c27ccf88a   registry:2                                &quot;/entrypoint.sh /etc…&quot;   1               0B        14 months ago   Exited (2) 14 months ago   registry</span>
+
+<span style="color: #888">Local Volumes space usage:</span>
+
+<span style="color: #888">VOLUME NAME                                                        LINKS     SIZE</span>
+<span style="color: #888">04ae90cb44468f08913852bff0427b82c2c3ef4339d3457dbbffc693900b39b3   0         17.72MB</span>
+<span style="color: #888">c2c40bf44e4e08fff8d8cad68df82b849710f31c16e2a71b6c217284a218d58d   0         2.759kB</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
+
+<span style="color: #888">Build cache usage: 770.7MB</span>
+
+<span style="color: #888">CACHE ID       CACHE TYPE     SIZE      CREATED         LAST USED       USAGE     SHARED</span>
+<span style="color: #888">dzty9gukiwho   regular        87.7MB    16 months ago   16 months ago   1         false</span>
+<span style="color: #888">p8kz9o4lxuyj   regular        115MB     16 months ago   16 months ago   1         false</span>
+<span style="color: #888">:</span>
+<span style="color: #888">:</span>
+</code></pre></div>
+
+<h2 id="_3">実行サンプル</h2>
+<h3 id="_4">何もしないコンテナ</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run -d &lt;image&gt; tail -f /dev/null</span>
+</code></pre></div>
+
 <h3 id="webhttpd">ローカルのwebコンテンツをhttpdに持たせる</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
 </code></pre></div>
@@ -2562,8 +2662,8 @@ Compose使用時もこのパターン。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
 </code></pre></div>
 
-<h2 id="_3">ビルド</h2>
-<h3 id="_4">ヘルスチェック</h3>
+<h2 id="_5">ビルド</h2>
+<h3 id="_6">ヘルスチェック</h3>
 <p>30秒後にhttpdが起動するようになっているコンテナイメージ。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">FROM</span><span style="color: #BBB"> </span><span style="color: #B44">httpd:2.4</span>
 
@@ -2590,7 +2690,7 @@ Compose使用時もこのパターン。</p>
 <span style="color: #888">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
 
-<h2 id="_5">設定</h2>
+<h2 id="_7">設定</h2>
 <h3 id="insecure">insecureなレジストリ設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
 </code></pre></div>

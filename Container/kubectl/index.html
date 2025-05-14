@@ -1057,6 +1057,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#podip-custom-columns" class="md-nav__link">
+    podとIPアドレス (custom-columns)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#podip-jsonpath" class="md-nav__link">
+    podとIPアドレス (jsonpath)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2425,6 +2439,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#podip-custom-columns" class="md-nav__link">
+    podとIPアドレス (custom-columns)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#podip-jsonpath" class="md-nav__link">
+    podとIPアドレス (jsonpath)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2928,6 +2956,35 @@ podがrunningになるまで待つには以下。</p>
 <span style="color: #888">awx         awx-postgres-15-0                                  postgres</span>
 <span style="color: #888">awx         awx-task-dc97f74f7-fmbbn                           redis,awx-task,awx-ee,awx-rsyslog</span>
 <span style="color: #888">awx         awx-web-769f8f749f-s4qkz                           redis,awx-web,awx-rsyslog</span>
+</code></pre></div>
+
+<h4 id="podip-custom-columns">podとIPアドレス (custom-columns)</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>custom-columns<span style="color: #666">=</span>NAME:.metadata.name,IP:.status.podIP<span style="color: #BBB"> </span>--no-headers
+<span style="color: #888">NAME                           IP</span>
+<span style="color: #888">demo-server-67dcd86d64-7hfck   10.42.0.14</span>
+<span style="color: #888">demo-server-67dcd86d64-82h8j   10.42.0.9</span>
+<span style="color: #888">demo-server-67dcd86d64-frcs6   10.42.0.11</span>
+<span style="color: #888">demo-server-67dcd86d64-fvl9p   10.42.0.15</span>
+<span style="color: #888">demo-server-67dcd86d64-hf6l2   10.42.0.13</span>
+<span style="color: #888">demo-server-67dcd86d64-jv7sq   10.42.0.12</span>
+<span style="color: #888">demo-server-67dcd86d64-lr7dw   10.42.0.8</span>
+<span style="color: #888">demo-server-67dcd86d64-pt7s9   10.42.0.7</span>
+<span style="color: #888">demo-server-67dcd86d64-vs25p   10.42.0.10</span>
+<span style="color: #888">demo-server-67dcd86d64-xlnnv   10.42.0.6</span>
+</code></pre></div>
+
+<h4 id="podip-jsonpath">podとIPアドレス (jsonpath)</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span><span style="color: #B8860B">jsonpath</span><span style="color: #666">=</span><span style="color: #B44">&#39;{range .items[*]}{.metadata.name}{&quot;,&quot;}{.status.podIP}{&quot;\n&quot;}{end}&#39;</span>
+<span style="color: #888">demo-server-67dcd86d64-5fg4r,10.42.0.5</span>
+<span style="color: #888">demo-server-67dcd86d64-cqh5t,10.42.0.11</span>
+<span style="color: #888">demo-server-67dcd86d64-gclqc,10.42.0.15</span>
+<span style="color: #888">demo-server-67dcd86d64-hr9nw,10.42.0.7</span>
+<span style="color: #888">demo-server-67dcd86d64-htgfs,10.42.0.14</span>
+<span style="color: #888">demo-server-67dcd86d64-jxkbp,10.42.0.16</span>
+<span style="color: #888">demo-server-67dcd86d64-ngc6t,10.42.0.13</span>
+<span style="color: #888">demo-server-67dcd86d64-nwhpd,10.42.0.12</span>
+<span style="color: #888">demo-server-67dcd86d64-tg672,10.42.0.4</span>
+<span style="color: #888">demo-server-67dcd86d64-wzhs9,10.42.0.8</span>
 </code></pre></div>
 
 <h3 id="rolebindings-clusterrolebindings">rolebindings / clusterrolebindings</h3>
