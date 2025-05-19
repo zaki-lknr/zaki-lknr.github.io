@@ -2200,7 +2200,18 @@
 
 <p><a href="https://github.com/zaki-lknr/ansible-sample/blob/master/filter/dict2items.yml">ansible-sample/dict2items.yml at master · zaki-lknr/ansible-sample</a></p>
 <h2 id="select-selectattr">検索 (select / selectattr)</h2>
+<p><code>grep</code>的な動作。</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/02/18/000228">[Ansible / Jinja2] select / selectattr を使った配列と辞書のフィルタリング - zaki work log</a></p>
+<p>入れ子の場合もそのまま書けばOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">summary_fields</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">inventory</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>netbox-demo-inventory
+</code></pre></div>
+
+<p>という構造に対しては、以下のように書く。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>selectattr(&#39;summary_fields.inventory.name&#39;, &#39;eq&#39;, &#39;netbox-demo-inventory&#39;)
+</code></pre></div>
+
 <h2 id="map">リスト要素への一律処理 (map)</h2>
 <h3 id="_3">別フィルタの適用</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">items</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">map(&#39;length&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
