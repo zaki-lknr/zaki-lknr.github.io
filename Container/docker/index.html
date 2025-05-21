@@ -997,6 +997,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    コンテナログのサイズ・ローテート設定(システムワイド)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#insecure" class="md-nav__link">
     insecureなレジストリ設定
   </a>
@@ -2372,6 +2379,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    コンテナログのサイズ・ローテート設定(システムワイド)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#insecure" class="md-nav__link">
     insecureなレジストリ設定
   </a>
@@ -2691,6 +2705,18 @@ Compose使用時もこのパターン。</p>
 </code></pre></div>
 
 <h2 id="_7">設定</h2>
+<h3 id="_8">コンテナログのサイズ・ローテート設定(システムワイド)</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>/etc/docker/daemon.json
+<span style="color: #888">{</span>
+<span style="color: #888">  &quot;log-driver&quot;: &quot;json-file&quot;,</span>
+<span style="color: #888">  &quot;log-opts&quot;: {</span>
+<span style="color: #888">    &quot;max-size&quot;: &quot;100k&quot;,</span>
+<span style="color: #888">    &quot;max-file&quot;: &quot;3&quot;</span>
+<span style="color: #888">  }</span>
+<span style="color: #888">}</span>
+</code></pre></div>
+
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/09/211117">[Docker]コンテナ実行時にlog-optsでログサイズ上限とローテート数を設定してホストのストレージが溢れないようにする - zaki work log</a></p>
 <h3 id="insecure">insecureなレジストリ設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
 </code></pre></div>

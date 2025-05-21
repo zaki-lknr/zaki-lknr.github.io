@@ -669,6 +669,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#notready" class="md-nav__link">
+    ノードのNotReady
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     ログとイベントを記録する
   </a>
@@ -1756,6 +1763,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#notready" class="md-nav__link">
+    ノードのNotReady
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     ログとイベントを記録する
   </a>
@@ -1805,6 +1819,14 @@
 <span style="color: #888">kubectl delete pod node-debugger-aks-********</span>
 </code></pre></div>
 
+<h2 id="notready">ノードのNotReady</h2>
+<p>5分間の異常状態を認識し、自動修復機能が起動し、以下の処理を最大3回試行する。</p>
+<ul>
+<li>ノードの再起動</li>
+<li>ノードの再イメージ化</li>
+<li>ノードの再デプロイ</li>
+</ul>
+<p><a href="https://learn.microsoft.com/ja-jp/azure/aks/node-auto-repair">Azure Kubernetes Service (AKS) ノードの自動修復 - Azure Kubernetes Service | Microsoft Learn</a></p>
 <h2 id="_2">ログとイベントを記録する</h2>
 <p>監視-&gt;分析情報で、Container insightsを有効（収集データに「ログとイベント」を選択）にする。<br />
 これでLog Analyticsワークスペースの画面から収集情報を検索できる。</p>
