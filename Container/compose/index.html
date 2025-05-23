@@ -757,8 +757,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    単純な依存設定
+  <a href="#depends_on" class="md-nav__link">
+    単純な依存設定 (depends_on)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#healthcheck-condition-service_healthy" class="md-nav__link">
+    ヘルスチェックとの併用 (healthcheck + condition: service_healthy)
   </a>
   
 </li>
@@ -776,14 +783,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
@@ -1908,8 +1915,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    単純な依存設定
+  <a href="#depends_on" class="md-nav__link">
+    単純な依存設定 (depends_on)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#healthcheck-condition-service_healthy" class="md-nav__link">
+    ヘルスチェックとの併用 (healthcheck + condition: service_healthy)
   </a>
   
 </li>
@@ -1927,14 +1941,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
@@ -2032,7 +2046,7 @@
 </code></pre></div>
 
 <h3 id="_6">依存</h3>
-<h4 id="_7">単純な依存設定</h4>
+<h4 id="depends_on">単純な依存設定 (depends_on)</h4>
 <p>depends_onで依存を設定することで起動・終了の順序を制御できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">db</span>:
@@ -2044,6 +2058,30 @@
 </code></pre></div>
 
 <p>順序が制御できるのみなので、コンテナ内プロセスの状態までは感知しない。</p>
+<h4 id="healthcheck-condition-service_healthy">ヘルスチェックとの併用 (healthcheck + condition: service_healthy)</h4>
+<p>postgresで自身にアクセスできるまで待つ設定を<code>healthcheck</code>で定義し、<code>depends_on</code>の<code>condition</code>パラメタに<code>service_healthy</code>を指定することでヘルスチェックが完了するまで待つ構成。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">db</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>postgres:12
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">healthcheck</span>:
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">test</span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;CMD-SHELL&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;pg_isready</span><span style="color: #B8860B"> </span><span style="color: #B44">-U</span><span style="color: #B8860B"> </span><span style="color: #B44">user</span><span style="color: #B8860B"> </span><span style="color: #B44">||</span><span style="color: #B8860B"> </span><span style="color: #B44">exit</span><span style="color: #B8860B"> </span><span style="color: #B44">1&quot;</span>]
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">interval</span>:<span style="color: #BBB"> </span>1s
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">timeout</span>:<span style="color: #BBB"> </span>1s
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">retries</span>:<span style="color: #BBB"> </span>10
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">start_period</span>:<span style="color: #BBB"> </span>1s
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">app</span>:
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>app
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">depends_on</span>:
+<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">db</span>:
+<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">condition</span>:<span style="color: #BBB"> </span>service_healthy
+</code></pre></div>
+
+<p><code>condition</code>には以下が指定できる。</p>
+<ul>
+<li><code>service_started</code>: 依存したコンテナが起動している</li>
+<li><code>service_healthy</code>: 依存したコンテナのヘルスチェックが正常</li>
+<li><code>service_completed_successfully</code>: 依存したコンテナが正常に終了</li>
+</ul>
+<p><a href="https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on">https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on</a></p>
 <h3 id="bind">ファイルのbindマウント</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
@@ -2062,7 +2100,7 @@
 <span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #BBB"> </span>/etc/rancher/k3s/registries.yaml
 </code></pre></div>
 
-<h3 id="_8">リソース制限</h3>
+<h3 id="_7">リソース制限</h3>
 <p>OSのリソースを使いつくさないようにCPUとメモリを制限</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
@@ -2078,7 +2116,7 @@
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/08/213857">[Docker] コンテナで動かすプロセスのCPU使用率を--cpusで、メモリ使用量を--memoryで制限する - zaki work log</a></p>
-<h3 id="_9">ログファイルサイズ制限</h3>
+<h3 id="_8">ログファイルサイズ制限</h3>
 <p><strong>デフォルト無制限のためストレージを使い切ってしまうので制限する</strong></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
