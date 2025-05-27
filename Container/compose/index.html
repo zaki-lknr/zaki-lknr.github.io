@@ -742,6 +742,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#restart" class="md-nav__link">
+    restartポリシー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#network_mode" class="md-nav__link">
     network_mode
   </a>
@@ -1900,6 +1907,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#restart" class="md-nav__link">
+    restartポリシー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#network_mode" class="md-nav__link">
     network_mode
   </a>
@@ -2028,6 +2042,21 @@
 <h2 id="compose_1">Composeファイル</h2>
 <ul>
 <li><a href="https://docs.docker.com/compose/compose-file/compose-file-v3/">Compose file version 3 reference | Docker Documentation</a></li>
+</ul>
+<h3 id="restart">restartポリシー</h3>
+<p>サービス名直下に記載する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">prometheus</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>quay.io/prometheus/prometheus:v3.2.1
+<span style="color: #BBB">    </span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">restart</span>:<span style="color: #BBB"> </span>always
+</code></pre></div>
+
+<ul>
+<li>no: デフォルト。再起動なし</li>
+<li>on-failure: 終了コードがエラー時に再起動する</li>
+<li>always: 終了コードにかかわらず再起動する(OSリブート後など含む)</li>
+<li>unless-stopped: 手動停止した場合は起動しない。</li>
 </ul>
 <h3 id="network_mode">network_mode</h3>
 <p><code>"service:[service name]"</code>と記述すると、対象サービスのネットワーク設定を使用する。<br />
