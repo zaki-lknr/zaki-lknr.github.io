@@ -1083,6 +1083,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#jsonpath" class="md-nav__link">
+    jsonpathでドットを含むキー
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2465,6 +2472,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#jsonpath" class="md-nav__link">
+    jsonpathでドットを含むキー
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2990,6 +3004,20 @@ podがrunningになるまで待つには以下。</p>
 <h3 id="rolebindings-clusterrolebindings">rolebindings / clusterrolebindings</h3>
 <p>紐付いてるServiceAccountを確認する</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get rolebindings,clusterrolebindings -A -o custom-columns=&#39;KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind==&quot;ServiceAccount&quot;)].name&#39; | grep &lt;SERVICE_ACCOUNT_NAME&gt;</span>
+</code></pre></div>
+
+<h3 id="jsonpath">jsonpathでドットを含むキー</h3>
+<p>キーに使うドットは<code>\</code>でエスケープする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get secret credential -o jsonpath=&#39;{.data.\.dockerconfigjson}&#39;</span>
+</code></pre></div>
+
+<p>あるいは</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get secret credential -o jsonpath=&quot;{.data[&#39;\.dockerconfigjson&#39;]}&quot;</span>
+</code></pre></div>
+
+<p>シングルクォートとダブルクォートは逆だとダメ(辞書のアクセスはシングルクォートを使う)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get secret credential -o jsonpath=&#39;{.data[&quot;\.dockerconfigjson&quot;]}&#39;</span>
+<span style="color: #888">error: error parsing jsonpath {.data[&quot;\.dockerconfigjson&quot;]}, invalid array index &quot;\.dockerconfigjson&quot;</span>
 </code></pre></div>
 
 <h2 id="rollout">rollout</h2>
