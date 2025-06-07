@@ -1251,6 +1251,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#sub" class="md-nav__link">
+    正規表現置換 (sub)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#if" class="md-nav__link">
     if文
   </a>
@@ -3034,6 +3041,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#sub" class="md-nav__link">
+    正規表現置換 (sub)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#if" class="md-nav__link">
     if文
   </a>
@@ -4028,6 +4042,11 @@
 
 <p>または、OFS変数(output field separator)にタブをセットし以下。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ps<span style="color: #BBB"> </span>aux<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>awk<span style="color: #BBB"> </span><span style="color: #B44">&#39;BEGIN { OFS=&quot;\t&quot; } {print $3, $4}&#39;</span>
+</code></pre></div>
+
+<h3 id="sub">正規表現置換 (sub)</h3>
+<p><code>ps aux</code>の行頭(<code>/^/</code>)に3桁0埋めの連番(行番号)を付与する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ps aux | awk &#39;{sub(/^/, sprintf(&quot;%03d: &quot;, ++i)); print}&#39;</span>
 </code></pre></div>
 
 <h3 id="if">if文</h3>

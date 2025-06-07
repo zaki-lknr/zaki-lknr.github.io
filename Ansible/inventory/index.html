@@ -531,6 +531,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    YAML形式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     ダイナミックインベントリ
   </a>
@@ -1782,6 +1789,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    YAML形式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     ダイナミックインベントリ
   </a>
@@ -1907,6 +1921,22 @@
 </code></pre></div>
 
 <p>このようにssh接続となる。</p>
+<h2 id="yaml">YAML形式</h2>
+<p>YAML形式のインベントリファイルの構造は基本的に以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">foobar</span>:
+<span style="color: #BBB">  </span><span style="color: #080; font-style: italic"># &quot;foobar&quot; グループ定義 / &quot;all&quot;使用可</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">hosts</span>:
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># ホスト定義</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">host1.example.org</span>:
+<span style="color: #BBB">      </span><span style="color: #080; font-style: italic"># ホスト配下はホスト変数</span>
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #BBB"> </span>value
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">ansible_host</span>:<span style="color: #BBB"> </span>10.0.0.3
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">host2.example.org</span>:
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># 以下、グループ変数</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #BBB"> </span>value
+</code></pre></div>
+
 <h2 id="_3">ダイナミックインベントリ</h2>
 <h3 id="ec2">EC2</h3>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/06/21/091252">[Ansible / AWS] ダイナミックインベントリを使ってEC2接続先を動的に取得してAnsible実行お試し - zaki work log</a></p>

@@ -1808,7 +1808,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>ノードを確認
 <span style="color: #888">kubectl get node -o wide</span>
 <span style="color: #000080; font-weight: bold"># </span>特権コンテナを起動し接続
-<span style="color: #888">kubectl debug node/aks-******** -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0</span>
+<span style="color: #888">kubectl debug node/aks-******** -it --image=mcr.microsoft.com/cbl-mariner/busybox:2.0</span>
 <span style="color: #000080; font-weight: bold"># </span>特権コンテナのシェルでchroot
 <span style="color: #888">chroot /host</span>
 </code></pre></div>

@@ -1989,7 +1989,10 @@
 </code></pre></div>
 
 <p>こうすると、playbookで例えば<code>hosts: servers</code>と指定されており、serversグループに <code>host1</code>, <code>host2</code>, <code>host3</code> が有ったとしても、この<code>ansible-playbook</code>実行のタスクは <code>host1</code> のみが処理対象で実行される。</p>
-<p>開発やデバッグのお供に。</p>
+<p>複数の場合は<code>,</code>区切りで指定。(<code>-l</code>を複数並べるのは無効)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>host1,host2<span style="color: #BBB">       </span><span style="color: #080; font-style: italic"># -l host1 -l host2 はNG</span>
+</code></pre></div>
+
 <h3 id="-connection-password-file">--connection-password-file</h3>
 <p>リモートへのログインに使用するパスワードが書かれたファイルを指定し、対話的処理を回避する。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ansible-playbook playbook.yml -i inventory.ini --connection-password-file password.txt </span>
