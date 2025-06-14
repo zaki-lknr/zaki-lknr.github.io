@@ -1394,6 +1394,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../drawio/" class="md-nav__link">
+        Draw.io
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../esxi/" class="md-nav__link">
         ESXi
       </a>
@@ -1996,13 +2008,16 @@
 </code></pre></div>
 
 <h3 id="get-user-checkins">Get User Checkins</h3>
+<p><a href="https://docs.foursquare.com/developer/reference/get-user-checkins">Get User Checkins</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
 <span style="color: #888">     --url &quot;https://api.foursquare.com/v2/users/self/checkins?v=20231010&amp;limit=5&amp;offset=0&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
 <span style="color: #888">     --header &#39;accept: application/json&#39;</span>
 </code></pre></div>
 
 <p><code>offset</code>から<code>limit</code>件数分のチェックイン一覧。<br />
-レスポンスの基本的な構造は以下の通り。(<code>shout</code>はコメントが無ければキーも無い)</p>
+<code>offset</code>はデフォルト<code>0</code>で制限無し(初回チェックインを超過するとどうなるかは不明)、<code>limit</code>はデフォルト<code>20</code>で最大<code>250</code>まで指定可。<br />
+<code>limit: 20</code>の場合の2ページ目は、<code>offset: 20</code>を指定する(ページ番号ではなく"limit * ページ番号"になる)。</p>
+<p>レスポンスの基本的な構造は以下の通り。(<code>shout</code>はコメントが無ければキーも無い)</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #BBB"> </span>{
 <span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;checkins&quot;</span>:<span style="color: #BBB"> </span>{

@@ -1252,6 +1252,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../drawio/" class="md-nav__link">
+        Draw.io
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../esxi/" class="md-nav__link">
         ESXi
       </a>
@@ -1566,6 +1578,13 @@
         
           <li class="md-nav__item">
   <a href="#vm_2" class="md-nav__link">
+    VM操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_3" class="md-nav__link">
     VM一覧
   </a>
   
@@ -1579,7 +1598,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vm_3" class="md-nav__link">
+  <a href="#vm_4" class="md-nav__link">
     VM削除
   </a>
   
@@ -1996,6 +2015,13 @@
         
           <li class="md-nav__item">
   <a href="#vm_2" class="md-nav__link">
+    VM操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm_3" class="md-nav__link">
     VM一覧
   </a>
   
@@ -2009,7 +2035,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#vm_3" class="md-nav__link">
+  <a href="#vm_4" class="md-nav__link">
     VM削除
   </a>
   
@@ -2195,7 +2221,9 @@
 <p>8.3.3時点でUIでの操作はなさそう。<br />
 上記のパス情報を参照に<code>mv</code>で移動する。</p>
 <h2 id="cli">CLI</h2>
-<h3 id="vm_2">VM一覧</h3>
+<h3 id="vm_2">VM操作</h3>
+<p><a href="https://pve.proxmox.com/pve-docs/qm.1.html">qm(1)</a></p>
+<h3 id="vm_3">VM一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm list</span>
 </code></pre></div>
 
@@ -2239,7 +2267,7 @@ NIC情報であれば以下の通り。</p>
 <p>使えるサブコマンドは<code>qm help</code>で確認できる。<br />
 <a href="https://pve.proxmox.com/pve-docs/qm.1.html">qm(1)</a></p>
 <p>(<code>qm guest</code>のヘルプは無さげ…)</p>
-<h3 id="vm_3">VM削除</h3>
+<h3 id="vm_4">VM削除</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm destroy &lt;vmid&gt; --destroy-unreferenced-disks=1</span>
 </code></pre></div>
 
