@@ -3834,7 +3834,7 @@ obj <span style="color: #666">=</span> json<span style="color: #666">.</span>loa
 <p>YAMLと違ってメソッド名は<code>dumps()</code>で<code>s</code>が付与される。<br />
 <code>dump()</code>は、ファイル出力を行うメソッドとして別に存在する。</p>
 <h4 id="json-_1">JSONファイル-&gt;オブジェクト</h4>
-<p>上記の<code>json.loads()</code>をファイルreadしたデータに入れればOK</p>
+<p>上記の<code>json.loads()</code>と異なり、<code>json.load()</code>を使う。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">json</span>
 
 <span style="color: #A2F; font-weight: bold">with</span> <span style="color: #A2F">open</span>(<span style="color: #B44">&#39;./sample.json&#39;</span>) <span style="color: #A2F; font-weight: bold">as</span> f:
