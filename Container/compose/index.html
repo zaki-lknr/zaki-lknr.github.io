@@ -783,21 +783,41 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    マウント
+  </a>
+  
+    <nav class="md-nav" aria-label="マウント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#bind" class="md-nav__link">
-    ファイルのbindマウント
+    bindマウント
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#volume" class="md-nav__link">
+    volumeマウント
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
@@ -1960,21 +1980,41 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    マウント
+  </a>
+  
+    <nav class="md-nav" aria-label="マウント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#bind" class="md-nav__link">
-    ファイルのbindマウント
+    bindマウント
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#volume" class="md-nav__link">
+    volumeマウント
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
@@ -2123,7 +2163,8 @@
 <li><code>service_completed_successfully</code>: 依存したコンテナが正常に終了</li>
 </ul>
 <p><a href="https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on">https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on</a></p>
-<h3 id="bind">ファイルのbindマウント</h3>
+<h3 id="_7">マウント</h3>
+<h4 id="bind">bindマウント</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
 <span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">server</span>:
@@ -2141,7 +2182,20 @@
 <span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #BBB"> </span>/etc/rancher/k3s/registries.yaml
 </code></pre></div>
 
-<h3 id="_7">リソース制限</h3>
+<h4 id="volume">volumeマウント</h4>
+<p>long syntaxだと以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">prometheus</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>volume
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">source</span>:<span style="color: #BBB"> </span>prometheus-data
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #BBB"> </span>/prometheus
+
+<span style="color: #008000; font-weight: bold">volumes</span>:
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">prometheus-data</span>:<span style="color: #BBB"> </span>{}
+</code></pre></div>
+
+<h3 id="_8">リソース制限</h3>
 <p>OSのリソースを使いつくさないようにCPUとメモリを制限</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 
@@ -2157,7 +2211,7 @@
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/08/213857">[Docker] コンテナで動かすプロセスのCPU使用率を--cpusで、メモリ使用量を--memoryで制限する - zaki work log</a></p>
-<h3 id="_8">ログファイルサイズ制限</h3>
+<h3 id="_9">ログファイルサイズ制限</h3>
 <p><strong>デフォルト無制限のためストレージを使い切ってしまうので制限する</strong></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
 

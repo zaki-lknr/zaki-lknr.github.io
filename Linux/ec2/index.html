@@ -1022,6 +1022,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ディスク拡張
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cloud-init" class="md-nav__link">
     cloud-init
   </a>
@@ -1030,14 +1037,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ホスト名設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     パスワード設定
   </a>
   
@@ -1051,14 +1058,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     タイムゾーン設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     コマンドの実行
   </a>
   
@@ -1788,6 +1795,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ディスク拡張
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cloud-init" class="md-nav__link">
     cloud-init
   </a>
@@ -1796,14 +1810,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ホスト名設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     パスワード設定
   </a>
   
@@ -1817,14 +1831,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     タイムゾーン設定
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     コマンドの実行
   </a>
   
@@ -1871,8 +1885,23 @@
 <span style="color: #888">HOME_URL=&quot;https://amazonlinux.com/&quot;</span>
 </code></pre></div>
 
+<h2 id="_2">ディスク拡張</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/ebs/latest/userguide/recognize-expanded-volume-linux.html">Amazon EBS ボリュームのサイズ変更後にファイルシステムを拡張 - Amazon EBS</a></li>
+<li><a href="https://zaki-hmkc.hatenablog.com/entry/2025/05/09/222749">[AWS] EC2のストレージ(EBS)を手動で拡張する手順 (RHEL) - zaki work log</a></li>
+</ul>
+<p>流れは以下</p>
+<ol>
+<li>UIやAWS CLIなどでブロックデバイスを拡張</li>
+<li><code>lsblk</code>でディスクとパーティション番号を確認し<code>growpart &lt;ディスク&gt; &lt;パーティション番号&gt;</code>でパーティション拡張 (<code>sudo growpart /dev/xvda 4</code>など)</li>
+<li><code>df -hT</code>でファイルシステムを確認し<code>xfs_growfs -d &lt;マウントポイント&gt;</code>でサイズ拡張<ul>
+<li>xfsの場合は<code>xfs_growfs</code>コマンド</li>
+<li>ext4の場合は<code>resize2fs</code>コマンド</li>
+</ul>
+</li>
+</ol>
 <h2 id="cloud-init">cloud-init</h2>
-<h3 id="_2">ホスト名設定</h3>
+<h3 id="_3">ホスト名設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">hostname</span>:<span style="color: #BBB"> </span>example-host-name
 </code></pre></div>
 
@@ -1881,7 +1910,7 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">fqdn</span>:<span style="color: #BBB"> </span>controller.example.org
 </code></pre></div>
 
-<h3 id="_3">パスワード設定</h3>
+<h3 id="_4">パスワード設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#cloud-config</span>
 <span style="color: #008000; font-weight: bold">password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;p@ssword&#39;</span>
 <span style="color: #008000; font-weight: bold">chpasswd</span>:<span style="color: #BBB"> </span>{<span style="color: #008000; font-weight: bold"> expire</span>:<span style="color: #BBB"> </span><span style="color: #B8860B">false</span><span style="color: #BBB"> </span>}
@@ -1893,11 +1922,11 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ssh_pwauth</span>:<span style="color: #BBB"> </span>true
 </code></pre></div>
 
-<h3 id="_4">タイムゾーン設定</h3>
+<h3 id="_5">タイムゾーン設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">timezone</span>:<span style="color: #BBB"> </span>Asia/Tokyo
 </code></pre></div>
 
-<h3 id="_5">コマンドの実行</h3>
+<h3 id="_6">コマンドの実行</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">runcmd</span>:
 -<span style="color: #BBB"> </span>systemctl disable --now ...
 </code></pre></div>
