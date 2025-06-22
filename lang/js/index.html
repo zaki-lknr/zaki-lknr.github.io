@@ -1418,6 +1418,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/prometheus/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/proxmox/" class="md-nav__link">
         Proxmox (PVE)
       </a>
@@ -1924,6 +1936,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2294,6 +2313,13 @@
           <li class="md-nav__item">
   <a href="#textcontent" class="md-nav__link">
     textContent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#innerhtml" class="md-nav__link">
+    innerHTML
   </a>
   
 </li>
@@ -2759,6 +2785,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3129,6 +3162,13 @@
           <li class="md-nav__item">
   <a href="#textcontent" class="md-nav__link">
     textContent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#innerhtml" class="md-nav__link">
+    innerHTML
   </a>
   
 </li>
@@ -3525,6 +3565,12 @@ console.log(sample_array.join());
 
 <p>引数が空の場合は出力は<code>1,2,3</code>となる。<br />
 引数を指定すればそれがデリミタとなる。</p>
+<h4 id="map">map</h4>
+<p>配列要素に一律に処理をかけるときに使う。<br />
+以下は文字列の配列の各要素末尾に<code>.</code>を追加して新しい配列を返す。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>new_array<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>current_array.map(item<span style="color: #BBB"> </span>=&gt;<span style="color: #BBB"> </span>item<span style="color: #BBB"> </span><span style="color: #666">+=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;.&quot;</span>);
+</code></pre></div>
+
 <h3 id="_21">辞書</h3>
 <h4 id="_22">辞書の定義</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>data<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
@@ -3853,6 +3899,12 @@ label_item.textContent<span style="color: #BBB"> </span><span style="color: #666
 書いたとおりに表現されるため、htmlを書いてもタグがそのまま表示される。</p>
 <p>以下のように書いても、アンカーとしては機能せず、そのまま<code>&lt;a href='...'&gt;not anchor text&lt;/a&gt;</code>と表示される。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>v.textContent<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;&lt;a href=&#39;...&#39;&gt;not anchor text&lt;/a&gt;&quot;</span>;
+</code></pre></div>
+
+<h4 id="innerhtml">innerHTML</h4>
+<p>要素内のHTMLを解釈してテキストをセットする。<br />
+以下のように書けば、アンカーリンクは有効になる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>v.innerHTML<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;&lt;a href=&#39;https://lovelive-anime.jp/nijigasaki/story.php&#39;&gt;link&lt;/a&gt;&quot;</span>;
 </code></pre></div>
 
 <h3 id="_43">複数の子要素を全て削除する</h3>
