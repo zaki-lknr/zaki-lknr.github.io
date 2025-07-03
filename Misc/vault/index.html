@@ -1652,6 +1652,53 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#auth" class="md-nav__link">
+    auth
+  </a>
+  
+    <nav class="md-nav" aria-label="auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token_1" class="md-nav__link">
+    token確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role" class="md-nav__link">
+    role
+  </a>
+  
+    <nav class="md-nav" aria-label="role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    リスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hvac" class="md-nav__link">
     hvac
   </a>
@@ -1660,7 +1707,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -1988,6 +2035,53 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#auth" class="md-nav__link">
+    auth
+  </a>
+  
+    <nav class="md-nav" aria-label="auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token_1" class="md-nav__link">
+    token確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role" class="md-nav__link">
+    role
+  </a>
+  
+    <nav class="md-nav" aria-label="role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    リスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hvac" class="md-nav__link">
     hvac
   </a>
@@ -1996,7 +2090,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -2088,13 +2182,27 @@ KVシークレットエンジンであれば以下の通り。</p>
 
 <p><code>curl -H "X-Vault-Token: ${token}" http://192.168.0.75:8200/v1/kv/data/zzz?version=1</code>とか。<br />
 <a href="https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2">KV - Secrets Engines - HTTP API | Vault | HashiCorp Developer</a></p>
+<h2 id="auth">auth</h2>
+<h3 id="token_1">token確認</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault token lookup</span>
+</code></pre></div>
+
+<h3 id="role">role</h3>
+<h4 id="_7">リスト</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault list auth/path/role</span>
+</code></pre></div>
+
+<h4 id="_8">削除</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault delete auth/path/role/key</span>
+</code></pre></div>
+
 <h2 id="hvac">hvac</h2>
 <p>Hashicorp Vault用Pythonライブラリ</p>
 <ul>
 <li><a href="https://python-hvac.org/en/latest/overview.html">hvac documentation</a></li>
 <li><a href="https://github.com/hvac/hvac">hvac/hvac: :lock: Python 3.X client for HashiCorp Vault</a></li>
 </ul>
-<h3 id="_7">コンストラクタ</h3>
+<h3 id="_9">コンストラクタ</h3>
 <p>証明書検証オフは<code>verify=False</code>を加えればOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">urllib3</span>
 <span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os</span>

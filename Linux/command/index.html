@@ -1203,6 +1203,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+    cookie処理
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3037,6 +3044,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+    cookie処理
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4068,6 +4082,12 @@
 <h3 id="_13">タイムアウト設定</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>--connect-timeout<span style="color: #BBB"> </span><span style="color: #666">2</span><span style="color: #BBB"> </span>http://192.168.0.249
 <span style="color: #888">curl: (28) Failed to connect to 192.168.0.249 port 80 after 2000 ms: Timeout was reached</span>
+</code></pre></div>
+
+<h3 id="cookie">cookie処理</h3>
+<p><code>-c filename</code>でレスポンスのcookie情報を保存、<code>-b filename</code>で保存済みcookie情報をリクエストする。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">#</span><span style="color: #080; font-style: italic">## https://www.example.org とのcookie情報をfilenameに保存しつつHTTPアクセス</span>
+<span style="color: #888">curl -c filename -b filename https://www.example.org</span>
 </code></pre></div>
 
 <h2 id="wget">wget</h2>
