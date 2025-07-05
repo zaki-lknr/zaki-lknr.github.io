@@ -1304,6 +1304,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#auth0_1" class="md-nav__link">
+    Auth0オブジェクト
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1974,6 +1981,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#auth0_1" class="md-nav__link">
+    Auth0オブジェクト
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2109,6 +2123,13 @@ Application名の一覧であれば例えば<code>jq</code>を使って以下。
 GetToken <span style="color: #666">=</span> GetToken(auth_domain, auth_client_id, client_secret<span style="color: #666">=</span>auth_client_secret)
 token <span style="color: #666">=</span> GetToken<span style="color: #666">.</span>client_credentials(<span style="color: #B44">&#39;https://</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">/api/v2/&#39;</span><span style="color: #666">.</span>format(auth_domain))
 <span style="color: #A2F">print</span>(token[<span style="color: #B44">&#39;access_token&#39;</span>])
+</code></pre></div>
+
+<h3 id="auth0_1">Auth0オブジェクト</h3>
+<p>↑で取得したトークンを使って以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">auth0.management</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">import</span> Auth0
+
+auth0 <span style="color: #666">=</span> Auth0(auth_domain, token[<span style="color: #B44">&#39;access_token&#39;</span>])
 </code></pre></div>
                 
               
