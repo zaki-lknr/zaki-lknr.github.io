@@ -4418,6 +4418,7 @@ diff <span style="color: #666">=</span> custom <span style="color: #666">-</span
 </code></pre></div>
 
 <p><a href="https://docs.python.org/ja/3/library/datetime.html#datetime.timedelta">https://docs.python.org/ja/3/library/datetime.html#datetime.timedelta</a></p>
+<p><code>seconds</code>は<code>days</code>の余りのような位置づけの値のため、全秒数を得たい場合は<code>total_seconds()</code>を使う。これはメソッド。</p>
 <h4 id="unix-epoch-datetime">UNIX Epoch -&gt; datetime</h4>
 <p><code>fromtimestamp()</code>を使えばOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">datetime</span>
@@ -4669,7 +4670,9 @@ auth_req <span style="color: #666">=</span> urllib<span style="color: #666">.</s
 </code></pre></div>
 
 <h5 id="ssl_1">SSL検証無視</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>context <span style="color: #666">=</span> ssl<span style="color: #666">.</span>_create_univerified_context()
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">ssl</span>
+context <span style="color: #666">=</span> ssl<span style="color: #666">.</span>_create_unverified_context()
+
 r <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(url, headers<span style="color: #666">=</span>headers)
 <span style="color: #A2F; font-weight: bold">while</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(req, context<span style="color: #666">=</span>context) <span style="color: #A2F; font-weight: bold">as</span> res:
     <span style="color: #666">...</span>

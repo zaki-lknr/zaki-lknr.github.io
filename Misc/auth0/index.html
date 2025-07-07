@@ -1311,6 +1311,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    アプリケーション情報取得
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1988,6 +1995,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    アプリケーション情報取得
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2131,6 +2145,15 @@ token <span style="color: #666">=</span> GetToken<span style="color: #666">.</sp
 
 auth0 <span style="color: #666">=</span> Auth0(auth_domain, token[<span style="color: #B44">&#39;access_token&#39;</span>])
 </code></pre></div>
+
+<h3 id="_6">アプリケーション情報取得</h3>
+<p>auth0オブジェクトのメソッドの<code>get()</code>を使用。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>auth0 <span style="color: #666">=</span> Auth0(auth_domain, token[<span style="color: #B44">&#39;access_token&#39;</span>])
+app_info <span style="color: #666">=</span> auth0<span style="color: #666">.</span>clients<span style="color: #666">.</span>get(application_id)
+</code></pre></div>
+
+<p><code>app_info</code>には辞書型で<a href="https://auth0.com/docs/api/management/v2/clients/get-clients">clients情報</a>がセットされる。</p>
+<p><a href="https://auth0-python.readthedocs.io/en/latest/management.html#auth0.management.clients.Clients.get">https://auth0-python.readthedocs.io/en/latest/management.html#auth0.management.clients.Clients.get</a></p>
                 
               
               
