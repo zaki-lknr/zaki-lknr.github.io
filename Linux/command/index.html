@@ -1944,6 +1944,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#unit" class="md-nav__link">
+    UNITファイルの位置
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3812,6 +3819,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#unit" class="md-nav__link">
+    UNITファイルの位置
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4859,6 +4873,15 @@ methodをmanualに変更するのはaddressesをセットしたあとでない�
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">systemctl list-unit-files --user</span>
 </code></pre></div>
 
+<h3 id="unit">UNITファイルの位置</h3>
+<p><code>man systemd.unit</code>で確認可能。<br />
+主に以下</p>
+<ul>
+<li>/usr/lib/systemd/system</li>
+<li>/usr/local/lib/systemd/system</li>
+<li>~/.config/systemd/user.control</li>
+<li>~/.config/systemd/user</li>
+</ul>
 <h2 id="_65">ホスト名</h2>
 <h3 id="_66">変更</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">sudo hostnamectl set-hostname rhel8</span>

@@ -1778,6 +1778,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#concat" class="md-nav__link">
+    concat (配列結合)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element" class="md-nav__link">
+    element (配列要素取得)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join (文字結合)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2282,6 +2303,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#concat" class="md-nav__link">
+    concat (配列結合)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element" class="md-nav__link">
+    element (配列要素取得)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join (文字結合)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2561,6 +2603,36 @@ EC2のユーザーデータ/Cloud-initのファイルや、ポリシーのJSON�
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash -ex</span>
 
 git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>https://<span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">git_username</span><span style="color: #B68; font-weight: bold">}</span>:<span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">git_password</span><span style="color: #B68; font-weight: bold">}</span>@git.example.org/repos/apps<span style="color: #BBB"> </span>/root/apps
+</code></pre></div>
+
+<h4 id="concat">concat (配列結合)</h4>
+<p><code>concat(list1, list2, list3)</code></p>
+<p>EventBridge Schedulerにcount定義されたEC2インスタンスを複数セットするような場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #A2F">target</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #B44">arn</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;arn:aws:scheduler:::aws-sdk:ec2:stopInstances&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #B44">role_arn</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">aws_iam_role.stopstart_role.arn</span>
+<span style="color: #BBB">    </span><span style="color: #B44">input</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">jsonencode</span>({
+<span style="color: #BBB">      </span><span style="color: #B44">InstanceIds</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">concat</span>(<span style="color: #B44">&quot;${aws_instance.ec2_app1.*.id}&quot;</span>,
+<span style="color: #BBB">        </span><span style="color: #B44">&quot;${aws_instance.ec2_app2.*.id}&quot;</span>,
+<span style="color: #BBB">      </span>)
+<span style="color: #BBB">    </span>})
+<span style="color: #BBB">  </span>}
+</code></pre></div>
+
+<h4 id="element">element (配列要素取得)</h4>
+<p><code>element(list, index)</code> で、list内のindex番目の要素を取得する。<br />
+以下はEC2を作成しつつ、それぞれのインスタンスにEIPをセットする場合</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_eip&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;eip&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">count</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.count</span>
+<span style="color: #BBB">  </span><span style="color: #B44">instance</span><span style="color: #BBB">   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">element</span>(<span style="color: #B8860B">aws_instance.ec2</span>.<span style="border: 1px solid #F00">*</span>.<span style="border: 1px solid #F00">id</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">count.index</span>)
+<span style="color: #BBB">  </span><span style="color: #B44">domain</span><span style="color: #BBB">     </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;vpc&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #B44">depends_on</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_internet_gateway.igw</span>]
+</code></pre></div>
+
+<h4 id="join">join (文字結合)</h4>
+<p><code>join(char, list)</code> list各要素をcharを区切り文字で繋げる。<br />
+countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>の形式で全て連結する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">$</span>{<span style="color: #00A000">join</span>(<span style="color: #B44">&quot; &quot;, [for h in aws_instance.ec.*.tags.Name : &quot;--host ${h}&quot;</span>])}
 </code></pre></div>
 
 <h2 id="resource">resource</h2>

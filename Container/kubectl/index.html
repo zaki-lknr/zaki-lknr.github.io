@@ -1007,6 +1007,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    diff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wait" class="md-nav__link">
     wait
   </a>
@@ -2427,6 +2434,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    diff
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wait" class="md-nav__link">
     wait
   </a>
@@ -2911,6 +2925,12 @@ oci-k3s-le
 <h2 id="delete">delete</h2>
 <h3 id="namespacetype">指定namespaceの指定typeを全部消す</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>delete<span style="color: #BBB"> </span>pvc<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>zzz<span style="color: #BBB"> </span>--all
+</code></pre></div>
+
+<h2 id="diff">diff</h2>
+<p>既存リソースとマニフェストファイルの差分を表示する。<br />
+変更時に<code>--dry-run=server</code>より詳細を確認したい場合などに使う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl diff -f manifest.yaml</span>
 </code></pre></div>
 
 <h2 id="wait">wait</h2>
