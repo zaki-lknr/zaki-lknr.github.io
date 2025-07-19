@@ -495,6 +495,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-tags" class="md-nav__link">
+    --tags
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1915,6 +1922,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-tags" class="md-nav__link">
+    --tags
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2180,6 +2194,12 @@ checkに対応している<code>copy</code>モジュールの場合は以下の�
 <span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>inventory-oci-l-dev.ini<span style="color: #BBB"> </span>playbook.yml<span style="color: #BBB"> </span>-v<span style="color: #BBB"> </span>--start-at<span style="color: #BBB"> </span><span style="color: #B44">&quot;build_awx/awx-ee : create working directory&quot;</span>
 </code></pre></div>
 
+<h3 id="-tags">--tags</h3>
+<p>指定tagが付与されたタスクのみを実行する</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>setup.yml<span style="color: #BBB"> </span>--tags<span style="color: #BBB"> </span>initial
+</code></pre></div>
+
+<p><code>initial</code>タグが付与されたタスクのみが実行される。<code>--list-tasks</code>もつけると事前にどのタスクのみが実行されるか確認できる。</p>
 <h2 id="ansible-inventory">ansible-inventoryコマンド</h2>
 <p><code>ansible-inventory</code>コマンドを使用すると、ターゲットノード一覧やそのホストに紐づく変数を確認できる。<br />
 ダイナミックインベントリの場合に対象ノードが何になるか確認できる。</p>
