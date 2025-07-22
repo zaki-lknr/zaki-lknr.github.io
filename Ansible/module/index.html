@@ -590,6 +590,19 @@
     uri
   </a>
   
+    <nav class="md-nav" aria-label="uri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    リクエストBODY
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2044,6 +2057,19 @@
     uri
   </a>
   
+    <nav class="md-nav" aria-label="uri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#body" class="md-nav__link">
+    リクエストBODY
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2375,6 +2401,22 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">validate_certs</span>:<span style="color: #BBB"> </span>false
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">force_basic_auth</span>:<span style="color: #BBB"> </span>true
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">status_code</span>:<span style="color: #BBB"> </span>[<span style="color: #B8860B">200</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">201</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">202</span>]
+</code></pre></div>
+
+<h3 id="body">リクエストBODY</h3>
+<p>JSON形式のリクエストBODYを投げたい場合は以下。<br />
+<code>body_format</code>で指定した形式で、<code>body</code>に指定した値が送信される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.uri</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">method</span>:<span style="color: #BBB"> </span>PUT
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">url</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://{{</span><span style="color: #B8860B"> </span><span style="color: #B44">server_addr</span><span style="color: #B8860B"> </span><span style="color: #B44">}}/api/gateway/v1/settings/all/&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">url_username</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">username</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">url_password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">password</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">validate_certs</span>:<span style="color: #BBB"> </span>false
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">force_basic_auth</span>:<span style="color: #BBB"> </span>true
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">body_format</span>:<span style="color: #BBB"> </span>json
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">body</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">SESSION_COOKIE_AGE</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">session_timeout_sec</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">status_code</span>:<span style="color: #BBB"> </span>[<span style="color: #B8860B">200</span>]
 </code></pre></div>
 
 <h2 id="lineinfile">lineinfile</h2>
