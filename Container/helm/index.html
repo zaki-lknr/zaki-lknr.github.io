@@ -884,7 +884,41 @@
         
           <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
+    テンプレート作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
     変数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    プラグイン
+  </a>
+  
+    <nav class="md-nav" aria-label="プラグイン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    diff
   </a>
   
 </li>
@@ -2111,7 +2145,41 @@
         
           <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
+    テンプレート作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
     変数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    プラグイン
+  </a>
+  
+    <nav class="md-nav" aria-label="プラグイン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff" class="md-nav__link">
+    diff
   </a>
   
 </li>
@@ -2340,7 +2408,30 @@
 </code></pre></div>
 
 <h2 id="_20">チャート作成</h2>
-<h3 id="_21">変数</h3>
+<h3 id="_21">テンプレート作成</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm create mychart</span>
+</code></pre></div>
+
+<p>以下のファイルが生成される。不要なファイルは削除して作りこめばOK</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find<span style="color: #BBB"> </span>mychart/
+<span style="color: #888">mychart/</span>
+<span style="color: #888">mychart/Chart.yaml</span>
+<span style="color: #888">mychart/values.yaml</span>
+<span style="color: #888">mychart/.helmignore</span>
+<span style="color: #888">mychart/templates</span>
+<span style="color: #888">mychart/templates/ingress.yaml</span>
+<span style="color: #888">mychart/templates/deployment.yaml</span>
+<span style="color: #888">mychart/templates/service.yaml</span>
+<span style="color: #888">mychart/templates/serviceaccount.yaml</span>
+<span style="color: #888">mychart/templates/hpa.yaml</span>
+<span style="color: #888">mychart/templates/NOTES.txt</span>
+<span style="color: #888">mychart/templates/_helpers.tpl</span>
+<span style="color: #888">mychart/templates/tests</span>
+<span style="color: #888">mychart/templates/tests/test-connection.yaml</span>
+<span style="color: #888">mychart/charts</span>
+</code></pre></div>
+
+<h3 id="_22">変数</h3>
 <table>
 <thead>
 <tr>
@@ -2363,6 +2454,21 @@
 </tr>
 </tbody>
 </table>
+<h2 id="_23">プラグイン</h2>
+<h3 id="_24">一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>plugin<span style="color: #BBB"> </span>ls
+<span style="color: #888">NAME    VERSION DESCRIPTION                           </span>
+<span style="color: #888">diff    3.12.3  Preview helm upgrade changes as a diff</span>
+</code></pre></div>
+
+<h3 id="diff">diff</h3>
+<p>install</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm plugin install https://github.com/databus23/helm-diff</span>
+</code></pre></div>
+
+<p>更新時のdiffを確認するには、<code>helm diff upgrade</code>に実際のupgrade時のすべての引数を指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm diff upgrade ...</span>
+</code></pre></div>
                 
               
               
