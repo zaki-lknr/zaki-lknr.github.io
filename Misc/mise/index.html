@@ -1487,6 +1487,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#misetoml" class="md-nav__link">
+    mise.toml
+  </a>
+  
+    <nav class="md-nav" aria-label="mise.toml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    テンプレート
+  </a>
+  
+    <nav class="md-nav" aria-label="テンプレート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exec" class="md-nav__link">
+    コマンド実行結果を変数にセット (exec)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1927,6 +1960,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#misetoml" class="md-nav__link">
+    mise.toml
+  </a>
+  
+    <nav class="md-nav" aria-label="mise.toml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    テンプレート
+  </a>
+  
+    <nav class="md-nav" aria-label="テンプレート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exec" class="md-nav__link">
+    コマンド実行結果を変数にセット (exec)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2018,6 +2084,13 @@
 
 <h3 id="_6">使用中パッケージ一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise ls</span>
+</code></pre></div>
+
+<h2 id="misetoml">mise.toml</h2>
+<h3 id="_7">テンプレート</h3>
+<p><a href="https://mise.jdx.dev/templates.html">Templates | mise-en-place</a></p>
+<h4 id="exec">コマンド実行結果を変数にセット (exec)</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>description<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;カウント設定: {{ exec(command=</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">grep count -A2 path/to/file | awk -F&#39;=&#39; &#39;{print $2}&#39;</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">) }}&quot;</span>
 </code></pre></div>
                 
               
