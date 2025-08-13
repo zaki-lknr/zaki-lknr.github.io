@@ -858,8 +858,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#pvc" class="md-nav__link">
+    PVC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pv" class="md-nav__link">
     PV拡張
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pv_1" class="md-nav__link">
+    PVリソース削除時のデータ削除
   </a>
   
 </li>
@@ -2028,8 +2042,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#pvc" class="md-nav__link">
+    PVC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pv" class="md-nav__link">
     PV拡張
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pv_1" class="md-nav__link">
+    PVリソース削除時のデータ削除
   </a>
   
 </li>
@@ -2230,8 +2258,22 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <h4 id="fqcn-aaaaa">FQCN (A/AAAAレコード)</h4>
 <p>podからは<code>&lt;service-name&gt;.&lt;namespace-name&gt;.svc.cluster.local</code>で名前解決できる。</p>
 <h2 id="_2">ストレージ</h2>
+<h3 id="pvc">PVC</h3>
+<p>PVCリソースのネームスペースは、使用するPodと同一であること。</p>
+<blockquote>
+<p>Claims must exist in the same namespace as the Pod using the claim.</p>
+<p><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#claims-as-volumes">Claims As Volumes</a></p>
+</blockquote>
 <h3 id="pv">PV拡張</h3>
 <p><a href="https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/">Resizing Persistent Volumes using Kubernetes | Kubernetes</a></p>
+<h3 id="pv_1">PVリソース削除時のデータ削除</h3>
+<p><code>persistentVolumeReclaimPolicy</code>で指定する。<br />
+<code>Retain</code>であれば残る。<code>Recycle</code>は削除されるが現在非推奨(替わりに動的プロビジョニングを使用する)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">persistentVolumeReclaimPolicy</span>:<span style="color: #BBB"> </span>Retain
+</code></pre></div>
+
+<p><code>Delete</code>の場合は、(削除に対応していれば)ボリューム自体も消える。</p>
+<p><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming">Reclaiming</a></p>
 <h2 id="namespace">消えないnamespace</h2>
 <p><code>kubectl delete ns hoge</code>が応答無くなりstatusがTerminatingのままになった場合の対処。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get ns hoge -o json &gt; deletens.json</span>
