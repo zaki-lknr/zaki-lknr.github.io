@@ -877,6 +877,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prune_3" class="md-nav__link">
+    ボリュームのprune
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1040,6 +1047,26 @@
           <li class="md-nav__item">
   <a href="#tcp" class="md-nav__link">
     リモートからのTCP接続
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    その他
+  </a>
+  
+    <nav class="md-nav" aria-label="その他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fedora-42docker" class="md-nav__link">
+    Fedora 42でDockerサービスが起動しない
   </a>
   
 </li>
@@ -2283,6 +2310,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prune_3" class="md-nav__link">
+    ボリュームのprune
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2446,6 +2480,26 @@
           <li class="md-nav__item">
   <a href="#tcp" class="md-nav__link">
     リモートからのTCP接続
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    その他
+  </a>
+  
+    <nav class="md-nav" aria-label="その他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fedora-42docker" class="md-nav__link">
+    Fedora 42でDockerサービスが起動しない
   </a>
   
 </li>
@@ -2622,6 +2676,10 @@ Compose使用時もこのパターン。</p>
 
 <p>デフォルトは、タグが設定されずに<code>&lt;none&gt;</code>になっているイメージが削除される。<br />
 <code>&lt;none&gt;</code>のイメージをリストアップするだけであれば <code>docker image ls -f "dangling=true"</code> でリストアップできる。</p>
+<h4 id="prune_3">ボリュームのprune</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>volume<span style="color: #BBB"> </span>prune
+</code></pre></div>
+
 <h3 id="network">network</h3>
 <h4 id="ls">ls</h4>
 <p>Dockerネットワークのリスト表示</p>
@@ -2789,6 +2847,12 @@ Compose使用時もこのパターン。</p>
 </code></pre></div>
 
 <p>これで2375/TCPでListenする。</p>
+<h2 id="_9">その他</h2>
+<h3 id="fedora-42docker">Fedora 42でDockerサービスが起動しない</h3>
+<p><a href="https://forums.docker.com/t/docker-stopped-working-after-update-to-fedora-42/147915">Docker stopped working after update to Fedora 42 - Docker Engine / General - Docker Community Forums</a></p>
+<blockquote>
+<p>sudo dnf install -y iptables-legacy</p>
+</blockquote>
                 
               
               

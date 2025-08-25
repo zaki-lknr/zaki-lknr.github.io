@@ -1018,6 +1018,33 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    型番の確認
+  </a>
+  
+    <nav class="md-nav" aria-label="型番の確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scsisata" class="md-nav__link">
+    SCSI(SATA)接続
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nvme" class="md-nav__link">
+    NVMe接続
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     ディスク追加
   </a>
   
@@ -1032,21 +1059,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     既存パーティション削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     パーティション作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     書き込み
   </a>
   
@@ -1060,7 +1087,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ラベル設定
   </a>
   
@@ -1903,6 +1930,33 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    型番の確認
+  </a>
+  
+    <nav class="md-nav" aria-label="型番の確認">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scsisata" class="md-nav__link">
+    SCSI(SATA)接続
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nvme" class="md-nav__link">
+    NVMe接続
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     ディスク追加
   </a>
   
@@ -1917,21 +1971,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     既存パーティション削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     パーティション作成
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     書き込み
   </a>
   
@@ -1945,7 +1999,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ラベル設定
   </a>
   
@@ -2090,7 +2144,21 @@
 <span style="color: #888">/dev/sdb2                 ext4  479594152 178667716 276490880  40% /media/zaki/376b22ca-a013-11e8-81fd-000180792463</span>
 </code></pre></div>
 
-<h2 id="_4">ディスク追加</h2>
+<h2 id="_4">型番の確認</h2>
+<h3 id="scsisata">SCSI(SATA)接続</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>cat<span style="color: #BBB"> </span>/proc/scsi/scsi<span style="color: #BBB"> </span>
+<span style="color: #888">Attached devices:</span>
+<span style="color: #888">Host: scsi0 Channel: 00 Id: 00 Lun: 00</span>
+<span style="color: #888">  Vendor: ATA      Model: Samsung SSD 870  Rev: 2B6Q</span>
+<span style="color: #888">  Type:   Direct-Access                    ANSI  SCSI revision: 05</span>
+</code></pre></div>
+
+<h3 id="nvme">NVMe接続</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>lspci<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>ssd
+<span style="color: #888">01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. NV2 NVMe SSD [SM2267XT] (DRAM-less) (rev 03)</span>
+</code></pre></div>
+
+<h2 id="_5">ディスク追加</h2>
 <p>USB接続の外付けHDDが死にかけてたので交換してデータ移行。</p>
 <h3 id="hdd">HDD繋ぐ</h3>
 <p>デバイスの番号は<code>dmesg</code>で確認</p>
@@ -2117,7 +2185,7 @@ I<span style="color: #666">/</span>O<span style="color: #BBB"> </span>サイズ<
 <span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1<span style="color: #BBB">             </span><span style="color: #666">64</span><span style="color: #BBB"> </span><span style="color: #666">3907029119</span><span style="color: #BBB"> </span><span style="color: #666">3907029056</span><span style="color: #BBB">   </span><span style="color: #666">1.8</span>T<span style="color: #BBB">  </span><span style="color: #666">7</span><span style="color: #BBB"> </span>HPFS<span style="color: #666">/</span>NTFS<span style="color: #666">/</span>exFAT
 </code></pre></div>
 
-<h3 id="_5">既存パーティション削除</h3>
+<h3 id="_6">既存パーティション削除</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>fdisk<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb
 
 fdisk<span style="color: #BBB"> </span>(util<span style="color: #666">-</span>linux<span style="color: #BBB"> </span><span style="color: #666">2.34</span>)<span style="color: #BBB"> </span>へようこそ<span style="border: 1px solid #F00">。</span>
@@ -2157,7 +2225,7 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 </code></pre></div>
 
 <p>パーティションが1個しかないからか、<code>d</code>でｼｭｯと消えた。</p>
-<h3 id="_6">パーティション作成</h3>
+<h3 id="_7">パーティション作成</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド (m でヘルプ): n
 パーティションタイプ
    p   基本パーティション (0 プライマリ, 0 拡張, 4 空き)
@@ -2186,7 +2254,7 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 コマンド (m でヘルプ): 
 </code></pre></div>
 
-<h3 id="_7">書き込み</h3>
+<h3 id="_8">書き込み</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド<span style="color: #BBB"> </span>(m<span style="color: #BBB"> </span>でヘルプ)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>w
 パーティション情報が変更されました<span style="border: 1px solid #F00">。</span>
 Failed<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span>remove<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">partition</span><span style="color: #BBB"> </span><span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">system</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>デバイスもしくはリソースがビジー状態です
@@ -2238,7 +2306,7 @@ done
 sys<span style="color: #BBB">     </span><span style="color: #666">0</span>m0<span style="color: #666">.171</span>s
 </code></pre></div>
 
-<h3 id="_8">ラベル設定</h3>
+<h3 id="_9">ラベル設定</h3>
 <p><code>e2label</code>で設定・確認。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>e2label<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1<span style="color: #BBB"> </span><span style="color: #B8860B">&quot;HD-LDS-A&quot;</span>
 root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>e2label<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1

@@ -729,6 +729,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#unarchive" class="md-nav__link">
+    unarchive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#make" class="md-nav__link">
     make
   </a>
@@ -800,6 +807,19 @@
   <a href="#git" class="md-nav__link">
     git
   </a>
+  
+    <nav class="md-nav" aria-label="git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#urlhttp" class="md-nav__link">
+    URLへのhttp認証込み
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2196,6 +2216,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#unarchive" class="md-nav__link">
+    unarchive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#make" class="md-nav__link">
     make
   </a>
@@ -2267,6 +2294,19 @@
   <a href="#git" class="md-nav__link">
     git
   </a>
+  
+    <nav class="md-nav" aria-label="git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#urlhttp" class="md-nav__link">
+    URLへのhttp認証込み
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2704,6 +2744,15 @@ base64エンコードされているのででコードして使用する。</p>
 <span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">ssh_key_data</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">ssh_private_key.content</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">b64decode</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
+<h2 id="unarchive">unarchive</h2>
+<p>アーカイブファイル展開</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>unarchive aap installer
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.unarchive</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">remote_src</span>:<span style="color: #BBB"> </span>yes
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #BBB"> </span>/usr/local/src/ansible-automation-platform-containerized-setup-bundle-2.5-6-x86_64.tar.gz
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #BBB"> </span>/usr/local/src
+</code></pre></div>
+
 <h2 id="make">make</h2>
 <p><code>/path/to/awx-operator</code>ディレクトリ上で<code>make deploy IMG=zakihmkc/awx-operator:0.17.0</code>を実行するタスクであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>deploy awx-operator
@@ -2802,6 +2851,19 @@ Ansibleも同様で、タスクでグループの更新を行っても、後続�
 
 <p>destのディレクトリは事前に作成しておく。<br />
 GitモジュールはCLIの<code>git clone</code>と異なり、上の例でいうと<code>awx_build_and_deploy</code>サブディレクトリは作成されない。</p>
+<h3 id="urlhttp">URLへのhttp認証込み</h3>
+<p>URLへユーザー名とパスワードを埋め込めばOK<br />
+その際URLエンコードを行う。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>clone terraform source
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">ansible.builtin.git</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">repo</span>:<span style="color: #BBB"> </span>https://{{ git_user | urlencode() }}:{{ git_password | urlencode() }}@{{ git_url }}
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">version</span>:<span style="color: #BBB"> </span>main
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;/var/tmp/work-dir&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">git_user</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">lookup(&quot;env&quot;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&quot;GIT_USERNAME&quot;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&#39;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">git_password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">lookup(&quot;env&quot;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&quot;GIT_PASSWORD&quot;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&#39;</span>
+</code></pre></div>
+
 <h2 id="ssh">ssh</h2>
 <h3 id="openssh_keypair">openssh_keypair</h3>
 <p>ssh key pair作成</p>
