@@ -1038,6 +1038,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#smartctl" class="md-nav__link">
+    smartctlコマンド
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1950,6 +1957,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#smartctl" class="md-nav__link">
+    smartctlコマンド
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2158,6 +2172,32 @@
 <span style="color: #888">01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. NV2 NVMe SSD [SM2267XT] (DRAM-less) (rev 03)</span>
 </code></pre></div>
 
+<h3 id="smartctl">smartctlコマンド</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">smartctl -a /dev/sda</span>
+<span style="color: #888">smartctl 7.4 2024-10-15 r5620 [x86_64-linux-6.14.8-2-pve] (local build)</span>
+<span style="color: #888">Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org</span>
+
+<span style="color: #888">=== START OF INFORMATION SECTION ===</span>
+<span style="color: #888">Model Family:     Samsung based SSDs</span>
+<span style="color: #888">Device Model:     Samsung SSD 870 QVO 2TB</span>
+<span style="color: #888">Serial Number:    ....</span>
+<span style="color: #888">LU WWN Device Id: ....</span>
+<span style="color: #888">Firmware Version: SVQ02B6Q</span>
+<span style="color: #888">User Capacity:    2,000,398,934,016 bytes [2.00 TB]</span>
+<span style="color: #888">Sector Size:      512 bytes logical/physical</span>
+<span style="color: #888">Rotation Rate:    Solid State Device</span>
+<span style="color: #888">Form Factor:      2.5 inches</span>
+<span style="color: #888">TRIM Command:     Available, deterministic, zeroed</span>
+<span style="color: #888">Device is:        In smartctl database 7.3/5528</span>
+<span style="color: #888">ATA Version is:   ACS-4 T13/BSR INCITS 529 revision 5</span>
+<span style="color: #888">SATA Version is:  SATA 3.3, 6.0 Gb/s (current: 6.0 Gb/s)</span>
+<span style="color: #888">Local Time is:    Tue Aug 26 09:45:49 2025 JST</span>
+<span style="color: #888">SMART support is: Available - device has SMART capability.</span>
+<span style="color: #888">SMART support is: Enabled</span>
+
+<span style="color: #888">[...]</span>
+</code></pre></div>
+
 <h2 id="_5">ディスク追加</h2>
 <p>USB接続の外付けHDDが死にかけてたので交換してデータ移行。</p>
 <h3 id="hdd">HDD繋ぐ</h3>
@@ -2332,11 +2372,23 @@ HD<span style="color: #666">-</span>LDS<span style="color: #666">-</span>A
 
 <h2 id="mount">mount</h2>
 <h3 id="cifs">CIFS</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@cloud-dev2 ~]# </span>mount<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>cifs<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span><span style="color: #B8860B">username</span><span style="color: #666">=</span>zaki,uid<span style="color: #666">=</span>***,gid<span style="color: #666">=</span>***<span style="color: #BBB"> </span>//pecorino/HD-LDS-A<span style="color: #BBB"> </span>/mnt/
+<p>see mount.cifs, mount.smb3(8)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@cloud-dev2 ~]# </span>mount<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>cifs<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span><span style="color: #B8860B">user</span><span style="color: #666">=</span>zaki,uid<span style="color: #666">=</span>***,gid<span style="color: #666">=</span>***<span style="color: #BBB"> </span>//pecorino/HD-LDS-A<span style="color: #BBB"> </span>/mnt/
 <span style="color: #888">Password for zaki@//pecorino/HD-LDS-A: </span>
 </code></pre></div>
 
-<p><code>uid</code>と<code>gid</code>も指定しないとownerの設定ができない(mountした時のもので固定される)</p>
+<p><code>uid</code>と<code>gid</code>も指定しないとownerの設定ができない(mountした時のもので固定される) 要はマウントしたファイル類のオーナーを制御するなら指定する。<br />
+<code>user</code>は<code>username</code>も可<br />
+パスワード省略時は上記の通り対話的に聞いてくるが、<code>password=&lt;password&gt;</code>で指定も可能(ただしパスワードはtext/plainで記述)</p>
+<p>パスワードをコマンド引数や<code>/etc/fstab</code>に書きたくない場合は外部ファイルに書いてオプション指定も可能</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mount -t cifs -o credentials=/opt/cred/smb,uid=1000 //pecorino/HD-LDS-A /mnt/</span>
+</code></pre></div>
+
+<p>このとき<code>/opt/cred/smb</code>の中はこの通りで、読み取り権限はrootだけあれば良い。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>username=ユーザー名
+password=パスワード
+</code></pre></div>
+
 <h3 id="nfs">NFS</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mount -t nfs -o rw pecorino:/dev /mnt/</span>
 </code></pre></div>

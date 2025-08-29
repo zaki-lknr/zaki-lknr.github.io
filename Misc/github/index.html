@@ -1563,6 +1563,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    ファイル構造
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#action" class="md-nav__link">
     Action
   </a>
@@ -1570,21 +1577,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ワークフローのトリガー
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ワークフローの手動実行
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     ワークフローとジョブの再実行
   </a>
   
@@ -2238,6 +2245,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    ファイル構造
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#action" class="md-nav__link">
     Action
   </a>
@@ -2245,21 +2259,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     ワークフローのトリガー
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ワークフローの手動実行
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     ワークフローとジョブの再実行
   </a>
   
@@ -2407,14 +2421,64 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <li><a href="https://github.com/zaki-lknr/docs/compare/faf3%5E%5E..faf3">https://github.com/zaki-lknr/docs/compare/faf3%5E%5E..faf3</a></li>
 </ul>
 <h2 id="github-actions">GitHub Actions</h2>
+<h3 id="_12">ファイル構造</h3>
+<p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/workflow-syntax">GitHub Actions　のワークフロー構文 - GitHub Docs</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># ワークフロー名</span>
+<span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>github pages
+
+<span style="color: #080; font-style: italic"># トリガー定義</span>
+<span style="color: #008000; font-weight: bold">on</span>:
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">push</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">branches</span>:
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span>main
+
+<span style="color: #080; font-style: italic"># ジョブ定義</span>
+<span style="color: #008000; font-weight: bold">jobs</span>:
+<span style="color: #BBB">  </span><span style="color: #080; font-style: italic"># ジョブID</span>
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">deploy</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">runs-on</span>:<span style="color: #BBB"> </span>ubuntu-22.04
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># タスク定義(リスト)</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">steps</span>:
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>actions/checkout@v3
+<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># usesはアクションの使用</span>
+
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Setup Python
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>actions/setup-python@v4
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">with</span>:
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">python-version</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;3.10&#39;</span>
+<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># withはアクションのパラメタ</span>
+
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Upgrade pip
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>|
+<span style="color: #BBB">          </span><span style="color: #800"># install pip=&gt;20.1 to use &quot;pip cache dir&quot;</span>
+<span style="color: #BBB">          </span><span style="color: #800">python3 -m pip install --upgrade pip</span>
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Install dependencies
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>python3 -m pip install -r ./requirements.txt
+<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># run:シェルでコマンド実行</span>
+
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>mkdocs build
+
+<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Deploy
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>peaceiris/actions-gh-pages@v3
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">if</span>:<span style="color: #BBB"> </span>github.ref == &#39;refs/heads/main&#39;
+<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># if:条件</span>
+<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">with</span>:
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">personal_token</span>:<span style="color: #BBB"> </span>${{ secrets.PERSONAL_TOKEN }}
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">external_repository</span>:<span style="color: #BBB"> </span>zaki-lknr/zaki-lknr.github.io
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">publish_branch</span>:<span style="color: #BBB"> </span>main
+<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">publish_dir</span>:<span style="color: #BBB"> </span>./site
+
+<span style="color: #080; font-style: italic"># &lt;https://github.com/zaki-lknr/docs/blob/main/.github/workflows/main.yml&gt;</span>
+</code></pre></div>
+
 <h3 id="action">Action</h3>
 <p>以下から探す。<br />
 <a href="https://github.com/marketplace?type=actions">Marketplace</a></p>
-<h3 id="_12">ワークフローのトリガー</h3>
+<h3 id="_13">ワークフローのトリガー</h3>
 <p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/events-that-trigger-workflows">ワークフローをトリガーするイベント - GitHub Docs</a></p>
-<h3 id="_13">ワークフローの手動実行</h3>
+<h3 id="_14">ワークフローの手動実行</h3>
 <p><a href="https://docs.github.com/ja/actions/how-tos/manage-workflow-runs/manually-run-a-workflow">ワークフローの手動実行 - GitHub Docs</a></p>
-<h3 id="_14">ワークフローとジョブの再実行</h3>
+<h3 id="_15">ワークフローとジョブの再実行</h3>
 <p>ワークフロー実行結果一覧から指定のワークフローを開き、画面右上の「Re-run all jobs」ボタンを押下ｋ</p>
 <h3 id="runners">Runners</h3>
 <ul>
