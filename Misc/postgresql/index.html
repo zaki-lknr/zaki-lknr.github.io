@@ -1449,6 +1449,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    バージョン確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#db" class="md-nav__link">
     DBに接続
   </a>
@@ -1463,14 +1470,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     設定一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     拡張一覧
   </a>
   
@@ -1484,14 +1491,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     テーブル一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     テーブル定義
   </a>
   
@@ -1808,6 +1815,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    バージョン確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#db" class="md-nav__link">
     DBに接続
   </a>
@@ -1822,14 +1836,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     設定一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     拡張一覧
   </a>
   
@@ -1843,14 +1857,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     テーブル一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     テーブル定義
   </a>
   
@@ -1880,6 +1894,10 @@
                 
                 <h1 id="postgresql">PostgreSQL</h1>
 <h2 id="cli">CLI</h2>
+<h3 id="_1">バージョン確認</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">psql --version</span>
+</code></pre></div>
+
 <h3 id="db">DBに接続</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>psql<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>&lt;DB名&gt;<span style="color: #BBB"> </span>-U<span style="color: #BBB"> </span>&lt;ユーザー名&gt;
 </code></pre></div>
@@ -1890,12 +1908,12 @@
 <span style="color: #000080; font-weight: bold">$ </span>psql<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>&lt;DB名&gt;<span style="color: #BBB"> </span>-U<span style="color: #BBB"> </span>&lt;ユーザー名&gt;
 </code></pre></div>
 
-<h3 id="_1">設定一覧</h3>
+<h3 id="_2">設定一覧</h3>
 <p>起動オプション(パラメタ)類はこれで確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">show all;</span>
 </code></pre></div>
 
-<h3 id="_2">拡張一覧</h3>
+<h3 id="_3">拡張一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">select * from pg_available_extensions;</span>
 </code></pre></div>
 
@@ -1903,11 +1921,11 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">\l</span>
 </code></pre></div>
 
-<h3 id="_3">テーブル一覧</h3>
+<h3 id="_4">テーブル一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">\dt</span>
 </code></pre></div>
 
-<h3 id="_4">テーブル定義</h3>
+<h3 id="_5">テーブル定義</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">\d &lt;table-name&gt;</span>
 </code></pre></div>
                 

@@ -4736,16 +4736,25 @@ string <span style="color: #666">=</span> re<span style="color: #666">.</span>su
 
 <h4 id="_46">バイト列との変換</h4>
 <p>バイト列 -&gt; 文字列</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>byte <span style="color: #666">=</span> <span style="color: #B44">b&#39;nijigasaki&#39;</span>
-<span style="color: #A2F">str</span> <span style="color: #666">=</span> byte<span style="color: #666">.</span>decode()
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>b <span style="color: #666">=</span> <span style="color: #B44">b&#39;nijigasaki&#39;</span>
+s <span style="color: #666">=</span> b<span style="color: #666">.</span>decode()
 
-<span style="color: #A2F">print</span>(byte)
-<span style="color: #A2F">print</span>(<span style="color: #A2F">str</span>)
+<span style="color: #A2F">print</span>(b)
+<span style="color: #A2F">print</span>(s)
 </code></pre></div>
 
 <p>出力は</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">b&#39;nijigasaki&#39;</span>
 <span style="color: #888">nijigasaki</span>
+</code></pre></div>
+
+<p>文字列 -&gt; バイト列</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>b2 <span style="color: #666">=</span> s<span style="color: #666">.</span>encode()
+<span style="color: #A2F">print</span>(b2)
+</code></pre></div>
+
+<p>出力は以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">b&#39;nijigasaki&#39;</span>
 </code></pre></div>
 
 <h3 id="datetime">日付型(datetime)</h3>
