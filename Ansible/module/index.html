@@ -824,6 +824,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gitlab" class="md-nav__link">
+    GitLab
+  </a>
+  
+    <nav class="md-nav" aria-label="GitLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    接続
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ssh" class="md-nav__link">
     ssh
   </a>
@@ -2311,6 +2331,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gitlab" class="md-nav__link">
+    GitLab
+  </a>
+  
+    <nav class="md-nav" aria-label="GitLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    接続
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ssh" class="md-nav__link">
     ssh
   </a>
@@ -2862,6 +2902,32 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">git_user</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">lookup(&quot;env&quot;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&quot;GIT_USERNAME&quot;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&#39;</span>
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">git_password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">lookup(&quot;env&quot;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&quot;GIT_PASSWORD&quot;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&#39;</span>
+</code></pre></div>
+
+<h2 id="gitlab">GitLab</h2>
+<p><code>community.general.gitlab_***</code> を使う</p>
+<h3 id="_7">接続</h3>
+<p>ユーザー名・パスワード認証なら以下の通り。各モジュール共通</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>create user
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">community.general.gitlab_user</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">api_url</span>:<span style="color: #BBB"> </span>https://gitlab.exmaple.org/
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">api_username</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">account_name</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">api_password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">account_password</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">validate_certs</span>:<span style="color: #BBB"> </span>false
+
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>...
+</code></pre></div>
+
+<p>アクセストークン使用時はトークンだけでよい。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>create user
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">community.general.gitlab_user</span>:
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">api_url</span>:<span style="color: #BBB"> </span>https://gitlab.exmaple.org/
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">api_token</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">account_token</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">validate_certs</span>:<span style="color: #BBB"> </span>false
+
+<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>...
 </code></pre></div>
 
 <h2 id="ssh">ssh</h2>

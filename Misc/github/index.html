@@ -1598,6 +1598,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    変数
+  </a>
+  
+    <nav class="md-nav" aria-label="変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_env" class="md-nav__link">
+    タスクの結果を次のタスクで参照する($GITHUB_ENV)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#runners" class="md-nav__link">
     Runners
   </a>
@@ -2300,6 +2320,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    変数
+  </a>
+  
+    <nav class="md-nav" aria-label="変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_env" class="md-nav__link">
+    タスクの結果を次のタスクで参照する($GITHUB_ENV)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#runners" class="md-nav__link">
     Runners
   </a>
@@ -2519,7 +2559,11 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <h3 id="_14">ワークフローの手動実行</h3>
 <p><a href="https://docs.github.com/ja/actions/how-tos/manage-workflow-runs/manually-run-a-workflow">ワークフローの手動実行 - GitHub Docs</a></p>
 <h3 id="_15">ワークフローとジョブの再実行</h3>
-<p>ワークフロー実行結果一覧から指定のワークフローを開き、画面右上の「Re-run all jobs」ボタンを押下ｋ</p>
+<p>ワークフロー実行結果一覧から指定のワークフローを開き、画面右上の「Re-run all jobs」ボタンを押下</p>
+<h3 id="_16">変数</h3>
+<h4 id="github_env">タスクの結果を次のタスクで参照する($GITHUB_ENV)</h4>
+<p><code>$GITHUB_ENV</code>ファイルを使った環境変数定義を行う。<br />
+具体的には上記変数で参照できるファイルに「<code>KEY=VALUE</code>」形式で文字列を書き込めば、後続のタスクは<code>${{ env.KEY }}</code>で<code>VALUE</code>を参照できる。</p>
 <h3 id="runners">Runners</h3>
 <ul>
 <li>GitHubのランナーを利用する<ul>
