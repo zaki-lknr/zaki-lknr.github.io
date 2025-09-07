@@ -649,6 +649,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    現在時刻の取得
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1979,6 +1986,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    現在時刻の取得
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2090,6 +2104,28 @@
       return 0;
     }
 </code></pre></div>
+
+<h2 id="_12">現在時刻の取得</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating_now.html">The now function: get the current time — Ansible Community Documentation</a></p>
+<p>Jinja2関数の<code>now()</code>を使う。(Jinja2の関数と書かれてるが、Jinja2のドキュメントに見当たらなくてよくわからん)<br />
+<code>pipe</code>で<code>date</code>を実行する必要はない。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>print current date
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;current(local):</span><span style="color: #B8860B"> </span><span style="color: #B44">{{</span><span style="color: #B8860B"> </span><span style="color: #B44">now()</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;current(utc):</span><span style="color: #B8860B">   </span><span style="color: #B44">{{</span><span style="color: #B8860B"> </span><span style="color: #B44">now(true)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;formatted:</span><span style="color: #B8860B">      </span><span style="color: #B44">{{</span><span style="color: #B8860B"> </span><span style="color: #B44">now(false,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;%Y-%m-%d</span><span style="color: #B8860B"> </span><span style="color: #B44">%H-%M-%S&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+</code></pre></div>
+
+<p>出力は以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ok: [localhost] =&gt; </span>
+<span style="color: #888">    msg:</span>
+<span style="color: #888">    - &#39;current(local): 2025-09-06 12:05:13.671003&#39;</span>
+<span style="color: #888">    - &#39;current(utc):   2025-09-06 03:05:13.671557&#39;</span>
+<span style="color: #888">    - &#39;formatted:      2025-09-06 12-05-13&#39;</span>
+</code></pre></div>
+
+<p>引数のbooleanはUTCフラグ。書式をフォーマットする場合は第2引数。</p>
                 
               
               
