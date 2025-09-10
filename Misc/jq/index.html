@@ -1370,20 +1370,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    特定の値を取得
+    全てのキーの取得
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    配列要素を全て出力
+    全ての値の取得
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    特定の値を取得
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    配列要素を全て出力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     出力からクォーテーションを削除
   </a>
   
@@ -1760,20 +1774,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    特定の値を取得
+    全てのキーの取得
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    配列要素を全て出力
+    全ての値の取得
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    特定の値を取得
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    配列要素を全て出力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     出力からクォーテーションを削除
   </a>
   
@@ -1797,15 +1825,28 @@
                 
                 
                 <h1 id="jq">jq</h1>
-<h2 id="_1">特定の値を取得</h2>
+<h2 id="_1">全てのキーの取得</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq keys</span>
+</code></pre></div>
+
+<p>ただし元の順序は保持されずにソートされる。<br />
+順序を保持するには以下</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq keys_unsorted</span>
+</code></pre></div>
+
+<h2 id="_2">全ての値の取得</h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.[]&#39;</span>
+</code></pre></div>
+
+<h2 id="_3">特定の値を取得</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.list[0].key&#39;</span>
 </code></pre></div>
 
-<h2 id="_2">配列要素を全て出力</h2>
+<h2 id="_4">配列要素を全て出力</h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.list[].key&#39;</span>
 </code></pre></div>
 
-<h2 id="_3">出力からクォーテーションを削除</h2>
+<h2 id="_5">出力からクォーテーションを削除</h2>
 <p><code>-r</code>を付与</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq -r &#39;.list[0].key&#39;</span>
 </code></pre></div>
