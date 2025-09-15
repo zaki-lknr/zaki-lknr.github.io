@@ -801,6 +801,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#-set" class="md-nav__link">
+    チャートインストール時のコマンドライン引数でパラメタ指定(--set)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
     チャートのバージョン指定インストール
   </a>
@@ -2062,6 +2069,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#-set" class="md-nav__link">
+    チャートインストール時のコマンドライン引数でパラメタ指定(--set)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
     チャートのバージョン指定インストール
   </a>
@@ -2323,6 +2337,11 @@
 
 <p>未インストールであればインストールし、インストール済みであればアップグレードするには<code>--install</code>を付加</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm upgrade --install sample-logstash elastic/logstash -f values.yaml --create-namespace -n logging</span>
+</code></pre></div>
+
+<h3 id="-set">チャートインストール時のコマンドライン引数でパラメタ指定(--set)</h3>
+<p>values.yaml以外にコマンドラインオプションからもパラメタ指定できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm upgrade ... --set key=value --set config.server.port=8443</span>
 </code></pre></div>
 
 <h3 id="_13">チャートのバージョン指定インストール</h3>
