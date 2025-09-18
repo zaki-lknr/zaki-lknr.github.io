@@ -1497,6 +1497,13 @@
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    使用中設定ファイルの確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     テンプレート
   </a>
   
@@ -1970,6 +1977,13 @@
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    使用中設定ファイルの確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     テンプレート
   </a>
   
@@ -2087,7 +2101,14 @@
 </code></pre></div>
 
 <h2 id="misetoml">mise.toml</h2>
-<h3 id="_7">テンプレート</h3>
+<h3 id="_7">使用中設定ファイルの確認</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>mise<span style="color: #BBB"> </span>cfg
+<span style="color: #888">Path                                         Tools              </span>
+<span style="color: #888">~/.config/mise/config.toml                   aws, python, usage </span>
+<span style="color: #888">~/local/src/ansible-sample/become/mise.toml  python            </span>
+</code></pre></div>
+
+<h3 id="_8">テンプレート</h3>
 <p><a href="https://mise.jdx.dev/templates.html">Templates | mise-en-place</a></p>
 <h4 id="exec">コマンド実行結果を変数にセット (exec)</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>description<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;カウント設定: {{ exec(command=</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">grep count -A2 path/to/file | awk -F&#39;=&#39; &#39;{print $2}&#39;</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">) }}&quot;</span>

@@ -1598,7 +1598,40 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    タスク(steps)
+  </a>
+  
+    <nav class="md-nav" aria-label="タスク(steps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if
+  </a>
+  
+    <nav class="md-nav" aria-label="if">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
+    空文字判定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
     変数
   </a>
   
@@ -1609,6 +1642,19 @@
   <a href="#github_env" class="md-nav__link">
     タスクの結果を次のタスクで参照する($GITHUB_ENV)
   </a>
+  
+    <nav class="md-nav" aria-label="タスクの結果を次のタスクで参照する($GITHUB_ENV)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_env_1" class="md-nav__link">
+    複数行の$GITHUB_ENV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1631,6 +1677,13 @@
   
     <nav class="md-nav" aria-label="Azure">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    login
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#aks" class="md-nav__link">
@@ -2320,7 +2373,40 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    タスク(steps)
+  </a>
+  
+    <nav class="md-nav" aria-label="タスク(steps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if
+  </a>
+  
+    <nav class="md-nav" aria-label="if">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
+    空文字判定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
     変数
   </a>
   
@@ -2331,6 +2417,19 @@
   <a href="#github_env" class="md-nav__link">
     タスクの結果を次のタスクで参照する($GITHUB_ENV)
   </a>
+  
+    <nav class="md-nav" aria-label="タスクの結果を次のタスクで参照する($GITHUB_ENV)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github_env_1" class="md-nav__link">
+    複数行の$GITHUB_ENV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2353,6 +2452,13 @@
   
     <nav class="md-nav" aria-label="Azure">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    login
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#aks" class="md-nav__link">
@@ -2560,10 +2666,41 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <p><a href="https://docs.github.com/ja/actions/how-tos/manage-workflow-runs/manually-run-a-workflow">ワークフローの手動実行 - GitHub Docs</a></p>
 <h3 id="_15">ワークフローとジョブの再実行</h3>
 <p>ワークフロー実行結果一覧から指定のワークフローを開き、画面右上の「Re-run all jobs」ボタンを押下</p>
-<h3 id="_16">変数</h3>
+<h3 id="steps">タスク(steps)</h3>
+<h4 id="if">if</h4>
+<p>条件によってタスクを処理せずスキップする</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec command
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>|
+<span style="color: #BBB">    </span><span style="color: #800">value=$(command)</span>
+<span style="color: #BBB">    </span><span style="color: #800">echo &quot;VALUE=$value&quot; &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
+
+-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec next
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">if</span>:<span style="color: #BBB"> </span>${{ env.VALUE != &#39;&#39; }}
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>...
+</code></pre></div>
+
+<p>"exec command"の出力結果を変数保持しているが、文字列長がゼロの場合は次のタスク"exec next"は実行されない。</p>
+<h5 id="_16">空文字判定</h5>
+<p>前述の通り <code>${{ value != '' }}</code> と記述。<br />
+ダブルクォート不可</p>
+<h3 id="_17">変数</h3>
 <h4 id="github_env">タスクの結果を次のタスクで参照する($GITHUB_ENV)</h4>
 <p><code>$GITHUB_ENV</code>ファイルを使った環境変数定義を行う。<br />
 具体的には上記変数で参照できるファイルに「<code>KEY=VALUE</code>」形式で文字列を書き込めば、後続のタスクは<code>${{ env.KEY }}</code>で<code>VALUE</code>を参照できる。</p>
+<h5 id="github_env_1">複数行の$GITHUB_ENV</h5>
+<p>ヒアドキュメント形式で書き込む。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">steps</span>:
+<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Set the value in bash
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">id</span>:<span style="color: #BBB"> </span>step_one
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>|
+<span style="color: #BBB">      </span><span style="color: #800">{</span>
+<span style="color: #BBB">        </span><span style="color: #800">echo &#39;JSON_RESPONSE&lt;&lt;EOF&#39;</span>
+<span style="color: #BBB">        </span><span style="color: #800">curl https://example.com</span>
+<span style="color: #BBB">        </span><span style="color: #800">echo EOF</span>
+<span style="color: #BBB">      </span><span style="color: #800">} &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
+</code></pre></div>
+
+<p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/workflow-commands#multiline-strings">GitHub Actions のワークフロー コマンド - GitHub Docs</a></p>
 <h3 id="runners">Runners</h3>
 <ul>
 <li>GitHubのランナーを利用する<ul>
@@ -2578,6 +2715,19 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 </li>
 </ul>
 <h3 id="azure">Azure</h3>
+<h4 id="login">login</h4>
+<p>az loginを行うアクション<br />
+<a href="https://github.com/marketplace/actions/azure-login">Azure Login · Actions · GitHub Marketplace</a></p>
+<p><code>subscription-id</code>/<code>client-id</code>/<code>tenant-id</code>のセットか、<code>creds</code>にクレデンシャル情報を指定する。<br />
+<code>creds</code>の場合は以下の形式の文字列</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;clientSecret&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>,
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;subscriptionId&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>,
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;tenantId&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>,
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;clientId&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>
+}
+</code></pre></div>
+
 <h4 id="aks">AKS</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/kubernetes-action">GitHub Actions を使った Azure Kubernetes Service (AKS) へのコンテナーのビルド、テスト、デプロイ - Azure Kubernetes Service | Microsoft Learn</a></p>
                 
