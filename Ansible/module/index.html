@@ -844,6 +844,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#awx" class="md-nav__link">
+    AWX
+  </a>
+  
+    <nav class="md-nav" aria-label="AWX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ユーザー作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ssh" class="md-nav__link">
     ssh
   </a>
@@ -2351,6 +2371,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#awx" class="md-nav__link">
+    AWX
+  </a>
+  
+    <nav class="md-nav" aria-label="AWX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    ユーザー作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ssh" class="md-nav__link">
     ssh
   </a>
@@ -2930,6 +2970,18 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>...
 </code></pre></div>
 
+<h2 id="awx">AWX</h2>
+<h3 id="_8">ユーザー作成</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>create user
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">awx.awx.user</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">username</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">password</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">organization</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">organization</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">is_superuser</span>:<span style="color: #BBB"> </span>false
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">is_system_auditor</span>:<span style="color: #BBB"> </span>false
+</code></pre></div>
+
+<p><a href="https://docs.ansible.com/ansible/latest/collections/awx/awx/user_module.html">awx.awx.user module – create, update, or destroy Automation Platform Controller users. — Ansible Community Documentation</a></p>
 <h2 id="ssh">ssh</h2>
 <h3 id="openssh_keypair">openssh_keypair</h3>
 <p>ssh key pair作成</p>
