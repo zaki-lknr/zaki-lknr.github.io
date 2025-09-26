@@ -1214,6 +1214,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#places-api" class="md-nav__link">
+    Places API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#place-search" class="md-nav__link">
     Place Search
   </a>
@@ -1257,6 +1264,13 @@
           <li class="md-nav__item">
   <a href="#get-check-in-details" class="md-nav__link">
     Get Check-in Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-place-details-depr" class="md-nav__link">
+    Get Place Details (depr)
   </a>
   
 </li>
@@ -1896,6 +1910,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#places-api" class="md-nav__link">
+    Places API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#place-search" class="md-nav__link">
     Place Search
   </a>
@@ -1939,6 +1960,13 @@
           <li class="md-nav__item">
   <a href="#get-check-in-details" class="md-nav__link">
     Get Check-in Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-place-details-depr" class="md-nav__link">
+    Get Place Details (depr)
   </a>
   
 </li>
@@ -1993,6 +2021,12 @@
 </ul>
 <p>これでtokenが表示される</p>
 <h2 id="api_1">API</h2>
+<h3 id="places-api">Places API</h3>
+<ul>
+<li><a href="https://docs.foursquare.com/developer/reference/upcoming-changes">Upcoming Changes</a></li>
+<li><a href="https://foursquare.com/pricing/#places_api">Pricing</a></li>
+<li><a href="https://docs.foursquare.com/fsq-developers-places/reference/migration-guide">Migration Guide</a></li>
+</ul>
 <h3 id="place-search">Place Search</h3>
 <p><a href="https://docs.foursquare.com/developer/reference/place-search">Place Search</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
@@ -2129,7 +2163,7 @@ Twitterなどのシェアを有効にしていると<code>shares</code>フィー
 }
 </code></pre></div>
 
-<h3 id="get-place-details">Get Place Details</h3>
+<h3 id="get-place-details-depr">Get Place Details (depr)</h3>
 <p>APIはv2がすでに無くなりv3を使う必要がある。<br />
 <a href="https://docs.foursquare.com/developer/reference/place-details">Get Place Details</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
@@ -2144,6 +2178,33 @@ TwitterIDなどのソーシャルメディア情報であれば<code>?fields=soc
 <span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;social_media&quot;</span>:<span style="color: #BBB"> </span>{
 <span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;3rdhakatadaruma&quot;</span>
 <span style="color: #BBB">  </span>}
+}
+</code></pre></div>
+
+<h3 id="get-place-details">Get Place Details</h3>
+<p>"places-api"の場合は以下。<br />
+<a href="https://docs.foursquare.com/fsq-developers-places/reference/place-details">Get Place Details</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
+<span style="color: #888">    --url &quot;https://places-api.foursquare.com/places/${FSQ_PLACE_ID}&quot; \</span>
+<span style="color: #888">    --header &quot;Authorization: Bearer ${OAUTH_TOKEN}&quot; \</span>
+<span style="color: #888">    --header &quot;accept: application/json&quot; \</span>
+<span style="color: #888">    --header &quot;X-Places-Api-Version: 2025-06-17&quot;</span>
+</code></pre></div>
+
+<p>socislのIDも取れる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;fsq_place_id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;5d8da873009e7000071be88b&quot;</span>,
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;latitude&quot;</span>:<span style="color: #BBB"> </span><span style="color: #666">35.62968</span>,
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;longitude&quot;</span>:<span style="color: #BBB"> </span><span style="color: #666">139.77664</span>,
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;ODAIBAゲーマーズ&quot;</span>,
+
+<span style="color: #BBB">  </span><span style="border: 1px solid #F00">...</span>
+
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;social_media&quot;</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;odaiba_gema&quot;</span>
+<span style="color: #BBB">  </span>},
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;tel&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;...&quot;</span>,
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;website&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://www.gamers.co.jp/shop/shop_detail/113216/&quot;</span>
 }
 </code></pre></div>
                 

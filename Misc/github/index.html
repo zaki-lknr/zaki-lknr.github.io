@@ -1639,6 +1639,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    フォーマット文字列(format)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#github_env" class="md-nav__link">
     タスクの結果を次のタスクで参照する($GITHUB_ENV)
   </a>
@@ -2414,6 +2421,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    フォーマット文字列(format)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#github_env" class="md-nav__link">
     タスクの結果を次のタスクで参照する($GITHUB_ENV)
   </a>
@@ -2684,6 +2698,12 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <p>前述の通り <code>${{ value != '' }}</code> と記述。<br />
 ダブルクォート不可</p>
 <h3 id="_17">変数</h3>
+<h4 id="format">フォーマット文字列(format)</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">env</span>:
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">VALUE</span>:<span style="color: #BBB"> </span>${{ format(&#39;foo-{0}-bar&#39;, vars.INPUT_VALUE) }}
+</code></pre></div>
+
+<p><code>VALUE</code>の値は、入力変数<code>INPUT_VALUE</code>の内容に従って<code>"foo-***-bar"</code>となる。</p>
 <h4 id="github_env">タスクの結果を次のタスクで参照する($GITHUB_ENV)</h4>
 <p><code>$GITHUB_ENV</code>ファイルを使った環境変数定義を行う。<br />
 具体的には上記変数で参照できるファイルに「<code>KEY=VALUE</code>」形式で文字列を書き込めば、後続のタスクは<code>${{ env.KEY }}</code>で<code>VALUE</code>を参照できる。</p>
