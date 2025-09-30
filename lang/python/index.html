@@ -2181,6 +2181,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#splitlines" class="md-nav__link">
     splitlines()
   </a>
@@ -3418,6 +3425,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#splitlines" class="md-nav__link">
     splitlines()
   </a>
@@ -4619,6 +4633,10 @@ r <span style="color: #666">=</span> random<span style="color: #666">.</span>ran
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_str[:<span style="color: #666">-1</span>]
 </code></pre></div>
 
+<h4 id="join">join()</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B44">&quot;</span><span style="color: #B62; font-weight: bold">\n</span><span style="color: #B44">&quot;</span><span style="color: #666">.</span>join(line_items))
+</code></pre></div>
+
 <h4 id="splitlines">splitlines()</h4>
 <p>テキストの末尾に改行がある場合、<code>split('\n')</code>を使うと末尾の改行もデリミタと認識し、リストの最終要素は空文字になるが、<code>splitlines()</code>であれば末尾の改行分は無視される。行ごとに処理したい場合はこちらが便利。</p>
 <h4 id="_39">ゼロパディング</h4>
@@ -4636,6 +4654,9 @@ str_sample <span style="color: #666">=</span> <span style="color: #B44">&#39;foo
 </code></pre></div>
 
 <h4 id="_40">フォーマット文字列</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B44">&quot;</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">,</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">,</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">&quot;</span><span style="color: #666">.</span>format(name, count, expire))
+</code></pre></div>
+
 <h5 id="_41">スペース埋め</h5>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;string:「</span><span style="color: #B68; font-weight: bold">{: &gt;5}</span><span style="color: #B44">」&quot;</span><span style="color: #666">.</span>format(<span style="color: #666">10</span>))
 string:<span style="border: 1px solid #F00">「</span>   <span style="color: #666">10</span><span style="border: 1px solid #F00">」</span>
