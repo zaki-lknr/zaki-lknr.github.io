@@ -1558,6 +1558,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#oidccli" class="md-nav__link">
+    OIDCでCLIログイン
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1677,6 +1684,13 @@
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     リスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    内容確認(policyなど)
   </a>
   
 </li>
@@ -1941,6 +1955,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#oidccli" class="md-nav__link">
+    OIDCでCLIログイン
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2065,6 +2086,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#policy" class="md-nav__link">
+    内容確認(policyなど)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     削除
   </a>
@@ -2129,6 +2157,10 @@
 </code></pre></div>
 
 <p>トークンを省略すれば対話的に聞いてくる</p>
+<h3 id="oidccli">OIDCでCLIログイン</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault login -method=oidc [-path=***] roke=****</span>
+</code></pre></div>
+
 <h2 id="_3">初期処理</h2>
 <h3 id="init">init</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault operator init</span>
@@ -2190,6 +2222,10 @@ KVシークレットエンジンであれば以下の通り。</p>
 <h3 id="role">role</h3>
 <h4 id="_7">リスト</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault list auth/path/role</span>
+</code></pre></div>
+
+<h4 id="policy">内容確認(policyなど)</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault read auth/path/role/key</span>
 </code></pre></div>
 
 <h4 id="_8">削除</h4>
