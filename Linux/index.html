@@ -1005,6 +1005,13 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    シェル変数との区別
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     未定義時にエラーにする
   </a>
   
@@ -1016,14 +1023,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     エラー番号
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     シングルユーザーモード
   </a>
   
@@ -1050,7 +1057,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     アップグレード
   </a>
   
@@ -1910,6 +1917,13 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    シェル変数との区別
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     未定義時にエラーにする
   </a>
   
@@ -1921,14 +1935,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     エラー番号
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     シングルユーザーモード
   </a>
   
@@ -1955,7 +1969,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     アップグレード
   </a>
   
@@ -2039,7 +2053,15 @@ __EOL__
 </code></pre></div>
 
 <p>シェル変数に残るので<code>echo $EDITOR</code>の出力は変化しないが環境変数としては消える。</p>
-<h3 id="_6">未定義時にエラーにする</h3>
+<h3 id="_6">シェル変数との区別</h3>
+<p><code>echo $foobar</code>で結果が返っても、それがシェル変数なのか環境変数なのかはこれだけだとわからない。<br />
+見分け方としては</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">printenv foobar</span>
+</code></pre></div>
+
+<p>で出力があれば環境変数、なければ環境変数は未設定(<code>echo</code>で値が出力されるならシェル変数にセットされている)</p>
+<p>一覧であれば、<code>env</code>, <code>printenv</code>, <code>export</code> を実行すれば環境変数一覧が得られる。 </p>
+<h3 id="_7">未定義時にエラーにする</h3>
 <p><code>${環境変数名:?エラーメッセージ}</code>を参照する。(空文字を許容する場合は<code>:</code>は外して<code>?</code>のみ)</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B8860B">$EDITOR2</span>
 
@@ -2050,7 +2072,7 @@ __EOL__
 <span style="color: #888">zzz</span>
 </code></pre></div>
 
-<h2 id="_7">エラー番号</h2>
+<h2 id="_8">エラー番号</h2>
 <p><a href="https://software.fujitsu.com/jp/manual/manualfiles/m210011/j2x14260/25z200/j4260-b-00-00.html">付録B Solaris/Linux ERRNO テーブル</a></p>
 <table>
 <thead>
@@ -2083,7 +2105,7 @@ __EOL__
 </tr>
 </tbody>
 </table>
-<h2 id="_8">シングルユーザーモード</h2>
+<h2 id="_9">シングルユーザーモード</h2>
 <h3 id="ubuntu">ubuntu</h3>
 <p>GRUBメニュー画面で<code>e</code>し、</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>setparams &#39;Ubuntu&#39;
@@ -2128,7 +2150,7 @@ Linuxが起動したらGRUBを再インストール</p>
 <span style="color: #888">sudo grub-install /dev/sda</span>
 </code></pre></div>
 
-<h2 id="_9">アップグレード</h2>
+<h2 id="_10">アップグレード</h2>
 <h3 id="fedora">Fedora</h3>
 <p><a href="https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/">Upgrading Fedora Using DNF System Plugin :: Fedora Docs</a></p>
 <ul>
