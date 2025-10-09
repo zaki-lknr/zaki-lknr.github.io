@@ -1667,6 +1667,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#token_1" class="md-nav__link">
     token確認
   </a>
@@ -1682,7 +1689,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リスト
   </a>
   
@@ -1696,7 +1703,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     削除
   </a>
   
@@ -1704,6 +1711,46 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identityentity" class="md-nav__link">
+    identity/entity
+  </a>
+  
+    <nav class="md-nav" aria-label="identity/entity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    ID一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy_1" class="md-nav__link">
+    policy
+  </a>
+  
+    <nav class="md-nav" aria-label="policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一覧
+  </a>
   
 </li>
         
@@ -1721,8 +1768,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     コンストラクタ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oidc" class="md-nav__link">
+    OIDC
   </a>
   
 </li>
@@ -2064,6 +2118,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#token_1" class="md-nav__link">
     token確認
   </a>
@@ -2079,7 +2140,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リスト
   </a>
   
@@ -2093,7 +2154,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     削除
   </a>
   
@@ -2101,6 +2162,46 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identityentity" class="md-nav__link">
+    identity/entity
+  </a>
+  
+    <nav class="md-nav" aria-label="identity/entity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    ID一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy_1" class="md-nav__link">
+    policy
+  </a>
+  
+    <nav class="md-nav" aria-label="policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一覧
+  </a>
   
 </li>
         
@@ -2118,8 +2219,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     コンストラクタ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oidc" class="md-nav__link">
+    OIDC
   </a>
   
 </li>
@@ -2158,7 +2266,7 @@
 
 <p>トークンを省略すれば対話的に聞いてくる</p>
 <h3 id="oidccli">OIDCでCLIログイン</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault login -method=oidc [-path=***] roke=****</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault login -method=oidc [-path=***] role=****</span>
 </code></pre></div>
 
 <h2 id="_3">初期処理</h2>
@@ -2215,12 +2323,17 @@ KVシークレットエンジンであれば以下の通り。</p>
 <p><code>curl -H "X-Vault-Token: ${token}" http://192.168.0.75:8200/v1/kv/data/zzz?version=1</code>とか。<br />
 <a href="https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2">KV - Secrets Engines - HTTP API | Vault | HashiCorp Developer</a></p>
 <h2 id="auth">auth</h2>
+<h3 id="_7">一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault auth list</span>
+</code></pre></div>
+
 <h3 id="token_1">token確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault token lookup</span>
 </code></pre></div>
 
 <h3 id="role">role</h3>
-<h4 id="_7">リスト</h4>
+<h4 id="_8">リスト</h4>
+<p><code>path</code>は<code>vault auth list</code>の出力で確認できる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault list auth/path/role</span>
 </code></pre></div>
 
@@ -2228,8 +2341,21 @@ KVシークレットエンジンであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault read auth/path/role/key</span>
 </code></pre></div>
 
-<h4 id="_8">削除</h4>
+<h4 id="_9">削除</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault delete auth/path/role/key</span>
+</code></pre></div>
+
+<h2 id="identityentity">identity/entity</h2>
+<h3 id="id">ID一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault list identity/entity/id</span>
+</code></pre></div>
+
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault list identity/entity-alias/id</span>
+</code></pre></div>
+
+<h2 id="policy_1">policy</h2>
+<h3 id="_10">一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault policy list</span>
 </code></pre></div>
 
 <h2 id="hvac">hvac</h2>
@@ -2238,7 +2364,7 @@ KVシークレットエンジンであれば以下の通り。</p>
 <li><a href="https://python-hvac.org/en/latest/overview.html">hvac documentation</a></li>
 <li><a href="https://github.com/hvac/hvac">hvac/hvac: :lock: Python 3.X client for HashiCorp Vault</a></li>
 </ul>
-<h3 id="_9">コンストラクタ</h3>
+<h3 id="_11">コンストラクタ</h3>
 <p>証明書検証オフは<code>verify=False</code>を加えればOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">urllib3</span>
 <span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os</span>
@@ -2252,6 +2378,9 @@ client <span style="color: #666">=</span> hvac<span style="color: #666">.</span>
     verify<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">False</span>
 )
 </code></pre></div>
+
+<h3 id="oidc">OIDC</h3>
+<p><a href="https://python-hvac.org/en/stable/usage/auth_methods/jwt-oidc.html">JWT/OIDC — hvac 2.3.0 documentation</a></p>
                 
               
               
