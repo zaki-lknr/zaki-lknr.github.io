@@ -2867,6 +2867,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pipx" class="md-nav__link">
+    pipx
+  </a>
+  
+    <nav class="md-nav" aria-label="pipx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    アプリケーションインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4108,6 +4135,33 @@
   <a href="#pyvenv" class="md-nav__link">
     pyvenv
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipx" class="md-nav__link">
+    pipx
+  </a>
+  
+    <nav class="md-nav" aria-label="pipx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    アプリケーションインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -5381,6 +5435,42 @@ jmespath==0.10.0
 <span style="color: #888">ethtool (0.14)</span>
 <span style="color: #888">:</span>
 <span style="color: #888">:</span>
+</code></pre></div>
+
+<h3 id="pipx">pipx</h3>
+<h4 id="_82">インストール</h4>
+<p><a href="https://pipx.pypa.io/stable/installation/">Installation - pipx</a><br />
+<code>dnf</code>や<code>apt</code>で。</p>
+<h4 id="_83">アプリケーションインストール</h4>
+<p>例: <code>ansible-core</code></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pipx install ansible-core</span>
+</code></pre></div>
+
+<p>バージョン指定も可能</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pipx<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>ansible-core<span style="color: #666">==2</span>.18.0
+<span style="color: #888">  installed package ansible-core 2.18.0, installed using Python 3.13.7</span>
+<span style="color: #888">  These apps are now globally available</span>
+<span style="color: #888">    - ansible</span>
+<span style="color: #888">    - ansible-config</span>
+<span style="color: #888">    - ansible-console</span>
+<span style="color: #888">    - ansible-doc</span>
+<span style="color: #888">    - ansible-galaxy</span>
+<span style="color: #888">    - ansible-inventory</span>
+<span style="color: #888">    - ansible-playbook</span>
+<span style="color: #888">    - ansible-pull</span>
+<span style="color: #888">    - ansible-test</span>
+<span style="color: #888">    - ansible-vault</span>
+<span style="color: #888">done! ✨ 🌟 ✨</span>
+<span style="color: #000080; font-weight: bold">$ </span>ansible<span style="color: #BBB"> </span>--version
+<span style="color: #888">ansible [core 2.18.0]</span>
+<span style="color: #888">  config file = None</span>
+<span style="color: #888">  configured module search path = [&#39;/home/zaki/.ansible/plugins/modules&#39;, &#39;/usr/share/ansible/plugins/modules&#39;]</span>
+<span style="color: #888">  ansible python module location = /home/zaki/.local/share/pipx/venvs/ansible-core/lib64/python3.13/site-packages/ansible</span>
+<span style="color: #888">  ansible collection location = /home/zaki/.ansible/collections:/usr/share/ansible/collections</span>
+<span style="color: #888">  executable location = /home/zaki/.local/bin/ansible</span>
+<span style="color: #888">  python version = 3.13.7 (main, Aug 14 2025, 00:00:00) [GCC 15.2.1 20250808 (Red Hat 15.2.1-1)] (/home/zaki/.local/share/pipx/venvs/ansible-core/bin/python)</span>
+<span style="color: #888">  jinja version = 3.1.6</span>
+<span style="color: #888">  libyaml = True</span>
 </code></pre></div>
 
 <h2 id="rhel-ansible">RHEL / Ansible</h2>
