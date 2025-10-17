@@ -1436,6 +1436,13 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    パッケージ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     指定パッケージ(コマンド)のバージョン一覧
   </a>
   
@@ -1447,7 +1454,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     パッケージセットアップ
   </a>
   
@@ -1476,7 +1483,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     使用中パッケージ一覧
   </a>
   
@@ -1496,14 +1503,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     使用中設定ファイルの確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     テンプレート
   </a>
   
@@ -1916,6 +1923,13 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    パッケージ一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     指定パッケージ(コマンド)のバージョン一覧
   </a>
   
@@ -1927,7 +1941,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     パッケージセットアップ
   </a>
   
@@ -1956,7 +1970,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     使用中パッケージ一覧
   </a>
   
@@ -1976,14 +1990,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     使用中設定ファイルの確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     テンプレート
   </a>
   
@@ -2050,11 +2064,19 @@
 
 <p><a href="https://github.com/jdx/mise/issues/1710">https://github.com/jdx/mise/issues/1710</a></p>
 <h2 id="_3">パッケージ検索</h2>
-<h3 id="_4">指定パッケージ(コマンド)のバージョン一覧</h3>
+<h3 id="_4">パッケージ一覧</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise ls-remote --all</span>
+</code></pre></div>
+
+<p>あるいは</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise plugins ls-remote</span>
+</code></pre></div>
+
+<h3 id="_5">指定パッケージ(コマンド)のバージョン一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise ls-remote &lt;command&gt;</span>
 </code></pre></div>
 
-<h2 id="_5">パッケージセットアップ</h2>
+<h2 id="_6">パッケージセットアップ</h2>
 <h3 id="python-3128">(例) Python 3.12.8のインストール</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>mise<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>python@3.12.8
 <span style="color: #888">mise hint use multiple versions simultaneously with mise use python@3.12 python@3.11</span>
@@ -2096,19 +2118,19 @@
 <span style="color: #000080; font-weight: bold">root@cloud-dev2:~# </span>
 </code></pre></div>
 
-<h3 id="_6">使用中パッケージ一覧</h3>
+<h3 id="_7">使用中パッケージ一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise ls</span>
 </code></pre></div>
 
 <h2 id="misetoml">mise.toml</h2>
-<h3 id="_7">使用中設定ファイルの確認</h3>
+<h3 id="_8">使用中設定ファイルの確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>mise<span style="color: #BBB"> </span>cfg
 <span style="color: #888">Path                                         Tools              </span>
 <span style="color: #888">~/.config/mise/config.toml                   aws, python, usage </span>
 <span style="color: #888">~/local/src/ansible-sample/become/mise.toml  python            </span>
 </code></pre></div>
 
-<h3 id="_8">テンプレート</h3>
+<h3 id="_9">テンプレート</h3>
 <p><a href="https://mise.jdx.dev/templates.html">Templates | mise-en-place</a></p>
 <h4 id="exec">コマンド実行結果を変数にセット (exec)</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>description<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;カウント設定: {{ exec(command=</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">grep count -A2 path/to/file | awk -F&#39;=&#39; &#39;{print $2}&#39;</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">) }}&quot;</span>

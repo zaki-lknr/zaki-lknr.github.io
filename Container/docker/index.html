@@ -755,6 +755,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-restart" class="md-nav__link">
+    再起動設定(--restart)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2202,6 +2209,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-restart" class="md-nav__link">
+    再起動設定(--restart)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2614,6 +2628,12 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --rm -e APP_VAL=foobar image:tag</span>
 </code></pre></div>
 
+<h4 id="-restart">再起動設定(--restart)</h4>
+<p>エラーや停止・サービス再起動時の動作を指定。デフォルトは<code>no</code>でコンテナの再起動はなし。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker run --restart always ...</span>
+</code></pre></div>
+
+<p><a href="https://docs.docker.jp/config/container/start-containers-automatically.html">コンテナを自動的に開始 — Docker-docs-ja 19.03 ドキュメント</a></p>
 <h3 id="build">build</h3>
 <h4 id="dockerfile">Dockerfile指定</h4>
 <p><code>-f</code>で指定する。</p>
