@@ -509,6 +509,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reject-rejectattr" class="md-nav__link">
+    否定検索 (reject / rejectattr)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#map" class="md-nav__link">
     リスト要素への一律処理 (map)
   </a>
@@ -1936,6 +1943,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reject-rejectattr" class="md-nav__link">
+    否定検索 (reject / rejectattr)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#map" class="md-nav__link">
     リスト要素への一律処理 (map)
   </a>
@@ -2248,6 +2262,12 @@
 
 <p>という構造に対しては、以下のように書く。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>selectattr(&#39;summary_fields.inventory.name&#39;, &#39;eq&#39;, &#39;netbox-demo-inventory&#39;)
+</code></pre></div>
+
+<h2 id="reject-rejectattr">否定検索 (reject / rejectattr)</h2>
+<p>それぞれ<code>select</code>と<code>selectattr</code>の真偽が逆になるフィルタ。<br />
+「リスト内の空文字を除外」であれば以下の通り。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">&quot;{{</span><span style="color: #B8860B"> </span><span style="color: #B44">items</span><span style="color: #B8860B"> </span><span style="color: #B44">|</span><span style="color: #B8860B"> </span><span style="color: #B44">reject(&#39;eq&#39;,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
 </code></pre></div>
 
 <h2 id="map">リスト要素への一律処理 (map)</h2>
