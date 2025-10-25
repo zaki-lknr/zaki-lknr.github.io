@@ -1754,6 +1754,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    作成/更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    参照
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1768,7 +1782,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -1777,6 +1791,13 @@
           <li class="md-nav__item">
   <a href="#oidc" class="md-nav__link">
     OIDC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy_2" class="md-nav__link">
+    policy
   </a>
   
 </li>
@@ -2205,6 +2226,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    作成/更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    参照
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2219,7 +2254,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -2228,6 +2263,13 @@
           <li class="md-nav__item">
   <a href="#oidc" class="md-nav__link">
     OIDC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy_2" class="md-nav__link">
+    policy
   </a>
   
 </li>
@@ -2358,13 +2400,25 @@ KVシークレットエンジンであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault policy list</span>
 </code></pre></div>
 
+<h3 id="_11">作成/更新</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault policy write my-policy-name &lt;&lt;__EOL__</span>
+<span style="color: #888">path ... {</span>
+<span style="color: #888">    ...</span>
+<span style="color: #888">}</span>
+<span style="color: #888">__EOL__</span>
+</code></pre></div>
+
+<h3 id="_12">参照</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault policy read my-policy-name</span>
+</code></pre></div>
+
 <h2 id="hvac">hvac</h2>
 <p>Hashicorp Vault用Pythonライブラリ</p>
 <ul>
 <li><a href="https://python-hvac.org/en/latest/overview.html">hvac documentation</a></li>
 <li><a href="https://github.com/hvac/hvac">hvac/hvac: :lock: Python 3.X client for HashiCorp Vault</a></li>
 </ul>
-<h3 id="_11">コンストラクタ</h3>
+<h3 id="_13">コンストラクタ</h3>
 <p>証明書検証オフは<code>verify=False</code>を加えればOK</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">urllib3</span>
 <span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os</span>
@@ -2381,6 +2435,8 @@ client <span style="color: #666">=</span> hvac<span style="color: #666">.</span>
 
 <h3 id="oidc">OIDC</h3>
 <p><a href="https://python-hvac.org/en/stable/usage/auth_methods/jwt-oidc.html">JWT/OIDC — hvac 2.3.0 documentation</a></p>
+<h3 id="policy_2">policy</h3>
+<p><a href="https://python-hvac.org/en/stable/usage/system_backend/policy.html">Policy — hvac 2.3.0 documentation</a></p>
                 
               
               

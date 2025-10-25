@@ -884,9 +884,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    トラブルシューティング
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#namespace" class="md-nav__link">
     消えないnamespace
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errorcontainerstatusunknownevict" class="md-nav__link">
+    大量のError/ContainerStatusUnknownコンテナが発生しEvictも動作せずフリーズ状態
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -933,14 +953,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     コンテナ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     コンテナ毎のリソース消費状況
   </a>
   
@@ -2075,9 +2095,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    トラブルシューティング
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#namespace" class="md-nav__link">
     消えないnamespace
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errorcontainerstatusunknownevict" class="md-nav__link">
+    大量のError/ContainerStatusUnknownコンテナが発生しEvictも動作せずフリーズ状態
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2124,14 +2164,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     コンテナ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     コンテナ毎のリソース消費状況
   </a>
   
@@ -2288,7 +2328,8 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 
 <p><code>Delete</code>の場合は、(削除に対応していれば)ボリューム自体も消える。</p>
 <p><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming">Reclaiming</a></p>
-<h2 id="namespace">消えないnamespace</h2>
+<h2 id="_3">トラブルシューティング</h2>
+<h3 id="namespace">消えないnamespace</h3>
 <p><code>kubectl delete ns hoge</code>が応答無くなりstatusがTerminatingのままになった場合の対処。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get ns hoge -o json &gt; deletens.json</span>
 </code></pre></div>
@@ -2309,6 +2350,8 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 </code></pre></div>
 
 <p>※ <code>kubectl get ns hoge -o json | grep -2 -- '"kubernetes"'</code>を実行して、1か所しかヒットしない場合</p>
+<h3 id="errorcontainerstatusunknownevict">大量のError/ContainerStatusUnknownコンテナが発生しEvictも動作せずフリーズ状態</h3>
+<p>メモリ不足などで動作不備に陥ってる場合はメモリ増強や不要pod停止などでpodを起動可能状態にし、不正終了したpodは<code>kubectl delete pod</code>で削除する</p>
 <h2 id="init">Initコンテナ</h2>
 <ul>
 <li><a href="https://kubernetes.io/ja/docs/concepts/workloads/pods/init-containers/">Initコンテナ | Kubernetes</a></li>
@@ -2378,7 +2421,7 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl pods --namespace &lt;NAMESPACE&gt; --name &lt;POD_NAME&gt;</span>
 </code></pre></div>
 
-<h3 id="_3">コンテナ一覧</h3>
+<h3 id="_4">コンテナ一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl ps</span>
 </code></pre></div>
 
@@ -2389,7 +2432,7 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl ps --name &#39;awx-.*&#39;</span>
 </code></pre></div>
 
-<h3 id="_4">コンテナ毎のリソース消費状況</h3>
+<h3 id="_5">コンテナ毎のリソース消費状況</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">crictl stats</span>
 </code></pre></div>
 
