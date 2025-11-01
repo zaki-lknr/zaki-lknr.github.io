@@ -1050,6 +1050,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    キーボード
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capsctrlgnome" class="md-nav__link">
+    capsをctrlに変更(GNOME)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#grub" class="md-nav__link">
     GRUB
   </a>
@@ -1057,7 +1077,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     アップグレード
   </a>
   
@@ -1962,6 +1982,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    キーボード
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capsctrlgnome" class="md-nav__link">
+    capsをctrlに変更(GNOME)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#grub" class="md-nav__link">
     GRUB
   </a>
@@ -1969,7 +2009,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     アップグレード
   </a>
   
@@ -2120,6 +2160,12 @@ __EOL__
 
 <p>の<code>linux</code>で始まる行の末尾に<code>single</code>を追記して<code>Ctrl-x</code>で起動する。<br />
 ルートファイルシステムをmountしたくない場合は<code>single</code>でなく<code>break</code>を追記。</p>
+<h2 id="_10">キーボード</h2>
+<h3 id="capsctrlgnome">capsをctrlに変更(GNOME)</h3>
+<p><code>/etc/default/keyboard</code>ファイルの以下の行、空設定になっている箇所に<code>ctrl:nocaps</code>を追加してリブートする</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>XKBOPTIONS=&quot;ctrl:nocaps&quot;
+</code></pre></div>
+
 <h2 id="grub">GRUB</h2>
 <p>ブートローダーが壊れてgrub rescueモードになった場合。<br />
 まず<code>ls</code>で/bootがあるパーティションを探す。</p>
@@ -2149,7 +2195,7 @@ Linuxが起動したらGRUBを再インストール</p>
 <span style="color: #888">sudo grub-install /dev/sda</span>
 </code></pre></div>
 
-<h2 id="_10">アップグレード</h2>
+<h2 id="_11">アップグレード</h2>
 <h3 id="fedora">Fedora</h3>
 <p><a href="https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/">Upgrading Fedora Using DNF System Plugin :: Fedora Docs</a></p>
 <ul>

@@ -1660,6 +1660,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    ノードプールのアップグレード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2638,6 +2645,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    ノードプールのアップグレード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3011,6 +3025,14 @@
 <span style="color: #888">  --name ${nodepool_name} \</span>
 <span style="color: #888">  --nodepool-name ${nodepool_name} \</span>
 <span style="color: #888">  --node-count 3</span>
+</code></pre></div>
+
+<h3 id="_28">ノードプールのアップグレード</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks nodepool upgrade \</span>
+<span style="color: #888">  --resource-group ${resource_group} \</span>
+<span style="color: #888">  --cluster-name ${cluster_name} \</span>
+<span style="color: #888">  --name ${nodepool_name} \</span>
+<span style="color: #888">  --kubernetes-version ${k8s_version}</span>
 </code></pre></div>
                 
               
