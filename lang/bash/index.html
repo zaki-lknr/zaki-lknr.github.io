@@ -1748,13 +1748,20 @@
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    配列要素をループ処理
+    引数を順番にループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    配列要素をループ処理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
     ループで参照(インデックス)
   </a>
   
@@ -1789,6 +1796,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stdin1" class="md-nav__link">
+    stdinから1行ずつ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#1_1" class="md-nav__link">
     コマンドの結果を1行ずつ
   </a>
@@ -1796,14 +1810,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     途中で抜ける
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     次のループ
   </a>
   
@@ -2076,13 +2090,20 @@
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    配列要素をループ処理
+    引数を順番にループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    配列要素をループ処理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
     ループで参照(インデックス)
   </a>
   
@@ -2117,6 +2138,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stdin1" class="md-nav__link">
+    stdinから1行ずつ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#1_1" class="md-nav__link">
     コマンドの結果を1行ずつ
   </a>
@@ -2124,14 +2152,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     途中で抜ける
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     次のループ
   </a>
   
@@ -2362,7 +2390,13 @@ myfunc<span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>b
 </code></pre></div>
 
 <h3 id="_10">ループ</h3>
-<h4 id="_11">配列要素をループ処理</h4>
+<h4 id="_11">引数を順番にループ処理</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>arg<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;</span><span style="color: #B8860B">$@</span><span style="color: #B44">&quot;</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">  </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">arg</span><span style="color: #B68; font-weight: bold">}</span>
+<span style="color: #A2F; font-weight: bold">done</span>
+</code></pre></div>
+
+<h4 id="_12">配列要素をループ処理</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash</span>
 
 <span style="color: #B8860B">list</span><span style="color: #666">=(</span><span style="color: #B44">&quot;abc&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;123&quot;</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;xyz&quot;</span><span style="color: #666">)</span>
@@ -2371,7 +2405,7 @@ myfunc<span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>b
 <span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
-<h4 id="_12">ループで参照(インデックス)</h4>
+<h4 id="_13">ループで参照(インデックス)</h4>
 <p>インデックスが必要であればこちら。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash</span>
 
@@ -2421,6 +2455,14 @@ myfunc<span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>b
 <span style="color: #A2F; font-weight: bold">done</span><span style="color: #BBB"> </span>&lt;<span style="color: #BBB"> </span><span style="color: #B44">&quot;/path/to/file.txt&quot;</span>
 </code></pre></div>
 
+<h4 id="stdin1">stdinから1行ずつ</h4>
+<p>上記ファイルの場合がベース</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">while</span><span style="color: #BBB"> </span><span style="color: #A2F">read</span><span style="color: #BBB"> </span>line
+<span style="color: #A2F; font-weight: bold">do</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># ${line}に行が入っている</span>
+<span style="color: #A2F; font-weight: bold">done</span>
+</code></pre></div>
+
 <h4 id="1_1">コマンドの結果を1行ずつ</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">command</span><span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>filter<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">while</span><span style="color: #BBB"> </span><span style="color: #A2F">read</span><span style="color: #BBB"> </span>line
 <span style="color: #A2F; font-weight: bold">do</span>
@@ -2428,9 +2470,9 @@ myfunc<span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>b
 <span style="color: #A2F; font-weight: bold">done</span>
 </code></pre></div>
 
-<h4 id="_13">途中で抜ける</h4>
+<h4 id="_14">途中で抜ける</h4>
 <p><code>break</code></p>
-<h4 id="_14">次のループ</h4>
+<h4 id="_15">次のループ</h4>
 <p><code>continue</code></p>
                 
               

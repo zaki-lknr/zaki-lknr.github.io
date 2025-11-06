@@ -823,6 +823,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    環境変数の参照
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2032,6 +2039,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    環境変数の参照
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2239,6 +2253,22 @@
 </code></pre></div>
 
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/09/211117">[Docker]コンテナ実行時にlog-optsでログサイズ上限とローテート数を設定してホストのストレージが溢れないようにする - zaki work log</a></p>
+<h3 id="_10">環境変数の参照</h3>
+<p>デフォルトでは<code>.env</code>ファイルの環境変数を参照する。
+Composeファイルはシェルの変数参照と同じ書式で環境変数をセット(投入)できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">server</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;rancher/k3s:${K3S_VERSION:-latest}&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>server
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">environment</span>:
+<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>K3S_TOKEN=${K3S_TOKEN:?err}
+</code></pre></div>
+
+<p>こんなcomposeファイルに、以下<code>.env</code>ファイルを同じディレクトリに用意しておけば、そのまま環境変数としてセットされてコンテナ起動できる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>K3S_VERSION=v1.33.5-k3s1
+K3S_TOKEN=298143103216182
+</code></pre></div>
                 
               
               

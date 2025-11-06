@@ -2291,6 +2291,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#select-option" class="md-nav__link">
+    select / option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#label" class="md-nav__link">
     label
   </a>
@@ -3140,6 +3147,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#select-option" class="md-nav__link">
+    select / option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#label" class="md-nav__link">
     label
   </a>
@@ -3885,6 +3899,17 @@ checkbox_item.checked<span style="color: #BBB"> </span><span style="color: #666"
 </code></pre></div>
 
 <p>チェックボックスのチェック状態を参照するには<code>.checked</code>を見ればOK</p>
+<h4 id="select-option">select / option</h4>
+<p>項目1番目の値を参照する。<br />
+(<code>ver_list.options</code>の型は<code>HTMLOptionsCollection</code>)</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>select_list<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F">document</span>.getElementById(<span style="color: #B44">&#39;select_list&#39;</span>);
+<span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>value<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>ver_list.options[<span style="color: #666">0</span>].value;
+</code></pre></div>
+
+<p>項目をリストとしてループ処理するには<code>Array.from()</code>を使ってHTMLOptionsCollectionを配列に変換する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Array</span>.<span style="color: #A2F; font-weight: bold">from</span>(select_list.options).find(elem<span style="color: #BBB"> </span>=&gt;<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>);
+</code></pre></div>
+
 <h4 id="label">label</h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>label_item<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F">document</span>.createElement(<span style="color: #B44">&quot;label&quot;</span>);
 label_item.htmlFor<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&#39;sample&#39;</span>;

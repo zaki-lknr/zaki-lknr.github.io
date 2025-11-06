@@ -1248,6 +1248,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    非リストの辞書1件分だけの場合に特定キー取り出し
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     辞書型データのリストから指定キーの値一覧
   </a>
@@ -1611,6 +1618,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#key-vault" class="md-nav__link">
+    key vault
+  </a>
+  
+    <nav class="md-nav" aria-label="key vault">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    保存
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    参照
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aks" class="md-nav__link">
     AKS
   </a>
@@ -1619,14 +1653,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     クラスター一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     使用可能バージョンの確認
   </a>
   
@@ -1640,28 +1674,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     ノードプールの追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     ノードプールの詳細
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     ノードのスケーリング
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     ノードプールのアップグレード
   </a>
   
@@ -2233,6 +2267,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    非リストの辞書1件分だけの場合に特定キー取り出し
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     辞書型データのリストから指定キーの値一覧
   </a>
@@ -2596,6 +2637,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#key-vault" class="md-nav__link">
+    key vault
+  </a>
+  
+    <nav class="md-nav" aria-label="key vault">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    保存
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    参照
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aks" class="md-nav__link">
     AKS
   </a>
@@ -2604,14 +2672,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     クラスター一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     使用可能バージョンの確認
   </a>
   
@@ -2625,28 +2693,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     ノードプールの追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_28" class="md-nav__link">
     ノードプールの詳細
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_29" class="md-nav__link">
     ノードのスケーリング
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_30" class="md-nav__link">
     ノードプールのアップグレード
   </a>
   
@@ -2687,6 +2755,15 @@
 
 <h2 id="query">結果のquery</h2>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/query-azure-cli?tabs=concepts%2Cbash">Azure CLI での JMESPath クエリ コマンドの結果 | Microsoft Learn</a></p>
+<h3 id="1">非リストの辞書1件分だけの場合に特定キー取り出し</h3>
+<p>キー名そのまま指定する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az keyvault secret show \</span>
+<span style="color: #888">  --vault-name $az_keyvault_name \</span>
+<span style="color: #888">  --name $item_name \</span>
+<span style="color: #888">  --query &quot;value&quot; -o tsv</span>
+</code></pre></div>
+
+<p><code>-o tsv</code> でクォート削除</p>
 <h3 id="_3">辞書型データのリストから指定キーの値一覧</h3>
 <p>AKSのクラスター名一覧を取得</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks list [-g resource-group] --query &#39;[].name&#39;</span>
@@ -2980,12 +3057,26 @@
 </code></pre></div>
 
 <p>2つヒットするはずなので、<code>--query '[0].value' -o tsv</code> とかやれば取り出せる。</p>
+<h2 id="key-vault">key vault</h2>
+<h3 id="_23">保存</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az keyvault secret set \</span>
+<span style="color: #888">  --vault-name $az_keyvault_name \</span>
+<span style="color: #888">  --name $item_name \</span>
+<span style="color: #888">  --value $item_value</span>
+</code></pre></div>
+
+<h3 id="_24">参照</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az keyvault secret show \</span>
+<span style="color: #888">  --vault-name $az_keyvault_name \</span>
+<span style="color: #888">  --name $item_name</span>
+</code></pre></div>
+
 <h2 id="aks">AKS</h2>
-<h3 id="_23">クラスター一覧</h3>
+<h3 id="_25">クラスター一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks list [-g &lt;resource-group&gt;]</span>
 </code></pre></div>
 
-<h3 id="_24">使用可能バージョンの確認</h3>
+<h3 id="_26">使用可能バージョンの確認</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks get-versions --query &#39;orchestrators[].orchestratorVersion&#39;</span>
 </code></pre></div>
 
@@ -3000,7 +3091,7 @@
 </code></pre></div>
 
 <p><code>--overwrite-existing</code>を付与すると確認無しで上書きされる。</p>
-<h3 id="_25">ノードプールの追加</h3>
+<h3 id="_27">ノードプールの追加</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add">az aks nodepool | Microsoft Learn</a></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks nodepool add \</span>
 <span style="color: #888">  --resoure-group ${resource_group} \</span>
@@ -3015,11 +3106,11 @@
 <span style="color: #888">  --max-pods 32</span>
 </code></pre></div>
 
-<h3 id="_26">ノードプールの詳細</h3>
+<h3 id="_28">ノードプールの詳細</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks nodepool show -g ${resource_group} --cluster-name ${cluster_name} -n ${nodepool_name}</span>
 </code></pre></div>
 
-<h3 id="_27">ノードのスケーリング</h3>
+<h3 id="_29">ノードのスケーリング</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks scale \</span>
 <span style="color: #888">  --resoure-group ${resource_group} \</span>
 <span style="color: #888">  --name ${nodepool_name} \</span>
@@ -3027,7 +3118,7 @@
 <span style="color: #888">  --node-count 3</span>
 </code></pre></div>
 
-<h3 id="_28">ノードプールのアップグレード</h3>
+<h3 id="_30">ノードプールのアップグレード</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">az aks nodepool upgrade \</span>
 <span style="color: #888">  --resource-group ${resource_group} \</span>
 <span style="color: #888">  --cluster-name ${cluster_name} \</span>
