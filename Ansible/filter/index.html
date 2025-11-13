@@ -1450,6 +1450,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/cloud-init/" class="md-nav__link">
+        cloud-init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/cygwin/" class="md-nav__link">
         Cygwin
       </a>
@@ -2325,9 +2337,12 @@
 
 <p>ちなみに、文字列型の場合でもiterableなので、一文字目・最後の文字が取れる。</p>
 <h2 id="difference">リストから要素の除外(difference)</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/difference_filter.html">ansible.builtin.difference filter – the difference of one list from another — Ansible Community Documentation</a></p>
 <p>リストから特定要素を除外するには<code>difference</code>フィルタを使う。<br />
 入力のリストの要素から、<code>difference</code>フィルタの引数に指定したリストの要素を除外したリストを返す。<br />
 <code>difference</code>にもリストを指定する必要がある(iterableな変数でなければエラーとなる)</p>
+<p>言い換えると、2つのリストから重複要素を除いたものを返す機能を持つ。<br />
+なお、順序は保持されない。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
 -<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
 <span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:

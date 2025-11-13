@@ -1240,6 +1240,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        cloud-init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cygwin/" class="md-nav__link">
         Cygwin
       </a>
@@ -1817,6 +1829,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    import
+  </a>
+  
+    <nav class="md-nav" aria-label="import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import_1" class="md-nav__link">
+    importブロック
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resource" class="md-nav__link">
     resource
   </a>
@@ -2349,6 +2381,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    import
+  </a>
+  
+    <nav class="md-nav" aria-label="import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import_1" class="md-nav__link">
+    importブロック
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resource" class="md-nav__link">
     resource
   </a>
@@ -2653,6 +2705,31 @@ countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>�
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">$</span>{<span style="color: #00A000">join</span>(<span style="color: #B44">&quot; &quot;, [for h in aws_instance.ec.*.tags.Name : &quot;--host ${h}&quot;</span>])}
 </code></pre></div>
 
+<h2 id="import">import</h2>
+<h3 id="import_1">importブロック</h3>
+<ul>
+<li><a href="https://developer.hashicorp.com/terraform/language/import">Import existing resources into Terraform state | Terraform | HashiCorp Developer</a></li>
+<li><a href="https://developer.hashicorp.com/terraform/language/import/generating-configuration">Import - Generating Configuration | Terraform | HashiCorp Developer</a></li>
+</ul>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">import</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">to</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">TYPE.LABEL</span>
+<span style="color: #BBB">  </span><span style="color: #B44">id</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;&lt;import対象のリソースID&gt;&quot;</span>
+}
+</code></pre></div>
+
+<p>[Telmate/proxmoxであれば、リソースIDの書式は<code>&lt;node&gt;/&lt;type&gt;/&lt;ID&gt;</code>](<a href="https://registry.terraform.io/providers/Telmate/proxmox/latest/docs/resources/vm_qemu#import">proxmox_vm_qemu | Resources | Telmate/proxmox | Terraform | Terraform Registry</a>になる。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">import</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">id</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;pve01/qemu/255&quot;</span>
+<span style="color: #BBB">  </span><span style="color: #B44">to</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">proxmox_vm_qemu.my-vm</span>
+}
+</code></pre></div>
+
+<p>この状態で以下を実行すると、対象リソースのtfコードが<code>imported_resource.tf</code>に生成される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -generate-config-out=&quot;imported_resource.tf&quot;</span>
+</code></pre></div>
+
+<p>出力されたtfコードを手直ししたり元のtfファイルへマージするなどし、<code>terraform apply</code>を実行するとtfstateへインポートされる。<br />
+最後にimportブロックを削除しても良いが残しても良い。</p>
 <h2 id="resource">resource</h2>
 <h3 id="_18">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>

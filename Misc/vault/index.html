@@ -1240,6 +1240,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        cloud-init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cygwin/" class="md-nav__link">
         Cygwin
       </a>
@@ -1734,6 +1746,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#id_1" class="md-nav__link">
+    ID詳細
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2206,6 +2225,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#id_1" class="md-nav__link">
+    ID詳細
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2396,6 +2422,13 @@ KVシークレットエンジンであれば以下の通り。</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault list identity/entity-alias/id</span>
 </code></pre></div>
 
+<h3 id="id_1">ID詳細</h3>
+<p><code>vault list identity/entity/id</code>の一覧の一つに対して</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault read identity/entity/id/&lt;ENTITY-ID&gt;</span>
+</code></pre></div>
+
+<p>で出力する。<br />
+Entity Aliasについても同様。</p>
 <h2 id="policy_1">policy</h2>
 <h3 id="_10">一覧</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">vault policy list</span>

@@ -1396,6 +1396,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        cloud-init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cygwin/" class="md-nav__link">
         Cygwin
       </a>
@@ -2164,8 +2176,10 @@ Twitterなどのシェアを有効にしていると<code>shares</code>フィー
 </code></pre></div>
 
 <h3 id="get-place-details-depr">Get Place Details (depr)</h3>
-<p>APIはv2がすでに無くなりv3を使う必要がある。<br />
-<a href="https://docs.foursquare.com/developer/reference/place-details">Get Place Details</a></p>
+<p>使用不可になった。後述の"places-api"を使う。<br />
+<a href="https://docs.foursquare.com/fsq-developers-places/reference/migration-guide">Migration Guide</a></p>
+<p><del>APIはv2がすでに無くなりv3を使う必要がある。<br />
+<a href="https://docs.foursquare.com/developer/reference/place-details">Get Place Details</a></del></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
 <span style="color: #888">     --url &quot;https://api.foursquare.com/v3/places/${PLACE_ID}?fields=social_media&quot; \</span>
 <span style="color: #888">     --header &quot;Authorization: ${FSQ_APP_API_KEY}&quot; \</span>

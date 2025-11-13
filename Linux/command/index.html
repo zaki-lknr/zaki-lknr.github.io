@@ -1415,6 +1415,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#alias" class="md-nav__link">
+    (alias)セッションがあればアタッチ・なければ新規セッション
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_25" class="md-nav__link">
     マウスホイールでスクロール
   </a>
@@ -2497,6 +2504,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/cloud-init/" class="md-nav__link">
+        cloud-init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/cygwin/" class="md-nav__link">
         Cygwin
       </a>
@@ -3384,6 +3403,13 @@
   
     <nav class="md-nav" aria-label="設定">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alias" class="md-nav__link">
+    (alias)セッションがあればアタッチ・なければ新規セッション
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_25" class="md-nav__link">
@@ -4525,6 +4551,14 @@
 </tbody>
 </table>
 <h3 id="_24">設定</h3>
+<h4 id="alias">(alias)セッションがあればアタッチ・なければ新規セッション</h4>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">tmux a || tmux</span>
+</code></pre></div>
+
+<p>名前付きでalias設定しておくと良い</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">alias</span><span style="color: #BBB"> </span><span style="color: #B8860B">ta</span><span style="color: #666">=</span><span style="color: #B44">&#39;tmux attach -t main || tmux new -s main&#39;</span>
+</code></pre></div>
+
 <h4 id="_25">マウスホイールでスクロール</h4>
 <p>デフォルトだとコマンド履歴表示になってる</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>set-option -g mouse on
