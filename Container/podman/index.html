@@ -813,6 +813,19 @@
     push
   </a>
   
+    <nav class="md-nav" aria-label="push">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tls" class="md-nav__link">
+    TLS検証無視
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -858,6 +871,26 @@
           <li class="md-nav__item">
   <a href="#os" class="md-nav__link">
     OS起動時にコンテナ起動するには
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    設定
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
   </a>
   
 </li>
@@ -1857,6 +1890,19 @@
     push
   </a>
   
+    <nav class="md-nav" aria-label="push">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tls" class="md-nav__link">
+    TLS検証無視
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1911,6 +1957,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    設定
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insecure" class="md-nav__link">
+    insecureなレジストリ設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1944,6 +2010,11 @@
 </code></pre></div>
 
 <p>push先を第2引数で指定できるのでtag(FQDN)の追加を行っておく必要はない。</p>
+<h4 id="tls">TLS検証無視</h4>
+<p><code>--tls-verify=false</code>を付与する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman push registry.example.org/path/to/image:latest --tls-verify=false</span>
+</code></pre></div>
+
 <h3 id="ps-external">ps --external</h3>
 <p>Podman外(buildahビルドなど)のコンテナもリストアップする</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>podman<span style="color: #BBB"> </span>ps<span style="color: #BBB"> </span>
@@ -1971,6 +2042,22 @@
 </code></pre></div>
 
 <p>これでrootユーザーのコンテナは<code>--restart=always</code>が有効(OS起動時にコンテナ起動)になる。</p>
+<h2 id="_1">設定</h2>
+<h3 id="insecure">insecureなレジストリ設定</h3>
+<p>ユーザー単位であれば<code>$HOME/.config/containers/registries.conf</code>に以下作成</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[registries.insecure]</span>
+<span style="color: #B44">registries</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">[&#39;my-registry.example.org:5000&#39;]</span>
+</code></pre></div>
+
+<p>システムワイドであれば<code>/etc/containers/registries.conf</code>または<code>/etc/containers/registries.conf.d/insecure-registries.conf</code>などに作成してもよい。</p>
+<blockquote>
+<p>Error: loading drop-in registries configuration "/etc/containers/registries.conf.d/insecure-registries.conf": registry must be in v2 format but is in v1</p>
+</blockquote>
+<p>エラーが出る場合、v2の書式で作成する。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[[registry]]</span>
+location<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;my-registry.example.org:5000&quot;</span>
+insecure<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">true</span>
+</code></pre></div>
                 
               
               

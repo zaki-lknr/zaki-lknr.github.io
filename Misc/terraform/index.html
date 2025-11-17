@@ -1829,6 +1829,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    output
+  </a>
+  
+    <nav class="md-nav" aria-label="output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for_each" class="md-nav__link">
+    for_eachで作成したリソースの出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#import" class="md-nav__link">
     import
   </a>
@@ -2381,6 +2401,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    output
+  </a>
+  
+    <nav class="md-nav" aria-label="output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for_each" class="md-nav__link">
+    for_eachで作成したリソースの出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#import" class="md-nav__link">
     import
   </a>
@@ -2703,6 +2743,19 @@ git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>http
 <p><code>join(char, list)</code> list各要素をcharを区切り文字で繋げる。<br />
 countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>の形式で全て連結する</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">$</span>{<span style="color: #00A000">join</span>(<span style="color: #B44">&quot; &quot;, [for h in aws_instance.ec.*.tags.Name : &quot;--host ${h}&quot;</span>])}
+</code></pre></div>
+
+<h2 id="output">output</h2>
+<h3 id="for_each">for_eachで作成したリソースの出力</h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">output</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;all_items&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #A2F">value</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{<span style="color: #BBB"> </span><span style="border: 1px solid #F00">for</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">k</span>,<span style="border: 1px solid #F00">v</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">in</span><span style="color: #BBB"> </span><span style="color: #B8860B">resource.name</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #B44">k</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="border: 1px solid #F00">&gt;</span><span style="color: #BBB"> </span><span style="color: #B8860B">v.key</span><span style="color: #BBB"> </span>}
+}
+</code></pre></div>
+
+<p>あるいは</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">output</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;all_items&quot;</span><span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #B44">value</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">values</span>(<span style="color: #B8860B">resource.name</span>)[<span style="border: 1px solid #F00">*</span>].<span style="border: 1px solid #F00">key</span>
+}
 </code></pre></div>
 
 <h2 id="import">import</h2>
