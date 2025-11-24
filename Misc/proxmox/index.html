@@ -1668,6 +1668,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ansible" class="md-nav__link">
+    Ansible
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vm_5" class="md-nav__link">
+    VM一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2133,6 +2153,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ansible" class="md-nav__link">
+    Ansible
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vm_5" class="md-nav__link">
+    VM一覧
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2419,6 +2459,18 @@ NIC情報であれば以下の通り。</p>
 <span style="color: #888">111.conf  119.conf  202.conf  301.conf  310.conf  313.conf  707.conf  710.conf  9000.conf  9003.conf  9020.conf</span>
 <span style="color: #888">114.conf  121.conf  203.conf  302.conf  311.conf  702.conf  708.conf  711.conf  9001.conf  9010.conf</span>
 </code></pre></div>
+
+<h2 id="ansible">Ansible</h2>
+<h3 id="vm_5">VM一覧</h3>
+<p><a href="https://docs.ansible.com/ansible/latest/collections/community/proxmox/proxmox_vm_info_module.html">community.proxmox.proxmox_vm_info module – Retrieve information about one or more Proxmox VE virtual machines — Ansible Community Documentation</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>listup vm
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">community.proxmox.proxmox_vm_info</span>:
+<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>qemu
+<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #BBB"> </span>vm_info
+</code></pre></div>
+
+<p><code>node</code>の指定は任意。<code>type</code>もなくても良い。<br />
+<code>vm_info.proxmox_vms</code>にVM情報の辞書型データがリストでセットされる。</p>
                 
               
               
