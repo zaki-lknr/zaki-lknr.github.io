@@ -1572,6 +1572,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#planapply" class="md-nav__link">
+    planの結果をファイル保存し、それを使ってapply時に即処理実行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     フォーマッタ
   </a>
@@ -2171,6 +2178,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#planapply" class="md-nav__link">
+    planの結果をファイル保存し、それを使ってapply時に即処理実行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     フォーマッタ
   </a>
@@ -2551,6 +2565,12 @@
 <h2 id="cli">CLI</h2>
 <h3 id="_2">出力をファイルへリダイレクトする際のカラー無効化</h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -no-color &gt; plan.txt</span>
+</code></pre></div>
+
+<h3 id="planapply">planの結果をファイル保存し、それを使ってapply時に即処理実行</h3>
+<p><code>plan</code>の結果を<code>-out</code>でファイル出力し、そのファイルを引数に<code>apply</code>を実行すると、<code>apply</code>実行前の<code>plan</code>は省略される。</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -out plan.out</span>
+<span style="color: #888">terraform apply -auto-approve plan.out</span>
 </code></pre></div>
 
 <h3 id="_3">フォーマッタ</h3>
