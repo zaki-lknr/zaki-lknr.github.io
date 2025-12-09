@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1358,6 +1360,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1811,90 +1825,86 @@
                 <h1 id="nodejs">Node.js</h1>
 <h2 id="_1">インストール</h2>
 <p>Fedora40</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">dnf info nodejs</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #888">名前         : nodejs</span>
-<span style="color: #888">エポック     : 1</span>
-<span style="color: #888">バージョン   : 20.12.2</span>
-<span style="color: #888">リリース     : 1.fc40</span>
-<span style="color: #888">Arch         : x86_64</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="go">dnf info nodejs</span>
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="go">名前         : nodejs</span>
+<span class="go">エポック     : 1</span>
+<span class="go">バージョン   : 20.12.2</span>
+<span class="go">リリース     : 1.fc40</span>
+<span class="go">Arch         : x86_64</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <p><code>dnf</code>でインストールする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>nodejs
-<span style="color: #888">依存関係が解決しました。</span>
-<span style="color: #888">===============================================================================================================================</span>
-<span style="color: #888"> パッケージ                           アーキテクチャー    バージョン                                リポジトリー         サイズ</span>
-<span style="color: #888">===============================================================================================================================</span>
-<span style="color: #888">インストール:</span>
-<span style="color: #888"> nodejs                               x86_64              1:20.12.2-1.fc40                          updates               51 k</span>
-<span style="color: #888">依存関係のインストール:</span>
-<span style="color: #888"> nodejs-cjs-module-lexer              noarch              1.2.3-5.fc40                              fedora                37 k</span>
-<span style="color: #888"> nodejs-libs                          x86_64              1:20.12.2-1.fc40                          updates               16 M</span>
-<span style="color: #888"> nodejs-undici                        noarch              6.11.1-2.fc40                             updates              292 k</span>
-<span style="color: #888">弱い依存関係のインストール:</span>
-<span style="color: #888"> nodejs-docs                          noarch              1:20.12.2-1.fc40                          updates              8.2 M</span>
-<span style="color: #888"> nodejs-full-i18n                     x86_64              1:20.12.2-1.fc40                          updates              8.4 M</span>
-<span style="color: #888"> nodejs-npm                           x86_64              1:10.5.0-1.20.12.2.1.fc40                 updates              2.2 M</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>nodejs
+<span class="go">依存関係が解決しました。</span>
+<span class="go">===============================================================================================================================</span>
+<span class="go"> パッケージ                           アーキテクチャー    バージョン                                リポジトリー         サイズ</span>
+<span class="go">===============================================================================================================================</span>
+<span class="go">インストール:</span>
+<span class="go"> nodejs                               x86_64              1:20.12.2-1.fc40                          updates               51 k</span>
+<span class="go">依存関係のインストール:</span>
+<span class="go"> nodejs-cjs-module-lexer              noarch              1.2.3-5.fc40                              fedora                37 k</span>
+<span class="go"> nodejs-libs                          x86_64              1:20.12.2-1.fc40                          updates               16 M</span>
+<span class="go"> nodejs-undici                        noarch              6.11.1-2.fc40                             updates              292 k</span>
+<span class="go">弱い依存関係のインストール:</span>
+<span class="go"> nodejs-docs                          noarch              1:20.12.2-1.fc40                          updates              8.2 M</span>
+<span class="go"> nodejs-full-i18n                     x86_64              1:20.12.2-1.fc40                          updates              8.4 M</span>
+<span class="go"> nodejs-npm                           x86_64              1:10.5.0-1.20.12.2.1.fc40                 updates              2.2 M</span>
 
-<span style="color: #888">トランザクションの概要</span>
-<span style="color: #888">===============================================================================================================================</span>
-<span style="color: #888">インストール  7 パッケージ</span>
+<span class="go">トランザクションの概要</span>
+<span class="go">===============================================================================================================================</span>
+<span class="go">インストール  7 パッケージ</span>
 
-<span style="color: #888">ダウンロードサイズの合計: 35 M</span>
-<span style="color: #888">インストール後のサイズ: 185 M</span>
-<span style="color: #888">これでよろしいですか? [y/N]: </span>
+<span class="go">ダウンロードサイズの合計: 35 M</span>
+<span class="go">インストール後のサイズ: 185 M</span>
+<span class="go">これでよろしいですか? [y/N]: </span>
 </code></pre></div>
-
 <h2 id="yarn">yarnのインストール</h2>
 <p>root権限が必要</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>npm<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-g<span style="color: #BBB"> </span>yarn
-<span style="color: #888">npm ERR! code EACCES</span>
-<span style="color: #888">npm ERR! syscall mkdir</span>
-<span style="color: #888">npm ERR! path /usr/local/lib/node_modules</span>
-<span style="color: #888">npm ERR! errno -13</span>
-<span style="color: #888">npm ERR! Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;</span>
-<span style="color: #888">npm ERR!  [Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;] {</span>
-<span style="color: #888">npm ERR!   errno: -13,</span>
-<span style="color: #888">npm ERR!   code: &#39;EACCES&#39;,</span>
-<span style="color: #888">npm ERR!   syscall: &#39;mkdir&#39;,</span>
-<span style="color: #888">npm ERR!   path: &#39;/usr/local/lib/node_modules&#39;</span>
-<span style="color: #888">npm ERR! }</span>
-<span style="color: #888">npm ERR! </span>
-<span style="color: #888">npm ERR! The operation was rejected by your operating system.</span>
-<span style="color: #888">npm ERR! It is likely you do not have the permissions to access this file as the current user</span>
-<span style="color: #888">npm ERR! </span>
-<span style="color: #888">npm ERR! If you believe this might be a permissions issue, please double-check the</span>
-<span style="color: #888">npm ERR! permissions of the file and its containing directories, or try running</span>
-<span style="color: #888">npm ERR! the command again as root/Administrator.</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>yarn
+<span class="go">npm ERR! code EACCES</span>
+<span class="go">npm ERR! syscall mkdir</span>
+<span class="go">npm ERR! path /usr/local/lib/node_modules</span>
+<span class="go">npm ERR! errno -13</span>
+<span class="go">npm ERR! Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;</span>
+<span class="go">npm ERR!  [Error: EACCES: permission denied, mkdir &#39;/usr/local/lib/node_modules&#39;] {</span>
+<span class="go">npm ERR!   errno: -13,</span>
+<span class="go">npm ERR!   code: &#39;EACCES&#39;,</span>
+<span class="go">npm ERR!   syscall: &#39;mkdir&#39;,</span>
+<span class="go">npm ERR!   path: &#39;/usr/local/lib/node_modules&#39;</span>
+<span class="go">npm ERR! }</span>
+<span class="go">npm ERR! </span>
+<span class="go">npm ERR! The operation was rejected by your operating system.</span>
+<span class="go">npm ERR! It is likely you do not have the permissions to access this file as the current user</span>
+<span class="go">npm ERR! </span>
+<span class="go">npm ERR! If you believe this might be a permissions issue, please double-check the</span>
+<span class="go">npm ERR! permissions of the file and its containing directories, or try running</span>
+<span class="go">npm ERR! the command again as root/Administrator.</span>
 
-<span style="color: #888">npm ERR! A complete log of this run can be found in: /home/zaki/.npm/_logs/2024-08-04T07_02_22_789Z-debug-0.log</span>
+<span class="go">npm ERR! A complete log of this run can be found in: /home/zaki/.npm/_logs/2024-08-04T07_02_22_789Z-debug-0.log</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>yarn
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>npm<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-g<span style="color: #BBB"> </span>yarn
-
-<span style="color: #888">added 1 package in 720ms</span>
-<span style="color: #888">npm notice </span>
-<span style="color: #888">npm notice New minor version of npm available! 10.5.0 -&gt; 10.8.2</span>
-<span style="color: #888">npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.2</span>
-<span style="color: #888">npm notice Run npm install -g npm@10.8.2 to update!</span>
-<span style="color: #888">npm notice </span>
-<span style="color: #000080; font-weight: bold">$ </span>which<span style="color: #BBB"> </span>yarn
-<span style="color: #888">/usr/local/bin/yarn</span>
+<span class="go">added 1 package in 720ms</span>
+<span class="go">npm notice </span>
+<span class="go">npm notice New minor version of npm available! 10.5.0 -&gt; 10.8.2</span>
+<span class="go">npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.2</span>
+<span class="go">npm notice Run npm install -g npm@10.8.2 to update!</span>
+<span class="go">npm notice </span>
+<span class="gp">$ </span>which<span class="w"> </span>yarn
+<span class="go">/usr/local/bin/yarn</span>
 </code></pre></div>
-
 <h2 id="_2">実行</h2>
 <p>```js:hello-world.js
 function hello() {
     console.log("hello world");
 }</p>
-<p>hello();</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>```console
+<p>hello();
+<div class="highlight"><pre><span></span><code>```console
 $ node hello-world.js 
 hello world
-</code></pre></div>
+</code></pre></div></p>
                 
               
               
@@ -1971,6 +1981,8 @@ hello world
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

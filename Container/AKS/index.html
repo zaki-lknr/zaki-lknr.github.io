@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1448,6 +1450,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1881,20 +1895,18 @@
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/faq">Azure Kubernetes Service (AKS) についてよく寄せられる質問 - Azure Kubernetes Service | Microsoft Learn</a></p>
 <h2 id="_1">ノードに接続する</h2>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/node-access">Azure Kubernetes Service (AKS) クラスター ノードへの接続 - Azure Kubernetes Service | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>ノードを確認
-<span style="color: #888">kubectl get node -o wide</span>
-<span style="color: #000080; font-weight: bold"># </span>特権コンテナを起動し接続
-<span style="color: #888">kubectl debug node/aks-******** -it --image=mcr.microsoft.com/cbl-mariner/busybox:2.0</span>
-<span style="color: #000080; font-weight: bold"># </span>特権コンテナのシェルでchroot
-<span style="color: #888">chroot /host</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>ノードを確認
+<span class="go">kubectl get node -o wide</span>
+<span class="gp"># </span>特権コンテナを起動し接続
+<span class="go">kubectl debug node/aks-******** -it --image=mcr.microsoft.com/cbl-mariner/busybox:2.0</span>
+<span class="gp"># </span>特権コンテナのシェルでchroot
+<span class="go">chroot /host</span>
 </code></pre></div>
-
 <p>これでノードOSのルートファイルシステムにアクセスできる。<br />
 終了後はCompletedになっている特権コンテナのPodを削除する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>特権コンテナを削除
-<span style="color: #888">kubectl delete pod node-debugger-aks-********</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>特権コンテナを削除
+<span class="go">kubectl delete pod node-debugger-aks-********</span>
 </code></pre></div>
-
 <h2 id="notready">ノードのNotReady</h2>
 <p>5分間の異常状態を認識し、自動修復機能が起動し、以下の処理を最大3回試行する。</p>
 <ul>
@@ -1910,9 +1922,8 @@
 <p>defaultのAzure DiskのStorage Class定義の内容は<code>allowVolumeExpansion</code>が<code>true</code>になっており、拡張に対応していることが確認できる。<br />
 拡張するにはPVCの定義を変更する。</p>
 <p>以下コマンドで10Giサイズに拡張する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl patch -n namespace pvc pvc-resource -p &#39;{&quot;spec&quot;:{&quot;resources&quot;:{&quot;requests&quot;:{&quot;storage&quot;: &quot;10Gi&quot;}}}}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace pvc pvc-resource -p &#39;{&quot;spec&quot;:{&quot;resources&quot;:{&quot;requests&quot;:{&quot;storage&quot;: &quot;10Gi&quot;}}}}&#39;</span>
 </code></pre></div>
-
 <p>縮小は不可</p>
 <h2 id="_4">アップグレード</h2>
 <h3 id="_5">ノードの個別アップグレード</h3>
@@ -1994,6 +2005,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

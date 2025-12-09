@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1456,6 +1458,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1894,87 +1908,73 @@
                 
                 <h1 id="wsl">WSL</h1>
 <h2 id="_1">一覧</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --list</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --list</span>
 </code></pre></div>
-
 <p>インストール可能なディストリビューション一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --list --online</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --list --online</span>
 </code></pre></div>
-
 <h2 id="_2">インストール</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --install</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --install</span>
 </code></pre></div>
-
 <p>デフォルトは<code>Ubuntu</code>がインストールされる。<br />
 ディストリビューションを指定するには以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --install -d Ubuntu-20.04</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --install -d Ubuntu-20.04</span>
 </code></pre></div>
-
 <p>インストールが完了すると起動まで行われ、初期設定が開始される。<br />
 Ubuntuの場合、作成するアカウントの入力を行う。</p>
 <h2 id="wsl_1">WSLバージョンの設定</h2>
 <p>WSL 2に設定するには以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --set-version Ubuntu-20.04 2</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --set-version Ubuntu-20.04 2</span>
 </code></pre></div>
-
 <p>実行すると以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">PS C:\Users\h_miyazaki&gt; wsl --set-version Ubuntu-20.04 2</span>
-<span style="color: #888">変換中です。この処理には数分かかることがあります...</span>
-<span style="color: #888">WSL 2 との主な違いについては、https://aka.ms/wsl2 を参照してください</span>
-<span style="color: #888">変換が完了しました。</span>
+<div class="highlight"><pre><span></span><code><span class="go">PS C:\Users\h_miyazaki&gt; wsl --set-version Ubuntu-20.04 2</span>
+<span class="go">変換中です。この処理には数分かかることがあります...</span>
+<span class="go">WSL 2 との主な違いについては、https://aka.ms/wsl2 を参照してください</span>
+<span class="go">変換が完了しました。</span>
 </code></pre></div>
-
 <p>バージョンを確認するには以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl -l -v</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl -l -v</span>
 </code></pre></div>
-
 <h2 id="reboot">rebootする</h2>
 <p>WSLのターミナルで<code>reboot</code>実行しても以下エラーで実行できない。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@wensley:~$ </span>sudo<span style="color: #BBB"> </span>reboot
-<span style="color: #888">[sudo] password for zaki: </span>
-<span style="color: #888">System has not been booted with systemd as init system (PID 1). Can&#39;t operate.</span>
-<span style="color: #888">Failed to connect to bus: Host is down</span>
-<span style="color: #888">Failed to talk to init daemon.</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@wensley:~$ </span>sudo<span class="w"> </span>reboot
+<span class="go">[sudo] password for zaki: </span>
+<span class="go">System has not been booted with systemd as init system (PID 1). Can&#39;t operate.</span>
+<span class="go">Failed to connect to bus: Host is down</span>
+<span class="go">Failed to talk to init daemon.</span>
 </code></pre></div>
-
 <p>再起動するには、ホストOSの<code>wsl</code>コマンドでterminateすることで停止するので、再接続する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --terminate Ubuntu-20.04</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --terminate Ubuntu-20.04</span>
 </code></pre></div>
-
 <h2 id="_3">停止する</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">PS C:\Users\h_miyazaki&gt; wsl -l -v</span>
-<span style="color: #888">  NAME                      STATE           VERSION</span>
-<span style="color: #888">* docker-desktop-data       Running         2</span>
-<span style="color: #888">  Ubuntu-20.04              Running         1</span>
+<div class="highlight"><pre><span></span><code><span class="go">PS C:\Users\h_miyazaki&gt; wsl -l -v</span>
+<span class="go">  NAME                      STATE           VERSION</span>
+<span class="go">* docker-desktop-data       Running         2</span>
+<span class="go">  Ubuntu-20.04              Running         1</span>
 </code></pre></div>
-
 <p><code>Running</code>になっているホストを停止するには、↑と同様<code>--terminate | -t</code>で停止する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl -t Ubuntu-20.04</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl -t Ubuntu-20.04</span>
 </code></pre></div>
-
 <h2 id="_4">環境の削除</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">&gt; wsl --unregister ubuntu-20.04-container</span>
-<span style="color: #888">登録を解除しています...</span>
+<div class="highlight"><pre><span></span><code><span class="go">&gt; wsl --unregister ubuntu-20.04-container</span>
+<span class="go">登録を解除しています...</span>
 </code></pre></div>
-
 <h2 id="vm">VM環境のエクスポート</h2>
 <p>tar形式にエクスポートする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --export Ubuntu-20.04 Ubuntu-20.04.tar</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --export Ubuntu-20.04 Ubuntu-20.04.tar</span>
 </code></pre></div>
-
 <p>カレントに <code>Ubuntu-20.04.tar</code> ファイルが作成される。</p>
 <h2 id="vm_1">VM環境のインポート</h2>
 <p>エクスポートしたtarファイルをWSLに登録する。<br />
 名前を変更することで、環境のコピーとなる。</p>
 <p>書式は <code>wsl --import ディストリビューション名 インストール先ファイルパス インポートするtarファイル</code>。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">wsl --import ubuntu-20.04-container .\work\wsl\ubuntu-20.04-container .\Ubuntu-20.04.tar</span>
+<div class="highlight"><pre><span></span><code><span class="go">wsl --import ubuntu-20.04-container .\work\wsl\ubuntu-20.04-container .\Ubuntu-20.04.tar</span>
 </code></pre></div>
-
 <p>制限として、デフォルトユーザーが<code>root</code>になってしまう仕様がある。</p>
 <h2 id="_5">デフォルトユーザーの変更</h2>
 <p>PowerShellで設定可能。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">PS C:\Users\zaki&gt; Function WSL-SetDefaultUser ($distro, $user) { Get-ItemProperty Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\*\ DistributionName | Where-Object -Property DistributionName -eq $distro | Set-ItemProperty -Name DefaultUid -Value ((wsl -d $distro -u $user -e id -u) | Out-String); };</span>
-<span style="color: #888">PS C:\Users\zaki&gt; WSL-SetDefaultUser ubuntu-20.04-container zaki</span>
+<div class="highlight"><pre><span></span><code><span class="go">PS C:\Users\zaki&gt; Function WSL-SetDefaultUser ($distro, $user) { Get-ItemProperty Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\*\ DistributionName | Where-Object -Property DistributionName -eq $distro | Set-ItemProperty -Name DefaultUid -Value ((wsl -d $distro -u $user -e id -u) | Out-String); };</span>
+<span class="go">PS C:\Users\zaki&gt; WSL-SetDefaultUser ubuntu-20.04-container zaki</span>
 </code></pre></div>
                 
               
@@ -2052,6 +2052,8 @@ Ubuntuの場合、作成するアカウントの入力を行う。</p>
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

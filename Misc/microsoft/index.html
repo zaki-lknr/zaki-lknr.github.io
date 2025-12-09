@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1358,6 +1360,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -1898,14 +1912,12 @@
 <h2 id="edge-browser">Edge Browser</h2>
 <h3 id="_3">コマンドラインからの起動</h3>
 <p>実行ファイルは以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&quot;C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe&quot;
+<div class="highlight"><pre><span></span><code>&quot;C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe&quot;
 </code></pre></div>
-
 <p>ただパスが通ってないので、<code>msedge</code>を実行しても起動はしない。</p>
 <p>パス指定するかフルパス指定しても起動するけど、Edge起動のための<code>microsoft-edge:</code>スキームが用意されてるので、これを使って起動できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS &gt; start microsoft-edge:https://www.google.com
+<div class="highlight"><pre><span></span><code>PS &gt; start microsoft-edge:https://www.google.com
 </code></pre></div>
-
 <p><a href="https://news.mynavi.jp/article/win10tips-86/">Windows 10ミニTips(86) Microsoft Edgeをコマンドラインから起動する | マイナビニュース</a></p>
                 
               
@@ -1925,7 +1937,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../jq/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../mermaid/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1934,7 +1946,7 @@
               <span class="md-footer__direction">
                 前
               </span>
-              jq
+              Mermaid
             </div>
           </div>
         </a>
@@ -1983,6 +1995,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

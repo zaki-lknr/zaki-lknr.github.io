@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1358,6 +1360,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2094,167 +2108,148 @@
                 
                 <h1 id="powershell">PowerShell</h1>
 <h2 id="_1">実行初期設定</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>このシステムではスクリプトの実行が無効になっているため、ファイル C:\path\to\foobar.ps1 を読み込むことができません。詳細については、「about_Execution_Policies」(https://go.microsoft.c
+<div class="highlight"><pre><span></span><code>このシステムではスクリプトの実行が無効になっているため、ファイル C:\path\to\foobar.ps1 を読み込むことができません。詳細については、「about_Execution_Policies」(https://go.microsoft.c
 om/fwlink/?LinkID=135170) を参照してください。
     + CategoryInfo          : セキュリティ エラー: (: ) []、ParentContainsErrorRecordException
     + FullyQualifiedErrorId : UnauthorizedAccess
 </code></pre></div>
-
 <p>そのときに一時的に許可するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #A2F">Set-ExecutionPolicy</span> RemoteSigned -Scope <span style="color: #A2F; font-weight: bold">Process</span>
+<div class="highlight"><pre><span></span><code><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Set-ExecutionPolicy</span> <span class="n">RemoteSigned</span> <span class="n">-Scope</span> <span class="k">Process</span>
 </code></pre></div>
-
 <p>システムワイドに設定するには、管理者権限で</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #A2F">Set-ExecutionPolicy</span> RemoteSigned
+<div class="highlight"><pre><span></span><code><span class="n">PS</span><span class="p">&gt;</span> <span class="nb">Set-ExecutionPolicy</span> <span class="n">RemoteSigned</span>
 </code></pre></div>
-
 <h2 id="version">version確認</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>PS&gt; <span style="color: #B8860B">$PSVersionTable</span>
+<div class="highlight"><pre><span></span><code><span class="n">PS</span><span class="p">&gt;</span> <span class="nv">$PSVersionTable</span>
 </code></pre></div>
-
 <h2 id="help">help</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Get-Help</span> 〇〇
+<div class="highlight"><pre><span></span><code><span class="nb">Get-Help</span> <span class="n">〇〇</span>
 </code></pre></div>
-
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/get-help">https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/get-help</a></p>
 <h2 id="http">httpアクセス</h2>
 <p><a href="https://qiita.com/zaki-lknr/items/8950f6acea20961a8afc">curl/PowerShellでHTTPアクセスいろいろ - Qiita</a></p>
 <h2 id="_2">コマンドレット</h2>
 <h3 id="_3">ファイルのハッシュ値</h3>
 <p><code>Get-FileHash</code>で取れる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Downloads&gt; <span style="color: #A2F">Get-FileHash</span> .\r2tokimeki-0.1.0.zip
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Downloads</span><span class="p">&gt;</span> <span class="nb">Get-FileHash</span> <span class="p">.\</span><span class="n">r2tokimeki</span><span class="p">-</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">zip</span>
 
-Algorithm       Hash                                                                   Path
----------       ----                                                                   ----
-SHA256          04B71F5099FDBC96A8497AD88D16C4169F978E931F0D59B7AAE3E2DC8B383CE1       C:\Users\zakih\Downloads\r2to...
+<span class="n">Algorithm</span>       <span class="n">Hash</span>                                                                   <span class="n">Path</span>
+<span class="p">---------</span>       <span class="p">----</span>                                                                   <span class="p">----</span>
+<span class="n">SHA256</span>          <span class="n">04B71F5099FDBC96A8497AD88D16C4169F978E931F0D59B7AAE3E2DC8B383CE1</span>       <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Downloads</span><span class="p">\</span><span class="n">r2to</span><span class="p">...</span>
 </code></pre></div>
-
 <h2 id="_4">コーディング</h2>
 <h3 id="_5">型</h3>
 <h4 id="_6">配列</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span> = @(1,2,3,<span style="color: #B44">&quot;foo&quot;</span>,<span style="color: #B44">&quot;bar&quot;</span>,<span style="color: #B44">&quot;baz&quot;</span>)
-<span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$list</span>
-1
-2
-3
-foo
-bar
-baz
-<span style="color: #A2F">PS </span>C:\Users\zaki&gt;
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zaki</span><span class="p">&gt;</span> <span class="nv">$list</span> <span class="p">=</span> <span class="p">@(</span><span class="n">1</span><span class="p">,</span><span class="n">2</span><span class="p">,</span><span class="n">3</span><span class="p">,</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="s2">&quot;baz&quot;</span><span class="p">)</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zaki</span><span class="p">&gt;</span> <span class="nv">$list</span>
+<span class="n">1</span>
+<span class="n">2</span>
+<span class="n">3</span>
+<span class="n">foo</span>
+<span class="n">bar</span>
+<span class="n">baz</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zaki</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h4 id="_7">連想配列</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span> = @{key1=<span style="color: #B44">&quot;value1&quot;</span>; key2=123}
-<span style="color: #A2F">PS </span>C:\Users\zaki&gt; <span style="color: #B8860B">$dict</span>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zaki</span><span class="p">&gt;</span> <span class="nv">$dict</span> <span class="p">=</span> <span class="p">@{</span><span class="n">key1</span><span class="p">=</span><span class="s2">&quot;value1&quot;</span><span class="p">;</span> <span class="n">key2</span><span class="p">=</span><span class="n">123</span><span class="p">}</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zaki</span><span class="p">&gt;</span> <span class="nv">$dict</span>
 
-Name                           Value
-----                           -----
-key1                           value1
-key2                           123
+<span class="n">Name</span>                           <span class="n">Value</span>
+<span class="p">----</span>                           <span class="p">-----</span>
+<span class="n">key1</span>                           <span class="n">value1</span>
+<span class="n">key2</span>                           <span class="n">123</span>
 
 
-<span style="color: #A2F">PS </span>C:\Users\zaki&gt;
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zaki</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h4 id="_8">型を確認する</h4>
 <p><code>GetType()</code>を使用する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B8860B">$flen_values</span>.GetType()
+<div class="highlight"><pre><span></span><code><span class="nv">$flen_values</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span>
 </code></pre></div>
-
 <p>これで型を確認できる。<br />
 例えばこんな出力になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">IsPublic IsSerial Name                                     BaseType</span>
-<span style="color: #888">-------- -------- ----                                     --------</span>
-<span style="color: #888">True     True     Byte[]                                   System.Array</span>
+<div class="highlight"><pre><span></span><code><span class="go">IsPublic IsSerial Name                                     BaseType</span>
+<span class="go">-------- -------- ----                                     --------</span>
+<span class="go">True     True     Byte[]                                   System.Array</span>
 </code></pre></div>
-
 <h3 id="_9">ファイル情報</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Get-ItemProperty</span> &lt;FILE_PATH&gt;
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ItemProperty</span> <span class="p">&lt;</span><span class="n">FILE_PATH</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.management/get-itemproperty?view=powershell-7.5">Get-ItemProperty (Microsoft.PowerShell.Management) - PowerShell | Microsoft Learn</a></p>
 <h4 id="_10">一覧表示</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg | <span style="color: #A2F">Format-List</span>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">&gt;</span> <span class="nb">Get-ItemProperty</span> <span class="p">.\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span> <span class="p">|</span> <span class="nb">Format-List</span>
 
 
-    ディレクトリ: C:\Users\zakih\Desktop
+    <span class="n">ディレクトリ</span><span class="p">:</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span>
 
 
 
-Name           : P1490954.jpg
-Length         : 110922
-CreationTime   : 2025/01/23 17:39:18
-LastWriteTime  : 2025/01/23 17:39:18
-LastAccessTime : 2025/04/06 12:00:01
-Mode           : -a----
-LinkType       :
-Target         : {}
-VersionInfo    : File:             C:\Users\zakih\Desktop\P1490954.jpg
-                 InternalName:
-                 OriginalFilename:
-                 FileVersion:
-                 FileDescription:
-                 Product:
-                 ProductVersion:
-                 Debug:            False
-                 Patched:          False
-                 PreRelease:       False
-                 PrivateBuild:     False
-                 SpecialBuild:     False
-                 Language:
+<span class="n">Name</span>           <span class="p">:</span> <span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">Length</span>         <span class="p">:</span> <span class="n">110922</span>
+<span class="n">CreationTime</span>   <span class="p">:</span> <span class="n">2025</span><span class="p">/</span><span class="n">01</span><span class="p">/</span><span class="n">23</span> <span class="n">17</span><span class="p">:</span><span class="n">39</span><span class="p">:</span><span class="n">18</span>
+<span class="n">LastWriteTime</span>  <span class="p">:</span> <span class="n">2025</span><span class="p">/</span><span class="n">01</span><span class="p">/</span><span class="n">23</span> <span class="n">17</span><span class="p">:</span><span class="n">39</span><span class="p">:</span><span class="n">18</span>
+<span class="n">LastAccessTime</span> <span class="p">:</span> <span class="n">2025</span><span class="p">/</span><span class="n">04</span><span class="p">/</span><span class="n">06</span> <span class="n">12</span><span class="p">:</span><span class="n">00</span><span class="p">:</span><span class="n">01</span>
+<span class="n">Mode</span>           <span class="p">:</span> <span class="n">-a</span><span class="p">----</span>
+<span class="n">LinkType</span>       <span class="p">:</span>
+<span class="n">Target</span>         <span class="p">:</span> <span class="p">{}</span>
+<span class="n">VersionInfo</span>    <span class="p">:</span> <span class="n">File</span><span class="p">:</span>             <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span>
+                 <span class="n">InternalName</span><span class="p">:</span>
+                 <span class="n">OriginalFilename</span><span class="p">:</span>
+                 <span class="n">FileVersion</span><span class="p">:</span>
+                 <span class="n">FileDescription</span><span class="p">:</span>
+                 <span class="n">Product</span><span class="p">:</span>
+                 <span class="n">ProductVersion</span><span class="p">:</span>
+                 <span class="n">Debug</span><span class="p">:</span>            <span class="n">False</span>
+                 <span class="n">Patched</span><span class="p">:</span>          <span class="n">False</span>
+                 <span class="n">PreRelease</span><span class="p">:</span>       <span class="n">False</span>
+                 <span class="n">PrivateBuild</span><span class="p">:</span>     <span class="n">False</span>
+                 <span class="n">SpecialBuild</span><span class="p">:</span>     <span class="n">False</span>
+                 <span class="n">Language</span><span class="p">:</span>
 </code></pre></div>
-
 <h4 id="_11">指定プロパティのみ</h4>
 <p><code>-Name</code>を使用。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg -Name LastWriteTime
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">&gt;</span> <span class="nb">Get-ItemProperty</span> <span class="p">.\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span> <span class="n">-Name</span> <span class="n">LastWriteTime</span>
 
 
-LastWriteTime : 2025/01/23 17:39:18
-PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop\P1490954.jpg
-PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop
-PSChildName   : P1490954.jpg
-PSDrive       : C
-PSProvider    : Microsoft.PowerShell.Core\FileSystem
+<span class="n">LastWriteTime</span> <span class="p">:</span> <span class="n">2025</span><span class="p">/</span><span class="n">01</span><span class="p">/</span><span class="n">23</span> <span class="n">17</span><span class="p">:</span><span class="n">39</span><span class="p">:</span><span class="n">18</span>
+<span class="n">PSPath</span>        <span class="p">:</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Core</span><span class="p">\</span><span class="n">FileSystem</span><span class="p">::</span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">PSParentPath</span>  <span class="p">:</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Core</span><span class="p">\</span><span class="n">FileSystem</span><span class="p">::</span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span>
+<span class="n">PSChildName</span>   <span class="p">:</span> <span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">PSDrive</span>       <span class="p">:</span> <span class="n">C</span>
+<span class="n">PSProvider</span>    <span class="p">:</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Core</span><span class="p">\</span><span class="n">FileSystem</span>
 </code></pre></div>
-
 <p>あるいは直接参照。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; (<span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg).LastWriteTime
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">&gt;</span> <span class="p">(</span><span class="nb">Get-ItemProperty</span> <span class="p">.\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span><span class="p">).</span><span class="n">LastWriteTime</span>
 
-2025年1月23日 17:39:18
+<span class="n">2025年1月23日</span> <span class="n">17</span><span class="p">:</span><span class="n">39</span><span class="p">:</span><span class="n">18</span>
 </code></pre></div>
-
 <h4 id="_12">更新</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.management/set-itemproperty?view=powershell-7.5">Set-ItemProperty (Microsoft.PowerShell.Management) - PowerShell | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Set-ItemProperty</span> .\P1490954.jpg -Name LastWriteTime -Value <span style="color: #B44">&#39;2025/4/6 15:10:32&#39;</span>
-<span style="color: #A2F">PS </span>C:\Users\zakih\Desktop&gt; <span style="color: #A2F">Get-ItemProperty</span> .\P1490954.jpg -Name LastWriteTime
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">&gt;</span> <span class="nb">Set-ItemProperty</span> <span class="p">.\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span> <span class="n">-Name</span> <span class="n">LastWriteTime</span> <span class="n">-Value</span> <span class="s1">&#39;2025/4/6 15:10:32&#39;</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">&gt;</span> <span class="nb">Get-ItemProperty</span> <span class="p">.\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span> <span class="n">-Name</span> <span class="n">LastWriteTime</span>
 
 
-LastWriteTime : 2025/04/06 15:10:32
-PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop\P1490954.jpg
-PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\Users\zakih\Desktop
-PSChildName   : P1490954.jpg
-PSDrive       : C
-PSProvider    : Microsoft.PowerShell.Core\FileSystem
+<span class="n">LastWriteTime</span> <span class="p">:</span> <span class="n">2025</span><span class="p">/</span><span class="n">04</span><span class="p">/</span><span class="n">06</span> <span class="n">15</span><span class="p">:</span><span class="n">10</span><span class="p">:</span><span class="n">32</span>
+<span class="n">PSPath</span>        <span class="p">:</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Core</span><span class="p">\</span><span class="n">FileSystem</span><span class="p">::</span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span><span class="p">\</span><span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">PSParentPath</span>  <span class="p">:</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Core</span><span class="p">\</span><span class="n">FileSystem</span><span class="p">::</span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Desktop</span>
+<span class="n">PSChildName</span>   <span class="p">:</span> <span class="n">P1490954</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">PSDrive</span>       <span class="p">:</span> <span class="n">C</span>
+<span class="n">PSProvider</span>    <span class="p">:</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Core</span><span class="p">\</span><span class="n">FileSystem</span>
 </code></pre></div>
-
 <h2 id="azure-powershell">Azure PowerShell</h2>
 <h3 id="azure-az-powershell">Azure Az PowerShellインストール</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/azure/install-az-ps">Azure Az PowerShell モジュールをインストールする | Microsoft Learn</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Install-Module</span> -Name Az -Scope CurrentUser -Repository PSGallery -Force
+<div class="highlight"><pre><span></span><code><span class="nb">Install-Module</span> <span class="n">-Name</span> <span class="n">Az</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span> <span class="n">-Repository</span> <span class="n">PSGallery</span> <span class="n">-Force</span>
 </code></pre></div>
-
 <h3 id="_13">サインイン</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Connect-AzAccount</span>
 </code></pre></div>
-
 <p>ディレクトリが複数ある場合は指定の必要がある。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Connect-AzAccount</span> -TenantId ********
+<div class="highlight"><pre><span></span><code><span class="nb">Connect-AzAccount</span> <span class="n">-TenantId</span> <span class="p">********</span>
 </code></pre></div>
-
 <h3 id="_14">ディレクトリ切り替え</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">Select-AzContext</span> ...
+<div class="highlight"><pre><span></span><code><span class="nb">Select-AzContext</span> <span class="p">...</span>
 </code></pre></div>
-
 <p>サインイン済みのディレクトリはtabでサジェストできる。</p>
                 
               
@@ -2332,6 +2327,8 @@ PSProvider    : Microsoft.PowerShell.Core\FileSystem
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

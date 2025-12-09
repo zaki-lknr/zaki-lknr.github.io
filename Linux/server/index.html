@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1535,6 +1537,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2054,31 +2068,26 @@
 <h2 id="samba">samba</h2>
 <h3 id="_2">ユーザー追加</h3>
 <p>ユーザー<code>zaki</code>を作成する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pdbedit -a zaki</span>
+<div class="highlight"><pre><span></span><code><span class="go">pdbedit -a zaki</span>
 </code></pre></div>
-
 <h3 id="_3">登録済みユーザー一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pdbedit -L</span>
+<div class="highlight"><pre><span></span><code><span class="go">pdbedit -L</span>
 </code></pre></div>
-
 <h3 id="firewalld">firewalld設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>使用してるインタフェースがどのゾーンか確認
-<span style="color: #888">firewall-cmd --get-active-zones</span>
-<span style="color: #000080; font-weight: bold"># </span>対象ゾーンに許可追加
-<span style="color: #888">firewall-cmd --permanent --zone=FedoraServer --add-service=samba</span>
-<span style="color: #888">firewall-cmd --reload</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>使用してるインタフェースがどのゾーンか確認
+<span class="go">firewall-cmd --get-active-zones</span>
+<span class="gp"># </span>対象ゾーンに許可追加
+<span class="go">firewall-cmd --permanent --zone=FedoraServer --add-service=samba</span>
+<span class="go">firewall-cmd --reload</span>
 </code></pre></div>
-
 <h3 id="selinux">SELinux設定</h3>
 <p>ホームは見えるけどアクセスできない場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">setsebool -P samba_enable_home_dirs on</span>
+<div class="highlight"><pre><span></span><code><span class="go">setsebool -P samba_enable_home_dirs on</span>
 </code></pre></div>
-
 <p>共有ディレクトリの場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">semanage fcontext -a -t samba_share_t /share</span>
-<span style="color: #888">restorecon -R /share/</span>
+<div class="highlight"><pre><span></span><code><span class="go">semanage fcontext -a -t samba_share_t /share</span>
+<span class="go">restorecon -R /share/</span>
 </code></pre></div>
-
 <h2 id="haproxy">HAProxy</h2>
 <p><a href="https://docs.haproxy.org/2.9/configuration.html#4.2-timeout">https://docs.haproxy.org/2.9/configuration.html#4.2-timeout</a></p>
 <h3 id="_4">タイムアウト</h3>
@@ -2107,7 +2116,7 @@
 <h3 id="_5">外部コマンドを使った死活チェック</h3>
 <p>スクリプトはUPの場合は戻り値を0、DOWNは非0を返すように用意する。
 スクリプト実行の際には、第3引数に接続先ホストのアドレス、第4引数にポート番号が渡される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>global
+<div class="highlight"><pre><span></span><code>global
   external-check
 
 frontend foobar
@@ -2121,33 +2130,28 @@ backend bazqux
   server host1 192.168.0.121:8080 check
   server host2 192.168.0.122:8080 check
 </code></pre></div>
-
 <p>checkでなくbackupもある。check対象が全滅したらbackupを使う動作</p>
 <h3 id="ssl">ssl検証無視</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>backend servers
+<div class="highlight"><pre><span></span><code>backend servers
   server host1 192.168.0.68:6443 ssl verify none check
 </code></pre></div>
-
 <h2 id="dnsmasq">dnsmasq</h2>
 <h3 id="dhcp">dhcp</h3>
 <h4 id="ip">IPアドレス固定</h4>
 <p>書式：<code>dhcp-host=hwaddr,hostname,ipaddr</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dhcp-host=00:00:5E:00:53:00,raclette,192.168.0.129
+<div class="highlight"><pre><span></span><code>dhcp-host=00:00:5E:00:53:00,raclette,192.168.0.129
 </code></pre></div>
-
 <h4 id="dhcp_1">DHCPアドレス設定</h4>
 <p>アドレスレンジとリース時間の設定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dhcp-range=192.168.0.201,192.168.0.239,255.255.255.0,12h
+<div class="highlight"><pre><span></span><code>dhcp-range=192.168.0.201,192.168.0.239,255.255.255.0,12h
 </code></pre></div>
-
 <h4 id="_6">リース状態</h4>
 <p>ファイルはデフォルトで <code>/var/lib/misc/dnsmasq.leases</code> にある。</p>
 <h3 id="dns">DNS</h3>
 <h4 id="_7">ワイルドカード</h4>
 <p>ワイルドカード的に任意の文字列をサブドメイン扱いですべて特定のアドレスに名前解決する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>address=<span style="color: #666">/</span>exmaple.org<span style="color: #666">/192.168.0.15</span>
+<div class="highlight"><pre><span></span><code>address=/exmaple.org/192.168.0.15
 </code></pre></div>
-
 <p>これで<code>example.org</code>だけでなく、<code>foo.example.org</code>も<code>foo.bar.baz.example.org</code>も<code>192.168.0.15</code>となる。</p>
                 
               
@@ -2225,6 +2229,8 @@ backend bazqux
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

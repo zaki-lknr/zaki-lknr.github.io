@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1435,6 +1437,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1852,33 +1866,27 @@
                 
                 <h1 id="jq">jq</h1>
 <h2 id="_1">全てのキーの取得</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq keys</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq keys</span>
 </code></pre></div>
-
 <p>ただし元の順序は保持されずにソートされる。<br />
 順序を保持するには以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq keys_unsorted</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq keys_unsorted</span>
 </code></pre></div>
-
 <h2 id="_2">全ての値の取得</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.[]&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.[]&#39;</span>
 </code></pre></div>
-
 <h2 id="_3">全ての値の中から指定キーの値を全て出力</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.[] | [.name, .count]&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.[] | [.name, .count]&#39;</span>
 </code></pre></div>
-
 <h2 id="_4">特定の値を取得</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.list[0].key&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.list[0].key&#39;</span>
 </code></pre></div>
-
 <h2 id="_5">配列要素を全て出力</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq &#39;.list[].key&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.list[].key&#39;</span>
 </code></pre></div>
-
 <h2 id="_6">出力からクォーテーションを削除</h2>
 <p><code>-r</code>を付与</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">command | jq -r &#39;.list[0].key&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq -r &#39;.list[0].key&#39;</span>
 </code></pre></div>
                 
               
@@ -1913,13 +1921,13 @@
         </a>
       
       
-        <a href="../microsoft/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../mermaid/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              Microsoft
+              Mermaid
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1956,6 +1964,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

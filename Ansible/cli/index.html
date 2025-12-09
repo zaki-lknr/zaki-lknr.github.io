@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1515,6 +1517,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2015,426 +2029,406 @@
 <h2 id="_1">共通</h2>
 <h3 id="-e-extra-vars">-e | --extra-vars</h3>
 <p>スペースを含む値を与える場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span><span style="color: #B44">&#39;key=&quot;foo bar baz&quot;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>...<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;key=&quot;foo bar baz&quot;&#39;</span>
 </code></pre></div>
-
 <p>あるいはJSON形式で。(JSONだと辞書もリストもいける)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span><span style="color: #B44">&#39;{key: &quot;foo bar baz&quot;}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>...<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;{key: &quot;foo bar baz&quot;}&#39;</span>
 </code></pre></div>
-
 <p>変数ファイルを指定する場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
-<span style="color: #008000; font-weight: bold">netbox_url</span>:<span style="color: #BBB"> </span>http://netbox.example.org/
-<span style="color: #008000; font-weight: bold">netbox_token</span>:<span style="color: #BBB"> </span>hogehoge
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">netbox_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://netbox.example.org/</span>
+<span class="nt">netbox_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hogehoge</span>
 </code></pre></div>
-
 <p>こんなファイルを<code>netbox-vars.yml</code>として用意しておき、<code>ansible-playbook</code>実行時に</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span>@/path/to/netbox-vars.yml
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>...<span class="w"> </span>-e<span class="w"> </span>@/path/to/netbox-vars.yml
 </code></pre></div>
-
 <p>で、このファイルで定義した変数を実行時にextra varsとして参照できる。</p>
 <h3 id="-l-limit">-l | --limit</h3>
 <p>playbookの<code>hosts</code>で指定してあるホストグループの内、特定のホストだけに処理したい場合に使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>host1
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>...<span class="w"> </span>-l<span class="w"> </span>host1
 </code></pre></div>
-
 <p>こうすると、playbookで例えば<code>hosts: servers</code>と指定されており、serversグループに <code>host1</code>, <code>host2</code>, <code>host3</code> が有ったとしても、この<code>ansible-playbook</code>実行のタスクは <code>host1</code> のみが処理対象で実行される。</p>
 <p>複数の場合は<code>,</code>区切りで指定。(<code>-l</code>を複数並べるのは無効)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>host1,host2<span style="color: #BBB">       </span><span style="color: #080; font-style: italic"># -l host1 -l host2 はNG</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>...<span class="w"> </span>-l<span class="w"> </span>host1,host2<span class="w">       </span><span class="c1"># -l host1 -l host2 はNG</span>
 </code></pre></div>
-
 <h3 id="-connection-password-file">--connection-password-file</h3>
 <p>リモートへのログインに使用するパスワードが書かれたファイルを指定し、対話的処理を回避する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ansible-playbook playbook.yml -i inventory.ini --connection-password-file password.txt </span>
+<div class="highlight"><pre><span></span><code><span class="go">ansible-playbook playbook.yml -i inventory.ini --connection-password-file password.txt </span>
 </code></pre></div>
-
 <p>指定するファイルはパスワードのみがtext/plainで書かれている。</p>
 <h2 id="ansible-playbook">ansible-playbook コマンド</h2>
 <h3 id="-check">--check</h3>
 <p>いわゆるDry Runで実行する。<br />
 checkに対応している<code>copy</code>モジュールの場合は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>command sample
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">copy</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #BBB"> </span>/home/zaki/tmp.yml
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #BBB"> </span>/var/tmp
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">mode</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;0644&#39;</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #BBB"> </span>result
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">command sample</span>
+<span class="w">    </span><span class="nt">copy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/zaki/tmp.yml</span>
+<span class="w">      </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/tmp</span>
+<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0644&#39;</span>
+<span class="w">    </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result</span>
 </code></pre></div>
-
 <p>このplaybook、コピー先が存在しない状態で、実際に動かすと<code>changed</code>になる状態で<code>--check</code>付けて実行すると</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls<span style="color: #BBB"> </span>/var/tmp/tmp.yml<span style="color: #BBB"> </span>
-<span style="color: #888">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
-<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook<span style="color: #BBB"> </span>copy.yml<span style="color: #BBB"> </span>--check
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(ansible4)</span> <span class="gp">[zaki@cloud-dev shell (master)]$ </span>ls<span class="w"> </span>/var/tmp/tmp.yml<span class="w"> </span>
+<span class="go">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
+<span class="gp gp-VirtualEnv">(ansible4)</span> <span class="gp">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook<span class="w"> </span>copy.yml<span class="w"> </span>--check
 
-<span style="color: #888">PLAY [localhost] ********************</span>
+<span class="go">PLAY [localhost] ********************</span>
 
-<span style="color: #888">TASK [command sample] ***************</span>
-<span style="color: #888">changed: [localhost]</span>
+<span class="go">TASK [command sample] ***************</span>
+<span class="go">changed: [localhost]</span>
 
-<span style="color: #888">TASK [print result] *****************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg:</span>
-<span style="color: #888">    changed: true</span>
-<span style="color: #888">    diff: []</span>
-<span style="color: #888">    failed: false</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls<span style="color: #BBB"> </span>/var/tmp/tmp.yml<span style="color: #BBB"> </span>
-<span style="color: #888">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
+<span class="go">TASK [print result] *****************</span>
+<span class="go">ok: [localhost] =&gt; </span>
+<span class="go">  msg:</span>
+<span class="go">    changed: true</span>
+<span class="go">    diff: []</span>
+<span class="go">    failed: false</span>
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="gp gp-VirtualEnv">(ansible4)</span> <span class="gp">[zaki@cloud-dev shell (master)]$ </span>ls<span class="w"> </span>/var/tmp/tmp.yml<span class="w"> </span>
+<span class="go">ls: /var/tmp/tmp.yml にアクセスできません: そのようなファイルやディレクトリはありません</span>
 </code></pre></div>
-
 <p>このとおり<code>changed</code>として処理され、resultもchangedになる。<br />
 ファイルが存在して<code>ok</code>となる状態で<code>--check</code>で実行すると、以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ls<span style="color: #BBB"> </span>/var/tmp/tmp.yml
-<span style="color: #888">/var/tmp/tmp.yml</span>
-<span style="color: #000080; font-weight: bold">(ansible4)</span> <span style="color: #000080; font-weight: bold">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook<span style="color: #BBB"> </span>copy.yml<span style="color: #BBB"> </span>--check
-<span style="color: #888">PLAY [localhost] ********************</span>
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(ansible4)</span> <span class="gp">[zaki@cloud-dev shell (master)]$ </span>ls<span class="w"> </span>/var/tmp/tmp.yml
+<span class="go">/var/tmp/tmp.yml</span>
+<span class="gp gp-VirtualEnv">(ansible4)</span> <span class="gp">[zaki@cloud-dev shell (master)]$ </span>ansible-playbook<span class="w"> </span>copy.yml<span class="w"> </span>--check
+<span class="go">PLAY [localhost] ********************</span>
 
-<span style="color: #888">TASK [command sample] ***************</span>
-<span style="color: #888">ok: [localhost]</span>
+<span class="go">TASK [command sample] ***************</span>
+<span class="go">ok: [localhost]</span>
 
-<span style="color: #888">TASK [print result] *****************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg:</span>
-<span style="color: #888">    changed: false</span>
-<span style="color: #888">    checksum: e4012c7ec05eb3bd3d27774fa73b772426c02d74</span>
-<span style="color: #888">    dest: /var/tmp/tmp.yml</span>
-<span style="color: #888">    diff:</span>
-<span style="color: #888">      after:</span>
-<span style="color: #888">        path: /var/tmp/tmp.yml</span>
-<span style="color: #888">      before:</span>
-<span style="color: #888">        path: /var/tmp/tmp.yml</span>
-<span style="color: #888">    failed: false</span>
-<span style="color: #888">    gid: 1000</span>
-<span style="color: #888">    group: zaki</span>
-<span style="color: #888">    mode: &#39;0644&#39;</span>
-<span style="color: #888">    owner: zaki</span>
-<span style="color: #888">    path: /var/tmp/tmp.yml</span>
-<span style="color: #888">    secontext: unconfined_u:object_r:user_home_t:s0</span>
-<span style="color: #888">    size: 5447</span>
-<span style="color: #888">    state: file</span>
-<span style="color: #888">    uid: 1000</span>
+<span class="go">TASK [print result] *****************</span>
+<span class="go">ok: [localhost] =&gt; </span>
+<span class="go">  msg:</span>
+<span class="go">    changed: false</span>
+<span class="go">    checksum: e4012c7ec05eb3bd3d27774fa73b772426c02d74</span>
+<span class="go">    dest: /var/tmp/tmp.yml</span>
+<span class="go">    diff:</span>
+<span class="go">      after:</span>
+<span class="go">        path: /var/tmp/tmp.yml</span>
+<span class="go">      before:</span>
+<span class="go">        path: /var/tmp/tmp.yml</span>
+<span class="go">    failed: false</span>
+<span class="go">    gid: 1000</span>
+<span class="go">    group: zaki</span>
+<span class="go">    mode: &#39;0644&#39;</span>
+<span class="go">    owner: zaki</span>
+<span class="go">    path: /var/tmp/tmp.yml</span>
+<span class="go">    secontext: unconfined_u:object_r:user_home_t:s0</span>
+<span class="go">    size: 5447</span>
+<span class="go">    state: file</span>
+<span class="go">    uid: 1000</span>
 </code></pre></div>
-
 <p>タスク単位でチェックモードを指定する<code>check_mode</code>パラメタについては<a href="/Ansible/directives/#check-mode">directives</a>参照。</p>
 <h3 id="-list-tasks">--list-tasks</h3>
 <p>同時に指定する<code>--tags</code>などの実行条件を踏まえて、どのプレイとタスクが実行対象となるかをリストアップする。dry runのもう1段階手前な感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>setup.yml<span style="color: #BBB"> </span>--list-tasks
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>setup.yml<span class="w"> </span>--list-tasks
 
-<span style="color: #888">playbook: setup.yml</span>
+<span class="go">playbook: setup.yml</span>
 
-<span style="color: #888">  play #1 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
-<span style="color: #888">      subscription      TAGS: [subscription]</span>
-<span style="color: #888">      install packages  TAGS: [packages]</span>
+<span class="go">  play #1 (rhel): rhel  TAGS: []</span>
+<span class="go">    tasks:</span>
+<span class="go">      subscription      TAGS: [subscription]</span>
+<span class="go">      install packages  TAGS: [packages]</span>
 
-<span style="color: #888">  play #2 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
-<span style="color: #888">      ssh user config   TAGS: [ssh]</span>
-<span style="color: #888">      git config        TAGS: [git]</span>
-<span style="color: #888">      get git-prompt.sh TAGS: [git]</span>
-<span style="color: #888">      add prompt with git config        TAGS: [git]</span>
-<span style="color: #888">      add source gitprompt      TAGS: [git]</span>
-<span style="color: #888">      create venv       TAGS: [python]</span>
-<span style="color: #888">      clone repository (linux)  TAGS: [repository]</span>
-<span style="color: #888">      clone repository (container)      TAGS: [repository]</span>
+<span class="go">  play #2 (rhel): rhel  TAGS: []</span>
+<span class="go">    tasks:</span>
+<span class="go">      ssh user config   TAGS: [ssh]</span>
+<span class="go">      git config        TAGS: [git]</span>
+<span class="go">      get git-prompt.sh TAGS: [git]</span>
+<span class="go">      add prompt with git config        TAGS: [git]</span>
+<span class="go">      add source gitprompt      TAGS: [git]</span>
+<span class="go">      create venv       TAGS: [python]</span>
+<span class="go">      clone repository (linux)  TAGS: [repository]</span>
+<span class="go">      clone repository (container)      TAGS: [repository]</span>
 </code></pre></div>
-
 <p><code>--tags</code>指定ありの場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>setup.yml<span style="color: #BBB"> </span>--list-tasks<span style="color: #BBB"> </span>--tags<span style="color: #BBB"> </span>git
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>setup.yml<span class="w"> </span>--list-tasks<span class="w"> </span>--tags<span class="w"> </span>git
 
-<span style="color: #888">playbook: setup.yml</span>
+<span class="go">playbook: setup.yml</span>
 
-<span style="color: #888">  play #1 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
+<span class="go">  play #1 (rhel): rhel  TAGS: []</span>
+<span class="go">    tasks:</span>
 
-<span style="color: #888">  play #2 (rhel): rhel  TAGS: []</span>
-<span style="color: #888">    tasks:</span>
-<span style="color: #888">      git config        TAGS: [git]</span>
-<span style="color: #888">      get git-prompt.sh TAGS: [git]</span>
-<span style="color: #888">      add prompt with git config        TAGS: [git]</span>
-<span style="color: #888">      add source gitprompt      TAGS: [git]</span>
+<span class="go">  play #2 (rhel): rhel  TAGS: []</span>
+<span class="go">    tasks:</span>
+<span class="go">      git config        TAGS: [git]</span>
+<span class="go">      get git-prompt.sh TAGS: [git]</span>
+<span class="go">      add prompt with git config        TAGS: [git]</span>
+<span class="go">      add source gitprompt      TAGS: [git]</span>
 </code></pre></div>
-
 <h3 id="-start-at">--start-at</h3>
 <p>指定タスクから処理を開始する。開発・デバッグのお供に。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec 1st task
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;hello</span><span style="color: #B8860B"> </span><span style="color: #B44">world&quot;</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec 1st task</span>
+<span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello</span><span class="nv"> </span><span class="s">world&quot;</span>
 
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec 2nd task
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;hello</span><span style="color: #B8860B"> </span><span style="color: #B44">worlds&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec 2nd task</span>
+<span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello</span><span class="nv"> </span><span class="s">worlds&quot;</span>
 
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec 3rd task
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">msg</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;hello</span><span style="color: #B8860B"> </span><span style="color: #B44">worlds!!&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec 3rd task</span>
+<span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello</span><span class="nv"> </span><span class="s">worlds!!&quot;</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>sample.yml<span style="color: #BBB"> </span>--start-at<span style="color: #BBB"> </span><span style="color: #B44">&quot;exec 2nd task&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>sample.yml<span class="w"> </span>--start-at<span class="w"> </span><span class="s2">&quot;exec 2nd task&quot;</span>
 </code></pre></div>
-
 <p>実行結果</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">PLAY [localhost] *****************************************************************************</span>
+<div class="highlight"><pre><span></span><code><span class="go">PLAY [localhost] *****************************************************************************</span>
 
-<span style="color: #888">TASK [exec 2nd task] *************************************************************************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg: hello worlds</span>
+<span class="go">TASK [exec 2nd task] *************************************************************************</span>
+<span class="go">ok: [localhost] =&gt; </span>
+<span class="go">  msg: hello worlds</span>
 
-<span style="color: #888">TASK [exec 3rd task] *************************************************************************</span>
-<span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">  msg: hello worlds!!</span>
+<span class="go">TASK [exec 3rd task] *************************************************************************</span>
+<span class="go">ok: [localhost] =&gt; </span>
+<span class="go">  msg: hello worlds!!</span>
 </code></pre></div>
-
 <p>roleの場合は、ロール名含めて指定すればよい。(実行時の<code>TASK [***]</code>の<code>***</code>の部分を指定する)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>inventory-oci-l-dev.ini<span style="color: #BBB"> </span>playbook.yml<span style="color: #BBB"> </span>-v
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #888">TASK [build_awx/awx-ee : clone repository] ***************************************************</span>
-<span style="color: #888">fatal: [oci-l-a1-ubuntu]: FAILED! =&gt; {&quot;before&quot;: &quot;54de4047be742783f69678f942a515e991c097ab&quot;, &quot;changed&quot;: false, &quot;msg&quot;: &quot;Local modifications exist in repository (force=no).&quot;}</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory-oci-l-dev.ini<span class="w"> </span>playbook.yml<span class="w"> </span>-v
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="go">TASK [build_awx/awx-ee : clone repository] ***************************************************</span>
+<span class="go">fatal: [oci-l-a1-ubuntu]: FAILED! =&gt; {&quot;before&quot;: &quot;54de4047be742783f69678f942a515e991c097ab&quot;, &quot;changed&quot;: false, &quot;msg&quot;: &quot;Local modifications exist in repository (force=no).&quot;}</span>
 
-<span style="color: #888">PLAY RECAP ***********************************************************************************</span>
-<span style="color: #888">oci-l-a1-ubuntu            : ok=33   changed=5    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   </span>
+<span class="go">PLAY RECAP ***********************************************************************************</span>
+<span class="go">oci-l-a1-ubuntu            : ok=33   changed=5    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   </span>
 
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>inventory-oci-l-dev.ini<span style="color: #BBB"> </span>playbook.yml<span style="color: #BBB"> </span>-v<span style="color: #BBB"> </span>--start-at<span style="color: #BBB"> </span><span style="color: #B44">&quot;build_awx/awx-ee : create working directory&quot;</span>
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="gp">$ </span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory-oci-l-dev.ini<span class="w"> </span>playbook.yml<span class="w"> </span>-v<span class="w"> </span>--start-at<span class="w"> </span><span class="s2">&quot;build_awx/awx-ee : create working directory&quot;</span>
 </code></pre></div>
-
 <h3 id="-tags">--tags</h3>
 <p>指定tagが付与されたタスクのみを実行する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>setup.yml<span style="color: #BBB"> </span>--tags<span style="color: #BBB"> </span>initial
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>setup.yml<span class="w"> </span>--tags<span class="w"> </span>initial
 </code></pre></div>
-
 <p><code>initial</code>タグが付与されたタスクのみが実行される。<code>--list-tasks</code>もつけると事前にどのタスクのみが実行されるか確認できる。</p>
 <h2 id="ansible-inventory">ansible-inventoryコマンド</h2>
 <p><code>ansible-inventory</code>コマンドを使用すると、ターゲットノード一覧やそのホストに紐づく変数を確認できる。<br />
 ダイナミックインベントリの場合に対象ノードが何になるか確認できる。</p>
 <h3 id="-list">--list</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-inventory<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>inventory.ini<span style="color: #BBB"> </span>--list
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-inventory<span class="w"> </span>-i<span class="w"> </span>inventory.ini<span class="w"> </span>--list
 </code></pre></div>
-
 <p><a href="https://github.com/zaki-lknr/initialize-kubeadm-ansible/blob/master/inventory.ini">このインベントリファイル</a>を参照した際のホストグループやホスト変数(<a href="https://github.com/zaki-lknr/initialize-kubeadm-ansible/tree/master/group_vars"><code>group_vars</code>など有れば参照</a>)をリストアップする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;_meta&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;hostvars&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;master01&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;bash-completion&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;open-vm-tools&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;vmtoolsd&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;192.168.0.121&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;my-kubeadm-cluster&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;true&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;10.244.0.0/16&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;6443/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;2379-2380/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10250/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10251/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10252/tcp&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;calico&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;containerd&quot;</span>
-<span style="color: #BBB">            </span>},
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;master02&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;bash-completion&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;open-vm-tools&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;vmtoolsd&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;192.168.0.122&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;my-kubeadm-cluster&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;true&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;10.244.0.0/16&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;6443/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;2379-2380/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10250/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10251/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10252/tcp&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;calico&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;containerd&quot;</span>
-<span style="color: #BBB">            </span>},
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;master03&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;bash-completion&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;open-vm-tools&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;vmtoolsd&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;192.168.0.123&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;my-kubeadm-cluster&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;true&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;10.244.0.0/16&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;6443/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;2379-2380/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10250/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10251/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10252/tcp&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;calico&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;containerd&quot;</span>
-<span style="color: #BBB">            </span>},
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;worker01&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;bash-completion&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;open-vm-tools&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;vmtoolsd&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;192.168.0.125&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;my-kubeadm-cluster&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;true&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;10.244.0.0/16&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10250/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;30000-32767/tcp&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;calico&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;containerd&quot;</span>
-<span style="color: #BBB">            </span>},
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;worker02&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_packages&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;bash-completion&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;open-vm-tools&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;additional_services&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;vmtoolsd&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;ansible_host&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;192.168.0.126&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;cluster_name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;my-kubeadm-cluster&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;controlplane_endpoint&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;k8s-master.esxi.jp-z.jp&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;enable_firewalld&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;true&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;pod_network_cidr&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;10.244.0.0/16&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;required_ports&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;10250/tcp&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #B44">&quot;30000-32767/tcp&quot;</span>
-<span style="color: #BBB">                </span>],
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cni_plugin&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;calico&quot;</span>,
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">&quot;use_cri&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;containerd&quot;</span>
-<span style="color: #BBB">            </span>}
-<span style="color: #BBB">        </span>}
-<span style="color: #BBB">    </span>},
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;all&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;children&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;master&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;ungrouped&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;worker&quot;</span>
-<span style="color: #BBB">        </span>]
-<span style="color: #BBB">    </span>},
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;master&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;hosts&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;master01&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;master02&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;master03&quot;</span>
-<span style="color: #BBB">        </span>]
-<span style="color: #BBB">    </span>},
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;worker&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;hosts&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;worker01&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;worker02&quot;</span>
-<span style="color: #BBB">        </span>]
-<span style="color: #BBB">    </span>}
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;_meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;hostvars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;master01&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;additional_packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;bash-completion&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;open-vm-tools&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;additional_services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;vmtoolsd&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;ansible_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.121&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;cluster_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-kubeadm-cluster&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;controlplane_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;k8s-master.esxi.jp-z.jp&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;enable_firewalld&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;pod_network_cidr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.244.0.0/16&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;required_ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;6443/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;2379-2380/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10250/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10251/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10252/tcp&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;use_cni_plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calico&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;use_cri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;containerd&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;master02&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;additional_packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;bash-completion&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;open-vm-tools&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;additional_services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;vmtoolsd&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;ansible_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.122&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;cluster_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-kubeadm-cluster&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;controlplane_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;k8s-master.esxi.jp-z.jp&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;enable_firewalld&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;pod_network_cidr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.244.0.0/16&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;required_ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;6443/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;2379-2380/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10250/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10251/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10252/tcp&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;use_cni_plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calico&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;use_cri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;containerd&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;master03&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;additional_packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;bash-completion&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;open-vm-tools&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;additional_services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;vmtoolsd&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;ansible_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.123&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;cluster_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-kubeadm-cluster&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;controlplane_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;k8s-master.esxi.jp-z.jp&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;enable_firewalld&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;pod_network_cidr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.244.0.0/16&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;required_ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;6443/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;2379-2380/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10250/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10251/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;10252/tcp&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;use_cni_plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calico&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;use_cri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;containerd&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;worker01&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;additional_packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;bash-completion&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;open-vm-tools&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;additional_services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;vmtoolsd&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;ansible_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.125&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;cluster_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-kubeadm-cluster&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;controlplane_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;k8s-master.esxi.jp-z.jp&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;enable_firewalld&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;pod_network_cidr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.244.0.0/16&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;required_ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;10250/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;30000-32767/tcp&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;use_cni_plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calico&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;use_cri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;containerd&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;worker02&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;additional_packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;bash-completion&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;open-vm-tools&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;additional_services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;vmtoolsd&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;ansible_host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.0.126&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;cluster_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-kubeadm-cluster&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;controlplane_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;k8s-master.esxi.jp-z.jp&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;enable_firewalld&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;pod_network_cidr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.244.0.0/16&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;required_ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">&quot;10250/tcp&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">&quot;30000-32767/tcp&quot;</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;use_cni_plugin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calico&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;use_cri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;containerd&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;all&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;master&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;ungrouped&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;worker&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;master&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;master01&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;master02&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;master03&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;worker&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;worker01&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;worker02&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h3 id="-graph-vars">--graph --vars</h3>
 <p>このオプションの場合は、グループ変数定義が独立して表示される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-inventory<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>inventory.ini<span style="color: #BBB"> </span>--graph<span style="color: #BBB"> </span>--vars
-<span style="color: #888">@all:</span>
-<span style="color: #888">  |--@master:</span>
-<span style="color: #888">  |  |--master01</span>
-<span style="color: #888">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
-<span style="color: #888">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
-<span style="color: #888">  |  |  |--{ansible_host = 192.168.0.121}</span>
-<span style="color: #888">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
-<span style="color: #888">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
-<span style="color: #888">  |  |  |--{enable_firewalld = true}</span>
-<span style="color: #888">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
-<span style="color: #888">  |  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
-<span style="color: #888">  |  |  |--{use_cni_plugin = calico}</span>
-<span style="color: #888">  |  |  |--{use_cri = containerd}</span>
-<span style="color: #888">  |  |--master02</span>
-<span style="color: #888">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
-<span style="color: #888">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
-<span style="color: #888">  |  |  |--{ansible_host = 192.168.0.122}</span>
-<span style="color: #888">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
-<span style="color: #888">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
-<span style="color: #888">  |  |  |--{enable_firewalld = true}</span>
-<span style="color: #888">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
-<span style="color: #888">  |  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
-<span style="color: #888">  |  |  |--{use_cni_plugin = calico}</span>
-<span style="color: #888">  |  |  |--{use_cri = containerd}</span>
-<span style="color: #888">  |  |--master03</span>
-<span style="color: #888">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
-<span style="color: #888">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
-<span style="color: #888">  |  |  |--{ansible_host = 192.168.0.123}</span>
-<span style="color: #888">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
-<span style="color: #888">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
-<span style="color: #888">  |  |  |--{enable_firewalld = true}</span>
-<span style="color: #888">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
-<span style="color: #888">  |  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
-<span style="color: #888">  |  |  |--{use_cni_plugin = calico}</span>
-<span style="color: #888">  |  |  |--{use_cri = containerd}</span>
-<span style="color: #888">  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
-<span style="color: #888">  |--@ungrouped:</span>
-<span style="color: #888">  |--@worker:</span>
-<span style="color: #888">  |  |--worker01</span>
-<span style="color: #888">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
-<span style="color: #888">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
-<span style="color: #888">  |  |  |--{ansible_host = 192.168.0.125}</span>
-<span style="color: #888">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
-<span style="color: #888">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
-<span style="color: #888">  |  |  |--{enable_firewalld = true}</span>
-<span style="color: #888">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
-<span style="color: #888">  |  |  |--{required_ports = [&#39;10250/tcp&#39;, &#39;30000-32767/tcp&#39;]}</span>
-<span style="color: #888">  |  |  |--{use_cni_plugin = calico}</span>
-<span style="color: #888">  |  |  |--{use_cri = containerd}</span>
-<span style="color: #888">  |  |--worker02</span>
-<span style="color: #888">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
-<span style="color: #888">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
-<span style="color: #888">  |  |  |--{ansible_host = 192.168.0.126}</span>
-<span style="color: #888">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
-<span style="color: #888">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
-<span style="color: #888">  |  |  |--{enable_firewalld = true}</span>
-<span style="color: #888">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
-<span style="color: #888">  |  |  |--{required_ports = [&#39;10250/tcp&#39;, &#39;30000-32767/tcp&#39;]}</span>
-<span style="color: #888">  |  |  |--{use_cni_plugin = calico}</span>
-<span style="color: #888">  |  |  |--{use_cri = containerd}</span>
-<span style="color: #888">  |  |--{required_ports = [&#39;10250/tcp&#39;, &#39;30000-32767/tcp&#39;]}</span>
-<span style="color: #888">  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
-<span style="color: #888">  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
-<span style="color: #888">  |--{cluster_name = my-kubeadm-cluster}</span>
-<span style="color: #888">  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
-<span style="color: #888">  |--{enable_firewalld = true}</span>
-<span style="color: #888">  |--{pod_network_cidr = 10.244.0.0/16}</span>
-<span style="color: #888">  |--{use_cni_plugin = calico}</span>
-<span style="color: #888">  |--{use_cri = containerd}</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-inventory<span class="w"> </span>-i<span class="w"> </span>inventory.ini<span class="w"> </span>--graph<span class="w"> </span>--vars
+<span class="go">@all:</span>
+<span class="go">  |--@master:</span>
+<span class="go">  |  |--master01</span>
+<span class="go">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
+<span class="go">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
+<span class="go">  |  |  |--{ansible_host = 192.168.0.121}</span>
+<span class="go">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
+<span class="go">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
+<span class="go">  |  |  |--{enable_firewalld = true}</span>
+<span class="go">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
+<span class="go">  |  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
+<span class="go">  |  |  |--{use_cni_plugin = calico}</span>
+<span class="go">  |  |  |--{use_cri = containerd}</span>
+<span class="go">  |  |--master02</span>
+<span class="go">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
+<span class="go">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
+<span class="go">  |  |  |--{ansible_host = 192.168.0.122}</span>
+<span class="go">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
+<span class="go">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
+<span class="go">  |  |  |--{enable_firewalld = true}</span>
+<span class="go">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
+<span class="go">  |  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
+<span class="go">  |  |  |--{use_cni_plugin = calico}</span>
+<span class="go">  |  |  |--{use_cri = containerd}</span>
+<span class="go">  |  |--master03</span>
+<span class="go">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
+<span class="go">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
+<span class="go">  |  |  |--{ansible_host = 192.168.0.123}</span>
+<span class="go">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
+<span class="go">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
+<span class="go">  |  |  |--{enable_firewalld = true}</span>
+<span class="go">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
+<span class="go">  |  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
+<span class="go">  |  |  |--{use_cni_plugin = calico}</span>
+<span class="go">  |  |  |--{use_cri = containerd}</span>
+<span class="go">  |  |--{required_ports = [&#39;6443/tcp&#39;, &#39;2379-2380/tcp&#39;, &#39;10250/tcp&#39;, &#39;10251/tcp&#39;, &#39;10252/tcp&#39;]}</span>
+<span class="go">  |--@ungrouped:</span>
+<span class="go">  |--@worker:</span>
+<span class="go">  |  |--worker01</span>
+<span class="go">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
+<span class="go">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
+<span class="go">  |  |  |--{ansible_host = 192.168.0.125}</span>
+<span class="go">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
+<span class="go">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
+<span class="go">  |  |  |--{enable_firewalld = true}</span>
+<span class="go">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
+<span class="go">  |  |  |--{required_ports = [&#39;10250/tcp&#39;, &#39;30000-32767/tcp&#39;]}</span>
+<span class="go">  |  |  |--{use_cni_plugin = calico}</span>
+<span class="go">  |  |  |--{use_cri = containerd}</span>
+<span class="go">  |  |--worker02</span>
+<span class="go">  |  |  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
+<span class="go">  |  |  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
+<span class="go">  |  |  |--{ansible_host = 192.168.0.126}</span>
+<span class="go">  |  |  |--{cluster_name = my-kubeadm-cluster}</span>
+<span class="go">  |  |  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
+<span class="go">  |  |  |--{enable_firewalld = true}</span>
+<span class="go">  |  |  |--{pod_network_cidr = 10.244.0.0/16}</span>
+<span class="go">  |  |  |--{required_ports = [&#39;10250/tcp&#39;, &#39;30000-32767/tcp&#39;]}</span>
+<span class="go">  |  |  |--{use_cni_plugin = calico}</span>
+<span class="go">  |  |  |--{use_cri = containerd}</span>
+<span class="go">  |  |--{required_ports = [&#39;10250/tcp&#39;, &#39;30000-32767/tcp&#39;]}</span>
+<span class="go">  |--{additional_packages = [&#39;bash-completion&#39;, &#39;open-vm-tools&#39;]}</span>
+<span class="go">  |--{additional_services = [&#39;vmtoolsd&#39;]}</span>
+<span class="go">  |--{cluster_name = my-kubeadm-cluster}</span>
+<span class="go">  |--{controlplane_endpoint = k8s-master.esxi.jp-z.jp}</span>
+<span class="go">  |--{enable_firewalld = true}</span>
+<span class="go">  |--{pod_network_cidr = 10.244.0.0/16}</span>
+<span class="go">  |--{use_cni_plugin = calico}</span>
+<span class="go">  |--{use_cri = containerd}</span>
 </code></pre></div>
-
 <h2 id="ansible-galaxy">ansible-galaxyコマンド</h2>
 <h3 id="-r-requirements-file">-r | --requirements-file</h3>
 <p><code>requirements.yml</code>ファイルの指定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ansible-galaxy collection install -r collections/requirements.yml</span>
+<div class="highlight"><pre><span></span><code><span class="go">ansible-galaxy collection install -r collections/requirements.yml</span>
 </code></pre></div>
                 
               
@@ -2512,6 +2506,8 @@ checkに対応している<code>copy</code>モジュールの場合は以下の�
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

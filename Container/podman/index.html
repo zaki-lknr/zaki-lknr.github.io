@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1507,6 +1509,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2000,63 +2014,56 @@
 <h2 id="podman_1">podmanコマンド</h2>
 <h3 id="save">save</h3>
 <p>複数イメージのtar保存</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman image save -o output.tar -m image1:tag image2:tag</span>
+<div class="highlight"><pre><span></span><code><span class="go">podman image save -o output.tar -m image1:tag image2:tag</span>
 </code></pre></div>
-
 <p><code>-m</code>が無いと最初のイメージのみになる。</p>
 <h3 id="push">push</h3>
 <p>ローカルのイメージをpush</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman push localhost/image:tag docker://remote.example.org/image:tag</span>
+<div class="highlight"><pre><span></span><code><span class="go">podman push localhost/image:tag docker://remote.example.org/image:tag</span>
 </code></pre></div>
-
 <p>push先を第2引数で指定できるのでtag(FQDN)の追加を行っておく必要はない。</p>
 <h4 id="tls">TLS検証無視</h4>
 <p><code>--tls-verify=false</code>を付与する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman push registry.example.org/path/to/image:latest --tls-verify=false</span>
+<div class="highlight"><pre><span></span><code><span class="go">podman push registry.example.org/path/to/image:latest --tls-verify=false</span>
 </code></pre></div>
-
 <h3 id="ps-external">ps --external</h3>
 <p>Podman外(buildahビルドなど)のコンテナもリストアップする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>podman<span style="color: #BBB"> </span>ps<span style="color: #BBB"> </span>
-<span style="color: #888">CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>podman<span class="w"> </span>ps<span class="w"> </span>
+<span class="go">CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES</span>
 
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>podman<span style="color: #BBB"> </span>ps<span style="color: #BBB"> </span>--external<span style="color: #BBB"> </span>
-<span style="color: #888">CONTAINER ID  IMAGE                                                                                          COMMAND     CREATED        STATUS      PORTS       NAMES</span>
-<span style="color: #888">3f09ea013c86  docker.io/library/almalinux:9                                                                  buildah     21 months ago  Storage                 almalinux-working-container</span>
-<span style="color: #888">7139e02472ae  docker.io/library/7420bdd2d63d87eb65afecc773f10d03de92d51098771d97746425c3043c3d95-tmp:latest  buildah     21 months ago  Storage                 83bdddbf089b-working-container</span>
-<span style="color: #888">76fa5ec79fb1  docker.io/library/eedc67f030eef81a46a39d553e82b5494e9602a619f248dd2dd377ea1194d536-tmp:latest  buildah     21 months ago  Storage                 c284335d223f-working-container</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<span class="gp">zaki@cloud-dev2:~$ </span>podman<span class="w"> </span>ps<span class="w"> </span>--external<span class="w"> </span>
+<span class="go">CONTAINER ID  IMAGE                                                                                          COMMAND     CREATED        STATUS      PORTS       NAMES</span>
+<span class="go">3f09ea013c86  docker.io/library/almalinux:9                                                                  buildah     21 months ago  Storage                 almalinux-working-container</span>
+<span class="go">7139e02472ae  docker.io/library/7420bdd2d63d87eb65afecc773f10d03de92d51098771d97746425c3043c3d95-tmp:latest  buildah     21 months ago  Storage                 83bdddbf089b-working-container</span>
+<span class="go">76fa5ec79fb1  docker.io/library/eedc67f030eef81a46a39d553e82b5494e9602a619f248dd2dd377ea1194d536-tmp:latest  buildah     21 months ago  Storage                 c284335d223f-working-container</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <h2 id="volume">volume</h2>
 <h3 id="permission-denied">permission denied</h3>
 <p>だいたいSELinux周り。<code>Z</code>をつければOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman run -d --name serv1 -p 8080:80 -v ./serv1:/usr/local/apache2/htdocs/:Z httpd:2.4</span>
+<div class="highlight"><pre><span></span><code><span class="go">podman run -d --name serv1 -p 8080:80 -v ./serv1:/usr/local/apache2/htdocs/:Z httpd:2.4</span>
 </code></pre></div>
-
 <h2 id="service">service</h2>
 <h3 id="os">OS起動時にコンテナ起動するには</h3>
 <p><code>podman-restart.service</code>を使用する(デフォルト無効)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">systemctl enable --now podman-restart.service</span>
+<div class="highlight"><pre><span></span><code><span class="go">systemctl enable --now podman-restart.service</span>
 </code></pre></div>
-
 <p>これでrootユーザーのコンテナは<code>--restart=always</code>が有効(OS起動時にコンテナ起動)になる。</p>
 <h2 id="_1">設定</h2>
 <h3 id="insecure">insecureなレジストリ設定</h3>
 <p>ユーザー単位であれば<code>$HOME/.config/containers/registries.conf</code>に以下作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[registries.insecure]</span>
-<span style="color: #B44">registries</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">[&#39;my-registry.example.org:5000&#39;]</span>
+<div class="highlight"><pre><span></span><code><span class="k">[registries.insecure]</span>
+<span class="na">registries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&#39;my-registry.example.org:5000&#39;]</span>
 </code></pre></div>
-
 <p>システムワイドであれば<code>/etc/containers/registries.conf</code>または<code>/etc/containers/registries.conf.d/insecure-registries.conf</code>などに作成してもよい。</p>
 <blockquote>
 <p>Error: loading drop-in registries configuration "/etc/containers/registries.conf.d/insecure-registries.conf": registry must be in v2 format but is in v1</p>
 </blockquote>
 <p>エラーが出る場合、v2の書式で作成する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[[registry]]</span>
-location<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;my-registry.example.org:5000&quot;</span>
-insecure<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">true</span>
+<div class="highlight"><pre><span></span><code><span class="k">[[registry]]</span>
+<span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-registry.example.org:5000&quot;</span>
+<span class="n">insecure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </code></pre></div>
                 
               
@@ -2134,6 +2141,8 @@ insecure<span style="color: #BBB"> </span><span style="color: #666">=</span><spa
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1360,6 +1362,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1907,38 +1921,31 @@
                 <h1 id="postgresql">PostgreSQL</h1>
 <h2 id="cli">CLI</h2>
 <h3 id="_1">バージョン確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">psql --version</span>
+<div class="highlight"><pre><span></span><code><span class="go">psql --version</span>
 </code></pre></div>
-
 <h3 id="db">DBに接続</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>psql<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>&lt;DB名&gt;<span style="color: #BBB"> </span>-U<span style="color: #BBB"> </span>&lt;ユーザー名&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>psql<span class="w"> </span>-d<span class="w"> </span>&lt;DB名&gt;<span class="w"> </span>-U<span class="w"> </span>&lt;ユーザー名&gt;
 </code></pre></div>
-
 <h3 id="sql">SQL実行時のページャを無効にするには</h3>
 <p>環境変数<code>PAGER</code>に<code>cat</code>をセットする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">PAGER</span><span style="color: #666">=</span>cat
-<span style="color: #000080; font-weight: bold">$ </span>psql<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>&lt;DB名&gt;<span style="color: #BBB"> </span>-U<span style="color: #BBB"> </span>&lt;ユーザー名&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">PAGER</span><span class="o">=</span>cat
+<span class="gp">$ </span>psql<span class="w"> </span>-d<span class="w"> </span>&lt;DB名&gt;<span class="w"> </span>-U<span class="w"> </span>&lt;ユーザー名&gt;
 </code></pre></div>
-
 <h3 id="_2">設定一覧</h3>
 <p>起動オプション(パラメタ)類はこれで確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">show all;</span>
+<div class="highlight"><pre><span></span><code><span class="go">show all;</span>
 </code></pre></div>
-
 <h3 id="_3">拡張一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">select * from pg_available_extensions;</span>
+<div class="highlight"><pre><span></span><code><span class="go">select * from pg_available_extensions;</span>
 </code></pre></div>
-
 <h3 id="db_1">DB一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">\l</span>
+<div class="highlight"><pre><span></span><code><span class="go">\l</span>
 </code></pre></div>
-
 <h3 id="_4">テーブル一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">\dt</span>
+<div class="highlight"><pre><span></span><code><span class="go">\dt</span>
 </code></pre></div>
-
 <h3 id="_5">テーブル定義</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">\d &lt;table-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">\d &lt;table-name&gt;</span>
 </code></pre></div>
                 
               
@@ -2016,6 +2023,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

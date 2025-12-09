@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1348,6 +1350,18 @@
     <li class="md-nav__item">
       <a href="../../Misc/jq/" class="md-nav__link">
         jq
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
       </a>
     </li>
   
@@ -4235,1011 +4249,881 @@
                 <h1 id="python">Python</h1>
 <h2 id="tool">tool</h2>
 <h3 id="json">JSON整形</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>...<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>python<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>json.tool
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>...<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>json.tool
 </code></pre></div>
-
 <h3 id="http">httpサーバ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>http.server<span style="color: #BBB"> </span><span style="color: #666">8080</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8080</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python2<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>SimpleHTTPServer<span style="color: #BBB"> </span><span style="color: #666">8080</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python2<span class="w"> </span>-m<span class="w"> </span>SimpleHTTPServer<span class="w"> </span><span class="m">8080</span>
 </code></pre></div>
-
 <p><a href="https://qiita.com/zaki-lknr/items/c4b0a596890dff7ffec6">インフラ系エンジニアが唯一覚えるべきPythonの使い方 - Qiita</a></p>
 <h2 id="_1">実装</h2>
 <h3 id="_2">演算子</h3>
 <h4 id="_3">セイウチ演算子(:=)</h4>
 <p>代入と評価を同時に行う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">while</span> (items <span style="color: #666">:=</span> get_items()):
-    :
-    :
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="n">items</span> <span class="o">:=</span> <span class="n">get_items</span><span class="p">()):</span>
+    <span class="p">:</span>
+    <span class="p">:</span>
 </code></pre></div>
-
 <p><code>items</code>がtrueである間(リストを返す関数であれば空でない限り)はループする。</p>
 <h4 id="_4">比較(==)</h4>
 <p>Pythonは文字列も<code>==</code>を使う。<br />
 以下の比較処理は真。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>string <span style="color: #666">=</span> <span style="color: #B44">&quot;foobar&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;foobar&quot;</span>
 
-<span style="color: #A2F; font-weight: bold">if</span> string <span style="color: #666">==</span> <span style="color: #B44">&quot;foobar&quot;</span>:
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;string is &#39;foobar&#39;&quot;</span>)
+<span class="k">if</span> <span class="n">string</span> <span class="o">==</span> <span class="s2">&quot;foobar&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string is &#39;foobar&#39;&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>配列の比較も<code>==</code>で行う。以下はtrue</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>obj_list <span style="color: #666">=</span> [<span style="color: #666">1</span>, <span style="color: #666">2</span>, <span style="color: #666">3</span>, <span style="color: #B44">&quot;abc&quot;</span>]
+<div class="highlight"><pre><span></span><code><span class="n">obj_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">]</span>
 
-<span style="color: #A2F; font-weight: bold">if</span> obj_list <span style="color: #666">==</span> [<span style="color: #666">1</span>, <span style="color: #666">2</span>, <span style="color: #666">3</span>, <span style="color: #B44">&quot;abc&quot;</span>]:
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;true&quot;</span>)
+<span class="k">if</span> <span class="n">obj_list</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>というか<code>==</code>はオブジェクトの比較に使えるってことかな。</p>
 <h3 id="_5">制御構文</h3>
 <h4 id="if">if</h4>
 <p>「else if」は<code>elif</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span> (cond1):
-    :::
-<span style="color: #A2F; font-weight: bold">elif</span> (cond2):
-    :::
-<span style="color: #A2F; font-weight: bold">else</span>
-    :::
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">cond1</span><span class="p">):</span>
+    <span class="p">:::</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">cond2</span><span class="p">):</span>
+    <span class="p">:::</span>
+<span class="k">else</span>
+    <span class="p">:::</span>
 </code></pre></div>
-
 <h5 id="_6">三項演算子</h5>
 <p>以下のように1行で記述できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>value <span style="color: #666">=</span> <span style="color: #A2F; font-weight: bold">True</span> <span style="color: #A2F; font-weight: bold">if</span> (condition) <span style="color: #A2F; font-weight: bold">else</span> <span style="color: #A2F; font-weight: bold">False</span>
+<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
 </code></pre></div>
-
 <h4 id="for">for</h4>
 <p>foreach式のループ処理は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">for</span> item <span style="color: #A2F; font-weight: bold">in</span> items:
-    <span style="color: #080; font-style: italic"># itemにリストの要素がセットされる</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="c1"># itemにリストの要素がセットされる</span>
 </code></pre></div>
-
 <h5 id="_7">リスト内包表記</h5>
 <p>リスト内包表記を使ってワンライナーでも書ける。<br />
 ループ処理した結果をリストにセットしたい場合など。<br />
 その際は<code>[...]</code>で囲む。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>result <span style="color: #666">=</span> [ <span style="color: #666">..</span>itemに対する処理<span style="color: #666">..</span> <span style="color: #A2F; font-weight: bold">for</span> item <span style="color: #A2F; font-weight: bold">in</span> items]
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="o">..</span><span class="n">itemに対する処理</span><span class="o">..</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
 </code></pre></div>
-
 <p>BeautifulSoupを使ったスクレイピングの記述例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>links <span style="color: #666">=</span> [li<span style="color: #666">.</span>find(<span style="color: #B44">&#39;a&#39;</span>)<span style="color: #666">.</span>get(<span style="color: #B44">&#39;href&#39;</span>) <span style="color: #A2F; font-weight: bold">for</span> li <span style="color: #A2F; font-weight: bold">in</span> s<span style="color: #666">.</span>find_all(<span style="color: #B44">&#39;li&#39;</span>, class_<span style="color: #666">=</span><span style="color: #B44">&#39;toctree-l2&#39;</span>)]
-<span style="color: #A2F">print</span>(links)
+<div class="highlight"><pre><span></span><code><span class="n">links</span> <span class="o">=</span> <span class="p">[</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;toctree-l2&#39;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="enumerate">enumerate()でインデックス参照</h5>
 <p>配列要素のインデックスにアクセスしたければ<code>enumerate</code>を使うと楽</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>items <span style="color: #666">=</span> [<span style="color: #B44">&#39;foo&#39;</span>, <span style="color: #B44">&#39;bar&#39;</span>, <span style="color: #B44">&#39;baz&#39;</span>]
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">]</span>
 
-<span style="color: #A2F; font-weight: bold">for</span> index, item <span style="color: #A2F; font-weight: bold">in</span> <span style="color: #A2F">enumerate</span>(items):
-    <span style="color: #A2F">print</span>(<span style="color: #A2F">str</span>(index) <span style="color: #666">+</span> <span style="color: #B44">&#39;: &#39;</span> <span style="color: #666">+</span> item)
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">0: foo</span>
-<span style="color: #888">1: bar</span>
-<span style="color: #888">2: baz</span>
+<div class="highlight"><pre><span></span><code><span class="go">0: foo</span>
+<span class="go">1: bar</span>
+<span class="go">2: baz</span>
 </code></pre></div>
-
 <h4 id="break">break</h4>
 <p>ループを途中で抜けるには<code>break</code></p>
 <h4 id="continue">continue</h4>
 <p>次のループへ飛ぶには<code>continue</code></p>
 <h4 id="exit">exit</h4>
 <p>Pythonのexitは組み込みでなく<code>sys</code>をimportする必要がある。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-sys<span style="color: #666">.</span>exit(<span style="color: #666">1</span>)
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="_8">変数</h3>
 <h4 id="_9">環境変数の参照</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-aws_access_key <span style="color: #666">=</span> os<span style="color: #666">.</span>environ<span style="color: #666">.</span>get(<span style="color: #B44">&quot;AWS_ACCESS_KEY_ID&quot;</span>)
-<span style="color: #A2F; font-weight: bold">if</span> aws_access_key <span style="color: #A2F; font-weight: bold">is</span> <span style="color: #A2F; font-weight: bold">None</span>:
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;AWS_ACCESS_KEY_ID not defined&quot;</span>)
+<span class="n">aws_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">aws_access_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AWS_ACCESS_KEY_ID not defined&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>os.getenv('key')</code>も同じように動作する。コード量的にはこっちが便利。</p>
 <h4 id="_10">型の確認</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">type</span>(value)
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="isinstance">isinstance()で型判定</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>bool_val <span style="color: #666">=</span> <span style="color: #A2F; font-weight: bold">True</span>
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(bool_val, <span style="color: #A2F">bool</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;bool_val is bool&quot;</span>)
+<div class="highlight"><pre><span></span><code><span class="n">bool_val</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">bool_val</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bool_val is bool&quot;</span><span class="p">)</span>
 
-int_val <span style="color: #666">=</span> <span style="color: #666">123</span>
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(int_val, <span style="color: #A2F">int</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;int_val is int&quot;</span>)
+<span class="n">int_val</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">int_val</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;int_val is int&quot;</span><span class="p">)</span>
 
-list_val <span style="color: #666">=</span> [<span style="color: #666">1</span>, <span style="color: #666">2</span>, <span style="color: #666">3</span>]
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(list_val, <span style="color: #A2F">list</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;list_val is list&quot;</span>)
+<span class="n">list_val</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">list_val</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_val is list&quot;</span><span class="p">)</span>
 
-dict_val <span style="color: #666">=</span> {<span style="color: #B44">&quot;key1&quot;</span>: <span style="color: #B44">&quot;value1&quot;</span>, <span style="color: #B44">&quot;key2&quot;</span>: <span style="color: #B44">&quot;value2&quot;</span>}
-<span style="color: #A2F; font-weight: bold">if</span> (<span style="color: #A2F">isinstance</span>(dict_val, <span style="color: #A2F">dict</span>)):
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;dict_val is dict&quot;</span>)
+<span class="n">dict_val</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">dict_val</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dict_val is dict&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>実行結果は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">bool_val is bool</span>
-<span style="color: #888">int_val is int</span>
-<span style="color: #888">list_val is list</span>
-<span style="color: #888">dict_val is dict</span>
+<div class="highlight"><pre><span></span><code><span class="go">bool_val is bool</span>
+<span class="go">int_val is int</span>
+<span class="go">list_val is list</span>
+<span class="go">dict_val is dict</span>
 </code></pre></div>
-
 <p><code>list</code>型でもスカラー値でも引数に取れる関数の実装などで実行時に判定、などで使える。</p>
 <h4 id="none">None判定</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span> data <span style="color: #A2F; font-weight: bold">is</span> <span style="color: #A2F; font-weight: bold">not</span> <span style="color: #A2F; font-weight: bold">None</span>:
-    <span style="color: #080; font-style: italic"># dataがNoneでない場合</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># dataがNoneでない場合</span>
 </code></pre></div>
-
 <h3 id="_11">引数</h3>
 <h4 id="_12">コマンドライン引数</h4>
 <p><code>sys.argv</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-args <span style="color: #666">=</span> sys<span style="color: #666">.</span>argv
-<span style="color: #A2F">print</span>(args)
-<span style="color: #A2F">print</span>(args[<span style="color: #666">0</span>])
-<span style="color: #A2F">print</span>(args[<span style="color: #666">1</span>])
+<span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>./argv.py<span style="color: #BBB"> </span>hello
-<span style="color: #888">[&#39;./argv.py&#39;, &#39;hello&#39;]</span>
-<span style="color: #888">./argv.py</span>
-<span style="color: #888">hello</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>./argv.py<span class="w"> </span>hello
+<span class="go">[&#39;./argv.py&#39;, &#39;hello&#39;]</span>
+<span class="go">./argv.py</span>
+<span class="go">hello</span>
 </code></pre></div>
-
 <h3 id="_13">関数</h3>
 <h4 id="main">main</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/usr/bin/python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
 
-<span style="color: #A2F; font-weight: bold">def</span><span style="color: #BBB"> </span><span style="color: #00A000">func</span>():
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;begin func()&quot;</span>)
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;begin func()&quot;</span><span class="p">)</span>
 
-<span style="color: #A2F; font-weight: bold">if</span> <span style="color: #B8860B">__name__</span> <span style="color: #666">==</span> <span style="color: #B44">&quot;__main__&quot;</span>:
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;begin main()&quot;</span>)
-    func()
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;begin main()&quot;</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">()</span>
 </code></pre></div>
-
 <h4 id="_14">関数名を取得する</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">inspect</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
 
-<span style="color: #A2F; font-weight: bold">def</span><span style="color: #BBB"> </span><span style="color: #00A000">zzzz</span>():
-    <span style="color: #A2F">print</span>(inspect<span style="color: #666">.</span>currentframe()<span style="color: #666">.</span>f_code<span style="color: #666">.</span>co_name)
+<span class="k">def</span><span class="w"> </span><span class="nf">zzzz</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span><span class="p">)</span>
 </code></pre></div>
-
 <p>zzz()をコールすると、<code>zzz</code>がprintされる</p>
 <p><a href="https://docs.python.org/ja/3/library/inspect.html">inspect --- 活動中のオブジェクトを調査する — Python 3.13.6 ドキュメント</a></p>
 <h3 id="assert">assert</h3>
 <p>特に<code>import</code>は不要で使用可能</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># aの値が10であること</span>
-<span style="color: #A2F; font-weight: bold">assert</span>(a <span style="color: #666">==</span> <span style="color: #666">10</span>)
+<div class="highlight"><pre><span></span><code><span class="c1"># aの値が10であること</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="_15">配列</h3>
 <h4 id="_16">リストの定義</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>items <span style="color: #666">=</span> [
-    <span style="color: #B44">&#39;foo&#39;</span>,
-    <span style="color: #B44">&#39;bar&#39;</span>,
-    <span style="color: #B44">&#39;baz&#39;</span>,
-]
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;foo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;baz&#39;</span><span class="p">,</span>
+<span class="p">]</span>
 </code></pre></div>
-
 <p>空リスト</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>items <span style="color: #666">=</span> []
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div>
-
 <h4 id="_17">要素の追加</h4>
 <p>末尾への追加はリストオブジェクトの<code>append()</code>メソッドを使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>items<span style="color: #666">.</span>append(<span style="color: #B44">&#39;qux&#39;</span>)
+<div class="highlight"><pre><span></span><code><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>末尾以外の任意の位置への追加は<code>insert()</code>で位置指定する。<br />
 <code>0</code>は先頭。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>items<span style="color: #666">.</span>insert(<span style="color: #666">0</span>, item)
+<div class="highlight"><pre><span></span><code><span class="n">items</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="_18">要素の削除</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>items <span style="color: #666">=</span> [ <span style="color: #B44">&#39;aaa&#39;</span>, <span style="color: #B44">&#39;bbb&#39;</span>, <span style="color: #B44">&#39;ccc&#39;</span>, <span style="color: #B44">&#39;ddd&#39;</span>, <span style="color: #B44">&#39;eee&#39;</span> ]
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;aaa&#39;</span><span class="p">,</span> <span class="s1">&#39;bbb&#39;</span><span class="p">,</span> <span class="s1">&#39;ccc&#39;</span><span class="p">,</span> <span class="s1">&#39;ddd&#39;</span><span class="p">,</span> <span class="s1">&#39;eee&#39;</span> <span class="p">]</span>
 
-<span style="color: #A2F; font-weight: bold">del</span> items[<span style="color: #666">1</span>]
+<span class="k">del</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-<span style="color: #A2F">print</span>(items)
-<span style="color: #080; font-style: italic"># [&#39;aaa&#39;, &#39;ccc&#39;, &#39;ddd&#39;, &#39;eee&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="c1"># [&#39;aaa&#39;, &#39;ccc&#39;, &#39;ddd&#39;, &#39;eee&#39;]</span>
 
-a <span style="color: #666">=</span> items<span style="color: #666">.</span>pop(<span style="color: #666">2</span>)
-<span style="color: #A2F">print</span>(items)
-<span style="color: #080; font-style: italic"># [&#39;aaa&#39;, &#39;ccc&#39;, &#39;eee&#39;]</span>
-<span style="color: #A2F">print</span>(a)
-<span style="color: #080; font-style: italic"># ddd</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="c1"># [&#39;aaa&#39;, &#39;ccc&#39;, &#39;eee&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># ddd</span>
 </code></pre></div>
-
 <p><code>del</code>で指定インデックスの要素が削除される。<br />
 上記はまず'bbb'が削除される。</p>
 <p><code>pop()</code>メソッドは指定インデックスの要素を取り出したうえで削除する。<br />
 上記は<code>ddd</code>を返したうえで要素から消える。</p>
 <h4 id="_19">リストの結合</h4>
 <p>複数のリストを結合(1つのリストに全要素をまとめる)するには<code>+</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>list1 <span style="color: #666">=</span> [<span style="color: #B44">&#39;foo&#39;</span>, <span style="color: #B44">&#39;bar&#39;</span>, <span style="color: #B44">&#39;baz&#39;</span>]
-list2 <span style="color: #666">=</span> [<span style="color: #666">1</span>, <span style="color: #666">2</span>, <span style="color: #666">3</span>]
+<div class="highlight"><pre><span></span><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
-<span style="color: #A2F">print</span>(list1 <span style="color: #666">+</span> list2)
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span><span class="p">)</span>
 </code></pre></div>
-
 <p>実行結果は<code>['foo', 'bar', 'baz', 1, 2, 3]</code>になる。<br />
 <code>+=</code> で代入も可能。</p>
 <h4 id="length">length</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666">=</span> []
-array<span style="color: #666">.</span>append(<span style="color: #B44">&#39;2&#39;</span>)
-array<span style="color: #666">.</span>append(<span style="color: #B44">&#39;3&#39;</span>)
-array<span style="color: #666">.</span>append(<span style="color: #B44">&#39;4&#39;</span>)
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
 
-<span style="color: #A2F">print</span>(<span style="color: #A2F">len</span>(array))
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
 </code></pre></div>
-
 <p>3になる。</p>
 <h4 id="_20">空判定</h4>
 <p>空の配列変数はそれ自体がFalseになる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>empty_array <span style="color: #666">=</span> []
+<div class="highlight"><pre><span></span><code><span class="n">empty_array</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span style="color: #A2F; font-weight: bold">if</span> <span style="color: #A2F; font-weight: bold">not</span> empty_array:
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;blank&quot;</span>)
+<span class="k">if</span> <span class="ow">not</span> <span class="n">empty_array</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blank&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>あるいは<code>[]</code>との一致でも判定できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span> empty_array <span style="color: #666">==</span> []:
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;blank&quot;</span>)
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">empty_array</span> <span class="o">==</span> <span class="p">[]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blank&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="index">要素のindex</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666">=</span> [<span style="color: #B44">&#39;curry&#39;</span>, <span style="color: #B44">&#39;beef&#39;</span>, <span style="color: #B44">&#39;chicken&#39;</span>, <span style="color: #B44">&#39;vegetable&#39;</span>]
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
 
-beef_index <span style="color: #666">=</span> array<span style="color: #666">.</span>index(<span style="color: #B44">&#39;chicken&#39;</span>)
-<span style="color: #A2F">print</span>(beef_index)
+<span class="n">beef_index</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;chicken&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">beef_index</span><span class="p">)</span>
 </code></pre></div>
-
 <p>引数に指定した要素が配列中の何番目にあるかを返す。上記の出力は<code>2</code><br />
 存在しない場合はValueErrorになる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666">=</span> [<span style="color: #B44">&#39;curry&#39;</span>, <span style="color: #B44">&#39;beef&#39;</span>, <span style="color: #B44">&#39;chicken&#39;</span>, <span style="color: #B44">&#39;vegetable&#39;</span>]
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
 
-beef_index <span style="color: #666">=</span> array<span style="color: #666">.</span>index(<span style="color: #B44">&#39;zzz&#39;</span>)
-<span style="color: #A2F">print</span>(beef_index)
+<span class="n">beef_index</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;zzz&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">beef_index</span><span class="p">)</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #BBB"> </span>index.py
-<span style="color: #888">Traceback (most recent call last):</span>
-<span style="color: #888">  File &quot;index.py&quot;, line 3, in &lt;module&gt;</span>
-<span style="color: #888">    beef_index = array.index(&#39;zzz&#39;)</span>
-<span style="color: #888">ValueError: &#39;zzz&#39; is not in list</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>index.py
+<span class="go">Traceback (most recent call last):</span>
+<span class="go">  File &quot;index.py&quot;, line 3, in &lt;module&gt;</span>
+<span class="go">    beef_index = array.index(&#39;zzz&#39;)</span>
+<span class="go">ValueError: &#39;zzz&#39; is not in list</span>
 </code></pre></div>
-
 <h4 id="_21">要素の有無</h4>
 <p><code>in</code>を使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666">=</span> [<span style="color: #B44">&#39;curry&#39;</span>, <span style="color: #B44">&#39;beef&#39;</span>, <span style="color: #B44">&#39;chicken&#39;</span>, <span style="color: #B44">&#39;vegetable&#39;</span>]
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
 
-<span style="color: #A2F">print</span>(<span style="color: #B44">&#39;curry&#39;</span> <span style="color: #A2F; font-weight: bold">in</span> array)
-<span style="color: #A2F">print</span>(<span style="color: #B44">&#39;pork&#39;</span> <span style="color: #A2F; font-weight: bold">in</span> array)
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;curry&#39;</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pork&#39;</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は以下になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">True</span>
-<span style="color: #888">False</span>
+<div class="highlight"><pre><span></span><code><span class="go">True</span>
+<span class="go">False</span>
 </code></pre></div>
-
 <h4 id="_22">スライス</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>array <span style="color: #666">=</span> [<span style="color: #B44">&#39;curry&#39;</span>, <span style="color: #B44">&#39;beef&#39;</span>, <span style="color: #B44">&#39;chicken&#39;</span>, <span style="color: #B44">&#39;vegetable&#39;</span>]
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
 
-<span style="color: #A2F">print</span>(array[<span style="color: #666">2</span>:])
-<span style="color: #A2F">print</span>(array[:<span style="color: #666">3</span>])
-<span style="color: #A2F">print</span>(array[<span style="color: #666">1</span>:<span style="color: #666">2</span>])
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 </code></pre></div>
-
 <p>実行結果は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #BBB"> </span>slice.py
-<span style="color: #888">[&#39;chicken&#39;, &#39;vegetable&#39;]</span>
-<span style="color: #888">[&#39;curry&#39;, &#39;beef&#39;, &#39;chicken&#39;]</span>
-<span style="color: #888">[&#39;beef&#39;]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>slice.py
+<span class="go">[&#39;chicken&#39;, &#39;vegetable&#39;]</span>
+<span class="go">[&#39;curry&#39;, &#39;beef&#39;, &#39;chicken&#39;]</span>
+<span class="go">[&#39;beef&#39;]</span>
 </code></pre></div>
-
 <p>書式は<code>array[始点:終点]</code>。省略時は最初からor最後まで。<br />
 始点はindexを「含む」が、終点はindexを「含まない」ので注意。<br />
 (要素のindexというより、区切り位置のindexと見なすと良い)</p>
 <h4 id="_23">負数指定</h4>
 <p>負数指定時は、末尾からの位置になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">array[2:-1]</span>
+<div class="highlight"><pre><span></span><code><span class="go">array[2:-1]</span>
 </code></pre></div>
-
 <p>これで「2番目から末尾の一つ手前」になる</p>
 <h4 id="_24">連番の定義</h4>
 <p><code>range(開始, 終了)</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>r <span style="color: #666">=</span> <span style="color: #A2F">range</span>(<span style="color: #666">0</span>, <span style="color: #666">9</span>)
+<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 </code></pre></div>
-
 <p>これで<code>r</code>は<code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>となる。<br />
 正確にはrange型のためリストではないが、<code>list(r)</code>を使うとリストになる。</p>
 <p>1引数の場合は開始<code>0</code>とみなされる。(0開始の場合は終了の値のみでOK。↑は<code>range(9)</code>と同値)</p>
 <h3 id="_25">集合</h3>
 <p>集合(set)は重複不可で順序を保持しない。</p>
 <h4 id="_26">集合の定義</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>data_set <span style="color: #666">=</span> {<span style="color: #666">200</span>, <span style="color: #666">201</span>, <span style="color: #666">202</span>, <span style="color: #666">203</span>, <span style="color: #666">204</span>, <span style="color: #666">301</span>, <span style="color: #666">401</span>, <span style="color: #666">403</span>, <span style="color: #666">404</span>}
-<span style="color: #A2F">print</span>(<span style="color: #A2F">type</span>(data_set))
-<span style="color: #080; font-style: italic"># 出力は &lt;class &#39;set&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="n">data_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">200</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">401</span><span class="p">,</span> <span class="mi">403</span><span class="p">,</span> <span class="mi">404</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data_set</span><span class="p">))</span>
+<span class="c1"># 出力は &lt;class &#39;set&#39;&gt;</span>
 </code></pre></div>
-
 <h4 id="_27">空集合の定義</h4>
 <p><code>{}</code>は不可(辞書と同じコードになるため)<br />
 <code>set()</code>を使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>data <span style="color: #666">=</span> <span style="color: #A2F">set</span>()
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 </code></pre></div>
-
 <h3 id="_28">辞書</h3>
 <h4 id="_29">辞書の定義</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dict1 <span style="color: #666">=</span> {<span style="color: #B44">&quot;key1&quot;</span>: <span style="color: #B44">&quot;value1&quot;</span>, <span style="color: #B44">&quot;key2&quot;</span>: <span style="color: #B44">&quot;value2&quot;</span>}
-dict2 <span style="color: #666">=</span> <span style="color: #A2F">dict</span>(key1<span style="color: #666">=</span><span style="color: #B44">&quot;value1&quot;</span>, key2<span style="color: #666">=</span><span style="color: #B44">&quot;value2&quot;</span>)
+<div class="highlight"><pre><span></span><code><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
+<span class="n">dict2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="s2">&quot;value2&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>この場合、<code>dict1</code>と<code>dict2</code>の中身は同じ。<br />
 <code>dict1 == dict2</code>の結果もtrueになる。</p>
 <h4 id="_30">キーを使った値へのアクセス</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dict1[<span style="color: #B44">&#39;key1&#39;</span>]
+<div class="highlight"><pre><span></span><code><span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span>
 </code></pre></div>
-
 <p>ただしキーが無い場合は<code>KeyError</code>例外になる。<br />
 <code>get()</code>を使えばキーが存在しない場合は<code>None</code>が返る。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dict1<span style="color: #666">.</span>get(<span style="color: #B44">&#39;key1&#39;</span>)
+<div class="highlight"><pre><span></span><code><span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="_31">キーの追加</h4>
 <p><code>dict[key] = value</code>で足してやればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> dict1 <span style="color: #666">=</span> {<span style="color: #B44">&quot;key1&quot;</span>: <span style="color: #B44">&quot;value1&quot;</span>, <span style="color: #B44">&quot;key2&quot;</span>: <span style="color: #B44">&quot;value2&quot;</span>}
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(dict1)
-{<span style="color: #B44">&#39;key1&#39;</span>: <span style="color: #B44">&#39;value1&#39;</span>, <span style="color: #B44">&#39;key2&#39;</span>: <span style="color: #B44">&#39;value2&#39;</span>}
-<span style="color: #666">&gt;&gt;&gt;</span> dict1[<span style="color: #B44">&#39;key3&#39;</span>] <span style="color: #666">=</span> <span style="color: #B44">&quot;value3&quot;</span>
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(dict1)
-{<span style="color: #B44">&#39;key1&#39;</span>: <span style="color: #B44">&#39;value1&#39;</span>, <span style="color: #B44">&#39;key2&#39;</span>: <span style="color: #B44">&#39;value2&#39;</span>, <span style="color: #B44">&#39;key3&#39;</span>: <span style="color: #B44">&#39;value3&#39;</span>}
-<span style="color: #666">&gt;&gt;&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;value3&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="s1">&#39;value3&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
-
 <p>新規キーの追加をサブキーまで左辺で指定すると KeyErrorになる。その場合は辞書型データを代入すればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> dict1[<span style="color: #B44">&#39;key4&#39;</span>][<span style="color: #B44">&#39;foo&#39;</span>] <span style="color: #666">=</span> <span style="color: #B44">&quot;bar&quot;</span>
-Traceback (most recent call last):
-  File <span style="color: #B44">&quot;&lt;stdin&gt;&quot;</span>, line <span style="color: #666">1</span>, <span style="color: #A2F; font-weight: bold">in</span> <span style="color: #666">&lt;</span>module<span style="color: #666">&gt;</span>
-<span style="color: #D2413A; font-weight: bold">KeyError</span>: <span style="color: #B44">&#39;key4&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key4&#39;</span><span class="p">][</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;key4&#39;</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> dict1[<span style="color: #B44">&#39;key4&#39;</span>] <span style="color: #666">=</span> {<span style="color: #B44">&#39;foo&#39;</span>: <span style="color: #B44">&quot;bar&quot;</span> }
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(dict1)
-{<span style="color: #B44">&#39;key1&#39;</span>: <span style="color: #B44">&#39;value1&#39;</span>, <span style="color: #B44">&#39;key2&#39;</span>: <span style="color: #B44">&#39;value2&#39;</span>, <span style="color: #B44">&#39;key3&#39;</span>: <span style="color: #B44">&#39;value3&#39;</span>, <span style="color: #B44">&#39;key4&#39;</span>: {<span style="color: #B44">&#39;foo&#39;</span>: <span style="color: #B44">&#39;bar&#39;</span>}}
-<span style="color: #666">&gt;&gt;&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span> <span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="s1">&#39;value3&#39;</span><span class="p">,</span> <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">}}</span>
+<span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
-
 <h4 id="_32">辞書要素のループ</h4>
 <h5 id="_33">キーと値の組み合わせを取得</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_dict <span style="color: #666">=</span> {
-    <span style="color: #B44">&quot;key1&quot;</span>: <span style="color: #B44">&quot;value1&quot;</span>,
-    <span style="color: #B44">&quot;key2&quot;</span>: <span style="color: #B44">&quot;value2&quot;</span>,
-    <span style="color: #B44">&quot;key3&quot;</span>: <span style="color: #B44">&quot;value3&quot;</span>,
-}
+<div class="highlight"><pre><span></span><code><span class="n">sample_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="s2">&quot;value3&quot;</span><span class="p">,</span>
+<span class="p">}</span>
 
-<span style="color: #A2F; font-weight: bold">for</span> k, v <span style="color: #A2F; font-weight: bold">in</span> sample_dict<span style="color: #666">.</span>items():
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;key: &quot;</span> <span style="color: #666">+</span> k <span style="color: #666">+</span> <span style="color: #B44">&quot;, value: &quot;</span> <span style="color: #666">+</span> v)
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key: &quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;, value: &quot;</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>辞書.items()</code>で、キーと値のペアのリストを得られるので、これでループできる。<br />
 上のコードの実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">key: key1, value: value1</span>
-<span style="color: #888">key: key2, value: value2</span>
-<span style="color: #888">key: key3, value: value3</span>
+<div class="highlight"><pre><span></span><code><span class="go">key: key1, value: value1</span>
+<span class="go">key: key2, value: value2</span>
+<span class="go">key: key3, value: value3</span>
 </code></pre></div>
-
 <h5 id="_34">辞書の値のみをループ</h5>
 <p><code>values()</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">for</span> v <span style="color: #A2F; font-weight: bold">in</span> sample_dict<span style="color: #666">.</span>items():
-    <span style="color: #A2F">print</span>(v)
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </code></pre></div>
-
 <p>実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">value1</span>
-<span style="color: #888">value2</span>
-<span style="color: #888">value3</span>
+<div class="highlight"><pre><span></span><code><span class="go">value1</span>
+<span class="go">value2</span>
+<span class="go">value3</span>
 </code></pre></div>
-
 <h4 id="_35">辞書のリストから指定キーの値の一致判定</h4>
 <p>リスト内包表記を使って辞書から指定キーのみのリストを作り、それに対して<code>in</code>で判定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span> data <span style="color: #A2F; font-weight: bold">in</span> (i<span style="color: #666">.</span>get(<span style="color: #B44">&#39;name&#39;</span>) <span style="color: #A2F; font-weight: bold">for</span> i <span style="color: #A2F; font-weight: bold">in</span> items):
-    <span style="color: #A2F">print</span>(data <span style="color: #666">+</span> <span style="color: #B44">&#39; is exists&#39;</span>)
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="s1">&#39; is exists&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="-yaml">辞書-&gt;YAML化</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">yaml</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
-<span style="color: #A2F">print</span>(yaml<span style="color: #666">.</span>dump(dict_data, default_flow_style<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">False</span>))
+<span class="nb">print</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dict_data</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-
 <p>子要素がフロースタイルになってブロックスタイルにならない場合は<code>default_flow_style</code>のオプションを<code>False</code>指定する。</p>
 <h4 id="yaml-">YAMLファイル-&gt;辞書化</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">yaml</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
-<span style="color: #A2F; font-weight: bold">with</span> <span style="color: #A2F">open</span>(<span style="color: #B44">&#39;config.yaml&#39;</span>, <span style="color: #B44">&#39;r&#39;</span>) <span style="color: #A2F; font-weight: bold">as</span> yml:
-    config <span style="color: #666">=</span> yaml<span style="color: #666">.</span>safe_load(yml)
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;config.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">yml</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">yml</span><span class="p">)</span>
 </code></pre></div>
-
 <p>これで<code>config</code>変数にYAMLファイルに定義した情報が辞書型オブジェクトとしてセットされる。</p>
 <h4 id="-json">辞書-&gt;JSON化</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">json</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span style="color: #A2F">print</span>(json<span style="color: #666">.</span>dumps(dict_data))
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dict_data</span><span class="p">))</span>
 </code></pre></div>
-
 <p>日本語が<code>\u****</code>になるのを抑止するには非ASCII文字のエスケープ処理を無効化するオプションを追加。(デフォルトはon)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>json<span style="color: #666">.</span>dump(obj, ensure_ascii<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">False</span>)
+<div class="highlight"><pre><span></span><code><span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="json-">JSON文字列-&gt;辞書(オブジェクト)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">json</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-obj <span style="color: #666">=</span> json<span style="color: #666">.</span>loads(json_strings)
+<span class="n">obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_strings</span><span class="p">)</span>
 </code></pre></div>
-
 <p>YAMLと違ってメソッド名は<code>dumps()</code>で<code>s</code>が付与される。<br />
 <code>dump()</code>は、ファイル出力を行うメソッドとして別に存在する。</p>
 <h4 id="json-_1">JSONファイル-&gt;オブジェクト</h4>
 <p>上記の<code>json.loads()</code>と異なり、<code>json.load()</code>を使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">json</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span style="color: #A2F; font-weight: bold">with</span> <span style="color: #A2F">open</span>(<span style="color: #B44">&#39;./sample.json&#39;</span>) <span style="color: #A2F; font-weight: bold">as</span> f:
-    obj <span style="color: #666">=</span> json<span style="color: #666">.</span>load(f)
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./sample.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
-
 <p>STDINの場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">json</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span style="color: #A2F; font-weight: bold">with</span> sys<span style="color: #666">.</span>stdin <span style="color: #A2F; font-weight: bold">as</span> f:
-    obj <span style="color: #666">=</span> json<span style="color: #666">.</span>load(f)
+<span class="k">with</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="_36">数値</h3>
 <h4 id="_37">乱数</h4>
 <blockquote>
 <p>ランダムな浮動小数点数（範囲は 0.0 &lt;= X &lt; 1.0）を返します</p>
 <p><a href="https://docs.python.org/ja/3/library/random.html#random.random">https://docs.python.org/ja/3/library/random.html#random.random</a></p>
 </blockquote>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">random</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
-r <span style="color: #666">=</span> random<span style="color: #666">.</span>random()
-<span style="color: #A2F">print</span>(r)
+<span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は<code>0.5230624471209939</code>など</p>
 <h3 id="_38">文字列</h3>
 <h4 id="_39">指定文字で始まるか</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span> string_value<span style="color: #666">.</span>startswith(<span style="color: #B44">&quot;kube&quot;</span>):
-    <span style="color: #080; font-style: italic"># 文字列が&quot;kube&quot;で始まる場合</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">string_value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;kube&quot;</span><span class="p">):</span>
+    <span class="c1"># 文字列が&quot;kube&quot;で始まる場合</span>
 </code></pre></div>
-
 <h4 id="1">末尾1文字</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_str[<span style="color: #666">-1</span>]
+<div class="highlight"><pre><span></span><code><span class="n">sample_str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
-
 <h4 id="1_1">末尾1文字を削った文字列</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sample_str[:<span style="color: #666">-1</span>]
+<div class="highlight"><pre><span></span><code><span class="n">sample_str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
-
 <h4 id="join">join()</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B44">&quot;</span><span style="color: #B62; font-weight: bold">\n</span><span style="color: #B44">&quot;</span><span style="color: #666">.</span>join(line_items))
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line_items</span><span class="p">))</span>
 </code></pre></div>
-
 <h4 id="splitlines">splitlines()</h4>
 <p>テキストの末尾に改行がある場合、<code>split('\n')</code>を使うと末尾の改行もデリミタと認識し、リストの最終要素は空文字になるが、<code>splitlines()</code>であれば末尾の改行分は無視される。行ごとに処理したい場合はこちらが便利。</p>
 <h4 id="_40">ゼロパディング</h4>
 <p>文字列のzfill()メソッドを使う。<br />
 引数の数値の桁数長にゼロパディングされた文字列を返す。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>int_sample <span style="color: #666">=</span> <span style="color: #B44">&#39;123&#39;</span>
-str_sample <span style="color: #666">=</span> <span style="color: #B44">&#39;foo&#39;</span>
-<span style="color: #A2F">print</span>(int_sample<span style="color: #666">.</span>zfill(<span style="color: #666">8</span>))
-<span style="color: #A2F">print</span>(str_sample<span style="color: #666">.</span>zfill(<span style="color: #666">8</span>))
+<div class="highlight"><pre><span></span><code><span class="n">int_sample</span> <span class="o">=</span> <span class="s1">&#39;123&#39;</span>
+<span class="n">str_sample</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">int_sample</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str_sample</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 </code></pre></div>
-
 <p>実行結果は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">00000123</span>
-<span style="color: #888">00000foo</span>
+<div class="highlight"><pre><span></span><code><span class="go">00000123</span>
+<span class="go">00000foo</span>
 </code></pre></div>
-
 <h4 id="_41">フォーマット文字列</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B44">&quot;</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">,</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">,</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">&quot;</span><span style="color: #666">.</span>format(name, count, expire))
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">expire</span><span class="p">))</span>
 </code></pre></div>
-
 <h5 id="_42">スペース埋め</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;string:「</span><span style="color: #B68; font-weight: bold">{: &gt;5}</span><span style="color: #B44">」&quot;</span><span style="color: #666">.</span>format(<span style="color: #666">10</span>))
-string:<span style="border: 1px solid #F00">「</span>   <span style="color: #666">10</span><span style="border: 1px solid #F00">」</span>
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;string:「</span><span style="color: #B68; font-weight: bold">{: &gt;5}</span><span style="color: #B44">」&quot;</span><span style="color: #666">.</span>format(<span style="color: #666">1</span>))
-string:<span style="border: 1px solid #F00">「</span>    <span style="color: #666">1</span><span style="border: 1px solid #F00">」</span>
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;string:「</span><span style="color: #B68; font-weight: bold">{: &gt;5}</span><span style="color: #B44">」&quot;</span><span style="color: #666">.</span>format(<span style="color: #666">1234</span>))
-string:<span style="border: 1px solid #F00">「</span> <span style="color: #666">1234</span><span style="border: 1px solid #F00">」</span>
-<span style="color: #666">&gt;&gt;&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &gt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">string</span><span class="p">:</span><span class="err">「</span>   <span class="mi">10</span><span class="err">」</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &gt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">string</span><span class="p">:</span><span class="err">「</span>    <span class="mi">1</span><span class="err">」</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &gt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234</span><span class="p">))</span>
+<span class="n">string</span><span class="p">:</span><span class="err">「</span> <span class="mi">1234</span><span class="err">」</span>
+<span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
-
 <p>左詰めなら<code>&lt;</code>を指定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;string:「</span><span style="color: #B68; font-weight: bold">{: &lt;5}</span><span style="color: #B44">」&quot;</span><span style="color: #666">.</span>format(<span style="color: #666">1234</span>))
-string:<span style="border: 1px solid #F00">「</span><span style="color: #666">1234</span> <span style="border: 1px solid #F00">」</span>
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;string:「</span><span style="color: #B68; font-weight: bold">{: &lt;5}</span><span style="color: #B44">」&quot;</span><span style="color: #666">.</span>format(<span style="color: #666">1</span>))
-string:<span style="border: 1px solid #F00">「</span><span style="color: #666">1</span>    <span style="border: 1px solid #F00">」</span>
-<span style="color: #666">&gt;&gt;&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &lt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234</span><span class="p">))</span>
+<span class="n">string</span><span class="p">:</span><span class="err">「</span><span class="mi">1234</span> <span class="err">」</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &lt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">string</span><span class="p">:</span><span class="err">「</span><span class="mi">1</span>    <span class="err">」</span>
+<span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
-
 <h4 id="_43">文字列置換</h4>
 <p>正規表現を使わないなら<code>replace()</code>で置換する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>string <span style="color: #666">=</span> <span style="color: #B44">&#39;2025/06/22&#39;</span>
-d <span style="color: #666">=</span> string<span style="color: #666">.</span>replace(<span style="color: #B44">&#39;/&#39;</span>, <span style="color: #B44">&#39;-&#39;</span>)
+<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;2025/06/22&#39;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
 
-<span style="color: #A2F">print</span>(string)
-<span style="color: #A2F">print</span>(d)
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">2025/06/22</span>
-<span style="color: #888">2025-06-22</span>
+<div class="highlight"><pre><span></span><code><span class="go">2025/06/22</span>
+<span class="go">2025-06-22</span>
 </code></pre></div>
-
 <h4 id="_44">正規表現処理</h4>
 <h5 id="research">re.search()で文字列判定</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span style="color: #A2F; font-weight: bold">if</span> re<span style="color: #666">.</span>search(regexp, string):
-    <span style="color: #080; font-style: italic"># stringがregexpにマッチ</span>
+<span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regexp</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+    <span class="c1"># stringがregexpにマッチ</span>
 </code></pre></div>
-
 <p><code>re.match()</code>は先頭からマッチを行うため、文字列の途中にはマッチしない。</p>
 <h5 id="_45">正規表現検索とキャプチャ</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>r <span style="color: #666">=</span> re<span style="color: #666">.</span>match(<span style="color: #B44">r&#39;aaa(\d</span><span style="color: #B68; font-weight: bold">{5}</span><span style="color: #B44">)bbb&#39;</span>, string)
+<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;aaa(\d</span><span class="si">{5}</span><span class="s1">)bbb&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>r</code>には<code>re.Match</code>オブジェクトが返る。マッチしなかったら<code>None</code><br />
 マッチした場合、<code>\d{5}</code>は<code>r.group(1)</code>で参照できる。</p>
 <h5 id="_46">名前付きキャプチャ</h5>
 <p>括弧のみだとインデックス番号でのアクセスになるが、パターン側に名前を付与しておけば名前でアクセスできる。<br />
 書式は <code>(?P&lt;name&gt;regexp)</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-string <span style="color: #666">=</span> <span style="color: #B44">&#39;/path/to/sample.txt&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;/path/to/sample.txt&#39;</span>
 
-result <span style="color: #666">=</span> re<span style="color: #666">.</span>match(<span style="color: #B44">r&#39;(?P&lt;path&gt;.*)/(?P&lt;file&gt;[^\.]*)\.(?P&lt;ext&gt;.*)&#39;</span>, string)
-<span style="color: #A2F; font-weight: bold">if</span> result:
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;path: &quot;</span> <span style="color: #666">+</span> result<span style="color: #666">.</span>group(<span style="color: #666">1</span>))
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;file: &quot;</span> <span style="color: #666">+</span> result<span style="color: #666">.</span>group(<span style="color: #666">2</span>))
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;ext: &quot;</span> <span style="color: #666">+</span> result<span style="color: #666">.</span>group(<span style="color: #666">3</span>))
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;---&quot;</span>)
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;path: &quot;</span> <span style="color: #666">+</span> result<span style="color: #666">.</span>group(<span style="color: #B44">&#39;path&#39;</span>))
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;file: &quot;</span> <span style="color: #666">+</span> result<span style="color: #666">.</span>group(<span style="color: #B44">&#39;file&#39;</span>))
-    <span style="color: #A2F">print</span>(<span style="color: #B44">&quot;ext: &quot;</span> <span style="color: #666">+</span> result<span style="color: #666">.</span>group(<span style="color: #B44">&#39;ext&#39;</span>))
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;path&gt;.*)/(?P&lt;file&gt;[^\.]*)\.(?P&lt;ext&gt;.*)&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;path: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ext: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;path: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ext: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;ext&#39;</span><span class="p">))</span>
 </code></pre></div>
-
 <p>出力はグループ番号・グループ名どちらもpathは<code>/path/to</code>、fileは<code>sample</code>、extは<code>txt</code>になる。</p>
 <h5 id="resub">re.sub()で置換</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-string <span style="color: #666">=</span> <span style="color: #B44">&#39;/path/to/sample.txt&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;/path/to/sample.txt&#39;</span>
 
-<span style="color: #080; font-style: italic"># s/a/A/</span>
-string <span style="color: #666">=</span> re<span style="color: #666">.</span>sub(<span style="color: #B44">r&#39;a&#39;</span>, <span style="color: #B44">&#39;A&#39;</span>, string)
-<span style="color: #A2F">print</span>(string)
+<span class="c1"># s/a/A/</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 
-<span style="color: #080; font-style: italic"># 末尾の.txtを削る</span>
-string <span style="color: #666">=</span> re<span style="color: #666">.</span>sub(<span style="color: #B44">r&#39;\.txt$&#39;</span>, <span style="color: #B44">&#39;&#39;</span>, string)
-<span style="color: #A2F">print</span>(string)
+<span class="c1"># 末尾の.txtを削る</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\.txt$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 
-<span style="color: #080; font-style: italic"># &#39;t&#39;と&#39;p&#39;を(t)か(p)に変換</span>
-string <span style="color: #666">=</span> re<span style="color: #666">.</span>sub(<span style="color: #B44">r&#39;([tp])&#39;</span>, <span style="color: #B44">r&#39;(\1)&#39;</span>, string)
-<span style="color: #A2F">print</span>(string)
-<span style="color: #080; font-style: italic"># r&#39;...&#39;を使わない場合は&#39;\\1&#39;と書く</span>
+<span class="c1"># &#39;t&#39;と&#39;p&#39;を(t)か(p)に変換</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([tp])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;(\1)&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="c1"># r&#39;...&#39;を使わない場合は&#39;\\1&#39;と書く</span>
 
-<span style="color: #080; font-style: italic"># aを変換。ただし大文字小文字無視</span>
-string <span style="color: #666">=</span> re<span style="color: #666">.</span>sub(<span style="color: #B44">r&#39;a&#39;</span>, <span style="color: #B44">r&#39;_&#39;</span>, string, flags<span style="color: #666">=</span>re<span style="color: #666">.</span>IGNORECASE)
-<span style="color: #A2F">print</span>(string)
-<span style="color: #080; font-style: italic"># re.sub(pattern, repl, string, count=0, flags=0) なので、countを省略するためには&quot;flags=&quot;という名前付き引数を使う</span>
+<span class="c1"># aを変換。ただし大文字小文字無視</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="c1"># re.sub(pattern, repl, string, count=0, flags=0) なので、countを省略するためには&quot;flags=&quot;という名前付き引数を使う</span>
 </code></pre></div>
-
 <p>上記コードの実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python<span style="color: #BBB"> </span>replace.py<span style="color: #BBB"> </span>
-<span style="color: #888">/pAth/to/sAmple.txt</span>
-<span style="color: #888">/pAth/to/sAmple</span>
-<span style="color: #888">/(p)A(t)h/(t)o/sAm(p)le</span>
-<span style="color: #888">/(p)_(t)h/(t)o/s_m(p)le</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python<span class="w"> </span>replace.py<span class="w"> </span>
+<span class="go">/pAth/to/sAmple.txt</span>
+<span class="go">/pAth/to/sAmple</span>
+<span class="go">/(p)A(t)h/(t)o/sAm(p)le</span>
+<span class="go">/(p)_(t)h/(t)o/s_m(p)le</span>
 </code></pre></div>
-
 <h4 id="_47">バイト列との変換</h4>
 <p>バイト列 -&gt; 文字列</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>b <span style="color: #666">=</span> <span style="color: #B44">b&#39;nijigasaki&#39;</span>
-s <span style="color: #666">=</span> b<span style="color: #666">.</span>decode()
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;nijigasaki&#39;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 
-<span style="color: #A2F">print</span>(b)
-<span style="color: #A2F">print</span>(s)
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">b&#39;nijigasaki&#39;</span>
-<span style="color: #888">nijigasaki</span>
+<div class="highlight"><pre><span></span><code><span class="go">b&#39;nijigasaki&#39;</span>
+<span class="go">nijigasaki</span>
 </code></pre></div>
-
 <p>文字列 -&gt; バイト列</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>b2 <span style="color: #666">=</span> s<span style="color: #666">.</span>encode()
-<span style="color: #A2F">print</span>(b2)
+<div class="highlight"><pre><span></span><code><span class="n">b2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">b&#39;nijigasaki&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">b&#39;nijigasaki&#39;</span>
 </code></pre></div>
-
 <h3 id="datetime">日付型(datetime)</h3>
 <h4 id="_48">現在時刻</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
-date_now <span style="color: #666">=</span> datetime<span style="color: #666">.</span>datetime<span style="color: #666">.</span>now()
-<span style="color: #A2F">print</span>(date_now)
+<span class="n">date_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_now</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は <code>2025-06-23 23:05:55.796387</code> など。</p>
 <h4 id="_49">時刻加減算</h4>
 <p>datetime型の変数に任意の加減算を行うには<code>datetime.timedelta</code>を使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
-date_now <span style="color: #666">=</span> datetime<span style="color: #666">.</span>datetime<span style="color: #666">.</span>now()
-<span style="color: #A2F">print</span>(date_now)
+<span class="n">date_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_now</span><span class="p">)</span>
 
-custom <span style="color: #666">=</span> date_now <span style="color: #666">+</span> datetime<span style="color: #666">.</span>timedelta(days<span style="color: #666">=1</span>, hours<span style="color: #666">=-1</span>, minutes<span style="color: #666">=5</span>)
-<span style="color: #A2F">print</span>(custom)
+<span class="n">custom</span> <span class="o">=</span> <span class="n">date_now</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hours</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">custom</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は以下の通り、「+1日、-1時間、+5分」となる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">2025-06-24 21:51:20.140227</span>
-<span style="color: #888">2025-06-25 20:56:20.140227</span>
+<div class="highlight"><pre><span></span><code><span class="go">2025-06-24 21:51:20.140227</span>
+<span class="go">2025-06-25 20:56:20.140227</span>
 </code></pre></div>
-
 <h4 id="_50">時刻差分</h4>
 <p>datetime型変数同士の差分は<code>datetime.timedelta</code>となる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
-date_now <span style="color: #666">=</span> datetime<span style="color: #666">.</span>datetime<span style="color: #666">.</span>now()
-custom <span style="color: #666">=</span> date_now <span style="color: #666">+</span> datetime<span style="color: #666">.</span>timedelta(days<span style="color: #666">=2</span>, hours<span style="color: #666">=-1</span>, minutes<span style="color: #666">=5</span>)
+<span class="n">date_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">custom</span> <span class="o">=</span> <span class="n">date_now</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hours</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
-diff <span style="color: #666">=</span> custom <span style="color: #666">-</span> date_now
-<span style="color: #A2F">print</span>(<span style="color: #A2F">type</span>(diff))
-<span style="color: #A2F">print</span>(diff)
+<span class="n">diff</span> <span class="o">=</span> <span class="n">custom</span> <span class="o">-</span> <span class="n">date_now</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
 
-<span style="color: #A2F">print</span>(<span style="color: #A2F">str</span>(diff<span style="color: #666">.</span>days) <span style="color: #666">+</span> <span style="color: #B44">&quot; days&quot;</span>)
-<span style="color: #A2F">print</span>(<span style="color: #A2F">str</span>(diff<span style="color: #666">.</span>seconds) <span style="color: #666">+</span> <span style="color: #B44">&quot; seconds&quot;</span>)
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">diff</span><span class="o">.</span><span class="n">days</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; days&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">diff</span><span class="o">.</span><span class="n">seconds</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">&lt;class &#39;datetime.timedelta&#39;&gt;</span>
-<span style="color: #888">1 day, 23:05:00</span>
-<span style="color: #888">1 days</span>
-<span style="color: #888">83100 seconds</span>
+<div class="highlight"><pre><span></span><code><span class="go">&lt;class &#39;datetime.timedelta&#39;&gt;</span>
+<span class="go">1 day, 23:05:00</span>
+<span class="go">1 days</span>
+<span class="go">83100 seconds</span>
 </code></pre></div>
-
 <p><a href="https://docs.python.org/ja/3/library/datetime.html#datetime.timedelta">https://docs.python.org/ja/3/library/datetime.html#datetime.timedelta</a></p>
 <p><code>seconds</code>は<code>days</code>の余りのような位置づけの値のため、全秒数を得たい場合は<code>total_seconds()</code>を使う。これはメソッド。</p>
 <h4 id="unix-epoch-datetime">UNIX Epoch -&gt; datetime</h4>
 <p><code>fromtimestamp()</code>を使えばOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
-dt <span style="color: #666">=</span> datetime<span style="color: #666">.</span>datetime<span style="color: #666">.</span>fromtimestamp(<span style="color: #666">0</span>)
-<span style="color: #A2F">print</span>(dt)
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
 
-dt <span style="color: #666">=</span> datetime<span style="color: #666">.</span>datetime<span style="color: #666">.</span>fromtimestamp(<span style="color: #666">1750763540</span>)
-<span style="color: #A2F">print</span>(dt)
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">1750763540</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">1970-01-01 09:00:00</span>
-<span style="color: #888">2025-06-24 20:12:20</span>
+<div class="highlight"><pre><span></span><code><span class="go">1970-01-01 09:00:00</span>
+<span class="go">2025-06-24 20:12:20</span>
 </code></pre></div>
-
 <h4 id="datetime-unix-epoch">datetime -&gt; UNIX Epoch</h4>
 <p><code>timestamp()</code>を使う。<br />
 float型なので必要に応じて<code>int()</code>を併用する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># 30日前のUNIX時刻</span>
-sec <span style="color: #666">=</span> <span style="color: #A2F">int</span>((datetime<span style="color: #666">.</span>datetime<span style="color: #666">.</span>now() <span style="color: #666">+</span> datetime<span style="color: #666">.</span>timedelta(days<span style="color: #666">=-30</span>))<span style="color: #666">.</span>timestamp())
+<div class="highlight"><pre><span></span><code><span class="c1"># 30日前のUNIX時刻</span>
+<span class="n">sec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">))</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
 </code></pre></div>
-
 <h3 id="byte">byte型</h3>
 <p>変数出力すると<code>b'....'</code>と表記され出力される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>byte_data <span style="color: #666">=</span> <span style="color: #B44">b&#39;zzzzzzzz&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">byte_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;zzzzzzzz&#39;</span>
 
-<span style="color: #A2F">print</span>(byte_data)
-<span style="color: #A2F">print</span>(<span style="color: #A2F">len</span>(byte_data))
-<span style="color: #A2F">print</span>(<span style="color: #A2F">type</span>(byte_data))
+<span class="nb">print</span><span class="p">(</span><span class="n">byte_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">byte_data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">byte_data</span><span class="p">))</span>
 </code></pre></div>
-
 <p>出力は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">b&#39;zzzzzzzz&#39;</span>
-<span style="color: #888">8</span>
-<span style="color: #888">&lt;class &#39;bytes&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">b&#39;zzzzzzzz&#39;</span>
+<span class="go">8</span>
+<span class="go">&lt;class &#39;bytes&#39;&gt;</span>
 </code></pre></div>
-
 <h4 id="byte-string">byte -&gt; string変換</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>string_data <span style="color: #666">=</span> byte_data<span style="color: #666">.</span>decode()
+<div class="highlight"><pre><span></span><code><span class="n">string_data</span> <span class="o">=</span> <span class="n">byte_data</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 
-<span style="color: #A2F">print</span>(string_data)
-<span style="color: #A2F">print</span>(<span style="color: #A2F">type</span>(string_data))
+<span class="nb">print</span><span class="p">(</span><span class="n">string_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">string_data</span><span class="p">))</span>
 </code></pre></div>
-
 <p>出力は<code>&lt;class 'str'&gt;</code></p>
 <h4 id="string-byte">string -&gt; byte変換</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>byte_data <span style="color: #666">=</span> string_data<span style="color: #666">.</span>encode()
-<span style="color: #A2F">print</span>(byte_data)
-<span style="color: #A2F">print</span>(<span style="color: #A2F">type</span>(byte_data))
+<div class="highlight"><pre><span></span><code><span class="n">byte_data</span> <span class="o">=</span> <span class="n">string_data</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">byte_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">byte_data</span><span class="p">))</span>
 </code></pre></div>
-
 <p>これで出力は<code>&lt;class 'bytes'&gt;</code></p>
 <h3 id="_51">ハッシュ関数</h3>
 <h4 id="md5">MD5</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">hashlib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
 
-m <span style="color: #666">=</span> hashlib<span style="color: #666">.</span>md5()
-m<span style="color: #666">.</span>update(<span style="color: #B44">b&#39;aaa&#39;</span>)
-d <span style="color: #666">=</span> m<span style="color: #666">.</span>hexdigest()
-<span style="color: #A2F">print</span>(d)
+<span class="n">m</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </code></pre></div>
-
 <p>出力は<code>47bce5c74f589f4867dbd57e9ca9f808</code>になる。<br />
 以下と同値。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">printf</span><span style="color: #BBB"> </span>aaa<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>md5sum<span style="color: #BBB"> </span>
-<span style="color: #888">47bce5c74f589f4867dbd57e9ca9f808  -</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">printf</span><span class="w"> </span>aaa<span class="w"> </span><span class="p">|</span><span class="w"> </span>md5sum<span class="w"> </span>
+<span class="go">47bce5c74f589f4867dbd57e9ca9f808  -</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>d <span style="color: #666">=</span> m<span style="color: #666">.</span>digest()
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
 </code></pre></div>
-
 <p>この場合の値はバイナリとなり、出力は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">b&#39;G\xbc\xe5\xc7OX\x9fHg\xdb\xd5~\x9c\xa9\xf8\x08&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">b&#39;G\xbc\xe5\xc7OX\x9fHg\xdb\xd5~\x9c\xa9\xf8\x08&#39;</span>
 </code></pre></div>
-
 <h3 id="path">path</h3>
 <h4 id="_52">ユーザーディレクトリを展開</h4>
 <p><code>os.path.expanduser</code>を使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[zaki@cloud-dev2 ~]$ grep -e ^zaki -e ^root /etc/passwd
+<div class="highlight"><pre><span></span><code>[zaki@cloud-dev2 ~]$ grep -e ^zaki -e ^root /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 </code></pre></div>
-
 <p>というユーザーが存在する場合、実行結果は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>[zaki<span style="color: #A2F">@cloud</span><span style="color: #666">-</span>dev2 <span style="color: #666">~</span>]<span style="border: 1px solid #F00">$</span> whoami 
-zaki
-[zaki<span style="color: #A2F">@cloud</span><span style="color: #666">-</span>dev2 <span style="color: #666">~</span>]<span style="border: 1px solid #F00">$</span> python
-Python <span style="color: #666">3.10.2</span> (main, Jan <span style="color: #666">17</span> <span style="color: #666">2022</span>, <span style="color: #666">00</span>:<span style="color: #666">00</span>:<span style="color: #666">00</span>) [GCC <span style="color: #666">11.2.1</span> <span style="color: #666">20211203</span> (Red Hat <span style="color: #666">11.2.1-7</span>)] on linux
-Type <span style="color: #B44">&quot;help&quot;</span>, <span style="color: #B44">&quot;copyright&quot;</span>, <span style="color: #B44">&quot;credits&quot;</span> <span style="color: #A2F; font-weight: bold">or</span> <span style="color: #B44">&quot;license&quot;</span> <span style="color: #A2F; font-weight: bold">for</span> more information<span style="color: #666">.</span>
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os.path</span>
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(os<span style="color: #666">.</span>path<span style="color: #666">.</span>expanduser(<span style="color: #B44">&#39;~zaki&#39;</span>))
-<span style="color: #666">/</span>home<span style="color: #666">/</span>zaki
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(os<span style="color: #666">.</span>path<span style="color: #666">.</span>expanduser(<span style="color: #B44">&#39;~root&#39;</span>))
-<span style="color: #666">/</span>root
-<span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F">print</span>(os<span style="color: #666">.</span>path<span style="color: #666">.</span>expanduser(<span style="color: #B44">&#39;~&#39;</span>))
-<span style="color: #666">/</span>home<span style="color: #666">/</span>zaki
-<span style="color: #666">&gt;&gt;&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">zaki</span><span class="nd">@cloud</span><span class="o">-</span><span class="n">dev2</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">whoami</span> 
+<span class="n">zaki</span>
+<span class="p">[</span><span class="n">zaki</span><span class="nd">@cloud</span><span class="o">-</span><span class="n">dev2</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">python</span>
+<span class="n">Python</span> <span class="mf">3.10.2</span> <span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">Jan</span> <span class="mi">17</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span> <span class="p">[</span><span class="n">GCC</span> <span class="mf">11.2.1</span> <span class="mi">20211203</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">11.2.1</span><span class="o">-</span><span class="mi">7</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~zaki&#39;</span><span class="p">))</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">zaki</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~root&#39;</span><span class="p">))</span>
+<span class="o">/</span><span class="n">root</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">))</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">zaki</span>
+<span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
-
 <h4 id="_53">スクリプトのパス</h4>
 <p><code>__file__</code>を参照する。<br />
 以下は実行時のカレントディレクトリにかかわらず、スクリプトファイルのパスが出力される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B8860B">__file__</span>)
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="_54">実行時のカレントディレクトリ</h4>
 <p><code>os.getcwd()</code>で取得できる。</p>
 <h4 id="_55">パスの結合</h4>
 <p>末尾のディレクトリセパレータの有無に関係なく、パスを結合する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> <span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">os</span>
-<span style="color: #666">&gt;&gt;&gt;</span> os<span style="color: #666">.</span>path<span style="color: #666">.</span>join(<span style="color: #B44">&quot;aaa&quot;</span>, <span style="color: #B44">&quot;bbb&quot;</span>, <span style="color: #B44">&quot;ccc&quot;</span>)
-<span style="color: #B44">&#39;aaa/bbb/ccc&#39;</span>
-<span style="color: #666">&gt;&gt;&gt;</span> os<span style="color: #666">.</span>path<span style="color: #666">.</span>join(<span style="color: #B44">&quot;aaa&quot;</span>, <span style="color: #B44">&quot;bbb/&quot;</span>, <span style="color: #B44">&quot;ccc/&quot;</span>)
-<span style="color: #B44">&#39;aaa/bbb/ccc/&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc&quot;</span><span class="p">)</span>
+<span class="s1">&#39;aaa/bbb/ccc&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb/&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc/&quot;</span><span class="p">)</span>
+<span class="s1">&#39;aaa/bbb/ccc/&#39;</span>
 </code></pre></div>
-
 <p>冒頭のディレクトリセパレータはルート扱いで、上書きになる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> os<span style="color: #666">.</span>path<span style="color: #666">.</span>join(<span style="color: #B44">&quot;/aaa&quot;</span>, <span style="color: #B44">&quot;bbb&quot;</span>, <span style="color: #B44">&quot;/ccc&quot;</span>, <span style="color: #B44">&quot;ddd&quot;</span>)
-<span style="color: #B44">&#39;/ccc/ddd&#39;</span>
-<span style="color: #666">&gt;&gt;&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;/aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;/ccc&quot;</span><span class="p">,</span> <span class="s2">&quot;ddd&quot;</span><span class="p">)</span>
+<span class="s1">&#39;/ccc/ddd&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
-
 <p>リストを渡す場合は<code>*</code>でアンパックする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">&gt;&gt;&gt;</span> dir_list <span style="color: #666">=</span> [<span style="color: #B44">&quot;aaa&quot;</span>, <span style="color: #B44">&quot;bbb&quot;</span>, <span style="color: #B44">&quot;ccc&quot;</span>]
-<span style="color: #666">&gt;&gt;&gt;</span> os<span style="color: #666">.</span>path<span style="color: #666">.</span>join(dir_list)
-Traceback (most recent call last):
-  File <span style="color: #B44">&quot;&lt;stdin&gt;&quot;</span>, line <span style="color: #666">1</span>, <span style="color: #A2F; font-weight: bold">in</span> <span style="color: #666">&lt;</span>module<span style="color: #666">&gt;</span>
-  File <span style="color: #B44">&quot;&lt;frozen posixpath&gt;&quot;</span>, line <span style="color: #666">76</span>, <span style="color: #A2F; font-weight: bold">in</span> join
-<span style="color: #D2413A; font-weight: bold">TypeError</span>: expected <span style="color: #A2F">str</span>, <span style="color: #A2F">bytes</span> <span style="color: #A2F; font-weight: bold">or</span> os<span style="color: #666">.</span>PathLike <span style="color: #A2F">object</span>, <span style="color: #A2F; font-weight: bold">not</span> <span style="color: #A2F">list</span>
-<span style="color: #666">&gt;&gt;&gt;</span> os<span style="color: #666">.</span>path<span style="color: #666">.</span>join(<span style="color: #666">*</span>dir_list)
-<span style="color: #B44">&#39;aaa/bbb/ccc&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dir_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc&quot;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_list</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;frozen posixpath&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">76</span><span class="p">,</span> <span class="ow">in</span> <span class="n">join</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">expected</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span> <span class="nb">object</span><span class="p">,</span> <span class="ow">not</span> <span class="nb">list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">dir_list</span><span class="p">)</span>
+<span class="s1">&#39;aaa/bbb/ccc&#39;</span>
 </code></pre></div>
-
 <h3 id="_56">外部コマンド実行</h3>
 <p><code>subprocess.run()</code>を使う。(<code>os.system</code>はもう使わない)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">subprocess</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
-ret <span style="color: #666">=</span> subprocess<span style="color: #666">.</span>run([<span style="color: #B44">&quot;ls&quot;</span>, <span style="color: #B44">&quot;-l&quot;</span>], capture_output<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">True</span>, text<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">True</span>)
-<span style="color: #A2F">print</span>(ret<span style="color: #666">.</span>stdout)
+<span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </code></pre></div>
-
 <p>リストでなく文字列を指定したい場合は<code>shell=True</code>を付与</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>subprocess<span style="color: #666">.</span>run(<span style="color: #B44">&quot;ls -l&quot;</span>, shell<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">True</span>)
+<div class="highlight"><pre><span></span><code><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="_57">出力</h3>
 <h4 id="_58">標準エラー出力</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span style="color: #A2F">print</span>(<span style="color: #B44">&quot;error&quot;</span>, file<span style="color: #666">=</span>sys<span style="color: #666">.</span>stderr)
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="print">printで改行無し</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B44">&quot;sample&quot;</span>, end<span style="color: #666">=</span><span style="color: #B44">&quot;&quot;</span>)
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sample&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>ただし行ごとにフラッシュされるため、プログレス表示的に使う場合は追加オプションが必要</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B44">&quot;.&quot;</span>, end<span style="color: #666">=</span><span style="color: #B44">&quot;&quot;</span>, flush<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">True</span>)
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="_59">ヒアドキュメント</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(<span style="color: #B44">&quot;&quot;&quot;</span>
-<span style="color: #B44">東京・お台場にある、自由な校風と専攻の多様さで人気の高校「虹ヶ咲学園」。</span>
-<span style="color: #B44">スクールアイドルの魅力にときめいた普通科2年の高咲侑は、</span>
-<span style="color: #B44">幼馴染の上原歩夢とともに「スクールアイドル同好会」の門を叩く。</span>
-<span style="color: #B44">&quot;&quot;&quot;</span>)
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">東京・お台場にある、自由な校風と専攻の多様さで人気の高校「虹ヶ咲学園」。</span>
+<span class="s2">スクールアイドルの魅力にときめいた普通科2年の高咲侑は、</span>
+<span class="s2">幼馴染の上原歩夢とともに「スクールアイドル同好会」の門を叩く。</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>この場合、「開始の<code>"""</code>」のあとの改行と、「終了の<code>"""</code>」の手前の改行も含まれる。</p>
 <h3 id="io">ファイルI/O</h3>
 <p><code>with</code>ブロックを抜けると自動的にcloseされる。<br />
 また、<code>with</code>の内側の変数は外側でも使える。</p>
 <h4 id="read">文字列としてread</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">with</span> <span style="color: #A2F">open</span>(file_path) <span style="color: #A2F; font-weight: bold">as</span> f:
-    data <span style="color: #666">=</span> f<span style="color: #666">.</span>read()
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </code></pre></div>
-
 <h4 id="write">文字列としてwrite</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">with</span> <span style="color: #A2F">open</span>(file_path, mode<span style="color: #666">=</span><span style="color: #B44">&#39;w&#39;</span>) <span style="color: #A2F; font-weight: bold">as</span> f:
-    f<span style="color: #666">.</span>write(data)
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>mode='w'</code>は単に<code>'w'</code>とも書ける</p>
 <h3 id="_60">通信</h3>
 <h4 id="httprequests">HTTP(requests)</h4>
 <p><code>requests</code>を使うと楽。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">requests</span>
-r <span style="color: #666">=</span> requests<span style="color: #666">.</span>get(<span style="color: #B44">&quot;http://www.example.org&quot;</span>)
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.example.org&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="post">POST</h5>
 <p>リクエストボディは<code>data</code>で指定する。<br />
 辞書型データをJSON形式のリクエストボディにするなら<code>json.dumps</code>を使うと楽。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>payload <span style="color: #666">=</span> json<span style="color: #666">.</span>dumps(dict_params)
-headers <span style="color: #666">=</span> {
-    <span style="color: #B44">&#39;Content-Type&#39;</span>: <span style="color: #B44">&#39;application/json&#39;</span>,
-    <span style="color: #B44">&#39;Accept&#39;</span>: <span style="color: #B44">&#39;application/json&#39;</span>,
-    <span style="color: #B44">&#39;Authorization&#39;</span>: <span style="color: #B44">&#39;Bearer &#39;</span> <span style="color: #666">+</span> token
-}
-requests<span style="color: #666">.</span>post(url, data<span style="color: #666">=</span>payload, headers<span style="color: #666">=</span>headers)
+<div class="highlight"><pre><span></span><code><span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dict_params</span><span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+<span class="p">}</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="delete">DELETE</h5>
 <p>POSTと同じ要領</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>requests<span style="color: #666">.</span>delete(url)
+<div class="highlight"><pre><span></span><code><span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="_61">リクエストヘッダ</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>headers <span style="color: #666">=</span> {
-    <span style="color: #B44">&#39;Accept&#39;</span>: <span style="color: #B44">&#39;application/json&#39;</span>,
-    <span style="color: #B44">&#39;Authorization&#39;</span>: <span style="color: #B44">&#39;Bearer ********&#39;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer ********&#39;</span>
+<span class="p">}</span>
 
-requests<span style="color: #666">.</span>get(url, headers<span style="color: #666">=</span>headers)
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="_62">レスポンス</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">print</span>(r<span style="color: #666">.</span>status_code)  <span style="color: #080; font-style: italic"># ステータスコード(200など)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c1"># ステータスコード(200など)</span>
 
-<span style="color: #A2F">print</span>(r<span style="color: #666">.</span>request)      <span style="color: #080; font-style: italic"># Requestオブジェクト</span>
-<span style="color: #A2F">print</span>(r<span style="color: #666">.</span>request<span style="color: #666">.</span>url)  <span style="color: #080; font-style: italic"># アクセスしたURL</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>      <span class="c1"># Requestオブジェクト</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># アクセスしたURL</span>
 
-<span style="color: #A2F">print</span>(r<span style="color: #666">.</span>text)   <span style="color: #080; font-style: italic"># レスポンスbody</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>   <span class="c1"># レスポンスbody</span>
 </code></pre></div>
-
 <p>REST APIのようにレスポンスがJSON形式のテキストの場合は、<code>r.json()</code>を使うとオブジェクトとして値をとれる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">for</span> item <span style="color: #A2F; font-weight: bold">in</span> r<span style="color: #666">.</span>json()[<span style="color: #B44">&#39;items&#39;</span>]:
-    <span style="color: #A2F">print</span>(item[<span style="color: #B44">&#39;metadata&#39;</span>][<span style="color: #B44">&#39;name&#39;</span>])
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;items&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 <h5 id="ssl">SSL検証無視</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>r <span style="color: #666">=</span> requests<span style="color: #666">.</span>get(<span style="color: #B44">&quot;https://www.example.org&quot;</span>, verify<span style="color: #666">=</span><span style="color: #A2F; font-weight: bold">False</span>)
+<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.example.org&quot;</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="basic">Basic認証</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>requests<span style="color: #666">.</span>get(url, auth<span style="color: #666">=</span>HTTPBasicAuth(username, password))
+<div class="highlight"><pre><span></span><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">HTTPBasicAuth</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
 </code></pre></div>
-
 <h5 id="_63">接続タイムアウト設定</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>timeout_sec <span style="color: #666">=</span> <span style="color: #666">3</span>
-requests<span style="color: #666">.</span>get(url, timeout<span style="color: #666">=</span>timeout_sec)
+<div class="highlight"><pre><span></span><code><span class="n">timeout_sec</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_sec</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="_64">接続エラーのハンドリング</h5>
 <p>例外が発生するのでそれをcatchする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">try</span>:
-    requests<span style="color: #666">.</span>post(url)
-<span style="color: #A2F; font-weight: bold">except</span> (requests<span style="color: #666">.</span>ConnectionError, requests<span style="color: #666">.</span>ConnectTimeout) <span style="color: #A2F; font-weight: bold">as</span> e:
-    <span style="color: #A2F">print</span>(e)
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">,</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectTimeout</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="http-urllibrequest">HTTP (urllib.request)</h4>
 <p>requestsを追加できない場合など。</p>
 <h5 id="get">GET</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">urllib.request</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
 
-url <span style="color: #666">=</span> <span style="color: #B44">&#39;https://example.org&#39;</span>
-header <span style="color: #666">=</span> {
-    <span style="color: #B44">&#39;Authorization&#39;</span>: <span style="color: #B44">&#39;Bearer &#39;</span> <span style="color: #666">+</span> token
-}
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://example.org&#39;</span>
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+<span class="p">}</span>
 
-req <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(url, headers<span style="color: #666">=</span>headers)
-<span style="color: #A2F; font-weight: bold">with</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(req) <span style="color: #A2F; font-weight: bold">as</span> res:
-    j <span style="color: #666">=</span> json<span style="color: #666">.</span>load(res)
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </code></pre></div>
-
 <h5 id="post_1">POST</h5>
 <p>Requestオブジェクト作成時に送信するデータを指定すればPOSTメソッドになる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>auth_data <span style="color: #666">=</span> {
-    <span style="color: #B44">&#39;Username&#39;</span>: username,
-    <span style="color: #B44">&#39;Password&#39;</span>: password,
-}
-auth_req <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(auth_page, urllib<span style="color: #666">.</span>parse<span style="color: #666">.</span>urlencode(auth_data)<span style="color: #666">.</span>encode(<span style="color: #B44">&#39;ascii&#39;</span>))
-<span style="color: #A2F; font-weight: bold">with</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(auth_req) <span style="color: #A2F; font-weight: bold">as</span> auth_resp:
-    <span style="color: #A2F">print</span>(auth_resp<span style="color: #666">.</span>read())
+<div class="highlight"><pre><span></span><code><span class="n">auth_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+    <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">auth_req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">auth_page</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">auth_data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">))</span>
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">auth_req</span><span class="p">)</span> <span class="k">as</span> <span class="n">auth_resp</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">auth_resp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </code></pre></div>
-
 <h5 id="_65">レスポンスヘッダ</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>req <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(url, headers<span style="color: #666">=</span>headers)
-<span style="color: #A2F; font-weight: bold">with</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(req) <span style="color: #A2F; font-weight: bold">as</span> res:
-    body <span style="color: #666">=</span> res<span style="color: #666">.</span>read()
-    headers <span style="color: #666">=</span> res<span style="color: #666">.</span>getheaders()    <span style="color: #080; font-style: italic"># dict形式で取れる</span>
+<div class="highlight"><pre><span></span><code><span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">getheaders</span><span class="p">()</span>    <span class="c1"># dict形式で取れる</span>
 </code></pre></div>
-
 <h5 id="ssl_1">SSL検証無視</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">ssl</span>
-context <span style="color: #666">=</span> ssl<span style="color: #666">.</span>_create_unverified_context()
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">_create_unverified_context</span><span class="p">()</span>
 
-r <span style="color: #666">=</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>Request(url, headers<span style="color: #666">=</span>headers)
-<span style="color: #A2F; font-weight: bold">while</span> urllib<span style="color: #666">.</span>request<span style="color: #666">.</span>urlopen(req, context<span style="color: #666">=</span>context) <span style="color: #A2F; font-weight: bold">as</span> res:
-    <span style="color: #666">...</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="o">...</span>
 </code></pre></div>
-
 <h3 id="_66">例外</h3>
 <h4 id="_67">例外の捕捉</h4>
 <p><code>try</code>,<code>except</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">try</span>:
-    <span style="color: #080; font-style: italic"># 例外が発生するコード</span>
-<span style="color: #A2F; font-weight: bold">except</span> <span style="color: #D2413A; font-weight: bold">RuntimeError</span> <span style="color: #A2F; font-weight: bold">as</span> e:
-    <span style="color: #080; font-style: italic"># エラーハンドリング処理</span>
-    <span style="color: #080; font-style: italic"># エラー情報は&quot;e&quot;に入っている</span>
-    <span style="color: #A2F">print</span>(e)
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># 例外が発生するコード</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># エラーハンドリング処理</span>
+    <span class="c1"># エラー情報は&quot;e&quot;に入っている</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
-
 <p>捕捉する例外が複数の場合は、<code>except</code>を複数並べるか、カッコでまとめる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">try</span>:
-    <span style="color: #080; font-style: italic"># 例外が発生するコード</span>
-<span style="color: #A2F; font-weight: bold">except</span> (<span style="color: #D2413A; font-weight: bold">RuntimeError</span>, <span style="color: #D2413A; font-weight: bold">TypeError</span>) <span style="color: #A2F; font-weight: bold">as</span> e:
-    <span style="color: #A2F">print</span>(e)
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># 例外が発生するコード</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">RuntimeError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
-
 <h4 id="raise">例外を投げる(raise)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">RuntimeError</span>(<span style="color: #B44">&#39;application error: &#39;</span> <span style="color: #666">+</span> error_value)
+<div class="highlight"><pre><span></span><code><span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;application error: &#39;</span> <span class="o">+</span> <span class="n">error_value</span><span class="p">)</span>
 </code></pre></div>
-
 <p>標準で使用できる組み込み例外は以下。<br />
 <a href="https://docs.python.org/ja/3/library/exceptions.html">組み込み例外</a></p>
 <h3 id="partial-application">部分適用(partial application)</h3>
@@ -5255,18 +5139,17 @@ r <span style="color: #666">=</span> urllib<span style="color: #666">.</span>req
 </ul>
 <p>こんな感じ。<br />
 <a href="https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114">https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>                    method <span style="color: #666">=</span> <span style="color: #B44">&quot;_get_attr_</span><span style="color: #B68; font-weight: bold">%s</span><span style="color: #B44">&quot;</span> <span style="color: #666">%</span> attr_name
-                    <span style="color: #A2F; font-weight: bold">if</span> method <span style="color: #A2F; font-weight: bold">in</span> src_dict <span style="color: #A2F; font-weight: bold">or</span> method <span style="color: #A2F; font-weight: bold">in</span> dst_dict:
-                        getter <span style="color: #666">=</span> partial(_generic_g_method, attr_name)
-                    <span style="color: #A2F; font-weight: bold">elif</span> (<span style="color: #B44">&#39;_get_parent_attribute&#39;</span> <span style="color: #A2F; font-weight: bold">in</span> dst_dict <span style="color: #A2F; font-weight: bold">or</span> <span style="color: #B44">&#39;_get_parent_attribute&#39;</span> <span style="color: #A2F; font-weight: bold">in</span> src_dict) <span style="color: #A2F; font-weight: bold">and</span> value<span style="color: #666">.</span>inherit:
-                        getter <span style="color: #666">=</span> partial(_generic_g_parent, attr_name)
-                    <span style="color: #A2F; font-weight: bold">else</span>:
-                        getter <span style="color: #666">=</span> partial(_generic_g, attr_name)
+<div class="highlight"><pre><span></span><code>                    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;_get_attr_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">attr_name</span>
+                    <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">src_dict</span> <span class="ow">or</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">dst_dict</span><span class="p">:</span>
+                        <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_method</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">dst_dict</span> <span class="ow">or</span> <span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">src_dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">inherit</span><span class="p">:</span>
+                        <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_parent</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
 
-                    setter <span style="color: #666">=</span> partial(_generic_s, attr_name)
-                    deleter <span style="color: #666">=</span> partial(_generic_d, attr_name)
+                    <span class="n">setter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_s</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="n">deleter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_d</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
 </code></pre></div>
-
 <p>なるほどわからん</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></p>
 <h3 id="_68">メタクラス</h3>
@@ -5276,246 +5159,218 @@ r <span style="color: #666">=</span> urllib<span style="color: #666">.</span>req
 </ul>
 <p>クラスの定義をコードで動的に実装する感じ。</p>
 <p><a href="https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114">https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114</a>  </p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>                    method <span style="color: #666">=</span> <span style="color: #B44">&quot;_get_attr_</span><span style="color: #B68; font-weight: bold">%s</span><span style="color: #B44">&quot;</span> <span style="color: #666">%</span> attr_name
-                    <span style="color: #A2F; font-weight: bold">if</span> method <span style="color: #A2F; font-weight: bold">in</span> src_dict <span style="color: #A2F; font-weight: bold">or</span> method <span style="color: #A2F; font-weight: bold">in</span> dst_dict:
-                        getter <span style="color: #666">=</span> partial(_generic_g_method, attr_name)
-                    <span style="color: #A2F; font-weight: bold">elif</span> (<span style="color: #B44">&#39;_get_parent_attribute&#39;</span> <span style="color: #A2F; font-weight: bold">in</span> dst_dict <span style="color: #A2F; font-weight: bold">or</span> <span style="color: #B44">&#39;_get_parent_attribute&#39;</span> <span style="color: #A2F; font-weight: bold">in</span> src_dict) <span style="color: #A2F; font-weight: bold">and</span> value<span style="color: #666">.</span>inherit:
-                        getter <span style="color: #666">=</span> partial(_generic_g_parent, attr_name)
-                    <span style="color: #A2F; font-weight: bold">else</span>:
-                        getter <span style="color: #666">=</span> partial(_generic_g, attr_name)
+<div class="highlight"><pre><span></span><code>                    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;_get_attr_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">attr_name</span>
+                    <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">src_dict</span> <span class="ow">or</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">dst_dict</span><span class="p">:</span>
+                        <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_method</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">dst_dict</span> <span class="ow">or</span> <span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">src_dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">inherit</span><span class="p">:</span>
+                        <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_parent</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
 
-                    setter <span style="color: #666">=</span> partial(_generic_s, attr_name)
-                    deleter <span style="color: #666">=</span> partial(_generic_d, attr_name)
+                    <span class="n">setter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_s</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="n">deleter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_d</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
 </code></pre></div>
-
 <ul>
 <li><a href="https://zaki-hmkc.hatenablog.com/entry/2021/03/24/100317">[Ansible] そのtag設定、想定通りに動いてますか？ (継承機能とその実装を確認する) - zaki work log</a></li>
 </ul>
 <h3 id="_69">クラス</h3>
 <h4 id="init">コンストラクタ(<strong>init</strong>)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">class</span><span style="color: #BBB"> </span><span style="color: #00F">Animal</span>:
-    <span style="color: #A2F; font-weight: bold">def</span><span style="color: #BBB"> </span><span style="color: #00A000">__init__</span>(<span style="color: #A2F">self</span>, a):
-        <span style="color: #A2F">self</span><span style="color: #666">.</span>__nakigoe <span style="color: #666">=</span> a
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nakigoe</span> <span class="o">=</span> <span class="n">a</span>
 </code></pre></div>
-
 <h4 id="_70">インスタンス作成(呼び出し側)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">import</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">animal</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">animal</span>
 
-a <span style="color: #666">=</span> animal<span style="color: #666">.</span>Animal(<span style="color: #B44">&#39;piyo&#39;</span>)
+<span class="n">a</span> <span class="o">=</span> <span class="n">animal</span><span class="o">.</span><span class="n">Animal</span><span class="p">(</span><span class="s1">&#39;piyo&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="_71">パッケージ</h3>
 <h4 id="_72">ディレクトリ構成</h4>
 <p>パッケージは <code>my_package</code> 配下。
 <code>zzz.py</code> から参照する構成。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">package</span><span style="color: #666">-</span>sample<span style="color: #666">/</span>
-<span style="border: 1px solid #F00">├──</span><span style="color: #BBB"> </span>my_package
-<span style="border: 1px solid #F00">│</span><span style="color: #BBB">   </span><span style="border: 1px solid #F00">├──</span><span style="color: #BBB"> </span>__init__.py
-<span style="border: 1px solid #F00">│</span><span style="color: #BBB">   </span><span style="border: 1px solid #F00">├──</span><span style="color: #BBB"> </span>setup.py
-<span style="border: 1px solid #F00">│</span><span style="color: #BBB">   </span><span style="border: 1px solid #F00">└──</span><span style="color: #BBB"> </span>source.py
-<span style="border: 1px solid #F00">└──</span><span style="color: #BBB"> </span>zzz.py
+<div class="highlight"><pre><span></span><code>package-sample/
+├── my_package
+│   ├── __init__.py
+│   ├── setup.py
+│   └── source.py
+└── zzz.py
 </code></pre></div>
-
 <h2 id="_73">環境</h2>
 <h3 id="pip">pip</h3>
 <h4 id="_74">バージョン指定</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pip install ansible==9</span>
+<div class="highlight"><pre><span></span><code><span class="go">pip install ansible==9</span>
 </code></pre></div>
-
 <p>「以上」の場合は以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pip install ansible&gt;=8</span>
+<div class="highlight"><pre><span></span><code><span class="go">pip install ansible&gt;=8</span>
 </code></pre></div>
-
 <h4 id="requirementstxt">requirements.txtの利用</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ansible==2.9.7
+<div class="highlight"><pre><span></span><code>ansible==2.9.7
 jmespath==0.10.0
 </code></pre></div>
-
 <p>という内容の<code>requirements.txt</code>ファイルを作成し、これで</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>requirements.txt
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
-
 <p>※ ファイル名は任意</p>
 <h4 id="pip_1">pipのアップデート</h4>
 <p>venvとか作った直後は<code>pip</code>自体のバージョンが古いので(目的にパッケージ入れるときにエラーになる前に先に)アップデートする<br />
 ※ そもそもvenv作成時に <code>--upgrade-deps</code> をつけておけば自動更新されて環境が作成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>--upgrade<span style="color: #BBB"> </span>pip
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
 </code></pre></div>
-
 <h4 id="_75">パッケージのダウングレード</h4>
 <p>基本的には古いバージョンを指定して以下でOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span><span style="color: #B8860B">hogehoge</span><span style="color: #666">=0</span>.0.1
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">hogehoge</span><span class="o">=</span><span class="m">0</span>.0.1
 </code></pre></div>
-
 <p><code>requirements.txt</code>記載の場合も、記載した指定バージョンがインストール済みのものより古ければ自動で更新される。<br />
 以下は<code>rich==11.0.0</code>がインストール済みの状態で<code>rich==9.5.1</code>をインストールした場合のログ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Installing collected packages: typing-extensions, rich</span>
-<span style="color: #888">  Attempting uninstall: rich</span>
-<span style="color: #888">    Found existing installation: rich 11.0.0</span>
-<span style="color: #888">    Uninstalling rich-11.0.0:</span>
-<span style="color: #888">      Successfully uninstalled rich-11.0.0</span>
-<span style="color: #888">Successfully installed rich-9.5.1 typing-extensions-3.10.0.2</span>
+<div class="highlight"><pre><span></span><code><span class="go">Installing collected packages: typing-extensions, rich</span>
+<span class="go">  Attempting uninstall: rich</span>
+<span class="go">    Found existing installation: rich 11.0.0</span>
+<span class="go">    Uninstalling rich-11.0.0:</span>
+<span class="go">      Successfully uninstalled rich-11.0.0</span>
+<span class="go">Successfully installed rich-9.5.1 typing-extensions-3.10.0.2</span>
 </code></pre></div>
-
 <h4 id="_76">パッケージアンインストール</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #BBB"> </span>uninstall<span style="color: #BBB"> </span>docker
-<span style="color: #888">Found existing installation: docker 5.0.3</span>
-<span style="color: #888">Uninstalling docker-5.0.3:</span>
-<span style="color: #888">  Would remove:</span>
-<span style="color: #888">    /home/ubuntu/.local/lib/python3.8/site-packages/docker-5.0.3.dist-info/*</span>
-<span style="color: #888">    /home/ubuntu/.local/lib/python3.8/site-packages/docker/*</span>
-<span style="color: #888">Proceed (y/n)? y</span>
-<span style="color: #888">  Successfully uninstalled docker-5.0.3</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip<span class="w"> </span>uninstall<span class="w"> </span>docker
+<span class="go">Found existing installation: docker 5.0.3</span>
+<span class="go">Uninstalling docker-5.0.3:</span>
+<span class="go">  Would remove:</span>
+<span class="go">    /home/ubuntu/.local/lib/python3.8/site-packages/docker-5.0.3.dist-info/*</span>
+<span class="go">    /home/ubuntu/.local/lib/python3.8/site-packages/docker/*</span>
+<span class="go">Proceed (y/n)? y</span>
+<span class="go">  Successfully uninstalled docker-5.0.3</span>
 </code></pre></div>
-
 <p><code>-y</code>を付ければ強制削除になるっぽい。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Uninstall Options:</span>
-<span style="color: #888">  -r, --requirement &lt;file&gt;    Uninstall all the packages listed in the given requirements file.</span>
-<span style="color: #888">                              This option can be used multiple times.</span>
-<span style="color: #888">  -y, --yes                   Don&#39;t ask for confirmation of uninstall deletions.</span>
+<div class="highlight"><pre><span></span><code><span class="go">Uninstall Options:</span>
+<span class="go">  -r, --requirement &lt;file&gt;    Uninstall all the packages listed in the given requirements file.</span>
+<span class="go">                              This option can be used multiple times.</span>
+<span class="go">  -y, --yes                   Don&#39;t ask for confirmation of uninstall deletions.</span>
 </code></pre></div>
-
 <h4 id="_77">全てアンインストール</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #BBB"> </span>uninstall<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>&lt;<span style="color: #666">(</span>pip<span style="color: #BBB"> </span>freeze<span style="color: #666">)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip<span class="w"> </span>uninstall<span class="w"> </span>-r<span class="w"> </span>&lt;<span class="o">(</span>pip<span class="w"> </span>freeze<span class="o">)</span>
 </code></pre></div>
-
 <h4 id="_78">依存関係の確認</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pip<span style="color: #BBB"> </span>show<span style="color: #BBB"> </span>ansible-core
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #888">Requires: cryptography, jinja2, packaging, PyYAML, resolvelib</span>
-<span style="color: #888">Required-by: ansible</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip<span class="w"> </span>show<span class="w"> </span>ansible-core
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="go">Requires: cryptography, jinja2, packaging, PyYAML, resolvelib</span>
+<span class="go">Required-by: ansible</span>
 </code></pre></div>
-
 <p>Required-byの<code>ansible</code>によってインストールされ、このパッケージによって<code>cryptography</code>, <code>jinja2</code>, <code>packaging</code>, <code>PyYAML</code>, <code>resolvelib</code>がインストールされる。</p>
 <h4 id="pip_2">pip実行時のインストールパス確認</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python<span style="color: #BBB"> </span>-c<span style="color: #BBB"> </span><span style="color: #B44">&quot;import site;print(site.getsitepackages())&quot;</span>
-<span style="color: #888">[&#39;/home/zaki/.local/share/mise/installs/python/3.13.5/lib/python3.13/site-packages&#39;]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import site;print(site.getsitepackages())&quot;</span>
+<span class="go">[&#39;/home/zaki/.local/share/mise/installs/python/3.13.5/lib/python3.13/site-packages&#39;]</span>
 </code></pre></div>
-
 <h3 id="pyenv">pyenv</h3>
 <p><a href="https://github.com/pyenv/pyenv">pyenv/pyenv: Simple Python version management</a></p>
 <h4 id="_79">インストール</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://pyenv.run | bash</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://pyenv.run | bash</span>
 </code></pre></div>
-
 <h4 id="_80">設定追加</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">cat &lt;&lt;&#39;__EOL__&#39; &gt;&gt; $HOME/.bashrc</span>
-<span style="color: #888">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span>
-<span style="color: #888">command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;</span>
-<span style="color: #888">eval &quot;$(pyenv init -)&quot;</span>
-<span style="color: #888">__EOL__</span>
-<span style="color: #888">. $HOME/.bashrc</span>
+<div class="highlight"><pre><span></span><code><span class="go">cat &lt;&lt;&#39;__EOL__&#39; &gt;&gt; $HOME/.bashrc</span>
+<span class="go">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span>
+<span class="go">command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;</span>
+<span class="go">eval &quot;$(pyenv init -)&quot;</span>
+<span class="go">__EOL__</span>
+<span class="go">. $HOME/.bashrc</span>
 </code></pre></div>
-
 <h4 id="_81">依存パッケージのインストール</h4>
 <p>以下はUbuntuの場合。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \</span>
-<span style="color: #888">libbz2-dev libreadline-dev libsqlite3-dev curl \</span>
-<span style="color: #888">libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev</span>
+<div class="highlight"><pre><span></span><code><span class="go">sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \</span>
+<span class="go">libbz2-dev libreadline-dev libsqlite3-dev curl \</span>
+<span class="go">libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev</span>
 </code></pre></div>
-
 <p>その他の環境はwiki参照: <a href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment">https://github.com/pyenv/pyenv/wiki#suggested-build-environment</a></p>
 <h4 id="python_1">Pythonインストール</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pyenv install 3.11.3</span>
+<div class="highlight"><pre><span></span><code><span class="go">pyenv install 3.11.3</span>
 </code></pre></div>
-
 <p>インストール可能なPythonは<code>pyenv install -l</code>で確認</p>
 <h4 id="python_2"><code>python</code>の切替</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pyenv global 3.11.3</span>
+<div class="highlight"><pre><span></span><code><span class="go">pyenv global 3.11.3</span>
 </code></pre></div>
-
 <p>切替可能なPythonは<code>pyenv versions</code>で確認</p>
 <h3 id="venv">venv</h3>
 <h4 id="_82">作成</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>venv<span style="color: #BBB"> </span>venv/ansible
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv/ansible
 </code></pre></div>
-
 <h4 id="pipsetuptools">作成時にpipとsetuptoolsを更新する</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>venv<span style="color: #BBB"> </span>~/venv/dev<span style="color: #BBB"> </span>--upgrade-deps
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>~/venv/dev<span class="w"> </span>--upgrade-deps
 </code></pre></div>
-
 <h4 id="system">systemのパッケージパスも参照</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>python3<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>venv<span style="color: #BBB"> </span>venv-sys<span style="color: #BBB"> </span>--system-site-packages
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv-sys<span class="w"> </span>--system-site-packages
 </code></pre></div>
-
 <h3 id="pyvenv">pyvenv</h3>
 <p>RHEL8に入ってるやつ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pyvenv-3<span style="color: #BBB"> </span>venv3
-<span style="color: #888">WARNING: the pyenv script is deprecated in favour of `platform-python -m venv`</span>
-<span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>.<span style="color: #BBB"> </span>venv3/bin/activate
-<span style="color: #000080; font-weight: bold">(venv3)</span> <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>
-<span style="color: #000080; font-weight: bold">(venv3)</span> <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>--upgrade<span style="color: #BBB"> </span>pip
-<span style="color: #888">Cache entry deserialization failed, entry ignored</span>
-<span style="color: #888">Collecting pip</span>
-<span style="color: #888">  Downloading https://files.pythonhosted.org/packages/47/ca/f0d790b6e18b3a6f3bd5e80c2ee4edbb5807286c21cdd0862ca933f751dd/pip-21.1.3-py3-none-any.whl (1.5MB)</span>
-<span style="color: #888">    100% |████████████████████████████████| 1.6MB 641kB/s </span>
-<span style="color: #888">Installing collected packages: pip</span>
-<span style="color: #888">  Found existing installation: pip 9.0.3</span>
-<span style="color: #888">    Uninstalling pip-9.0.3:</span>
-<span style="color: #888">      Successfully uninstalled pip-9.0.3</span>
-<span style="color: #888">Successfully installed pip-21.1.3</span>
-<span style="color: #000080; font-weight: bold">(venv3)</span> <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pip<span style="color: #BBB"> </span>list
-<span style="color: #888">Package    Version</span>
-<span style="color: #888">---------- -------</span>
-<span style="color: #888">pip        21.1.3</span>
-<span style="color: #888">setuptools 39.2.0</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@rhel8-node ~]$ </span>pyvenv-3<span class="w"> </span>venv3
+<span class="go">WARNING: the pyenv script is deprecated in favour of `platform-python -m venv`</span>
+<span class="gp">[zaki@rhel8-node ~]$ </span>.<span class="w"> </span>venv3/bin/activate
+<span class="gp gp-VirtualEnv">(venv3)</span> <span class="gp">[zaki@rhel8-node ~]$ </span>
+<span class="gp gp-VirtualEnv">(venv3)</span> <span class="gp">[zaki@rhel8-node ~]$ </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+<span class="go">Cache entry deserialization failed, entry ignored</span>
+<span class="go">Collecting pip</span>
+<span class="go">  Downloading https://files.pythonhosted.org/packages/47/ca/f0d790b6e18b3a6f3bd5e80c2ee4edbb5807286c21cdd0862ca933f751dd/pip-21.1.3-py3-none-any.whl (1.5MB)</span>
+<span class="go">    100% |████████████████████████████████| 1.6MB 641kB/s </span>
+<span class="go">Installing collected packages: pip</span>
+<span class="go">  Found existing installation: pip 9.0.3</span>
+<span class="go">    Uninstalling pip-9.0.3:</span>
+<span class="go">      Successfully uninstalled pip-9.0.3</span>
+<span class="go">Successfully installed pip-21.1.3</span>
+<span class="gp gp-VirtualEnv">(venv3)</span> <span class="gp">[zaki@rhel8-node ~]$ </span>pip<span class="w"> </span>list
+<span class="go">Package    Version</span>
+<span class="go">---------- -------</span>
+<span class="go">pip        21.1.3</span>
+<span class="go">setuptools 39.2.0</span>
 </code></pre></div>
-
 <p><code>--system-site-packages</code>も併用可</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pyvenv-3.6<span style="color: #BBB"> </span>venv<span style="color: #BBB"> </span>--system-site-packages
-<span style="color: #888">WARNING: the pyenv script is deprecated in favour of `platform-python -m venv`</span>
-<span style="color: #000080; font-weight: bold">[zaki@rhel8-ansible-node ~]$ </span>.<span style="color: #BBB"> </span>venv/bin/activate
-<span style="color: #000080; font-weight: bold">(venv)</span> <span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>pip<span style="color: #BBB"> </span>list
-<span style="color: #888">DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.</span>
-<span style="color: #888">cffi (1.11.5)</span>
-<span style="color: #888">chardet (3.0.4)</span>
-<span style="color: #888">configobj (5.0.6)</span>
-<span style="color: #888">configshell-fb (1.1.28)</span>
-<span style="color: #888">cryptography (3.2.1)</span>
-<span style="color: #888">dbus-python (1.2.4)</span>
-<span style="color: #888">decorator (4.2.1)</span>
-<span style="color: #888">ethtool (0.14)</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@rhel8-node ~]$ </span>pyvenv-3.6<span class="w"> </span>venv<span class="w"> </span>--system-site-packages
+<span class="go">WARNING: the pyenv script is deprecated in favour of `platform-python -m venv`</span>
+<span class="gp">[zaki@rhel8-ansible-node ~]$ </span>.<span class="w"> </span>venv/bin/activate
+<span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">[zaki@rhel8-node ~]$ </span>pip<span class="w"> </span>list
+<span class="go">DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.</span>
+<span class="go">cffi (1.11.5)</span>
+<span class="go">chardet (3.0.4)</span>
+<span class="go">configobj (5.0.6)</span>
+<span class="go">configshell-fb (1.1.28)</span>
+<span class="go">cryptography (3.2.1)</span>
+<span class="go">dbus-python (1.2.4)</span>
+<span class="go">decorator (4.2.1)</span>
+<span class="go">ethtool (0.14)</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <h3 id="pipx">pipx</h3>
 <h4 id="_83">インストール</h4>
 <p><a href="https://pipx.pypa.io/stable/installation/">Installation - pipx</a><br />
 <code>dnf</code>や<code>apt</code>で。</p>
 <h4 id="_84">アプリケーションインストール</h4>
 <p>例: <code>ansible-core</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">pipx install ansible-core</span>
+<div class="highlight"><pre><span></span><code><span class="go">pipx install ansible-core</span>
 </code></pre></div>
-
 <p>バージョン指定も可能</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>pipx<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>ansible-core<span style="color: #666">==2</span>.18.0
-<span style="color: #888">  installed package ansible-core 2.18.0, installed using Python 3.13.7</span>
-<span style="color: #888">  These apps are now globally available</span>
-<span style="color: #888">    - ansible</span>
-<span style="color: #888">    - ansible-config</span>
-<span style="color: #888">    - ansible-console</span>
-<span style="color: #888">    - ansible-doc</span>
-<span style="color: #888">    - ansible-galaxy</span>
-<span style="color: #888">    - ansible-inventory</span>
-<span style="color: #888">    - ansible-playbook</span>
-<span style="color: #888">    - ansible-pull</span>
-<span style="color: #888">    - ansible-test</span>
-<span style="color: #888">    - ansible-vault</span>
-<span style="color: #888">done! ✨ 🌟 ✨</span>
-<span style="color: #000080; font-weight: bold">$ </span>ansible<span style="color: #BBB"> </span>--version
-<span style="color: #888">ansible [core 2.18.0]</span>
-<span style="color: #888">  config file = None</span>
-<span style="color: #888">  configured module search path = [&#39;/home/zaki/.ansible/plugins/modules&#39;, &#39;/usr/share/ansible/plugins/modules&#39;]</span>
-<span style="color: #888">  ansible python module location = /home/zaki/.local/share/pipx/venvs/ansible-core/lib64/python3.13/site-packages/ansible</span>
-<span style="color: #888">  ansible collection location = /home/zaki/.ansible/collections:/usr/share/ansible/collections</span>
-<span style="color: #888">  executable location = /home/zaki/.local/bin/ansible</span>
-<span style="color: #888">  python version = 3.13.7 (main, Aug 14 2025, 00:00:00) [GCC 15.2.1 20250808 (Red Hat 15.2.1-1)] (/home/zaki/.local/share/pipx/venvs/ansible-core/bin/python)</span>
-<span style="color: #888">  jinja version = 3.1.6</span>
-<span style="color: #888">  libyaml = True</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pipx<span class="w"> </span>install<span class="w"> </span>ansible-core<span class="o">==</span><span class="m">2</span>.18.0
+<span class="go">  installed package ansible-core 2.18.0, installed using Python 3.13.7</span>
+<span class="go">  These apps are now globally available</span>
+<span class="go">    - ansible</span>
+<span class="go">    - ansible-config</span>
+<span class="go">    - ansible-console</span>
+<span class="go">    - ansible-doc</span>
+<span class="go">    - ansible-galaxy</span>
+<span class="go">    - ansible-inventory</span>
+<span class="go">    - ansible-playbook</span>
+<span class="go">    - ansible-pull</span>
+<span class="go">    - ansible-test</span>
+<span class="go">    - ansible-vault</span>
+<span class="go">done! ✨ 🌟 ✨</span>
+<span class="gp">$ </span>ansible<span class="w"> </span>--version
+<span class="go">ansible [core 2.18.0]</span>
+<span class="go">  config file = None</span>
+<span class="go">  configured module search path = [&#39;/home/zaki/.ansible/plugins/modules&#39;, &#39;/usr/share/ansible/plugins/modules&#39;]</span>
+<span class="go">  ansible python module location = /home/zaki/.local/share/pipx/venvs/ansible-core/lib64/python3.13/site-packages/ansible</span>
+<span class="go">  ansible collection location = /home/zaki/.ansible/collections:/usr/share/ansible/collections</span>
+<span class="go">  executable location = /home/zaki/.local/bin/ansible</span>
+<span class="go">  python version = 3.13.7 (main, Aug 14 2025, 00:00:00) [GCC 15.2.1 20250808 (Red Hat 15.2.1-1)] (/home/zaki/.local/share/pipx/venvs/ansible-core/bin/python)</span>
+<span class="go">  jinja version = 3.1.6</span>
+<span class="go">  libyaml = True</span>
 </code></pre></div>
-
 <h2 id="rhel-ansible">RHEL / Ansible</h2>
 <p><a href="https://rheb.hatenablog.com/entry/ansible_python_environment">Ansible が利用する Python 実行環境 - 赤帽エンジニアブログ</a></p>
                 
@@ -5594,6 +5449,8 @@ jmespath==0.10.0
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

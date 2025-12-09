@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1679,6 +1681,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2354,27 +2368,22 @@
 <p>インストールドキュメントにも同じことが書かれている。<br />
 <a href="https://docs.k3s.io/installation/requirements?os=pi">https://docs.k3s.io/installation/requirements?os=pi</a></p>
 <p><code>/boot/cmdline.txt</code>(中身に<code>moved to /boot/firmware/cmdline.txt</code>と書かれていればそっち)を編集して以下を末尾に追記。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cgroup_memory=1 cgroup_enable=memory
+<div class="highlight"><pre><span></span><code>cgroup_memory=1 cgroup_enable=memory
 </code></pre></div>
-
 <h3 id="servercontrol-plane">server(control plane)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | sh -</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | sh -</span>
 </code></pre></div>
-
 <h3 id="agentworker-node">agent(worker node)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | K3S_URL=https://server:6443 K3S_TOKEN=${token} sh -</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | K3S_URL=https://server:6443 K3S_TOKEN=${token} sh -</span>
 </code></pre></div>
-
 <p>tokenはserverの <code>/var/lib/rancher/k3s/server/agent-token</code> にある。</p>
 <h3 id="_3">バージョン指定</h3>
 <p>バージョン番号を指定する場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.26.9+k3s1  sh -</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.26.9+k3s1  sh -</span>
 </code></pre></div>
-
 <p>チャンネルを指定する場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh -</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh -</span>
 </code></pre></div>
-
 <p>チャンネルはデフォルト<code>stable</code>で1個前のメジャーバージョンだったりする。<br />
 <a href="https://update.k3s.io/v1-release/channels">チャンネル一覧</a></p>
 <h3 id="_4">起動パラメタ</h3>
@@ -2410,14 +2419,12 @@
 <h3 id="kubelet">kubelet</h3>
 <h4 id="pod">最大pod数</h4>
 <p>IPアドレスをカスタマイズしても使えるpod数は連動しないので明確に指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">server --kubelet-arg=max-pods=200</span>
+<div class="highlight"><pre><span></span><code><span class="go">server --kubelet-arg=max-pods=200</span>
 </code></pre></div>
-
 <h4 id="_6">ログファイルのローテート設定</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">server --kubelet-arg=container-log-max-files=5 \</span>
-<span style="color: #888">       --kubelet-arg=container-log-max-size=10Mi</span>
+<div class="highlight"><pre><span></span><code><span class="go">server --kubelet-arg=container-log-max-files=5 \</span>
+<span class="go">       --kubelet-arg=container-log-max-size=10Mi</span>
 </code></pre></div>
-
 <p><a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/">https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/</a></p>
 <h3 id="_7">ネットワーク</h3>
 <h4 id="ip">IPアドレス</h4>
@@ -2439,19 +2446,17 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | sh -s - \</span>
-<span style="color: #888">  --cluster-cidr &quot;172.28.0.0/16&quot; \</span>
-<span style="color: #888">  --service-cidr &quot;172.29.0.0/16&quot; \</span>
-<span style="color: #888">  --kube-controller-manager-arg=node-cidr-mask-size=24 \</span>
-<span style="color: #888">  --kubelet-arg=max-pods=200</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | sh -s - \</span>
+<span class="go">  --cluster-cidr &quot;172.28.0.0/16&quot; \</span>
+<span class="go">  --service-cidr &quot;172.29.0.0/16&quot; \</span>
+<span class="go">  --kube-controller-manager-arg=node-cidr-mask-size=24 \</span>
+<span class="go">  --kubelet-arg=max-pods=200</span>
 </code></pre></div>
-
 <h4 id="resolvconf">resolv.conf</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>cat<span style="color: #BBB"> </span>/etc/k3s.resolve.conf<span style="color: #BBB"> </span>
-nameserver<span style="color: #BBB"> </span><span style="color: #666">8</span>.8.8.8
-$<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<span style="color: #BBB"> </span>https://get.k3s.io<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>sh<span style="color: #BBB"> </span>-s<span style="color: #BBB"> </span>-<span style="color: #BBB"> </span>--write-kubeconfig-mode<span style="color: #BBB"> </span><span style="color: #666">644</span><span style="color: #BBB"> </span>--resolv-conf<span style="color: #BBB"> </span>/etc/k3s.resolv.conf<span style="color: #BBB"> </span>
+<div class="highlight"><pre><span></span><code>$ cat /etc/k3s.resolve.conf 
+nameserver 8.8.8.8
+$ curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --resolv-conf /etc/k3s.resolv.conf 
 </code></pre></div>
-
 <h4 id="_8">デプロイ後のアドレス変更は不可</h4>
 <blockquote>
 <p>You cannot change the CIDRs or add a new address family to an existing cluster. Cluster networking should be established when the cluster is initially started.</p>
@@ -2462,27 +2467,25 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <p>基本的にデフォルトon<br />
 リソース節約など使用しないものはoffにできる。</p>
 <p>Traefik Ingress Controllerとlocal storageをオフにする場合のインストールオプションは以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | sh -s - --disable traefik --disable local-storage</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | sh -s - --disable traefik --disable local-storage</span>
 </code></pre></div>
-
 <p>構築済みのK3sに対してコンポーネントを無効化/有効化したい場合は、<code>/etc/systemd/system/k3s.service</code>へ起動パラメタを編集し、<code>systemctl daemon-reload</code>して<code>systemctl restart k3s</code>すればOK<br />
 (設定ファイル<code>/etc/rancher/k3s/config.yaml</code>管理であればk3sサービスの再起動のみ)</p>
 <h3 id="_10">インストールパラメタの設定ファイル化</h3>
 <p><code>/etc/rancher/k3s/config.yaml</code>ファイルに定義する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
-<span style="color: #008000; font-weight: bold">write-kubeconfig-mode</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;0644&quot;</span>
-<span style="color: #008000; font-weight: bold">cluster-cidr</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;172.28.0.0/16&quot;</span>
-<span style="color: #008000; font-weight: bold">service-cidr</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;172.29.0.0/16&quot;</span>
-<span style="color: #008000; font-weight: bold">kube-controller-manager-arg</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>node-cidr-mask-size=24
-<span style="color: #008000; font-weight: bold">kubelet-arg</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>max-pods=200
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>kube-reserved=cpu=100m,memory=100Mi
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>system-reserved=cpu=100m,memory=100Mi
-<span style="color: #008000; font-weight: bold">disable</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>metrics-server
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">write-kubeconfig-mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0644&quot;</span>
+<span class="nt">cluster-cidr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;172.28.0.0/16&quot;</span>
+<span class="nt">service-cidr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;172.29.0.0/16&quot;</span>
+<span class="nt">kube-controller-manager-arg</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node-cidr-mask-size=24</span>
+<span class="nt">kubelet-arg</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">max-pods=200</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-reserved=cpu=100m,memory=100Mi</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system-reserved=cpu=100m,memory=100Mi</span>
+<span class="nt">disable</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metrics-server</span>
 </code></pre></div>
-
 <h2 id="_11">バックアップとリストア</h2>
 <p><a href="https://docs.k3s.io/datastore/backup-restore">Backup and Restore | K3s</a></p>
 <p>デフォルトのSQLite構成であれば下記</p>
@@ -2513,9 +2516,8 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <h2 id="_12">アップグレード</h2>
 <p><a href="https://docs.k3s.io/upgrades/manual">Manual Upgrades | K3s</a></p>
 <p>インストール時に指定した環境変数・パラメタを指定しつつ、インストールスクリプトを追加実行すればアップグレードできる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=vX.Y.Z+k3s1 &lt;EXISTING_K3S_ENV&gt; sh -s - &lt;EXISTING_K3S_ARGS&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=vX.Y.Z+k3s1 &lt;EXISTING_K3S_ENV&gt; sh -s - &lt;EXISTING_K3S_ARGS&gt;</span>
 </code></pre></div>
-
 <p>マイナーバージョンのskipはサポート外なので、リリースチャンネル指定よりもバージョン指定の方がやりやすいと思う。</p>
 <blockquote>
 <p>Ensure that your plan does not skip intermediate minor versions when upgrading.</p>
@@ -2534,9 +2536,8 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 <h2 id="loadbalancer-service">LoadBalancer Service</h2>
 <h3 id="listen">特定のノードのみでlistenするには</h3>
 <p>ノードに以下のラベルを付与するとallow-list modeになり、このラベルが付いたノードのみでlistenするようになる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">svccontroller.k3s.cattle.io/enablelb=true</span>
+<div class="highlight"><pre><span></span><code><span class="go">svccontroller.k3s.cattle.io/enablelb=true</span>
 </code></pre></div>
-
 <h2 id="_15">オフライン環境</h2>
 <h3 id="_16">プライベートレジストリ設定</h3>
 <p><a href="https://docs.k3s.io/installation/private-registry">Private Registry Configuration | K3s</a></p>
@@ -2544,153 +2545,142 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
 ローカル環境にたてたGitLabのコンテナレジストリを使う場合でパスが深くなる場合も<code>rewrite</code>を使って調整可能。(イメージ名は変更しない)</p>
 <p><code>/etc/rancher/k3s/registries.yaml</code>に以下のように設定。<br />
 証明書の検証をスキップする場合は<code>insecure_skip_verify</code>を追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">mirrors</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">docker.io</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">endpoint</span>:
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://gitlab.example.org:25000&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">rewrite</span>:
-<span style="color: #BBB">      </span><span style="color: #B44">&quot;^rancher/(.*)&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;zaki/images/$1&quot;</span>
-<span style="color: #008000; font-weight: bold">configs</span>:
-<span style="color: #BBB">  </span><span style="color: #B44">&quot;gitlab.example.org:25000&quot;</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">tls</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">insecure_skip_verify</span>:<span style="color: #BBB"> </span>true
+<div class="highlight"><pre><span></span><code><span class="nt">mirrors</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">docker.io</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">endpoint</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;https://gitlab.example.org:25000&quot;</span>
+<span class="w">    </span><span class="nt">rewrite</span><span class="p">:</span>
+<span class="w">      </span><span class="s">&quot;^rancher/(.*)&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;zaki/images/$1&quot;</span>
+<span class="nt">configs</span><span class="p">:</span>
+<span class="w">  </span><span class="s">&quot;gitlab.example.org:25000&quot;</span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">insecure_skip_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <p>また、この設定はノード毎に必要なので、マルチノード構成の場合は全てのノードに設定する。</p>
 <h2 id="k3d-compose">K3d (compose)</h2>
 <p><a href="https://github.com/k3s-io/k3s/blob/master/docker-compose.yml">k3s/docker-compose.yml at master · k3s-io/k3s</a></p>
 <h3 id="_17">ワーカーのスケーリング</h3>
 <p>初期構築時であれば<code>--scale</code>で指定できる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>compose<span style="color: #BBB"> </span>up<span style="color: #BBB"> </span>-d<span style="color: #BBB"> </span>--scale<span style="color: #BBB"> </span><span style="color: #B8860B">agent</span><span style="color: #666">=5</span>
-<span style="color: #888">[+] Running 6/8</span>
-<span style="color: #888"> ⠸ Network k3s-compose_default      Created                                                                 1.3s </span>
-<span style="color: #888"> ⠹ Volume &quot;k3s-compose_k3s-server&quot;  Created                                                                 1.2s </span>
-<span style="color: #888"> ✔ Container k3s-compose-server-1   Started                                                                 0.4s </span>
-<span style="color: #888"> ✔ Container k3s-compose-agent-5    Started                                                                 1.2s </span>
-<span style="color: #888"> ✔ Container k3s-compose-agent-2    Started                                                                 1.0s </span>
-<span style="color: #888"> ✔ Container k3s-compose-agent-3    Started                                                                 0.8s </span>
-<span style="color: #888"> ✔ Container k3s-compose-agent-1    Started                                                                 0.6s </span>
-<span style="color: #888"> ✔ Container k3s-compose-agent-4    Started                                                                 0.4s </span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--scale<span class="w"> </span><span class="nv">agent</span><span class="o">=</span><span class="m">5</span>
+<span class="go">[+] Running 6/8</span>
+<span class="go"> ⠸ Network k3s-compose_default      Created                                                                 1.3s </span>
+<span class="go"> ⠹ Volume &quot;k3s-compose_k3s-server&quot;  Created                                                                 1.2s </span>
+<span class="go"> ✔ Container k3s-compose-server-1   Started                                                                 0.4s </span>
+<span class="go"> ✔ Container k3s-compose-agent-5    Started                                                                 1.2s </span>
+<span class="go"> ✔ Container k3s-compose-agent-2    Started                                                                 1.0s </span>
+<span class="go"> ✔ Container k3s-compose-agent-3    Started                                                                 0.8s </span>
+<span class="go"> ✔ Container k3s-compose-agent-1    Started                                                                 0.6s </span>
+<span class="go"> ✔ Container k3s-compose-agent-4    Started                                                                 0.4s </span>
 
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>node
-<span style="color: #888">NAME           STATUS   ROLES                  AGE   VERSION</span>
-<span style="color: #888">4c1f8de42bfe   Ready    control-plane,master   20s   v1.29.1+k3s2</span>
-<span style="color: #888">2f5893c02aa3   Ready    &lt;none&gt;                 9s    v1.29.1+k3s2</span>
-<span style="color: #888">8239e04d52ef   Ready    &lt;none&gt;                 19s   v1.29.1+k3s2</span>
-<span style="color: #888">9952de1bc166   Ready    &lt;none&gt;                 12s   v1.29.1+k3s2</span>
-<span style="color: #888">412b213f3d10   Ready    &lt;none&gt;                 12s   v1.29.1+k3s2</span>
-<span style="color: #888">b513c8231aad   Ready    &lt;none&gt;                 11s   v1.29.1+k3s2</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>node
+<span class="go">NAME           STATUS   ROLES                  AGE   VERSION</span>
+<span class="go">4c1f8de42bfe   Ready    control-plane,master   20s   v1.29.1+k3s2</span>
+<span class="go">2f5893c02aa3   Ready    &lt;none&gt;                 9s    v1.29.1+k3s2</span>
+<span class="go">8239e04d52ef   Ready    &lt;none&gt;                 19s   v1.29.1+k3s2</span>
+<span class="go">9952de1bc166   Ready    &lt;none&gt;                 12s   v1.29.1+k3s2</span>
+<span class="go">412b213f3d10   Ready    &lt;none&gt;                 12s   v1.29.1+k3s2</span>
+<span class="go">b513c8231aad   Ready    &lt;none&gt;                 11s   v1.29.1+k3s2</span>
 </code></pre></div>
-
 <h2 id="always-freeocia1flex-2cpu12gb-ram">Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る</h2>
 <p>標準のE2.1.Microの場合↓<br />
 <a href="https://qiita.com/zaki-lknr/items/e829a3ad548e362ef89c">[Oracle Cloud] K3sでAlways Free枠ノードにKubernetesクラスタ作成してローカルからkubectlアクセスまで - Qiita</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sfL<span style="color: #BBB"> </span>https://get.k3s.io<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>sh<span style="color: #BBB"> </span>-
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sfL<span class="w"> </span>https://get.k3s.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-
 </code></pre></div>
-
 <p>たまたま作成できた2cpus/12GB RAMで作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>curl<span style="color: #BBB"> </span>-sfL<span style="color: #BBB"> </span>https://get.k3s.io<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>sh<span style="color: #BBB"> </span>-
+<div class="highlight"><pre><span></span><code><span class="gp">[opc@instance-20210704-1554 ~]$ </span>curl<span class="w"> </span>-sfL<span class="w"> </span>https://get.k3s.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-
 
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<span class="go">:</span>
+<span class="go">:</span>
 
-<span style="color: #888">インストール:</span>
-<span style="color: #888">  k3s-selinux.noarch 0:0.3-0.el7</span>
+<span class="go">インストール:</span>
+<span class="go">  k3s-selinux.noarch 0:0.3-0.el7</span>
 
-<span style="color: #888">依存性関連をインストールしました:</span>
-<span style="color: #888">  container-selinux.noarch 2:2.119.2-1.911c772.el7_8</span>
+<span class="go">依存性関連をインストールしました:</span>
+<span class="go">  container-selinux.noarch 2:2.119.2-1.911c772.el7_8</span>
 
-<span style="color: #888">完了しました!</span>
-<span style="color: #888">[INFO]  Creating /usr/local/bin/kubectl symlink to k3s</span>
-<span style="color: #888">[INFO]  Creating /usr/local/bin/crictl symlink to k3s</span>
-<span style="color: #888">[INFO]  Creating /usr/local/bin/ctr symlink to k3s</span>
-<span style="color: #888">[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh</span>
-<span style="color: #888">[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh</span>
-<span style="color: #888">[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env</span>
-<span style="color: #888">[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service</span>
-<span style="color: #888">[INFO]  systemd: Enabling k3s unit</span>
-<span style="color: #888">Created symlink from /etc/systemd/system/multi-user.target.wants/k3s.service to /etc/systemd/system/k3s.service.</span>
-<span style="color: #888">[INFO]  systemd: Starting k3s</span>
+<span class="go">完了しました!</span>
+<span class="go">[INFO]  Creating /usr/local/bin/kubectl symlink to k3s</span>
+<span class="go">[INFO]  Creating /usr/local/bin/crictl symlink to k3s</span>
+<span class="go">[INFO]  Creating /usr/local/bin/ctr symlink to k3s</span>
+<span class="go">[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh</span>
+<span class="go">[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh</span>
+<span class="go">[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env</span>
+<span class="go">[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service</span>
+<span class="go">[INFO]  systemd: Enabling k3s unit</span>
+<span class="go">Created symlink from /etc/systemd/system/multi-user.target.wants/k3s.service to /etc/systemd/system/k3s.service.</span>
+<span class="go">[INFO]  systemd: Starting k3s</span>
 </code></pre></div>
-
 <h3 id="kubeconfig">kubeconfig</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #BBB"> </span>cp<span style="color: #BBB"> </span>/etc/rancher/k3s/k3s.yaml<span style="color: #BBB"> </span>~
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>ll
-<span style="color: #888">合計 4</span>
-<span style="color: #888">-rw-------. 1 root root 2961  7月 23 02:30 k3s.yaml</span>
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #BBB"> </span>hhown<span style="color: #BBB"> </span>opc:opc<span style="color: #BBB"> </span>k3s.yaml<span style="color: #BBB"> </span>
+<div class="highlight"><pre><span></span><code><span class="gp">[opc@instance-20210704-1554 ~]$ </span>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/rancher/k3s/k3s.yaml<span class="w"> </span>~
+<span class="gp">[opc@instance-20210704-1554 ~]$ </span>ll
+<span class="go">合計 4</span>
+<span class="go">-rw-------. 1 root root 2961  7月 23 02:30 k3s.yaml</span>
+<span class="gp">[opc@instance-20210704-1554 ~]$ </span>sudo<span class="w"> </span>hhown<span class="w"> </span>opc:opc<span class="w"> </span>k3s.yaml<span class="w"> </span>
 </code></pre></div>
-
 <p>手元にコピー</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>scp<span style="color: #BBB"> </span>oci-ap-n1:k3s.yaml<span style="color: #BBB"> </span>oci-ap-n1-k3s.yaml
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>scp<span class="w"> </span>oci-ap-n1:k3s.yaml<span class="w"> </span>oci-ap-n1-k3s.yaml
 </code></pre></div>
-
 <p><code>server</code>のアドレスをグローバルIPに変更し、<code>insecure-skip-tls-verify: true</code>を追加。<br />
 (※うまくいかないときは<code>kubectl</code>に<code>--insecure-skip-tls-verify=true</code>オプションを追加)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">clusters</span>:
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">cluster</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">certificate-authority-data</span>:<span style="color: #BBB"> </span>...
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">server</span>:<span style="color: #BBB"> </span>https://&lt;hostのgip&gt;:6443
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>default
-<span style="color: #008000; font-weight: bold">contexts</span>:
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">context</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">cluster</span>:<span style="color: #BBB"> </span>default
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">user</span>:<span style="color: #BBB"> </span>default
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>default
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #BBB"> </span>true
+<div class="highlight"><pre><span></span><code><span class="nt">clusters</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://&lt;hostのgip&gt;:6443</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">contexts</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">insecure-skip-tls-verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <h3 id="_18">穴あけ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #BBB"> </span>firewall-cmd<span style="color: #BBB"> </span>--add-port<span style="color: #666">=6443</span>/tcp<span style="color: #BBB"> </span>--permanent
-<span style="color: #888">success</span>
-<span style="color: #000080; font-weight: bold">[opc@instance-20210704-1554 ~]$ </span>sudo<span style="color: #BBB"> </span>firewall-cmd<span style="color: #BBB"> </span>--reload
-<span style="color: #888">success</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[opc@instance-20210704-1554 ~]$ </span>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--add-port<span class="o">=</span><span class="m">6443</span>/tcp<span class="w"> </span>--permanent
+<span class="go">success</span>
+<span class="gp">[opc@instance-20210704-1554 ~]$ </span>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+<span class="go">success</span>
 </code></pre></div>
-
 <p>あとwebコンソールで、6443/TCPへのアクセス許可を追加。</p>
 <h3 id="deploy-sample">deploy sample</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666">=</span>oci-ap-n1-k3s.yaml<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>apply<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>sample<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/src/k8s-samples/sample-web/httpd-clusterip/sample-http.yaml<span style="color: #BBB"> </span>
-<span style="color: #888">deployment.apps/sample-http created</span>
-<span style="color: #888">service/sample-http created</span>
-<span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666">=</span>oci-ap-n1-k3s.yaml<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>sample
-<span style="color: #888">NAME                           READY   STATUS              RESTARTS   AGE</span>
-<span style="color: #888">sample-http-6c94f59975-65p6w   0/1     ContainerCreating   0          9s</span>
-<span style="color: #888">sample-http-6c94f59975-clzhp   0/1     ContainerCreating   0          9s</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@cloud-dev kubeconfig]$ </span><span class="nv">KUBECONFIG</span><span class="o">=</span>oci-ap-n1-k3s.yaml<span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </span>-n<span class="w"> </span>sample<span class="w"> </span>-f<span class="w"> </span>~/src/k8s-samples/sample-web/httpd-clusterip/sample-http.yaml<span class="w"> </span>
+<span class="go">deployment.apps/sample-http created</span>
+<span class="go">service/sample-http created</span>
+<span class="gp">[zaki@cloud-dev kubeconfig]$ </span><span class="nv">KUBECONFIG</span><span class="o">=</span>oci-ap-n1-k3s.yaml<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>sample
+<span class="go">NAME                           READY   STATUS              RESTARTS   AGE</span>
+<span class="go">sample-http-6c94f59975-65p6w   0/1     ContainerCreating   0          9s</span>
+<span class="go">sample-http-6c94f59975-clzhp   0/1     ContainerCreating   0          9s</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666">=</span>oci-ap-n1-k3s.yaml<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>sample<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>wide
-<span style="color: #888">NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE                     NOMINATED NODE   READINESS GATES</span>
-<span style="color: #888">sample-http-6c94f59975-65p6w   1/1     Running   0          87s   10.42.0.9    instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
-<span style="color: #888">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@cloud-dev kubeconfig]$ </span><span class="nv">KUBECONFIG</span><span class="o">=</span>oci-ap-n1-k3s.yaml<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>sample<span class="w"> </span>-o<span class="w"> </span>wide
+<span class="go">NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE                     NOMINATED NODE   READINESS GATES</span>
+<span class="go">sample-http-6c94f59975-65p6w   1/1     Running   0          87s   10.42.0.9    instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
+<span class="go">sample-http-6c94f59975-clzhp   1/1     Running   0          87s   10.42.0.10   instance-20210704-1554   &lt;none&gt;           &lt;none&gt;</span>
 </code></pre></div>
-
 <h3 id="_19">ノードスペック</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@cloud-dev kubeconfig]$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666">=</span>oci-ap-n1-k3s.yaml<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>describe<span style="color: #BBB"> </span>node
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@cloud-dev kubeconfig]$ </span><span class="nv">KUBECONFIG</span><span class="o">=</span>oci-ap-n1-k3s.yaml<span class="w"> </span>kubectl<span class="w"> </span>describe<span class="w"> </span>node
 
-<span style="color: #888">[...]</span>
+<span class="go">[...]</span>
 
-<span style="color: #888">Capacity:</span>
-<span style="color: #888">  cpu:                2</span>
-<span style="color: #888">  ephemeral-storage:  40223552Ki</span>
-<span style="color: #888">  hugepages-16Gi:     0</span>
-<span style="color: #888">  hugepages-2Mi:      0</span>
-<span style="color: #888">  hugepages-512Mi:    0</span>
-<span style="color: #888">  memory:             11125568Ki</span>
-<span style="color: #888">  pods:               110</span>
-<span style="color: #888">Allocatable:</span>
-<span style="color: #888">  cpu:                2</span>
-<span style="color: #888">  ephemeral-storage:  39129471355</span>
-<span style="color: #888">  hugepages-16Gi:     0</span>
-<span style="color: #888">  hugepages-2Mi:      0</span>
-<span style="color: #888">  hugepages-512Mi:    0</span>
-<span style="color: #888">  memory:             11125568Ki</span>
-<span style="color: #888">  pods:               110</span>
+<span class="go">Capacity:</span>
+<span class="go">  cpu:                2</span>
+<span class="go">  ephemeral-storage:  40223552Ki</span>
+<span class="go">  hugepages-16Gi:     0</span>
+<span class="go">  hugepages-2Mi:      0</span>
+<span class="go">  hugepages-512Mi:    0</span>
+<span class="go">  memory:             11125568Ki</span>
+<span class="go">  pods:               110</span>
+<span class="go">Allocatable:</span>
+<span class="go">  cpu:                2</span>
+<span class="go">  ephemeral-storage:  39129471355</span>
+<span class="go">  hugepages-16Gi:     0</span>
+<span class="go">  hugepages-2Mi:      0</span>
+<span class="go">  hugepages-512Mi:    0</span>
+<span class="go">  memory:             11125568Ki</span>
+<span class="go">  pods:               110</span>
 </code></pre></div>
-
 <p>おぉ、CPUはともかくメモリが潤沢だ。</p>
 <p>rebootしてもOK</p>
 <h2 id="_20">アンインストール</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>k3s-uninstall.sh<span style="color: #BBB"> </span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>k3s-uninstall.sh<span class="w"> </span>
 </code></pre></div>
                 
               
@@ -2768,6 +2758,8 @@ $<span style="color: #BBB"> </span>curl<span style="color: #BBB"> </span>-sfL<sp
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1493,6 +1495,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1981,9 +1995,8 @@
 <p><a href="https://learn.microsoft.com/ja-jp/azure/cloud-shell/faq-troubleshooting">Azure Cloud Shell に関してよくあるご質問 (FAQ) | Microsoft Learn</a></p>
 <h3 id="_2">ストレージアカウントの確認</h3>
 <p>環境変数にセットされている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">echo $ACC_STORAGE_PROFILE</span>
+<div class="highlight"><pre><span></span><code><span class="go">echo $ACC_STORAGE_PROFILE</span>
 </code></pre></div>
-
 <h2 id="aks">AKS</h2>
 <h3 id="_3">監視設定</h3>
 <ul>
@@ -2005,11 +2018,10 @@
 収集頻度や対象ネームスペースなどをここから選択。</p>
 <h3 id="_5">クエリ</h3>
 <h4 id="countername">使用可能なCounterNameの一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Perf
-|<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">where</span><span style="color: #BBB"> </span>ObjectName<span style="color: #BBB"> </span>==<span style="color: #BBB"> </span><span style="color: #B44">&quot;K8SContainer&quot;</span>
-|<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">summarize</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">count</span>()<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">by</span><span style="color: #BBB"> </span>CounterName
+<div class="highlight"><pre><span></span><code><span class="n">Perf</span>
+<span class="p">|</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ObjectName</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s">&quot;K8SContainer&quot;</span>
+<span class="p">|</span><span class="w"> </span><span class="k">summarize</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">CounterName</span>
 </code></pre></div>
-
 <p>CounterNameの一覧とそれぞれの件数が出力される</p>
                 
               
@@ -2087,6 +2099,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

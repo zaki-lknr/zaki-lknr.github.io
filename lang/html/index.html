@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1358,6 +1360,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1957,43 +1971,39 @@
                 <h1 id="html">html</h1>
 <h2 id="_1">レスポンシブデザイン</h2>
 <p>ヘッダにこれを入れるのが基本</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&lt;<span style="color: #008000; font-weight: bold">meta</span> <span style="color: #B44">name</span><span style="color: #666">=</span><span style="color: #B44">&quot;viewport&quot;</span> <span style="color: #B44">content</span><span style="color: #666">=</span><span style="color: #B44">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span> <span class="p">/&gt;</span>
 </code></pre></div>
-
 <h2 id="tag">tag</h2>
 <h3 id="meta">meta</h3>
 <h4 id="_2">文字コード指定</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color: #008000; font-weight: bold">html</span>&gt;
-    &lt;<span style="color: #008000; font-weight: bold">head</span>&gt;
-        &lt;<span style="color: #008000; font-weight: bold">meta</span> <span style="color: #B44">charset</span><span style="color: #666">=</span><span style="color: #B44">&quot;utf-8&quot;</span>&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <p>サーバーの設定をいじれない場合などで。</p>
 <h3 id="form">form</h3>
 <h4 id="_3">ファイルダイアログの複数選択</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&lt;<span style="color: #008000; font-weight: bold">input</span> <span style="color: #B44">type</span><span style="color: #666">=</span><span style="color: #B44">&quot;file&quot;</span> <span style="color: #B44">multiple</span>/&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">multiple</span><span class="p">/&gt;</span>
 </code></pre></div>
-
 <h2 id="css">css</h2>
 <h3 id="_4">別ファイル読み込み</h3>
 <p><code>@import</code>を使う。</p>
 <p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/@import">@import - CSS: カスケーディングスタイルシート | MDN</a></p>
 <h3 id="_5">カーソル変更</h3>
 <p>マウスオーバー時にリンクのスタイルにする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>.<span style="color: #00F">link_style</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">cursor</span>:<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">pointer</span>;
-}
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">link_style</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>このスタイルをブロックに使うと、マウスオーバー時にリンクのスタイルになる。クリックしてjsのコード実行などさせたいときに使える。</p>
 <p>選択可能なプロパティ一覧は以下<br />
 <a href="https://developer.mozilla.org/ja/docs/Web/CSS/cursor">cursor - CSS: カスケーディングスタイルシート | MDN</a></p>
 <h3 id="text-decoration">テキスト装飾 (text-decoration)</h3>
 <p>下線</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>.<span style="color: #00F">text_decoration</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #A2F; font-weight: bold">text-decoration</span>:<span style="color: #A2F; font-weight: bold">underline</span>;
-}
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">text_decoration</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">text-decoration</span><span class="p">:</span><span class="kc">underline</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
                 
               
@@ -2071,6 +2081,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1521,6 +1523,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2030,113 +2044,98 @@
 <h2 id="_2">変数</h2>
 <h3 id="_3">変数宣言</h3>
 <p>変数</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% set hogehoge = &#39;foobar&#39; %}
+<div class="highlight"><pre><span></span><code>{% set hogehoge = &#39;foobar&#39; %}
 </code></pre></div>
-
 <p>配列</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% set array = [] %}
+<div class="highlight"><pre><span></span><code>{% set array = [] %}
 </code></pre></div>
-
 <h3 id="_4">配列要素の追加</h3>
 <p>↑の<code>array</code>に要素を追加したい場合、Ansibleでは<code>array.append()</code>は使えるように見えて使えない。<br />
 ↓のように書く。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% set _ = array.append(&#39;item&#39;) %} 
+<div class="highlight"><pre><span></span><code>{% set _ = array.append(&#39;item&#39;) %} 
 </code></pre></div>
-
 <blockquote>
 <p>これに <code>do</code> を追加して <code>{% do list.append(1) %}</code> と書けるようにする <a href="https://jinja.palletsprojects.com/en/latest/templates/#expression-statement">Expression Statement</a> という拡張もあるらしいのですが Ansible では有効化されていませんので、面倒ですが <code>{% if list.append(1) %}{% endif %}</code> や <code>{% set _ = list.append(1) %}</code> のように他のステートメントの中で評価したい式を書く必要があります。</p>
 <p><a href="http://blog.keshi.org/hogememo/2015/12/07/exploiting-ansible-jinja2">ほげめも: Ansible の Jinja2 を活用する</a></p>
 </blockquote>
 <p>辞書をリストの要素として追加は普通にOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">{</span><span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">set</span><span style="color: #BBB"> </span>_<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>host_list.append(<span style="border: 1px solid #F00">{</span><span style="color: #B44">&#39;host&#39;</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">host</span>,<span style="color: #BBB"> </span><span style="color: #B44">&#39;name&#39;</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>hostvars<span style="color: #666">[</span>host<span style="color: #666">]</span>.tags.<span style="color: #A2F; font-weight: bold">User</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">}</span>)<span style="color: #BBB"> </span><span style="color: #666">%</span><span style="border: 1px solid #F00">}</span>
+<div class="highlight"><pre><span></span><code>{% set _ = host_list.append({&#39;host&#39;: host, &#39;name&#39;: hostvars[host].tags.User }) %}
 </code></pre></div>
-
 <h3 id="_5">辞書</h3>
 <h4 id="_6">値の参照</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{{</span> <span style="color: #B8860B">foo.bar.baz</span> <span style="color: #080">}}</span>
+<div class="highlight"><pre><span></span><code>{{ foo.bar.baz }}
 </code></pre></div>
-
 <p>または</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{{</span> <span style="color: #B8860B">foo</span><span style="color: #666">[</span><span style="color: #B44">&#39;bar&#39;</span><span style="color: #666">][</span><span style="color: #B44">&#39;baz&#39;</span><span style="color: #666">]</span> <span style="color: #080">}}</span>
+<div class="highlight"><pre><span></span><code>{{ foo[&#39;bar&#39;][&#39;baz&#39;] }}
 </code></pre></div>
-
 <p>後者の書式であればキー名に変数を使うこともできる。</p>
 <h2 id="_7">制御構文</h2>
 <h3 id="_8">ループ</h3>
 <p>リストに対する<code>for</code>構文は、foreach式で配列要素をループ毎に処理できる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{% for item in array_value %}
+<div class="highlight"><pre><span></span><code>{% for item in array_value %}
 ...
 {% endfor %}
 </code></pre></div>
-
 <p><code>array_value</code>の配列要素が<code>item</code>にセットされてループ処理される。</p>
 <h4 id="_9">ループインデックス</h4>
 <p>ループブロック内で<code>loop.index0</code>という変数参照でループインデックスを取り出せる(ゼロオリジン)</p>
 <h2 id="_10">コメント</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{# comment #}
+<div class="highlight"><pre><span></span><code>{# comment #}
 </code></pre></div>
-
 <p>複数行もOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{#
-{<span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span><span style="color: #B8860B">item</span><span style="color: #BBB"> </span><span style="color: #B8860B">in</span><span style="color: #BBB"> </span><span style="color: #B8860B">list</span><span style="color: #BBB"> </span><span style="color: #666">%</span>}
-{<span style="color: #666">%</span><span style="color: #BBB"> </span><span style="color: #B8860B">endfor</span><span style="color: #BBB"> </span><span style="color: #666">%</span>}
+<div class="highlight"><pre><span></span><code>{#
+{% for item in list %}
+{% endfor %}
 #}
 </code></pre></div>
-
 <h2 id="lookup">lookupプラグイン実行</h2>
 <p>playbook等で書くときと同じ要領で記述可能</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{{</span> <span style="color: #B8860B">lookup</span><span style="color: #666">(</span><span style="color: #B44">&#39;pipe&#39;</span><span style="color: #666">,</span> <span style="color: #B44">&#39;date +%s&#39;</span><span style="color: #666">)</span> <span style="color: #080">}}</span>
+<div class="highlight"><pre><span></span><code>{{ lookup(&#39;pipe&#39;, &#39;date +%s&#39;) }}
 </code></pre></div>
-
 <h2 id="_11">指定部分へのフィルタの実行</h2>
 <h3 id="indent">indent()</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080">{%</span> <span style="color: #A2F; font-weight: bold">filter</span> <span style="color: #00A000">indent</span><span style="color: #666">(4,</span> <span style="color: #A2F">true</span><span style="color: #666">)</span> <span style="color: #080">%}</span>
-<span style="color: #080">{{</span> <span style="color: #B8860B">sample_string</span> <span style="color: #080">}}</span>
-<span style="color: #080">{%</span> <span style="color: #A2F; font-weight: bold">endfilter</span> <span style="color: #080">%}</span>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">filter</span> <span class="nf">indent</span><span class="o">(</span><span class="m">4</span><span class="o">,</span> <span class="kp">true</span><span class="o">)</span> <span class="cp">%}</span>
+<span class="cp">{{</span> <span class="nv">sample_string</span> <span class="cp">}}</span>
+<span class="cp">{%</span> <span class="k">endfilter</span> <span class="cp">%}</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">sample_string</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">int main() {</span>
+<span class="w">        </span><span class="no">return 0;</span>
+<span class="w">      </span><span class="no">}</span>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">sample_string</span>:<span style="color: #BBB"> </span>|
-<span style="color: #BBB">      </span><span style="color: #800">int main() {</span>
-<span style="color: #BBB">        </span><span style="color: #800">return 0;</span>
-<span style="color: #BBB">      </span><span style="color: #800">}</span>
-
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>j2 saple
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">template</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">src</span>:<span style="color: #BBB"> </span>indent_sample.txt.j2
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">dest</span>:<span style="color: #BBB"> </span>/var/tmp/indent_sample.txt
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">j2 saple</span>
+<span class="w">      </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indent_sample.txt.j2</span>
+<span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/tmp/indent_sample.txt</span>
 </code></pre></div>
-
 <p>実行結果は以下の通り、スペース4文字分のインデントが入る。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    int main() {
+<div class="highlight"><pre><span></span><code>    int main() {
       return 0;
     }
 </code></pre></div>
-
 <h2 id="_12">現在時刻の取得</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating_now.html">The now function: get the current time — Ansible Community Documentation</a></p>
 <p>Jinja2関数の<code>now()</code>を使う。(Jinja2の関数と書かれてるが、Jinja2のドキュメントに見当たらなくてよくわからん)<br />
 <code>pipe</code>で<code>date</code>を実行する必要はない。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>print current date
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">debug</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">msg</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;current(local):</span><span style="color: #B8860B"> </span><span style="color: #B44">{{</span><span style="color: #B8860B"> </span><span style="color: #B44">now()</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;current(utc):</span><span style="color: #B8860B">   </span><span style="color: #B44">{{</span><span style="color: #B8860B"> </span><span style="color: #B44">now(true)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #B44">&quot;formatted:</span><span style="color: #B8860B">      </span><span style="color: #B44">{{</span><span style="color: #B8860B"> </span><span style="color: #B44">now(false,</span><span style="color: #B8860B"> </span><span style="color: #B44">&#39;%Y-%m-%d</span><span style="color: #B8860B"> </span><span style="color: #B44">%H-%M-%S&#39;)</span><span style="color: #B8860B"> </span><span style="color: #B44">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">print current date</span>
+<span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;current(local):</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;current(utc):</span><span class="nv">   </span><span class="s">{{</span><span class="nv"> </span><span class="s">now(true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;formatted:</span><span class="nv">      </span><span class="s">{{</span><span class="nv"> </span><span class="s">now(false,</span><span class="nv"> </span><span class="s">&#39;%Y-%m-%d</span><span class="nv"> </span><span class="s">%H-%M-%S&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </code></pre></div>
-
 <p>出力は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ok: [localhost] =&gt; </span>
-<span style="color: #888">    msg:</span>
-<span style="color: #888">    - &#39;current(local): 2025-09-06 12:05:13.671003&#39;</span>
-<span style="color: #888">    - &#39;current(utc):   2025-09-06 03:05:13.671557&#39;</span>
-<span style="color: #888">    - &#39;formatted:      2025-09-06 12-05-13&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">ok: [localhost] =&gt; </span>
+<span class="go">    msg:</span>
+<span class="go">    - &#39;current(local): 2025-09-06 12:05:13.671003&#39;</span>
+<span class="go">    - &#39;current(utc):   2025-09-06 03:05:13.671557&#39;</span>
+<span class="go">    - &#39;formatted:      2025-09-06 12-05-13&#39;</span>
 </code></pre></div>
-
 <p>引数のbooleanはUTCフラグ。書式をフォーマットする場合は第2引数。</p>
                 
               
@@ -2214,6 +2213,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

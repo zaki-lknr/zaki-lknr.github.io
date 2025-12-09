@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1542,6 +1544,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2072,57 +2086,49 @@
 </ul>
 <h2 id="sudo">sudo</h2>
 <p>パスワード不要にする雑な設定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080"># cat /etc/sudoers.d/nopass </span>
-<span style="color: #00A000">%wheel</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
+<div class="highlight"><pre><span></span><code># cat /etc/sudoers.d/nopass 
+%wheel ALL=(ALL) NOPASSWD: ALL
 </code></pre></div>
-
 <p>Debian系はグループ名は<code>wheel</code>でなく<code>sudo</code>になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00A000">%sudo</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
+<div class="highlight"><pre><span></span><code>%sudo ALL=(ALL) NOPASSWD: ALL
 </code></pre></div>
-
 <h3 id="_2">コマンドでパス不要設定</h3>
 <p>rhel系</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #BBB"> </span><span style="color: #666">&lt;&lt;</span>__EOL__<span style="color: #BBB"> </span><span style="color: #666">&gt;</span><span style="color: #BBB"> </span><span style="color: #666">/</span>etc<span style="color: #666">/</span>sudoers.d<span style="color: #666">/</span>nopass
-<span style="color: #00A000">%wheel</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
+<div class="highlight"><pre><span></span><code>cat &lt;&lt;__EOL__ &gt; /etc/sudoers.d/nopass
+%wheel ALL=(ALL) NOPASSWD: ALL
 __EOL__
 </code></pre></div>
-
 <p>debian系</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #BBB"> </span><span style="color: #666">&lt;&lt;</span>__EOL__<span style="color: #BBB"> </span><span style="color: #666">&gt;</span><span style="color: #BBB"> </span><span style="color: #666">/</span>etc<span style="color: #666">/</span>sudoers.d<span style="color: #666">/</span>nopass
-<span style="color: #00A000">%sudo</span><span style="color: #BBB"> </span>ALL<span style="color: #666">=</span>(ALL)<span style="color: #BBB"> </span>NOPASSWD<span style="color: #666">:</span><span style="color: #BBB"> </span>ALL
+<div class="highlight"><pre><span></span><code>cat &lt;&lt;__EOL__ &gt; /etc/sudoers.d/nopass
+%sudo ALL=(ALL) NOPASSWD: ALL
 __EOL__
 </code></pre></div>
-
 <h2 id="_3">環境変数</h2>
 <h3 id="_4">設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">export PATH=$PATH:~/bin</span>
+<div class="highlight"><pre><span></span><code><span class="go">export PATH=$PATH:~/bin</span>
 </code></pre></div>
-
 <h3 id="_5">削除</h3>
 <p>環境変数<code>EDITOR</code>を削除するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">export -n EDITOR</span>
+<div class="highlight"><pre><span></span><code><span class="go">export -n EDITOR</span>
 </code></pre></div>
-
 <p>シェル変数に残るので<code>echo $EDITOR</code>の出力は変化しないが環境変数としては消える。</p>
 <h3 id="_6">シェル変数との区別</h3>
 <p><code>echo $foobar</code>で結果が返っても、それがシェル変数なのか環境変数なのかはこれだけだとわからない。<br />
 見分け方としては</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">printenv foobar</span>
+<div class="highlight"><pre><span></span><code><span class="go">printenv foobar</span>
 </code></pre></div>
-
 <p>で出力があれば環境変数、なければ環境変数は未設定(<code>echo</code>で値が出力されるならシェル変数にセットされている)</p>
 <p>一覧であれば、<code>env</code>, <code>printenv</code>, <code>export</code> を実行すれば環境変数一覧が得られる。 </p>
 <h3 id="_7">未定義時にエラーにする</h3>
 <p><code>${環境変数名:?エラーメッセージ}</code>を参照する。(空文字を許容する場合は<code>:</code>は外して<code>?</code>のみ)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B8860B">$EDITOR2</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$EDITOR2</span>
 
-<span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">EDITOR2</span>:?not defined<span style="color: #B68; font-weight: bold">}</span>
-<span style="color: #888">bash: EDITOR2: not defined</span>
-<span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">EDITOR2</span><span style="color: #666">=</span>zzz
-<span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">echo</span><span style="color: #BBB"> </span><span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">EDITOR2</span>:?not defined<span style="color: #B68; font-weight: bold">}</span>
-<span style="color: #888">zzz</span>
+<span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">EDITOR2</span><span class="p">:?not defined</span><span class="si">}</span>
+<span class="go">bash: EDITOR2: not defined</span>
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR2</span><span class="o">=</span>zzz
+<span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">EDITOR2</span><span class="p">:?not defined</span><span class="si">}</span>
+<span class="go">zzz</span>
 </code></pre></div>
-
 <h2 id="_8">エラー番号</h2>
 <p><a href="https://software.fujitsu.com/jp/manual/manualfiles/m210011/j2x14260/25z200/j4260-b-00-00.html">付録B Solaris/Linux ERRNO テーブル</a></p>
 <table>
@@ -2159,7 +2165,7 @@ __EOL__
 <h2 id="_9">シングルユーザーモード</h2>
 <h3 id="ubuntu">ubuntu</h3>
 <p>GRUBメニュー画面で<code>e</code>し、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>setparams &#39;Ubuntu&#39;
+<div class="highlight"><pre><span></span><code>setparams &#39;Ubuntu&#39;
 
         recordfail
         load_video
@@ -2169,44 +2175,39 @@ __EOL__
 
         linux   /vmlinuz-... root=/dev/... ...
 </code></pre></div>
-
 <p>の<code>linux</code>で始まる行の末尾に<code>single</code>を追記して<code>Ctrl-x</code>で起動する。<br />
 ルートファイルシステムをmountしたくない場合は<code>single</code>でなく<code>break</code>を追記。</p>
 <h2 id="_10">キーボード</h2>
 <h3 id="capsctrlgnome">capsをctrlに変更(GNOME)</h3>
 <p><code>/etc/default/keyboard</code>ファイルの以下の行、空設定になっている箇所に<code>ctrl:nocaps</code>を追加してリブートする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>XKBOPTIONS=&quot;ctrl:nocaps&quot;
+<div class="highlight"><pre><span></span><code>XKBOPTIONS=&quot;ctrl:nocaps&quot;
 </code></pre></div>
-
 <h2 id="grub">GRUB</h2>
 <p>ブートローダーが壊れてgrub rescueモードになった場合。<br />
 まず<code>ls</code>で/bootがあるパーティションを探す。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">grub rescue&gt; ls</span>
-<span style="color: #000080; font-weight: bold">(hd0)</span> <span style="color: #888">(hd0,gpt3) (hd0,gpt2) (hd0,gpt1)</span>
-<span style="color: #888">grub rescue&gt; ls (hd0,gpt1)</span>
-<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888">: Filesystem is unknown.</span>
-<span style="color: #888">grub rescue&gt; ls (hd0,gpt3)</span>
-<span style="color: #000080; font-weight: bold">(hd0,gpt3)</span><span style="color: #888">: Filesystem is ext2.</span>
-<span style="color: #888">grub rescue&gt; ls (hd0,gpt3)/</span>
-<span style="color: #888">./ ../ lost+found/ bin boot/ dev/ etc/ home/ lib lib32 lib64 libx32 media/ mnt/</span>
-<span style="color: #888">opt/ proc/ root/ run/ sbin snap/ srv/ sys/ tmp/ usr/ var/</span>
-<span style="color: #888">grub rescue&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">grub rescue&gt; ls</span>
+<span class="gp gp-VirtualEnv">(hd0)</span> <span class="go">(hd0,gpt3) (hd0,gpt2) (hd0,gpt1)</span>
+<span class="go">grub rescue&gt; ls (hd0,gpt1)</span>
+<span class="gp gp-VirtualEnv">(hd0,gpt3)</span><span class="go">: Filesystem is unknown.</span>
+<span class="go">grub rescue&gt; ls (hd0,gpt3)</span>
+<span class="gp gp-VirtualEnv">(hd0,gpt3)</span><span class="go">: Filesystem is ext2.</span>
+<span class="go">grub rescue&gt; ls (hd0,gpt3)/</span>
+<span class="go">./ ../ lost+found/ bin boot/ dev/ etc/ home/ lib lib32 lib64 libx32 media/ mnt/</span>
+<span class="go">opt/ proc/ root/ run/ sbin snap/ srv/ sys/ tmp/ usr/ var/</span>
+<span class="go">grub rescue&gt;</span>
 </code></pre></div>
-
 <p>みつかったら<code>set prefix</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">grub rescue&gt;set prefix=(hd0,gpt3)/boot/grub</span>
-<span style="color: #888">grub rescue&gt;set root=(hd0,gpt3)</span>
-<span style="color: #888">grub rescue&gt;insmod normal</span>
-<span style="color: #888">grub rescue&gt;insmod linux</span>
-<span style="color: #888">grub rescue&gt;normal</span>
+<div class="highlight"><pre><span></span><code><span class="go">grub rescue&gt;set prefix=(hd0,gpt3)/boot/grub</span>
+<span class="go">grub rescue&gt;set root=(hd0,gpt3)</span>
+<span class="go">grub rescue&gt;insmod normal</span>
+<span class="go">grub rescue&gt;insmod linux</span>
+<span class="go">grub rescue&gt;normal</span>
 </code></pre></div>
-
 <p>これでブートできる。<br />
 Linuxが起動したらGRUBを再インストール</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">sudo update-grub</span>
-<span style="color: #888">sudo grub-install /dev/sda</span>
+<div class="highlight"><pre><span></span><code><span class="go">sudo update-grub</span>
+<span class="go">sudo grub-install /dev/sda</span>
 </code></pre></div>
-
 <h2 id="_11">アップグレード</h2>
 <h3 id="fedora">Fedora</h3>
 <p><a href="https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/">Upgrading Fedora Using DNF System Plugin :: Fedora Docs</a></p>
@@ -2224,10 +2225,9 @@ Linuxが起動したらGRUBを再インストール</p>
 <li><code>sudo apt-get autoremove</code></li>
 <li><code>sudo do-release-upgrade</code></li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">If you continue, an additional ssh daemon will be started at port &#39;1022&#39;. </span>
-<span style="color: #888">Do you want to continue? </span>
+<div class="highlight"><pre><span></span><code><span class="go">If you continue, an additional ssh daemon will be started at port &#39;1022&#39;. </span>
+<span class="go">Do you want to continue? </span>
 </code></pre></div>
-
 <p>SSH経由だと上記警告が出るが続けるなら続ける。<br />
 あとは進めていくと確認が出るので都度進める。</p>
 <p>aptラインの編集は不要。(<code>do-release-upgrade</code>を叩けば勝手にやってくれる)<br />
@@ -2308,6 +2308,8 @@ Linuxが起動したらGRUBを再インストール</p>
     
     
       <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

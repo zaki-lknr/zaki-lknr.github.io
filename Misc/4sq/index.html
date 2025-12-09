@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1516,6 +1518,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2041,185 +2055,171 @@
 </ul>
 <h3 id="place-search">Place Search</h3>
 <p><a href="https://docs.foursquare.com/developer/reference/place-search">Place Search</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">     --url https://api.foursquare.com/v3/places/search \</span>
-<span style="color: #888">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
-<span style="color: #888">     --header &#39;accept: application/json&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">     --url https://api.foursquare.com/v3/places/search \</span>
+<span class="go">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
+<span class="go">     --header &#39;accept: application/json&#39;</span>
 </code></pre></div>
-
 <p>緯度経度・検索文字列追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">     --url &#39;https://api.foursquare.com/v3/places/search?query=%E3%81%8A%E5%8F%B0%E5%A0%B4&amp;ll=35.6325714%2C139.7738516&#39; \</span>
-<span style="color: #888">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
-<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">     --url &#39;https://api.foursquare.com/v3/places/search?query=%E3%81%8A%E5%8F%B0%E5%A0%B4&amp;ll=35.6325714%2C139.7738516&#39; \</span>
+<span class="go">     --header &quot;Authorization: $FSQ_APP_API_KEY&quot; \</span>
+<span class="go">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
-
 <p>検索結果件数の指定(デフォルト10 / MAX 50)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">--url &quot;https://api.foursquare.com/v3/places/search?query=${query}&amp;ll=${position}&amp;limit=50&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">--url &quot;https://api.foursquare.com/v3/places/search?query=${query}&amp;ll=${position}&amp;limit=50&quot;</span>
 </code></pre></div>
-
 <h3 id="get-user-detail">Get User Detail</h3>
 <p><a href="https://docs.foursquare.com/developer/reference/get-user-details">Get User Details</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/users/self?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">     --url &quot;https://api.foursquare.com/v2/users/self?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span class="go">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
-
 <p>任意のユーザーの情報であれば以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/users/${USER_ID}?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">     --url &quot;https://api.foursquare.com/v2/users/${USER_ID}?v=20240109&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span class="go">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
-
 <h3 id="get-user-checkins">Get User Checkins</h3>
 <p><a href="https://docs.foursquare.com/developer/reference/get-user-checkins">Get User Checkins</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/users/self/checkins?v=20231010&amp;limit=5&amp;offset=0&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888">     --header &#39;accept: application/json&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">     --url &quot;https://api.foursquare.com/v2/users/self/checkins?v=20231010&amp;limit=5&amp;offset=0&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span class="go">     --header &#39;accept: application/json&#39;</span>
 </code></pre></div>
-
 <p><code>offset</code>から<code>limit</code>件数分のチェックイン一覧。<br />
 <code>offset</code>はデフォルト<code>0</code>で制限無し(初回チェックインを超過するとどうなるかは不明)、<code>limit</code>はデフォルト<code>20</code>で最大<code>250</code>まで指定可。<br />
 <code>limit: 20</code>の場合の2ページ目は、<code>offset: 20</code>を指定する(ページ番号ではなく"limit * ページ番号"になる)。</p>
 <p>レスポンスの基本的な構造は以下の通り。(<code>shout</code>はコメントが無ければキーも無い)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;checkins&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;count&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">総チェックイン数</span>,
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;items&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">                </span>{
-<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;チェックインID&quot;</span>,
-<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;shout&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;コメント&quot;</span>,
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">...</span>
-<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">                        </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;ヴェニューID&quot;</span>,
-<span style="color: #BBB">                        </span><span style="color: #008000; font-weight: bold">&quot;name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;ヴェニュー名&quot;</span>,
-<span style="color: #BBB">                        </span><span style="border: 1px solid #F00">...</span>
-<span style="color: #BBB">                    </span>},
-<span style="color: #BBB">                    </span><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">                        </span><span style="border: 1px solid #F00">...</span>
-<span style="color: #BBB">                    </span>}
-<span style="color: #BBB">                </span>}
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;checkins&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">総チェックイン数</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;チェックインID&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;コメント&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="err">...</span>
+<span class="w">                    </span><span class="nt">&quot;venue&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ヴェニューID&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ヴェニュー名&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="err">...</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="nt">&quot;photos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="err">...</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>このチェックインIDでdetailsを取得する。</p>
 <h4 id="photos">photos</h4>
 <p>photosに関しては以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;count&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">枚数</span>,
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;items&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">        </span>{
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;...&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;prefix&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://fastly.4sqi.net/img/general/&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;suffix&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;/.........jpg&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;width&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">wid</span><span style="color: #A2F; font-weight: bold">t</span><span style="border: 1px solid #F00">h</span>,
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">&quot;height&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">heigh</span><span style="color: #A2F; font-weight: bold">t</span>,
-<span style="color: #BBB">        </span>}
-<span style="color: #BBB">    </span>]
-}
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;photos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">枚数</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://fastly.4sqi.net/img/general/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;suffix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/.........jpg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">wid</span><span class="kc">t</span><span class="err">h</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">heigh</span><span class="kc">t</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>このときの画像のリンクは <code>prefix + width + "x" + height + suffix</code> でアクセスできる。<br />
 (厳密にはwidth x heightは指定した値に拡縮・トリミングされる)</p>
 <h4 id="location">location</h4>
 <p>旧シェア文字列のアドレスの「港区, 東京都」は <code>venue.location.formattedAddress</code> に配列要素の一つとしてセットされている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;location&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;address&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;台場一丁目&quot;</span>,
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;postalCode&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;135-0091&quot;</span>,
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;cc&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;JP&quot;</span>,
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;city&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;東京&quot;</span>,
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;state&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;東京都&quot;</span>,
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;country&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;日本&quot;</span>,
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;formattedAddress&quot;</span>:<span style="color: #BBB"> </span>[
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;台場一丁目&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;港区, 東京都&quot;</span>,
-<span style="color: #BBB">            </span><span style="color: #B44">&quot;135-0091&quot;</span>
-<span style="color: #BBB">        </span>]
-<span style="color: #BBB">    </span>},
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;venue&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;台場一丁目&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;postalCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;135-0091&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;cc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;JP&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;東京&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;東京都&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;日本&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;formattedAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;台場一丁目&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;港区, 東京都&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;135-0091&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
 </code></pre></div>
-
 <p>ただし、<code>location</code>の要素の<code>postalCode</code>が無い場合は3つ目の"135-0091"相当が、<code>address</code>が無い場合は1つ目の"台場一丁目"が無いため、配列要素は固定ではない。<br />
 (2番目の"港区, 東京都"が無いパターンの有無は不明)</p>
 <p>また、<code>formattedAddress</code>自体が無いヴェニューもある。</p>
 <h3 id="get-check-in-details">Get Check-in Details</h3>
 <p>CheckinsでチェックインのIDが取れたらDetailsでシェア用URLなども取れる</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">     --url &quot;https://api.foursquare.com/v2/checkins/$CHECKIN_ID?v=20231010&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
-<span style="color: #888">     --header &#39;accept: application/json&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">     --url &quot;https://api.foursquare.com/v2/checkins/$CHECKIN_ID?v=20231010&amp;oauth_token=$FSQ_OAUTH_TOKEN&quot; \</span>
+<span class="go">     --header &#39;accept: application/json&#39;</span>
 </code></pre></div>
-
 <p>このレスポンスにアクセス可能な<code>response.checkin.checkinShortUrl</code>がある。<br />
 Twitterなどのシェアを有効にしていると<code>shares</code>フィールドが追加される。<br />
 レスポンスの基本的な構造は以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;response&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;checkin&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;チェックインID&quot;</span>,
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;shout&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;233日記念日&quot;</span>,
-<span style="color: #BBB">      </span>:
-<span style="color: #BBB">      </span>,
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;user&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">      </span>},
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;venue&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">      </span>},
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;photos&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">      </span>},
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;checkinShortUrl&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://www.swarmapp.com/.../checkin/...&quot;</span>,
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">&quot;shares&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">true</span>
-<span style="color: #BBB">      </span>}
-<span style="color: #BBB">    </span>}
-<span style="color: #BBB">  </span>}
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;チェックインID&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;shout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;233日記念日&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">:</span>
+<span class="w">      </span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;venue&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;photos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;checkinShortUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.swarmapp.com/.../checkin/...&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;shares&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;twitter&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h3 id="get-place-details-depr">Get Place Details (depr)</h3>
 <p>使用不可になった。後述の"places-api"を使う。<br />
 <a href="https://docs.foursquare.com/fsq-developers-places/reference/migration-guide">Migration Guide</a></p>
 <p><del>APIはv2がすでに無くなりv3を使う必要がある。<br />
 <a href="https://docs.foursquare.com/developer/reference/place-details">Get Place Details</a></del></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">     --url &quot;https://api.foursquare.com/v3/places/${PLACE_ID}?fields=social_media&quot; \</span>
-<span style="color: #888">     --header &quot;Authorization: ${FSQ_APP_API_KEY}&quot; \</span>
-<span style="color: #888">     --header &quot;accept: application/json&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">     --url &quot;https://api.foursquare.com/v3/places/${PLACE_ID}?fields=social_media&quot; \</span>
+<span class="go">     --header &quot;Authorization: ${FSQ_APP_API_KEY}&quot; \</span>
+<span class="go">     --header &quot;accept: application/json&quot;</span>
 </code></pre></div>
-
 <p><code>?fields=</code>で返すフィールドを指定できる。<br />
 TwitterIDなどのソーシャルメディア情報であれば<code>?fields=social_media</code>を指定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;social_media&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;3rdhakatadaruma&quot;</span>
-<span style="color: #BBB">  </span>}
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;social_media&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;twitter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3rdhakatadaruma&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h3 id="get-place-details">Get Place Details</h3>
 <p>"places-api"の場合は以下。<br />
 <a href="https://docs.foursquare.com/fsq-developers-places/reference/place-details">Get Place Details</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl --request GET \</span>
-<span style="color: #888">    --url &quot;https://places-api.foursquare.com/places/${FSQ_PLACE_ID}&quot; \</span>
-<span style="color: #888">    --header &quot;Authorization: Bearer ${OAUTH_TOKEN}&quot; \</span>
-<span style="color: #888">    --header &quot;accept: application/json&quot; \</span>
-<span style="color: #888">    --header &quot;X-Places-Api-Version: 2025-06-17&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl --request GET \</span>
+<span class="go">    --url &quot;https://places-api.foursquare.com/places/${FSQ_PLACE_ID}&quot; \</span>
+<span class="go">    --header &quot;Authorization: Bearer ${OAUTH_TOKEN}&quot; \</span>
+<span class="go">    --header &quot;accept: application/json&quot; \</span>
+<span class="go">    --header &quot;X-Places-Api-Version: 2025-06-17&quot;</span>
 </code></pre></div>
-
 <p>socislのIDも取れる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;fsq_place_id&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;5d8da873009e7000071be88b&quot;</span>,
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;latitude&quot;</span>:<span style="color: #BBB"> </span><span style="color: #666">35.62968</span>,
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;longitude&quot;</span>:<span style="color: #BBB"> </span><span style="color: #666">139.77664</span>,
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;name&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;ODAIBAゲーマーズ&quot;</span>,
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;fsq_place_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5d8da873009e7000071be88b&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">35.62968</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">139.77664</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ODAIBAゲーマーズ&quot;</span><span class="p">,</span>
 
-<span style="color: #BBB">  </span><span style="border: 1px solid #F00">...</span>
+<span class="w">  </span><span class="err">...</span>
 
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;social_media&quot;</span>:<span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;twitter&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;odaiba_gema&quot;</span>
-<span style="color: #BBB">  </span>},
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;tel&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;...&quot;</span>,
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;website&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://www.gamers.co.jp/shop/shop_detail/113216/&quot;</span>
-}
+<span class="w">  </span><span class="nt">&quot;social_media&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;twitter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;odaiba_gema&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;tel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;website&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.gamers.co.jp/shop/shop_detail/113216/&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
                 
               
@@ -2297,6 +2297,8 @@ TwitterIDなどのソーシャルメディア情報であれば<code>?fields=soc
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1434,6 +1436,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1855,33 +1869,26 @@
 <h2 id="_2">サブスクリプション</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/05/160946">制限ネットワーク環境のRHEL7でproxy経由でサブスクリプション登録とDockerインストール - zaki work log</a></p>
 <p>以下で登録とサブスクリプション割り当てをまとめてできる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>register<span style="color: #BBB"> </span>--auto-attach
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>subscription-manager<span class="w"> </span>register<span class="w"> </span>--auto-attach
 </code></pre></div>
-
 <p>登録のみは以下。アカウント情報を対話的に入力する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>register
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>subscription-manager<span class="w"> </span>register
 </code></pre></div>
-
 <p>登録後のサブスクリプション割り当ては以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>attach
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>subscription-manager<span class="w"> </span>attach
 </code></pre></div>
-
 <p>サブスクリプション割り当て時にpool IDを指定する場合は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>attach<span style="color: #BBB"> </span>--pool<span style="color: #666">=</span>****
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>subscription-manager<span class="w"> </span>attach<span class="w"> </span>--pool<span class="o">=</span>****
 </code></pre></div>
-
 <p>利用可能なサブスクリプションの確認</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span>--available
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>subscription-manager<span class="w"> </span>list<span class="w"> </span>--available
 </code></pre></div>
-
 <p>リポジトリの状態</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>repos<span style="color: #BBB"> </span>--list-enabled
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--list-enabled
 </code></pre></div>
-
 <p>利用可能になっていないリポジトリは以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>subscription-manager<span style="color: #BBB"> </span>repos<span style="color: #BBB"> </span>--list-disabled
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--list-disabled
 </code></pre></div>
-
 <h2 id="package">package</h2>
 <h3 id="rhel8epel">RHEL8にEPELリポジトリを追加</h3>
 <ul>
@@ -1889,63 +1896,60 @@
 <li><a href="https://fedoraproject.org/wiki/EPEL#Quickstart">EPEL - Fedora Project Wiki</a></li>
 </ul>
 <p>RHEL8用のコマンドを実行してリポジトリを追加する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-<span style="color: #888">Updating Subscription Management repositories.</span>
-<span style="color: #888">Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                    13 kB/s | 4.1 kB     00:00    </span>
-<span style="color: #888">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                 19 kB/s | 4.5 kB     00:00    </span>
-<span style="color: #888">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                6.5 MB/s |  31 MB     00:04    </span>
-<span style="color: #888">epel-release-latest-8.noarch.rpm                                         30 kB/s |  23 kB     00:00    </span>
-<span style="color: #888">依存関係が解決しました。</span>
-<span style="color: #888">========================================================================================================</span>
-<span style="color: #888"> パッケージ                アーキテクチャー    バージョン               リポジトリー              サイズ</span>
-<span style="color: #888">========================================================================================================</span>
-<span style="color: #888">インストール:</span>
-<span style="color: #888"> epel-release              noarch              8-11.el8                 @commandline               23 k</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@rhel8-node ~]$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+<span class="go">Updating Subscription Management repositories.</span>
+<span class="go">Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                    13 kB/s | 4.1 kB     00:00    </span>
+<span class="go">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                 19 kB/s | 4.5 kB     00:00    </span>
+<span class="go">Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                6.5 MB/s |  31 MB     00:04    </span>
+<span class="go">epel-release-latest-8.noarch.rpm                                         30 kB/s |  23 kB     00:00    </span>
+<span class="go">依存関係が解決しました。</span>
+<span class="go">========================================================================================================</span>
+<span class="go"> パッケージ                アーキテクチャー    バージョン               リポジトリー              サイズ</span>
+<span class="go">========================================================================================================</span>
+<span class="go">インストール:</span>
+<span class="go"> epel-release              noarch              8-11.el8                 @commandline               23 k</span>
 
-<span style="color: #888">トランザクションの概要</span>
-<span style="color: #888">========================================================================================================</span>
-<span style="color: #888">インストール  1 パッケージ</span>
+<span class="go">トランザクションの概要</span>
+<span class="go">========================================================================================================</span>
+<span class="go">インストール  1 パッケージ</span>
 
-<span style="color: #888">合計サイズ: 23 k</span>
-<span style="color: #888">インストール後のサイズ: 35 k</span>
-<span style="color: #888">これでよろしいですか? [y/N]: y</span>
-<span style="color: #888">パッケージのダウンロード:</span>
-<span style="color: #888">トランザクションの確認を実行中</span>
-<span style="color: #888">トランザクションの確認に成功しました。</span>
-<span style="color: #888">トランザクションのテストを実行中</span>
-<span style="color: #888">トランザクションのテストに成功しました。</span>
-<span style="color: #888">トランザクションを実行中</span>
-<span style="color: #888">  準備             :                                                                                1/1 </span>
-<span style="color: #888">  インストール中   : epel-release-8-11.el8.noarch                                                   1/1 </span>
-<span style="color: #888">  scriptletの実行中: epel-release-8-11.el8.noarch                                                   1/1 </span>
-<span style="color: #888">  検証             : epel-release-8-11.el8.noarch                                                   1/1 </span>
-<span style="color: #888">Installed products updated.</span>
+<span class="go">合計サイズ: 23 k</span>
+<span class="go">インストール後のサイズ: 35 k</span>
+<span class="go">これでよろしいですか? [y/N]: y</span>
+<span class="go">パッケージのダウンロード:</span>
+<span class="go">トランザクションの確認を実行中</span>
+<span class="go">トランザクションの確認に成功しました。</span>
+<span class="go">トランザクションのテストを実行中</span>
+<span class="go">トランザクションのテストに成功しました。</span>
+<span class="go">トランザクションを実行中</span>
+<span class="go">  準備             :                                                                                1/1 </span>
+<span class="go">  インストール中   : epel-release-8-11.el8.noarch                                                   1/1 </span>
+<span class="go">  scriptletの実行中: epel-release-8-11.el8.noarch                                                   1/1 </span>
+<span class="go">  検証             : epel-release-8-11.el8.noarch                                                   1/1 </span>
+<span class="go">Installed products updated.</span>
 
-<span style="color: #888">インストール済み:</span>
-<span style="color: #888">  epel-release-8-11.el8.noarch                                                                          </span>
+<span class="go">インストール済み:</span>
+<span class="go">  epel-release-8-11.el8.noarch                                                                          </span>
 
-<span style="color: #888">完了しました!</span>
-<span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>
+<span class="go">完了しました!</span>
+<span class="gp">[zaki@rhel8-node ~]$ </span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>ls<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>/etc/yum.repos.d/
-<span style="color: #888">合計 168</span>
-<span style="color: #888">-rw-r--r--. 1 root root   1480  6月  8 09:29 epel-modular.repo</span>
-<span style="color: #888">-rw-r--r--. 1 root root   1562  6月  8 09:29 epel-playground.repo</span>
-<span style="color: #888">-rw-r--r--. 1 root root   1579  6月  8 09:29 epel-testing-modular.repo</span>
-<span style="color: #888">-rw-r--r--. 1 root root   1516  6月  8 09:29 epel-testing.repo</span>
-<span style="color: #888">-rw-r--r--. 1 root root   1417  6月  8 09:29 epel.repo</span>
-<span style="color: #888">-rw-r--r--. 1 root root 149513  7月  2 19:58 redhat.repo</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@rhel8-node ~]$ </span>ls<span class="w"> </span>-l<span class="w"> </span>/etc/yum.repos.d/
+<span class="go">合計 168</span>
+<span class="go">-rw-r--r--. 1 root root   1480  6月  8 09:29 epel-modular.repo</span>
+<span class="go">-rw-r--r--. 1 root root   1562  6月  8 09:29 epel-playground.repo</span>
+<span class="go">-rw-r--r--. 1 root root   1579  6月  8 09:29 epel-testing-modular.repo</span>
+<span class="go">-rw-r--r--. 1 root root   1516  6月  8 09:29 epel-testing.repo</span>
+<span class="go">-rw-r--r--. 1 root root   1417  6月  8 09:29 epel.repo</span>
+<span class="go">-rw-r--r--. 1 root root 149513  7月  2 19:58 redhat.repo</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@rhel8-node ~]$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>sshpass
-<span style="color: #888">Updating Subscription Management repositories.</span>
-<span style="color: #888">Extra Packages for Enterprise Linux Modular 8 - x86_64                  652 kB/s | 798 kB     00:01    </span>
-<span style="color: #888">Extra Packages for Enterprise Linux 8 - x86_64                          7.2 MB/s |  10 MB     00:01    </span>
-<span style="color: #888">======================================== 名前 完全一致: sshpass ========================================</span>
-<span style="color: #888">sshpass.x86_64 : Non-interactive SSH authentication utility</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@rhel8-node ~]$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>search<span class="w"> </span>sshpass
+<span class="go">Updating Subscription Management repositories.</span>
+<span class="go">Extra Packages for Enterprise Linux Modular 8 - x86_64                  652 kB/s | 798 kB     00:01    </span>
+<span class="go">Extra Packages for Enterprise Linux 8 - x86_64                          7.2 MB/s |  10 MB     00:01    </span>
+<span class="go">======================================== 名前 完全一致: sshpass ========================================</span>
+<span class="go">sshpass.x86_64 : Non-interactive SSH authentication utility</span>
 </code></pre></div>
-
 <h2 id="simple-content-access">Simple Content Access設定</h2>
 <p><a href="https://access.redhat.com/management">https://access.redhat.com/management</a></p>
 <p>ここから。</p>
@@ -2025,6 +2029,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

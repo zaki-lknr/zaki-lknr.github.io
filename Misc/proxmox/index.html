@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1360,6 +1362,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2198,21 +2212,19 @@
 <li>VMで<code>qemu-guest-agent</code>パッケージをインストールしサービスを有効にする</li>
 </ul>
 <h2 id="ovf">ovfインポート</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm importovf &lt;VM ID&gt; &lt;OVFファイルのパス&gt; &lt;VM用ストレージ名&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">qm importovf &lt;VM ID&gt; &lt;OVFファイルのパス&gt; &lt;VM用ストレージ名&gt;</span>
 </code></pre></div>
-
 <p>実行例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qm<span style="color: #BBB"> </span>importovf<span style="color: #BBB"> </span><span style="color: #666">201</span><span style="color: #BBB"> </span>/mnt/pve/pecorino/archive/export/fedora-node/fedora-node.ovf<span style="color: #BBB"> </span>wdblue1000gb
-<span style="color: #888">  Logical volume &quot;vm-201-disk-0&quot; created.</span>
-<span style="color: #888">transferred 0.0 B of 20.0 GiB (0.00%)</span>
-<span style="color: #888">transferred 204.8 MiB of 20.0 GiB (1.00%)</span>
-<span style="color: #888">transferred 409.6 MiB of 20.0 GiB (2.00%)</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #888">transferred 20.0 GiB of 20.0 GiB (100.00%)</span>
-<span style="color: #000080; font-weight: bold">root@pve:~# </span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>qm<span class="w"> </span>importovf<span class="w"> </span><span class="m">201</span><span class="w"> </span>/mnt/pve/pecorino/archive/export/fedora-node/fedora-node.ovf<span class="w"> </span>wdblue1000gb
+<span class="go">  Logical volume &quot;vm-201-disk-0&quot; created.</span>
+<span class="go">transferred 0.0 B of 20.0 GiB (0.00%)</span>
+<span class="go">transferred 204.8 MiB of 20.0 GiB (1.00%)</span>
+<span class="go">transferred 409.6 MiB of 20.0 GiB (2.00%)</span>
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="go">transferred 20.0 GiB of 20.0 GiB (100.00%)</span>
+<span class="gp">root@pve:~# </span>
 </code></pre></div>
-
 <h2 id="_1">ユーザー作成と権限付与</h2>
 <ul>
 <li>「Datacenter」メニューで、「Users」「Groups」「Pools」リソースを作成する<ul>
@@ -2228,33 +2240,30 @@
 <p>作成するユーザーのRealmは「Proxmox VE authentication server」を指定する</p>
 <p><a href="https://pve.proxmox.com/wiki/User_Management">User Management - Proxmox VE</a></p>
 <h2 id="vm">VM定義ファイル関連</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #BBB"> </span>-F<span style="color: #BBB"> </span>/etc/pve/nodes/pve/qemu-server
-<span style="color: #888">100.conf  102.conf  202.conf  301.conf  303.conf</span>
-<span style="color: #888">101.conf  201.conf  203.conf  302.conf</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>ls<span class="w"> </span>-F<span class="w"> </span>/etc/pve/nodes/pve/qemu-server
+<span class="go">100.conf  102.conf  202.conf  301.conf  303.conf</span>
+<span class="go">101.conf  201.conf  203.conf  302.conf</span>
 </code></pre></div>
-
 <p>中身は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #BBB"> </span>/etc/pve/nodes/pve/qemu-server/301.conf<span style="color: #BBB"> </span>
-<span style="color: #888">boot: order=scsi0</span>
-<span style="color: #888">cores: 2</span>
-<span style="color: #888">memory: 4096</span>
-<span style="color: #888">name: k8su-master</span>
-<span style="color: #888">net0: e1000=CA:0D:8C:5E:46:C3,bridge=vmbr0,firewall=1</span>
-<span style="color: #888">scsi0: wdblue1000gb:vm-301-disk-0</span>
-<span style="color: #888">scsihw: pvscsi</span>
-<span style="color: #888">smbios1: uuid=b9b7f350-0b74-46df-bd59-0318fc99372c</span>
-<span style="color: #888">vmgenid: 5e1f1e65-0eb0-4cd1-867c-277b48d91616</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>cat<span class="w"> </span>/etc/pve/nodes/pve/qemu-server/301.conf<span class="w"> </span>
+<span class="go">boot: order=scsi0</span>
+<span class="go">cores: 2</span>
+<span class="go">memory: 4096</span>
+<span class="go">name: k8su-master</span>
+<span class="go">net0: e1000=CA:0D:8C:5E:46:C3,bridge=vmbr0,firewall=1</span>
+<span class="go">scsi0: wdblue1000gb:vm-301-disk-0</span>
+<span class="go">scsihw: pvscsi</span>
+<span class="go">smbios1: uuid=b9b7f350-0b74-46df-bd59-0318fc99372c</span>
+<span class="go">vmgenid: 5e1f1e65-0eb0-4cd1-867c-277b48d91616</span>
 </code></pre></div>
-
 <p>実データはこれかな？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:/# </span>ls<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>/dev/wdblue1000gb/vm-301-disk-0<span style="color: #BBB"> </span>
-<span style="color: #888">lrwxrwxrwx 1 root root 8 Aug  5 10:13 /dev/wdblue1000gb/vm-301-disk-0 -&gt; ../dm-15</span>
-<span style="color: #000080; font-weight: bold">root@pve:/# </span>ls<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span>/dev/dm-15
-<span style="color: #888">brw-rw---- 1 root disk 253, 15 Aug  5 10:13 /dev/dm-15</span>
-<span style="color: #000080; font-weight: bold">root@pve:/# </span>file<span style="color: #BBB"> </span>/dev/dm-15
-<span style="color: #888">/dev/dm-15: block special (253/15)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:/# </span>ls<span class="w"> </span>-l<span class="w"> </span>/dev/wdblue1000gb/vm-301-disk-0<span class="w"> </span>
+<span class="go">lrwxrwxrwx 1 root root 8 Aug  5 10:13 /dev/wdblue1000gb/vm-301-disk-0 -&gt; ../dm-15</span>
+<span class="gp">root@pve:/# </span>ls<span class="w"> </span>-l<span class="w"> </span>/dev/dm-15
+<span class="go">brw-rw---- 1 root disk 253, 15 Aug  5 10:13 /dev/dm-15</span>
+<span class="gp">root@pve:/# </span>file<span class="w"> </span>/dev/dm-15
+<span class="go">/dev/dm-15: block special (253/15)</span>
 </code></pre></div>
-
 <h2 id="_2">ネットワーク</h2>
 <h3 id="linux-bridge">Linux Bridge作成</h3>
 <p>ノードのネットワークメニューで「作成」で「Linux Bridge」押下。<br />
@@ -2267,20 +2276,19 @@
 <h3 id="_3">ブリッジポート無しで作成したブリッジに物理ポートを追加</h3>
 <p>UIでLinux Bridgeの「ブリッジポート」にポート名を追加し「OK」押下。<br />
 画面下部にメッセージが表示される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>## 変更を保留中 (有効にするには再起動か、 &#39;Apply Configuration&#39; (needs ifupdown2)を使用)
-<span style="color: #A00000">--- /etc/network/interfaces 2023-05-21 15:33:29.906403987 +0900</span>
-<span style="color: #00A000">+++ /etc/network/interfaces.new 2023-10-17 09:10:38.701832421 +0900</span>
-<span style="color: #800080; font-weight: bold">@@ -29,7 +29,7 @@</span>
-<span style="color: #BBB"> </span>auto vmbr1
-<span style="color: #BBB"> </span>iface vmbr1 inet static
-<span style="color: #BBB"> </span>   address 172.16.0.1/23
-<span style="color: #A00000">-   bridge-ports none</span>
-<span style="color: #00A000">+   bridge-ports enp3s0</span>
-<span style="color: #BBB"> </span>   bridge-stp off
-<span style="color: #BBB"> </span>   bridge-fd 0
-<span style="color: #BBB"> </span>#private-network-1
+<div class="highlight"><pre><span></span><code>## 変更を保留中 (有効にするには再起動か、 &#39;Apply Configuration&#39; (needs ifupdown2)を使用)
+<span class="gd">--- /etc/network/interfaces 2023-05-21 15:33:29.906403987 +0900</span>
+<span class="gi">+++ /etc/network/interfaces.new 2023-10-17 09:10:38.701832421 +0900</span>
+<span class="gu">@@ -29,7 +29,7 @@</span>
+<span class="w"> </span>auto vmbr1
+<span class="w"> </span>iface vmbr1 inet static
+<span class="w"> </span>   address 172.16.0.1/23
+<span class="gd">-   bridge-ports none</span>
+<span class="gi">+   bridge-ports enp3s0</span>
+<span class="w"> </span>   bridge-stp off
+<span class="w"> </span>   bridge-fd 0
+<span class="w"> </span>#private-network-1
 </code></pre></div>
-
 <p>変更を適用するには画面上部の「設定を適用」押下</p>
 <h2 id="_4">ストレージ</h2>
 <h3 id="_5">ディスクの消去</h3>
@@ -2292,74 +2300,70 @@
 <p>VMのハードウェア設定で、ハードディスクを選択、「ディスクの動作」メニューの「ストレージに移動」で、ターゲットを変更することで、VMのデータ領域を別ストレージへ移動できる。</p>
 <h3 id="_7">定義ファイル</h3>
 <p><code>/etc/pve/storage.cfg</code>にある。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>cat<span style="color: #BBB"> </span>/etc/pve/storage.cfg
-<span style="color: #888">dir: local</span>
-<span style="color: #888">        path /var/lib/vz</span>
-<span style="color: #888">        content iso,vztmpl,backup</span>
-<span style="color: #888">        shared 0</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>cat<span class="w"> </span>/etc/pve/storage.cfg
+<span class="go">dir: local</span>
+<span class="go">        path /var/lib/vz</span>
+<span class="go">        content iso,vztmpl,backup</span>
+<span class="go">        shared 0</span>
 
-<span style="color: #888">lvmthin: local-lvm</span>
-<span style="color: #888">        thinpool data</span>
-<span style="color: #888">        vgname pve</span>
-<span style="color: #888">        content rootdir,images</span>
+<span class="go">lvmthin: local-lvm</span>
+<span class="go">        thinpool data</span>
+<span class="go">        vgname pve</span>
+<span class="go">        content rootdir,images</span>
 
-<span style="color: #888">nfs: pecorino</span>
-<span style="color: #888">        export /share</span>
-<span style="color: #888">        path /mnt/pve/pecorino</span>
-<span style="color: #888">        server *.*.*.*</span>
-<span style="color: #888">        content iso,backup</span>
-<span style="color: #888">        prune-backups keep-all=1</span>
+<span class="go">nfs: pecorino</span>
+<span class="go">        export /share</span>
+<span class="go">        path /mnt/pve/pecorino</span>
+<span class="go">        server *.*.*.*</span>
+<span class="go">        content iso,backup</span>
+<span class="go">        prune-backups keep-all=1</span>
 </code></pre></div>
-
 <h3 id="_8">登録済みストレージの設定変更</h3>
 <p>用途とかNFSのバージョンとかを変更するには、ノードでもストレージでもなく「データセンター」から。</p>
 <h2 id="_9">バックアップとリストア</h2>
 <h3 id="_10">リストア</h3>
 <p>VM削除済みの場合はCLIで実行する。<br />
 以下はバックアップデータをVM ID:500としてリストア。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>qmrestore<span style="color: #BBB"> </span>/mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst<span style="color: #BBB"> </span><span style="color: #666">500</span>
-<span style="color: #888">restore vma archive: zstd -q -d -c /mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst | vma extract -v -r /var/tmp/vzdumptmp177197.fifo - /var/tmp/vzdumptmp177197</span>
-<span style="color: #888">CFG: size: 458 name: qemu-server.conf</span>
-<span style="color: #888">DEV: dev_id=1 size: 17179869184 devname: drive-scsi0</span>
-<span style="color: #888">CTIME: Tue Sep  5 15:29:21 2023</span>
-<span style="color: #888">  Logical volume &quot;vm-500-disk-0&quot; created.</span>
-<span style="color: #888">new volume ID is &#39;WDS100T2BA0A:vm-500-disk-0&#39;</span>
-<span style="color: #888">map &#39;drive-scsi0&#39; to &#39;/dev/WDS100T2BA0A/vm-500-disk-0&#39; (write zeros = 0)</span>
-<span style="color: #888">progress 1% (read 171835392 bytes, duration 1 sec)</span>
-<span style="color: #888">progress 2% (read 343605248 bytes, duration 2 sec)</span>
-<span style="color: #888">progress 3% (read 515440640 bytes, duration 4 sec)</span>
-<span style="color: #888">:</span>
-<span style="color: #888">progress 100% (read 17179869184 bytes, duration 20 sec)</span>
-<span style="color: #888">total bytes read 17179869184, sparse bytes 12563259392 (73.1%)</span>
-<span style="color: #888">space reduction due to 4K zero blocks 2.95%</span>
-<span style="color: #888">rescan volumes...</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>qmrestore<span class="w"> </span>/mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst<span class="w"> </span><span class="m">500</span>
+<span class="go">restore vma archive: zstd -q -d -c /mnt/pve/pecorino-dev/dump/vzdump-qemu-500-2023_09_05-15_29_11.vma.zst | vma extract -v -r /var/tmp/vzdumptmp177197.fifo - /var/tmp/vzdumptmp177197</span>
+<span class="go">CFG: size: 458 name: qemu-server.conf</span>
+<span class="go">DEV: dev_id=1 size: 17179869184 devname: drive-scsi0</span>
+<span class="go">CTIME: Tue Sep  5 15:29:21 2023</span>
+<span class="go">  Logical volume &quot;vm-500-disk-0&quot; created.</span>
+<span class="go">new volume ID is &#39;WDS100T2BA0A:vm-500-disk-0&#39;</span>
+<span class="go">map &#39;drive-scsi0&#39; to &#39;/dev/WDS100T2BA0A/vm-500-disk-0&#39; (write zeros = 0)</span>
+<span class="go">progress 1% (read 171835392 bytes, duration 1 sec)</span>
+<span class="go">progress 2% (read 343605248 bytes, duration 2 sec)</span>
+<span class="go">progress 3% (read 515440640 bytes, duration 4 sec)</span>
+<span class="go">:</span>
+<span class="go">progress 100% (read 17179869184 bytes, duration 20 sec)</span>
+<span class="go">total bytes read 17179869184, sparse bytes 12563259392 (73.1%)</span>
+<span class="go">space reduction due to 4K zero blocks 2.95%</span>
+<span class="go">rescan volumes...</span>
 </code></pre></div>
-
 <p>ストレージはデフォルトだとバックアップ時と同じところへリストアされる？それともデフォルトのストレージかな？<br />
 <code>--storage</code>で指定できそう</p>
 <p>Web UIでリストアする場合は、VMのメニューでなくストレージのメニューからリストアを選ぶと、全バックアップデータが表示されるのでそこからリストアを行う。</p>
 <h3 id="_11">バックアップデータの実データ保存先</h3>
 <p>内蔵ストレージの場合は<code>/var/lib/vz/dump/</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #BBB"> </span>/var/lib/vz/dump/
-<span style="color: #888">vzdump-qemu-500-2023_09_24-01_05_17.log</span>
-<span style="color: #888">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst</span>
-<span style="color: #888">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst.notes</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>ls<span class="w"> </span>/var/lib/vz/dump/
+<span class="go">vzdump-qemu-500-2023_09_24-01_05_17.log</span>
+<span class="go">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst</span>
+<span class="go">vzdump-qemu-500-2023_09_24-01_05_17.vma.zst.notes</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <p>外部の場合はマウントポイント配下の<code>dump</code>以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>ls<span style="color: #BBB"> </span>/mnt/pve/pecorino/dump/
-<span style="color: #888">vzdump-qemu-116-2023_09_04-18_23_48.log</span>
-<span style="color: #888">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst</span>
-<span style="color: #888">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst.notes</span>
-<span style="color: #888">vzdump-qemu-116-2023_09_05-23_58_49.log</span>
-<span style="color: #888">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst</span>
-<span style="color: #888">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst.notes</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>ls<span class="w"> </span>/mnt/pve/pecorino/dump/
+<span class="go">vzdump-qemu-116-2023_09_04-18_23_48.log</span>
+<span class="go">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst</span>
+<span class="go">vzdump-qemu-116-2023_09_04-18_23_48.vma.zst.notes</span>
+<span class="go">vzdump-qemu-116-2023_09_05-23_58_49.log</span>
+<span class="go">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst</span>
+<span class="go">vzdump-qemu-116-2023_09_05-23_58_49.vma.zst.notes</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <h3 id="_12">バックアップデータの保存先ストレージの変更</h3>
 <p>8.3.3時点でUIでの操作はなさそう。<br />
 上記のパス情報を参照に<code>mv</code>で移動する。</p>
@@ -2367,58 +2371,54 @@
 <h3 id="vm_2">VM操作</h3>
 <p><a href="https://pve.proxmox.com/pve-docs/qm.1.html">qm(1)</a></p>
 <h3 id="vm_3">VM一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm list</span>
+<div class="highlight"><pre><span></span><code><span class="go">qm list</span>
 </code></pre></div>
-
 <p>ID、VM名、起動状態、RAMサイズ、ストレージサイズなどが一覧で出力される。
 このコマンドはノード単位で出力される。</p>
 <h3 id="vmqemu-guest-agent">VM詳細(qemu-guest-agent使用)</h3>
 <p>qemu-guest-agentが動作しているVMの情報を取得する。<br />
 NIC情報であれば以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>qm<span style="color: #BBB"> </span>guest<span style="color: #BBB"> </span>cmd<span style="color: #BBB"> </span><span style="color: #666">710</span><span style="color: #BBB"> </span>network-get-interfaces
-<span style="color: #888">[</span>
-<span style="color: #888">   {</span>
-<span style="color: #888">      &quot;hardware-address&quot; : &quot;00:00:00:00:00:00&quot;,</span>
-<span style="color: #888">      &quot;ip-addresses&quot; : [</span>
-<span style="color: #888">         {</span>
-<span style="color: #888">            &quot;ip-address&quot; : &quot;127.0.0.1&quot;,</span>
-<span style="color: #888">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
-<span style="color: #888">            &quot;prefix&quot; : 8</span>
-<span style="color: #888">         },</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>qm<span class="w"> </span>guest<span class="w"> </span>cmd<span class="w"> </span><span class="m">710</span><span class="w"> </span>network-get-interfaces
+<span class="go">[</span>
+<span class="go">   {</span>
+<span class="go">      &quot;hardware-address&quot; : &quot;00:00:00:00:00:00&quot;,</span>
+<span class="go">      &quot;ip-addresses&quot; : [</span>
+<span class="go">         {</span>
+<span class="go">            &quot;ip-address&quot; : &quot;127.0.0.1&quot;,</span>
+<span class="go">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
+<span class="go">            &quot;prefix&quot; : 8</span>
+<span class="go">         },</span>
 
-<span style="color: #888">         ...</span>
-<span style="color: #888">      ]</span>
-<span style="color: #888">   },</span>
-<span style="color: #888">   {</span>
-<span style="color: #888">      &quot;hardware-address&quot; : &quot;bc:24:11:d6:b0:61&quot;,</span>
-<span style="color: #888">      &quot;ip-addresses&quot; : [</span>
-<span style="color: #888">         {</span>
-<span style="color: #888">            &quot;ip-address&quot; : &quot;192.168.0.201&quot;,</span>
-<span style="color: #888">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
-<span style="color: #888">            &quot;prefix&quot; : 24</span>
-<span style="color: #888">         },</span>
-<span style="color: #888">         {</span>
-<span style="color: #888">            &quot;ip-address&quot; : &quot;fe80::be24:11ff:fed6:b061&quot;,</span>
-<span style="color: #888">            &quot;ip-address-type&quot; : &quot;ipv6&quot;,</span>
-<span style="color: #888">            &quot;prefix&quot; : 64</span>
-<span style="color: #888">         }</span>
-<span style="color: #888">      ],</span>
+<span class="go">         ...</span>
+<span class="go">      ]</span>
+<span class="go">   },</span>
+<span class="go">   {</span>
+<span class="go">      &quot;hardware-address&quot; : &quot;bc:24:11:d6:b0:61&quot;,</span>
+<span class="go">      &quot;ip-addresses&quot; : [</span>
+<span class="go">         {</span>
+<span class="go">            &quot;ip-address&quot; : &quot;192.168.0.201&quot;,</span>
+<span class="go">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
+<span class="go">            &quot;prefix&quot; : 24</span>
+<span class="go">         },</span>
+<span class="go">         {</span>
+<span class="go">            &quot;ip-address&quot; : &quot;fe80::be24:11ff:fed6:b061&quot;,</span>
+<span class="go">            &quot;ip-address-type&quot; : &quot;ipv6&quot;,</span>
+<span class="go">            &quot;prefix&quot; : 64</span>
+<span class="go">         }</span>
+<span class="go">      ],</span>
 
-<span style="color: #888">      ...</span>
+<span class="go">      ...</span>
 </code></pre></div>
-
 <p>使えるサブコマンドは<code>qm help</code>で確認できる。<br />
 <a href="https://pve.proxmox.com/pve-docs/qm.1.html">qm(1)</a></p>
 <p>(<code>qm guest</code>のヘルプは無さげ…)</p>
 <h3 id="vm_4">VM削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">qm destroy &lt;vmid&gt; --destroy-unreferenced-disks=1</span>
+<div class="highlight"><pre><span></span><code><span class="go">qm destroy &lt;vmid&gt; --destroy-unreferenced-disks=1</span>
 </code></pre></div>
-
 <h2 id="_13">ホスト名変更</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve:~# </span>hostnamectl<span style="color: #BBB"> </span>set-hostname<span style="color: #BBB"> </span>pve01
-<span style="color: #000080; font-weight: bold">root@pve:~# </span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>pve01
+<span class="gp">root@pve:~# </span>
 </code></pre></div>
-
 <p>他の変更ファイル(ファイル内にホスト名の記述があるものを探す)</p>
 <ul>
 <li>/etc/hosts</li>
@@ -2427,48 +2427,43 @@ NIC情報であれば以下の通り。</p>
 <li>/etc/pve/storage.cfg</li>
 </ul>
 <p>VMとノード定義</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>-lF<span style="color: #BBB"> </span>/etc/pve/nodes/
-<span style="color: #888">total 0</span>
-<span style="color: #888">drwxr-xr-x 2 root www-data 0 May 14  2023 pve/</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve01:~# </span>ls<span class="w"> </span>-lF<span class="w"> </span>/etc/pve/nodes/
+<span class="go">total 0</span>
+<span class="go">drwxr-xr-x 2 root www-data 0 May 14  2023 pve/</span>
 </code></pre></div>
-
 <p>しばらく待機すると、新ホスト名のノードが生えるが中身はブランク</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>-lF<span style="color: #BBB"> </span>/etc/pve/nodes/
-<span style="color: #888">total 0</span>
-<span style="color: #888">drwxr-xr-x 2 root www-data 0 May 14  2023 pve/</span>
-<span style="color: #888">drwxr-xr-x 2 root www-data 0 Jan  5 14:51 pve01/</span>
-<span style="color: #000080; font-weight: bold">root@pve01:~# </span>find<span style="color: #BBB"> </span>/etc/pve/nodes/pve01/
-<span style="color: #888">/etc/pve/nodes/pve01/</span>
-<span style="color: #888">/etc/pve/nodes/pve01/qemu-server</span>
-<span style="color: #888">/etc/pve/nodes/pve01/lxc</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve01:~# </span>ls<span class="w"> </span>-lF<span class="w"> </span>/etc/pve/nodes/
+<span class="go">total 0</span>
+<span class="go">drwxr-xr-x 2 root www-data 0 May 14  2023 pve/</span>
+<span class="go">drwxr-xr-x 2 root www-data 0 Jan  5 14:51 pve01/</span>
+<span class="gp">root@pve01:~# </span>find<span class="w"> </span>/etc/pve/nodes/pve01/
+<span class="go">/etc/pve/nodes/pve01/</span>
+<span class="go">/etc/pve/nodes/pve01/qemu-server</span>
+<span class="go">/etc/pve/nodes/pve01/lxc</span>
 </code></pre></div>
-
 <p>念のためバックアップ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>cp<span style="color: #BBB"> </span>-a<span style="color: #BBB"> </span>/etc/pve/nodes/pve<span style="color: #BBB"> </span>node-backup/
-<span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>-lF<span style="color: #BBB"> </span>node-backup/
-<span style="color: #888">total 4</span>
-<span style="color: #888">drwxr-xr-x 6 root www-data 4096 May 14  2023 pve/</span>
-<span style="color: #000080; font-weight: bold">root@pve01:~# </span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve01:~# </span>cp<span class="w"> </span>-a<span class="w"> </span>/etc/pve/nodes/pve<span class="w"> </span>node-backup/
+<span class="gp">root@pve01:~# </span>ls<span class="w"> </span>-lF<span class="w"> </span>node-backup/
+<span class="go">total 4</span>
+<span class="go">drwxr-xr-x 6 root www-data 4096 May 14  2023 pve/</span>
+<span class="gp">root@pve01:~# </span>
 </code></pre></div>
-
 <p>VM定義ファイルを移動</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">root@pve01:~# </span>mv<span style="color: #BBB"> </span>/etc/pve/nodes/pve/qemu-server/*<span style="color: #BBB"> </span>/etc/pve/nodes/pve01/qemu-server/
-<span style="color: #000080; font-weight: bold">root@pve01:~#</span>
-<span style="color: #000080; font-weight: bold">root@pve01:~# </span>ls<span style="color: #BBB"> </span>/etc/pve/nodes/pve01/qemu-server/
-<span style="color: #888">101.conf  116.conf  201.conf  210.conf  303.conf  312.conf  703.conf  709.conf  712.conf   9002.conf  9011.conf</span>
-<span style="color: #888">111.conf  119.conf  202.conf  301.conf  310.conf  313.conf  707.conf  710.conf  9000.conf  9003.conf  9020.conf</span>
-<span style="color: #888">114.conf  121.conf  203.conf  302.conf  311.conf  702.conf  708.conf  711.conf  9001.conf  9010.conf</span>
+<div class="highlight"><pre><span></span><code><span class="gp">root@pve01:~# </span>mv<span class="w"> </span>/etc/pve/nodes/pve/qemu-server/*<span class="w"> </span>/etc/pve/nodes/pve01/qemu-server/
+<span class="gp">root@pve01:~#</span>
+<span class="gp">root@pve01:~# </span>ls<span class="w"> </span>/etc/pve/nodes/pve01/qemu-server/
+<span class="go">101.conf  116.conf  201.conf  210.conf  303.conf  312.conf  703.conf  709.conf  712.conf   9002.conf  9011.conf</span>
+<span class="go">111.conf  119.conf  202.conf  301.conf  310.conf  313.conf  707.conf  710.conf  9000.conf  9003.conf  9020.conf</span>
+<span class="go">114.conf  121.conf  203.conf  302.conf  311.conf  702.conf  708.conf  711.conf  9001.conf  9010.conf</span>
 </code></pre></div>
-
 <h2 id="ansible">Ansible</h2>
 <h3 id="vm_5">VM一覧</h3>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/community/proxmox/proxmox_vm_info_module.html">community.proxmox.proxmox_vm_info module – Retrieve information about one or more Proxmox VE virtual machines — Ansible Community Documentation</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>listup vm
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">community.proxmox.proxmox_vm_info</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>qemu
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">register</span>:<span style="color: #BBB"> </span>vm_info
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">listup vm</span>
+<span class="w">  </span><span class="nt">community.proxmox.proxmox_vm_info</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qemu</span>
+<span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vm_info</span>
 </code></pre></div>
-
 <p><code>node</code>の指定は任意。<code>type</code>もなくても良い。<br />
 <code>vm_info.proxmox_vms</code>にVM情報の辞書型データがリストでセットされる。</p>
                 
@@ -2547,6 +2542,8 @@ NIC情報であれば以下の通り。</p>
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1468,6 +1470,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1928,42 +1942,39 @@
 <li>v2: <a href="https://docs.docker.com/compose/cli-command/">Compose V2 | Docker Documentation</a></li>
 </ul>
 <h2 id="docker_2">dockerグループへユーザーを追加するアレ(コピペ用)</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>usermod<span style="color: #BBB"> </span>-aG<span style="color: #BBB"> </span>docker<span style="color: #BBB"> </span><span style="color: #B8860B">$USER</span>
+<div class="highlight"><pre><span></span><code>$ sudo usermod -aG docker $USER
 </code></pre></div>
-
 <h2 id="oracle-linux">Oracle Linux</h2>
 <h3 id="_1">標準</h3>
 <p>OCIでOL7.9の場合、デフォルトのリポジトリだとこれがヒットする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">[</span>opc@instance-20210801-1151 ~<span style="color: #666">]</span><span style="border: 1px solid #F00">$</span><span style="color: #BBB"> </span>yum<span style="color: #BBB"> </span>info<span style="color: #BBB"> </span>docker<span style="color: #666">-</span>engine.aarch64
-<span style="color: #A0A000">読み込んだプラグイン</span>:langpacks,<span style="color: #BBB"> </span>ulninfo
+<div class="highlight"><pre><span></span><code>[opc@instance-20210801-1151 ~]$ yum info docker-engine.aarch64
+読み込んだプラグイン:langpacks, ulninfo
 利用可能なパッケージ
-名前<span style="color: #BBB">                </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>docker<span style="color: #666">-</span>engine
-アーキテクチャー<span style="color: #BBB">    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>aarch64
-バージョン<span style="color: #BBB">          </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">19.03.11</span>.ol
-リリース<span style="color: #BBB">            </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">13.</span>el7
-容量<span style="color: #BBB">                </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">14</span><span style="color: #BBB"> </span>M
-リポジトリー<span style="color: #BBB">        </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>ol7_oci_included<span style="color: #666">/</span>aarch64
-要約<span style="color: #BBB">                </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>The<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">open</span><span style="color: #666">-</span>source<span style="color: #BBB"> </span>application<span style="color: #BBB"> </span>container<span style="color: #BBB"> </span>engine
-URL<span style="color: #BBB">                 </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #A0A000">https</span>:<span style="color: #666">//</span>dockerproject.org
-ライセンス<span style="color: #BBB">          </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>ASL<span style="color: #BBB"> </span><span style="color: #666">2.0</span>
-説明<span style="color: #BBB">                </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>Docker<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">is</span><span style="color: #BBB"> </span>an<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">open</span><span style="color: #BBB"> </span>source<span style="color: #BBB"> </span>project<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span>build,<span style="color: #BBB"> </span>ship<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span>run<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">any</span><span style="color: #BBB"> </span>application<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">as</span><span style="color: #BBB"> </span>a
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>lightweight<span style="color: #BBB"> </span>container.
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>Docker<span style="color: #BBB"> </span>containers<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">are</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">both</span><span style="color: #BBB"> </span>hardware<span style="color: #666">-</span>agnostic<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span>platform<span style="color: #666">-</span>agnostic.<span style="color: #BBB"> </span>This<span style="color: #BBB"> </span>means
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>they<span style="color: #BBB"> </span>can<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>anywhere,<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span>your<span style="color: #BBB"> </span>laptop<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span>the<span style="color: #BBB"> </span>largest<span style="color: #BBB"> </span>EC2<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">compute</span><span style="color: #BBB"> </span>instance<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span>
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>everything<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">in</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">between</span><span style="color: #BBB"> </span><span style="color: #666">-</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span>they<span style="color: #BBB"> </span>don<span style="border: 1px solid #F00">&#39;</span>t<span style="color: #BBB"> </span>require<span style="color: #BBB"> </span>you<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">use</span><span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>particular
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">language</span>,<span style="color: #BBB"> </span>framework<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">or</span><span style="color: #BBB"> </span>packaging<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">system</span>.<span style="color: #BBB"> </span>That<span style="color: #BBB"> </span>makes<span style="color: #BBB"> </span>them<span style="color: #BBB"> </span>great<span style="color: #BBB"> </span>building<span style="color: #BBB"> </span>blocks
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>deploying<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span>scaling<span style="color: #BBB"> </span>web<span style="color: #BBB"> </span>apps,<span style="color: #BBB"> </span>databases,<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span>backend<span style="color: #BBB"> </span>services<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">without</span>
-<span style="color: #BBB">                    </span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>depending<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">on</span><span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>particular<span style="color: #BBB"> </span>stack<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">or</span><span style="color: #BBB"> </span>provider.
+名前                : docker-engine
+アーキテクチャー    : aarch64
+バージョン          : 19.03.11.ol
+リリース            : 13.el7
+容量                : 14 M
+リポジトリー        : ol7_oci_included/aarch64
+要約                : The open-source application container engine
+URL                 : https://dockerproject.org
+ライセンス          : ASL 2.0
+説明                : Docker is an open source project to build, ship and run any application as a
+                    : lightweight container.
+                    : 
+                    : Docker containers are both hardware-agnostic and platform-agnostic. This means
+                    : they can run anywhere, from your laptop to the largest EC2 compute instance and
+                    : everything in between - and they don&#39;t require you to use a particular
+                    : language, framework or packaging system. That makes them great building blocks
+                    : for deploying and scaling web apps, databases, and backend services without
+                    : depending on a particular stack or provider.
 </code></pre></div>
-
 <h3 id="centos">centos版</h3>
 <p>互換性が高そうなCentOS版の手順・リポジトリでもインストール・お試しにnginxコンテナデプロイはできた。</p>
 <p><a href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS | Docker Documentation</a></p>
 <p>ただし依存パッケージ(<code>slirp4netns</code>, <code>fuse-overlayfs</code>)のインストール用に、<code>ol7_developer</code>リポジトリを有効にしておく必要あり。(デフォルト無効)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>yum-config-manager<span style="color: #BBB"> </span>--enable<span style="color: #BBB"> </span>ol7_developer
+<div class="highlight"><pre><span></span><code>$ sudo yum-config-manager --enable ol7_developer
 </code></pre></div>
-
 <p><a href="https://yum.oracle.com/repo/OracleLinux/OL7/developer/aarch64/index.html">Oracle Linux 7 (aarch64) Development | Oracle, Software. Hardware. Complete.</a></p>
 <h2 id="docker_3">古いDocker</h2>
 <p>検証用に古いバージョンを入れたい場合</p>
@@ -1979,20 +1990,18 @@ URL<span style="color: #BBB">                 </span><span style="border: 1px so
 <p>例えば1.29.2であれば以下から直接バイナリをダウンロードし、<code>/usr/local/bin/docker-compose</code>あたりに配置し実行権限を付与する。</p>
 <p><a href="https://github.com/docker/compose/releases/tag/1.29.2">https://github.com/docker/compose/releases/tag/1.29.2</a></p>
 <p>エラーが出た場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker-compose<span style="color: #BBB"> </span>version
-<span style="color: #888">[21740] Error loading Python lib &#39;/tmp/_MEIy05DAM/libpython3.7m.so.1.0&#39;: dlopen: libcrypt.so.1: cannot open shared object file: No such file or directory</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker-compose<span class="w"> </span>version
+<span class="go">[21740] Error loading Python lib &#39;/tmp/_MEIy05DAM/libpython3.7m.so.1.0&#39;: dlopen: libcrypt.so.1: cannot open shared object file: No such file or directory</span>
 </code></pre></div>
-
 <p>Fedoraの場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>dnf<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>libxcrypt
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>search<span class="w"> </span>libxcrypt
 </code></pre></div>
-
 <p>これで動く</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora40-dev docker-20]$ </span>docker-compose<span style="color: #BBB"> </span>version
-<span style="color: #888">docker-compose version 1.29.2, build 5becea4c</span>
-<span style="color: #888">docker-py version: 5.0.0</span>
-<span style="color: #888">CPython version: 3.7.10</span>
-<span style="color: #888">OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@fedora40-dev docker-20]$ </span>docker-compose<span class="w"> </span>version
+<span class="go">docker-compose version 1.29.2, build 5becea4c</span>
+<span class="go">docker-py version: 5.0.0</span>
+<span class="go">CPython version: 3.7.10</span>
+<span class="go">OpenSSL version: OpenSSL 1.1.0l  10 Sep 2019</span>
 </code></pre></div>
                 
               
@@ -2070,6 +2079,8 @@ URL<span style="color: #BBB">                 </span><span style="border: 1px so
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

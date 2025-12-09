@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1488,6 +1490,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1959,54 +1973,46 @@
                 <h1 id="openssl">openssl</h1>
 <h2 id="_1">秘密鍵作成</h2>
 <h3 id="rsa">RSA秘密鍵</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">openssl genrsa &gt; private.key</span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl genrsa &gt; private.key</span>
 </code></pre></div>
-
 <p>鍵長を指定するには引数に指定</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>openssl<span style="color: #BBB"> </span>genrsa<span style="color: #BBB"> </span><span style="color: #666">4096</span><span style="color: #BBB"> </span>&gt;<span style="color: #BBB"> </span>private.key
-<span style="color: #000080; font-weight: bold">$ </span>openssl<span style="color: #BBB"> </span>rsa<span style="color: #BBB"> </span>-text<span style="color: #BBB"> </span>-noout<span style="color: #BBB"> </span>-in<span style="color: #BBB"> </span>private.key<span style="color: #BBB"> </span>
-<span style="color: #888">Private-Key: (4096 bit, 2 primes)</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openssl<span class="w"> </span>genrsa<span class="w"> </span><span class="m">4096</span><span class="w"> </span>&gt;<span class="w"> </span>private.key
+<span class="gp">$ </span>openssl<span class="w"> </span>rsa<span class="w"> </span>-text<span class="w"> </span>-noout<span class="w"> </span>-in<span class="w"> </span>private.key<span class="w"> </span>
+<span class="go">Private-Key: (4096 bit, 2 primes)</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <h2 id="_2">証明書作成</h2>
 <h3 id="ca">プライベートCA作成と署名</h3>
 <p>※ <del>OpenSSL 3 では <code>openssl genrsa</code>はdeprecatedになっている</del><br />
 なってなかった<br />
 <a href="https://github.com/openssl/openssl/issues/21055">genrsa is not really deprecated although documented so · Issue #21055 · openssl/openssl</a></p>
 <p><code>genpkey</code>使う場合は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>key作成
-<span style="color: #888">openssl genpkey -algorithm rsa -out ca.key</span>
-<span style="color: #000080; font-weight: bold"># </span>crt作成
-<span style="color: #888">openssl req -new -x509 -days 3650 -key ca.key -subj &quot;/CN=example.org/&quot; -out ca.crt</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>key作成
+<span class="go">openssl genpkey -algorithm rsa -out ca.key</span>
+<span class="gp"># </span>crt作成
+<span class="go">openssl req -new -x509 -days 3650 -key ca.key -subj &quot;/CN=example.org/&quot; -out ca.crt</span>
 </code></pre></div>
-
 <p>csrを作らずに一気にcrtファイル作成は↑の通り。</p>
 <p>csrも作るには以下(生成情報に若干の差異はあるけど)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>csr作成
-<span style="color: #888">openssl req -new -key ca.key -subj &quot;/CN=example.org/&quot; -out ca.csr</span>
-<span style="color: #000080; font-weight: bold"># </span>crt作成
-<span style="color: #888">openssl x509 -req -in ca.csr -signkey ca.key -days 3650 -out ca.crt</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>csr作成
+<span class="go">openssl req -new -key ca.key -subj &quot;/CN=example.org/&quot; -out ca.csr</span>
+<span class="gp"># </span>crt作成
+<span class="go">openssl x509 -req -in ca.csr -signkey ca.key -days 3650 -out ca.crt</span>
 </code></pre></div>
-
 <p>作成したCAで署名した証明書作成</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">openssl req -newkey rsa -nodes -sha256 -keyout server.key -x509 -days 365 -out server.crt -subj &#39;/CN=example.org/&#39; -addext &quot;subjectAltName=DNS:example.org,DNS:*.example.org&quot; -CA ca.crt -CAkey ca.key</span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa -nodes -sha256 -keyout server.key -x509 -days 365 -out server.crt -subj &#39;/CN=example.org/&#39; -addext &quot;subjectAltName=DNS:example.org,DNS:*.example.org&quot; -CA ca.crt -CAkey ca.key</span>
 </code></pre></div>
-
 <h3 id="commonname">オレオレ証明書作成(CommonName)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">openssl req -newkey rsa:4096 -nodes -sha256 -keyout /path/to/example.org.key -x509 -days 365 -out /path/to/example.org.crt -subj &#39;/CN=example.org/&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa:4096 -nodes -sha256 -keyout /path/to/example.org.key -x509 -days 365 -out /path/to/example.org.crt -subj &#39;/CN=example.org/&#39;</span>
 </code></pre></div>
-
 <h3 id="alternative-name">Alternative Name指定のオレオレ証明書</h3>
 <p><code>appserv</code>と<code>appserv.example.org</code>いう名前のSANを追加する場合。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">openssl req -newkey rsa:4096 -nodes -sha256 -keyout server.key -x509 -days 365  -out server.crt -subj &#39;/C=JP/&#39; -addext &quot;subjectAltName=DNS:appserv,DNS:appserv.example.org&quot; </span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa:4096 -nodes -sha256 -keyout server.key -x509 -days 365  -out server.crt -subj &#39;/C=JP/&#39; -addext &quot;subjectAltName=DNS:appserv,DNS:appserv.example.org&quot; </span>
 </code></pre></div>
-
 <h3 id="_3">国や都道府県等の指定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">openssl req ... -subj &#39;/C=JP/ST=Tokyo/L=Daiba/CN=example.org&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req ... -subj &#39;/C=JP/ST=Tokyo/L=Daiba/CN=example.org&#39;</span>
 </code></pre></div>
-
 <ul>
 <li>C(Country Name): 国(2文字)</li>
 <li>ST(State or Province Name): 都道府県</li>
@@ -2017,42 +2023,37 @@
 </ul>
 <h2 id="_4">ファイル内容確認</h2>
 <h3 id="rsa_1">RSA秘密鍵の確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN RSA PRIVATE KEY-----</span>
-<span style="color: #B44">MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........</span>
-<span style="color: #B44">:</span>
-<span style="color: #B44">:</span>
-<span style="color: #B44">.....</span>
-<span style="color: #000080; font-weight: bold">-----END RSA PRIVATE KEY-----</span>
+<div class="highlight"><pre><span></span><code>-----BEGIN RSA PRIVATE KEY-----
+MIIJKAIBAAKCAgEAntBW2JpzhtCgXGjKsR........
+:
+:
+.....
+-----END RSA PRIVATE KEY-----
 </code></pre></div>
-
 <p>こんな内容の「BEGIN RSA PRIVATE KEY」で始まってENDまでのファイルは以下で確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl<span style="color: #BBB"> </span>rsa<span style="color: #BBB"> </span>-text<span style="color: #BBB"> </span>-noout<span style="color: #BBB"> </span>-in<span style="color: #BBB"> </span>account.key<span style="color: #BBB"> </span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>openssl<span class="w"> </span>rsa<span class="w"> </span>-text<span class="w"> </span>-noout<span class="w"> </span>-in<span class="w"> </span>account.key<span class="w"> </span>
 </code></pre></div>
-
 <h3 id="csr">CSR(証明書署名要求)の確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE REQUEST-----</span>
-<span style="color: #B44">MIIEkDCCAngCAQAwHDEaMB........</span>
-<span style="color: #B44">:</span>
-<span style="color: #B44">:</span>
-<span style="color: #B44">.....</span>
-<span style="color: #000080; font-weight: bold">-----END CERTIFICATE REQUEST-----</span>
+<div class="highlight"><pre><span></span><code>-----BEGIN CERTIFICATE REQUEST-----
+MIIEkDCCAngCAQAwHDEaMB........
+:
+:
+.....
+-----END CERTIFICATE REQUEST-----
 </code></pre></div>
-
 <p>「BEGIN CERTIFICATE REQUEST」で始まってENDで終わるファイルであれば以下で確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl<span style="color: #BBB"> </span>req<span style="color: #BBB"> </span>-text<span style="color: #BBB"> </span>-noout<span style="color: #BBB"> </span>-in<span style="color: #BBB"> </span>server.csr
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>openssl<span class="w"> </span>req<span class="w"> </span>-text<span class="w"> </span>-noout<span class="w"> </span>-in<span class="w"> </span>server.csr
 </code></pre></div>
-
 <h3 id="_5">証明書ファイルの確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">-----BEGIN CERTIFICATE-----</span>
-<span style="color: #B44">MIIGKTCCBRGg.......</span>
-<span style="color: #B44">:</span>
-<span style="color: #B44">:</span>
-<span style="color: #B44">....</span>
-<span style="color: #000080; font-weight: bold">-----END CERTIFICATE-----</span>
+<div class="highlight"><pre><span></span><code>-----BEGIN CERTIFICATE-----
+MIIGKTCCBRGg.......
+:
+:
+....
+-----END CERTIFICATE-----
 </code></pre></div>
-
 <p>「BEGIN CERTIFICATE」で始まってENDで終わっているファイルは、x509を指定して確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>openssl<span style="color: #BBB"> </span>x509<span style="color: #BBB"> </span>-text<span style="color: #BBB"> </span>-noout<span style="color: #BBB"> </span>-in<span style="color: #BBB"> </span>server.crt
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>openssl<span class="w"> </span>x509<span class="w"> </span>-text<span class="w"> </span>-noout<span class="w"> </span>-in<span class="w"> </span>server.crt
 </code></pre></div>
                 
               
@@ -2130,6 +2131,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

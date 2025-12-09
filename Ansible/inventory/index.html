@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1454,6 +1456,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1894,104 +1908,95 @@
 <li><a href="https://docs.ansible.com/ansible/2.9_ja/user_guide/intro_inventory.html">インベントリーの構築方法 — Ansible Documentation</a></li>
 </ul>
 <h2 id="_2">インベントリファイルへのグループ変数定義</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[servers]</span>
-<span style="color: #B44">host1</span>
-<span style="color: #B44">host2</span>
+<div class="highlight"><pre><span></span><code><span class="k">[servers]</span>
+<span class="na">host1</span>
+<span class="na">host2</span>
 
-<span style="color: #A2F; font-weight: bold">[all:vars]</span>
-<span style="color: #B44">gateway</span><span style="color: #666">=</span><span style="color: #B44">192.168.0.1</span>
+<span class="k">[all:vars]</span>
+<span class="na">gateway</span><span class="o">=</span><span class="s">192.168.0.1</span>
 
-<span style="color: #A2F; font-weight: bold">[servers:vars]</span>
-<span style="color: #B44">db_host</span><span style="color: #666">=</span><span style="color: #B44">192.168.0.121</span>
+<span class="k">[servers:vars]</span>
+<span class="na">db_host</span><span class="o">=</span><span class="s">192.168.0.121</span>
 </code></pre></div>
-
 <h2 id="localhost">localhost</h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/inventory/implicit_localhost.html">Implicit ‘localhost’ — Ansible Documentation</a></li>
 <li><a href="https://docs.ansible.com/ansible/2.9_ja/inventory/implicit_localhost.html">暗黙的な ‘localhost’ — Ansible Documentation</a></li>
 </ul>
 <p>ターゲットホストで<code>localhost</code>を指定した場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">hosts</span>:<span style="color: #BBB"> </span>localhost
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">gather_facts</span>:<span style="color: #BBB"> </span>false
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tasks</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>sample
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">ping</span>:
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample</span>
+<span class="w">      </span><span class="nt">ping</span><span class="p">:</span>
 </code></pre></div>
-
 <p>このとき、インベントリファイルに<code>localhost</code>の定義が無い場合(や、インベントリファイルを指定しない場合)は、暗黙の<code>localhost</code>として</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">hosts</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">localhost</span>:
-<span style="color: #BBB">   </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #BBB">     </span><span style="color: #008000; font-weight: bold">ansible_connection</span>:<span style="color: #BBB"> </span>local
-<span style="color: #BBB">     </span><span style="color: #008000; font-weight: bold">ansible_python_interpreter</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;{{ansible_playbook_python}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">localhost</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">     </span><span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{ansible_playbook_python}}&quot;</span>
 </code></pre></div>
-
 <p>ってのが内部で用意され、この設定で接続される。よって、<code>connection: local</code>として動く。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>localhost.yml<span style="color: #BBB"> </span>-vvv
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #888">TASK [sample] *****************************************************</span>
-<span style="color: #888">task path: /home/zaki/src/ansible-sample/inventory/localhost.yml:6</span>
-<span style="color: #888">&lt;127.0.0.1&gt; ESTABLISH LOCAL CONNECTION FOR USER: zaki</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>localhost.yml<span class="w"> </span>-vvv
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="go">TASK [sample] *****************************************************</span>
+<span class="go">task path: /home/zaki/src/ansible-sample/inventory/localhost.yml:6</span>
+<span class="go">&lt;127.0.0.1&gt; ESTABLISH LOCAL CONNECTION FOR USER: zaki</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <p>こんな感じ。</p>
 <p>インベントリに<code>localhost</code>の設定があればそれが使われる。当然<code>connection: local</code>が無ければ、設定されたコネクションプラグインが使用される(未指定ならデフォルトの<code>ssh</code>)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[localhost]</span>
-<span style="color: #B44">localhost</span>
+<div class="highlight"><pre><span></span><code><span class="k">[localhost]</span>
+<span class="na">localhost</span>
 </code></pre></div>
-
 <p>こんな<code>localhost.ini</code>というインベントリファイルを指定すると、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-playbook<span style="color: #BBB"> </span>localhost.yml<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>localhost.ini<span style="color: #BBB"> </span>-vvv
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
-<span style="color: #888">TASK [sample] *****************************************************</span>
-<span style="color: #888">task path: /home/zaki/src/ansible-sample/inventory/localhost.yml:6</span>
-<span style="color: #888">&lt;localhost&gt; ESTABLISH SSH CONNECTION FOR USER: None</span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>localhost.yml<span class="w"> </span>-i<span class="w"> </span>localhost.ini<span class="w"> </span>-vvv
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="go">TASK [sample] *****************************************************</span>
+<span class="go">task path: /home/zaki/src/ansible-sample/inventory/localhost.yml:6</span>
+<span class="go">&lt;localhost&gt; ESTABLISH SSH CONNECTION FOR USER: None</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <p>このようにssh接続となる。</p>
 <h2 id="yaml">YAML形式</h2>
 <p>YAML形式のインベントリファイルの構造は基本的に以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">foobar</span>:
-<span style="color: #BBB">  </span><span style="color: #080; font-style: italic"># &quot;foobar&quot; グループ定義 / &quot;all&quot;使用可</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">hosts</span>:
-<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># ホスト定義</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">host1.example.org</span>:
-<span style="color: #BBB">      </span><span style="color: #080; font-style: italic"># ホスト配下はホスト変数</span>
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #BBB"> </span>value
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">ansible_host</span>:<span style="color: #BBB"> </span>10.0.0.3
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">host2.example.org</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">vars</span>:
-<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># 以下、グループ変数</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #BBB"> </span>value
+<div class="highlight"><pre><span></span><code><span class="nt">foobar</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># &quot;foobar&quot; グループ定義 / &quot;all&quot;使用可</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># ホスト定義</span>
+<span class="w">    </span><span class="nt">host1.example.org</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># ホスト配下はホスト変数</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+<span class="w">      </span><span class="nt">ansible_host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.0.3</span>
+<span class="w">    </span><span class="nt">host2.example.org</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># 以下、グループ変数</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
 </code></pre></div>
-
 <h2 id="_3">ダイナミックインベントリ</h2>
 <h3 id="ec2">EC2</h3>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/06/21/091252">[Ansible / AWS] ダイナミックインベントリを使ってEC2接続先を動的に取得してAnsible実行お試し - zaki work log</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
-<span style="color: #008000; font-weight: bold">plugin</span>:<span style="color: #BBB"> </span>amazon.aws.aws_ec2
-<span style="color: #008000; font-weight: bold">regions</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>ap-northeast-1
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">amazon.aws.aws_ec2</span>
+<span class="nt">regions</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
 </code></pre></div>
-
 <p>デフォルトで<code>aws_ec2</code>グループに全EC2が所属する。</p>
 <h4 id="tag">tagを使ったホストのグルーピング</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #00F; font-weight: bold">---</span>
-<span style="color: #008000; font-weight: bold">plugin</span>:<span style="color: #BBB"> </span>amazon.aws.aws_ec2
-<span style="color: #008000; font-weight: bold">regions</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>ap-northeast-1
-<span style="color: #008000; font-weight: bold">keyed_groups</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">key</span>:<span style="color: #BBB"> </span>tags.Type
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">amazon.aws.aws_ec2</span>
+<span class="nt">regions</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ap-northeast-1</span>
+<span class="nt">keyed_groups</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tags.Type</span>
 </code></pre></div>
-
 <p><code>keyed_groups</code>配下にリストで<code>key: tags.&lt;タグ名&gt;</code>をセットすると、対象のタグの値でグループが作成される。<br />
 例えば上記の定義の場合、<code>Type</code>キーがセットされているEC2のグループができる。</p>
 <table>
@@ -2019,9 +2024,9 @@
 <p>このような構成だった場合、<code>_server</code>グループにhost1、<code>_client</code>グループにhost2,host3がセットされる。</p>
 <h3 id="netbox">netbox</h3>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/01/29/002540">[NetBox / Ansible] ダイナミックインベントリを使ってNetBoxに登録されたホスト情報をターゲットノードにAnsibleを実行 - zaki work log</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">plugin</span>:<span style="color: #BBB"> </span>netbox.netbox.nb_inventory
-<span style="color: #008000; font-weight: bold">api_endpoint</span>:<span style="color: #BBB"> </span>http://192.168.0.19:28080
-<span style="color: #008000; font-weight: bold">token</span>:<span style="color: #BBB"> </span>0123456789abcdef0123456789abcdef01234567
+<div class="highlight"><pre><span></span><code><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">netbox.netbox.nb_inventory</span>
+<span class="nt">api_endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://192.168.0.19:28080</span>
+<span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0123456789abcdef0123456789abcdef01234567</span>
 </code></pre></div>
                 
               
@@ -2099,6 +2104,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

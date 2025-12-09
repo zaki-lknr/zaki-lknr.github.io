@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1441,6 +1443,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1872,23 +1886,20 @@
 </ul>
 <h2 id="rest">REST</h2>
 <h3 id="_1">プロジェクト一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">https://${BACKLOG_SPACE}.backlog.com/api/v2/projects?apiKey=$</span><span style="color: #666">{</span>BACKLOG_APIKEY<span style="color: #666">}</span>
+<div class="highlight"><pre><span></span><code><span class="gp">https://${BACKLOG_SPACE}.backlog.com/api/v2/projects?apiKey=$</span><span class="o">{</span>BACKLOG_APIKEY<span class="o">}</span>
 </code></pre></div>
-
 <h3 id="_2">プロジェクトメンバー一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">https://${BACKLOG_SPACE}.backlog.com/api/v2/projects/${PROJECT_KEY}/users?apiKey=$</span><span style="color: #666">{</span>BACKLOG_APIKEY<span style="color: #666">}</span><span style="color: #BBB"> </span>
+<div class="highlight"><pre><span></span><code><span class="gp">https://${BACKLOG_SPACE}.backlog.com/api/v2/projects/${PROJECT_KEY}/users?apiKey=$</span><span class="o">{</span>BACKLOG_APIKEY<span class="o">}</span><span class="w"> </span>
 </code></pre></div>
-
 <p><a href="https://developer.nulab.com/ja/docs/backlog/api/2/get-project-user-list/">プロジェクトユーザー一覧の取得 | Backlog Developer API | Nulab</a></p>
 <p><code>${PROJECT_KEY}</code>はIDでも可</p>
 <h3 id="_3">課題一覧</h3>
 <p><a href="https://developer.nulab.com/ja/docs/backlog/api/2/get-issue-list/">課題一覧の取得 | Backlog Developer API | Nulab</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -LO &quot;https://${BACKLOG_SPACE}.backlog.com/api/v2/issues?count=${COUNT}&amp;startDateUntil=${YYYY_mm_dd}&amp;projectId[]=${PROJECT_ID}&amp;statusId[]=1&amp;statusId[]=2&amp;apiKey=${BACKLOG_APIKEY}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -LO &quot;https://${BACKLOG_SPACE}.backlog.com/api/v2/issues?count=${COUNT}&amp;startDateUntil=${YYYY_mm_dd}&amp;projectId[]=${PROJECT_ID}&amp;statusId[]=1&amp;statusId[]=2&amp;apiKey=${BACKLOG_APIKEY}&quot;</span>
 </code></pre></div>
-
 <h3 id="_4">メンション</h3>
 <p>ユーザーID<code>12345678</code>であれば<code>&lt;@U12345678&gt;</code>のように記述する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">&quot;(&lt;@U&quot;</span><span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span>user<span style="color: #BBB"> </span><span style="color: #666">+</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;&gt;)&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;(&lt;@U&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&gt;)&quot;</span>
 </code></pre></div>
                 
               
@@ -1966,6 +1977,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1360,6 +1362,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2054,98 +2068,84 @@
 <h2 id="_1">インストール</h2>
 <h3 id="fedora">Fedora</h3>
 <p><code>dnf</code>で入れられる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">sudo dnf install -y dnf-plugins-core</span>
-<span style="color: #888">sudo dnf config-manager addrepo --from-repofile=https://mise.jdx.dev/rpm/mise.repo</span>
-<span style="color: #888">sudo dnf install -y mise</span>
+<div class="highlight"><pre><span></span><code><span class="go">sudo dnf install -y dnf-plugins-core</span>
+<span class="go">sudo dnf config-manager addrepo --from-repofile=https://mise.jdx.dev/rpm/mise.repo</span>
+<span class="go">sudo dnf install -y mise</span>
 </code></pre></div>
-
 <h3 id="_2">初期設定</h3>
 <p><code>mise</code>のパスはインストール方法によって読み替える。<br />
 <code>dnf</code>で入れた場合は<code>/usr/bin/mise</code>にあるので</p>
 <h3 id="completion">completion</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error: usage CLI not found. This is required for completions to work in mise.</span>
-<span style="color: #888">See https://usage.jdx.dev for more information.</span>
+<div class="highlight"><pre><span></span><code><span class="go">Error: usage CLI not found. This is required for completions to work in mise.</span>
+<span class="go">See https://usage.jdx.dev for more information.</span>
 </code></pre></div>
-
 <p>このエラーが出る場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>mise<span style="color: #BBB"> </span>plugins<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>usage
-<span style="color: #888">mise plugin:usage ✓ https://github.com/jdx/mise-usage.git#fe3888a  </span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>mise<span style="color: #BBB"> </span>use<span style="color: #BBB"> </span>-g<span style="color: #BBB"> </span>usage
-<span style="color: #888">mise usage@2.0.3 ✓ installed                                                                                 mise ~/.config/mise/config.toml tools: usage@2.0.3</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>mise<span class="w"> </span>plugins<span class="w"> </span>install<span class="w"> </span>usage
+<span class="go">mise plugin:usage ✓ https://github.com/jdx/mise-usage.git#fe3888a  </span>
+<span class="gp">zaki@cloud-dev2:~$ </span>mise<span class="w"> </span>use<span class="w"> </span>-g<span class="w"> </span>usage
+<span class="go">mise usage@2.0.3 ✓ installed                                                                                 mise ~/.config/mise/config.toml tools: usage@2.0.3</span>
 </code></pre></div>
-
 <p><a href="https://github.com/jdx/mise/issues/1710">https://github.com/jdx/mise/issues/1710</a></p>
 <h2 id="_3">パッケージ検索</h2>
 <h3 id="_4">パッケージ一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise ls-remote --all</span>
+<div class="highlight"><pre><span></span><code><span class="go">mise ls-remote --all</span>
 </code></pre></div>
-
 <p>あるいは</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise plugins ls-remote</span>
+<div class="highlight"><pre><span></span><code><span class="go">mise plugins ls-remote</span>
 </code></pre></div>
-
 <h3 id="_5">指定パッケージ(コマンド)のバージョン一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise ls-remote &lt;command&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">mise ls-remote &lt;command&gt;</span>
 </code></pre></div>
-
 <h2 id="_6">パッケージセットアップ</h2>
 <h3 id="python-3128">(例) Python 3.12.8のインストール</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>mise<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>python@3.12.8
-<span style="color: #888">mise hint use multiple versions simultaneously with mise use python@3.12 python@3.11</span>
-<span style="color: #888">mise hint installing precompiled python from astral-sh/python-build-standalone</span>
-<span style="color: #888">if you experience issues with this python (e.g.: running poetry), switch to python-build by running mise settings python.compile=1</span>
-<span style="color: #888">mise python@3.12.8 ✓ installed   </span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>mise<span class="w"> </span>install<span class="w"> </span>python@3.12.8
+<span class="go">mise hint use multiple versions simultaneously with mise use python@3.12 python@3.11</span>
+<span class="go">mise hint installing precompiled python from astral-sh/python-build-standalone</span>
+<span class="go">if you experience issues with this python (e.g.: running poetry), switch to python-build by running mise settings python.compile=1</span>
+<span class="go">mise python@3.12.8 ✓ installed   </span>
 </code></pre></div>
-
 <h3 id="python">カレントディレクトリ以下でこのpythonを有効にする</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~/tmp$ </span>mise<span style="color: #BBB"> </span>use<span style="color: #BBB"> </span>python@3.12.8
-<span style="color: #888">mise ~/tmp/mise.toml tools: python@3.12.8</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~/tmp$ </span>mise<span class="w"> </span>use<span class="w"> </span>python@3.12.8
+<span class="go">mise ~/tmp/mise.toml tools: python@3.12.8</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~/tmp$ </span>which<span style="color: #BBB"> </span>python
-<span style="color: #888">~/.local/share/mise/installs/python/3.12.8/bin/python</span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~/tmp$ </span><span style="color: #A2F">cd</span><span style="color: #BBB"> </span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>which<span style="color: #BBB"> </span>python
-<span style="color: #888">/usr/bin/python</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~/tmp$ </span>which<span class="w"> </span>python
+<span class="go">~/.local/share/mise/installs/python/3.12.8/bin/python</span>
+<span class="gp">zaki@cloud-dev2:~/tmp$ </span><span class="nb">cd</span><span class="w"> </span>
+<span class="gp">zaki@cloud-dev2:~$ </span>which<span class="w"> </span>python
+<span class="go">/usr/bin/python</span>
 </code></pre></div>
-
 <h3 id="python_1">ユーザー環境グローバルにこのpythonを有効にする</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~/local/tmp$ </span>mise<span style="color: #BBB"> </span>use<span style="color: #BBB"> </span>-g<span style="color: #BBB"> </span>python@3.12.8
-<span style="color: #888">mise WARN  python is defined in ~/local/tmp/mise.toml which overrides the global config (~/.config/mise/config.toml)</span>
-<span style="color: #888">mise ~/.config/mise/config.toml tools: python@3.12.8</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~/local/tmp$ </span>mise<span class="w"> </span>use<span class="w"> </span>-g<span class="w"> </span>python@3.12.8
+<span class="go">mise WARN  python is defined in ~/local/tmp/mise.toml which overrides the global config (~/.config/mise/config.toml)</span>
+<span class="go">mise ~/.config/mise/config.toml tools: python@3.12.8</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~/local/tmp$ </span>which<span style="color: #BBB"> </span>python
-<span style="color: #888">~/.local/share/mise/installs/python/3.12.8/bin/python</span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~/local/tmp$ </span><span style="color: #A2F">cd</span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>which<span style="color: #BBB"> </span>python
-<span style="color: #888">~/.local/share/mise/installs/python/3.12.8/bin/python</span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~/local/tmp$ </span>which<span class="w"> </span>python
+<span class="go">~/.local/share/mise/installs/python/3.12.8/bin/python</span>
+<span class="gp">zaki@cloud-dev2:~/local/tmp$ </span><span class="nb">cd</span>
+<span class="gp">zaki@cloud-dev2:~$ </span>which<span class="w"> </span>python
+<span class="go">~/.local/share/mise/installs/python/3.12.8/bin/python</span>
+<span class="gp">zaki@cloud-dev2:~$ </span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>sudo<span style="color: #BBB"> </span>su<span style="color: #BBB"> </span>-
-<span style="color: #888">最終ログイン: 2024/08/13 (火) 10:16:16 JST 端末:pts/1</span>
-<span style="color: #000080; font-weight: bold">root@cloud-dev2:~# </span>which<span style="color: #BBB"> </span>python
-<span style="color: #888">/usr/bin/python</span>
-<span style="color: #000080; font-weight: bold">root@cloud-dev2:~# </span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>sudo<span class="w"> </span>su<span class="w"> </span>-
+<span class="go">最終ログイン: 2024/08/13 (火) 10:16:16 JST 端末:pts/1</span>
+<span class="gp">root@cloud-dev2:~# </span>which<span class="w"> </span>python
+<span class="go">/usr/bin/python</span>
+<span class="gp">root@cloud-dev2:~# </span>
 </code></pre></div>
-
 <h3 id="_7">使用中パッケージ一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mise ls</span>
+<div class="highlight"><pre><span></span><code><span class="go">mise ls</span>
 </code></pre></div>
-
 <h2 id="misetoml">mise.toml</h2>
 <h3 id="_8">使用中設定ファイルの確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>mise<span style="color: #BBB"> </span>cfg
-<span style="color: #888">Path                                         Tools              </span>
-<span style="color: #888">~/.config/mise/config.toml                   aws, python, usage </span>
-<span style="color: #888">~/local/src/ansible-sample/become/mise.toml  python            </span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mise<span class="w"> </span>cfg
+<span class="go">Path                                         Tools              </span>
+<span class="go">~/.config/mise/config.toml                   aws, python, usage </span>
+<span class="go">~/local/src/ansible-sample/become/mise.toml  python            </span>
 </code></pre></div>
-
 <h3 id="_9">テンプレート</h3>
 <p><a href="https://mise.jdx.dev/templates.html">Templates | mise-en-place</a></p>
 <h4 id="exec">コマンド実行結果を変数にセット (exec)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>description<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;カウント設定: {{ exec(command=</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">grep count -A2 path/to/file | awk -F&#39;=&#39; &#39;{print $2}&#39;</span><span style="color: #B62; font-weight: bold">\&quot;</span><span style="color: #B44">) }}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;カウント設定: {{ exec(command=</span><span class="se">\&quot;</span><span class="s2">grep count -A2 path/to/file | awk -F&#39;=&#39; &#39;{print $2}&#39;</span><span class="se">\&quot;</span><span class="s2">) }}&quot;</span>
 </code></pre></div>
                 
               
@@ -2223,6 +2223,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

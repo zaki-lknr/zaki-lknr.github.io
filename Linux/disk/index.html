@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1577,6 +1579,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2136,138 +2150,129 @@
                 
                 <h1 id="_1">ディスク</h1>
 <h2 id="_2">ブロックデバイスをツリー表示</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>lsblk<span style="color: #BBB"> </span>
-<span style="color: #888">NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span>
-<span style="color: #888">sda               8:0    0   120G  0 disk </span>
-<span style="color: #888">├─sda1            8:1    0     1G  0 part /boot</span>
-<span style="color: #888">└─sda2            8:2    0   119G  0 part </span>
-<span style="color: #888">  ├─centos-root 253:0    0 115.5G  0 lvm  /</span>
-<span style="color: #888">  └─centos-swap 253:1    0   3.5G  0 lvm  [SWAP]</span>
-<span style="color: #888">zram0           252:0    0   7.5G  0 disk [SWAP]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>lsblk<span class="w"> </span>
+<span class="go">NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span>
+<span class="go">sda               8:0    0   120G  0 disk </span>
+<span class="go">├─sda1            8:1    0     1G  0 part /boot</span>
+<span class="go">└─sda2            8:2    0   119G  0 part </span>
+<span class="go">  ├─centos-root 253:0    0 115.5G  0 lvm  /</span>
+<span class="go">  └─centos-swap 253:1    0   3.5G  0 lvm  [SWAP]</span>
+<span class="go">zram0           252:0    0   7.5G  0 disk [SWAP]</span>
 </code></pre></div>
-
 <h2 id="_3">フォーマット確認</h2>
 <p><code>df -T</code>を実行</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>df<span style="color: #BBB"> </span>-T
-<span style="color: #888">ファイルシス            タイプ   1K-ブロック     使用   使用可 使用% マウント位置</span>
-<span style="color: #888">devtmpfs                devtmpfs        4096        0     4096    0% /dev</span>
-<span style="color: #888">tmpfs                   tmpfs        3927684        0  3927684    0% /dev/shm</span>
-<span style="color: #888">tmpfs                   tmpfs        1571076     1280  1569796    1% /run</span>
-<span style="color: #888">/dev/mapper/centos-root xfs        121047300 95026992 26020308   79% /</span>
-<span style="color: #888">tmpfs                   tmpfs        3927688        0  3927688    0% /tmp</span>
-<span style="color: #888">/dev/sda1               xfs          1038336   319000   719336   31% /boot</span>
-<span style="color: #888">tmpfs                   tmpfs         785536        0   785536    0% /run/user/1000</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>df<span class="w"> </span>-T
+<span class="go">ファイルシス            タイプ   1K-ブロック     使用   使用可 使用% マウント位置</span>
+<span class="go">devtmpfs                devtmpfs        4096        0     4096    0% /dev</span>
+<span class="go">tmpfs                   tmpfs        3927684        0  3927684    0% /dev/shm</span>
+<span class="go">tmpfs                   tmpfs        1571076     1280  1569796    1% /run</span>
+<span class="go">/dev/mapper/centos-root xfs        121047300 95026992 26020308   79% /</span>
+<span class="go">tmpfs                   tmpfs        3927688        0  3927688    0% /tmp</span>
+<span class="go">/dev/sda1               xfs          1038336   319000   719336   31% /boot</span>
+<span class="go">tmpfs                   tmpfs         785536        0   785536    0% /run/user/1000</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>df<span style="color: #BBB"> </span>-T
-<span style="color: #888">Filesystem                Type  1K-blocks      Used Available Use% Mounted on</span>
-<span style="color: #888">tmpfs                     tmpfs    804648      2192    802456   1% /run</span>
-<span style="color: #888">/dev/mapper/vgubuntu-root ext4  120977096  49076772  65708812  43% /</span>
-<span style="color: #888">tmpfs                     tmpfs   4023240         0   4023240   0% /dev/shm</span>
-<span style="color: #888">tmpfs                     tmpfs      5120         4      5116   1% /run/lock</span>
-<span style="color: #888">/dev/sda1                 vfat     523248         4    523244   1% /boot/efi</span>
-<span style="color: #888">tmpfs                     tmpfs    804648       148    804500   1% /run/user/1000</span>
-<span style="color: #888">/dev/sdb2                 ext4  479594152 178667716 276490880  40% /media/zaki/376b22ca-a013-11e8-81fd-000180792463</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>df<span class="w"> </span>-T
+<span class="go">Filesystem                Type  1K-blocks      Used Available Use% Mounted on</span>
+<span class="go">tmpfs                     tmpfs    804648      2192    802456   1% /run</span>
+<span class="go">/dev/mapper/vgubuntu-root ext4  120977096  49076772  65708812  43% /</span>
+<span class="go">tmpfs                     tmpfs   4023240         0   4023240   0% /dev/shm</span>
+<span class="go">tmpfs                     tmpfs      5120         4      5116   1% /run/lock</span>
+<span class="go">/dev/sda1                 vfat     523248         4    523244   1% /boot/efi</span>
+<span class="go">tmpfs                     tmpfs    804648       148    804500   1% /run/user/1000</span>
+<span class="go">/dev/sdb2                 ext4  479594152 178667716 276490880  40% /media/zaki/376b22ca-a013-11e8-81fd-000180792463</span>
 </code></pre></div>
-
 <h2 id="_4">型番の確認</h2>
 <h3 id="scsisata">SCSI(SATA)接続</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>cat<span style="color: #BBB"> </span>/proc/scsi/scsi<span style="color: #BBB"> </span>
-<span style="color: #888">Attached devices:</span>
-<span style="color: #888">Host: scsi0 Channel: 00 Id: 00 Lun: 00</span>
-<span style="color: #888">  Vendor: ATA      Model: Samsung SSD 870  Rev: 2B6Q</span>
-<span style="color: #888">  Type:   Direct-Access                    ANSI  SCSI revision: 05</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>cat<span class="w"> </span>/proc/scsi/scsi<span class="w"> </span>
+<span class="go">Attached devices:</span>
+<span class="go">Host: scsi0 Channel: 00 Id: 00 Lun: 00</span>
+<span class="go">  Vendor: ATA      Model: Samsung SSD 870  Rev: 2B6Q</span>
+<span class="go">  Type:   Direct-Access                    ANSI  SCSI revision: 05</span>
 </code></pre></div>
-
 <h3 id="nvme">NVMe接続</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>lspci<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>ssd
-<span style="color: #888">01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. NV2 NVMe SSD [SM2267XT] (DRAM-less) (rev 03)</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>ssd
+<span class="go">01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. NV2 NVMe SSD [SM2267XT] (DRAM-less) (rev 03)</span>
 </code></pre></div>
-
 <h3 id="smartctl">smartctlコマンド</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">smartctl -a /dev/sda</span>
-<span style="color: #888">smartctl 7.4 2024-10-15 r5620 [x86_64-linux-6.14.8-2-pve] (local build)</span>
-<span style="color: #888">Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org</span>
+<div class="highlight"><pre><span></span><code><span class="go">smartctl -a /dev/sda</span>
+<span class="go">smartctl 7.4 2024-10-15 r5620 [x86_64-linux-6.14.8-2-pve] (local build)</span>
+<span class="go">Copyright (C) 2002-23, Bruce Allen, Christian Franke, www.smartmontools.org</span>
 
-<span style="color: #888">=== START OF INFORMATION SECTION ===</span>
-<span style="color: #888">Model Family:     Samsung based SSDs</span>
-<span style="color: #888">Device Model:     Samsung SSD 870 QVO 2TB</span>
-<span style="color: #888">Serial Number:    ....</span>
-<span style="color: #888">LU WWN Device Id: ....</span>
-<span style="color: #888">Firmware Version: SVQ02B6Q</span>
-<span style="color: #888">User Capacity:    2,000,398,934,016 bytes [2.00 TB]</span>
-<span style="color: #888">Sector Size:      512 bytes logical/physical</span>
-<span style="color: #888">Rotation Rate:    Solid State Device</span>
-<span style="color: #888">Form Factor:      2.5 inches</span>
-<span style="color: #888">TRIM Command:     Available, deterministic, zeroed</span>
-<span style="color: #888">Device is:        In smartctl database 7.3/5528</span>
-<span style="color: #888">ATA Version is:   ACS-4 T13/BSR INCITS 529 revision 5</span>
-<span style="color: #888">SATA Version is:  SATA 3.3, 6.0 Gb/s (current: 6.0 Gb/s)</span>
-<span style="color: #888">Local Time is:    Tue Aug 26 09:45:49 2025 JST</span>
-<span style="color: #888">SMART support is: Available - device has SMART capability.</span>
-<span style="color: #888">SMART support is: Enabled</span>
+<span class="go">=== START OF INFORMATION SECTION ===</span>
+<span class="go">Model Family:     Samsung based SSDs</span>
+<span class="go">Device Model:     Samsung SSD 870 QVO 2TB</span>
+<span class="go">Serial Number:    ....</span>
+<span class="go">LU WWN Device Id: ....</span>
+<span class="go">Firmware Version: SVQ02B6Q</span>
+<span class="go">User Capacity:    2,000,398,934,016 bytes [2.00 TB]</span>
+<span class="go">Sector Size:      512 bytes logical/physical</span>
+<span class="go">Rotation Rate:    Solid State Device</span>
+<span class="go">Form Factor:      2.5 inches</span>
+<span class="go">TRIM Command:     Available, deterministic, zeroed</span>
+<span class="go">Device is:        In smartctl database 7.3/5528</span>
+<span class="go">ATA Version is:   ACS-4 T13/BSR INCITS 529 revision 5</span>
+<span class="go">SATA Version is:  SATA 3.3, 6.0 Gb/s (current: 6.0 Gb/s)</span>
+<span class="go">Local Time is:    Tue Aug 26 09:45:49 2025 JST</span>
+<span class="go">SMART support is: Available - device has SMART capability.</span>
+<span class="go">SMART support is: Enabled</span>
 
-<span style="color: #888">[...]</span>
+<span class="go">[...]</span>
 </code></pre></div>
-
 <h2 id="_5">ディスク追加</h2>
 <p>USB接続の外付けHDDが死にかけてたので交換してデータ移行。</p>
 <h3 id="hdd">HDD繋ぐ</h3>
 <p>デバイスの番号は<code>dmesg</code>で確認</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">[</span>  268.149764<span style="color: #666">]</span><span style="color: #BBB"> </span>sd<span style="color: #BBB"> </span><span style="color: #666">6</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>Attached<span style="color: #BBB"> </span>scsi<span style="color: #BBB"> </span>generic<span style="color: #BBB"> </span>sg1<span style="color: #BBB"> </span>type<span style="color: #BBB"> </span><span style="color: #666">0</span>
-<span style="color: #666">[</span>  271.516612<span style="color: #666">]</span><span style="color: #BBB"> </span>sd<span style="color: #BBB"> </span><span style="color: #666">6</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">[</span>sdb<span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">3907029168</span><span style="color: #BBB"> </span><span style="color: #666">512-</span>byte<span style="color: #BBB"> </span>logical<span style="color: #BBB"> </span><span style="color: #A0A000">blocks</span>:<span style="color: #BBB"> </span>(<span style="color: #666">2.00</span><span style="color: #BBB"> </span>TB<span style="color: #666">/1.82</span><span style="color: #BBB"> </span>TiB)
-<span style="color: #666">[</span>  271.517672<span style="color: #666">]</span><span style="color: #BBB"> </span>sd<span style="color: #BBB"> </span><span style="color: #666">6</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">[</span>sdb<span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">Write</span><span style="color: #BBB"> </span>Protect<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">is</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">off</span>
-<span style="color: #666">[</span>  271.517678<span style="color: #666">]</span><span style="color: #BBB"> </span>sd<span style="color: #BBB"> </span><span style="color: #666">6</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">[</span>sdb<span style="color: #666">]</span><span style="color: #BBB"> </span>Mode<span style="color: #BBB"> </span><span style="color: #A0A000">Sense</span>:<span style="color: #BBB"> </span><span style="color: #666">73</span><span style="color: #BBB"> </span><span style="color: #666">00</span><span style="color: #BBB"> </span><span style="color: #666">10</span><span style="color: #BBB"> </span><span style="color: #666">08</span>
-<span style="color: #666">[</span>  271.518739<span style="color: #666">]</span><span style="color: #BBB"> </span>sd<span style="color: #BBB"> </span><span style="color: #666">6</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">[</span>sdb<span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">Write</span><span style="color: #BBB"> </span><span style="color: #A0A000">cache</span>:<span style="color: #BBB"> </span>enabled,<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">read</span><span style="color: #BBB"> </span><span style="color: #A0A000">cache</span>:<span style="color: #BBB"> </span>enabled,<span style="color: #BBB"> </span>supports<span style="color: #BBB"> </span>DPO<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span>FUA
-<span style="color: #666">[</span>  271.543154<span style="color: #666">]</span><span style="color: #BBB">  </span><span style="color: #A0A000">sdb</span>:<span style="color: #BBB"> </span>sdb1
-<span style="color: #666">[</span>  271.546268<span style="color: #666">]</span><span style="color: #BBB"> </span>sd<span style="color: #BBB"> </span><span style="color: #666">6</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #666">0</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">[</span>sdb<span style="color: #666">]</span><span style="color: #BBB"> </span>Attached<span style="color: #BBB"> </span>SCSI<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">disk</span>
+<div class="highlight"><pre><span></span><code>[  268.149764] sd 6:0:0:0: Attached scsi generic sg1 type 0
+[  271.516612] sd 6:0:0:0: [sdb] 3907029168 512-byte logical blocks: (2.00 TB/1.82 TiB)
+[  271.517672] sd 6:0:0:0: [sdb] Write Protect is off
+[  271.517678] sd 6:0:0:0: [sdb] Mode Sense: 73 00 10 08
+[  271.518739] sd 6:0:0:0: [sdb] Write cache: enabled, read cache: enabled, supports DPO and FUA
+[  271.543154]  sdb: sdb1
+[  271.546268] sd 6:0:0:0: [sdb] Attached SCSI disk
 </code></pre></div>
-
 <p><code>fdisk -l</code>で確認</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>fdisk<span style="color: #BBB"> </span><span style="color: #666">-</span>l<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb
-ディスク<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span><span style="color: #A0A000">sdb</span>:<span style="color: #BBB"> </span><span style="color: #666">1.84</span><span style="color: #BBB"> </span>TiB,<span style="color: #BBB"> </span><span style="color: #666">2000398934016</span><span style="color: #BBB"> </span>バイト,<span style="color: #BBB"> </span><span style="color: #666">3907029168</span><span style="color: #BBB"> </span>セクタ
-<span style="color: #A2F; font-weight: bold">Disk</span><span style="color: #BBB"> </span><span style="color: #A0A000">model</span>:<span style="color: #BBB"> </span>HD<span style="color: #666">-</span>LDS<span style="color: #666">-</span>A<span style="color: #BBB">        </span>
-<span style="color: #A0A000">単位</span>:<span style="color: #BBB"> </span>セクタ<span style="color: #BBB"> </span>(<span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #666">*</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト)
-セクタサイズ<span style="color: #BBB"> </span>(論理<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span>物理)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト
-I<span style="color: #666">/</span>O<span style="color: #BBB"> </span>サイズ<span style="color: #BBB"> </span>(最小<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span>推奨)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト
-<span style="color: #A0A000">ディスクラベルのタイプ</span>:<span style="color: #BBB"> </span>dos
-<span style="color: #A0A000">ディスク識別子</span>:<span style="color: #BBB"> </span><span style="color: #666">0x0b27d361</span>
-
-デバイス<span style="color: #BBB">   </span>起動<span style="color: #BBB"> </span>開始位置<span style="color: #BBB">   </span>最後から<span style="color: #BBB">     </span>セクタ<span style="color: #BBB"> </span>サイズ<span style="color: #BBB"> </span>Id<span style="color: #BBB"> </span>タイプ
-<span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1<span style="color: #BBB">             </span><span style="color: #666">64</span><span style="color: #BBB"> </span><span style="color: #666">3907029119</span><span style="color: #BBB"> </span><span style="color: #666">3907029056</span><span style="color: #BBB">   </span><span style="color: #666">1.8</span>T<span style="color: #BBB">  </span><span style="color: #666">7</span><span style="color: #BBB"> </span>HPFS<span style="color: #666">/</span>NTFS<span style="color: #666">/</span>exFAT
-</code></pre></div>
-
-<h3 id="_6">既存パーティション削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>fdisk<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb
-
-fdisk<span style="color: #BBB"> </span>(util<span style="color: #666">-</span>linux<span style="color: #BBB"> </span><span style="color: #666">2.34</span>)<span style="color: #BBB"> </span>へようこそ<span style="border: 1px solid #F00">。</span>
-ここで設定した内容は<span style="border: 1px solid #F00">、</span>書き込みコマンドを実行するまでメモリのみに保持されます<span style="border: 1px solid #F00">。</span>
-書き込みコマンドを使用する際は<span style="border: 1px solid #F00">、</span>注意して実行してください<span style="border: 1px solid #F00">。</span>
-
-
-コマンド<span style="color: #BBB"> </span>(m<span style="color: #BBB"> </span>でヘルプ)<span style="border: 1px solid #F00">:</span>
-</code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド (m でヘルプ): p
+<div class="highlight"><pre><span></span><code>root@zaki-CF-J10YYBHR:~# fdisk -l /dev/sdb
 ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ
 Disk model: HD-LDS-A        
-単位: セクタ (1 <span style="font-weight: bold">* 512 = 512 バイト)</span>
-<span style="font-weight: bold">セクタサイズ (論理 / 物理): 512 バイト / 512 バイト</span>
-<span style="font-weight: bold">I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト</span>
-<span style="font-weight: bold">ディスクラベルのタイプ: dos</span>
-<span style="font-weight: bold">ディスク識別子: 0x0b27d361</span>
+単位: セクタ (1 * 512 = 512 バイト)
+セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
+I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
+ディスクラベルのタイプ: dos
+ディスク識別子: 0x0b27d361
 
-<span style="font-weight: bold">デバイス   起動 開始位置   最後から     セクタ サイズ Id タイプ</span>
-<span style="font-weight: bold">/dev/sdb1             64 3907029119 3907029056   1.8T  7 HPFS/NTFS/exFAT</span>
+デバイス   起動 開始位置   最後から     セクタ サイズ Id タイプ
+/dev/sdb1             64 3907029119 3907029056   1.8T  7 HPFS/NTFS/exFAT
+</code></pre></div>
+<h3 id="_6">既存パーティション削除</h3>
+<div class="highlight"><pre><span></span><code>root@zaki-CF-J10YYBHR:~# fdisk /dev/sdb
 
-<span style="font-weight: bold">コマンド (m でヘルプ): d</span>
-<span style="font-weight: bold">パーティション 1 を選択</span>
-<span style="font-weight: bold">パーティション 1 を削除しました。</span>
+fdisk (util-linux 2.34) へようこそ。
+ここで設定した内容は、書き込みコマンドを実行するまでメモリのみに保持されます。
+書き込みコマンドを使用する際は、注意して実行してください。
 
-<span style="font-weight: bold">コマンド (m でヘルプ): p</span>
-<span style="font-weight: bold">ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ</span>
-<span style="font-weight: bold">Disk model: HD-LDS-A        </span>
-<span style="font-weight: bold">単位: セクタ (1 *</span> 512 = 512 バイト)
+
+コマンド (m でヘルプ):
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>コマンド (m でヘルプ): p
+ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ
+Disk model: HD-LDS-A        
+単位: セクタ (1 * 512 = 512 バイト)
+セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
+I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
+ディスクラベルのタイプ: dos
+ディスク識別子: 0x0b27d361
+
+デバイス   起動 開始位置   最後から     セクタ サイズ Id タイプ
+/dev/sdb1             64 3907029119 3907029056   1.8T  7 HPFS/NTFS/exFAT
+
+コマンド (m でヘルプ): d
+パーティション 1 を選択
+パーティション 1 を削除しました。
+
+コマンド (m でヘルプ): p
+ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ
+Disk model: HD-LDS-A        
+単位: セクタ (1 * 512 = 512 バイト)
 セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
 I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 ディスクラベルのタイプ: dos
@@ -2275,10 +2280,9 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 
 コマンド (m でヘルプ): 
 </code></pre></div>
-
 <p>パーティションが1個しかないからか、<code>d</code>でｼｭｯと消えた。</p>
 <h3 id="_7">パーティション作成</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド (m でヘルプ): n
+<div class="highlight"><pre><span></span><code>コマンド (m でヘルプ): n
 パーティションタイプ
    p   基本パーティション (0 プライマリ, 0 拡張, 4 空き)
    e   拡張領域 (論理パーティションが入ります)
@@ -2305,111 +2309,98 @@ I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
 
 コマンド (m でヘルプ): 
 </code></pre></div>
-
 <h3 id="_8">書き込み</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>コマンド<span style="color: #BBB"> </span>(m<span style="color: #BBB"> </span>でヘルプ)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>w
-パーティション情報が変更されました<span style="border: 1px solid #F00">。</span>
-Failed<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span>remove<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">partition</span><span style="color: #BBB"> </span><span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">system</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>デバイスもしくはリソースがビジー状態です
-Failed<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">add</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">partition</span><span style="color: #BBB"> </span><span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">to</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">system</span><span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>デバイスもしくはリソースがビジー状態です
+<div class="highlight"><pre><span></span><code>コマンド (m でヘルプ): w
+パーティション情報が変更されました。
+Failed to remove partition 1 from system: デバイスもしくはリソースがビジー状態です
+Failed to add partition 1 to system: デバイスもしくはリソースがビジー状態です
 
-The<span style="color: #BBB"> </span>kernel<span style="color: #BBB"> </span>still<span style="color: #BBB"> </span>uses<span style="color: #BBB"> </span>the<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">old</span><span style="color: #BBB"> </span>partitions.<span style="color: #BBB"> </span>The<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">new</span><span style="color: #BBB"> </span><span style="color: #00F">table</span><span style="color: #BBB"> </span>will<span style="color: #BBB"> </span>be<span style="color: #BBB"> </span>used<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">at</span><span style="color: #BBB"> </span>the<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">next</span><span style="color: #BBB"> </span>reboot.<span style="color: #BBB"> </span>
-ディスクを同期しています<span style="border: 1px solid #F00">。</span>
+The kernel still uses the old partitions. The new table will be used at the next reboot. 
+ディスクを同期しています。
 
-root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span>
+root@zaki-CF-J10YYBHR:~#
 </code></pre></div>
-
 <p>あー、自動マウントされたままだったｗｗｗ
 <code>reboot</code>しよう。</p>
 <p>reboot前</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>fdisk<span style="color: #BBB"> </span><span style="color: #666">-</span>l<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb
-ディスク<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span><span style="color: #A0A000">sdb</span>:<span style="color: #BBB"> </span><span style="color: #666">1.84</span><span style="color: #BBB"> </span>TiB,<span style="color: #BBB"> </span><span style="color: #666">2000398934016</span><span style="color: #BBB"> </span>バイト,<span style="color: #BBB"> </span><span style="color: #666">3907029168</span><span style="color: #BBB"> </span>セクタ
-<span style="color: #A2F; font-weight: bold">Disk</span><span style="color: #BBB"> </span><span style="color: #A0A000">model</span>:<span style="color: #BBB"> </span>HD<span style="color: #666">-</span>LDS<span style="color: #666">-</span>A<span style="color: #BBB">        </span>
-<span style="color: #A0A000">単位</span>:<span style="color: #BBB"> </span>セクタ<span style="color: #BBB"> </span>(<span style="color: #666">1</span><span style="color: #BBB"> </span><span style="color: #666">*</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト)
-セクタサイズ<span style="color: #BBB"> </span>(論理<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span>物理)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト
-I<span style="color: #666">/</span>O<span style="color: #BBB"> </span>サイズ<span style="color: #BBB"> </span>(最小<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span>推奨)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト<span style="color: #BBB"> </span><span style="color: #666">/</span><span style="color: #BBB"> </span><span style="color: #666">512</span><span style="color: #BBB"> </span>バイト
-<span style="color: #A0A000">ディスクラベルのタイプ</span>:<span style="color: #BBB"> </span>dos
-<span style="color: #A0A000">ディスク識別子</span>:<span style="color: #BBB"> </span><span style="color: #666">0x0b27d361</span>
+<div class="highlight"><pre><span></span><code>root@zaki-CF-J10YYBHR:~# fdisk -l /dev/sdb
+ディスク /dev/sdb: 1.84 TiB, 2000398934016 バイト, 3907029168 セクタ
+Disk model: HD-LDS-A        
+単位: セクタ (1 * 512 = 512 バイト)
+セクタサイズ (論理 / 物理): 512 バイト / 512 バイト
+I/O サイズ (最小 / 推奨): 512 バイト / 512 バイト
+ディスクラベルのタイプ: dos
+ディスク識別子: 0x0b27d361
 
-デバイス<span style="color: #BBB">   </span>起動<span style="color: #BBB"> </span>開始位置<span style="color: #BBB">   </span>最後から<span style="color: #BBB">     </span>セクタ<span style="color: #BBB"> </span>サイズ<span style="color: #BBB"> </span>Id<span style="color: #BBB"> </span>タイプ
-<span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1<span style="color: #BBB">           </span><span style="color: #666">2048</span><span style="color: #BBB"> </span><span style="color: #666">3907029167</span><span style="color: #BBB"> </span><span style="color: #666">3907027120</span><span style="color: #BBB">   </span><span style="color: #666">1.8</span>T<span style="color: #BBB"> </span><span style="color: #666">83</span><span style="color: #BBB"> </span>Linux
+デバイス   起動 開始位置   最後から     セクタ サイズ Id タイプ
+/dev/sdb1           2048 3907029167 3907027120   1.8T 83 Linux
 </code></pre></div>
-
 <h3 id="ext4">ext4フォーマット</h3>
 <p><code>mkfs -t ext4</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span><span style="color: #00F">time</span><span style="color: #BBB"> </span>mkfs<span style="color: #BBB"> </span><span style="color: #666">-</span>t<span style="color: #BBB"> </span>ext4<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1
-mke2fs<span style="color: #BBB"> </span><span style="color: #666">1.45.5</span><span style="color: #BBB"> </span>(<span style="color: #666">07-</span>Jan<span style="color: #666">-2020</span>)
-Creating<span style="color: #BBB"> </span>filesystem<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">with</span><span style="color: #BBB"> </span><span style="color: #666">488378390</span><span style="color: #BBB"> </span><span style="color: #666">4</span>k<span style="color: #BBB"> </span>blocks<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span><span style="color: #666">122101760</span><span style="color: #BBB"> </span>inodes
-Filesystem<span style="color: #BBB"> </span><span style="color: #A0A000">UUID</span>:<span style="color: #BBB"> </span>fa5897f2<span style="color: #666">-39</span>b1<span style="color: #666">-4</span>ea4<span style="color: #666">-937</span>f<span style="color: #666">-</span>b63b7e34571f
-Superblock<span style="color: #BBB"> </span>backups<span style="color: #BBB"> </span>stored<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">on</span><span style="color: #BBB"> </span><span style="color: #A0A000">blocks</span>:<span style="color: #BBB"> </span>
-<span style="color: #BBB">        </span><span style="color: #666">32768</span>,<span style="color: #BBB"> </span><span style="color: #666">98304</span>,<span style="color: #BBB"> </span><span style="color: #666">163840</span>,<span style="color: #BBB"> </span><span style="color: #666">229376</span>,<span style="color: #BBB"> </span><span style="color: #666">294912</span>,<span style="color: #BBB"> </span><span style="color: #666">819200</span>,<span style="color: #BBB"> </span><span style="color: #666">884736</span>,<span style="color: #BBB"> </span><span style="color: #666">1605632</span>,<span style="color: #BBB"> </span><span style="color: #666">2654208</span>,<span style="color: #BBB"> </span>
-<span style="color: #BBB">        </span><span style="color: #666">4096000</span>,<span style="color: #BBB"> </span><span style="color: #666">7962624</span>,<span style="color: #BBB"> </span><span style="color: #666">11239424</span>,<span style="color: #BBB"> </span><span style="color: #666">20480000</span>,<span style="color: #BBB"> </span><span style="color: #666">23887872</span>,<span style="color: #BBB"> </span><span style="color: #666">71663616</span>,<span style="color: #BBB"> </span><span style="color: #666">78675968</span>,<span style="color: #BBB"> </span>
-<span style="color: #BBB">        </span><span style="color: #666">102400000</span>,<span style="color: #BBB"> </span><span style="color: #666">214990848</span>
+<div class="highlight"><pre><span></span><code>root@zaki-CF-J10YYBHR:~# time mkfs -t ext4 /dev/sdb1
+mke2fs 1.45.5 (07-Jan-2020)
+Creating filesystem with 488378390 4k blocks and 122101760 inodes
+Filesystem UUID: fa5897f2-39b1-4ea4-937f-b63b7e34571f
+Superblock backups stored on blocks: 
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+        4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968, 
+        102400000, 214990848
 
-Allocating<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">group</span><span style="color: #BBB"> </span><span style="color: #A0A000">tables</span>:<span style="color: #BBB"> </span>done<span style="color: #BBB">                            </span>
-Writing<span style="color: #BBB"> </span>inode<span style="color: #BBB"> </span><span style="color: #A0A000">tables</span>:<span style="color: #BBB"> </span>done<span style="color: #BBB">                            </span>
-Creating<span style="color: #BBB"> </span>journal<span style="color: #BBB"> </span>(<span style="color: #666">262144</span><span style="color: #BBB"> </span>blocks)<span style="border: 1px solid #F00">:</span><span style="color: #BBB"> </span>
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (262144 blocks): 
 done
-Writing<span style="color: #BBB"> </span>superblocks<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">and</span><span style="color: #BBB"> </span>filesystem<span style="color: #BBB"> </span>accounting<span style="color: #BBB"> </span><span style="color: #A0A000">information</span>:<span style="color: #BBB">            </span>
+Writing superblocks and filesystem accounting information:            
 done
 
 
-<span style="color: #00F">real</span><span style="color: #BBB">    </span><span style="color: #666">0</span>m16<span style="color: #666">.078</span>s
-<span style="color: #A2F; font-weight: bold">user</span><span style="color: #BBB">    </span><span style="color: #666">0</span>m0<span style="color: #666">.045</span>s
-sys<span style="color: #BBB">     </span><span style="color: #666">0</span>m0<span style="color: #666">.171</span>s
+real    0m16.078s
+user    0m0.045s
+sys     0m0.171s
 </code></pre></div>
-
 <h3 id="_9">ラベル設定</h3>
 <p><code>e2label</code>で設定・確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>e2label<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1<span style="color: #BBB"> </span><span style="color: #B8860B">&quot;HD-LDS-A&quot;</span>
-root<span style="color: #B8860B">@zaki</span><span style="color: #666">-</span>CF<span style="color: #666">-</span><span style="color: #A0A000">J10YYBHR</span>:<span style="color: #666">~</span><span style="border: 1px solid #F00">#</span><span style="color: #BBB"> </span>e2label<span style="color: #BBB"> </span><span style="color: #666">/</span>dev<span style="color: #666">/</span>sdb1
-HD<span style="color: #666">-</span>LDS<span style="color: #666">-</span>A
+<div class="highlight"><pre><span></span><code>root@zaki-CF-J10YYBHR:~# e2label /dev/sdb1 &quot;HD-LDS-A&quot;
+root@zaki-CF-J10YYBHR:~# e2label /dev/sdb1
+HD-LDS-A
 </code></pre></div>
-
 <h2 id="lvm">LVM</h2>
 <h3 id="lv">LVの論理ボリュームのリサイズ</h3>
 <p>現在のサイズから+10GB拡張する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>lvresize<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>-L<span style="color: #BBB"> </span>+10G<span style="color: #BBB"> </span>/dev/mapper/centos-root
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>lvresize<span class="w"> </span>-r<span class="w"> </span>-L<span class="w"> </span>+10G<span class="w"> </span>/dev/mapper/centos-root
 </code></pre></div>
-
 <h2 id="fsck">fsck</h2>
 <h3 id="clean">cleanでも強制スキャン</h3>
 <p><code>-f</code>を付与</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">fsck.ext4 -f /dev/mapper/ubuntu--vg-ubuntu--lv</span>
+<div class="highlight"><pre><span></span><code><span class="go">fsck.ext4 -f /dev/mapper/ubuntu--vg-ubuntu--lv</span>
 </code></pre></div>
-
 <h3 id="fsck_1">起動時に強制fsck</h3>
 <p><code>shutdown</code>のオプションに<code>-F</code>を付与</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">shutdown -F -r now</span>
+<div class="highlight"><pre><span></span><code><span class="go">shutdown -F -r now</span>
 </code></pre></div>
-
 <h2 id="mount">mount</h2>
 <h3 id="cifs">CIFS</h3>
 <p>see mount.cifs, mount.smb3(8)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[root@cloud-dev2 ~]# </span>mount<span style="color: #BBB"> </span>-t<span style="color: #BBB"> </span>cifs<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span><span style="color: #B8860B">user</span><span style="color: #666">=</span>zaki,uid<span style="color: #666">=</span>***,gid<span style="color: #666">=</span>***<span style="color: #BBB"> </span>//pecorino/HD-LDS-A<span style="color: #BBB"> </span>/mnt/
-<span style="color: #888">Password for zaki@//pecorino/HD-LDS-A: </span>
+<div class="highlight"><pre><span></span><code><span class="gp">[root@cloud-dev2 ~]# </span>mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>-o<span class="w"> </span><span class="nv">user</span><span class="o">=</span>zaki,uid<span class="o">=</span>***,gid<span class="o">=</span>***<span class="w"> </span>//pecorino/HD-LDS-A<span class="w"> </span>/mnt/
+<span class="go">Password for zaki@//pecorino/HD-LDS-A: </span>
 </code></pre></div>
-
 <p><code>uid</code>と<code>gid</code>も指定しないとownerの設定ができない(mountした時のもので固定される) 要はマウントしたファイル類のオーナーを制御するなら指定する。<br />
 <code>user</code>は<code>username</code>も可<br />
 パスワード省略時は上記の通り対話的に聞いてくるが、<code>password=&lt;password&gt;</code>で指定も可能(ただしパスワードはtext/plainで記述)</p>
 <p>パスワードをコマンド引数や<code>/etc/fstab</code>に書きたくない場合は外部ファイルに書いてオプション指定も可能</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mount -t cifs -o credentials=/opt/cred/smb,uid=1000 //pecorino/HD-LDS-A /mnt/</span>
+<div class="highlight"><pre><span></span><code><span class="go">mount -t cifs -o credentials=/opt/cred/smb,uid=1000 //pecorino/HD-LDS-A /mnt/</span>
 </code></pre></div>
-
 <p>このとき<code>/opt/cred/smb</code>の中はこの通りで、読み取り権限はrootだけあれば良い。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>username=ユーザー名
+<div class="highlight"><pre><span></span><code>username=ユーザー名
 password=パスワード
 </code></pre></div>
-
 <h3 id="nfs">NFS</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">mount -t nfs -o rw pecorino:/dev /mnt/</span>
+<div class="highlight"><pre><span></span><code><span class="go">mount -t nfs -o rw pecorino:/dev /mnt/</span>
 </code></pre></div>
-
 <h2 id="fstab">fstab</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>/dev/mapper/centos-root  /      xfs   defaults  0 1
+<div class="highlight"><pre><span></span><code>/dev/mapper/centos-root  /      xfs   defaults  0 1
 192.168.0.200:/share     /mnt   nfs   rw        0 0
 </code></pre></div>
-
 <p>フィールドは左から順に</p>
 <ol>
 <li>デバイス</li>
@@ -2495,6 +2486,8 @@ password=パスワード
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1770,6 +1772,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2601,28 +2615,27 @@
 <h3 id="_11">デフォルトブランチを取得する</h3>
 <p><code>https://api.github.com/repos/{owner}/{repo}</code> を<code>GET</code>すると、対象リポジトリの情報を取得できる。<br />
 JSON形式のレスポンスのうち、<code>default_branch</code>キーの値にデフォルトブランチがセットされている。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>https://api.github.com/repos/netbox-community/ansible_modules
-<span style="color: #888">{</span>
-<span style="color: #888">  &quot;id&quot;: 204365310,</span>
-<span style="color: #888">  &quot;node_id&quot;: &quot;MDEwOlJlcG9zaXRvcnkyMDQzNjUzMTA=&quot;,</span>
-<span style="color: #888">  &quot;name&quot;: &quot;ansible_modules&quot;,</span>
-<span style="color: #888">  &quot;full_name&quot;: &quot;netbox-community/ansible_modules&quot;,</span>
-<span style="color: #888">  &quot;private&quot;: false,</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>https://api.github.com/repos/netbox-community/ansible_modules
+<span class="go">{</span>
+<span class="go">  &quot;id&quot;: 204365310,</span>
+<span class="go">  &quot;node_id&quot;: &quot;MDEwOlJlcG9zaXRvcnkyMDQzNjUzMTA=&quot;,</span>
+<span class="go">  &quot;name&quot;: &quot;ansible_modules&quot;,</span>
+<span class="go">  &quot;full_name&quot;: &quot;netbox-community/ansible_modules&quot;,</span>
+<span class="go">  &quot;private&quot;: false,</span>
 
-<span style="color: #888">  :</span>
-<span style="color: #888">  :</span>
+<span class="go">  :</span>
+<span class="go">  :</span>
 
-<span style="color: #888">  &quot;visibility&quot;: &quot;public&quot;,</span>
-<span style="color: #888">  &quot;forks&quot;: 123,</span>
-<span style="color: #888">  &quot;open_issues&quot;: 46,</span>
-<span style="color: #888">  &quot;watchers&quot;: 200,</span>
-<span style="color: #888">  &quot;default_branch&quot;: &quot;devel&quot;,</span>
+<span class="go">  &quot;visibility&quot;: &quot;public&quot;,</span>
+<span class="go">  &quot;forks&quot;: 123,</span>
+<span class="go">  &quot;open_issues&quot;: 46,</span>
+<span class="go">  &quot;watchers&quot;: 200,</span>
+<span class="go">  &quot;default_branch&quot;: &quot;devel&quot;,</span>
 
-<span style="color: #888">  :</span>
-<span style="color: #888">  :</span>
-<span style="color: #888">}</span>
+<span class="go">  :</span>
+<span class="go">  :</span>
+<span class="go">}</span>
 </code></pre></div>
-
 <h2 id="diff">diff</h2>
 <p><a href="https://docs.github.com/ja/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits">コミットを比較する - GitHub Docs</a></p>
 <p>コミットを比較するには、<code>&lt;リポジトリURL&gt;/compare/SHAコードA..SHAコードB</code> を開く。<br />
@@ -2635,54 +2648,53 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <h2 id="github-actions">GitHub Actions</h2>
 <h3 id="_12">ファイル構造</h3>
 <p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/workflow-syntax">GitHub Actions　のワークフロー構文 - GitHub Docs</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># ワークフロー名</span>
-<span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>github pages
+<div class="highlight"><pre><span></span><code><span class="c1"># ワークフロー名</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github pages</span>
 
-<span style="color: #080; font-style: italic"># トリガー定義</span>
-<span style="color: #008000; font-weight: bold">on</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">push</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">branches</span>:
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span>main
+<span class="c1"># トリガー定義</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
 
-<span style="color: #080; font-style: italic"># ジョブ定義</span>
-<span style="color: #008000; font-weight: bold">jobs</span>:
-<span style="color: #BBB">  </span><span style="color: #080; font-style: italic"># ジョブID</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">deploy</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">runs-on</span>:<span style="color: #BBB"> </span>ubuntu-22.04
-<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># タスク定義(リスト)</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">steps</span>:
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>actions/checkout@v3
-<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># usesはアクションの使用</span>
+<span class="c1"># ジョブ定義</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># ジョブID</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-22.04</span>
+<span class="w">    </span><span class="c1"># タスク定義(リスト)</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">        </span><span class="c1"># usesはアクションの使用</span>
 
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Setup Python
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>actions/setup-python@v4
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">with</span>:
-<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">python-version</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;3.10&#39;</span>
-<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># withはアクションのパラメタ</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span>
+<span class="w">        </span><span class="c1"># withはアクションのパラメタ</span>
 
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Upgrade pip
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>|
-<span style="color: #BBB">          </span><span style="color: #800"># install pip=&gt;20.1 to use &quot;pip cache dir&quot;</span>
-<span style="color: #BBB">          </span><span style="color: #800">python3 -m pip install --upgrade pip</span>
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Install dependencies
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>python3 -m pip install -r ./requirements.txt
-<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># run:シェルでコマンド実行</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upgrade pip</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no"># install pip=&gt;20.1 to use &quot;pip cache dir&quot;</span>
+<span class="w">          </span><span class="no">python3 -m pip install --upgrade pip</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3 -m pip install -r ./requirements.txt</span>
+<span class="w">        </span><span class="c1"># run:シェルでコマンド実行</span>
 
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>mkdocs build
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkdocs build</span>
 
-<span style="color: #BBB">      </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Deploy
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>peaceiris/actions-gh-pages@v3
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">if</span>:<span style="color: #BBB"> </span>github.ref == &#39;refs/heads/main&#39;
-<span style="color: #BBB">        </span><span style="color: #080; font-style: italic"># if:条件</span>
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">with</span>:
-<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">personal_token</span>:<span style="color: #BBB"> </span>${{ secrets.PERSONAL_TOKEN }}
-<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">external_repository</span>:<span style="color: #BBB"> </span>zaki-lknr/zaki-lknr.github.io
-<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">publish_branch</span>:<span style="color: #BBB"> </span>main
-<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">publish_dir</span>:<span style="color: #BBB"> </span>./site
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
+<span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">        </span><span class="c1"># if:条件</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">personal_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PERSONAL_TOKEN }}</span>
+<span class="w">          </span><span class="nt">external_repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zaki-lknr/zaki-lknr.github.io</span>
+<span class="w">          </span><span class="nt">publish_branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./site</span>
 
-<span style="color: #080; font-style: italic"># &lt;https://github.com/zaki-lknr/docs/blob/main/.github/workflows/main.yml&gt;</span>
+<span class="c1"># &lt;https://github.com/zaki-lknr/docs/blob/main/.github/workflows/main.yml&gt;</span>
 </code></pre></div>
-
 <h3 id="action">Action</h3>
 <p>以下から探す。<br />
 <a href="https://github.com/marketplace?type=actions">Marketplace</a></p>
@@ -2695,43 +2707,40 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <h3 id="steps">タスク(steps)</h3>
 <h4 id="if">if</h4>
 <p>条件によってタスクを処理せずスキップする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec command
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>|
-<span style="color: #BBB">    </span><span style="color: #800">value=$(command)</span>
-<span style="color: #BBB">    </span><span style="color: #800">echo &quot;VALUE=$value&quot; &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec command</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">value=$(command)</span>
+<span class="w">    </span><span class="no">echo &quot;VALUE=$value&quot; &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
 
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>exec next
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">if</span>:<span style="color: #BBB"> </span>${{ env.VALUE != &#39;&#39; }}
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">uses</span>:<span style="color: #BBB"> </span>...
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec next</span>
+<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.VALUE != &#39;&#39; }}</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
-
 <p>"exec command"の出力結果を変数保持しているが、文字列長がゼロの場合は次のタスク"exec next"は実行されない。</p>
 <h5 id="_16">空文字判定</h5>
 <p>前述の通り <code>${{ value != '' }}</code> と記述。<br />
 ダブルクォート不可</p>
 <h3 id="_17">変数</h3>
 <h4 id="format">フォーマット文字列(format)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">env</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">VALUE</span>:<span style="color: #BBB"> </span>${{ format(&#39;foo-{0}-bar&#39;, vars.INPUT_VALUE) }}
+<div class="highlight"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">VALUE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ format(&#39;foo-{0}-bar&#39;, vars.INPUT_VALUE) }}</span>
 </code></pre></div>
-
 <p><code>VALUE</code>の値は、入力変数<code>INPUT_VALUE</code>の内容に従って<code>"foo-***-bar"</code>となる。</p>
 <h4 id="github_env">タスクの結果を次のタスクで参照する($GITHUB_ENV)</h4>
 <p><code>$GITHUB_ENV</code>ファイルを使った環境変数定義を行う。<br />
 具体的には上記変数で参照できるファイルに「<code>KEY=VALUE</code>」形式で文字列を書き込めば、後続のタスクは<code>${{ env.KEY }}</code>で<code>VALUE</code>を参照できる。</p>
 <h5 id="github_env_1">複数行の$GITHUB_ENV</h5>
 <p>ヒアドキュメント形式で書き込む。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">steps</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>Set the value in bash
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">id</span>:<span style="color: #BBB"> </span>step_one
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">run</span>:<span style="color: #BBB"> </span>|
-<span style="color: #BBB">      </span><span style="color: #800">{</span>
-<span style="color: #BBB">        </span><span style="color: #800">echo &#39;JSON_RESPONSE&lt;&lt;EOF&#39;</span>
-<span style="color: #BBB">        </span><span style="color: #800">curl https://example.com</span>
-<span style="color: #BBB">        </span><span style="color: #800">echo EOF</span>
-<span style="color: #BBB">      </span><span style="color: #800">} &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set the value in bash</span>
+<span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">step_one</span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">{</span>
+<span class="w">        </span><span class="no">echo &#39;JSON_RESPONSE&lt;&lt;EOF&#39;</span>
+<span class="w">        </span><span class="no">curl https://example.com</span>
+<span class="w">        </span><span class="no">echo EOF</span>
+<span class="w">      </span><span class="no">} &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
 </code></pre></div>
-
 <p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/workflow-commands#multiline-strings">GitHub Actions のワークフロー コマンド - GitHub Docs</a></p>
 <h3 id="runners">Runners</h3>
 <ul>
@@ -2752,14 +2761,13 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <a href="https://github.com/marketplace/actions/azure-login">Azure Login · Actions · GitHub Marketplace</a></p>
 <p><code>subscription-id</code>/<code>client-id</code>/<code>tenant-id</code>のセットか、<code>creds</code>にクレデンシャル情報を指定する。<br />
 <code>creds</code>の場合は以下の形式の文字列</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;clientSecret&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>,
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;subscriptionId&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>,
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;tenantId&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>,
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">&quot;clientId&quot;</span>:<span style="color: #BBB"> </span><span style="border: 1px solid #F00">...</span>
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;subscriptionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h4 id="aks">AKS</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/kubernetes-action">GitHub Actions を使った Azure Kubernetes Service (AKS) へのコンテナーのビルド、テスト、デプロイ - Azure Kubernetes Service | Microsoft Learn</a></p>
                 
@@ -2838,6 +2846,8 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1819,6 +1821,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2684,13 +2698,11 @@
 <p>バックアップするには以下。<br />
 Towerは実行中で良い。<br />
 バックアップに成功すると、カレントに <code>tower-backup-YYYY-mm-dd-HH:MM:SS.tar.gz</code> が作成される。(symlinkの<code>tower-backup-latest.tar.gz</code>も作成される)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>./setup.sh<span style="color: #BBB"> </span>-b
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>./setup.sh<span class="w"> </span>-b
 </code></pre></div>
-
 <p>リストアは以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold"># </span>./setup.sh<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>-e<span style="color: #BBB"> </span><span style="color: #B8860B">restore_backup_file</span><span style="color: #666">=</span>/path/to/tower-backup-....tar.gz
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>./setup.sh<span class="w"> </span>-r<span class="w"> </span>-e<span class="w"> </span><span class="nv">restore_backup_file</span><span class="o">=</span>/path/to/tower-backup-....tar.gz
 </code></pre></div>
-
 <ul>
 <li>ver 2.4 <a href="https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.4/html/automation_controller_administration_guide/controller-backup-and-restore#controller-backup-and-restore">Chapter 27. Backup and restore | Red Hat Product Documentation</a></li>
 <li>ver 2.5 <a href="https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.5/html/configuring_automation_execution/controller-backup-and-restore">Chapter 15. Backup and restore | Red Hat Product Documentation</a></li>
@@ -2794,15 +2806,13 @@ Towerは実行中で良い。<br />
 <h2 id="tools">Tools</h2>
 <h3 id="awx-manage">awx-manage</h3>
 <h4 id="_18">ジョブ削除</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">awx-manage cleanup_jobs [--help]</span>
+<div class="highlight"><pre><span></span><code><span class="go">awx-manage cleanup_jobs [--help]</span>
 </code></pre></div>
-
 <p><code>--dry-run</code>で実行すれば削除対象を確認できる。<br />
 デフォルト90日以前が削除対象。</p>
 <p>日付指定は<code>--days</code>で指定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">awx-manage cleanup_jobs --days 3</span>
+<div class="highlight"><pre><span></span><code><span class="go">awx-manage cleanup_jobs --days 3</span>
 </code></pre></div>
-
 <h2 id="api">API</h2>
 <p>API一覧は以下。<br />
 <del><a href="https://docs.ansible.com/automation-controller/latest/html/controllerapi/api_ref.html">11. Controller API Reference Guide — Automation Controller API Guide v4.2.1</a></del></p>
@@ -2816,215 +2826,201 @@ Towerは実行中で良い。<br />
 <h4 id="_20">ユーザー名とパスワード</h4>
 <p>webログイン時に使用するユーザー名とパスワードでRESTを実行するにはBasic認証を使用する。<br />
 <code>curl</code>であれば<code>-u</code>オプション。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -u $username:$password -sk https://192.168.0.27/api/v2/job_templates/</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -u $username:$password -sk https://192.168.0.27/api/v2/job_templates/</span>
 </code></pre></div>
-
 <h4 id="_21">パーソナルトークン</h4>
 <p>Towerのユーザーページで、対象ユーザーを選択、「トークン」押下して「＋」押下で作成できる。<br />
 権限はread/writeのみ。</p>
 <p>GUIで作ったパーソナルトークンを使ったRESTは以下のように<code>Authorization: Bearer {token-string}</code>をヘッダに追加すればOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">tower_token</span><span style="color: #666">=</span>........
-<span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://192.168.0.27/api/v2/job_templates/<span style="color: #BBB"> </span>-H<span style="color: #BBB"> </span><span style="color: #B44">&quot;Authorization: Bearer </span><span style="color: #B8860B">$tower_token</span><span style="color: #B44">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">tower_token</span><span class="o">=</span>........
+<span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://192.168.0.27/api/v2/job_templates/<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$tower_token</span><span class="s2">&quot;</span>
 </code></pre></div>
-
 <p><a href="https://docs.ansible.com/ansible-tower/latest/html_ja/administration/oauth2_token_auth.html#using-oauth-2-token-system-for-personal-access-tokens-pat">19.2. パーソナルアクセストークン (PAT) 向けの OAuth2 トークンシステムの使用</a></p>
 <h3 id="ping">ping</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://server/api/v2/ping/
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://server/api/v2/ping/
 </code></pre></div>
-
 <h3 id="_22">ジョブ</h3>
 <h4 id="_23">一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://192.168.0.27/api/v2/jobs/?page_size<span style="color: #666">=200</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://192.168.0.27/api/v2/jobs/?page_size<span class="o">=</span><span class="m">200</span>
 </code></pre></div>
-
 <p>ソートするには<code>order_by</code>を使う。キーは<code>-</code>を先頭につけると逆順。<br />
 以下で最新のジョブが先頭に来る。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span><span style="color: #B44">&quot;https://192.168.0.27/api/v2/jobs/?page_size=200&amp;order_by=-created&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span><span class="s2">&quot;https://192.168.0.27/api/v2/jobs/?page_size=200&amp;order_by=-created&quot;</span>
 </code></pre></div>
-
 <p><code>page_size</code>に指定できるのはMAX200？(オーバー時は無視されて200扱い)</p>
 <h4 id="_24">詳細</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sk https://192.168.0.27/api/v2/jobs/{JOB_ID}</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sk https://192.168.0.27/api/v2/jobs/{JOB_ID}</span>
 </code></pre></div>
-
 <h4 id="_25">削除</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XDELETE -sk https://192.168.0.27/api/v2/jobs/{JOB_ID}</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -XDELETE -sk https://192.168.0.27/api/v2/jobs/{JOB_ID}</span>
 </code></pre></div>
-
 <h3 id="_26">ジョブテンプレート</h3>
 <h4 id="_27">一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://192.168.0.27/api/v2/job_templates/?page_size<span style="color: #666">=1000</span><span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>python<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>json.tool
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://192.168.0.27/api/v2/job_templates/?page_size<span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>json.tool
 </code></pre></div>
-
 <h4 id="_28">詳細</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://192.168.0.27/api/v2/job_templates/<span style="color: #666">{</span>template-ID<span style="color: #666">}</span>/
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://192.168.0.27/api/v2/job_templates/<span class="o">{</span>template-ID<span class="o">}</span>/
 </code></pre></div>
-
 <h4 id="_29">テンプレートの検索</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://server/api/v2/job_templates/?search=Demo+Job+Template</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://server/api/v2/job_templates/?search=Demo+Job+Template</span>
 </code></pre></div>
-
 <h4 id="_30">ジョブの起動</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XPost https://server/api/v2/job_templates/${TEMPLATE_ID}/launch/</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -XPost https://server/api/v2/job_templates/${TEMPLATE_ID}/launch/</span>
 </code></pre></div>
-
 <h3 id="_31">ワークフジョブローテンプレート</h3>
 <p>ジョブテンプレートとは別</p>
 <h4 id="_32">一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://tower.example.org/api/v2/workflow_job_templates/</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://tower.example.org/api/v2/workflow_job_templates/</span>
 </code></pre></div>
-
 <h3 id="_33">チーム</h3>
 <h4 id="_34">チーム一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -XGET https://server/api/v2/teams/</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -XGET https://server/api/v2/teams/</span>
 </code></pre></div>
-
 <h3 id="category_slug">設定のcategory_slug確認</h3>
 <p>「Settings」にある <code>/api/v2/settings/</code> で確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -sk https://tower.example.org/api/v2/settings/ | python3 -m json.tool</span>
-<span style="color: #888">{</span>
-<span style="color: #888">    &quot;count&quot;: 20,</span>
-<span style="color: #888">    &quot;next&quot;: null,</span>
-<span style="color: #888">    &quot;previous&quot;: null,</span>
-<span style="color: #888">    &quot;results&quot;: [</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/all/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;all&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;All&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/authentication/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;authentication&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;Authentication&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/azuread-oauth2/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;azuread-oauth2&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;Azure AD OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/changed/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;changed&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;Changed&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/github/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;github&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;GitHub OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;github-enterprise&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;GitHub Enterprise OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise-org/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;github-enterprise-org&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;GitHub Enterprise Organization OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise-team/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;github-enterprise-team&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;GitHub Enterprise Team OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/github-org/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;github-org&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;GitHub Organization OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/github-team/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;github-team&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;GitHub Team OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/google-oauth2/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;google-oauth2&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;Google OAuth2&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/jobs/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;jobs&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;Jobs&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/ldap/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;ldap&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;LDAP&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/logging/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;logging&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;Logging&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/named-url/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;named-url&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;Named URL&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/radius/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;radius&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;RADIUS&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/saml/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;saml&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;SAML&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/system/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;system&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;System&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/tacacsplus/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;tacacsplus&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;TACACS+&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;url&quot;: &quot;/api/v2/settings/ui/&quot;,</span>
-<span style="color: #888">            &quot;slug&quot;: &quot;ui&quot;,</span>
-<span style="color: #888">            &quot;name&quot;: &quot;UI&quot;</span>
-<span style="color: #888">        }</span>
-<span style="color: #888">    ]</span>
-<span style="color: #888">}</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -sk https://tower.example.org/api/v2/settings/ | python3 -m json.tool</span>
+<span class="go">{</span>
+<span class="go">    &quot;count&quot;: 20,</span>
+<span class="go">    &quot;next&quot;: null,</span>
+<span class="go">    &quot;previous&quot;: null,</span>
+<span class="go">    &quot;results&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/all/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;all&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;All&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/authentication/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;authentication&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;Authentication&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/azuread-oauth2/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;azuread-oauth2&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;Azure AD OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/changed/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;changed&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;Changed&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;github&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;GitHub OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;github-enterprise&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;GitHub Enterprise OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise-org/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;github-enterprise-org&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;GitHub Enterprise Organization OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise-team/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;github-enterprise-team&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;GitHub Enterprise Team OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-org/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;github-org&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;GitHub Organization OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-team/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;github-team&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;GitHub Team OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/google-oauth2/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;google-oauth2&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;Google OAuth2&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/jobs/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;jobs&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;Jobs&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/ldap/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;ldap&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;LDAP&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/logging/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;logging&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;Logging&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/named-url/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;named-url&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;Named URL&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/radius/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;radius&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;RADIUS&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/saml/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;saml&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;SAML&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/system/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;system&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;System&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/tacacsplus/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;tacacsplus&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;TACACS+&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/ui/&quot;,</span>
+<span class="go">            &quot;slug&quot;: &quot;ui&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;UI&quot;</span>
+<span class="go">        }</span>
+<span class="go">    ]</span>
+<span class="go">}</span>
 </code></pre></div>
-
 <h3 id="_35">その他のシステム設定</h3>
 <p>category_slugに<code>system</code>を指定。<br />
 キー一覧は以下の通り</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-sk<span style="color: #BBB"> </span>https://tower.example.org/api/v2/settings/system/<span style="color: #BBB"> </span>...<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>python3<span style="color: #BBB"> </span>-m<span style="color: #BBB"> </span>json.tool
-<span style="color: #888">{</span>
-<span style="color: #888">    &quot;ACTIVITY_STREAM_ENABLED&quot;: true,</span>
-<span style="color: #888">    &quot;ACTIVITY_STREAM_ENABLED_FOR_INVENTORY_SYNC&quot;: false,</span>
-<span style="color: #888">    &quot;ORG_ADMINS_CAN_SEE_ALL_USERS&quot;: true,</span>
-<span style="color: #888">    &quot;MANAGE_ORGANIZATION_AUTH&quot;: true,</span>
-<span style="color: #888">    &quot;TOWER_URL_BASE&quot;: &quot;https://127.0.0.1&quot;,</span>
-<span style="color: #888">    &quot;REMOTE_HOST_HEADERS&quot;: [</span>
-<span style="color: #888">        &quot;REMOTE_ADDR&quot;,</span>
-<span style="color: #888">        &quot;REMOTE_HOST&quot;</span>
-<span style="color: #888">    ],</span>
-<span style="color: #888">    &quot;PROXY_IP_ALLOWED_LIST&quot;: [],</span>
-<span style="color: #888">    &quot;LICENSE&quot;: {</span>
-<span style="color: #888">        ...</span>
-<span style="color: #888">    },</span>
-<span style="color: #888">    &quot;REDHAT_USERNAME&quot;: &quot;&quot;,</span>
-<span style="color: #888">    &quot;REDHAT_PASSWORD&quot;: &quot;&quot;,</span>
-<span style="color: #888">    &quot;SUBSCRIPTIONS_USERNAME&quot;: &quot;&quot;,</span>
-<span style="color: #888">    &quot;SUBSCRIPTIONS_PASSWORD&quot;: &quot;&quot;,</span>
-<span style="color: #888">    &quot;AUTOMATION_ANALYTICS_URL&quot;: &quot;https://cloud.redhat.com/api/ingress/v1/upload&quot;,</span>
-<span style="color: #888">    &quot;INSTALL_UUID&quot;: &quot;...&quot;,</span>
-<span style="color: #888">    &quot;DEFAULT_CONTROL_PLANE_QUEUE_NAME&quot;: &quot;controlplane&quot;,</span>
-<span style="color: #888">    &quot;DEFAULT_EXECUTION_QUEUE_NAME&quot;: &quot;default&quot;,</span>
-<span style="color: #888">    &quot;DEFAULT_EXECUTION_ENVIRONMENT&quot;: null,</span>
-<span style="color: #888">    &quot;CUSTOM_VENV_PATHS&quot;: [],</span>
-<span style="color: #888">    &quot;INSIGHTS_TRACKING_STATE&quot;: false,</span>
-<span style="color: #888">    &quot;AUTOMATION_ANALYTICS_LAST_GATHER&quot;: null,</span>
-<span style="color: #888">    &quot;AUTOMATION_ANALYTICS_LAST_ENTRIES&quot;: &quot;&quot;,</span>
-<span style="color: #888">    &quot;AUTOMATION_ANALYTICS_GATHER_INTERVAL&quot;: 14400,</span>
-<span style="color: #888">    &quot;IS_K8S&quot;: false</span>
-<span style="color: #888">}</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://tower.example.org/api/v2/settings/system/<span class="w"> </span>...<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
+<span class="go">{</span>
+<span class="go">    &quot;ACTIVITY_STREAM_ENABLED&quot;: true,</span>
+<span class="go">    &quot;ACTIVITY_STREAM_ENABLED_FOR_INVENTORY_SYNC&quot;: false,</span>
+<span class="go">    &quot;ORG_ADMINS_CAN_SEE_ALL_USERS&quot;: true,</span>
+<span class="go">    &quot;MANAGE_ORGANIZATION_AUTH&quot;: true,</span>
+<span class="go">    &quot;TOWER_URL_BASE&quot;: &quot;https://127.0.0.1&quot;,</span>
+<span class="go">    &quot;REMOTE_HOST_HEADERS&quot;: [</span>
+<span class="go">        &quot;REMOTE_ADDR&quot;,</span>
+<span class="go">        &quot;REMOTE_HOST&quot;</span>
+<span class="go">    ],</span>
+<span class="go">    &quot;PROXY_IP_ALLOWED_LIST&quot;: [],</span>
+<span class="go">    &quot;LICENSE&quot;: {</span>
+<span class="go">        ...</span>
+<span class="go">    },</span>
+<span class="go">    &quot;REDHAT_USERNAME&quot;: &quot;&quot;,</span>
+<span class="go">    &quot;REDHAT_PASSWORD&quot;: &quot;&quot;,</span>
+<span class="go">    &quot;SUBSCRIPTIONS_USERNAME&quot;: &quot;&quot;,</span>
+<span class="go">    &quot;SUBSCRIPTIONS_PASSWORD&quot;: &quot;&quot;,</span>
+<span class="go">    &quot;AUTOMATION_ANALYTICS_URL&quot;: &quot;https://cloud.redhat.com/api/ingress/v1/upload&quot;,</span>
+<span class="go">    &quot;INSTALL_UUID&quot;: &quot;...&quot;,</span>
+<span class="go">    &quot;DEFAULT_CONTROL_PLANE_QUEUE_NAME&quot;: &quot;controlplane&quot;,</span>
+<span class="go">    &quot;DEFAULT_EXECUTION_QUEUE_NAME&quot;: &quot;default&quot;,</span>
+<span class="go">    &quot;DEFAULT_EXECUTION_ENVIRONMENT&quot;: null,</span>
+<span class="go">    &quot;CUSTOM_VENV_PATHS&quot;: [],</span>
+<span class="go">    &quot;INSIGHTS_TRACKING_STATE&quot;: false,</span>
+<span class="go">    &quot;AUTOMATION_ANALYTICS_LAST_GATHER&quot;: null,</span>
+<span class="go">    &quot;AUTOMATION_ANALYTICS_LAST_ENTRIES&quot;: &quot;&quot;,</span>
+<span class="go">    &quot;AUTOMATION_ANALYTICS_GATHER_INTERVAL&quot;: 14400,</span>
+<span class="go">    &quot;IS_K8S&quot;: false</span>
+<span class="go">}</span>
 </code></pre></div>
                 
               
@@ -3102,6 +3098,8 @@ Towerは実行中で良い。<br />
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1407,6 +1409,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1797,24 +1811,22 @@
                 <h1 id="_1">イメージビルド</h1>
 <h2 id="_2">ロケールの追加</h2>
 <p>Debian系の場合はこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">FROM</span><span style="color: #BBB"> </span><span style="color: #B44">guacamole/guacamole:1.4.0</span>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">guacamole/guacamole:1.4.0</span>
 
-<span style="color: #A2F; font-weight: bold">USER</span><span style="color: #BBB"> </span><span style="color: #B44">0</span>
-<span style="color: #A2F; font-weight: bold">RUN</span><span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>update<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
-<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-y<span style="color: #BBB"> </span>locales<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
-<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>sed<span style="color: #BBB"> </span>-i<span style="color: #BBB"> </span>-E<span style="color: #BBB"> </span><span style="color: #B44">&#39;s/# (ja_JP.UTF-8)/\1/&#39;</span><span style="color: #BBB"> </span>/etc/locale.gen<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
-<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>locale-gen<span style="color: #BBB"> </span><span style="color: #B62; font-weight: bold">\</span>
-<span style="color: #BBB">    </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>update-locale<span style="color: #BBB"> </span><span style="color: #B8860B">LANG</span><span style="color: #666">=</span>ja_JP.UTF-8
-<span style="color: #A2F; font-weight: bold">ENV</span><span style="color: #BBB"> </span>LANG<span style="color: #BBB"> </span>ja_JP.UTF-8
+<span class="k">USER</span><span class="w"> </span><span class="s">0</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>locales<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/# (ja_JP.UTF-8)/\1/&#39;</span><span class="w"> </span>/etc/locale.gen<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>locale-gen<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>update-locale<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>ja_JP.UTF-8
+<span class="k">ENV</span><span class="w"> </span>LANG<span class="w"> </span>ja_JP.UTF-8
 
-<span style="color: #A2F; font-weight: bold">USER</span><span style="color: #BBB"> </span><span style="color: #B44">1001</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">1001</span>
 </code></pre></div>
-
 <h2 id="copy">ファイルコピー(COPY)</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">COPY</span><span style="color: #BBB"> </span>script.py<span style="color: #BBB"> </span>/usr/local/src
-<span style="color: #A2F; font-weight: bold">CMD</span><span style="color: #BBB"> </span>python<span style="color: #BBB"> </span>/usr/local/src/script.py
+<div class="highlight"><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>script.py<span class="w"> </span>/usr/local/src
+<span class="k">CMD</span><span class="w"> </span>python<span class="w"> </span>/usr/local/src/script.py
 </code></pre></div>
-
 <p>ビルドするホストのカレントにある<code>script.py</code>をコンテナの<code>/usr/local/src/script.py</code>へコピーする</p>
                 
               
@@ -1892,6 +1904,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

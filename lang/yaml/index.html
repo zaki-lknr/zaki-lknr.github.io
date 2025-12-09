@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1358,6 +1360,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1825,28 +1839,37 @@
 <p><a href="https://yaml-online-parser.appspot.com/">Online YAML Parser</a></p>
 <h2 id="_1">複数行</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/07/17/220311">[YAML] 複数行テキストの行頭にインデントを設定するには (Ansible/Kubernetes) - zaki work log</a></p>
+<ul>
+<li>開始記号<ul>
+<li><code>|</code>: 記述そのまま。ただし末尾に改行が複数ある場合は1つにまとめられる</li>
+<li><code>&gt;</code>: 各行の末尾は改行でなくスペースに変換される</li>
+</ul>
+</li>
+<li>改行オプション<ul>
+<li><code>+</code>: デフォルトの「末尾の複数改行を1つにする」機能がオフになる (書いたままになる)</li>
+<li><code>-</code>: 末尾の改行が削除される</li>
+</ul>
+</li>
+</ul>
 <h3 id="_2">インデント</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #BBB"> </span>|
-<span style="color: #BBB">  </span><span style="color: #800">hoge</span>
-<span style="color: #BBB">  </span><span style="color: #800">foo</span>
-<span style="color: #BBB">  </span><span style="color: #800">bar</span>
+<div class="highlight"><pre><span></span><code><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">hoge</span>
+<span class="w">  </span><span class="no">foo</span>
+<span class="w">  </span><span class="no">bar</span>
 </code></pre></div>
-
 <p>この場合の<code>block</code>の値は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>hoge
+<div class="highlight"><pre><span></span><code>hoge
 foo
 bar
 </code></pre></div>
-
 <p>となる。<br />
 これはインデント量を(各行同じ量ずつ)変化させても同じ。</p>
 <p><code>block</code>の値の文字列内でインデントが欲しい場合は</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">block</span>:<span style="color: #BBB"> </span>|2
-<span style="color: #BBB">      </span><span style="color: #800">hoge</span>
-<span style="color: #BBB">      </span><span style="color: #800">foo</span>
-<span style="color: #BBB">      </span><span style="color: #800">bar</span>
+<div class="highlight"><pre><span></span><code><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|2</span>
+<span class="w">      </span><span class="no">hoge</span>
+<span class="w">      </span><span class="no">foo</span>
+<span class="w">      </span><span class="no">bar</span>
 </code></pre></div>
-
 <p>と書くことで、「2文字分はYAMLの書式としてのインデント」と解釈され、残りのスペースは文字列部分として解釈される。</p>
                 
               
@@ -1910,6 +1933,8 @@ bar
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

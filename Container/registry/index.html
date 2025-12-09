@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1454,6 +1456,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1891,14 +1905,12 @@
                 <h1 id="registry">Registry</h1>
 <h2 id="api">API</h2>
 <h3 id="_1">リポジトリ一覧(イメージ一覧)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://registry.example.org/v2/_catalog</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://registry.example.org/v2/_catalog</span>
 </code></pre></div>
-
 <h3 id="_2">イメージのタグ一覧</h3>
 <p>リポジトリ一覧でヒットしたリポジトリ名をパスに含める</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://registry.example.org/v2/&lt;repository-name&gt;/tags/list</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://registry.example.org/v2/&lt;repository-name&gt;/tags/list</span>
 </code></pre></div>
-
 <h2 id="saas">SaaS</h2>
 <h3 id="github-container-registry">GitHub Container Registry</h3>
 <p>手順は以下。<br />
@@ -1907,23 +1919,20 @@
 <a href="https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">個人アクセストークンを使用する - GitHub Docs</a></p>
 <p><a href="https://github.com/settings/tokens">Personal Access Tokens (Classic)</a>で[Generate new token]押下、Select scopesの<code>write:packages</code>にチェックして[Generate token]押下すればトークンが生成される。<br />
 GitHubのユーザー名と、入手したトークンをパスワードとして、</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>docker<span style="color: #BBB"> </span>login<span style="color: #BBB"> </span>ghcr.io
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>login<span class="w"> </span>ghcr.io
 </code></pre></div>
-
 <p>すれば認証できる。</p>
 <p>あとは<code>ghcr.io/zaki-lknr/squid:5.0.4-alpine-3.13</code>とかの名前のタグをつければ<code>push</code>もできる。<br />
 pushされたイメージは、GitHubのweb画面の「Packages」で確認できる。デフォルトはprivate設定。</p>
 <h3 id="ecr-elastic-container-registry">ECR (Elastic Container Registry)</h3>
 <p>認証用パスワードは <code>aws</code> CLIを使用。<br />
 <code>aws ecr get-login-password</code> を実行するとレジストリ認証に使用するパスワードを取得できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #BBB"> </span>ecr<span style="color: #BBB"> </span>get-login-password<span style="color: #BBB"> </span>--region<span style="color: #BBB"> </span>ap-northeast-1
-<span style="color: #888">eyJwYXls ......</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="w"> </span>--region<span class="w"> </span>ap-northeast-1
+<span class="go">eyJwYXls ......</span>
 </code></pre></div>
-
 <p>ログイン時のユーザー名は <code>AWS</code> 固定のため、レジストリログイン用のコマンドは以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>podman<span style="color: #BBB"> </span>login<span style="color: #BBB"> </span>&lt;registry<span style="color: #BBB"> </span>URL&gt;<span style="color: #BBB"> </span>-u<span style="color: #BBB"> </span>AWS<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">$(</span>aws<span style="color: #BBB"> </span>ecr<span style="color: #BBB"> </span>get-login-password<span style="color: #A2F; font-weight: bold">)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>podman<span class="w"> </span>login<span class="w"> </span>&lt;registry<span class="w"> </span>URL&gt;<span class="w"> </span>-u<span class="w"> </span>AWS<span class="w"> </span>-p<span class="w"> </span><span class="k">$(</span>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="k">)</span>
 </code></pre></div>
-
 <p><a href="https://docs.aws.amazon.com/ja_jp/AmazonECR/latest/userguide/registry_auth.html">プライベートレジストリの認証 - Amazon ECR</a></p>
 <h3 id="acr">ACR</h3>
 <p>ポータルからの場合は、レジストリメニューの「トークン」から、「追加」でトークンを作成する。スコープマップに権限を入力。<br />
@@ -2005,6 +2014,8 @@ pushされたイメージは、GitHubのweb画面の「Packages」で確認で�
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

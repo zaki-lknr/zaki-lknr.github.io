@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1360,6 +1362,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2215,9 +2229,8 @@
                 <h1 id="windows">Windows</h1>
 <h2 id="_1">設定</h2>
 <h3 id="_2">スタートアップ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">%HOME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</span>
+<div class="highlight"><pre><span></span><code>%HOME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 </code></pre></div>
-
 <p>もしくは <code>shell:startup</code> でもアクセスできる。</p>
 <h3 id="_3">ディスプレイ</h3>
 <p>モニター出力時に余白ができる場合のスケーリングは「インテル グラフィックス・コマンド・センター」を起動し、「ディスプレイ」メニューの「スケール」でスケーリングの設定を見直す。</p>
@@ -2232,31 +2245,27 @@
 <p><a href="https://www.microsoft.com/ja-jp/evalcenter/evaluate-windows-10-enterprise">Microsoft Evaluation Center で Windows 10 Enterprise を試す</a></p>
 <h2 id="network">network</h2>
 <h3 id="_5">ルートテーブルの確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>route print -4
+<div class="highlight"><pre><span></span><code>route print -4
 </code></pre></div>
-
 <h3 id="_6">スタティックルートの追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>route add 192.168.0.0 mask 255.255.255.0 172.16.1.0 -p
+<div class="highlight"><pre><span></span><code>route add 192.168.0.0 mask 255.255.255.0 172.16.1.0 -p
 </code></pre></div>
-
 <h3 id="ipv6">IPv6有効/無効</h3>
 <p>「設定」→「ネットワークとインターネット」→「ネットワークの詳細設定」→対象のアダプタをドロップダウンし「その他のアダプターオプションの編集」<br />
 ここから「インターネットプロトコルバージョン 6」のチェックを変更する。</p>
 <h3 id="dhcp">DHCPアドレスの再取得</h3>
 <p><code>/release</code>で解放し<code>/renew</code>で取得する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ipconfig /release
+<div class="highlight"><pre><span></span><code>ipconfig /release
 ipconfig /renew
 </code></pre></div>
-
 <h3 id="_7">ファイアウォール設定のパブリック/プライベート切り替え</h3>
 <p>「設定」→「ネットワークとインターネット」→「プロパティ」で、ネットワークプロファイルの種類を切り替えできる。</p>
 <h2 id="disk">disk</h2>
 <h3 id="diskpart">diskpart</h3>
 <p>パーティション操作</p>
 <h4 id="_8">起動</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>diskpart
+<div class="highlight"><pre><span></span><code>diskpart
 </code></pre></div>
-
 <h4 id="oem">OEMパーティション削除</h4>
 <p>「ディスクの管理」では削除できないので<code>diskpart</code>で削除する</p>
 <ol>
@@ -2266,7 +2275,7 @@ ipconfig /renew
 <li><code>select partition *</code>で処理対象パーティションを選択</li>
 <li><code>delete partition override</code>でパーティション削除</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Microsoft DiskPart バージョン 10.0.19041.964
+<div class="highlight"><pre><span></span><code>Microsoft DiskPart バージョン 10.0.19041.964
 
 Copyright (C) Microsoft Corporation.
 コンピューター: DESKTOP-NV2IS83
@@ -2276,8 +2285,8 @@ DISKPART&gt; list disk
   ディスク      状態           サイズ   空き   ダイナ GPT
   ###                                          ミック
   ------------  -------------  -------  -------  ---  ---
-  ディスク 0    オンライン           476 GB  1024 KB        <span style="font-weight: bold">*</span>
-<span style="font-weight: bold">  ディスク 1    オンライン            28 GB    27 GB        *</span>
+  ディスク 0    オンライン           476 GB  1024 KB        *
+  ディスク 1    オンライン            28 GB    27 GB        *
 
 DISKPART&gt; select disk 1
 
@@ -2292,7 +2301,6 @@ DISKPART&gt; list partition
   Partition 3    OEM               1067 MB  3136 KB
   Partition 4    プライマリ              300 KB  1070 MB
 </code></pre></div>
-
 <h2 id="_9">動画</h2>
 <h3 id="_10">デスクトップ録画</h3>
 <h4 id="_11">録画時間の設定</h4>
@@ -2316,14 +2324,12 @@ DISKPART&gt; list partition
 <h2 id="_13">リモートデスクトップ</h2>
 <h3 id="rdp">RDPファイルからの起動で全画面表示</h3>
 <p><code>screen mode id:i:</code>の値を<code>2</code>にする。(初期値は<code>1</code>になってるはず)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>screen mode id:i:2
+<div class="highlight"><pre><span></span><code>screen mode id:i:2
 </code></pre></div>
-
 <h3 id="_14">全画面表示時にキーボード操作をローカルに戻す</h3>
 <p>以下で接続バーにフォーカスが移るのでローカルのデスクトップが操作対象になる。これでAlt-Tabがローカルで効く。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Ctrl + Alt + Home
+<div class="highlight"><pre><span></span><code>Ctrl + Alt + Home
 </code></pre></div>
-
 <p>ただし再度リモートデスクトップをアクティブにしても接続バーにフォーカスがある状態なので、リモートのデスクトップはフォーカスされない</p>
                 
               
@@ -2401,6 +2407,8 @@ DISKPART&gt; list partition
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

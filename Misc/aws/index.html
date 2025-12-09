@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1574,6 +1576,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2132,125 +2146,109 @@
 <h2 id="cli">CLI</h2>
 <h3 id="_1">インストール</h3>
 <p><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">Installing or updating the latest version of the AWS CLI - AWS Command Line Interface</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;awscliv2.zip&quot;</span>
-<span style="color: #888">unzip awscliv2.zip</span>
-<span style="color: #888">sudo ./aws/install</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;awscliv2.zip&quot;</span>
+<span class="go">unzip awscliv2.zip</span>
+<span class="go">sudo ./aws/install</span>
 </code></pre></div>
-
 <p>確認</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #BBB"> </span>--version
-<span style="color: #888">aws-cli/2.11.15 Python/3.11.3 Linux/4.4.0-19041-Microsoft exe/x86_64.ubuntu.20 prompt/off</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>--version
+<span class="go">aws-cli/2.11.15 Python/3.11.3 Linux/4.4.0-19041-Microsoft exe/x86_64.ubuntu.20 prompt/off</span>
 </code></pre></div>
-
 <h3 id="_2">初期設定</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html">設定の基本 - AWS Command Line Interface</a></li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws configure</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws configure</span>
 </code></pre></div>
-
 <p>こんな感じ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #BBB"> </span>configure
-<span style="color: #888">AWS Access Key ID [None]: ....</span>
-<span style="color: #888">AWS Secret Access Key [None]: ....</span>
-<span style="color: #888">Default region name [None]: ap-northeast-1</span>
-<span style="color: #888">Default output format [None]: json</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>configure
+<span class="go">AWS Access Key ID [None]: ....</span>
+<span class="go">AWS Secret Access Key [None]: ....</span>
+<span class="go">Default region name [None]: ap-northeast-1</span>
+<span class="go">Default output format [None]: json</span>
 </code></pre></div>
-
 <p>設定ファイル例は以下(直接ファイルを作っても良い)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">$ cat ~/.aws/credentials </span>
-<span style="color: #A2F; font-weight: bold">[default]</span>
-<span style="color: #B44">aws_access_key_id</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">....</span>
-<span style="color: #B44">aws_secret_access_key</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">....</span>
+<div class="highlight"><pre><span></span><code><span class="na">$ cat ~/.aws/credentials </span>
+<span class="k">[default]</span>
+<span class="na">aws_access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">....</span>
+<span class="na">aws_secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">....</span>
 </code></pre></div>
-
 <h3 id="_3">コンテナを使った実行</h3>
 <p>ECRの認証トークンを得るには以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman run --rm -it -v ~/.aws:/root/.aws public.ecr.aws/aws-cli/aws-cli ecr get-login-password --region ap-northeast-1</span>
+<div class="highlight"><pre><span></span><code><span class="go">podman run --rm -it -v ~/.aws:/root/.aws public.ecr.aws/aws-cli/aws-cli ecr get-login-password --region ap-northeast-1</span>
 </code></pre></div>
-
 <p><code>aws</code>を指定しないのがポイント</p>
 <h3 id="_4">各操作</h3>
 <h4 id="ec2">EC2</h4>
 <h5 id="vm">VMリストアップ</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 describe-instances \</span>
-<span style="color: #888">  --region &lt;リージョン&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-instances \</span>
+<span class="go">  --region &lt;リージョン&gt;</span>
 </code></pre></div>
-
 <h6 id="id">インスタンスIDのみ一覧</h6>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #BBB"> </span>ec2<span style="color: #BBB"> </span>describe-instances<span style="color: #BBB"> </span>--region<span style="color: #BBB"> </span>ap-southeast-2<span style="color: #BBB"> </span>--query<span style="color: #BBB"> </span><span style="color: #B44">&#39;Reservations[].Instances[].InstanceId&#39;</span>
-<span style="color: #888">[</span>
-<span style="color: #888">    &quot;i-002bfe31881b20e07&quot;,</span>
-<span style="color: #888">    &quot;i-0d33f288e35835170&quot;</span>
-<span style="color: #888">]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--region<span class="w"> </span>ap-southeast-2<span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;Reservations[].Instances[].InstanceId&#39;</span>
+<span class="go">[</span>
+<span class="go">    &quot;i-002bfe31881b20e07&quot;,</span>
+<span class="go">    &quot;i-0d33f288e35835170&quot;</span>
+<span class="go">]</span>
 </code></pre></div>
-
 <h6 id="name">Nameタグのみ一覧</h6>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>aws<span style="color: #BBB"> </span>ec2<span style="color: #BBB"> </span>describe-instances<span style="color: #BBB"> </span>--region<span style="color: #BBB"> </span>ap-southeast-2<span style="color: #BBB"> </span>--query<span style="color: #BBB"> </span><span style="color: #B44">&#39;Reservations[].Instances[].Tags[?Key==`Name`].Value[]&#39;</span>
-<span style="color: #888">[</span>
-<span style="color: #888">    &quot;server-1&quot;,</span>
-<span style="color: #888">    &quot;server-2&quot;</span>
-<span style="color: #888">]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--region<span class="w"> </span>ap-southeast-2<span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;Reservations[].Instances[].Tags[?Key==`Name`].Value[]&#39;</span>
+<span class="go">[</span>
+<span class="go">    &quot;server-1&quot;,</span>
+<span class="go">    &quot;server-2&quot;</span>
+<span class="go">]</span>
 </code></pre></div>
-
 <h5 id="vm_1">指定タグのVM</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 describe-instances \</span>
-<span style="color: #888">  --region &lt;リージョン&gt; \</span>
-<span style="color: #888">  --query &quot;Reservations[].Instances[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]]&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-instances \</span>
+<span class="go">  --region &lt;リージョン&gt; \</span>
+<span class="go">  --query &quot;Reservations[].Instances[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]]&quot;</span>
 </code></pre></div>
-
 <h4 id="_5">ネットワーク</h4>
 <h5 id="id_1">ゲートウェイIDの取得</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 describe-vpn-gateways \</span>
-<span style="color: #888">  --region &lt;リージョン&gt; \</span>
-<span style="color: #888">  --query &quot;VpnGateways[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]].VpnGatewayId&quot; \</span>
-<span style="color: #888">  --output text</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-vpn-gateways \</span>
+<span class="go">  --region &lt;リージョン&gt; \</span>
+<span class="go">  --query &quot;VpnGateways[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]].VpnGatewayId&quot; \</span>
+<span class="go">  --output text</span>
 </code></pre></div>
-
 <h5 id="vpn">サイト間VPN接続の設定サンプルダウンロード</h5>
 <p><a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/get-vpn-connection-device-sample-configuration.html">get-vpn-connection-device-sample-configuration — AWS CLI 1.29.35 Command Reference</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 get-vpn-connection-device-sample-configuration \</span>
-<span style="color: #888">  --vpn-connection-id &lt;VPN-ID&gt; \</span>
-<span style="color: #888">  --vpn-connection-device-type-id &lt;デバイスタイプID&gt; \</span>
-<span style="color: #888">  --internet-key-exchange-version ikev1 \</span>
-<span style="color: #888">  --region ${region} \</span>
-<span style="color: #888">  --output text &gt; vpn-sample.txt</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws ec2 get-vpn-connection-device-sample-configuration \</span>
+<span class="go">  --vpn-connection-id &lt;VPN-ID&gt; \</span>
+<span class="go">  --vpn-connection-device-type-id &lt;デバイスタイプID&gt; \</span>
+<span class="go">  --internet-key-exchange-version ikev1 \</span>
+<span class="go">  --region ${region} \</span>
+<span class="go">  --output text &gt; vpn-sample.txt</span>
 </code></pre></div>
-
 <h6 id="id_2">デバイスタイプIDの取得</h6>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws ec2 get-vpn-connection-device-types --region ap-southeast-1</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws ec2 get-vpn-connection-device-types --region ap-southeast-1</span>
 
-<span style="color: #888">{</span>
-<span style="color: #888">    &quot;VpnConnectionDeviceTypes&quot;: [</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            :</span>
-<span style="color: #888">            :</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        {</span>
-<span style="color: #888">            &quot;VpnConnectionDeviceTypeId&quot;: &quot;9d9470de&quot;,</span>
-<span style="color: #888">            &quot;Vendor&quot;: &quot;Fortinet&quot;,</span>
-<span style="color: #888">            &quot;Platform&quot;: &quot;Fortigate 40+ Series&quot;,</span>
-<span style="color: #888">            &quot;Software&quot;: &quot;FortiOS 5.0+&quot;</span>
-<span style="color: #888">        },</span>
-<span style="color: #888">        :</span>
-<span style="color: #888">        :</span>
-<span style="color: #888">    ]</span>
-<span style="color: #888">}</span>
+<span class="go">{</span>
+<span class="go">    &quot;VpnConnectionDeviceTypes&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">            :</span>
+<span class="go">            :</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &quot;VpnConnectionDeviceTypeId&quot;: &quot;9d9470de&quot;,</span>
+<span class="go">            &quot;Vendor&quot;: &quot;Fortinet&quot;,</span>
+<span class="go">            &quot;Platform&quot;: &quot;Fortigate 40+ Series&quot;,</span>
+<span class="go">            &quot;Software&quot;: &quot;FortiOS 5.0+&quot;</span>
+<span class="go">        },</span>
+<span class="go">        :</span>
+<span class="go">        :</span>
+<span class="go">    ]</span>
+<span class="go">}</span>
 </code></pre></div>
-
 <p>上記の「FortiOS 5.0+」のID(<code>9d9470de</code>)を変数セットするには<code>--query</code>を使って以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">devicetypeid=$(aws ec2 get-vpn-connection-device-types --region ${region} --query &quot;VpnConnectionDeviceTypes[?Vendor==&#39;Fortinet&#39; &amp;&amp; Software==&#39;FortiOS 5.0+&#39;].VpnConnectionDeviceTypeId&quot; --output text)</span>
+<div class="highlight"><pre><span></span><code><span class="go">devicetypeid=$(aws ec2 get-vpn-connection-device-types --region ${region} --query &quot;VpnConnectionDeviceTypes[?Vendor==&#39;Fortinet&#39; &amp;&amp; Software==&#39;FortiOS 5.0+&#39;].VpnConnectionDeviceTypeId&quot; --output text)</span>
 </code></pre></div>
-
 <h4 id="s3">S3</h4>
 <h5 id="_6">一覧</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws s3 ls &lt;backet-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws s3 ls &lt;backet-name&gt;</span>
 </code></pre></div>
-
 <h5 id="_7">ダウンロード</h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">aws s3 cp s3://&lt;backet-name&gt;/path/to/file /path/to/file</span>
+<div class="highlight"><pre><span></span><code><span class="go">aws s3 cp s3://&lt;backet-name&gt;/path/to/file /path/to/file</span>
 </code></pre></div>
-
 <h2 id="_8">サービス</h2>
 <h3 id="ec2-amazon-linux">EC2 / Amazon Linux</h3>
 <ul>
@@ -2334,6 +2332,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

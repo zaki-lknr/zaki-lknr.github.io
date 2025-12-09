@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1509,6 +1511,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2039,16 +2053,13 @@
 <h3 id="_10">索引</h3>
 <p><a href="https://docs.ansible.com/ansible/latest/genindex.html">Index — Ansible Documentation</a></p>
 <h3 id="ansible-doc">ansible-doc</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc<span style="color: #BBB"> </span>&lt;module-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-doc<span class="w"> </span>&lt;module-name&gt;
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc<span style="color: #BBB"> </span>&lt;module-fqcn&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-doc<span class="w"> </span>&lt;module-fqcn&gt;
 </code></pre></div>
-
 <p>モジュールパスを指定するには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>ansible-doc<span style="color: #BBB"> </span>-M<span style="color: #BBB"> </span>/path/to/collection-path/ansible_collections/namespace/collectionname/plugins/modules<span style="color: #BBB"> </span>hogehoge
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-doc<span class="w"> </span>-M<span class="w"> </span>/path/to/collection-path/ansible_collections/namespace/collectionname/plugins/modules<span class="w"> </span>hogehoge
 </code></pre></div>
-
 <p>パスが合わない場合は、エラーメッセージに「これらのパスにそんなモジュールないんだが？」とパス一覧が表示されるので、そこから調整する。</p>
 <h2 id="automation-hub">Automation Hub</h2>
 <h3 id="_11">トークンの作成</h3>
@@ -2129,6 +2140,8 @@
     
     
       <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

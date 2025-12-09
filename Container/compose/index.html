@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1550,6 +1552,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2086,62 +2100,52 @@
 <li><a href="https://docs.docker.com/compose/reference/">Overview of docker compose CLI | Docker Documentation</a></li>
 </ul>
 <h3 id="_1">起動</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose up</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose up</span>
 </code></pre></div>
-
 <p>この場合フォアグラウンドで起動する。<br />
 バックグラウンドで起動するには<code>-d</code>を付ける。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose up -d</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose up -d</span>
 </code></pre></div>
-
 <h3 id="_2">プロジェクト名を指定</h3>
 <p>デフォルトではディレクトリ名が使用されるが、そのままだと異なるコンテナ環境でもディレクトリ名がたまたまでも同一だと競合してしまう。その場合はプロジェクト名を指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose -p project-name up -d</span>
-<span style="color: #888">docker compose -p project-name ps</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose -p project-name up -d</span>
+<span class="go">docker compose -p project-name ps</span>
 </code></pre></div>
-
 <h3 id="_3">停止と削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose down</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose down</span>
 </code></pre></div>
-
 <p><code>down</code>でコンテナは削除されるが、ボリュームは残る。<br />
 ボリュームも削除するには<code>-v</code>オプションを追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose down -v</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose down -v</span>
 </code></pre></div>
-
 <p>特定のコンテナのみ停止・削除するには、引数にCompose Fileで指定している名称を指定する。<br />
 ただし<code>down</code>ではこの指定はできない。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose stop myapp</span>
-<span style="color: #888">docker compose rm myapp</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose stop myapp</span>
+<span class="go">docker compose rm myapp</span>
 </code></pre></div>
-
 <h3 id="compose">composeファイル指定</h3>
 <p><code>-f</code>で指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose -f compose-v1.2.3.yml up -d</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose -f compose-v1.2.3.yml up -d</span>
 </code></pre></div>
-
 <h3 id="_4">コマンド起動</h3>
 <p><code>docker exec</code>と異なり<code>-it</code>オプションは不要。アプリ名とコマンド名のみでOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose exec &lt;app名&gt; bash</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose exec &lt;app名&gt; bash</span>
 </code></pre></div>
-
 <h3 id="_5">ファイルコピー</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">docker compose cp app:/path/to/file ./file</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose cp app:/path/to/file ./file</span>
 </code></pre></div>
-
 <h2 id="compose_1">Composeファイル</h2>
 <ul>
 <li><a href="https://docs.docker.com/compose/compose-file/compose-file-v3/">Compose file version 3 reference | Docker Documentation</a></li>
 </ul>
 <h3 id="restart">restartポリシー</h3>
 <p>サービス名直下に記載する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">prometheus</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>quay.io/prometheus/prometheus:v3.2.1
-<span style="color: #BBB">    </span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">restart</span>:<span style="color: #BBB"> </span>always
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quay.io/prometheus/prometheus:v3.2.1</span>
+<span class="w">    </span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 </code></pre></div>
-
 <ul>
 <li>no: デフォルト。再起動なし</li>
 <li>on-failure: 終了コードがエラー時に再起動する</li>
@@ -2151,49 +2155,46 @@
 <h3 id="network_mode">network_mode</h3>
 <p><code>"service:[service name]"</code>と記述すると、対象サービスのネットワーク設定を使用する。<br />
 記述例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">app</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>myapp
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">ports</span>:
-<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>8080:8080
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">networks</span>:
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">default</span>:
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">ipv4_address</span>:<span style="color: #BBB"> </span>192.168.0.100
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">db</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>mysql
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">network_mode</span>:<span style="color: #BBB"> </span>service:app
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp</span>
+<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
+<span class="w">        </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">default</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">ipv4_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.0.100</span>
+<span class="w">    </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+<span class="w">        </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service:app</span>
 </code></pre></div>
-
 <h3 id="_6">依存</h3>
 <h4 id="depends_on">単純な依存設定 (depends_on)</h4>
 <p>depends_onで依存を設定することで起動・終了の順序を制御できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">db</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>postgres
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">app</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>app
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">depends_on</span>:
-<span style="color: #BBB">            </span>-<span style="color: #BBB"> </span>db
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
 </code></pre></div>
-
 <p>順序が制御できるのみなので、コンテナ内プロセスの状態までは感知しない。</p>
 <h4 id="healthcheck-condition-service_healthy">ヘルスチェックとの併用 (healthcheck + condition: service_healthy)</h4>
 <p>postgresで自身にアクセスできるまで待つ設定を<code>healthcheck</code>で定義し、<code>depends_on</code>の<code>condition</code>パラメタに<code>service_healthy</code>を指定することでヘルスチェックが完了するまで待つ構成。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">db</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>postgres:12
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">healthcheck</span>:
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">test</span>:<span style="color: #BBB"> </span>[<span style="color: #B44">&quot;CMD-SHELL&quot;</span>,<span style="color: #BBB"> </span><span style="color: #B44">&quot;pg_isready</span><span style="color: #B8860B"> </span><span style="color: #B44">-U</span><span style="color: #B8860B"> </span><span style="color: #B44">user</span><span style="color: #B8860B"> </span><span style="color: #B44">||</span><span style="color: #B8860B"> </span><span style="color: #B44">exit</span><span style="color: #B8860B"> </span><span style="color: #B44">1&quot;</span>]
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">interval</span>:<span style="color: #BBB"> </span>1s
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">timeout</span>:<span style="color: #BBB"> </span>1s
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">retries</span>:<span style="color: #BBB"> </span>10
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">start_period</span>:<span style="color: #BBB"> </span>1s
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">app</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>app
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">depends_on</span>:
-<span style="color: #BBB">            </span><span style="color: #008000; font-weight: bold">db</span>:
-<span style="color: #BBB">                </span><span style="color: #008000; font-weight: bold">condition</span>:<span style="color: #BBB"> </span>service_healthy
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:12</span>
+<span class="w">        </span><span class="nt">healthcheck</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD-SHELL&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">user</span><span class="nv"> </span><span class="s">||</span><span class="nv"> </span><span class="s">exit</span><span class="nv"> </span><span class="s">1&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">            </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1s</span>
+<span class="w">            </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1s</span>
+<span class="w">            </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">            </span><span class="nt">start_period</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1s</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
 </code></pre></div>
-
 <p><code>condition</code>には以下が指定できる。</p>
 <ul>
 <li><code>service_started</code>: 依存したコンテナが起動している</li>
@@ -2203,82 +2204,76 @@
 <p><a href="https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on">https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on</a></p>
 <h3 id="_7">マウント</h3>
 <h4 id="bind">bindマウント</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">server</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;rancher/k3s:v1.30.2-k3s2&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>server
-<span style="color: #BBB">    </span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>./registries.yaml:/etc/rancher/k3s/registries.yaml
+<span class="w">  </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rancher/k3s:v1.30.2-k3s2&quot;</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+<span class="w">    </span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./registries.yaml:/etc/rancher/k3s/registries.yaml</span>
 </code></pre></div>
-
 <p>long syntaxだと以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>bind
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">source</span>:<span style="color: #BBB"> </span>./registries.yaml
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #BBB"> </span>/etc/rancher/k3s/registries.yaml
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span>
+<span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./registries.yaml</span>
+<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/rancher/k3s/registries.yaml</span>
 </code></pre></div>
-
 <h4 id="volume">volumeマウント</h4>
 <p>long syntaxだと以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">prometheus</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">volumes</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>volume
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">source</span>:<span style="color: #BBB"> </span>prometheus-data
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">target</span>:<span style="color: #BBB"> </span>/prometheus
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">volume</span>
+<span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prometheus-data</span>
+<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/prometheus</span>
 
-<span style="color: #008000; font-weight: bold">volumes</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">prometheus-data</span>:<span style="color: #BBB"> </span>{}
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">prometheus-data</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 </code></pre></div>
-
 <h3 id="_8">リソース制限</h3>
 <p>OSのリソースを使いつくさないようにCPUとメモリを制限</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">apps</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>...
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>...
+<span class="w">  </span><span class="nt">apps</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">deploy</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">resources</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">limits</span>:
-<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">cpus</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;0.5&#39;</span>
-<span style="color: #BBB">          </span><span style="color: #008000; font-weight: bold">memory</span>:<span style="color: #BBB"> </span>512m
+<span class="w">    </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">cpus</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0.5&#39;</span>
+<span class="w">          </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512m</span>
 </code></pre></div>
-
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/08/213857">[Docker] コンテナで動かすプロセスのCPU使用率を--cpusで、メモリ使用量を--memoryで制限する - zaki work log</a></p>
 <h3 id="_9">ログファイルサイズ制限</h3>
 <p><strong>デフォルト無制限のためストレージを使い切ってしまうので制限する</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">apps</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>...
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>...
+<span class="w">  </span><span class="nt">apps</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">logging</span>:
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">driver</span>:<span style="color: #BBB"> </span>json-file
-<span style="color: #BBB">      </span><span style="color: #008000; font-weight: bold">options</span>:
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">max-size</span>:<span style="color: #BBB"> </span>10m
-<span style="color: #BBB">        </span><span style="color: #008000; font-weight: bold">max-file</span>:<span style="color: #BBB"> </span>3
+<span class="w">    </span><span class="nt">logging</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">json-file</span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10m</span>
+<span class="w">        </span><span class="nt">max-file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 </code></pre></div>
-
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/09/211117">[Docker]コンテナ実行時にlog-optsでログサイズ上限とローテート数を設定してホストのストレージが溢れないようにする - zaki work log</a></p>
 <h3 id="_10">環境変数の参照</h3>
 <p>デフォルトでは<code>.env</code>ファイルの環境変数を参照する。
 Composeファイルはシェルの変数参照と同じ書式で環境変数をセット(投入)できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">services</span>:
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">server</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;rancher/k3s:${K3S_VERSION:-latest}&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:<span style="color: #BBB"> </span>server
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">environment</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>K3S_TOKEN=${K3S_TOKEN:?err}
+<span class="w">  </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rancher/k3s:${K3S_VERSION:-latest}&quot;</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K3S_TOKEN=${K3S_TOKEN:?err}</span>
 </code></pre></div>
-
 <p>こんなcomposeファイルに、以下<code>.env</code>ファイルを同じディレクトリに用意しておけば、そのまま環境変数としてセットされてコンテナ起動できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>K3S_VERSION=v1.33.5-k3s1
+<div class="highlight"><pre><span></span><code>K3S_VERSION=v1.33.5-k3s1
 K3S_TOKEN=298143103216182
 </code></pre></div>
                 
@@ -2357,6 +2352,8 @@ K3S_TOKEN=298143103216182
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

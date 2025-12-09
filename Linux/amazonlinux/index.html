@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1400,6 +1402,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1788,15 +1802,13 @@
 <p><a href="https://aws.amazon.com/jp/blogs/news/amazon-linux-2023-a-cloud-optimized-linux-distribution-with-long-term-support/">Amazon Linux 2023 – 長期サポート付きのクラウド最適化 Linux ディストリビューション | Amazon Web Services ブログ</a></p>
 </blockquote>
 <p>更新するには以下のように<code>--releasever</code>でリポジトリバージョンを指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">dnf upgrade --releasever=2023.6.20250211</span>
+<div class="highlight"><pre><span></span><code><span class="go">dnf upgrade --releasever=2023.6.20250211</span>
 </code></pre></div>
-
 <p>リリースバージョンは下記コマンドで確認。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">dnf check-release-update</span>
+<div class="highlight"><pre><span></span><code><span class="go">dnf check-release-update</span>
 </code></pre></div>
-
 <p><code>latest</code>指定で最新が対象になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">dnf upgrade --releasever=latest</span>
+<div class="highlight"><pre><span></span><code><span class="go">dnf upgrade --releasever=latest</span>
 </code></pre></div>
                 
               
@@ -1874,6 +1886,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

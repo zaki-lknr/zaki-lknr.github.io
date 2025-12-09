@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1360,6 +1362,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1850,6 +1864,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    実装
+  </a>
+  
+    <nav class="md-nav" aria-label="実装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleepする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1911,7 +1945,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     デフォルトのルートテーブル
   </a>
   
@@ -2456,6 +2490,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    実装
+  </a>
+  
+    <nav class="md-nav" aria-label="実装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleepする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2517,7 +2571,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     デフォルトのルートテーブル
   </a>
   
@@ -2556,112 +2610,96 @@
 <h2 id="_1">インストール</h2>
 <p><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">Install Terraform | Terraform - HashiCorp Learn</a></p>
 <h3 id="apt">apt</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>update<span style="color: #BBB"> </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-y<span style="color: #BBB"> </span>gnupg<span style="color: #BBB"> </span>software-properties-common<span style="color: #BBB"> </span>curl
-<span style="color: #000080; font-weight: bold">$ </span>curl<span style="color: #BBB"> </span>-fsSL<span style="color: #BBB"> </span>https://apt.releases.hashicorp.com/gpg<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>apt-key<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>-
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>apt-add-repository<span style="color: #BBB"> </span><span style="color: #B44">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span style="color: #A2F; font-weight: bold">$(</span>lsb_release<span style="color: #BBB"> </span>-cs<span style="color: #A2F; font-weight: bold">)</span><span style="color: #B44"> main&quot;</span>
-<span style="color: #000080; font-weight: bold">$ </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>update<span style="color: #BBB"> </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span>sudo<span style="color: #BBB"> </span>apt-get<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>terraform
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gnupg<span class="w"> </span>software-properties-common<span class="w"> </span>curl
+<span class="gp">$ </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://apt.releases.hashicorp.com/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-add-repository<span class="w"> </span><span class="s2">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span>
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>terraform
 </code></pre></div>
-
 <h2 id="cli">CLI</h2>
 <h3 id="_2">出力をファイルへリダイレクトする際のカラー無効化</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -no-color &gt; plan.txt</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -no-color &gt; plan.txt</span>
 </code></pre></div>
-
 <h3 id="planapply">planの結果をファイル保存し、それを使ってapply時に即処理実行</h3>
 <p><code>plan</code>の結果を<code>-out</code>でファイル出力し、そのファイルを引数に<code>apply</code>を実行すると、<code>apply</code>実行前の<code>plan</code>は省略される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -out plan.out</span>
-<span style="color: #888">terraform apply -auto-approve plan.out</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -out plan.out</span>
+<span class="go">terraform apply -auto-approve plan.out</span>
 </code></pre></div>
-
 <h3 id="_3">フォーマッタ</h3>
 <p>standard styleへ変換する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform fmt -recursive</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform fmt -recursive</span>
 </code></pre></div>
-
 <p><code>-recursive</code>無しの場合はカレントディレクトリのみが対象</p>
 <h3 id="provider">providerバージョン確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform providers -version</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform providers -version</span>
 </code></pre></div>
-
 <p>といわれてるけど<code>providers</code>が無くても出力は同じ。</p>
 <h3 id="provider_1">providerバージョンアップグレード</h3>
 <p>tfファイルのprovicersの定義で指定バージョンを変更して、以下コマンド実行。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform init -upgrade</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform init -upgrade</span>
 </code></pre></div>
-
 <h3 id="_4">リソース一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform state list</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform state list</span>
 </code></pre></div>
-
 <h3 id="tfstate">tfstateの確認</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform state pull</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform state pull</span>
 </code></pre></div>
-
 <p>stdoutへtfstateの内容が出力されるので、ファイルへ保存すればクラウドに配置している場合のtfstateも1コマンドで取得できる。</p>
 <h3 id="workspace">workspace</h3>
 <h4 id="workspace_1">現在のworkspace</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #BBB"> </span>workspace<span style="color: #BBB"> </span>show
-<span style="color: #888">default</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>terraform<span class="w"> </span>workspace<span class="w"> </span>show
+<span class="go">default</span>
 </code></pre></div>
-
 <h4 id="_5">一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #BBB"> </span>workspace<span style="color: #BBB"> </span>list
-<span style="color: #888">  default</span>
-<span style="color: #888">* 1</span>
-<span style="color: #888">  2</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>terraform<span class="w"> </span>workspace<span class="w"> </span>list
+<span class="go">  default</span>
+<span class="go">* 1</span>
+<span class="go">  2</span>
 </code></pre></div>
-
 <h4 id="_6">変更</h4>
 <p>workspace <code>2</code> に変更</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>terraform<span style="color: #BBB"> </span>workspace<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">select</span><span style="color: #BBB"> </span><span style="color: #666">2</span>
-<span style="color: #888">Switched to workspace &quot;2&quot;.</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>terraform<span class="w"> </span>workspace<span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="m">2</span>
+<span class="go">Switched to workspace &quot;2&quot;.</span>
 </code></pre></div>
-
 <p>設定値は<code>.terraform/environment</code>に記録される。</p>
 <h3 id="variable">variable</h3>
 <h4 id="_7">引数</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -var=&#39;enable_wan=false&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -var=&#39;enable_wan=false&#39;</span>
 </code></pre></div>
-
 <h3 id="_8">デバッグログ</h3>
 <p>verboseオプション的なものはなく、変数指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">TF_LOG=DEBUG terraform command</span>
+<div class="highlight"><pre><span></span><code><span class="go">TF_LOG=DEBUG terraform command</span>
 </code></pre></div>
-
 <p><a href="https://developer.hashicorp.com/terraform/internals/debugging">Debugging | Terraform | HashiCorp Developer</a></p>
 <h3 id="_9">部分実行</h3>
 <h4 id="_10">指定リソースのみ</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -target=awx_instance.my_server</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -target=awx_instance.my_server</span>
 </code></pre></div>
-
 <h4 id="_11">指定モジュールのみ</h4>
 <p><code>-target=module.モジュール名</code>で指定可能</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -target=module.my-module</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -target=module.my-module</span>
 </code></pre></div>
-
 <h2 id="backend">backend設定</h2>
 <h3 id="s3">S3</h3>
 <p>backendの定義を追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">terraform</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #A2F">required_providers</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #A2F">aws</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">      </span><span style="color: #B44">source</span><span style="color: #BBB">  </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;hashicorp/aws&quot;</span>
-<span style="color: #BBB">      </span><span style="color: #B44">version</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;~&gt; 3.0&quot;</span>
-<span style="color: #BBB">    </span>}
-<span style="color: #BBB">  </span>}
+<div class="highlight"><pre><span></span><code><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">required_providers</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">aws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/aws&quot;</span>
+<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 3.0&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span style="color: #BBB">  </span><span style="color: #A2F; font-weight: bold">backend</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #B44">bucket</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;bucket-name&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #B44">key</span><span style="color: #BBB">    </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;terraform.tfstate&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #B44">region</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;ap-northeast-1&quot;</span>
-<span style="color: #BBB">  </span>}
-}
+<span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">&quot;s3&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bucket-name&quot;</span>
+<span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform.tfstate&quot;</span>
+<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ap-northeast-1&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span style="color: #A2F; font-weight: bold">provider</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;aws&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">region</span><span style="color: #BBB">  </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;ap-northeast-1&quot;</span>
-}
+<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ap-northeast-1&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>もともとローカルでtfstate作っていた状態からS3へ移行する場合は、</p>
 <ol>
 <li>S3バケット作成</li>
@@ -2684,205 +2722,186 @@
 <li>その他はデフォルト</li>
 </ul>
 <p>あとはバックエンド設定に以下追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #A2F; font-weight: bold">backend</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;s3&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #B44">bucket</span><span style="color: #BBB">         </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">S</span><span style="color: #666">3</span><span style="border: 1px solid #F00">バケット名</span>
-<span style="color: #BBB">    </span><span style="color: #B44">key</span><span style="color: #BBB">            </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;terraform.tfstate&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #B44">region</span><span style="color: #BBB">         </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">リージョン</span>
-<span style="color: #BBB">    </span><span style="color: #B44">dynamodb_table</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">DynamoDBテーブル名</span>
-<span style="color: #BBB">    </span><span style="color: #B44">encrypt</span><span style="color: #BBB">        </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #800">true</span>
-<span style="color: #BBB">  </span>}
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">&quot;s3&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">bucket</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="err">S</span><span class="m">3</span><span class="err">バケット名</span>
+<span class="w">    </span><span class="na">key</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform.tfstate&quot;</span>
+<span class="w">    </span><span class="na">region</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="err">リージョン</span>
+<span class="w">    </span><span class="na">dynamodb_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">DynamoDBテーブル名</span>
+<span class="w">    </span><span class="na">encrypt</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="w">  </span><span class="p">}</span>
 </code></pre></div>
-
 <h3 id="_12">ロックしたままになった場合の解除</h3>
 <p>処理中の強制中断や、実行ホストのシャットダウンなどで、ロック状態のままになると、次のTerraform実行はできなくなる。<br />
 解除するには <code>terraform force-unlock ID</code> を実行する。</p>
 <p>IDはエラーメッセージ中の以下の値</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">Error message: operation error DynamoDB: PutItem, https response error</span>
-<span style="color: #888">StatusCode: 400, RequestID: ....</span>
-<span style="color: #888">ConditionalCheckFailedException: The conditional request failed</span>
-<span style="color: #888">Lock Info:</span>
-<span style="color: #888">  ID:        ********</span>
-<span style="color: #888">  Path:      /path/to/terraform.tfstate</span>
-<span style="color: #888">  Operation: OperationTypeApply</span>
-<span style="color: #888">  Who:       ...</span>
-<span style="color: #888">  Version:   1.9.1</span>
-<span style="color: #888">  Created:   ...</span>
-<span style="color: #888">  Info:</span>
+<div class="highlight"><pre><span></span><code><span class="go">Error message: operation error DynamoDB: PutItem, https response error</span>
+<span class="go">StatusCode: 400, RequestID: ....</span>
+<span class="go">ConditionalCheckFailedException: The conditional request failed</span>
+<span class="go">Lock Info:</span>
+<span class="go">  ID:        ********</span>
+<span class="go">  Path:      /path/to/terraform.tfstate</span>
+<span class="go">  Operation: OperationTypeApply</span>
+<span class="go">  Who:       ...</span>
+<span class="go">  Version:   1.9.1</span>
+<span class="go">  Created:   ...</span>
+<span class="go">  Info:</span>
 </code></pre></div>
-
 <h2 id="_13">構文</h2>
 <h3 id="count">count</h3>
 <p>EC2を3つ立てNameタグに連番を振る</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_instance&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;cloud-vm&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">count</span><span style="color: #BBB">           </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #666">3</span>
-<span style="color: #BBB">  </span><span style="color: #B44">instance_type</span><span style="color: #BBB">   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;t2.medium&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #666">:</span>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_instance&quot;</span><span class="w"> </span><span class="nv">&quot;cloud-vm&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">count</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<span class="w">  </span><span class="na">instance_type</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t2.medium&quot;</span>
+<span class="w">  </span><span class="o">:</span>
 
-<span style="color: #BBB">  </span><span style="color: #A2F">tags</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #B44">Name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;cloud-${count.index}&quot;</span>
-<span style="color: #BBB">  </span>}
-}
+<span class="w">  </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cloud-${count.index}&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>EIPの付与と連動させるには、<a href="https://developer.hashicorp.com/terraform/language/functions/element">element function</a>を使って要素を参照する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_eip&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;cloud-eip&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">count</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #666">3</span>
-<span style="color: #BBB">  </span><span style="color: #B44">instance</span><span style="color: #BBB">   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;${element(aws_instance.cloud-vm.*.id, count.index)}&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #B44">depends_on</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #BBB"> </span><span style="color: #B8860B">aws_internet_gateway.igw</span><span style="color: #BBB"> </span>]
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_eip&quot;</span><span class="w"> </span><span class="nv">&quot;cloud-eip&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">count</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<span class="w">  </span><span class="na">instance</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${element(aws_instance.cloud-vm.*.id, count.index)}&quot;</span>
+<span class="w">  </span><span class="na">depends_on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv">aws_internet_gateway.igw</span><span class="w"> </span><span class="p">]</span>
 
-}
+<span class="p">}</span>
 </code></pre></div>
-
 <h3 id="_14">変数</h3>
 <h4 id="_15">変数参照</h4>
 <p><code>vm_ami_id</code>という変数を定義しているなら以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">ami</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.vm_ami_id</span>
+<div class="highlight"><pre><span></span><code><span class="na">ami</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.vm_ami_id</span>
 </code></pre></div>
-
 <h4 id="_16">補完</h4>
 <p>文字列リテラルの中で参照する場合は「補完」で書式は以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">tags</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">Name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;${var.name_prefix}-server&quot;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${var.name_prefix}-server&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h3 id="_17">テンプレート</h3>
 <h4 id="_18">エスケープ</h4>
 <p><code>%{...}</code>という文字をそのまま使いたい場合は<code>%%{...}</code></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl -k https://localhost:6443 -w &#39;%%{http_code}\n&#39; -sS -o /dev/null 2&gt;/dev/null
+<div class="highlight"><pre><span></span><code>curl -k https://localhost:6443 -w &#39;%%{http_code}\n&#39; -sS -o /dev/null 2&gt;/dev/null
 </code></pre></div>
-
 <h3 id="_19">関数</h3>
 <h4 id="file">file</h4>
 <p><a href="https://developer.hashicorp.com/terraform/language/functions/file">file - Functions - Configuration Language | Terraform | HashiCorp Developer</a></p>
 <p>引数のファイルの内容を取り込む。<br />
 EC2のユーザーデータ/Cloud-initのファイルや、ポリシーのJSON等を外部ファイルに定義できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_instance&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;dev-vm&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">ami</span><span style="color: #BBB">                         </span><span style="color: #666">=</span><span style="color: #BBB"> </span>...
-<span style="color: #BBB">  </span><span style="color: #B44">instance_type</span><span style="color: #BBB">               </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;t2.medium&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #B44">key_name</span><span style="color: #BBB">                    </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">aws_key_pair.key.id</span>
-<span style="color: #BBB">  </span><span style="color: #B44">subnet_id</span><span style="color: #BBB">                   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">aws_subnet.subnet.id</span>
-<span style="color: #BBB">  </span><span style="color: #B44">vpc_security_group_ids</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_security_group.sg.id</span>]
-<span style="color: #BBB">  </span><span style="color: #B44">associate_public_ip_address</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #800">true</span>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_instance&quot;</span><span class="w"> </span><span class="nv">&quot;dev-vm&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">ami</span><span class="w">                         </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<span class="w">  </span><span class="na">instance_type</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t2.medium&quot;</span>
+<span class="w">  </span><span class="na">key_name</span><span class="w">                    </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_key_pair.key.id</span>
+<span class="w">  </span><span class="na">subnet_id</span><span class="w">                   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_subnet.subnet.id</span>
+<span class="w">  </span><span class="na">vpc_security_group_ids</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_security_group.sg.id</span><span class="p">]</span>
+<span class="w">  </span><span class="na">associate_public_ip_address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
 
-<span style="color: #BBB">  </span><span style="color: #B44">user_data</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">file</span>(<span style="color: #B44">&quot;${path.module}/cloud-config.yaml&quot;</span>)
+<span class="w">  </span><span class="na">user_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">file</span><span class="p">(</span><span class="s2">&quot;${path.module}/cloud-config.yaml&quot;</span><span class="p">)</span>
 
-<span style="color: #BBB">  </span>...
-}
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#cloud-config</span>
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#cloud-config</span>
+<span class="nt">chpasswd</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> expire</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">ssh_pwauth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span style="color: #008000; font-weight: bold">chpasswd</span>:<span style="color: #BBB"> </span>{<span style="color: #008000; font-weight: bold"> expire</span>:<span style="color: #BBB"> </span><span style="color: #B8860B">false</span><span style="color: #BBB"> </span>}
-<span style="color: #008000; font-weight: bold">ssh_pwauth</span>:<span style="color: #BBB"> </span>true
-
-<span style="color: #008000; font-weight: bold">packages</span>:
--<span style="color: #BBB"> </span>python3.12
+<span class="nt">packages</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3.12</span>
 </code></pre></div>
-
 <h4 id="templatefile">templatefile</h4>
 <p><code>file()</code>は外部ファイルを固定値として読み込むのみだが、<code>templatefile()</code>ならテンプレートとして変数を展開する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #B44">user_data</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">templatefile</span>(<span style="color: #B44">&quot;${path.module}/user-data.sh&quot;</span>,<span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #B44">git_username</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.git_username</span>
-<span style="color: #BBB">    </span><span style="color: #B44">git_password</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.git_password</span>
-<span style="color: #BBB">  </span>})
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="na">user_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">templatefile</span><span class="p">(</span><span class="s2">&quot;${path.module}/user-data.sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">git_username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.git_username</span>
+<span class="w">    </span><span class="na">git_password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.git_password</span>
+<span class="w">  </span><span class="p">})</span>
 </code></pre></div>
-
 <p>user-data.sh</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#!/bin/bash -ex</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash -ex</span>
 
-git<span style="color: #BBB"> </span>clone<span style="color: #BBB"> </span>https://<span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">git_username</span><span style="color: #B68; font-weight: bold">}</span>:<span style="color: #B68; font-weight: bold">${</span><span style="color: #B8860B">git_password</span><span style="color: #B68; font-weight: bold">}</span>@git.example.org/repos/apps<span style="color: #BBB"> </span>/root/apps
+git<span class="w"> </span>clone<span class="w"> </span>https://<span class="si">${</span><span class="nv">git_username</span><span class="si">}</span>:<span class="si">${</span><span class="nv">git_password</span><span class="si">}</span>@git.example.org/repos/apps<span class="w"> </span>/root/apps
 </code></pre></div>
-
 <h4 id="concat">concat (配列結合)</h4>
 <p><code>concat(list1, list2, list3)</code></p>
 <p>EventBridge Schedulerにcount定義されたEC2インスタンスを複数セットするような場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BBB">  </span><span style="color: #A2F">target</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">    </span><span style="color: #B44">arn</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;arn:aws:scheduler:::aws-sdk:ec2:stopInstances&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #B44">role_arn</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">aws_iam_role.stopstart_role.arn</span>
-<span style="color: #BBB">    </span><span style="color: #B44">input</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">jsonencode</span>({
-<span style="color: #BBB">      </span><span style="color: #B44">InstanceIds</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">concat</span>(<span style="color: #B44">&quot;${aws_instance.ec2_app1.*.id}&quot;</span>,
-<span style="color: #BBB">        </span><span style="color: #B44">&quot;${aws_instance.ec2_app2.*.id}&quot;</span>,
-<span style="color: #BBB">      </span>)
-<span style="color: #BBB">    </span>})
-<span style="color: #BBB">  </span>}
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nb">target</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">arn</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:scheduler:::aws-sdk:ec2:stopInstances&quot;</span>
+<span class="w">    </span><span class="na">role_arn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_iam_role.stopstart_role.arn</span>
+<span class="w">    </span><span class="na">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">jsonencode</span><span class="p">({</span>
+<span class="w">      </span><span class="na">InstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="s2">&quot;${aws_instance.ec2_app1.*.id}&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;${aws_instance.ec2_app2.*.id}&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">  </span><span class="p">}</span>
 </code></pre></div>
-
 <h4 id="element">element (配列要素取得)</h4>
 <p><code>element(list, index)</code> で、list内のindex番目の要素を取得する。<br />
 以下はEC2を作成しつつ、それぞれのインスタンスにEIPをセットする場合</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">resource</span><span style="color: #BBB"> </span><span style="color: #00F">&quot;aws_eip&quot;</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;eip&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">count</span><span style="color: #BBB">      </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">var.count</span>
-<span style="color: #BBB">  </span><span style="color: #B44">instance</span><span style="color: #BBB">   </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">element</span>(<span style="color: #B8860B">aws_instance.ec2</span>.<span style="border: 1px solid #F00">*</span>.<span style="border: 1px solid #F00">id</span>,<span style="color: #BBB"> </span><span style="color: #B8860B">count.index</span>)
-<span style="color: #BBB">  </span><span style="color: #B44">domain</span><span style="color: #BBB">     </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;vpc&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #B44">depends_on</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_internet_gateway.igw</span>]
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_eip&quot;</span><span class="w"> </span><span class="nv">&quot;eip&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">count</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">var.count</span>
+<span class="w">  </span><span class="na">instance</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nf">element</span><span class="p">(</span><span class="nv">aws_instance.ec2</span><span class="p">.</span><span class="err">*</span><span class="p">.</span><span class="err">id</span><span class="p">,</span><span class="w"> </span><span class="nv">count.index</span><span class="p">)</span>
+<span class="w">  </span><span class="na">domain</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vpc&quot;</span>
+<span class="w">  </span><span class="na">depends_on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_internet_gateway.igw</span><span class="p">]</span>
 </code></pre></div>
-
 <h4 id="join">join (文字結合)</h4>
 <p><code>join(char, list)</code> list各要素をcharを区切り文字で繋げる。<br />
 countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>の形式で全て連結する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="border: 1px solid #F00">$</span>{<span style="color: #00A000">join</span>(<span style="color: #B44">&quot; &quot;, [for h in aws_instance.ec.*.tags.Name : &quot;--host ${h}&quot;</span>])}
+<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="p">{</span><span class="nf">join</span><span class="p">(</span><span class="s2">&quot; &quot;, [for h in aws_instance.ec.*.tags.Name : &quot;--host ${h}&quot;</span><span class="p">])}</span>
 </code></pre></div>
-
+<h3 id="_20">実装</h3>
+<h4 id="sleep">sleepする</h4>
+<p><a href="https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep">time_sleep</a>プロバイダを使用する。</p>
 <h2 id="output">output</h2>
 <h3 id="for_each">for_eachで作成したリソースの出力</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">output</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;all_items&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #A2F">value</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>{<span style="color: #BBB"> </span><span style="border: 1px solid #F00">for</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">k</span>,<span style="border: 1px solid #F00">v</span><span style="color: #BBB"> </span><span style="border: 1px solid #F00">in</span><span style="color: #BBB"> </span><span style="color: #B8860B">resource.name</span><span style="color: #BBB"> </span>:<span style="color: #BBB"> </span><span style="color: #B44">k</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="border: 1px solid #F00">&gt;</span><span style="color: #BBB"> </span><span style="color: #B8860B">v.key</span><span style="color: #BBB"> </span>}
-}
+<div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;all_items&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">k</span><span class="p">,</span><span class="err">v</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="nv">resource.name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="na">k</span><span class="w"> </span><span class="o">=</span><span class="err">&gt;</span><span class="w"> </span><span class="nv">v.key</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>あるいは</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">output</span><span style="color: #BBB"> </span><span style="color: #B8860B">&quot;all_items&quot;</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">value</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #00A000">values</span>(<span style="color: #B8860B">resource.name</span>)[<span style="border: 1px solid #F00">*</span>].<span style="border: 1px solid #F00">key</span>
-}
+<div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;all_items&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">values</span><span class="p">(</span><span class="nv">resource.name</span><span class="p">)[</span><span class="err">*</span><span class="p">].</span><span class="err">key</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h2 id="import">import</h2>
 <h3 id="cli-terraform-import">CLI (terraform import)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform import module.foobar.aws_instance.cloud-dev &lt;リソースID&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform import module.foobar.aws_instance.cloud-dev &lt;リソースID&gt;</span>
 </code></pre></div>
-
 <p>これでtfstateに取り込める。1コマンド1つ</p>
 <p><code>for_each</code>内のリソースをゼロパディングの文字でキー指定で個別指定する場合、クォートの使い方に注意</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform import &#39;module.foobar.aws_instance.cloud-dev[&quot;0001&quot;]&#39; &lt;リソースID&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform import &#39;module.foobar.aws_instance.cloud-dev[&quot;0001&quot;]&#39; &lt;リソースID&gt;</span>
 </code></pre></div>
-
 <h3 id="import_1">importブロック</h3>
 <ul>
 <li><a href="https://developer.hashicorp.com/terraform/language/import">Import existing resources into Terraform state | Terraform | HashiCorp Developer</a></li>
 <li><a href="https://developer.hashicorp.com/terraform/language/import/generating-configuration">Import - Generating Configuration | Terraform | HashiCorp Developer</a></li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">import</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">to</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">TYPE.LABEL</span>
-<span style="color: #BBB">  </span><span style="color: #B44">id</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;&lt;import対象のリソースID&gt;&quot;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="nb">import</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">TYPE.LABEL</span>
+<span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;import対象のリソースID&gt;&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>[Telmate/proxmoxであれば、リソースIDの書式は<code>&lt;node&gt;/&lt;type&gt;/&lt;ID&gt;</code>](<a href="https://registry.terraform.io/providers/Telmate/proxmox/latest/docs/resources/vm_qemu#import">proxmox_vm_qemu | Resources | Telmate/proxmox | Terraform | Terraform Registry</a>になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">import</span><span style="color: #BBB"> </span>{
-<span style="color: #BBB">  </span><span style="color: #B44">id</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">&quot;pve01/qemu/255&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #B44">to</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B8860B">proxmox_vm_qemu.my-vm</span>
-}
+<div class="highlight"><pre><span></span><code><span class="nb">import</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pve01/qemu/255&quot;</span>
+<span class="w">  </span><span class="na">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">proxmox_vm_qemu.my-vm</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>この状態で以下を実行すると、対象リソースのtfコードが<code>imported_resource.tf</code>に生成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">terraform plan -generate-config-out=&quot;imported_resource.tf&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -generate-config-out=&quot;imported_resource.tf&quot;</span>
 </code></pre></div>
-
 <p>出力されたtfコードを手直ししたり元のtfファイルへマージするなどし、<code>terraform apply</code>を実行するとtfstateへインポートされる。<br />
 最後にimportブロックを削除しても良いが残しても良い。</p>
 <h2 id="resource">resource</h2>
-<h3 id="_20">デフォルトのルートテーブル</h3>
+<h3 id="_21">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B44">route_table_ids</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>[<span style="color: #B8860B">aws_vpc.my_vpc.default_route_table_id</span>]
+<div class="highlight"><pre><span></span><code><span class="na">route_table_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_vpc.my_vpc.default_route_table_id</span><span class="p">]</span>
 </code></pre></div>
-
 <h2 id="docs">docs</h2>
 <p><a href="https://terraform-docs.io/">terraform-docs</a><br />
 Terraformコードからドキュメント生成するツール。</p>
 <p>CLIをインストールできるがコンテナ実行でも生成できる。<br />
 Podmanであれば、Terraformコードのあるディレクトリで以下を実行すれば<code>README.md</code>が生成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">podman run --rm -v &quot;$(pwd):/terraform-docs&quot; quay.io/terraform-docs/terraform-docs:0.18.0 markdown /terraform-docs --output-file README.md</span>
+<div class="highlight"><pre><span></span><code><span class="go">podman run --rm -v &quot;$(pwd):/terraform-docs&quot; quay.io/terraform-docs/terraform-docs:0.18.0 markdown /terraform-docs --output-file README.md</span>
 </code></pre></div>
                 
               
@@ -2960,6 +2979,8 @@ Podmanであれば、Terraformコードのあるディレクトリで以下を�
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

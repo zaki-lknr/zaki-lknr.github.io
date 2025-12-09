@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1535,6 +1537,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2089,68 +2103,61 @@
 <p>プロダクション向けの処理で、web画面でなくAPIを使ってトークンを取得するには以下。<br />
 <a href="https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-production">Get Management API Access Tokens for Production</a></p>
 <p>権限を付与した「Machine-to-Machine Applications」のクライアントIDとSecretを使用し、以下のRESTでトークンを取得できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl<span style="color: #BBB"> </span>-H<span style="color: #BBB"> </span>&#39;content-type:<span style="color: #BBB"> </span>application/x-www-form-urlencoded&#39;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>-X<span style="color: #BBB"> </span>POST<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>grant_type=client_credentials<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>&quot;client_id=&quot;<span style="color: #080">${</span>AUTH0_CLIENT_ID<span style="color: #080">}</span><span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>&quot;client_secret=<span style="color: #080">${</span>AUTH0_CLIENT_SECRET<span style="color: #080">}</span>&quot;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>--data<span style="color: #BBB"> </span>&quot;audience=https://YOUR-DOMAIN/api/v2/&quot;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>https://YOUR-DOMAIN/oauth/token
+<div class="highlight"><pre><span></span><code>curl -H &#39;content-type: application/x-www-form-urlencoded&#39; \
+  -X POST \
+  --data grant_type=client_credentials \
+  --data &quot;client_id=&quot;${AUTH0_CLIENT_ID} \
+  --data &quot;client_secret=${AUTH0_CLIENT_SECRET}&quot; \
+  --data &quot;audience=https://YOUR-DOMAIN/api/v2/&quot; \
+  https://YOUR-DOMAIN/oauth/token
 </code></pre></div>
-
 <p>レスポンスは以下の通り。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>{
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;access_token&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;eyJ...&quot;</span>,
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;scope&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;create:client_grants update:client_grants&quot;</span>,
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;expires_in&quot;</span>:<span style="color: #BBB"> </span><span style="color: #666">86400</span>,
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">&quot;token_type&quot;</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;Bearer&quot;</span>
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJ...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;create:client_grants update:client_grants&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;expires_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bearer&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h3 id="application_1">Application</h3>
 <p>endpointは<code>/api/v2/clients</code></p>
 <h4 id="get">get</h4>
 <p><a href="https://auth0.com/docs/api/management/v2/clients/get-clients">Get clients | Auth0 Management API v2</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -X GET \</span>
-<span style="color: #888">  -H &#39;Accept: application/json&#39; \</span>
-<span style="color: #888">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
-<span style="color: #888">  &#39;https://YOUR-DOMAIN/api/v2/clients&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -X GET \</span>
+<span class="go">  -H &#39;Accept: application/json&#39; \</span>
+<span class="go">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
+<span class="go">  &#39;https://YOUR-DOMAIN/api/v2/clients&#39;</span>
 </code></pre></div>
-
 <p>これで全てのApplicationをリスト形式で取得できる。<br />
 Application名の一覧であれば例えば<code>jq</code>を使って以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -X GET \</span>
-<span style="color: #888">  -H &#39;Accept: application/json&#39; \</span>
-<span style="color: #888">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
-<span style="color: #888">  &#39;https://YOUR-DOMAIN/api/v2/clients&#39; | jq &#39;.[].name&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -X GET \</span>
+<span class="go">  -H &#39;Accept: application/json&#39; \</span>
+<span class="go">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
+<span class="go">  &#39;https://YOUR-DOMAIN/api/v2/clients&#39; | jq &#39;.[].name&#39;</span>
 </code></pre></div>
-
 <p>ページング処理はqueryで指定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -X GET \</span>
-<span style="color: #888">  -H &#39;Accept: application/json&#39; \</span>
-<span style="color: #888">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
-<span style="color: #888">  &#39;https://YOUR-DOMAIN/api/v2/clients?page=1&amp;per_page=4&#39; | jq &#39;.[].name&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -X GET \</span>
+<span class="go">  -H &#39;Accept: application/json&#39; \</span>
+<span class="go">  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \</span>
+<span class="go">  &#39;https://YOUR-DOMAIN/api/v2/clients?page=1&amp;per_page=4&#39; | jq &#39;.[].name&#39;</span>
 </code></pre></div>
-
 <p><code>page</code>の指定は<code>per_page</code>もセットしておく必要がある。(無い場合は無視される)<br />
 <code>per_page</code>で指定可能なのは100が最大値。101件以上ある場合はページング処理が必須。</p>
 <h4 id="create">create</h4>
 <p><a href="https://auth0.com/docs/api/management/v2/clients/post-clients">Create a client | Auth0 Management API v2</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl<span style="color: #BBB"> </span>-X<span style="color: #BBB"> </span>POST<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Content-Type:<span style="color: #BBB"> </span>application/json&quot;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Accept:<span style="color: #BBB"> </span>application/json&quot;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Authorization:<span style="color: #BBB"> </span>Bearer<span style="color: #BBB"> </span><span style="color: #080">${</span>AUTH0_TOKEN<span style="color: #080">}</span>&quot;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>-d<span style="color: #BBB"> </span>&#39;{&quot;name&quot;:&quot;rest-sample-02&quot;,<span style="color: #BBB"> </span>&quot;app_type&quot;:<span style="color: #BBB"> </span>&quot;regular_web&quot;}&#39;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>&#39;https://YOUR-DOMAIN/api/v2/clients&#39;
+<div class="highlight"><pre><span></span><code>curl -X POST \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Accept: application/json&quot; \
+  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \
+  -d &#39;{&quot;name&quot;:&quot;rest-sample-02&quot;, &quot;app_type&quot;: &quot;regular_web&quot;}&#39; \
+  &#39;https://YOUR-DOMAIN/api/v2/clients&#39;
 </code></pre></div>
-
 <h4 id="delete">delete</h4>
 <p><a href="https://auth0.com/docs/api/management/v2/clients/delete-clients-by-id">Delete a client | Auth0 Management API v2</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curl<span style="color: #BBB"> </span>-X<span style="color: #BBB"> </span>DELETE<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>-H<span style="color: #BBB"> </span>&quot;Authorization:<span style="color: #BBB"> </span>Bearer<span style="color: #BBB"> </span><span style="color: #080">${</span>AUTH0_TOKEN<span style="color: #080">}</span>&quot;<span style="color: #BBB"> </span>\
-<span style="color: #BBB">  </span>&#39;https://YOUR-DOMAIN/api/v2/clients/CLIENT-ID&#39;
+<div class="highlight"><pre><span></span><code>curl -X DELETE \
+  -H &quot;Authorization: Bearer ${AUTH0_TOKEN}&quot; \
+  &#39;https://YOUR-DOMAIN/api/v2/clients/CLIENT-ID&#39;
 </code></pre></div>
-
 <p>成功すればレスポンスは204でボディは空</p>
 <h2 id="python-library">Python Library</h2>
 <ul>
@@ -2158,34 +2165,30 @@ Application名の一覧であれば例えば<code>jq</code>を使って以下。
 <li><a href="https://auth0-python.readthedocs.io/en/latest/">Auth0-Python documentation — auth0-python 4.4.0 documentation</a></li>
 </ul>
 <h3 id="_5">認証トークン</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">auth0.authentication</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">import</span> GetToken
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">auth0.authentication</span><span class="w"> </span><span class="kn">import</span> <span class="n">GetToken</span>
 
-GetToken <span style="color: #666">=</span> GetToken(auth_domain, auth_client_id, client_secret<span style="color: #666">=</span>auth_client_secret)
-token <span style="color: #666">=</span> GetToken<span style="color: #666">.</span>client_credentials(<span style="color: #B44">&#39;https://</span><span style="color: #B68; font-weight: bold">{}</span><span style="color: #B44">/api/v2/&#39;</span><span style="color: #666">.</span>format(auth_domain))
-<span style="color: #A2F">print</span>(token[<span style="color: #B44">&#39;access_token&#39;</span>])
+<span class="n">GetToken</span> <span class="o">=</span> <span class="n">GetToken</span><span class="p">(</span><span class="n">auth_domain</span><span class="p">,</span> <span class="n">auth_client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="o">=</span><span class="n">auth_client_secret</span><span class="p">)</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">GetToken</span><span class="o">.</span><span class="n">client_credentials</span><span class="p">(</span><span class="s1">&#39;https://</span><span class="si">{}</span><span class="s1">/api/v2/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">auth_domain</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 <h3 id="auth0_1">Auth0オブジェクト</h3>
 <p>↑で取得したトークンを使って以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">from</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">auth0.management</span><span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">import</span> Auth0
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">auth0.management</span><span class="w"> </span><span class="kn">import</span> <span class="n">Auth0</span>
 
-auth0 <span style="color: #666">=</span> Auth0(auth_domain, token[<span style="color: #B44">&#39;access_token&#39;</span>])
+<span class="n">auth0</span> <span class="o">=</span> <span class="n">Auth0</span><span class="p">(</span><span class="n">auth_domain</span><span class="p">,</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 <h3 id="_6">アプリケーション一覧</h3>
 <p><code>per_page</code>はMAX100までなので、ループ前提</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">while</span> (apps <span style="color: #666">:=</span> auth0<span style="color: #666">.</span>clients<span style="color: #666">.</span>all(per_page<span style="color: #666">=</span>p, page<span style="color: #666">=</span>n)):
-    <span style="color: #666">....</span>
-    page <span style="color: #666">+=</span> <span style="color: #666">1</span>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="n">apps</span> <span class="o">:=</span> <span class="n">auth0</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">per_page</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="n">n</span><span class="p">)):</span>
+    <span class="o">....</span>
+    <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
-
 <h3 id="_7">アプリケーション情報取得</h3>
 <p>auth0オブジェクトのメソッドの<code>get()</code>を使用。<br />
 引数はアプリケーションIDが必要(アプリケーション名不可)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>auth0 <span style="color: #666">=</span> Auth0(auth_domain, token[<span style="color: #B44">&#39;access_token&#39;</span>])
-app_info <span style="color: #666">=</span> auth0<span style="color: #666">.</span>clients<span style="color: #666">.</span>get(application_id)
+<div class="highlight"><pre><span></span><code><span class="n">auth0</span> <span class="o">=</span> <span class="n">Auth0</span><span class="p">(</span><span class="n">auth_domain</span><span class="p">,</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">])</span>
+<span class="n">app_info</span> <span class="o">=</span> <span class="n">auth0</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">application_id</span><span class="p">)</span>
 </code></pre></div>
-
 <p><code>app_info</code>には辞書型で<a href="https://auth0.com/docs/api/management/v2/clients/get-clients">clients情報</a>がセットされる。</p>
 <p><a href="https://auth0-python.readthedocs.io/en/latest/management.html#auth0.management.clients.Clients.get">https://auth0-python.readthedocs.io/en/latest/management.html#auth0.management.clients.Clients.get</a></p>
                 
@@ -2264,6 +2267,8 @@ app_info <span style="color: #666">=</span> auth0<span style="color: #666">.</sp
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

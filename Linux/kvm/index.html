@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1428,6 +1430,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1838,36 +1852,29 @@
                 
                 <h1 id="kvm">KVM</h1>
 <h2 id="_1">一覧</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span>--all
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>virsh<span class="w"> </span>list<span class="w"> </span>--all
 </code></pre></div>
-
 <h2 id="vm">VMの起動</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>start<span style="color: #BBB"> </span>&lt;domain-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>virsh<span class="w"> </span>start<span class="w"> </span>&lt;domain-name&gt;
 </code></pre></div>
-
 <h2 id="vm_1">実行中VMへコンソール接続</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>console<span style="color: #BBB"> </span>&lt;domain-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>virsh<span class="w"> </span>console<span class="w"> </span>&lt;domain-name&gt;
 </code></pre></div>
-
 <p>VM(domain)名は<code>list</code>で確認する。</p>
 <h2 id="_2">停止</h2>
 <p>シャットダウンするには<code>shutdown</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>shutdown<span style="color: #BBB"> </span>&lt;domain-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>virsh<span class="w"> </span>shutdown<span class="w"> </span>&lt;domain-name&gt;
 </code></pre></div>
-
 <p>強制停止は<code>destroy</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>destroy<span style="color: #BBB"> </span>&lt;domain-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>virsh<span class="w"> </span>destroy<span class="w"> </span>&lt;domain-name&gt;
 </code></pre></div>
-
 <h2 id="_3">自動起動</h2>
 <p>有効化</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>autostart<span style="color: #BBB"> </span>&lt;domain-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>virsh<span class="w"> </span>autostart<span class="w"> </span>&lt;domain-name&gt;
 </code></pre></div>
-
 <p>無効化</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>virsh<span style="color: #BBB"> </span>autostart<span style="color: #BBB"> </span>--disable<span style="color: #BBB"> </span>&lt;domain-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>virsh<span class="w"> </span>autostart<span class="w"> </span>--disable<span class="w"> </span>&lt;domain-name&gt;
 </code></pre></div>
-
 <p>確認は<code>virsh dominfo &lt;domain-name&gt;</code>かな？</p>
                 
               
@@ -1945,6 +1952,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

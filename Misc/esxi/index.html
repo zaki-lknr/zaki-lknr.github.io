@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1413,6 +1415,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1814,11 +1828,10 @@
 <li>4.6.0: <a href="https://developer.vmware.com/web/tool/4.6.0/ovf-tool">Open Virtualization Format (OVF) Tool - VMware {code}</a></li>
 </ul>
 <h3 id="ovf">OVFエクスポート</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">ovftool.exe --noImageFiles vi:&lt;ESXiユーザー名&gt;:&lt;ESXiパスワード&gt;@&lt;ESXiアドレス&gt;/&lt;VM名&gt; エクスポート先パス</span>
+<div class="highlight"><pre><span></span><code><span class="go">ovftool.exe --noImageFiles vi:&lt;ESXiユーザー名&gt;:&lt;ESXiパスワード&gt;@&lt;ESXiアドレス&gt;/&lt;VM名&gt; エクスポート先パス</span>
 </code></pre></div>
-
 <p>実行例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888"> .\ovftool.exe --noImageFiles vi://root:********@192.168.*.*/cloud-dev E:\data\image</span>
+<div class="highlight"><pre><span></span><code><span class="go"> .\ovftool.exe --noImageFiles vi://root:********@192.168.*.*/cloud-dev E:\data\image</span>
 </code></pre></div>
                 
               
@@ -1896,6 +1909,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

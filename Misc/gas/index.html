@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1440,6 +1442,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1863,22 +1877,20 @@
                 <h1 id="google-apps-script">Google Apps Script</h1>
 <h2 id="spreadsheet">Spreadsheet</h2>
 <h3 id="_1">シートの読み込み</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">var</span><span style="color: #BBB"> </span>ss<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>SpreadsheetApp.getActiveSpreadsheet();
-<span style="color: #A2F; font-weight: bold">var</span><span style="color: #BBB"> </span>sheet<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>ss.getSheetByName(<span style="color: #B44">&quot;シート1&quot;</span>);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">();</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;シート1&quot;</span><span class="p">);</span>
 </code></pre></div>
-
 <h3 id="_2">セルにアクセス</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">// 参照</span>
-<span style="color: #A2F; font-weight: bold">var</span><span style="color: #BBB"> </span>val<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>sheet.getRange(<span style="color: #B44">&quot;B10&quot;</span>).getValue();
+<div class="highlight"><pre><span></span><code><span class="c1">// 参照</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">getRange</span><span class="p">(</span><span class="s2">&quot;B10&quot;</span><span class="p">).</span><span class="nx">getValue</span><span class="p">();</span>
 
-<span style="color: #080; font-style: italic">// 更新</span>
-sheet.getRange(<span style="color: #B44">&quot;B10&quot;</span>).setValue(<span style="color: #B44">&quot;ここはB10&quot;</span>)
+<span class="c1">// 更新</span>
+<span class="nx">sheet</span><span class="p">.</span><span class="nx">getRange</span><span class="p">(</span><span class="s2">&quot;B10&quot;</span><span class="p">).</span><span class="nx">setValue</span><span class="p">(</span><span class="s2">&quot;ここはB10&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <h2 id="http">HTTP通信</h2>
 <p><code>UrlFetchApp.fetch()</code>を使う。</p>
 <h3 id="get">Get</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">const</span><span style="color: #BBB"> </span>resp<span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span>UrlFetchApp.fetch(url);
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UrlFetchApp</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
 </code></pre></div>
                 
               
@@ -1956,6 +1968,8 @@ sheet.getRange(<span style="color: #B44">&quot;B10&quot;</span>).setValue(<span 
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

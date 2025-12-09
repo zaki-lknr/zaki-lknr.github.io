@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1840,6 +1842,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2667,229 +2681,204 @@
 <p>環境変数<code>KUBECONFIG</code>か、オプション<code>--kubeconfig</code>に指定する</p>
 <h2 id="_2">コンテキスト</h2>
 <h3 id="_3">一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl config get-contexts</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl config get-contexts</span>
 </code></pre></div>
-
 <h3 id="_4">切り替え</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl config use-contexts &lt;context-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl config use-contexts &lt;context-name&gt;</span>
 </code></pre></div>
-
 <h3 id="_5">削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>get-contexts<span style="color: #BBB"> </span>
-<span style="color: #888">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
-<span style="color: #888">          k3s-node                k3s-node                k3s-node                </span>
-<span style="color: #888">          k3s-oci-4c              k3s-oci-4c              k3s-oci-4c              </span>
-<span style="color: #888">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
-<span style="color: #888">          kind-awx-sample         kind-awx-sample         kind-awx-sample         </span>
-<span style="color: #888">*         rasp5-01                rasp5-01                rasp5-01                </span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>delete-context<span style="color: #BBB"> </span>rasp5-01<span style="color: #BBB"> </span>
-<span style="color: #888">warning: this removed your active context, use &quot;kubectl config use-context&quot; to select a different one</span>
-<span style="color: #888">deleted context rasp5-01 from /home/zaki/.kube/config</span>
-<span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>get-contexts<span style="color: #BBB"> </span>
-<span style="color: #888">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
-<span style="color: #888">          k3s-node                k3s-node                k3s-node                </span>
-<span style="color: #888">          k3s-oci-4c              k3s-oci-4c              k3s-oci-4c              </span>
-<span style="color: #888">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
-<span style="color: #888">          kind-awx-sample         kind-awx-sample         kind-awx-sample         </span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>kubectl<span class="w"> </span>config<span class="w"> </span>get-contexts<span class="w"> </span>
+<span class="go">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
+<span class="go">          k3s-node                k3s-node                k3s-node                </span>
+<span class="go">          k3s-oci-4c              k3s-oci-4c              k3s-oci-4c              </span>
+<span class="go">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
+<span class="go">          kind-awx-sample         kind-awx-sample         kind-awx-sample         </span>
+<span class="go">*         rasp5-01                rasp5-01                rasp5-01                </span>
+<span class="gp">zaki@cloud-dev2:~$ </span>kubectl<span class="w"> </span>config<span class="w"> </span>delete-context<span class="w"> </span>rasp5-01<span class="w"> </span>
+<span class="go">warning: this removed your active context, use &quot;kubectl config use-context&quot; to select a different one</span>
+<span class="go">deleted context rasp5-01 from /home/zaki/.kube/config</span>
+<span class="gp">zaki@cloud-dev2:~$ </span>kubectl<span class="w"> </span>config<span class="w"> </span>get-contexts<span class="w"> </span>
+<span class="go">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
+<span class="go">          k3s-node                k3s-node                k3s-node                </span>
+<span class="go">          k3s-oci-4c              k3s-oci-4c              k3s-oci-4c              </span>
+<span class="go">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
+<span class="go">          kind-awx-sample         kind-awx-sample         kind-awx-sample         </span>
 </code></pre></div>
-
 <p>current削除時は警告されるが削除は可能</p>
 <h2 id="_6">設定</h2>
 <h3 id="kubeconfig_1">kubeconfigのマージ</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span><span style="color: #B8860B">KUBECONFIG</span><span style="color: #666">=</span>new-kubeconfig.yaml:<span style="color: #B8860B">$HOME</span>/.kube/config<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>view<span style="color: #BBB"> </span>--flatten<span style="color: #BBB"> </span>&gt;<span style="color: #BBB"> </span><span style="color: #B8860B">$HOME</span>/.kube/tmp
-<span style="color: #000080; font-weight: bold">$ </span>mv<span style="color: #BBB"> </span><span style="color: #B8860B">$HOME</span>/.kube/tmp<span style="color: #BBB"> </span><span style="color: #B8860B">$HOME</span>/.kube/config
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">KUBECONFIG</span><span class="o">=</span>new-kubeconfig.yaml:<span class="nv">$HOME</span>/.kube/config<span class="w"> </span>kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--flatten<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$HOME</span>/.kube/tmp
+<span class="gp">$ </span>mv<span class="w"> </span><span class="nv">$HOME</span>/.kube/tmp<span class="w"> </span><span class="nv">$HOME</span>/.kube/config
 </code></pre></div>
-
 <h3 id="_7">タブ補完</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">source</span><span style="color: #BBB"> </span>&lt;<span style="color: #666">(</span>kubectl<span style="color: #BBB"> </span>completion<span style="color: #BBB"> </span>bash<span style="color: #666">)</span>
-<span style="color: #A2F">complete</span><span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>default<span style="color: #BBB"> </span>-F<span style="color: #BBB"> </span>__start_kubectl<span style="color: #BBB"> </span>kc
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>&lt;<span class="o">(</span>kubectl<span class="w"> </span>completion<span class="w"> </span>bash<span class="o">)</span>
+<span class="nb">complete</span><span class="w"> </span>-o<span class="w"> </span>default<span class="w"> </span>-F<span class="w"> </span>__start_kubectl<span class="w"> </span>kc
 </code></pre></div>
-
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/03/02/205509">[oc / kubectl] コマンドや引数の補完設定 【completion】 - zaki work log</a></p>
 <p><code>kind</code>や<code>helm</code>も同じ要領。</p>
 <p>tab押下で <code>_get_comp_words_by_ref: command not found</code> エラーが出るときは、<code>bash-completion</code>が無いのでパッケージ追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>-bash:<span style="color: #BBB"> </span>_get_comp_words_by_ref:<span style="color: #BBB"> </span><span style="color: #A2F">command</span><span style="color: #BBB"> </span>not<span style="color: #BBB"> </span>found
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>-bash:<span class="w"> </span>_get_comp_words_by_ref:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found
 </code></pre></div>
-
 <h2 id="create">create</h2>
 <h3 id="job">job</h3>
 <h4 id="cronjobjob">既存CronJobから即時実行のjobを作成</h4>
 <p>CronJobリソースの定義をもとに、即時実行するJobリソースを作成する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl create job exec --from=cronjob/cronjob-resource -n namespace</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl create job exec --from=cronjob/cronjob-resource -n namespace</span>
 </code></pre></div>
-
 <h3 id="secret">secret</h3>
 <h4 id="secret_1">ファイルのsecret</h4>
 <p>キー名: ファイル内容のsecret作る</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>cat<span style="color: #BBB"> </span>sample.txt<span style="color: #BBB"> </span>
-<span style="color: #888">hello</span>
-<span style="color: #888">kubernetes!</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>create<span style="color: #BBB"> </span>secret<span style="color: #BBB"> </span>generic<span style="color: #BBB"> </span>sample-secret<span style="color: #BBB"> </span>--from-file<span style="color: #666">=</span><span style="color: #B8860B">lines</span><span style="color: #666">=</span>sample.txt<span style="color: #BBB"> </span>
-<span style="color: #888">secret/sample-secret created</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>secret<span style="color: #BBB"> </span>sample-secret
-<span style="color: #888">NAME            TYPE     DATA   AGE</span>
-<span style="color: #888">sample-secret   Opaque   1      6s</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cat<span class="w"> </span>sample.txt<span class="w"> </span>
+<span class="go">hello</span>
+<span class="go">kubernetes!</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>sample-secret<span class="w"> </span>--from-file<span class="o">=</span><span class="nv">lines</span><span class="o">=</span>sample.txt<span class="w"> </span>
+<span class="go">secret/sample-secret created</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>sample-secret
+<span class="go">NAME            TYPE     DATA   AGE</span>
+<span class="go">sample-secret   Opaque   1      6s</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl get secret sample-secret -o yaml
-apiVersion:<span style="color: #BBB"> </span>v1
-<span style="color: #008000; font-weight: bold">data</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">lines</span>:<span style="color: #BBB"> </span>aGVsbG8Ka3ViZXJuZXRlcyEK
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Secret
-<span style="color: #008000; font-weight: bold">metadata</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;2021-07-07T12:12:03Z&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>sample-secret
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #BBB"> </span>default
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;1041860&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #BBB"> </span>9675c818-cb9b-4b7f-a29c-c60bf5a908aa
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>Opaque
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ kubectl get secret sample-secret -o yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">lines</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aGVsbG8Ka3ViZXJuZXRlcyEK</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2021-07-07T12:12:03Z&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample-secret</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">resourceVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1041860&quot;</span>
+<span class="w">  </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9675c818-cb9b-4b7f-a29c-c60bf5a908aa</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>secret<span style="color: #BBB"> </span>sample-secret<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span><span style="color: #B8860B">jsonpath</span><span style="color: #666">=</span><span style="color: #B44">&#39;{.data.lines}&#39;</span><span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>base64<span style="color: #BBB"> </span>-d
-<span style="color: #888">hello</span>
-<span style="color: #888">kubernetes!</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>sample-secret<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.lines}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d
+<span class="go">hello</span>
+<span class="go">kubernetes!</span>
 </code></pre></div>
-
 <p>これはConfigMapと同じ</p>
 <h4 id="keyvaluesecret">key=valueのsecret</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>create<span style="color: #BBB"> </span>secret<span style="color: #BBB"> </span>generic<span style="color: #BBB"> </span>sample-secret<span style="color: #BBB"> </span>--from-literal<span style="color: #666">=</span><span style="color: #B8860B">username</span><span style="color: #666">=</span>zaki
-<span style="color: #888">secret/sample-secret created</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>sample-secret<span class="w"> </span>--from-literal<span class="o">=</span><span class="nv">username</span><span class="o">=</span>zaki
+<span class="go">secret/sample-secret created</span>
 </code></pre></div>
-
 <p>このコマンド実行で以下のsecretリソースが作成される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl get secret sample-secret -o yaml
-apiVersion:<span style="color: #BBB"> </span>v1
-<span style="color: #008000; font-weight: bold">data</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #BBB"> </span>emFraQ==
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Secret
-<span style="color: #008000; font-weight: bold">metadata</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;2022-03-24T02:57:06Z&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>sample-secret
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #BBB"> </span>default
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;298054&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #BBB"> </span>35c9b58a-247d-4243-b292-193d811f140a
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>Opaque
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ kubectl get secret sample-secret -o yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">emFraQ==</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2022-03-24T02:57:06Z&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample-secret</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">resourceVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;298054&quot;</span>
+<span class="w">  </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35c9b58a-247d-4243-b292-193d811f140a</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </code></pre></div>
-
 <h4 id="tlssecret">TLS証明書のsecret</h4>
 <p>事前に<code>server.crt</code>と<code>server.key</code>は生成しておく。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl create secret tls host-secret -n kube-system \</span>
-<span style="color: #888">  --cert=server.crt \</span>
-<span style="color: #888">  --key=server.key</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl create secret tls host-secret -n kube-system \</span>
+<span class="go">  --cert=server.crt \</span>
+<span class="go">  --key=server.key</span>
 </code></pre></div>
-
 <p>以下のsecretリソースが作成される</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #BBB"> </span>v1
-<span style="color: #008000; font-weight: bold">data</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tls.crt</span>:<span style="color: #BBB"> </span>...
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">tls.key</span>:<span style="color: #BBB"> </span>...
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Secret
-<span style="color: #008000; font-weight: bold">metadata</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;2024-11-24T08:30:11Z&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>host-secret
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #BBB"> </span>kube-system
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;140527&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #BBB"> </span>e5399e4b-7d62-4c57-b97e-a9b2d65d1375
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>kubernetes.io/tls
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tls.crt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">tls.key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024-11-24T08:30:11Z&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-secret</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="w">  </span><span class="nt">resourceVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;140527&quot;</span>
+<span class="w">  </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e5399e4b-7d62-4c57-b97e-a9b2d65d1375</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.io/tls</span>
 </code></pre></div>
-
 <h4 id="secret_2">コンテナレジストリ認証情報のsecret</h4>
 <p>ECRアクセスの認証情報なら以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl create secret docker-registry credential \</span>
-<span style="color: #888">  --docker-server=****.dkr.ecr.ap-northeast-1.amazonaws.com \</span>
-<span style="color: #888">  --docker-username=AWS \</span>
-<span style="color: #888">  --docker-password=$(aws ecr get-login-password --region ap-northeast-1)</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl create secret docker-registry credential \</span>
+<span class="go">  --docker-server=****.dkr.ecr.ap-northeast-1.amazonaws.com \</span>
+<span class="go">  --docker-username=AWS \</span>
+<span class="go">  --docker-password=$(aws ecr get-login-password --region ap-northeast-1)</span>
 </code></pre></div>
-
 <h4 id="secret_3">マニフェストでsecret</h4>
 <p>マニュフェストから作成する場合は、base64エンコード済みであること。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ cat secret-sample.yaml<span style="color: #BBB"> </span>
-apiVersion:<span style="color: #BBB"> </span>v1
-<span style="color: #008000; font-weight: bold">data</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #BBB"> </span>emFraQ==
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Secret
-<span style="color: #008000; font-weight: bold">metadata</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>sample-secret2
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #BBB"> </span>default
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>Opaque
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ cat secret-sample.yaml</span><span class="w"> </span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">emFraQ==</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample-secret2</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$ kubectl apply -f secret-sample.yaml<span style="color: #BBB"> </span>
-secret/sample-secret2 created
-$ kubectl get secret sample-secret2 -o yaml
-apiVersion:<span style="color: #BBB"> </span>v1
-<span style="color: #008000; font-weight: bold">data</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">username</span>:<span style="color: #BBB"> </span>emFraQ==
-<span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Secret
-<span style="color: #008000; font-weight: bold">metadata</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">annotations</span>:
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">kubectl.kubernetes.io/last-applied-configuration</span>:<span style="color: #BBB"> </span>|
-<span style="color: #BBB">      </span><span style="color: #800">{&quot;apiVersion&quot;:&quot;v1&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;emFraQ==&quot;},&quot;kind&quot;:&quot;Secret&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;sample-secret2&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;type&quot;:&quot;Opaque&quot;}</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">creationTimestamp</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;2022-03-24T03:01:32Z&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>sample-secret2
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">namespace</span>:<span style="color: #BBB"> </span>default
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">resourceVersion</span>:<span style="color: #BBB"> </span><span style="color: #B44">&quot;298241&quot;</span>
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">uid</span>:<span style="color: #BBB"> </span>a1ae0bf1-3434-4f3d-88d3-a1bb33dee6ac
-<span style="color: #008000; font-weight: bold">type</span>:<span style="color: #BBB"> </span>Opaque
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">$ kubectl apply -f secret-sample.yaml</span><span class="w"> </span>
+<span class="l l-Scalar l-Scalar-Plain">secret/sample-secret2 created</span>
+<span class="l l-Scalar l-Scalar-Plain">$ kubectl get secret sample-secret2 -o yaml</span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">emFraQ==</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kubectl.kubernetes.io/last-applied-configuration</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">{&quot;apiVersion&quot;:&quot;v1&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;emFraQ==&quot;},&quot;kind&quot;:&quot;Secret&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;sample-secret2&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;type&quot;:&quot;Opaque&quot;}</span>
+<span class="w">  </span><span class="nt">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2022-03-24T03:01:32Z&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sample-secret2</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">resourceVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;298241&quot;</span>
+<span class="w">  </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a1ae0bf1-3434-4f3d-88d3-a1bb33dee6ac</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </code></pre></div>
-
 <h2 id="patch">patch</h2>
 <h3 id="_8">値の更新</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl patch -n namespace pdb resource -p &#39;{ &quot;spec&quot;: { &quot;maxUnavailable&quot;: 0 }}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace pdb resource -p &#39;{ &quot;spec&quot;: { &quot;maxUnavailable&quot;: 0 }}&#39;</span>
 </code></pre></div>
-
 <h3 id="_9">キーと値の追加(辞書)</h3>
 <p>定義が存在しなかった<code>spec.init_container_image</code>キーに値を追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl patch -n namespace awx awx-demo -p &#39;{&quot;spec&quot;:{&quot;init_container_image&quot;:&quot;quay.io/ansible/awx-ee&quot;}}&#39; --type merge</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace awx awx-demo -p &#39;{&quot;spec&quot;:{&quot;init_container_image&quot;:&quot;quay.io/ansible/awx-ee&quot;}}&#39; --type merge</span>
 </code></pre></div>
-
 <p><code>--type merge</code>がないとエラーになる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>patch<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>namespace<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>awx-demo<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span><span style="color: #B44">&#39;{&quot;spec&quot;:{&quot;init_container_image&quot;:&quot;quay.io/ansible/awx-ee&quot;}}&#39;</span>
-<span style="color: #888">error: application/strategic-merge-patch+json is not supported by awx.ansible.com/v1beta1, Kind=AWX: the body of the request was in an unknown format - accepted media types include: application/json-patch+json, application/merge-patch+json, application/apply-patch+yaml</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> </span>namespace<span class="w"> </span>awx<span class="w"> </span>awx-demo<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;:{&quot;init_container_image&quot;:&quot;quay.io/ansible/awx-ee&quot;}}&#39;</span>
+<span class="go">error: application/strategic-merge-patch+json is not supported by awx.ansible.com/v1beta1, Kind=AWX: the body of the request was in an unknown format - accepted media types include: application/json-patch+json, application/merge-patch+json, application/apply-patch+yaml</span>
 </code></pre></div>
-
 <h2 id="run">run</h2>
 <h3 id="pod">ワーク用のpodをデプロイする</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>run<span style="color: #BBB"> </span>work-pod<span style="color: #BBB"> </span>--image<span style="color: #666">=</span>fedora<span style="color: #BBB"> </span>--command<span style="color: #BBB"> </span>--<span style="color: #BBB"> </span>tail<span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>/dev/null
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>run<span class="w"> </span>work-pod<span class="w"> </span>--image<span class="o">=</span>fedora<span class="w"> </span>--command<span class="w"> </span>--<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/dev/null
 </code></pre></div>
-
 <p>マニフェストにするとこんな感じ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">kind</span>:<span style="color: #BBB"> </span>Pod
-<span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #BBB"> </span>v1
-<span style="color: #008000; font-weight: bold">metadata</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>work-pod
-<span style="color: #008000; font-weight: bold">spec</span>:
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">containers</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>work-pod
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">image</span>:<span style="color: #BBB"> </span>fedora
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">command</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>tail
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>-f
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>/dev/null
+<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">work-pod</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">work-pod</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tail</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-f</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/null</span>
 </code></pre></div>
-
 <h2 id="expose">expose</h2>
 <h3 id="podservice">podベースでserviceを作成</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>expose<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>&lt;pod-name&gt;<span style="color: #BBB"> </span>--port<span style="color: #BBB"> </span><span style="color: #666">80</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>expose<span class="w"> </span>pod<span class="w"> </span>&lt;pod-name&gt;<span class="w"> </span>--port<span class="w"> </span><span class="m">80</span>
 </code></pre></div>
-
 <h2 id="config">config</h2>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/04/07/080241">[kubectl / oc]コンテキストやクラスタ情報の確認 (コマンドメモ) - zaki work log</a></p>
 <p><code>~/.kube/config</code>(<code>$KUBECONFIG</code>)の内容から証明書のデータをマスクした情報</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>view
+<div class="highlight"><pre><span></span><code>$ kubectl config view
 </code></pre></div>
-
 <p>現在のクラスタ情報</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>cluster-info<span style="color: #BBB"> </span>
-Kubernetes<span style="color: #BBB"> </span>control<span style="color: #BBB"> </span>plane<span style="color: #BBB"> </span>is<span style="color: #BBB"> </span>running<span style="color: #BBB"> </span>at<span style="color: #BBB"> </span>https://192.168.0.121:6443
-CoreDNS<span style="color: #BBB"> </span>is<span style="color: #BBB"> </span>running<span style="color: #BBB"> </span>at<span style="color: #BBB"> </span>https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-Metrics-server<span style="color: #BBB"> </span>is<span style="color: #BBB"> </span>running<span style="color: #BBB"> </span>at<span style="color: #BBB"> </span>https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+<div class="highlight"><pre><span></span><code>$ kubectl cluster-info 
+Kubernetes control plane is running at https://192.168.0.121:6443
+CoreDNS is running at https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://192.168.0.121:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
 
-To<span style="color: #BBB"> </span>further<span style="color: #BBB"> </span>debug<span style="color: #BBB"> </span>and<span style="color: #BBB"> </span>diagnose<span style="color: #BBB"> </span>cluster<span style="color: #BBB"> </span>problems,<span style="color: #BBB"> </span>use<span style="color: #BBB"> </span><span style="color: #B44">&#39;kubectl cluster-info dump&#39;</span>.
+To further debug and diagnose cluster problems, use &#39;kubectl cluster-info dump&#39;.
 </code></pre></div>
-
 <p>KUBECONFIGで持っているクラスタ一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>get-clusters
+<div class="highlight"><pre><span></span><code>$ kubectl config get-clusters
 NAME
 cluster-c2daobwhbsg
 kind-multi-1.15
@@ -2902,290 +2891,255 @@ oci-k3s-le
 oci-k3s
 sample-cluster
 </code></pre></div>
-
 <p>コンテキスト情報</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>get-contexts
-CURRENT<span style="color: #BBB">   </span>NAME<span style="color: #BBB">                          </span>CLUSTER<span style="color: #BBB">               </span>AUTHINFO<span style="color: #BBB">                               </span>NAMESPACE
-<span style="color: #BBB">          </span>context-c2daobwhbsg<span style="color: #BBB">           </span>cluster-c2daobwhbsg<span style="color: #BBB">   </span>user-c2daobwhbsg<span style="color: #BBB">                       </span>
-<span style="color: #BBB">          </span>kind-kind<span style="color: #BBB">                     </span>kind-kind<span style="color: #BBB">             </span>kind-kind<span style="color: #BBB">                              </span>
-<span style="color: #BBB">          </span>kind-multi-1.15<span style="color: #BBB">               </span>kind-multi-1.15<span style="color: #BBB">       </span>kind-multi-1.15<span style="color: #BBB">                        </span>
-<span style="color: #BBB">          </span>kind-multicluster<span style="color: #BBB">             </span>kind-multicluster<span style="color: #BBB">     </span>kind-multicluster<span style="color: #BBB">                      </span>
-<span style="color: #BBB">          </span>kubernetes-admin@kubernetes<span style="color: #BBB">   </span>kubernetes<span style="color: #BBB">            </span>kubernetes-admin<span style="color: #BBB">                       </span>
-<span style="color: #BBB">          </span>kubernetes-admin@zks<span style="color: #BBB">          </span>zks<span style="color: #BBB">                   </span>kubernetes-admin<span style="color: #BBB">                       </span>
-<span style="color: #BBB">          </span>local-k3s<span style="color: #BBB">                     </span>local-k3s<span style="color: #BBB">             </span>local-k3s<span style="color: #BBB">                              </span>
-<span style="color: #BBB">          </span>oci-k3s<span style="color: #BBB">                       </span>oci-k3s<span style="color: #BBB">               </span>oci-k3s<span style="color: #BBB">                                </span>
-*<span style="color: #BBB">         </span>oci-k3s-le<span style="color: #BBB">                    </span>oci-k3s-le<span style="color: #BBB">            </span>oci-k3s-le<span style="color: #BBB">                             </span>
-<span style="color: #BBB">          </span>sample-cluster<span style="color: #BBB">                </span>sample-cluster<span style="color: #BBB">        </span>clusterUser_sample-rg_sample-cluster<span style="color: #BBB">  </span>
+<div class="highlight"><pre><span></span><code>$ kubectl config get-contexts
+CURRENT   NAME                          CLUSTER               AUTHINFO                               NAMESPACE
+          context-c2daobwhbsg           cluster-c2daobwhbsg   user-c2daobwhbsg                       
+          kind-kind                     kind-kind             kind-kind                              
+          kind-multi-1.15               kind-multi-1.15       kind-multi-1.15                        
+          kind-multicluster             kind-multicluster     kind-multicluster                      
+          kubernetes-admin@kubernetes   kubernetes            kubernetes-admin                       
+          kubernetes-admin@zks          zks                   kubernetes-admin                       
+          local-k3s                     local-k3s             local-k3s                              
+          oci-k3s                       oci-k3s               oci-k3s                                
+*         oci-k3s-le                    oci-k3s-le            oci-k3s-le                             
+          sample-cluster                sample-cluster        clusterUser_sample-rg_sample-cluster  
 </code></pre></div>
-
 <p>現在のコンテキスト</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>current-context
+<div class="highlight"><pre><span></span><code>$ kubectl config current-context
 oci-k3s-le
 </code></pre></div>
-
 <p>コンテキストをセットする</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>use-context<span style="color: #BBB"> </span>k3d-k3s-default
-<span style="color: #888">Switched to context &quot;k3d-k3s-default&quot;.</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>config<span class="w"> </span>use-context<span class="w"> </span>k3d-k3s-default
+<span class="go">Switched to context &quot;k3d-k3s-default&quot;.</span>
 </code></pre></div>
-
 <p>複数のkubeconfigのマージするには、<code>:</code>で繋げて<code>view --merge --flatten</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">KUBECONFIG=~/.kube/config:kubeconfig-1.yaml:kubeconfig-2.yaml kubectl config view --merge --flatten &gt; tmp.yaml</span>
-<span style="color: #888">mv tmp.yaml ~/.kube/config</span>
+<div class="highlight"><pre><span></span><code><span class="go">KUBECONFIG=~/.kube/config:kubeconfig-1.yaml:kubeconfig-2.yaml kubectl config view --merge --flatten &gt; tmp.yaml</span>
+<span class="go">mv tmp.yaml ~/.kube/config</span>
 </code></pre></div>
-
 <p>コンテキスト名の変更</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>get-contexts<span style="color: #BBB"> </span>
-<span style="color: #888">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
-<span style="color: #888">*         default                 default                 default                 </span>
-<span style="color: #888">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
-<span style="color: #888">          kind-awx-sample         kind-awx-sample         kind-awx-sample</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>rename-context<span style="color: #BBB"> </span>default<span style="color: #BBB"> </span>rasp5-01
-<span style="color: #888">Context &quot;default&quot; renamed to &quot;rasp5-01&quot;.</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>get-contexts<span style="color: #BBB"> </span>
-<span style="color: #888">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
-<span style="color: #888">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
-<span style="color: #888">          kind-awx-sample         kind-awx-sample         kind-awx-sample         </span>
-<span style="color: #888">*         rasp5-01                default                 default</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>config<span class="w"> </span>get-contexts<span class="w"> </span>
+<span class="go">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
+<span class="go">*         default                 default                 default                 </span>
+<span class="go">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
+<span class="go">          kind-awx-sample         kind-awx-sample         kind-awx-sample</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>config<span class="w"> </span>rename-context<span class="w"> </span>default<span class="w"> </span>rasp5-01
+<span class="go">Context &quot;default&quot; renamed to &quot;rasp5-01&quot;.</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>config<span class="w"> </span>get-contexts<span class="w"> </span>
+<span class="go">CURRENT   NAME                    CLUSTER                 AUTHINFO                NAMESPACE</span>
+<span class="go">          kind-ansible-cookbook   kind-ansible-cookbook   kind-ansible-cookbook   </span>
+<span class="go">          kind-awx-sample         kind-awx-sample         kind-awx-sample         </span>
+<span class="go">*         rasp5-01                default                 default</span>
 </code></pre></div>
-
 <h2 id="delete">delete</h2>
 <h3 id="namespacetype">指定namespaceの指定typeを全部消す</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>delete<span style="color: #BBB"> </span>pvc<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>zzz<span style="color: #BBB"> </span>--all
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>delete<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span>zzz<span class="w"> </span>--all
 </code></pre></div>
-
 <h2 id="diff">diff</h2>
 <p>既存リソースとマニフェストファイルの差分を表示する。<br />
 変更時に<code>--dry-run=server</code>より詳細を確認したい場合などに使う。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl diff -f manifest.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl diff -f manifest.yaml</span>
 </code></pre></div>
-
 <h2 id="wait">wait</h2>
 <p>リソースが指定の条件になるまで待つ。<br />
 podがrunningになるまで待つには以下。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl wait --for=jsonpath=&#39;{.status.phase}&#39;=Running pod/*****</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl wait --for=jsonpath=&#39;{.status.phase}&#39;=Running pod/*****</span>
 </code></pre></div>
-
 <h2 id="get">get</h2>
 <h3 id="_10">全てのリソース</h3>
 <p><code>kubectl get all</code>だと全リソースが対象ではないが、本当にすべてのリソースを取得するには以下</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get &quot;$(kubectl api-resources --namespaced=true --verbs=list -o name | tr &quot;\n&quot; &quot;,&quot; | sed -e &#39;s/,$//&#39;)&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get &quot;$(kubectl api-resources --namespaced=true --verbs=list -o name | tr &quot;\n&quot; &quot;,&quot; | sed -e &#39;s/,$//&#39;)&quot;</span>
 </code></pre></div>
-
 <p>pluginを使ってサブコマンドにしておくと便利。<br />
 ※ rootで実行</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">cat &lt;&lt;&#39;EOL&#39; &gt; /usr/local/bin/kubectl-get_all</span>
-<span style="color: #000080; font-weight: bold">#</span>!/usr/bin/env<span style="color: #BBB"> </span>bash
+<div class="highlight"><pre><span></span><code><span class="go">cat &lt;&lt;&#39;EOL&#39; &gt; /usr/local/bin/kubectl-get_all</span>
+<span class="gp">#</span>!/usr/bin/env<span class="w"> </span>bash
 
-<span style="color: #888">set -e -o pipefail; [[ -n &quot;$DEBUG&quot; ]] &amp;&amp; set -x</span>
+<span class="go">set -e -o pipefail; [[ -n &quot;$DEBUG&quot; ]] &amp;&amp; set -x</span>
 
-<span style="color: #888">exec kubectl get &quot;$(kubectl api-resources --namespaced=true --verbs=list --output=name | tr &quot;\n&quot; &quot;,&quot; | sed -e &#39;s/,$//&#39;)&quot; &quot;$@&quot;</span>
-<span style="color: #888">EOL</span>
-<span style="color: #888">chmod +x /usr/local/bin/kubectl-get_all</span>
+<span class="go">exec kubectl get &quot;$(kubectl api-resources --namespaced=true --verbs=list --output=name | tr &quot;\n&quot; &quot;,&quot; | sed -e &#39;s/,$//&#39;)&quot; &quot;$@&quot;</span>
+<span class="go">EOL</span>
+<span class="go">chmod +x /usr/local/bin/kubectl-get_all</span>
 </code></pre></div>
-
 <p>実行</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get-all -n awx</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get-all -n awx</span>
 </code></pre></div>
-
 <h3 id="event">eventで作成時ソート</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get event --sort-by=&#39;.metadata.creationTimestamp&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get event --sort-by=&#39;.metadata.creationTimestamp&#39;</span>
 </code></pre></div>
-
 <h3 id="_11">ヘルスチェック</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$</span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>--raw<span style="color: #666">=</span><span style="color: #B44">&#39;/readyz&#39;</span>
-<span style="color: #888">ok</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span>kubectl<span class="w"> </span>get<span class="w"> </span>--raw<span class="o">=</span><span class="s1">&#39;/readyz&#39;</span>
+<span class="go">ok</span>
 </code></pre></div>
-
 <p>あるいは</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>--raw<span style="color: #666">=</span><span style="color: #B44">&#39;/readyz?verbose&#39;</span>
-<span style="color: #888">[+]ping ok</span>
-<span style="color: #888">[+]log ok</span>
-<span style="color: #888">[+]etcd ok</span>
-<span style="color: #888">[+]etcd-readiness ok</span>
-<span style="color: #888">[+]informer-sync ok</span>
-<span style="color: #888">[+]poststarthook/start-kube-apiserver-admission-initializer ok</span>
-<span style="color: #888">[+]poststarthook/generic-apiserver-start-informers ok</span>
-<span style="color: #888">[+]poststarthook/priority-and-fairness-config-consumer ok</span>
-<span style="color: #888">[+]poststarthook/priority-and-fairness-filter ok</span>
-<span style="color: #888">[+]poststarthook/storage-object-count-tracker-hook ok</span>
-<span style="color: #888">[+]poststarthook/start-apiextensions-informers ok</span>
-<span style="color: #888">[+]poststarthook/start-apiextensions-controllers ok</span>
-<span style="color: #888">[+]poststarthook/crd-informer-synced ok</span>
-<span style="color: #888">[+]poststarthook/start-service-ip-repair-controllers ok</span>
-<span style="color: #888">[+]poststarthook/rbac/bootstrap-roles ok</span>
-<span style="color: #888">[+]poststarthook/scheduling/bootstrap-system-priority-classes ok</span>
-<span style="color: #888">[+]poststarthook/priority-and-fairness-config-producer ok</span>
-<span style="color: #888">[+]poststarthook/start-system-namespaces-controller ok</span>
-<span style="color: #888">[+]poststarthook/bootstrap-controller ok</span>
-<span style="color: #888">[+]poststarthook/start-cluster-authentication-info-controller ok</span>
-<span style="color: #888">[+]poststarthook/start-kube-apiserver-identity-lease-controller ok</span>
-<span style="color: #888">[+]poststarthook/start-deprecated-kube-apiserver-identity-lease-garbage-collector ok</span>
-<span style="color: #888">[+]poststarthook/start-kube-apiserver-identity-lease-garbage-collector ok</span>
-<span style="color: #888">[+]poststarthook/start-legacy-token-tracking-controller ok</span>
-<span style="color: #888">[+]poststarthook/aggregator-reload-proxy-client-cert ok</span>
-<span style="color: #888">[+]poststarthook/start-kube-aggregator-informers ok</span>
-<span style="color: #888">[+]poststarthook/apiservice-registration-controller ok</span>
-<span style="color: #888">[+]poststarthook/apiservice-status-available-controller ok</span>
-<span style="color: #888">[+]poststarthook/kube-apiserver-autoregistration ok</span>
-<span style="color: #888">[+]autoregister-completion ok</span>
-<span style="color: #888">[+]poststarthook/apiservice-openapi-controller ok</span>
-<span style="color: #888">[+]poststarthook/apiservice-openapiv3-controller ok</span>
-<span style="color: #888">[+]poststarthook/apiservice-discovery-controller ok</span>
-<span style="color: #888">[+]shutdown ok</span>
-<span style="color: #888">readyz check passed</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>--raw<span class="o">=</span><span class="s1">&#39;/readyz?verbose&#39;</span>
+<span class="go">[+]ping ok</span>
+<span class="go">[+]log ok</span>
+<span class="go">[+]etcd ok</span>
+<span class="go">[+]etcd-readiness ok</span>
+<span class="go">[+]informer-sync ok</span>
+<span class="go">[+]poststarthook/start-kube-apiserver-admission-initializer ok</span>
+<span class="go">[+]poststarthook/generic-apiserver-start-informers ok</span>
+<span class="go">[+]poststarthook/priority-and-fairness-config-consumer ok</span>
+<span class="go">[+]poststarthook/priority-and-fairness-filter ok</span>
+<span class="go">[+]poststarthook/storage-object-count-tracker-hook ok</span>
+<span class="go">[+]poststarthook/start-apiextensions-informers ok</span>
+<span class="go">[+]poststarthook/start-apiextensions-controllers ok</span>
+<span class="go">[+]poststarthook/crd-informer-synced ok</span>
+<span class="go">[+]poststarthook/start-service-ip-repair-controllers ok</span>
+<span class="go">[+]poststarthook/rbac/bootstrap-roles ok</span>
+<span class="go">[+]poststarthook/scheduling/bootstrap-system-priority-classes ok</span>
+<span class="go">[+]poststarthook/priority-and-fairness-config-producer ok</span>
+<span class="go">[+]poststarthook/start-system-namespaces-controller ok</span>
+<span class="go">[+]poststarthook/bootstrap-controller ok</span>
+<span class="go">[+]poststarthook/start-cluster-authentication-info-controller ok</span>
+<span class="go">[+]poststarthook/start-kube-apiserver-identity-lease-controller ok</span>
+<span class="go">[+]poststarthook/start-deprecated-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span class="go">[+]poststarthook/start-kube-apiserver-identity-lease-garbage-collector ok</span>
+<span class="go">[+]poststarthook/start-legacy-token-tracking-controller ok</span>
+<span class="go">[+]poststarthook/aggregator-reload-proxy-client-cert ok</span>
+<span class="go">[+]poststarthook/start-kube-aggregator-informers ok</span>
+<span class="go">[+]poststarthook/apiservice-registration-controller ok</span>
+<span class="go">[+]poststarthook/apiservice-status-available-controller ok</span>
+<span class="go">[+]poststarthook/kube-apiserver-autoregistration ok</span>
+<span class="go">[+]autoregister-completion ok</span>
+<span class="go">[+]poststarthook/apiservice-openapi-controller ok</span>
+<span class="go">[+]poststarthook/apiservice-openapiv3-controller ok</span>
+<span class="go">[+]poststarthook/apiservice-discovery-controller ok</span>
+<span class="go">[+]shutdown ok</span>
+<span class="go">readyz check passed</span>
 </code></pre></div>
-
 <h3 id="pod_1">pod</h3>
 <h4 id="_12">イメージ一覧</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get pod -n awx -o jsonpath=&quot;{..image}&quot; | sed &#39;s/ /\n/g&#39; | sort | uniq</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get pod -n awx -o jsonpath=&quot;{..image}&quot; | sed &#39;s/ /\n/g&#39; | sort | uniq</span>
 </code></pre></div>
-
 <p>これでもいいかな？</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get pod -n awx -o yaml | grep image: | sort | uniq</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get pod -n awx -o yaml | grep image: | sort | uniq</span>
 </code></pre></div>
-
 <p>podに紐づけるには</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>custom-columns<span style="color: #666">=</span>NAMESPACE:.metadata.namespace,NAME:.metadata.name,IMAGE:.spec.containers<span style="color: #666">[</span>*<span style="color: #666">]</span>.image
-<span style="color: #888">NAMESPACE   NAME                                               IMAGE</span>
-<span style="color: #888">awx         awx-migration-24.6.1-dh8l8                         quay.io/ansible/awx:24.6.1</span>
-<span style="color: #888">awx         awx-operator-controller-manager-745b55d94b-trdrs   gcr.io/kubebuilder/kube-rbac-proxy:v0.15.0,quay.io/ansible/awx-operator:2.19.1</span>
-<span style="color: #888">awx         awx-postgres-15-0                                  quay.io/sclorg/postgresql-15-c9s:latest</span>
-<span style="color: #888">awx         awx-task-dc97f74f7-fmbbn                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx-ee:24.6.1,quay.io/ansible/awx:24.6.1</span>
-<span style="color: #888">awx         awx-web-769f8f749f-s4qkz                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx:24.6.1</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>awx<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>NAMESPACE:.metadata.namespace,NAME:.metadata.name,IMAGE:.spec.containers<span class="o">[</span>*<span class="o">]</span>.image
+<span class="go">NAMESPACE   NAME                                               IMAGE</span>
+<span class="go">awx         awx-migration-24.6.1-dh8l8                         quay.io/ansible/awx:24.6.1</span>
+<span class="go">awx         awx-operator-controller-manager-745b55d94b-trdrs   gcr.io/kubebuilder/kube-rbac-proxy:v0.15.0,quay.io/ansible/awx-operator:2.19.1</span>
+<span class="go">awx         awx-postgres-15-0                                  quay.io/sclorg/postgresql-15-c9s:latest</span>
+<span class="go">awx         awx-task-dc97f74f7-fmbbn                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx-ee:24.6.1,quay.io/ansible/awx:24.6.1</span>
+<span class="go">awx         awx-web-769f8f749f-s4qkz                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx:24.6.1</span>
 </code></pre></div>
-
 <h4 id="pod_2">podとコンテナ名</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">zaki@cloud-dev2:~$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>awx<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>custom-columns<span style="color: #666">=</span>NAMESPACE:.metadata.namespace,NAME:.metadata.name,IMAGE:.spec.containers<span style="color: #666">[</span>*<span style="color: #666">]</span>.name
-<span style="color: #888">NAMESPACE   NAME                                               IMAGE</span>
-<span style="color: #888">awx         awx-migration-24.6.1-dh8l8                         migration-job</span>
-<span style="color: #888">awx         awx-operator-controller-manager-745b55d94b-trdrs   kube-rbac-proxy,awx-manager</span>
-<span style="color: #888">awx         awx-postgres-15-0                                  postgres</span>
-<span style="color: #888">awx         awx-task-dc97f74f7-fmbbn                           redis,awx-task,awx-ee,awx-rsyslog</span>
-<span style="color: #888">awx         awx-web-769f8f749f-s4qkz                           redis,awx-web,awx-rsyslog</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>awx<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>NAMESPACE:.metadata.namespace,NAME:.metadata.name,IMAGE:.spec.containers<span class="o">[</span>*<span class="o">]</span>.name
+<span class="go">NAMESPACE   NAME                                               IMAGE</span>
+<span class="go">awx         awx-migration-24.6.1-dh8l8                         migration-job</span>
+<span class="go">awx         awx-operator-controller-manager-745b55d94b-trdrs   kube-rbac-proxy,awx-manager</span>
+<span class="go">awx         awx-postgres-15-0                                  postgres</span>
+<span class="go">awx         awx-task-dc97f74f7-fmbbn                           redis,awx-task,awx-ee,awx-rsyslog</span>
+<span class="go">awx         awx-web-769f8f749f-s4qkz                           redis,awx-web,awx-rsyslog</span>
 </code></pre></div>
-
 <h4 id="podip-custom-columns">podとIPアドレス (custom-columns)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span>custom-columns<span style="color: #666">=</span>NAME:.metadata.name,IP:.status.podIP<span style="color: #BBB"> </span>--no-headers
-<span style="color: #888">NAME                           IP</span>
-<span style="color: #888">demo-server-67dcd86d64-7hfck   10.42.0.14</span>
-<span style="color: #888">demo-server-67dcd86d64-82h8j   10.42.0.9</span>
-<span style="color: #888">demo-server-67dcd86d64-frcs6   10.42.0.11</span>
-<span style="color: #888">demo-server-67dcd86d64-fvl9p   10.42.0.15</span>
-<span style="color: #888">demo-server-67dcd86d64-hf6l2   10.42.0.13</span>
-<span style="color: #888">demo-server-67dcd86d64-jv7sq   10.42.0.12</span>
-<span style="color: #888">demo-server-67dcd86d64-lr7dw   10.42.0.8</span>
-<span style="color: #888">demo-server-67dcd86d64-pt7s9   10.42.0.7</span>
-<span style="color: #888">demo-server-67dcd86d64-vs25p   10.42.0.10</span>
-<span style="color: #888">demo-server-67dcd86d64-xlnnv   10.42.0.6</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>NAME:.metadata.name,IP:.status.podIP<span class="w"> </span>--no-headers
+<span class="go">NAME                           IP</span>
+<span class="go">demo-server-67dcd86d64-7hfck   10.42.0.14</span>
+<span class="go">demo-server-67dcd86d64-82h8j   10.42.0.9</span>
+<span class="go">demo-server-67dcd86d64-frcs6   10.42.0.11</span>
+<span class="go">demo-server-67dcd86d64-fvl9p   10.42.0.15</span>
+<span class="go">demo-server-67dcd86d64-hf6l2   10.42.0.13</span>
+<span class="go">demo-server-67dcd86d64-jv7sq   10.42.0.12</span>
+<span class="go">demo-server-67dcd86d64-lr7dw   10.42.0.8</span>
+<span class="go">demo-server-67dcd86d64-pt7s9   10.42.0.7</span>
+<span class="go">demo-server-67dcd86d64-vs25p   10.42.0.10</span>
+<span class="go">demo-server-67dcd86d64-xlnnv   10.42.0.6</span>
 </code></pre></div>
-
 <h4 id="podip-jsonpath">podとIPアドレス (jsonpath)</h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-o<span style="color: #BBB"> </span><span style="color: #B8860B">jsonpath</span><span style="color: #666">=</span><span style="color: #B44">&#39;{range .items[*]}{.metadata.name}{&quot;,&quot;}{.status.podIP}{&quot;\n&quot;}{end}&#39;</span>
-<span style="color: #888">demo-server-67dcd86d64-5fg4r,10.42.0.5</span>
-<span style="color: #888">demo-server-67dcd86d64-cqh5t,10.42.0.11</span>
-<span style="color: #888">demo-server-67dcd86d64-gclqc,10.42.0.15</span>
-<span style="color: #888">demo-server-67dcd86d64-hr9nw,10.42.0.7</span>
-<span style="color: #888">demo-server-67dcd86d64-htgfs,10.42.0.14</span>
-<span style="color: #888">demo-server-67dcd86d64-jxkbp,10.42.0.16</span>
-<span style="color: #888">demo-server-67dcd86d64-ngc6t,10.42.0.13</span>
-<span style="color: #888">demo-server-67dcd86d64-nwhpd,10.42.0.12</span>
-<span style="color: #888">demo-server-67dcd86d64-tg672,10.42.0.4</span>
-<span style="color: #888">demo-server-67dcd86d64-wzhs9,10.42.0.8</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{range .items[*]}{.metadata.name}{&quot;,&quot;}{.status.podIP}{&quot;\n&quot;}{end}&#39;</span>
+<span class="go">demo-server-67dcd86d64-5fg4r,10.42.0.5</span>
+<span class="go">demo-server-67dcd86d64-cqh5t,10.42.0.11</span>
+<span class="go">demo-server-67dcd86d64-gclqc,10.42.0.15</span>
+<span class="go">demo-server-67dcd86d64-hr9nw,10.42.0.7</span>
+<span class="go">demo-server-67dcd86d64-htgfs,10.42.0.14</span>
+<span class="go">demo-server-67dcd86d64-jxkbp,10.42.0.16</span>
+<span class="go">demo-server-67dcd86d64-ngc6t,10.42.0.13</span>
+<span class="go">demo-server-67dcd86d64-nwhpd,10.42.0.12</span>
+<span class="go">demo-server-67dcd86d64-tg672,10.42.0.4</span>
+<span class="go">demo-server-67dcd86d64-wzhs9,10.42.0.8</span>
 </code></pre></div>
-
 <h3 id="rolebindings-clusterrolebindings">rolebindings / clusterrolebindings</h3>
 <p>紐付いてるServiceAccountを確認する</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get rolebindings,clusterrolebindings -A -o custom-columns=&#39;KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind==&quot;ServiceAccount&quot;)].name&#39; | grep &lt;SERVICE_ACCOUNT_NAME&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get rolebindings,clusterrolebindings -A -o custom-columns=&#39;KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind==&quot;ServiceAccount&quot;)].name&#39; | grep &lt;SERVICE_ACCOUNT_NAME&gt;</span>
 </code></pre></div>
-
 <h3 id="jsonpath">jsonpathでドットを含むキー</h3>
 <p>キーに使うドットは<code>\</code>でエスケープする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get secret credential -o jsonpath=&#39;{.data.\.dockerconfigjson}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get secret credential -o jsonpath=&#39;{.data.\.dockerconfigjson}&#39;</span>
 </code></pre></div>
-
 <p>あるいは</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get secret credential -o jsonpath=&quot;{.data[&#39;\.dockerconfigjson&#39;]}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get secret credential -o jsonpath=&quot;{.data[&#39;\.dockerconfigjson&#39;]}&quot;</span>
 </code></pre></div>
-
 <p>シングルクォートとダブルクォートは逆だとダメ(辞書のアクセスはシングルクォートを使う)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl get secret credential -o jsonpath=&#39;{.data[&quot;\.dockerconfigjson&quot;]}&#39;</span>
-<span style="color: #888">error: error parsing jsonpath {.data[&quot;\.dockerconfigjson&quot;]}, invalid array index &quot;\.dockerconfigjson&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get secret credential -o jsonpath=&#39;{.data[&quot;\.dockerconfigjson&quot;]}&#39;</span>
+<span class="go">error: error parsing jsonpath {.data[&quot;\.dockerconfigjson&quot;]}, invalid array index &quot;\.dockerconfigjson&quot;</span>
 </code></pre></div>
-
 <h2 id="rollout">rollout</h2>
 <h3 id="restart">restart</h3>
 <p>podの再作成 (delete podでも同じ)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl rollout restart deployment &lt;resource-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl rollout restart deployment &lt;resource-name&gt;</span>
 </code></pre></div>
-
 <h2 id="label">label</h2>
 <p>リソースのラベルを追加/変更/削除する</p>
 <h3 id="_13">追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>label<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>rsync-pod<span style="color: #BBB"> </span><span style="color: #B8860B">app</span><span style="color: #666">=</span>rsync
-<span style="color: #888">pod/rsync-pod labeled</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>--show-labels
-<span style="color: #888">NAME                       READY   STATUS    RESTARTS   AGE   LABELS</span>
-<span style="color: #888">rsync-pod                  1/1     Running   3          28d   app=rsync</span>
-<span style="color: #888">sockserv-db66b7df7-rtcv9   1/1     Running   1          17d   app=sockserv,pod-template-hash=db66b7df7</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>label<span class="w"> </span>pod<span class="w"> </span>rsync-pod<span class="w"> </span><span class="nv">app</span><span class="o">=</span>rsync
+<span class="go">pod/rsync-pod labeled</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>--show-labels
+<span class="go">NAME                       READY   STATUS    RESTARTS   AGE   LABELS</span>
+<span class="go">rsync-pod                  1/1     Running   3          28d   app=rsync</span>
+<span class="go">sockserv-db66b7df7-rtcv9   1/1     Running   1          17d   app=sockserv,pod-template-hash=db66b7df7</span>
 </code></pre></div>
-
 <p>更に追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>label<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>rsync-pod<span style="color: #BBB"> </span><span style="color: #B8860B">state</span><span style="color: #666">=</span>normal
-<span style="color: #888">pod/rsync-pod labeled</span>
-<span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>-l<span style="color: #BBB"> </span><span style="color: #B8860B">app</span><span style="color: #666">=</span>rsync<span style="color: #BBB"> </span>--show-labels
-<span style="color: #888">NAME        READY   STATUS    RESTARTS   AGE   LABELS</span>
-<span style="color: #888">rsync-pod   1/1     Running   3          28d   app=rsync,state=normal</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>label<span class="w"> </span>pod<span class="w"> </span>rsync-pod<span class="w"> </span><span class="nv">state</span><span class="o">=</span>normal
+<span class="go">pod/rsync-pod labeled</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>rsync<span class="w"> </span>--show-labels
+<span class="go">NAME        READY   STATUS    RESTARTS   AGE   LABELS</span>
+<span class="go">rsync-pod   1/1     Running   3          28d   app=rsync,state=normal</span>
 </code></pre></div>
-
 <p>複数まとめても可</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>label<span style="color: #BBB"> </span>node<span style="color: #BBB"> </span>k3s-node1<span style="color: #BBB"> </span><span style="color: #B8860B">label1</span><span style="color: #666">=</span>foo<span style="color: #BBB"> </span><span style="color: #B8860B">label2</span><span style="color: #666">=</span>bar<span style="color: #BBB"> </span><span style="color: #B8860B">label3</span><span style="color: #666">=</span>baz
-<span style="color: #888">node/k3s-node1 labeled</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>label<span class="w"> </span>node<span class="w"> </span>k3s-node1<span class="w"> </span><span class="nv">label1</span><span class="o">=</span>foo<span class="w"> </span><span class="nv">label2</span><span class="o">=</span>bar<span class="w"> </span><span class="nv">label3</span><span class="o">=</span>baz
+<span class="go">node/k3s-node1 labeled</span>
 </code></pre></div>
-
 <h3 id="_14">更新</h3>
 <p>既に存在する場合はエラーになる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>kubectl<span style="color: #BBB"> </span>label<span style="color: #BBB"> </span>pod<span style="color: #BBB"> </span>rsync-pod<span style="color: #BBB"> </span><span style="color: #B8860B">state</span><span style="color: #666">=</span>error
-<span style="color: #888">error: &#39;state&#39; already has a value (normal), and --overwrite is false</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>label<span class="w"> </span>pod<span class="w"> </span>rsync-pod<span class="w"> </span><span class="nv">state</span><span class="o">=</span>error
+<span class="go">error: &#39;state&#39; already has a value (normal), and --overwrite is false</span>
 </code></pre></div>
-
 <p>が、メッセージにある通り<code>--overwrite</code>を追加すれば上書きできる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl label pod rsync-pod state=error --overwrite</span>
-<span style="color: #888">pod/rsync-pod labeled</span>
-<span style="color: #888">kubectl get pod -l app=rsync --show-labels</span>
-<span style="color: #888">NAME        READY   STATUS    RESTARTS   AGE   LABELS</span>
-<span style="color: #888">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl label pod rsync-pod state=error --overwrite</span>
+<span class="go">pod/rsync-pod labeled</span>
+<span class="go">kubectl get pod -l app=rsync --show-labels</span>
+<span class="go">NAME        READY   STATUS    RESTARTS   AGE   LABELS</span>
+<span class="go">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
 </code></pre></div>
-
 <h3 id="_15">削除</h3>
 <p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl label pod rsync-pod state-</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl label pod rsync-pod state-</span>
 </code></pre></div>
-
 <h2 id="drain">drain</h2>
 <p>大抵はDaemonSetのpodが動いているので<code>--ignore-daemonsets</code>オプションを付ける。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl drain k3s-node2 --force --ignore-daemonsets</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl drain k3s-node2 --force --ignore-daemonsets</span>
 </code></pre></div>
-
 <p>ノードを完全にクラスタから除外するにはさらに<code>kubectl delete node &lt;node-name&gt;</code>する。</p>
 <h2 id="uncordon">uncordon</h2>
 <p>drain等で <code>SchedulingDisabled</code> になったノードは、<code>uncordon</code>でスケジュール可能にする。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">kubectl uncordon &lt;node-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl uncordon &lt;node-name&gt;</span>
 </code></pre></div>
-
 <h2 id="kubeconfig_2">KUBECONFIG</h2>
 <h3 id="_16">証明書検証無視</h3>
 <p><a href="https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/#Cluster">https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/#Cluster</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">apiVersion</span>:<span style="color: #BBB"> </span>v1
-<span style="color: #008000; font-weight: bold">clusters</span>:
--<span style="color: #BBB"> </span><span style="color: #008000; font-weight: bold">cluster</span>:
-<span style="color: #BBB">    </span><span style="color: #080; font-style: italic"># certificate-authority-data: LS0tL...</span>
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">server</span>:<span style="color: #BBB"> </span>https://my-cluster.example.org:6443
-<span style="color: #BBB">    </span><span style="color: #008000; font-weight: bold">insecure-skip-tls-verify</span>:<span style="color: #BBB"> </span>true
-<span style="color: #BBB">  </span><span style="color: #008000; font-weight: bold">name</span>:<span style="color: #BBB"> </span>my-cluster
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">clusters</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># certificate-authority-data: LS0tL...</span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://my-cluster.example.org:6443</span>
+<span class="w">    </span><span class="nt">insecure-skip-tls-verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-cluster</span>
 
-<span style="color: #080; font-style: italic"># snip...</span>
+<span class="c1"># snip...</span>
 </code></pre></div>
-
 <p><code>insecure-skip-tls-verify: true</code>を使用する。<br />
 ただしその時<code>certificate-authority-data</code>は未定義にしておく。</p>
 <p><a href="https://stackoverflow.com/questions/33049185/kuberneteswhy-does-the-insecure-skip-tls-verify-in-kubeconfig-not-work">Kubernetes:Why does the 'insecure-skip-tls-verify' in kubeconfig not work? - Stack Overflow</a></p>
@@ -3265,6 +3219,8 @@ podがrunningになるまで待つには以下。</p>
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

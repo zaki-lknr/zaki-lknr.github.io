@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1626,6 +1628,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2239,229 +2253,200 @@
 インストール用スクリプトもある。</p>
 <p>aptはあるけど、今のとこyun/dnfはないんだよな。</p>
 <h3 id="apt">apt</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
-<span style="color: #888">sudo apt-get install apt-transport-https --yes</span>
-<span style="color: #888">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list</span>
-<span style="color: #888">sudo apt-get update</span>
-<span style="color: #888">sudo apt-get install helm</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
+<span class="go">sudo apt-get install apt-transport-https --yes</span>
+<span class="go">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list</span>
+<span class="go">sudo apt-get update</span>
+<span class="go">sudo apt-get install helm</span>
 </code></pre></div>
-
 <h2 id="_2">コマンド</h2>
 <h3 id="_3">リポジトリ一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>list
-<span style="color: #888">NAME                    URL                                               </span>
-<span style="color: #888">prometheus-community    https://prometheus-community.github.io/helm-charts</span>
-<span style="color: #888">rook-release            https://charts.rook.io/release                    </span>
-<span style="color: #888">stable                  https://charts.helm.sh/stable                     </span>
-<span style="color: #888">grafana                 https://grafana.github.io/helm-charts             </span>
-<span style="color: #888">elastic                 https://helm.elastic.co                           </span>
-<span style="color: #888">metallb                 https://metallb.github.io/metallb   </span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>repo<span class="w"> </span>list
+<span class="go">NAME                    URL                                               </span>
+<span class="go">prometheus-community    https://prometheus-community.github.io/helm-charts</span>
+<span class="go">rook-release            https://charts.rook.io/release                    </span>
+<span class="go">stable                  https://charts.helm.sh/stable                     </span>
+<span class="go">grafana                 https://grafana.github.io/helm-charts             </span>
+<span class="go">elastic                 https://helm.elastic.co                           </span>
+<span class="go">metallb                 https://metallb.github.io/metallb   </span>
 </code></pre></div>
-
 <h3 id="_4">リポジトリを追加</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>stable<span style="color: #BBB"> </span>https://charts.helm.sh/stable
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>stable<span class="w"> </span>https://charts.helm.sh/stable
 </code></pre></div>
-
 <p>とか</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>prometheus-community<span style="color: #BBB"> </span>https://prometheus-community.github.io/helm-charts
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>prometheus-community<span class="w"> </span>https://prometheus-community.github.io/helm-charts
 </code></pre></div>
-
 <p>とか</p>
 <h3 id="_5">リポジトリ削除</h3>
 <p>追加したときのリポジトリ名(<code>helm repo list</code>で確認可能)を指定して<code>remove</code>する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>list
-<span style="color: #888">NAME            URL</span>
-<span style="color: #888">hashicorp       https://helm.releases.hashicorp.com</span>
-<span style="color: #888">fluent          https://fluent.github.io/helm-charts</span>
-<span style="color: #888">stable          https://charts.helm.sh/stable</span>
-<span style="color: #888">elastic         https://helm.elastic.co</span>
-<span style="color: #888">awx-operator    https://ansible-community.github.io/awx-operator-helm/</span>
-<span style="color: #888">gitlab          https://charts.gitlab.io/</span>
-<span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>remove<span style="color: #BBB"> </span>stable
-<span style="color: #888">&quot;stable&quot; has been removed from your repositories</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>repo<span class="w"> </span>list
+<span class="go">NAME            URL</span>
+<span class="go">hashicorp       https://helm.releases.hashicorp.com</span>
+<span class="go">fluent          https://fluent.github.io/helm-charts</span>
+<span class="go">stable          https://charts.helm.sh/stable</span>
+<span class="go">elastic         https://helm.elastic.co</span>
+<span class="go">awx-operator    https://ansible-community.github.io/awx-operator-helm/</span>
+<span class="go">gitlab          https://charts.gitlab.io/</span>
+<span class="gp">$ </span>helm<span class="w"> </span>repo<span class="w"> </span>remove<span class="w"> </span>stable
+<span class="go">&quot;stable&quot; has been removed from your repositories</span>
 </code></pre></div>
-
 <h3 id="_6">ローカルのリポジトリ情報を更新</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm repo update</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm repo update</span>
 </code></pre></div>
-
 <p>特定のリポジトリのみ更新するには引数を追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm repo update prometheus-community</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm repo update prometheus-community</span>
 </code></pre></div>
-
 <h3 id="_7">チャート一覧</h3>
 <p>登録済み全リポジトリのチャート一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>repo
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>search<span class="w"> </span>repo
 </code></pre></div>
-
 <p>指定リポジトリのチャート一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>&lt;repository-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>search<span class="w"> </span>repo<span class="w"> </span>&lt;repository-name&gt;
 </code></pre></div>
-
 <h3 id="_8">チャートの検索</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>prometheus
-<span style="color: #888">NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       </span>
-<span style="color: #888">prometheus-community/kube-prometheus-stack              16.12.1         0.48.1          kube-prometheus-stack collects Kubernetes manif...</span>
-<span style="color: #888">prometheus-community/prometheus                         14.3.0          2.26.0          Prometheus is a monitoring system and time seri...</span>
-<span style="color: #888">prometheus-community/prometheus-adapter                 2.14.2          v0.8.4          A Helm chart for k8s prometheus adapter           </span>
-<span style="color: #888">prometheus-community/prometheus-blackbox-exporter       4.15.0          0.19.0          Prometheus Blackbox Exporter                      </span>
-<span style="color: #888">prometheus-community/prometheus-cloudwatch-expo...      0.16.0          0.10.0          A Helm chart for prometheus cloudwatch-exporter   </span>
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>search<span class="w"> </span>repo<span class="w"> </span>prometheus
+<span class="go">NAME                                                    CHART VERSION   APP VERSION     DESCRIPTION                                       </span>
+<span class="go">prometheus-community/kube-prometheus-stack              16.12.1         0.48.1          kube-prometheus-stack collects Kubernetes manif...</span>
+<span class="go">prometheus-community/prometheus                         14.3.0          2.26.0          Prometheus is a monitoring system and time seri...</span>
+<span class="go">prometheus-community/prometheus-adapter                 2.14.2          v0.8.4          A Helm chart for k8s prometheus adapter           </span>
+<span class="go">prometheus-community/prometheus-blackbox-exporter       4.15.0          0.19.0          Prometheus Blackbox Exporter                      </span>
+<span class="go">prometheus-community/prometheus-cloudwatch-expo...      0.16.0          0.10.0          A Helm chart for prometheus cloudwatch-exporter   </span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <h3 id="_9">チャートのバージョン一覧</h3>
 <p>チャート検索でチャート名を付与しつつ<code>-l</code>を追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>search<span style="color: #BBB"> </span>repo<span style="color: #BBB"> </span>fluent/fluentd<span style="color: #BBB"> </span>-l
-<span style="color: #888">NAME            CHART VERSION   APP VERSION     DESCRIPTION                </span>
-<span style="color: #888">fluent/fluentd  0.3.9           v1.14.6         A Helm chart for Kubernetes</span>
-<span style="color: #888">fluent/fluentd  0.3.8           v1.12.4         A Helm chart for Kubernetes</span>
-<span style="color: #888">fluent/fluentd  0.3.7           v1.12.4         A Helm chart for Kubernetes</span>
-<span style="color: #888">fluent/fluentd  0.3.6           v1.12.4         A Helm chart for Kubernetes</span>
-<span style="color: #888">fluent/fluentd  0.3.5           v1.12.4         A Helm chart for Kubernetes</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>search<span class="w"> </span>repo<span class="w"> </span>fluent/fluentd<span class="w"> </span>-l
+<span class="go">NAME            CHART VERSION   APP VERSION     DESCRIPTION                </span>
+<span class="go">fluent/fluentd  0.3.9           v1.14.6         A Helm chart for Kubernetes</span>
+<span class="go">fluent/fluentd  0.3.8           v1.12.4         A Helm chart for Kubernetes</span>
+<span class="go">fluent/fluentd  0.3.7           v1.12.4         A Helm chart for Kubernetes</span>
+<span class="go">fluent/fluentd  0.3.6           v1.12.4         A Helm chart for Kubernetes</span>
+<span class="go">fluent/fluentd  0.3.5           v1.12.4         A Helm chart for Kubernetes</span>
 </code></pre></div>
-
 <h3 id="_10">チャートのデフォルト値</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>show<span style="color: #BBB"> </span>values<span style="color: #BBB"> </span>metallb/metallb
-<span style="color: #000080; font-weight: bold"># </span>Default<span style="color: #BBB"> </span>values<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">for</span><span style="color: #BBB"> </span>metallb.
-<span style="color: #000080; font-weight: bold"># </span>This<span style="color: #BBB"> </span>is<span style="color: #BBB"> </span>a<span style="color: #BBB"> </span>YAML-formatted<span style="color: #BBB"> </span>file.
-<span style="color: #000080; font-weight: bold"># </span>Declare<span style="color: #BBB"> </span>variables<span style="color: #BBB"> </span>to<span style="color: #BBB"> </span>be<span style="color: #BBB"> </span>passed<span style="color: #BBB"> </span>into<span style="color: #BBB"> </span>your<span style="color: #BBB"> </span>templates.
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>show<span class="w"> </span>values<span class="w"> </span>metallb/metallb
+<span class="gp"># </span>Default<span class="w"> </span>values<span class="w"> </span><span class="k">for</span><span class="w"> </span>metallb.
+<span class="gp"># </span>This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>YAML-formatted<span class="w"> </span>file.
+<span class="gp"># </span>Declare<span class="w"> </span>variables<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>passed<span class="w"> </span>into<span class="w"> </span>your<span class="w"> </span>templates.
 
-<span style="color: #888">imagePullSecrets: []</span>
-<span style="color: #888">nameOverride: &quot;&quot;</span>
-<span style="color: #888">fullnameOverride: &quot;&quot;</span>
+<span class="go">imagePullSecrets: []</span>
+<span class="go">nameOverride: &quot;&quot;</span>
+<span class="go">fullnameOverride: &quot;&quot;</span>
 
-<span style="color: #888">:</span>
-<span style="color: #888">:</span>
+<span class="go">:</span>
+<span class="go">:</span>
 </code></pre></div>
-
 <p>これをファイル出力すればインストール用のカスタマイズYAML作れる</p>
 <h3 id="_11">チャートのインストール</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm install my-app repo/chart -n namespace -f values.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm install my-app repo/chart -n namespace -f values.yaml</span>
 </code></pre></div>
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm install stable/mysql --generate-name --create-namespace -n mysql -f values.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm install stable/mysql --generate-name --create-namespace -n mysql -f values.yaml</span>
 </code></pre></div>
-
 <h3 id="_12">アップグレード</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm upgrade &lt;release&gt; &lt;chart&gt; [-n &lt;namespace&gt;] [-f values.yaml]</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm upgrade &lt;release&gt; &lt;chart&gt; [-n &lt;namespace&gt;] [-f values.yaml]</span>
 </code></pre></div>
-
 <p>未インストールであればインストールし、インストール済みであればアップグレードするには<code>--install</code>を付加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm upgrade --install sample-logstash elastic/logstash -f values.yaml --create-namespace -n logging</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm upgrade --install sample-logstash elastic/logstash -f values.yaml --create-namespace -n logging</span>
 </code></pre></div>
-
 <h3 id="-set">チャートインストール時のコマンドライン引数でパラメタ指定(--set)</h3>
 <p>values.yaml以外にコマンドラインオプションからもパラメタ指定できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm upgrade ... --set key=value --set config.server.port=8443</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm upgrade ... --set key=value --set config.server.port=8443</span>
 </code></pre></div>
-
 <h3 id="_13">チャートのバージョン指定インストール</h3>
 <p>インストール時にチャートのバージョンを指定するには<code>--version</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm install ... --version x.y.z</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm install ... --version x.y.z</span>
 </code></pre></div>
-
 <h3 id="tgz">チャートのダウンロード(tgz形式)</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm pull fluent/fluent-bit --version 0.43.0</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm pull fluent/fluent-bit --version 0.43.0</span>
 </code></pre></div>
-
 <h3 id="_14">チャートインストールに使われるマニフェスト生成</h3>
 <p><code>install</code>の代わりに<code>template</code>を使う</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm template stable/mysql --generate-name --create-namespace -n mysql</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm template stable/mysql --generate-name --create-namespace -n mysql</span>
 </code></pre></div>
-
 <p>※ heml 3.14だと<code>--create-namespace</code>が効かない</p>
 <h3 id="_15">リリース一覧</h3>
 <p>実行中のリリースの一覧</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>list<span style="color: #BBB"> </span><span style="color: #666">[</span>-n<span style="color: #BBB"> </span>&lt;namespace-name&gt;<span style="color: #666">]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>-n<span class="w"> </span>&lt;namespace-name&gt;<span class="o">]</span>
 </code></pre></div>
-
 <h3 id="_16">リリースの削除</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm uninstall &lt;char-name&gt; [-n &lt;namespace-name&gt;]</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm uninstall &lt;char-name&gt; [-n &lt;namespace-name&gt;]</span>
 </code></pre></div>
-
 <h3 id="_17">リリースの設定値</h3>
 <p>チャートからリリースされているアプリケーションの設定値を<code>helm get values</code>で確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #BBB"> </span>ls<span style="color: #BBB"> </span>-A
-<span style="color: #888">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
-<span style="color: #888">grafana         monitoring      1               2021-07-26 16:23:47.276215637 +0900 JST deployed        grafana-6.14.1          8.0.5      </span>
-<span style="color: #888">prometheus      monitoring      1               2021-07-26 14:24:12.737306448 +0900 JST deployed        prometheus-14.4.1       2.26.0     </span>
-<span style="color: #000080; font-weight: bold">[zaki@fedora-node ~]$ </span>helm<span style="color: #BBB"> </span>get<span style="color: #BBB"> </span>values<span style="color: #BBB"> </span>-n<span style="color: #BBB"> </span>monitoring<span style="color: #BBB"> </span>grafana
-<span style="color: #888">USER-SUPPLIED VALUES:</span>
-<span style="color: #888">persistence:</span>
-<span style="color: #888">  accessModes:</span>
-<span style="color: #888">  - ReadWriteOnce</span>
-<span style="color: #888">  enabled: true</span>
-<span style="color: #888">  size: 1Gi</span>
-<span style="color: #888">  type: pvc</span>
-<span style="color: #888">service:</span>
-<span style="color: #888">  type: LoadBalancer</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[zaki@fedora-node ~]$ </span>helm<span class="w"> </span>ls<span class="w"> </span>-A
+<span class="go">NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION</span>
+<span class="go">grafana         monitoring      1               2021-07-26 16:23:47.276215637 +0900 JST deployed        grafana-6.14.1          8.0.5      </span>
+<span class="go">prometheus      monitoring      1               2021-07-26 14:24:12.737306448 +0900 JST deployed        prometheus-14.4.1       2.26.0     </span>
+<span class="gp">[zaki@fedora-node ~]$ </span>helm<span class="w"> </span>get<span class="w"> </span>values<span class="w"> </span>-n<span class="w"> </span>monitoring<span class="w"> </span>grafana
+<span class="go">USER-SUPPLIED VALUES:</span>
+<span class="go">persistence:</span>
+<span class="go">  accessModes:</span>
+<span class="go">  - ReadWriteOnce</span>
+<span class="go">  enabled: true</span>
+<span class="go">  size: 1Gi</span>
+<span class="go">  type: pvc</span>
+<span class="go">service:</span>
+<span class="go">  type: LoadBalancer</span>
 </code></pre></div>
-
 <h2 id="_18">チャートインストール例</h2>
 <h3 id="fluent-bit">Fluent Bit</h3>
 <p><a href="https://github.com/fluent/helm-charts">fluent/helm-charts: Helm Charts for Fluentd and Fluent Bit</a></p>
 <p>リポジトリ追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm repo add fluent https://fluent.github.io/helm-charts</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm repo add fluent https://fluent.github.io/helm-charts</span>
 </code></pre></div>
-
 <p>インストール</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm upgrade --install fluent-bit fluent/fluent-bit -n logging --create-namespace -f values.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm upgrade --install fluent-bit fluent/fluent-bit -n logging --create-namespace -f values.yaml</span>
 </code></pre></div>
-
 <h2 id="_19">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>env
-<span style="color: #888">HELM_BIN=&quot;helm&quot;</span>
-<span style="color: #888">HELM_CACHE_HOME=&quot;/home/zaki/.cache/helm&quot;</span>
-<span style="color: #888">HELM_CONFIG_HOME=&quot;/home/zaki/.config/helm&quot;</span>
-<span style="color: #888">HELM_DATA_HOME=&quot;/home/zaki/.local/share/helm&quot;</span>
-<span style="color: #888">HELM_DEBUG=&quot;false&quot;</span>
-<span style="color: #888">HELM_KUBEAPISERVER=&quot;&quot;</span>
-<span style="color: #888">HELM_KUBEASGROUPS=&quot;&quot;</span>
-<span style="color: #888">HELM_KUBEASUSER=&quot;&quot;</span>
-<span style="color: #888">HELM_KUBECAFILE=&quot;&quot;</span>
-<span style="color: #888">HELM_KUBECONTEXT=&quot;&quot;</span>
-<span style="color: #888">HELM_KUBETOKEN=&quot;&quot;</span>
-<span style="color: #888">HELM_MAX_HISTORY=&quot;10&quot;</span>
-<span style="color: #888">HELM_NAMESPACE=&quot;default&quot;</span>
-<span style="color: #888">HELM_PLUGINS=&quot;/home/zaki/.local/share/helm/plugins&quot;</span>
-<span style="color: #888">HELM_REGISTRY_CONFIG=&quot;/home/zaki/.config/helm/registry.json&quot;</span>
-<span style="color: #888">HELM_REPOSITORY_CACHE=&quot;/home/zaki/.cache/helm/repository&quot;</span>
-<span style="color: #888">HELM_REPOSITORY_CONFIG=&quot;/home/zaki/.config/helm/repositories.yaml&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>env
+<span class="go">HELM_BIN=&quot;helm&quot;</span>
+<span class="go">HELM_CACHE_HOME=&quot;/home/zaki/.cache/helm&quot;</span>
+<span class="go">HELM_CONFIG_HOME=&quot;/home/zaki/.config/helm&quot;</span>
+<span class="go">HELM_DATA_HOME=&quot;/home/zaki/.local/share/helm&quot;</span>
+<span class="go">HELM_DEBUG=&quot;false&quot;</span>
+<span class="go">HELM_KUBEAPISERVER=&quot;&quot;</span>
+<span class="go">HELM_KUBEASGROUPS=&quot;&quot;</span>
+<span class="go">HELM_KUBEASUSER=&quot;&quot;</span>
+<span class="go">HELM_KUBECAFILE=&quot;&quot;</span>
+<span class="go">HELM_KUBECONTEXT=&quot;&quot;</span>
+<span class="go">HELM_KUBETOKEN=&quot;&quot;</span>
+<span class="go">HELM_MAX_HISTORY=&quot;10&quot;</span>
+<span class="go">HELM_NAMESPACE=&quot;default&quot;</span>
+<span class="go">HELM_PLUGINS=&quot;/home/zaki/.local/share/helm/plugins&quot;</span>
+<span class="go">HELM_REGISTRY_CONFIG=&quot;/home/zaki/.config/helm/registry.json&quot;</span>
+<span class="go">HELM_REPOSITORY_CACHE=&quot;/home/zaki/.cache/helm/repository&quot;</span>
+<span class="go">HELM_REPOSITORY_CONFIG=&quot;/home/zaki/.config/helm/repositories.yaml&quot;</span>
 </code></pre></div>
-
 <p><code>HELM_CONFIG_HOME</code>を設定すれば、<code>HELM_REGISTRY_CONFIG</code>などは連動する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span><span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666">=</span>/var/tmp<span style="color: #BBB"> </span>helm<span style="color: #BBB"> </span>env<span style="color: #BBB"> </span>|<span style="color: #BBB"> </span>grep<span style="color: #BBB"> </span>var
-<span style="color: #B8860B">HELM_CONFIG_HOME</span><span style="color: #666">=</span><span style="color: #B44">&quot;/var/tmp&quot;</span>
-<span style="color: #B8860B">HELM_REGISTRY_CONFIG</span><span style="color: #666">=</span><span style="color: #B44">&quot;/var/tmp/registry.json&quot;</span>
-<span style="color: #B8860B">HELM_REPOSITORY_CONFIG</span><span style="color: #666">=</span><span style="color: #B44">&quot;/var/tmp/repositories.yaml&quot;</span>
+<div class="highlight"><pre><span></span><code>$ HELM_CONFIG_HOME=/var/tmp helm env | grep var
+HELM_CONFIG_HOME=&quot;/var/tmp&quot;
+HELM_REGISTRY_CONFIG=&quot;/var/tmp/registry.json&quot;
+HELM_REPOSITORY_CONFIG=&quot;/var/tmp/repositories.yaml&quot;
 </code></pre></div>
-
 <h2 id="_20">チャート作成</h2>
 <h3 id="_21">テンプレート作成</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm create mychart</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm create mychart</span>
 </code></pre></div>
-
 <p>以下のファイルが生成される。不要なファイルは削除して作りこめばOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>find<span style="color: #BBB"> </span>mychart/
-<span style="color: #888">mychart/</span>
-<span style="color: #888">mychart/Chart.yaml</span>
-<span style="color: #888">mychart/values.yaml</span>
-<span style="color: #888">mychart/.helmignore</span>
-<span style="color: #888">mychart/templates</span>
-<span style="color: #888">mychart/templates/ingress.yaml</span>
-<span style="color: #888">mychart/templates/deployment.yaml</span>
-<span style="color: #888">mychart/templates/service.yaml</span>
-<span style="color: #888">mychart/templates/serviceaccount.yaml</span>
-<span style="color: #888">mychart/templates/hpa.yaml</span>
-<span style="color: #888">mychart/templates/NOTES.txt</span>
-<span style="color: #888">mychart/templates/_helpers.tpl</span>
-<span style="color: #888">mychart/templates/tests</span>
-<span style="color: #888">mychart/templates/tests/test-connection.yaml</span>
-<span style="color: #888">mychart/charts</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>find<span class="w"> </span>mychart/
+<span class="go">mychart/</span>
+<span class="go">mychart/Chart.yaml</span>
+<span class="go">mychart/values.yaml</span>
+<span class="go">mychart/.helmignore</span>
+<span class="go">mychart/templates</span>
+<span class="go">mychart/templates/ingress.yaml</span>
+<span class="go">mychart/templates/deployment.yaml</span>
+<span class="go">mychart/templates/service.yaml</span>
+<span class="go">mychart/templates/serviceaccount.yaml</span>
+<span class="go">mychart/templates/hpa.yaml</span>
+<span class="go">mychart/templates/NOTES.txt</span>
+<span class="go">mychart/templates/_helpers.tpl</span>
+<span class="go">mychart/templates/tests</span>
+<span class="go">mychart/templates/tests/test-connection.yaml</span>
+<span class="go">mychart/charts</span>
 </code></pre></div>
-
 <h3 id="_22">変数</h3>
 <table>
 <thead>
@@ -2487,18 +2472,16 @@
 </table>
 <h2 id="_23">プラグイン</h2>
 <h3 id="_24">一覧</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>helm<span style="color: #BBB"> </span>plugin<span style="color: #BBB"> </span>ls
-<span style="color: #888">NAME    VERSION DESCRIPTION                           </span>
-<span style="color: #888">diff    3.12.3  Preview helm upgrade changes as a diff</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>plugin<span class="w"> </span>ls
+<span class="go">NAME    VERSION DESCRIPTION                           </span>
+<span class="go">diff    3.12.3  Preview helm upgrade changes as a diff</span>
 </code></pre></div>
-
 <h3 id="diff">diff</h3>
 <p>install</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm plugin install https://github.com/databus23/helm-diff</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm plugin install https://github.com/databus23/helm-diff</span>
 </code></pre></div>
-
 <p>更新時のdiffを確認するには、<code>helm diff upgrade</code>に実際のupgrade時のすべての引数を指定する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">helm diff upgrade ...</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm diff upgrade ...</span>
 </code></pre></div>
                 
               
@@ -2576,6 +2559,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

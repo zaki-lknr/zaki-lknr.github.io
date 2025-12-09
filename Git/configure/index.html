@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1562,6 +1564,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -2106,127 +2120,107 @@
                 
                 <h1 id="git">Git設定</h1>
 <h2 id="_1">ユーザー名・メールアドレスの設定</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git config --global user.name zaki</span>
-<span style="color: #888">git config --global user.email zaki.hmkc@...</span>
+<div class="highlight"><pre><span></span><code><span class="go">git config --global user.name zaki</span>
+<span class="go">git config --global user.email zaki.hmkc@...</span>
 </code></pre></div>
-
 <h3 id="home">共用アカウントなどで$HOMEに記録したくない場合</h3>
 <p><code>--local</code>を使えば、<code>$HOME/.gitconfig</code>でなく、現在のリポジトリの設定に記録される。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git config --local user.name zaki</span>
-<span style="color: #888">git config --local user.email zaki.hmkc@...</span>
+<div class="highlight"><pre><span></span><code><span class="go">git config --local user.name zaki</span>
+<span class="go">git config --local user.email zaki.hmkc@...</span>
 </code></pre></div>
-
 <h3 id="_2">環境変数を使う場合</h3>
 <p>以下を設定することで、<code>user.name</code>と<code>user.email</code>を上書きできる。<br />
 共用アカウントで誰かが<code>$HOME/.gitconfig</code>を設定してしまい、自分のワークディレクトリの<code>.gitconfig</code>の設定忘れでの事故防止的にはこちらが良いかも。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_AUTHOR_NAME
-<span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_AUTHOR_EMAIL
-<span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_COMMITTER_NAME
-<span style="color: #A2F">export</span><span style="color: #BBB"> </span>GIT_COMMITTER_EMAIL
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span>GIT_AUTHOR_NAME
+<span class="nb">export</span><span class="w"> </span>GIT_AUTHOR_EMAIL
+<span class="nb">export</span><span class="w"> </span>GIT_COMMITTER_NAME
+<span class="nb">export</span><span class="w"> </span>GIT_COMMITTER_EMAIL
 </code></pre></div>
-
 <h2 id="_3">現在の設定確認</h2>
 <h3 id="_4">現在適用される設定全て</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>-l
+<div class="highlight"><pre><span></span><code>$ git config -l
 </code></pre></div>
-
 <h3 id="_5">セクションごとの設定内容</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>--system<span style="color: #BBB"> </span>-l
-$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>--global<span style="color: #BBB"> </span>-l
-$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>config<span style="color: #BBB"> </span>--local<span style="color: #BBB"> </span>-l
+<div class="highlight"><pre><span></span><code>$ git config --system -l
+$ git config --global -l
+$ git config --local -l
 </code></pre></div>
-
 <h2 id="gitssh">Git+SSH</h2>
 <h3 id="sshconfig">.ssh/config</h3>
 <p>鍵を指定する場合はこんな感じ。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Host gitlab-ce.example.org
+<div class="highlight"><pre><span></span><code>Host gitlab-ce.example.org
     IdentityFile ~/.ssh/id_rsa_git
 
 Host github.com
     IdentityFile ~/.ssh/id_rsa_git
 </code></pre></div>
-
 <p>cloneのパスが<code>git@github.com/...</code>とユーザー名が指定されているので、<code>User git</code>は不要</p>
 <p>Backlogも同様にclone用文字列コピーにユーザー名含んでいるので以下でOK</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Host &lt;space&gt;.git.backlog.com
+<div class="highlight"><pre><span></span><code>Host &lt;space&gt;.git.backlog.com
     IdentityFile ~/.ssh/id_rsa_git
 </code></pre></div>
-
 <h3 id="homesshconfig">共用アカウントなどで$HOME/.ssh/config以外を使いたい場合</h3>
 <p>以下設定。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_SSH_COMMAND</span><span style="color: #666">=</span><span style="color: #B44">&quot;ssh -F /path/to/myconf/ssh/config&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_SSH_COMMAND</span><span class="o">=</span><span class="s2">&quot;ssh -F /path/to/myconf/ssh/config&quot;</span>
 </code></pre></div>
-
 <h3 id="ssh">接続不調時などにSSHのログを確認する</h3>
 <p><code>-vvv</code>のように数を増やせばログ量は増える。<br />
 要は内部で使用する<code>ssh</code>コマンドを明示的に指定しつつverboseオプションを追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">GIT_SSH_COMMAND=&quot;ssh -v&quot; git push</span>
+<div class="highlight"><pre><span></span><code><span class="go">GIT_SSH_COMMAND=&quot;ssh -v&quot; git push</span>
 </code></pre></div>
-
 <h2 id="_6">リモートリポジトリ</h2>
 <h3 id="_7">現在の設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>-v
+<div class="highlight"><pre><span></span><code>$ git remote -v
 </code></pre></div>
-
 <h3 id="_8">リポジトリを設定</h3>
 <p>GitHubとかでREADME無しでリポジトリ作るとコマンドが表示されるアレ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>&lt;URI<span style="color: #BBB"> </span>of<span style="color: #BBB"> </span>Repository&gt;
+<div class="highlight"><pre><span></span><code>$ git remote add origin &lt;URI of Repository&gt;
 </code></pre></div>
-
 <h3 id="_9">リモートリポジトリを変更</h3>
 <p>originをGitHubからプライベートGitLabに変更、とか。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>set-url<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>https://my-gitlab.example.org/user/repository.git
+<div class="highlight"><pre><span></span><code>$ git remote set-url origin https://my-gitlab.example.org/user/repository.git
 </code></pre></div>
-
 <p>HTTPS -&gt; SSHもこれ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>set-url<span style="color: #BBB"> </span>origin<span style="color: #BBB"> </span>git@github.com:zaki-lknr/ansible-sample.git
+<div class="highlight"><pre><span></span><code>$ git remote set-url origin git@github.com:zaki-lknr/ansible-sample.git
 </code></pre></div>
-
 <h3 id="_10">別のリポジトリを別名で追加</h3>
 <p>普段は慣例的に<code>origin</code>を使ってるところに別の名前を付けて追加する。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$<span style="color: #BBB"> </span>git<span style="color: #BBB"> </span>remote<span style="color: #BBB"> </span>add<span style="color: #BBB"> </span>hoge<span style="color: #BBB"> </span>&lt;other<span style="color: #BBB"> </span>repository&gt;
+<div class="highlight"><pre><span></span><code>$ git remote add hoge &lt;other repository&gt;
 </code></pre></div>
-
 <p>pushする場合は以下の通り</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">git push -u hoge &lt;branch-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">git push -u hoge &lt;branch-name&gt;</span>
 </code></pre></div>
-
 <h2 id="gitconfig">gitconfig</h2>
 <h3 id="alias">コマンドのalias</h3>
 <p><code>git st</code>で<code>git status</code>にしたい場合はこんな感じ</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">[user]</span>
-<span style="color: #BBB">    </span><span style="color: #B44">email</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">...</span>
-<span style="color: #BBB">    </span><span style="color: #B44">name</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">...</span>
-<span style="color: #A2F; font-weight: bold">[alias]</span>
-<span style="color: #BBB">    </span><span style="color: #B44">st</span><span style="color: #BBB"> </span><span style="color: #666">=</span><span style="color: #BBB"> </span><span style="color: #B44">status</span>
+<div class="highlight"><pre><span></span><code><span class="k">[user]</span>
+<span class="w">    </span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
+<span class="w">    </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">...</span>
+<span class="k">[alias]</span>
+<span class="w">    </span><span class="na">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">status</span>
 </code></pre></div>
-
 <h2 id="git-prompt">git prompt</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">curl -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o .git-prompt.sh</span>
-<span style="color: #888">chmod 755 .git-prompt.sh</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o .git-prompt.sh</span>
+<span class="go">chmod 755 .git-prompt.sh</span>
 </code></pre></div>
-
 <p>.bashrcへ以下追加</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666">[</span><span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.git-prompt.sh<span style="color: #BBB"> </span><span style="color: #666">]</span><span style="color: #BBB"> </span><span style="color: #666">&amp;&amp;</span><span style="color: #BBB"> </span><span style="color: #A2F">source</span><span style="color: #BBB"> </span>~/.git-prompt.sh
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.git-prompt.sh<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.git-prompt.sh
 </code></pre></div>
-
 <p>この状態で、<code>PS1</code>環境変数を設定する。<br />
 設定例</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic"># prompt</span>
-<span style="color: #B8860B">PS1</span><span style="color: #666">=</span><span style="color: #B44">&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># prompt</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
 </code></pre></div>
-
 <p>既存の<code>PS1</code>設定に追加するのであればこんな感じが良いかも。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #A2F; font-weight: bold">if</span><span style="color: #BBB"> </span><span style="color: #666">[</span><span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span>~/.git-prompt.sh<span style="color: #BBB"> </span><span style="color: #666">]</span>;<span style="color: #BBB"> </span><span style="color: #A2F; font-weight: bold">then</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">source</span><span style="color: #BBB"> </span>~/.git-prompt.sh
-<span style="color: #BBB">    </span><span style="color: #B8860B">PS1</span><span style="color: #666">=</span><span style="color: #B44">&#39;\[\e[31m\]$(__git_ps1 &quot;(%s) &quot;)\[\e[0m\]&#39;&quot;</span><span style="color: #B8860B">$PS1</span><span style="color: #B44">&quot;</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWDIRTYSTATE</span><span style="color: #666">=</span><span style="color: #A2F">true</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWUNTRACKEDFILES</span><span style="color: #666">=</span><span style="color: #A2F">true</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWSTASHSTATE</span><span style="color: #666">=</span><span style="color: #A2F">true</span>
-<span style="color: #BBB">    </span><span style="color: #A2F">export</span><span style="color: #BBB"> </span><span style="color: #B8860B">GIT_PS1_SHOWUPSTREAM</span><span style="color: #666">=</span>auto
-<span style="color: #A2F; font-weight: bold">fi</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.git-prompt.sh<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.git-prompt.sh
+<span class="w">    </span><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\[\e[31m\]$(__git_ps1 &quot;(%s) &quot;)\[\e[0m\]&#39;</span><span class="s2">&quot;</span><span class="nv">$PS1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_PS1_SHOWDIRTYSTATE</span><span class="o">=</span><span class="nb">true</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_PS1_SHOWUNTRACKEDFILES</span><span class="o">=</span><span class="nb">true</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_PS1_SHOWSTASHSTATE</span><span class="o">=</span><span class="nb">true</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_PS1_SHOWUPSTREAM</span><span class="o">=</span>auto
+<span class="k">fi</span>
 </code></pre></div>
-
 <h3 id="_11">記号</h3>
 <table>
 <thead>
@@ -2334,6 +2328,8 @@ Host github.com
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

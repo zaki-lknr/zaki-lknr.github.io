@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1360,6 +1362,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1940,15 +1954,14 @@
 <h2 id="github-pages">GitHub Pages設定</h2>
 <h3 id="github-pages_1">手動実行してGitHub Pages公開</h3>
 <p>ソースmarkdown用リポジトリは既に存在し、リモートリポジトリに設定されている状態で</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">$ </span>mkdocs<span style="color: #BBB"> </span>gh-deploy<span style="color: #BBB"> </span>--clean
-<span style="color: #888">INFO    -  Cleaning site directory </span>
-<span style="color: #888">INFO    -  Building documentation to directory: /home/zaki/src/github-pages/site </span>
-<span style="color: #888">INFO    -  Documentation built in 0.19 seconds </span>
-<span style="color: #888">WARNING -  Version check skipped: No version specified in previous deployment. </span>
-<span style="color: #888">INFO    -  Copying &#39;/home/zaki/src/github-pages/site&#39; to &#39;gh-pages&#39; branch and pushing to GitHub. </span>
-<span style="color: #888">INFO    -  Your documentation should shortly be available at: https://zaki-lknr.github.io/pages/ </span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdocs<span class="w"> </span>gh-deploy<span class="w"> </span>--clean
+<span class="go">INFO    -  Cleaning site directory </span>
+<span class="go">INFO    -  Building documentation to directory: /home/zaki/src/github-pages/site </span>
+<span class="go">INFO    -  Documentation built in 0.19 seconds </span>
+<span class="go">WARNING -  Version check skipped: No version specified in previous deployment. </span>
+<span class="go">INFO    -  Copying &#39;/home/zaki/src/github-pages/site&#39; to &#39;gh-pages&#39; branch and pushing to GitHub. </span>
+<span class="go">INFO    -  Your documentation should shortly be available at: https://zaki-lknr.github.io/pages/ </span>
 </code></pre></div>
-
 <p>リモートリポジトリに<code>gh-pages</code>ブランチが作成され、ここにビルドされたコンテンツがpushされて以下のURLにコンテンツが公開された。<br />
 ディレクトリ名はリポジトリ名になっている。</p>
 <p>https://zaki-lknr.github.io/pages/</p>
@@ -1987,16 +2000,15 @@
 <p><a href="https://miyalog.hatenablog.jp/entry/2017-11-07_MkDocs_Material_Japanese_support">Material for MkDocs を日本語対応した話＆初めてのOSSコントリビュート - miyalog</a></p>
 <h3 id="google-analytics">Google Analytics設定</h3>
 <p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/">Setting up site analytics - Material for MkDocs</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">google_analytics</span>:
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>UA-XXXXXXXX-X
-<span style="color: #BBB">  </span>-<span style="color: #BBB"> </span>auto
+<div class="highlight"><pre><span></span><code><span class="nt">google_analytics</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UA-XXXXXXXX-X</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auto</span>
 </code></pre></div>
-
 <h3 id="_5">取り消し線の有効化</h3>
 <p>Material for MkDocsを使っていると(?)、<code>~~</code>による取り消し線が動作しない。<br />
 以下設定を追加すると有効になる。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">markdown_extensions</span>:
-<span style="color: #BBB">    </span>-<span style="color: #BBB"> </span>pymdownx.tilde
+<div class="highlight"><pre><span></span><code><span class="nt">markdown_extensions</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.tilde</span>
 </code></pre></div>
                 
               
@@ -2074,6 +2086,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

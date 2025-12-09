@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1400,6 +1402,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1784,11 +1798,10 @@
 <p><a href="https://github.com/containers/skopeo">containers/skopeo: Work with remote images registries - retrieving information, images, signing content</a></p>
 <h2 id="copy">copy</h2>
 <p>ローカルのイメージをリモートへpush</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">skopeo copy docker://localhost/image:tag docker://remote.example.org/image:tag</span>
+<div class="highlight"><pre><span></span><code><span class="go">skopeo copy docker://localhost/image:tag docker://remote.example.org/image:tag</span>
 </code></pre></div>
-
 <p>リモート間コピーも同様に可。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #888">skopeo copy docker://docker.io/alpine:3.19.3 docker://remote.example.org/mirror-images/alpine:3.19.3</span>
+<div class="highlight"><pre><span></span><code><span class="go">skopeo copy docker://docker.io/alpine:3.19.3 docker://remote.example.org/mirror-images/alpine:3.19.3</span>
 </code></pre></div>
                 
               
@@ -1866,6 +1879,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>

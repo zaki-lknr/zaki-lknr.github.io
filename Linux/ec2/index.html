@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
     
       
         
@@ -1455,6 +1457,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
+        Mermaid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
@@ -1892,23 +1906,21 @@
                 
                 <h1 id="ec2">EC2</h1>
 <h2 id="_1">バージョン確認</h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #BBB"> </span>/etc/system-release
-<span style="color: #888">Amazon Linux release 2 (Karoo)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span class="w"> </span>/etc/system-release
+<span class="go">Amazon Linux release 2 (Karoo)</span>
 </code></pre></div>
-
 <p>または</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #000080; font-weight: bold">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span style="color: #BBB"> </span>/etc/os-release<span style="color: #BBB"> </span>
-<span style="color: #888">NAME=&quot;Amazon Linux&quot;</span>
-<span style="color: #888">VERSION=&quot;2&quot;</span>
-<span style="color: #888">ID=&quot;amzn&quot;</span>
-<span style="color: #888">ID_LIKE=&quot;centos rhel fedora&quot;</span>
-<span style="color: #888">VERSION_ID=&quot;2&quot;</span>
-<span style="color: #888">PRETTY_NAME=&quot;Amazon Linux 2&quot;</span>
-<span style="color: #888">ANSI_COLOR=&quot;0;33&quot;</span>
-<span style="color: #888">CPE_NAME=&quot;cpe:2.3:o:amazon:amazon_linux:2&quot;</span>
-<span style="color: #888">HOME_URL=&quot;https://amazonlinux.com/&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span class="w"> </span>/etc/os-release<span class="w"> </span>
+<span class="go">NAME=&quot;Amazon Linux&quot;</span>
+<span class="go">VERSION=&quot;2&quot;</span>
+<span class="go">ID=&quot;amzn&quot;</span>
+<span class="go">ID_LIKE=&quot;centos rhel fedora&quot;</span>
+<span class="go">VERSION_ID=&quot;2&quot;</span>
+<span class="go">PRETTY_NAME=&quot;Amazon Linux 2&quot;</span>
+<span class="go">ANSI_COLOR=&quot;0;33&quot;</span>
+<span class="go">CPE_NAME=&quot;cpe:2.3:o:amazon:amazon_linux:2&quot;</span>
+<span class="go">HOME_URL=&quot;https://amazonlinux.com/&quot;</span>
 </code></pre></div>
-
 <h2 id="_2">ディスク拡張</h2>
 <ul>
 <li><a href="https://docs.aws.amazon.com/ja_jp/ebs/latest/userguide/recognize-expanded-volume-linux.html">Amazon EBS ボリュームのサイズ変更後にファイルシステムを拡張 - Amazon EBS</a></li>
@@ -1926,33 +1938,28 @@
 </ol>
 <h2 id="cloud-init">cloud-init</h2>
 <h3 id="_3">ホスト名設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">hostname</span>:<span style="color: #BBB"> </span>example-host-name
+<div class="highlight"><pre><span></span><code><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example-host-name</span>
 </code></pre></div>
-
 <p><a href="https://cloudinit.readthedocs.io/en/latest/reference/modules.html#set-hostname">https://cloudinit.readthedocs.io/en/latest/reference/modules.html#set-hostname</a></p>
 <p>OSによっては<code>hostname</code>では効果がなく、その場合は<code>fqdn</code>で指定する。(RHEL9は効かなかった)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">fqdn</span>:<span style="color: #BBB"> </span>controller.example.org
+<div class="highlight"><pre><span></span><code><span class="nt">fqdn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">controller.example.org</span>
 </code></pre></div>
-
 <h3 id="_4">パスワード設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #080; font-style: italic">#cloud-config</span>
-<span style="color: #008000; font-weight: bold">password</span>:<span style="color: #BBB"> </span><span style="color: #B44">&#39;p@ssword&#39;</span>
-<span style="color: #008000; font-weight: bold">chpasswd</span>:<span style="color: #BBB"> </span>{<span style="color: #008000; font-weight: bold"> expire</span>:<span style="color: #BBB"> </span><span style="color: #B8860B">false</span><span style="color: #BBB"> </span>}
+<div class="highlight"><pre><span></span><code><span class="c1">#cloud-config</span>
+<span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;p@ssword&#39;</span>
+<span class="nt">chpasswd</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> expire</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </code></pre></div>
-
 <p>記号を含む場合はクォートするのが無難。
 <code>expire: false</code>は初回ログイン時にパスワード変更を行わない。</p>
 <h3 id="ssh">sshのパスワード認証許可</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">ssh_pwauth</span>:<span style="color: #BBB"> </span>true
+<div class="highlight"><pre><span></span><code><span class="nt">ssh_pwauth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <h3 id="_5">タイムゾーン設定</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">timezone</span>:<span style="color: #BBB"> </span>Asia/Tokyo
+<div class="highlight"><pre><span></span><code><span class="nt">timezone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Asia/Tokyo</span>
 </code></pre></div>
-
 <h3 id="_6">コマンドの実行</h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">runcmd</span>:
--<span style="color: #BBB"> </span>systemctl disable --now ...
+<div class="highlight"><pre><span></span><code><span class="nt">runcmd</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">systemctl disable --now ...</span>
 </code></pre></div>
                 
               
@@ -2030,6 +2037,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>
