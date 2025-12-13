@@ -1396,8 +1396,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    テキスト入力 (prompt)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    プロパティ
+  </a>
   
 </li>
       
@@ -1892,8 +1906,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    テキスト入力 (prompt)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    プロパティ
+  </a>
   
 </li>
       
@@ -1937,6 +1965,25 @@
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getUi</span><span class="p">();</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="nx">message_string</span><span class="p">);</span>
 </code></pre></div>
+<h3 id="prompt">テキスト入力 (prompt)</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getUi</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">msg</span><span class="p">,</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">ButtonSet</span><span class="p">.</span><span class="nx">YES_NO</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">getSelectedButton</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">getResponseText</span><span class="p">();</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">button</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">Button</span><span class="p">.</span><span class="nx">YES</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// OK押下の処理</span>
+<span class="w">    </span><span class="nx">Logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;input text: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">input</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_4">プロパティ</h2>
+<p><a href="https://developers.google.com/apps-script/guides/properties?hl=ja">プロパティ サービス  |  Apps Script  |  Google for Developers</a></p>
+<p>ハードコードしたくないパラメタ類はプロパティを使って外部入力可能。いくつか種類がある。</p>
+<ul>
+<li>スクリプトプロパティ</li>
+<li>ユーザープロパティ</li>
+<li>ドキュメントプロパティ</li>
+</ul>
                 
               
               

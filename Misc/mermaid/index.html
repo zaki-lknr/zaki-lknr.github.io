@@ -1399,6 +1399,26 @@
     シーケンス図
   </a>
   
+    <nav class="md-nav" aria-label="シーケンス図">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor" class="md-nav__link">
+    actor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participant" class="md-nav__link">
+    participant
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1775,6 +1795,26 @@
     シーケンス図
   </a>
   
+    <nav class="md-nav" aria-label="シーケンス図">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor" class="md-nav__link">
+    actor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participant" class="md-nav__link">
+    participant
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1807,10 +1847,17 @@ sequenceDiagram
 </code></pre></div>
 <p>出力は以下</p>
 <div class="mermaid">sequenceDiagram
+    actor user
     participant client
     participant server
+    user -&gt;&gt; client: press button
     client -&gt;&gt; server: request
     server --&gt;&gt; client: response</div>
+<h3 id="actor">actor</h3>
+<p>人型(アクタ)のライフラインを描画(省略時は箱)</p>
+<h3 id="participant">participant</h3>
+<p>省略可能。箱型のライフラインを定義。<br />
+また、冒頭部分に記述することで描画の順序を記述準に固定できる。</p>
                 
               
               
