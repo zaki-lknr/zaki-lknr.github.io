@@ -1277,41 +1277,48 @@
         
           <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
-    リモートへ公開鍵コピー
+    鍵サイズ指定
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
-    フィンガープリント確認
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    秘密鍵から公開鍵を作成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    パスフレーズ変更
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
     鍵形式の指定
   </a>
   
 </li>
         
           <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リモートへ公開鍵コピー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    フィンガープリント確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    秘密鍵から公開鍵を作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_18" class="md-nav__link">
+    パスフレーズ変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
     鍵形式の変更
   </a>
   
@@ -1319,14 +1326,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     秘密鍵
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     公開鍵
   </a>
   
@@ -1334,13 +1341,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    鍵サイズ指定
-  </a>
   
 </li>
         
@@ -2240,41 +2240,48 @@
         
           <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
-    リモートへ公開鍵コピー
+    鍵サイズ指定
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
-    フィンガープリント確認
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    秘密鍵から公開鍵を作成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    パスフレーズ変更
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
     鍵形式の指定
   </a>
   
 </li>
         
           <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    リモートへ公開鍵コピー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    フィンガープリント確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    秘密鍵から公開鍵を作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_18" class="md-nav__link">
+    パスフレーズ変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
     鍵形式の変更
   </a>
   
@@ -2282,14 +2289,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     秘密鍵
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     公開鍵
   </a>
   
@@ -2297,13 +2304,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    鍵サイズ指定
-  </a>
   
 </li>
         
@@ -2518,7 +2518,22 @@ systemd[1]: Failed to start OpenSSH server daemon.
 <span class="gp">$ </span>ls<span class="w"> </span>~/.ssh/
 <span class="go">id_rsa  id_rsa.pub  id_rsa_nopass  id_rsa_nopass.pub  known_hosts</span>
 </code></pre></div>
-<h3 id="_13">リモートへ公開鍵コピー</h3>
+<h3 id="_13">鍵サイズ指定</h3>
+<p><code>-b</code>で指定する。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span>
+</code></pre></div>
+<h3 id="_14">鍵形式の指定</h3>
+<p>デフォルトでは以下で始まるOpenSSH形式で作成される。</p>
+<div class="highlight"><pre><span></span><code>-----BEGIN OPENSSH PRIVATE KEY-----
+</code></pre></div>
+<p><code>-m</code>を使うと、形式を指定できる。<br />
+PEM形式であれば以下の通り。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-m<span class="w"> </span>PEM
+</code></pre></div>
+<p>出力される鍵は以下で始まる。</p>
+<div class="highlight"><pre><span></span><code>-----BEGIN RSA PRIVATE KEY-----
+</code></pre></div>
+<h3 id="_15">リモートへ公開鍵コピー</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa_nopass<span class="w"> </span><span class="m">192</span>.168.0.31
 <span class="go">/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/home/zaki/.ssh/id_rsa_nopass.pub&quot;</span>
 <span class="go">The authenticity of host &#39;192.168.0.31 (192.168.0.31)&#39; can&#39;t be established.</span>
@@ -2536,15 +2551,15 @@ systemd[1]: Failed to start OpenSSH server daemon.
 
 <span class="gp">$</span>
 </code></pre></div>
-<h3 id="_14">フィンガープリント確認</h3>
+<h3 id="_16">フィンガープリント確認</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-l<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa.pub
 <span class="go">4096 SHA256:6Qt0+Nikcx/NpgM4xu/4WnDpqhj8L+OjtDEP5O2a7lw no comment (RSA)</span>
 </code></pre></div>
-<h3 id="_15">秘密鍵から公開鍵を作成</h3>
+<h3 id="_17">秘密鍵から公開鍵を作成</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-y<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa
 </code></pre></div>
 <p>STDOUTへ出力されるので、<code>&gt; id_rsa.pub</code>とかファイルへ出力すればOK</p>
-<h3 id="_16">パスフレーズ変更</h3>
+<h3 id="_18">パスフレーズ変更</h3>
 <div class="highlight"><pre><span></span><code><span class="go">ssh-keygen -f &lt;private-key&gt; -p</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-f<span class="w"> </span>/path/to/id_rsa<span class="w"> </span>-p
@@ -2555,26 +2570,15 @@ systemd[1]: Failed to start OpenSSH server daemon.
 <span class="go">Your identification has been saved with the new passphrase.</span>
 </code></pre></div>
 <p>空入力すればパスフレーズを解除できる</p>
-<h3 id="_17">鍵形式の指定</h3>
-<p>デフォルトでは以下で始まるOpenSSH形式で作成される。</p>
-<div class="highlight"><pre><span></span><code>-----BEGIN OPENSSH PRIVATE KEY-----
-</code></pre></div>
-<p><code>-m</code>を使うと、形式を指定できる。<br />
-PEM形式であれば以下の通り。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-m<span class="w"> </span>PEM
-</code></pre></div>
-<p>出力される鍵は以下で始まる。</p>
-<div class="highlight"><pre><span></span><code>-----BEGIN RSA PRIVATE KEY-----
-</code></pre></div>
-<h3 id="_18">鍵形式の変更</h3>
-<h4 id="_19">秘密鍵</h4>
+<h3 id="_19">鍵形式の変更</h3>
+<h4 id="_20">秘密鍵</h4>
 <p><code>-p</code>を使ったパスフレーズ更新の際に、<code>-m</code>で鍵形式を指定することで変換できる。<br />
 実行することで鍵ファイルが更新される。<br />
 PEM形式に変換するのであれば以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-p<span class="w"> </span>-m<span class="w"> </span>PEM<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa
 </code></pre></div>
 <p>デフォルトは<code>RFC4716</code>。OpenSSH形式にする場合は、<code>-m RFC4716</code>を指定すればOK</p>
-<h4 id="_20">公開鍵</h4>
+<h4 id="_21">公開鍵</h4>
 <p>OpenSSH形式(<code>ssh-rsa</code>などで始まる1行の書式) -&gt; PEM形式(<code>BEGIN PUBLIC KEY</code>から<code>END</code>までの複数行形式)</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>-e<span class="w"> </span>-m<span class="w"> </span>PKCS8
 </code></pre></div>
@@ -2582,10 +2586,6 @@ PEM形式に変換するのであれば以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>-i<span class="w"> </span>-m<span class="w"> </span>PKCS8
 </code></pre></div>
 <p>「OpenSSH形式と〇〇の変換」で、出力(<code>-e</code>export)や入力(<code>-i</code>import)の鍵形式を<code>-m</code>で指定するっぽい。(片方は指定できるがもう片方はOpenSSH形式固定)</p>
-<h3 id="_21">鍵サイズ指定</h3>
-<p><code>-b</code>で指定する。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span>
-</code></pre></div>
 <h3 id="ssh-copy-id">ssh-copy-id</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-copy-id<span class="w"> </span><span class="o">[</span>-i<span class="w"> </span>identity_file<span class="o">]</span><span class="w"> </span><span class="o">[</span>-p<span class="w"> </span>port<span class="o">]</span><span class="w"> </span><span class="o">[</span>username@<span class="o">]</span>hostname
 </code></pre></div>
