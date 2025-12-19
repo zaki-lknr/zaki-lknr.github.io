@@ -858,6 +858,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Container/buildah/" class="md-nav__link">
+        Buildah
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Container/compose/" class="md-nav__link">
         Docker Compose
       </a>
@@ -2339,7 +2351,7 @@ ok: [localhost] =&gt;
 <p>リストから特定要素を除外するには<code>difference</code>フィルタを使う。<br />
 入力のリストの要素から、<code>difference</code>フィルタの引数に指定したリストの要素を除外したリストを返す。<br />
 <code>difference</code>にもリストを指定する必要がある(iterableな変数でなければエラーとなる)</p>
-<p>言い換えると、2つのリストから重複要素を除いたものを返す機能を持つ。<br />
+<p><del>言い換えると、2つのリストから重複要素を除いたものを返す機能を持つ</del> (訂正：<code>difference</code>フィルタの引数側のみの要素は返さない)。<br />
 なお、順序は保持されない。</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
@@ -2353,7 +2365,7 @@ ok: [localhost] =&gt;
 <span class="w">      </span><span class="nt">msg</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">int_list1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">difference(int_list2)</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </code></pre></div>
-<p>出力は<code>[1, 2]</code>になる。</p>
+<p>出力は<code>[1, 2]</code>になる。(<code>int_list2</code>のみの要素である<code>4</code>は対象外)</p>
 <p>なお、文字列の場合は元々iterableのため、<code>difference</code>の引数はリストでなくても一応動作する。</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>

@@ -682,10 +682,29 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#env-arg" class="md-nav__link">
+    環境変数(ENV / ARG)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../buildah/" class="md-nav__link">
+        Buildah
+      </a>
     </li>
   
 
@@ -1791,6 +1810,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#env-arg" class="md-nav__link">
+    環境変数(ENV / ARG)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1828,6 +1854,15 @@
 <span class="k">CMD</span><span class="w"> </span>python<span class="w"> </span>/usr/local/src/script.py
 </code></pre></div>
 <p>ビルドするホストのカレントにある<code>script.py</code>をコンテナの<code>/usr/local/src/script.py</code>へコピーする</p>
+<h2 id="env-arg">環境変数(ENV / ARG)</h2>
+<p><code>ENV</code>と<code>ARG</code>はどちらも環境変数を定義する。</p>
+<div class="highlight"><pre><span></span><code><span class="k">ENV</span><span class="w"> </span><span class="nv">APP_ID</span><span class="o">=</span><span class="m">1234567890</span>
+</code></pre></div>
+<p><code>ENV</code>と<code>ARG</code>の違いは、</p>
+<ul>
+<li>ビルドされたイメージにも<code>ENV</code>で指定した環境変数は残る。<code>ARG</code>はビルド中のみ</li>
+<li><code>ARG</code>はビルド時に<code>--build-arg</code>で上書きできる</li>
+</ul>
                 
               
               
@@ -1861,13 +1896,13 @@
         </a>
       
       
-        <a href="../compose/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../buildah/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              Docker Compose
+              Buildah
             </div>
           </div>
           <div class="md-footer__button md-icon">

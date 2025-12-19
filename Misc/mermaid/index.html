@@ -646,6 +646,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Container/buildah/" class="md-nav__link">
+        Buildah
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Container/compose/" class="md-nav__link">
         Docker Compose
       </a>
@@ -1855,9 +1867,30 @@ sequenceDiagram
     server --&gt;&gt; client: response</div>
 <h3 id="actor">actor</h3>
 <p>人型(アクタ)のライフラインを描画(省略時は箱)</p>
+<p><code>as 〇〇</code>を付与すれば表示用の文言を設定できる。</p>
+<div class="highlight"><pre><span></span><code>```mermaid
+sequenceDiagram
+    actor yu as Yu Takasaki
+    actor ayumu as Ayumu Uehara
+    actor kasumi as Kasumi Nakasu
+    ayumu -&gt;&gt; yu: 🥰🥰
+    yu -&gt;&gt; ayumu: 😅
+    kasumi -&gt;&gt; yu: 🫰
+    ayumu -&gt;&gt; kasumi: 😡
+```
+</code></pre></div>
+<div class="mermaid">sequenceDiagram
+    actor yu as Yu Takasaki
+    actor ayumu as Ayumu Uehara
+    actor kasumi as Kasumi Nakasu
+    ayumu -&gt;&gt; yu: 🥰🥰
+    yu -&gt;&gt; ayumu: 😅
+    kasumi -&gt;&gt; yu: 🫰
+    ayumu -&gt;&gt; kasumi: 😡</div>
 <h3 id="participant">participant</h3>
 <p>省略可能。箱型のライフラインを定義。<br />
-また、冒頭部分に記述することで描画の順序を記述準に固定できる。</p>
+また、冒頭部分に記述することで描画の順序を記述準に固定できる。<br />
+<code>actor</code>同様、<code>as</code>で表示用文言を設定可能。</p>
                 
               
               

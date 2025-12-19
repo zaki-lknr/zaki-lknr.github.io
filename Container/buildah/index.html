@@ -16,7 +16,7 @@
     
     
       
-        <title>MkDocs - 戯術memo</title>
+        <title>Buildah - 戯術memo</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mkdocs" class="md-skip">
+        <a href="#buildah" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MkDocs
+              Buildah
             
           </span>
         </div>
@@ -197,13 +197,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../Container/AKS/" class="md-tabs__link">
+      <a href="../AKS/" class="md-tabs__link md-tabs__link--active">
         Container
       </a>
     </li>
@@ -245,15 +247,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../4sq/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Misc/4sq/" class="md-tabs__link">
         Misc
       </a>
     </li>
@@ -599,12 +599,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Container
@@ -622,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/AKS/" class="md-nav__link">
+      <a href="../AKS/" class="md-nav__link">
         AKS
       </a>
     </li>
@@ -634,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/build/" class="md-nav__link">
+      <a href="../build/" class="md-nav__link">
         イメージビルド
       </a>
     </li>
@@ -644,11 +646,78 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Container/buildah/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Buildah
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Buildah
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ビルド
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#containerfile" class="md-nav__link">
+    Containerfile指定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push" class="md-nav__link">
+    push
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dind" class="md-nav__link">
+    dind
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -658,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/compose/" class="md-nav__link">
+      <a href="../compose/" class="md-nav__link">
         Docker Compose
       </a>
     </li>
@@ -670,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -682,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/helm/" class="md-nav__link">
+      <a href="../helm/" class="md-nav__link">
         Helm
       </a>
     </li>
@@ -694,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/install/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
         Dockerインストール
       </a>
     </li>
@@ -706,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/k3s/" class="md-nav__link">
+      <a href="../k3s/" class="md-nav__link">
         K3s
       </a>
     </li>
@@ -718,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/kind/" class="md-nav__link">
+      <a href="../kind/" class="md-nav__link">
         kind
       </a>
     </li>
@@ -730,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/kubectl/" class="md-nav__link">
+      <a href="../kubectl/" class="md-nav__link">
         kubectl
       </a>
     </li>
@@ -742,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/kubernetes/" class="md-nav__link">
+      <a href="../kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -754,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/minikube/" class="md-nav__link">
+      <a href="../minikube/" class="md-nav__link">
         minikube
       </a>
     </li>
@@ -766,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/podman/" class="md-nav__link">
+      <a href="../podman/" class="md-nav__link">
         Podman
       </a>
     </li>
@@ -778,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/registry/" class="md-nav__link">
+      <a href="../registry/" class="md-nav__link">
         Registry
       </a>
     </li>
@@ -790,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Container/skopeo/" class="md-nav__link">
+      <a href="../skopeo/" class="md-nav__link">
         skopeo
       </a>
     </li>
@@ -1121,14 +1190,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       <label class="md-nav__link" for="__nav_6">
         Misc
@@ -1146,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4sq/" class="md-nav__link">
+      <a href="../../Misc/4sq/" class="md-nav__link">
         Forsquare API
       </a>
     </li>
@@ -1158,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adobe/" class="md-nav__link">
+      <a href="../../Misc/adobe/" class="md-nav__link">
         Adobe
       </a>
     </li>
@@ -1170,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../auth0/" class="md-nav__link">
+      <a href="../../Misc/auth0/" class="md-nav__link">
         Auth0
       </a>
     </li>
@@ -1182,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws/" class="md-nav__link">
+      <a href="../../Misc/aws/" class="md-nav__link">
         AWS
       </a>
     </li>
@@ -1194,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../az/" class="md-nav__link">
+      <a href="../../Misc/az/" class="md-nav__link">
         Azure CLI
       </a>
     </li>
@@ -1206,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../azure/" class="md-nav__link">
+      <a href="../../Misc/azure/" class="md-nav__link">
         Azure
       </a>
     </li>
@@ -1218,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backlog/" class="md-nav__link">
+      <a href="../../Misc/backlog/" class="md-nav__link">
         Backlog
       </a>
     </li>
@@ -1230,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bsky/" class="md-nav__link">
+      <a href="../../Misc/bsky/" class="md-nav__link">
         Bluesky API
       </a>
     </li>
@@ -1242,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chrome/" class="md-nav__link">
+      <a href="../../Misc/chrome/" class="md-nav__link">
         Chrome
       </a>
     </li>
@@ -1254,7 +1321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloud-init/" class="md-nav__link">
+      <a href="../../Misc/cloud-init/" class="md-nav__link">
         cloud-init
       </a>
     </li>
@@ -1266,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cygwin/" class="md-nav__link">
+      <a href="../../Misc/cygwin/" class="md-nav__link">
         Cygwin
       </a>
     </li>
@@ -1278,7 +1345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../drawio/" class="md-nav__link">
+      <a href="../../Misc/drawio/" class="md-nav__link">
         Draw.io
       </a>
     </li>
@@ -1290,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../esxi/" class="md-nav__link">
+      <a href="../../Misc/esxi/" class="md-nav__link">
         ESXi
       </a>
     </li>
@@ -1302,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../firefox/" class="md-nav__link">
+      <a href="../../Misc/firefox/" class="md-nav__link">
         Firefox
       </a>
     </li>
@@ -1314,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gas/" class="md-nav__link">
+      <a href="../../Misc/gas/" class="md-nav__link">
         Google Apps Script
       </a>
     </li>
@@ -1326,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
+      <a href="../../Misc/github/" class="md-nav__link">
         GitHub
       </a>
     </li>
@@ -1338,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gitlab/" class="md-nav__link">
+      <a href="../../Misc/gitlab/" class="md-nav__link">
         GitLab
       </a>
     </li>
@@ -1350,7 +1417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../googledrive/" class="md-nav__link">
+      <a href="../../Misc/googledrive/" class="md-nav__link">
         Google Drive
       </a>
     </li>
@@ -1362,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jq/" class="md-nav__link">
+      <a href="../../Misc/jq/" class="md-nav__link">
         jq
       </a>
     </li>
@@ -1374,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mermaid/" class="md-nav__link">
+      <a href="../../Misc/mermaid/" class="md-nav__link">
         Mermaid
       </a>
     </li>
@@ -1386,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microsoft/" class="md-nav__link">
+      <a href="../../Misc/microsoft/" class="md-nav__link">
         Microsoft
       </a>
     </li>
@@ -1398,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mise/" class="md-nav__link">
+      <a href="../../Misc/mise/" class="md-nav__link">
         mise
       </a>
     </li>
@@ -1408,126 +1475,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          MkDocs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Misc/mkdocs/" class="md-nav__link">
         MkDocs
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#github-pages" class="md-nav__link">
-    GitHub Pages設定
-  </a>
-  
-    <nav class="md-nav" aria-label="GitHub Pages設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github-pages_1" class="md-nav__link">
-    手動実行してGitHub Pages公開
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
-    GitHub Actions連携
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-pages_2" class="md-nav__link">
-    GitHub Pagesはドキュメントルートで公開
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    コンテンツ設定
-  </a>
-  
-    <nav class="md-nav" aria-label="コンテンツ設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    色設定
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    コードハイライト
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    日本語検索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#google-analytics" class="md-nav__link">
-    Google Analytics設定
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    取り消し線の有効化
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1537,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/" class="md-nav__link">
+      <a href="../../Misc/network/" class="md-nav__link">
         ネットワーク
       </a>
     </li>
@@ -1549,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../openssl/" class="md-nav__link">
+      <a href="../../Misc/openssl/" class="md-nav__link">
         openssl
       </a>
     </li>
@@ -1561,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/" class="md-nav__link">
+      <a href="../../Misc/postgresql/" class="md-nav__link">
         PostgreSQL
       </a>
     </li>
@@ -1573,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../prometheus/" class="md-nav__link">
+      <a href="../../Misc/prometheus/" class="md-nav__link">
         Prometheus
       </a>
     </li>
@@ -1585,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../proxmox/" class="md-nav__link">
+      <a href="../../Misc/proxmox/" class="md-nav__link">
         Proxmox (PVE)
       </a>
     </li>
@@ -1597,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnap/" class="md-nav__link">
+      <a href="../../Misc/qnap/" class="md-nav__link">
         QNAP
       </a>
     </li>
@@ -1609,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slack/" class="md-nav__link">
+      <a href="../../Misc/slack/" class="md-nav__link">
         Slack
       </a>
     </li>
@@ -1621,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql/" class="md-nav__link">
+      <a href="../../Misc/sql/" class="md-nav__link">
         SQL
       </a>
     </li>
@@ -1633,7 +1585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sqlite/" class="md-nav__link">
+      <a href="../../Misc/sqlite/" class="md-nav__link">
         SQLite3
       </a>
     </li>
@@ -1645,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../terraform/" class="md-nav__link">
+      <a href="../../Misc/terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -1657,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vault/" class="md-nav__link">
+      <a href="../../Misc/vault/" class="md-nav__link">
         HashiCorp Vault
       </a>
     </li>
@@ -1669,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vi/" class="md-nav__link">
+      <a href="../../Misc/vi/" class="md-nav__link">
         vi
       </a>
     </li>
@@ -1681,7 +1633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode/" class="md-nav__link">
+      <a href="../../Misc/vscode/" class="md-nav__link">
         VS Code
       </a>
     </li>
@@ -1693,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../windows/" class="md-nav__link">
+      <a href="../../Misc/windows/" class="md-nav__link">
         Windows
       </a>
     </li>
@@ -1858,30 +1810,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#github-pages" class="md-nav__link">
-    GitHub Pages設定
+  <a href="#_1" class="md-nav__link">
+    ビルド
   </a>
   
-    <nav class="md-nav" aria-label="GitHub Pages設定">
+    <nav class="md-nav" aria-label="ビルド">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#github-pages_1" class="md-nav__link">
-    手動実行してGitHub Pages公開
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
-    GitHub Actions連携
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-pages_2" class="md-nav__link">
-    GitHub Pagesはドキュメントルートで公開
+  <a href="#containerfile" class="md-nav__link">
+    Containerfile指定
   </a>
   
 </li>
@@ -1892,50 +1830,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    コンテンツ設定
-  </a>
-  
-    <nav class="md-nav" aria-label="コンテンツ設定">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    色設定
+  <a href="#push" class="md-nav__link">
+    push
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    コードハイライト
+      
+        <li class="md-nav__item">
+  <a href="#dind" class="md-nav__link">
+    dind
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    日本語検索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#google-analytics" class="md-nav__link">
-    Google Analytics設定
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    取り消し線の有効化
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1951,76 +1855,34 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Misc/mkdocs.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/zaki-lknr/docs/edit/master/docs/Container/buildah.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="mkdocs">MkDocs</h1>
-<ul>
-<li><a href="https://www.mkdocs.org/user-guide/configuration/">Configuration - MkDocs</a></li>
-<li><a href="https://squidfunk.github.io/mkdocs-material/getting-started/">Getting started - Material for MkDocs</a></li>
-<li><a href="https://mkdocs.readthedocs.io/en/latest/user-guide/deploying-your-docs/">Deploying Your Docs - MkDocs</a></li>
-<li><a href="https://dev.classmethod.jp/articles/mkdocs-and-material-for-mkdocs-tips-matome/#custom-theme">プロジェクトドキュメント構築向け静的サイトジェネレータ『MkDocs』及び『Material for MkDocs』の個人的導入＆設定まとめ | DevelopersIO</a></li>
-</ul>
-<h2 id="github-pages">GitHub Pages設定</h2>
-<h3 id="github-pages_1">手動実行してGitHub Pages公開</h3>
-<p>ソースmarkdown用リポジトリは既に存在し、リモートリポジトリに設定されている状態で</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdocs<span class="w"> </span>gh-deploy<span class="w"> </span>--clean
-<span class="go">INFO    -  Cleaning site directory </span>
-<span class="go">INFO    -  Building documentation to directory: /home/zaki/src/github-pages/site </span>
-<span class="go">INFO    -  Documentation built in 0.19 seconds </span>
-<span class="go">WARNING -  Version check skipped: No version specified in previous deployment. </span>
-<span class="go">INFO    -  Copying &#39;/home/zaki/src/github-pages/site&#39; to &#39;gh-pages&#39; branch and pushing to GitHub. </span>
-<span class="go">INFO    -  Your documentation should shortly be available at: https://zaki-lknr.github.io/pages/ </span>
+                <h1 id="buildah">Buildah</h1>
+<h2 id="_1">ビルド</h2>
+<div class="highlight"><pre><span></span><code><span class="go">buildah build -t my-registry.example.org:5000/repo/app:latest .</span>
 </code></pre></div>
-<p>リモートリポジトリに<code>gh-pages</code>ブランチが作成され、ここにビルドされたコンテンツがpushされて以下のURLにコンテンツが公開された。<br />
-ディレクトリ名はリポジトリ名になっている。</p>
-<p>https://zaki-lknr.github.io/pages/</p>
-<h3 id="github-actions">GitHub Actions連携</h3>
-<p><a href="https://futureys.tokyo/lets-deploy-document-built-by-mkdocs-to-github-pages-by-using-github-actions/">MkDocs で作ったドキュメントを GitHub Actions を使って GitHub Pages にデプロイしよう | ultra code</a></p>
-<ul>
-<li>以下を用意<ul>
-<li>ソースmarkdown用リポジトリ<ul>
-<li>リポジトリ名は任意</li>
-</ul>
-</li>
-<li>GitHub Pages公開コンテンツ用リポジトリ<ul>
-<li>このリポジトリ名は<code>&lt;GitHubユーザー名&gt;.github.io</code>にする</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="github-pages_2">GitHub Pagesはドキュメントルートで公開</h3>
-<p>公開用リポジトリ名を<a href="https://github.com/zaki-lknr/zaki-lknr.github.io"><GitHubユーザー名>.github.io</a>にすればOKだった。<br />
-詳細は未確認。</p>
-<p><a href="https://matsuuratomoya.com/blog/2016-05-07/githubpage-subdirectory/">Github pagesで意地でもサブディレクトリをルートにする | Matsuura Tomoya|松浦知也</a></p>
-<h2 id="_1">コンテンツ設定</h2>
-<h3 id="_2">色設定</h3>
-<ul>
-<li><a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/">Changing the colors - Material for MkDocs</a></li>
-<li><a href="https://dev.classmethod.jp/articles/mkdocs-color-palette/">MKDocs – 基本のドキュメント配色設定方法 | DevelopersIO</a></li>
-</ul>
-<h3 id="_3">コードハイライト</h3>
-<p><a href="https://dev.classmethod.jp/articles/mkdocs-plugins-1/#toc-9">MKDocs – 拡張プラグイン集(1) | DevelopersIO</a></p>
-<p>あとで公式もチェックするか。。</p>
-<p>この辺かな:<br />
-<a href="https://squidfunk.github.io/mkdocs-material/reference/code-blocks/">Code blocks - Material for MkDocs</a></p>
-<h3 id="_4">日本語検索</h3>
-<p>materialテーマの場合</p>
-<p><a href="https://miyalog.hatenablog.jp/entry/2017-11-07_MkDocs_Material_Japanese_support">Material for MkDocs を日本語対応した話＆初めてのOSSコントリビュート - miyalog</a></p>
-<h3 id="google-analytics">Google Analytics設定</h3>
-<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/">Setting up site analytics - Material for MkDocs</a></p>
-<div class="highlight"><pre><span></span><code><span class="nt">google_analytics</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UA-XXXXXXXX-X</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auto</span>
+<h3 id="containerfile">Containerfile指定</h3>
+<div class="highlight"><pre><span></span><code><span class="go">buildah build -f path/to/Containerfile -t my-registry.example.org:5000/repo/app:latest .</span>
 </code></pre></div>
-<h3 id="_5">取り消し線の有効化</h3>
-<p>Material for MkDocsを使っていると(?)、<code>~~</code>による取り消し線が動作しない。<br />
-以下設定を追加すると有効になる。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">markdown_extensions</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.tilde</span>
+<h2 id="push">push</h2>
+<p><code>docker push</code>などと同じ構文</p>
+<div class="highlight"><pre><span></span><code><span class="go">buildah push my-registry.example.org:5000/repo/image:latest</span>
+</code></pre></div>
+<p>src dst形式でも実行できるため、ビルド時にFQDNを付けていなくても直接pushできる。</p>
+<div class="highlight"><pre><span></span><code><span class="go">buildah push localhost/image:latest my-registry.example.org:5000/repo/image:latest</span>
+</code></pre></div>
+<h2 id="dind">dind</h2>
+<p>DockerコンテナとしてデプロイしたBuildahコンテナ内でビルドするには、<code>--privileged</code>オプション付与して起動する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker run --name buildah -d --rm --privileged quay.io/buildah/stable:latest ...</span>
+</code></pre></div>
+<p>無い場合はエラーになる。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">sh-5.3# </span>buildah<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span><span class="nb">test</span><span class="w"> </span>.
+<span class="go">Error during unshare(CLONE_NEWUSER): Operation not permitted</span>
+<span class="go">ERRO[0000] parsing PID &quot;&quot;: strconv.Atoi: parsing &quot;&quot;: invalid syntax </span>
+<span class="go">ERRO[0000] (Unable to determine exit status)          </span>
 </code></pre></div>
                 
               
@@ -2040,7 +1902,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../mise/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../build/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2049,19 +1911,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              mise
+              イメージビルド
             </div>
           </div>
         </a>
       
       
-        <a href="../network/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../compose/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              ネットワーク
+              Docker Compose
             </div>
           </div>
           <div class="md-footer__button md-icon">
