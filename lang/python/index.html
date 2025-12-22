@@ -42,7 +42,7 @@
     
     
     
-      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@10.9.0/dist/mermaid.css">
     
     
       
@@ -4384,6 +4384,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># dataがNoneでない場合</span>
 </code></pre></div>
+<p><code>==</code>や<code>!=</code>はオーバーロード可能なため、<code>is</code>で判定する方がより良いとされている。</p>
 <h3 id="_11">引数</h3>
 <h4 id="_12">コマンドライン引数</h4>
 <p><code>sys.argv</code>を使う</p>
@@ -5462,7 +5463,9 @@ jmespath==0.10.0
     
       <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
-        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid-init.js"></script>
       
     
   </body>
