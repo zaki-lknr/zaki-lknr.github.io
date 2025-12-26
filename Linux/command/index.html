@@ -1217,6 +1217,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#http-09" class="md-nav__link">
     HTTP 0.9
   </a>
@@ -3226,6 +3233,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#http-09" class="md-nav__link">
     HTTP 0.9
   </a>
@@ -4292,8 +4306,8 @@
 <div class="highlight"><pre><span></span><code><span class="go">less -X</span>
 </code></pre></div>
 <h3 id="_3">短いファイルは表示後即終了</h3>
-<p>1画面に収まる分量の場合は<code>-E</code>付与で<code>cat</code>と同じ動作になる</p>
-<div class="highlight"><pre><span></span><code><span class="go">less -E</span>
+<p>1画面に収まる分量の場合は<code>-F</code>付与で<code>cat</code>と同じ動作になる</p>
+<div class="highlight"><pre><span></span><code><span class="go">less -F</span>
 </code></pre></div>
 <h3 id="_4">制御文字を認識させる</h3>
 <p><code>ESC[32m</code>とか大量に表示されたときは、表示中に<code>-r</code>押下して<code>enter</code></p>
@@ -4394,6 +4408,10 @@
 <p><code>ansible.example.org</code>という名前で<code>192.168.0.41:443</code>へアクセスする。</p>
 <h3 id="basic">basic認証</h3>
 <div class="highlight"><pre><span></span><code>curl -u username:password http://example.org/
+</code></pre></div>
+<h3 id="proxy">proxy</h3>
+<p><code>http://proxy:8080</code>をプロキシサーバーとして設定してHTTPアクセスする</p>
+<div class="highlight"><pre><span></span><code>curl -x http://proxy:8080 https://target.example.org
 </code></pre></div>
 <h3 id="http-09">HTTP 0.9</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>http://old.example.org/

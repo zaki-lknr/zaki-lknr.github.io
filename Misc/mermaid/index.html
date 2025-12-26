@@ -1428,6 +1428,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ライフラインの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate-deactivate" class="md-nav__link">
+    実行仕様 (activate / deactivate)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    同期・非同期
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1824,6 +1845,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ライフラインの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate-deactivate" class="md-nav__link">
+    実行仕様 (activate / deactivate)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    同期・非同期
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1848,6 +1890,7 @@
                 
                 <h1 id="mermaid">Mermaid</h1>
 <h2 id="_1">シーケンス図</h2>
+<p><a href="https://mermaid.js.org/syntax/sequenceDiagram.html">Sequence diagrams | Mermaid</a></p>
 <p>コード</p>
 <div class="highlight"><pre><span></span><code>```mermaid
 sequenceDiagram
@@ -1893,6 +1936,95 @@ sequenceDiagram
 <p>省略可能。箱型のライフラインを定義。<br />
 また、冒頭部分に記述することで描画の順序を記述準に固定できる。<br />
 <code>actor</code>同様、<code>as</code>で表示用文言を設定可能。</p>
+<h3 id="_2">ライフラインの作成</h3>
+<p><code>create</code>を宣言して開始の矢印、<code>destroy</code>を宣言して終了の矢印、の順に記載。</p>
+<div class="highlight"><pre><span></span><code>```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; server: request
+    create participant thread
+    server -&gt;&gt; thread: new
+    destroy thread
+    thread --&gt;&gt; server: delete
+    server --&gt;&gt; client: response
+```
+</code></pre></div>
+<div class="mermaid">sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; server: request
+    create participant thread
+    server -&gt;&gt; thread: new
+    destroy thread
+    thread --&gt;&gt; server: delete
+    server --&gt;&gt; client: response</div>
+<h3 id="activate-deactivate">実行仕様 (activate / deactivate)</h3>
+<p>処理の実行中の長方形を描画するには、開始に<code>+</code>、終了に<code>-</code>を付与する。</p>
+<div class="highlight"><pre><span></span><code>```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; +server: request
+    server --&gt;&gt; -client: response
+```
+</code></pre></div>
+<div class="mermaid">sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; +server: request
+    server --&gt;&gt; -client: response</div>
+<p><code>activate</code>と<code>deactivate</code>で明記もできる。</p>
+<div class="highlight"><pre><span></span><code>```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; server: request
+    activate server
+    server --&gt;&gt; client: response
+    deactivate server
+```
+</code></pre></div>
+<div class="mermaid">sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; server: request
+    activate server
+    server --&gt;&gt; client: response
+    deactivate server</div>
+<h3 id="_3">同期・非同期</h3>
+<p>同期処理</p>
+<div class="highlight"><pre><span></span><code>```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; +server: request
+    server --) -client: response
+```
+</code></pre></div>
+<div class="mermaid">sequenceDiagram
+    participant client
+    participant server
+    client -&gt;&gt; +server: request
+    server --) -client: response</div>
+<p>非同期処理</p>
+<div class="highlight"><pre><span></span><code>```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    client -) server: request
+    activate  server
+    note right of server: 非同期処理
+    deactivate server
+```
+</code></pre></div>
+<div class="mermaid">sequenceDiagram
+    participant client
+    participant server
+    client -) server: request
+    activate  server
+    note right of server: 非同期処理
+    deactivate server</div>
                 
               
               

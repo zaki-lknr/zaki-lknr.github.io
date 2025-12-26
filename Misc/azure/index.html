@@ -1246,6 +1246,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アカウント
+  </a>
+  
+    <nav class="md-nav" aria-label="アカウント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    サブスクリプションの確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cloud-shell" class="md-nav__link">
     Cloud Shell
   </a>
@@ -1254,7 +1274,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ストレージアカウントの確認
   </a>
   
@@ -1274,7 +1294,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     監視設定
   </a>
   
@@ -1302,7 +1322,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     収集するコンテナーログの設定変更
   </a>
   
@@ -1314,7 +1334,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     クエリ
   </a>
   
@@ -1883,6 +1903,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アカウント
+  </a>
+  
+    <nav class="md-nav" aria-label="アカウント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    サブスクリプションの確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cloud-shell" class="md-nav__link">
     Cloud Shell
   </a>
@@ -1891,7 +1931,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ストレージアカウントの確認
   </a>
   
@@ -1911,7 +1951,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     監視設定
   </a>
   
@@ -1939,7 +1979,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     収集するコンテナーログの設定変更
   </a>
   
@@ -1951,7 +1991,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     クエリ
   </a>
   
@@ -2003,14 +2043,18 @@
 </li>
 <li><a href="https://learn.microsoft.com/ja-jp/azure/container-instances/container-instances-overview">Azure のサーバーレス コンテナー - Azure Container Instances | Microsoft Learn</a></li>
 </ul>
+<h2 id="_2">アカウント</h2>
+<h3 id="_3">サブスクリプションの確認</h3>
+<p>Azureサービスの「サブスクリプション」から確認できる。<br />
+CLIであれば<code>az account show --query id</code></p>
 <h2 id="cloud-shell">Cloud Shell</h2>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/cloud-shell/faq-troubleshooting">Azure Cloud Shell に関してよくあるご質問 (FAQ) | Microsoft Learn</a></p>
-<h3 id="_2">ストレージアカウントの確認</h3>
+<h3 id="_4">ストレージアカウントの確認</h3>
 <p>環境変数にセットされている。</p>
 <div class="highlight"><pre><span></span><code><span class="go">echo $ACC_STORAGE_PROFILE</span>
 </code></pre></div>
 <h2 id="aks">AKS</h2>
-<h3 id="_3">監視設定</h3>
+<h3 id="_5">監視設定</h3>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli">Azure Kubernetes Service (AKS) クラスターの監視を有効にする - Azure Monitor | Microsoft Learn</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/containers/kubernetes-monitoring-disable">Kubernetes クラスターの監視を無効にする - Azure Monitor | Microsoft Learn</a></li>
@@ -2024,11 +2068,11 @@
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/metrics/analyze-metrics">Azure Monitor メトリックス エクスプローラーを使用してメトリックを分析する - Azure Monitor | Microsoft Learn</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/previous-versions/azure/azure-monitor/containers/container-insights-custom-metrics?tabs=portal">Container Insights によって収集されるカスタム メトリック - Azure Monitor | Microsoft Learn</a></li>
 </ul>
-<h4 id="_4">収集するコンテナーログの設定変更</h4>
+<h4 id="_6">収集するコンテナーログの設定変更</h4>
 <p>AKSクラスターのメニューの「監視」から、上部の「モニターの設定」押下。<br />
 これでデプロイ時に選択するPrometheus/Grafanaやコンテナーログの設定画面が表示される。<br />
 収集頻度や対象ネームスペースなどをここから選択。</p>
-<h3 id="_5">クエリ</h3>
+<h3 id="_7">クエリ</h3>
 <h4 id="countername">使用可能なCounterNameの一覧</h4>
 <div class="highlight"><pre><span></span><code><span class="n">Perf</span>
 <span class="p">|</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ObjectName</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s">&quot;K8SContainer&quot;</span>
