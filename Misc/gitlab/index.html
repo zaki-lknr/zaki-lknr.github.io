@@ -1419,6 +1419,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#runner" class="md-nav__link">
+    Runner登録
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1878,6 +1885,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#runner" class="md-nav__link">
+    Runner登録
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1920,6 +1934,20 @@
 <li><a href="https://docs.gitlab.com/ja-jp/ci/migration/github_actions/">GitHub Actionsから移行する | GitLab Docs</a></li>
 <li><a href="https://docs.github.com/ja/enterprise-cloud@latest/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-gitlab-cicd">GitLab CI/CD から GitHub Actions への移行 - GitHub Enterprise Cloud Docs</a></li>
 </ul>
+<h3 id="runner">Runner登録</h3>
+<p>executor dockerの場合  </p>
+<div class="highlight"><pre><span></span><code><span class="go">gitlab-runner register -n \</span>
+<span class="go">  --url ${gitlab_url} \</span>
+<span class="go">  --token ${token} \</span>
+<span class="go">  --name container-executor \</span>
+<span class="go">  --executor docker \</span>
+<span class="go">  --docker-image ${container_image} \</span>
+<span class="go">  --docker-network-mode ${container_network} \</span>
+<span class="go">  --docker-privileged</span>
+</code></pre></div>
+<p>最後の<code>--docker-privileged</code>がないと、dindでイメージビルドなどが失敗する。(dockerコマンドが使用不能)</p>
+<div class="highlight"><pre><span></span><code><span class="go">failed to connect to the docker API at tcp://docker:2375: lookup docker on 127.0.0.11:53: server misbehaving</span>
+</code></pre></div>
                 
               
               
