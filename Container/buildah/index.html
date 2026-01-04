@@ -695,6 +695,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アーキテクチャ指定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1824,6 +1831,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アーキテクチャ指定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1870,6 +1884,10 @@
 </code></pre></div>
 <h3 id="containerfile">Containerfile指定</h3>
 <div class="highlight"><pre><span></span><code><span class="go">buildah build -f path/to/Containerfile -t my-registry.example.org:5000/repo/app:latest .</span>
+</code></pre></div>
+<h3 id="_2">アーキテクチャ指定</h3>
+<p>amd64のマシン上でも<code>--arch arm64</code>を付与すれば、arm64版イメージビルドできる。</p>
+<div class="highlight"><pre><span></span><code><span class="go">buildah build -f Dockerfile --arch arm64 -t buildah:arm64</span>
 </code></pre></div>
 <h2 id="push">push</h2>
 <p><code>docker push</code>などと同じ構文</p>
