@@ -1196,6 +1196,26 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    起動オプション
+  </a>
+  
+    <nav class="md-nav" aria-label="起動オプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    フォアグラウンド
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dhcp" class="md-nav__link">
     dhcp
   </a>
@@ -1218,7 +1238,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リース状態
   </a>
   
@@ -1238,7 +1258,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ワイルドカード
   </a>
   
@@ -2001,6 +2021,26 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    起動オプション
+  </a>
+  
+    <nav class="md-nav" aria-label="起動オプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    フォアグラウンド
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dhcp" class="md-nav__link">
     dhcp
   </a>
@@ -2023,7 +2063,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     リース状態
   </a>
   
@@ -2043,7 +2083,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     ワイルドカード
   </a>
   
@@ -2148,6 +2188,9 @@ backend bazqux
   server host1 192.168.0.68:6443 ssl verify none check
 </code></pre></div>
 <h2 id="dnsmasq">dnsmasq</h2>
+<h3 id="_6">起動オプション</h3>
+<h4 id="_7">フォアグラウンド</h4>
+<p><code>--no-daemon</code>を付けるとバックグラウンドへフォークしない。</p>
 <h3 id="dhcp">dhcp</h3>
 <h4 id="ip">IPアドレス固定</h4>
 <p>書式：<code>dhcp-host=hwaddr,hostname,ipaddr</code></p>
@@ -2157,10 +2200,10 @@ backend bazqux
 <p>アドレスレンジとリース時間の設定</p>
 <div class="highlight"><pre><span></span><code>dhcp-range=192.168.0.201,192.168.0.239,255.255.255.0,12h
 </code></pre></div>
-<h4 id="_6">リース状態</h4>
+<h4 id="_8">リース状態</h4>
 <p>ファイルはデフォルトで <code>/var/lib/misc/dnsmasq.leases</code> にある。</p>
 <h3 id="dns">DNS</h3>
-<h4 id="_7">ワイルドカード</h4>
+<h4 id="_9">ワイルドカード</h4>
 <p>ワイルドカード的に任意の文字列をサブドメイン扱いですべて特定のアドレスに名前解決する</p>
 <div class="highlight"><pre><span></span><code>address=/exmaple.org/192.168.0.15
 </code></pre></div>

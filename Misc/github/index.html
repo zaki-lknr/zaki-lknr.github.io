@@ -1645,6 +1645,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    式の評価
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#if" class="md-nav__link">
     if
   </a>
@@ -1653,7 +1660,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     空文字判定
   </a>
   
@@ -1670,7 +1677,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     変数
   </a>
   
@@ -1710,6 +1717,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#github_tokenpermissions" class="md-nav__link">
+    GITHUB_TOKENとpermissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#runners" class="md-nav__link">
     Runners
   </a>
@@ -1727,6 +1741,13 @@
           <li class="md-nav__item">
   <a href="#login" class="md-nav__link">
     login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-cli" class="md-nav__link">
+    Azure CLI
   </a>
   
 </li>
@@ -2452,6 +2473,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    式の評価
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#if" class="md-nav__link">
     if
   </a>
@@ -2460,7 +2488,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     空文字判定
   </a>
   
@@ -2477,7 +2505,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     変数
   </a>
   
@@ -2517,6 +2545,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#github_tokenpermissions" class="md-nav__link">
+    GITHUB_TOKENとpermissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#runners" class="md-nav__link">
     Runners
   </a>
@@ -2534,6 +2569,13 @@
           <li class="md-nav__item">
   <a href="#login" class="md-nav__link">
     login
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-cli" class="md-nav__link">
+    Azure CLI
   </a>
   
 </li>
@@ -2745,6 +2787,8 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <h3 id="_16">ワークフローとジョブの再実行</h3>
 <p>ワークフロー実行結果一覧から指定のワークフローを開き、画面右上の「Re-run all jobs」ボタンを押下</p>
 <h3 id="steps">タスク(steps)</h3>
+<h4 id="_17">式の評価</h4>
+<p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/expressions">ワークフローとアクションで式を評価する - GitHub ドキュメント</a></p>
 <h4 id="if">if</h4>
 <p>条件によってタスクを処理せずスキップする</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec command</span>
@@ -2757,10 +2801,10 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <p>"exec command"の出力結果を変数保持しているが、文字列長がゼロの場合は次のタスク"exec next"は実行されない。</p>
-<h5 id="_17">空文字判定</h5>
+<h5 id="_18">空文字判定</h5>
 <p>前述の通り <code>${{ value != '' }}</code> と記述。<br />
 ダブルクォート不可</p>
-<h3 id="_18">変数</h3>
+<h3 id="_19">変数</h3>
 <h4 id="format">フォーマット文字列(format)</h4>
 <div class="highlight"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">VALUE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ format(&#39;foo-{0}-bar&#39;, vars.INPUT_VALUE) }}</span>
@@ -2782,6 +2826,12 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <span class="w">      </span><span class="no">} &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
 </code></pre></div>
 <p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/workflow-commands#multiline-strings">GitHub Actions のワークフロー コマンド - GitHub Docs</a></p>
+<h3 id="github_tokenpermissions">GITHUB_TOKENとpermissions</h3>
+<ul>
+<li><a href="https://docs.github.com/ja/actions/tutorials/authenticate-with-github_token">ワークフローでの認証に GITHUB_TOKEN を使用する - GitHub ドキュメント</a></li>
+<li><a href="https://nikkie-ftnext.hatenablog.com/entry/recognize-github-actions-yaml-permissions-granularity">GitHub ActionsでGITHUB_TOKENの権限が足りないエラーが送出されたとき、私は長いこと設定から権限をread/writeに変えて対応してきました。このたびpermissionsを知りました - nikkie-ftnextの日記</a></li>
+<li><a href="https://zenn.dev/nofi/articles/988359c950de4f">[GitHub Actions]GITHUB_TOKENの権限とPermissions設定</a></li>
+</ul>
 <h3 id="runners">Runners</h3>
 <ul>
 <li>GitHubのランナーを利用する<ul>
@@ -2799,7 +2849,7 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <h4 id="login">login</h4>
 <p>az loginを行うアクション<br />
 <a href="https://github.com/marketplace/actions/azure-login">Azure Login · Actions · GitHub Marketplace</a></p>
-<p><code>subscription-id</code>/<code>client-id</code>/<code>tenant-id</code>のセットか、<code>creds</code>にクレデンシャル情報を指定する。<br />
+<p><code>subscription-id</code>/<code>client-id</code>/<code>tenant-id</code>のセット(OpenID Connect(OIDC))か、<code>creds</code>にクレデンシャル情報を指定(サービスプリンシパル)する。<br />
 <code>creds</code>の場合は以下の形式の文字列</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
@@ -2807,6 +2857,13 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <span class="w">  </span><span class="nt">&quot;tenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span>
 <span class="p">}</span>
+</code></pre></div>
+<h4 id="azure-cli">Azure CLI</h4>
+<p>Azure CLIコマンドを実行するためのAction</p>
+<p><a href="https://github.com/Azure/CLI">Azure/cli: Automate your GitHub workflows using Azure CLI scripts</a></p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure/cli@v2</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">az ...</span>
 </code></pre></div>
 <h4 id="aks">AKS</h4>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/kubernetes-action">GitHub Actions を使った Azure Kubernetes Service (AKS) へのコンテナーのビルド、テスト、デプロイ - Azure Kubernetes Service | Microsoft Learn</a></p>
