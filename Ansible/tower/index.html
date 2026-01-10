@@ -2839,6 +2839,9 @@ Towerは実行中で良い。<br />
 <p>日付指定は<code>--days</code>で指定。</p>
 <div class="highlight"><pre><span></span><code><span class="go">awx-manage cleanup_jobs --days 3</span>
 </code></pre></div>
+<p><code>awx-manage cleanup_jobs</code>であれば、ジョブ履歴に加えてイベント情報も消える。<br />
+UIのジョブ一覧からの削除の場合、ジョブは消えるがイベント情報は残るので注意。</p>
+<p><a href="https://github.com/ansible/awx/issues/14590">PG size keeps growing even after continuously deleting job history · Issue #14590 · ansible/awx</a></p>
 <h2 id="api">API</h2>
 <p>API一覧は以下。<br />
 <del><a href="https://docs.ansible.com/automation-controller/latest/html/controllerapi/api_ref.html">11. Controller API Reference Guide — Automation Controller API Guide v4.2.1</a></del></p>
