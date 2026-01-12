@@ -715,6 +715,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#working-container" class="md-nav__link">
+    working container
+  </a>
+  
+    <nav class="md-nav" aria-label="working container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dind" class="md-nav__link">
     dind
   </a>
@@ -1851,6 +1878,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#working-container" class="md-nav__link">
+    working container
+  </a>
+  
+    <nav class="md-nav" aria-label="working container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    リスト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dind" class="md-nav__link">
     dind
   </a>
@@ -1895,6 +1949,13 @@
 </code></pre></div>
 <p>src dst形式でも実行できるため、ビルド時にFQDNを付けていなくても直接pushできる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">buildah push localhost/image:latest my-registry.example.org:5000/repo/image:latest</span>
+</code></pre></div>
+<h2 id="working-container">working container</h2>
+<h3 id="_3">リスト</h3>
+<div class="highlight"><pre><span></span><code><span class="go">buildah containers</span>
+</code></pre></div>
+<h3 id="_4">削除</h3>
+<div class="highlight"><pre><span></span><code><span class="go">buildah rm containerID1 containerID2 containerID3 ...</span>
 </code></pre></div>
 <h2 id="dind">dind</h2>
 <p>DockerコンテナとしてデプロイしたBuildahコンテナ内でビルドするには、<code>--privileged</code>オプション付与して起動する。</p>

@@ -2375,6 +2375,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-datetime" class="md-nav__link">
+    文字列 -&gt; datetime
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3659,6 +3666,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-datetime" class="md-nav__link">
+    文字列 -&gt; datetime
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4883,6 +4897,86 @@ float型なので必要に応じて<code>int()</code>を併用する。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 30日前のUNIX時刻</span>
 <span class="n">sec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">30</span><span class="p">))</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
 </code></pre></div>
+<h4 id="-datetime">文字列 -&gt; datetime</h4>
+<p><code>datetime.strptime</code>を使う。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="n">date_str</span> <span class="o">=</span> <span class="s2">&quot;2026/01/10 08:26:34&quot;</span>
+<span class="n">date_strptime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span> <span class="s1">&#39;%Y/%m/</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>指定子</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%Y</code></td>
+<td>西暦 (4桁)</td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>月 (<code>01</code>オリジン)</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>日</td>
+</tr>
+<tr>
+<td><code>%H</code></td>
+<td>時</td>
+</tr>
+<tr>
+<td><code>%M</code></td>
+<td>分</td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>秒</td>
+</tr>
+</tbody>
+</table>
+<p>その他</p>
+<table>
+<thead>
+<tr>
+<th>指定子</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%a</code></td>
+<td>曜日の英語表記(<code>Mon.</code>とか<code>fri</code>とか)</td>
+</tr>
+<tr>
+<td><code>%b</code></td>
+<td>月の英語表記(<code>Feb</code>とか<code>may</code>とか)</td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>マイクロ秒(秒の小数点未満6桁)</td>
+</tr>
+<tr>
+<td><code>%I</code></td>
+<td>12時間表記のhour (↓とセットで使う)</td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>AM/PM (↑とセットで使う)</td>
+</tr>
+<tr>
+<td><code>%Z</code></td>
+<td>タイムゾーン名 (<code>UTC</code>とか<code>GMT</code>とか<code>JST</code>とか。本記事参照)</td>
+</tr>
+<tr>
+<td><code>%z</code></td>
+<td>UTCオフセット</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/02/11/225358">[Python] datetime.strptime()を使った文字列からdatetimeオブジェクトへの変換とタイムゾーン - zaki work log</a></p>
 <h3 id="byte">byte型</h3>
 <p>変数出力すると<code>b'....'</code>と表記され出力される。</p>
 <div class="highlight"><pre><span></span><code><span class="n">byte_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;zzzzzzzz&#39;</span>

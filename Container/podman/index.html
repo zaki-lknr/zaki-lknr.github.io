@@ -849,6 +849,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    stats
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1938,6 +1945,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    stats
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2050,6 +2064,13 @@
 <span class="go">76fa5ec79fb1  docker.io/library/eedc67f030eef81a46a39d553e82b5494e9602a619f248dd2dd377ea1194d536-tmp:latest  buildah     21 months ago  Storage                 c284335d223f-working-container</span>
 <span class="go">:</span>
 <span class="go">:</span>
+</code></pre></div>
+<p>これらのコンテナを削除するには<code>buildah</code>の削除コマンド(<code>buildah rm &lt;containerID&gt;</code>)を使う。</p>
+<h3 id="stats">stats</h3>
+<p>リソース使用状況を確認。<br />
+<code>docker stats</code>とだいたい同じ。</p>
+<div class="highlight"><pre><span></span><code><span class="go">ID            NAME         CPU %       MEM USAGE / LIMIT  MEM %       NET IO             BLOCK IO    PIDS        CPU TIME    AVG CPU %</span>
+<span class="go">e73ceb58e96c  jolly_morse  0.00%       397.3kB / 8.045GB  0.00%       1.098kB / 9.082kB  0B / 0B     1           6.895138s   0.00%</span>
 </code></pre></div>
 <h2 id="volume">volume</h2>
 <h3 id="permission-denied">permission denied</h3>
