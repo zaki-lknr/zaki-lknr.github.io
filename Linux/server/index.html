@@ -1182,6 +1182,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    統計情報
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1196,7 +1203,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     起動オプション
   </a>
   
@@ -1204,7 +1211,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     フォアグラウンド
   </a>
   
@@ -1238,7 +1245,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リース状態
   </a>
   
@@ -1258,7 +1265,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ワイルドカード
   </a>
   
@@ -2007,6 +2014,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    統計情報
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2021,7 +2035,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     起動オプション
   </a>
   
@@ -2029,7 +2043,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     フォアグラウンド
   </a>
   
@@ -2063,7 +2077,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リース状態
   </a>
   
@@ -2083,7 +2097,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ワイルドカード
   </a>
   
@@ -2187,9 +2201,20 @@ backend bazqux
 <div class="highlight"><pre><span></span><code>backend servers
   server host1 192.168.0.68:6443 ssl verify none check
 </code></pre></div>
+<h3 id="_6">統計情報</h3>
+<p>CLIの場合</p>
+<div class="highlight"><pre><span></span><code><span class="go">echo &quot;show stat&quot; | socat stdio /var/lib/haproxy/stats</span>
+</code></pre></div>
+<p>web UIの場合は<code>haproxy.cfg</code>に以下設定を追加し、ブラウザで<code>http://server:8080/stats</code>にアクセスする。</p>
+<div class="highlight"><pre><span></span><code><span class="na">listen haproxy-stats</span>
+<span class="w">  </span><span class="na">bind *</span><span class="o">:</span><span class="s">8080</span>
+<span class="w">  </span><span class="na">mode http</span>
+<span class="w">  </span><span class="na">stats enable</span>
+<span class="w">  </span><span class="na">stats uri /stats</span>
+</code></pre></div>
 <h2 id="dnsmasq">dnsmasq</h2>
-<h3 id="_6">起動オプション</h3>
-<h4 id="_7">フォアグラウンド</h4>
+<h3 id="_7">起動オプション</h3>
+<h4 id="_8">フォアグラウンド</h4>
 <p><code>--no-daemon</code>を付けるとバックグラウンドへフォークしない。</p>
 <h3 id="dhcp">dhcp</h3>
 <h4 id="ip">IPアドレス固定</h4>
@@ -2200,10 +2225,10 @@ backend bazqux
 <p>アドレスレンジとリース時間の設定</p>
 <div class="highlight"><pre><span></span><code>dhcp-range=192.168.0.201,192.168.0.239,255.255.255.0,12h
 </code></pre></div>
-<h4 id="_8">リース状態</h4>
+<h4 id="_9">リース状態</h4>
 <p>ファイルはデフォルトで <code>/var/lib/misc/dnsmasq.leases</code> にある。</p>
 <h3 id="dns">DNS</h3>
-<h4 id="_9">ワイルドカード</h4>
+<h4 id="_10">ワイルドカード</h4>
 <p>ワイルドカード的に任意の文字列をサブドメイン扱いですべて特定のアドレスに名前解決する</p>
 <div class="highlight"><pre><span></span><code>address=/exmaple.org/192.168.0.15
 </code></pre></div>

@@ -702,6 +702,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    マルチアーキテクチャイメージ
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -723,14 +730,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     リスト
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     削除
   </a>
   
@@ -1865,6 +1872,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    マルチアーキテクチャイメージ
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1886,14 +1900,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     リスト
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     削除
   </a>
   
@@ -1941,7 +1955,25 @@
 </code></pre></div>
 <h3 id="_2">アーキテクチャ指定</h3>
 <p>amd64のマシン上でも<code>--arch arm64</code>を付与すれば、arm64版イメージビルドできる。</p>
-<div class="highlight"><pre><span></span><code><span class="go">buildah build -f Dockerfile --arch arm64 -t buildah:arm64</span>
+<div class="highlight"><pre><span></span><code><span class="gp">#</span><span class="c1">## for arm64</span>
+<span class="go">buildah build -f Dockerfile --arch arm64 -t sample-image:arm64</span>
+
+<span class="gp">#</span><span class="c1">## for amd64</span>
+<span class="go">buildah build -f Dockerfile --arch amd64 -t sample-image:amd64</span>
+</code></pre></div>
+<h3 id="_3">マルチアーキテクチャイメージ</h3>
+<p>上記でビルドした2つのアーキテクチャ用イメージのマニフェストを作成し、それに<code>add</code>する。<br />
+<code>push</code>する場合は<code>manifest</code>を付け忘れないこと。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">#</span><span class="c1"># create manifest</span>
+<span class="go">buildah manifest create sample-image:multi</span>
+
+<span class="gp">#</span><span class="c1"># add image</span>
+<span class="go">buildah manifest add sample-image:multi localhost/sample-image:amd64</span>
+<span class="go">buildah manifest add sample-image:multi localhost/sample-image:arm64</span>
+
+<span class="gp">#</span><span class="c1"># push image</span>
+<span class="go">buildah manifest push --all localhost/sample-image:multi docker.io/username/sample-image:multi</span>
+<span class="go">buildah manifest push --all localhost/sample-image:multi docker://registry.example.org/zaki/images/sample-image:multi</span>
 </code></pre></div>
 <h2 id="push">push</h2>
 <p><code>docker push</code>などと同じ構文</p>
@@ -1951,10 +1983,10 @@
 <div class="highlight"><pre><span></span><code><span class="go">buildah push localhost/image:latest my-registry.example.org:5000/repo/image:latest</span>
 </code></pre></div>
 <h2 id="working-container">working container</h2>
-<h3 id="_3">リスト</h3>
+<h3 id="_4">リスト</h3>
 <div class="highlight"><pre><span></span><code><span class="go">buildah containers</span>
 </code></pre></div>
-<h3 id="_4">削除</h3>
+<h3 id="_5">削除</h3>
 <div class="highlight"><pre><span></span><code><span class="go">buildah rm containerID1 containerID2 containerID3 ...</span>
 </code></pre></div>
 <h2 id="dind">dind</h2>
