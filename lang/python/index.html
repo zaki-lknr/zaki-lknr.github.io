@@ -2483,6 +2483,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleep
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_57" class="md-nav__link">
     出力
   </a>
@@ -2541,6 +2548,13 @@
           <li class="md-nav__item">
   <a href="#_60" class="md-nav__link">
     読み書きモード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readwrite" class="md-nav__link">
+    readしてwrite (ただしファイルが無い場合は新規作成する)
   </a>
   
 </li>
@@ -3781,6 +3795,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleep
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_57" class="md-nav__link">
     出力
   </a>
@@ -3839,6 +3860,13 @@
           <li class="md-nav__item">
   <a href="#_60" class="md-nav__link">
     読み書きモード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readwrite" class="md-nav__link">
+    readしてwrite (ただしファイルが無い場合は新規作成する)
   </a>
   
 </li>
@@ -5098,6 +5126,14 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <p>リストでなく文字列を指定したい場合は<code>shell=True</code>を付与</p>
 <div class="highlight"><pre><span></span><code><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="sleep">sleep</h3>
+<p>指定の秒数停止する。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p><a href="https://docs.python.org/ja/3/library/time.html#time.sleep">time --- 時刻データへのアクセスと変換 — Python 3.14.2 ドキュメント</a></p>
+<p>浮動小数点の指定も可能。</p>
 <h3 id="_57">出力</h3>
 <h4 id="_58">標準エラー出力</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -5172,6 +5208,16 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 </tr>
 </tbody>
 </table>
+<h4 id="readwrite">readしてwrite (ただしファイルが無い場合は新規作成する)</h4>
+<p><code>a+</code>で開いて<code>seek(0)</code>で先頭に移動して処理する。</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">f</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="_61">通信</h3>
 <h4 id="httprequests">HTTP(requests)</h4>
 <p><code>requests</code>を使うと楽。</p>
