@@ -973,6 +973,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#downupnotreadydelete" class="md-nav__link">
+    down/upでノードがNotReadyになるためdeleteが必要
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2294,6 +2301,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#downupnotreadydelete" class="md-nav__link">
+    down/upでノードがNotReadyになるためdeleteが必要
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2593,6 +2607,10 @@ $ curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --resolv-co
 <span class="go">412b213f3d10   Ready    &lt;none&gt;                 12s   v1.29.1+k3s2</span>
 <span class="go">b513c8231aad   Ready    &lt;none&gt;                 11s   v1.29.1+k3s2</span>
 </code></pre></div>
+<h3 id="downupnotreadydelete">down/upでノードがNotReadyになるためdeleteが必要</h3>
+<p>ノードコンテナ再作成によって旧ノードが消え新ノードが追加されるため、旧ノードはNotReadyになる。<br />
+<code>kubectl delete node</code>で削除すれば良い。</p>
+<p><a href="https://docs.k3s.io/ja/architecture">アーキテクチャ | K3s</a></p>
 <h2 id="always-freeocia1flex-2cpu12gb-ram">Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る</h2>
 <p>標準のE2.1.Microの場合↓<br />
 <a href="https://qiita.com/zaki-lknr/items/e829a3ad548e362ef89c">[Oracle Cloud] K3sでAlways Free枠ノードにKubernetesクラスタ作成してローカルからkubectlアクセスまで - Qiita</a></p>
