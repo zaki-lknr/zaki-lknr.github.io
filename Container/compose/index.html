@@ -858,6 +858,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    常駐型でないワンショット処理の起動
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2112,6 +2119,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    常駐型でないワンショット処理の起動
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2332,6 +2346,17 @@ K3S_TOKEN=298143103216182
 <h3 id="_11">コンテナ内の環境変数定義</h3>
 <p><code>environment</code>で指定する。<br />
 前述<code>.env</code>による設定はComposeファイル上の変数参照に使用するものであり、コンテナ内の環境変数定義は別。</p>
+<h3 id="_12">常駐型でないワンショット処理の起動</h3>
+<p>そのまま<code>services</code>に定義すればよい。</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd</span>
+
+<span class="w">  </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fedora:latest</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+</code></pre></div>
+<p>この場合httpdは動作し続けるが、fedoraコンテナで実行するコマンドは終了すればコンテナも停止(正常終了)する。</p>
                 
               
               
