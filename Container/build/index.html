@@ -670,6 +670,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    ベースイメージ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ロケールの追加
   </a>
   
@@ -1798,6 +1805,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    ベースイメージ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     ロケールの追加
   </a>
   
@@ -1835,7 +1849,13 @@
                 
                 
                 <h1 id="_1">イメージビルド</h1>
-<h2 id="_2">ロケールの追加</h2>
+<h2 id="_2">ベースイメージ</h2>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">debian:bookworm-slim</span>
+</code></pre></div>
+<ul>
+<li>Debian Slim: <code>stable-slim</code>, <code>13.3-slim</code>, <code>trixie-slim</code> など</li>
+</ul>
+<h2 id="_3">ロケールの追加</h2>
 <p>Debian系の場合はこんな感じ。</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">guacamole/guacamole:1.4.0</span>
 

@@ -860,6 +860,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    トークン作成
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2423,6 +2430,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    トークン作成
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2981,6 +2995,16 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span class="w">    </span><span class="nt">is_system_auditor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/awx/awx/user_module.html">awx.awx.user module – create, update, or destroy Automation Platform Controller users. — Ansible Community Documentation</a></p>
+<h3 id="_9">トークン作成</h3>
+<p>「指定ユーザーのトークンを作成」という機能はない(接続に使用するユーザーのトークンが作成される)ため、特定のユーザーでのトークンを作成したければ、そのユーザーの認証情報を使ってこのタスクのみ接続情報を変更する。<br />
+ユーザー作成直後などであれば認証情報も作成に使ったものがあるはずなので、そのまま<code>controller_username</code>などで情報を上書きする。</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create token</span>
+<span class="w">    </span><span class="nt">awx.awx.token</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_token</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
+<span class="w">      </span><span class="c1"># controller_username: &quot;{{ username }}&quot;</span>
+<span class="w">      </span><span class="c1"># controller_password: &quot;{{ password }}&quot; </span>
+</code></pre></div>
 <h2 id="ssh">ssh</h2>
 <h3 id="openssh_keypair">openssh_keypair</h3>
 <p>ssh key pair作成</p>
