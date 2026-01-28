@@ -1855,6 +1855,11 @@
 <ul>
 <li>Debian Slim: <code>stable-slim</code>, <code>13.3-slim</code>, <code>trixie-slim</code> など</li>
 </ul>
+<p>軽量化を目的だけにAlpineを使うのは注意。</p>
+<ul>
+<li><a href="https://blog.inductor.me/entry/alpine-not-recommended">軽量Dockerイメージに安易にAlpineを使うのはやめたほうがいいという話 - inductor's blog</a></li>
+<li><a href="https://engineering.nifty.co.jp/blog/26586">とりあえずでDockerイメージにAlpine Linuxを選択するのはやめましょうという話 - NIFTY engineering</a></li>
+</ul>
 <h2 id="_3">ロケールの追加</h2>
 <p>Debian系の場合はこんな感じ。</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">guacamole/guacamole:1.4.0</span>
