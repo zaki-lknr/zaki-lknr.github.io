@@ -2230,6 +2230,7 @@ Linuxが起動したらGRUBを再インストール</p>
 <li><code>sudo dnf system-upgrade reboot</code></li>
 </ul>
 <h3 id="ubuntu_1">Ubuntu</h3>
+<p>次のLTSへのアップグレードは以下</p>
 <ul>
 <li><code>sudo apt-get update</code></li>
 <li><code>sudo apt-get upgrade</code></li>
@@ -2244,6 +2245,16 @@ Linuxが起動したらGRUBを再インストール</p>
 あとは進めていくと確認が出るので都度進める。</p>
 <p>aptラインの編集は不要。(<code>do-release-upgrade</code>を叩けば勝手にやってくれる)<br />
 ただしサードパーティのaptラインを追加してる場合はアップグレードに対応してない場合もあるので注意。</p>
+<p>最新LTSから非LTS(24.04から24.10など)へのアップグレードの場合、普通に実行すると以下の通りの出力になる。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span><span class="k">do</span>-release-upgrade<span class="w"> </span>
+<span class="go">Checking for a new Ubuntu release</span>
+<span class="go">There is no development version of an LTS available.</span>
+<span class="go">To upgrade to the latest non-LTS development release </span>
+<span class="go">set Prompt=normal in /etc/update-manager/release-upgrades.</span>
+</code></pre></div>
+<p>メッセージの通り、<code>/etc/update-manager/release-upgrades</code>ファイルの<code>Prompt=lts</code>となっている箇所を<code>Prompt=normal</code>に編集して <code>do-release-upgrade</code> を実行すれば良い。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/Prompt=lts/Prompt=normal/&#39;</span><span class="w"> </span>/etc/update-manager/release-upgrades
+</code></pre></div>
                 
               
               

@@ -716,7 +716,7 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    停止と削除
+    プロジェクトディレクトリ指定
   </a>
   
 </li>
@@ -730,13 +730,20 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    コマンド起動
+    停止と削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    コマンド起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     ファイルコピー
   </a>
   
@@ -763,6 +770,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ホスト名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restart" class="md-nav__link">
     restartポリシー
   </a>
@@ -777,7 +791,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     依存
   </a>
   
@@ -804,7 +818,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     マウント
   </a>
   
@@ -831,35 +845,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     環境変数の参照
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     コンテナ内の環境変数定義
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     常駐型でないワンショット処理の起動
   </a>
   
@@ -1977,7 +1991,7 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    停止と削除
+    プロジェクトディレクトリ指定
   </a>
   
 </li>
@@ -1991,13 +2005,20 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    コマンド起動
+    停止と削除
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    コマンド起動
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     ファイルコピー
   </a>
   
@@ -2024,6 +2045,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ホスト名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restart" class="md-nav__link">
     restartポリシー
   </a>
@@ -2038,7 +2066,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     依存
   </a>
   
@@ -2065,7 +2093,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     マウント
   </a>
   
@@ -2092,35 +2120,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     リソース制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ログファイルサイズ制限
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     環境変数の参照
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     コンテナ内の環境変数定義
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     常駐型でないワンショット処理の起動
   </a>
   
@@ -2165,7 +2193,17 @@
 <div class="highlight"><pre><span></span><code><span class="go">docker compose -p project-name up -d</span>
 <span class="go">docker compose -p project-name ps</span>
 </code></pre></div>
-<h3 id="_3">停止と削除</h3>
+<h3 id="_3">プロジェクトディレクトリ指定</h3>
+<p>composeファイルのあるディレクトリを指定。</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose --project-directory /path/to/dir up -d</span>
+<span class="go">docker compose --project-directory /path/to/dir ps</span>
+</code></pre></div>
+<p>デフォルトは<code>-f</code>で指定したcomposeファイルのパスなので、<code>-f</code>を使えば基本的に不要(な気がする)</p>
+<h3 id="compose">composeファイル指定</h3>
+<p><code>-f</code>で指定する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose -f /path/to/compose-v1.2.3.yml up -d</span>
+</code></pre></div>
+<h3 id="_4">停止と削除</h3>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose down</span>
 </code></pre></div>
 <p><code>down</code>でコンテナは削除されるが、ボリュームは残る。<br />
@@ -2177,15 +2215,11 @@
 <div class="highlight"><pre><span></span><code><span class="go">docker compose stop myapp</span>
 <span class="go">docker compose rm myapp</span>
 </code></pre></div>
-<h3 id="compose">composeファイル指定</h3>
-<p><code>-f</code>で指定する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker compose -f compose-v1.2.3.yml up -d</span>
-</code></pre></div>
-<h3 id="_4">コマンド起動</h3>
+<h3 id="_5">コマンド起動</h3>
 <p><code>docker exec</code>と異なり<code>-it</code>オプションは不要。アプリ名とコマンド名のみでOK</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose exec &lt;app名&gt; bash</span>
 </code></pre></div>
-<h3 id="_5">ファイルコピー</h3>
+<h3 id="_6">ファイルコピー</h3>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose cp app:/path/to/file ./file</span>
 </code></pre></div>
 <h2 id="compose_1">Composeファイル</h2>
@@ -2204,6 +2238,13 @@
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">my_container</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu:latest</span>
 <span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sh -c &quot;command &gt;&gt; /mnt/log.txt&quot;</span>
+</code></pre></div>
+<h3 id="_7">ホスト名</h3>
+<p>コンテナ内におけるホスト名はデフォルトではコンテナIDになる。<br />
+ホスト名を明示するには<code>hostname</code>で指定する。</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appserver</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;appserver:latest&quot;</span>
 </code></pre></div>
 <h3 id="restart">restartポリシー</h3>
 <p>サービス名直下に記載する。</p>
@@ -2234,7 +2275,7 @@
 <span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
 <span class="w">        </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service:app</span>
 </code></pre></div>
-<h3 id="_6">依存</h3>
+<h3 id="_8">依存</h3>
 <h4 id="depends_on">単純な依存設定 (depends_on)</h4>
 <p>depends_onで依存を設定することで起動・終了の順序を制御できる。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
@@ -2269,7 +2310,7 @@
 <li><code>service_completed_successfully</code>: 依存したコンテナが正常に終了</li>
 </ul>
 <p><a href="https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on">https://docs.docker.jp/compose/compose-file/compose-file-v3.html#depends-on</a></p>
-<h3 id="_7">マウント</h3>
+<h3 id="_9">マウント</h3>
 <h4 id="bind">bindマウント</h4>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 
@@ -2298,7 +2339,7 @@
 <span class="nt">volumes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">prometheus-data</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 </code></pre></div>
-<h3 id="_8">リソース制限</h3>
+<h3 id="_10">リソース制限</h3>
 <p>OSのリソースを使いつくさないようにCPUとメモリを制限</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 
@@ -2313,7 +2354,7 @@
 <span class="w">          </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512m</span>
 </code></pre></div>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/08/213857">[Docker] コンテナで動かすプロセスのCPU使用率を--cpusで、メモリ使用量を--memoryで制限する - zaki work log</a></p>
-<h3 id="_9">ログファイルサイズ制限</h3>
+<h3 id="_11">ログファイルサイズ制限</h3>
 <p><strong>デフォルト無制限のためストレージを使い切ってしまうので制限する</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 
@@ -2328,7 +2369,7 @@
 <span class="w">        </span><span class="nt">max-file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 </code></pre></div>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/09/211117">[Docker]コンテナ実行時にlog-optsでログサイズ上限とローテート数を設定してホストのストレージが溢れないようにする - zaki work log</a></p>
-<h3 id="_10">環境変数の参照</h3>
+<h3 id="_12">環境変数の参照</h3>
 <p>デフォルトでは<code>.env</code>ファイルの環境変数を参照する。
 Composeファイルはシェルの変数参照と同じ書式で環境変数をセット(投入)できる。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
@@ -2343,10 +2384,10 @@ Composeファイルはシェルの変数参照と同じ書式で環境変数を�
 <div class="highlight"><pre><span></span><code>K3S_VERSION=v1.33.5-k3s1
 K3S_TOKEN=298143103216182
 </code></pre></div>
-<h3 id="_11">コンテナ内の環境変数定義</h3>
+<h3 id="_13">コンテナ内の環境変数定義</h3>
 <p><code>environment</code>で指定する。<br />
 前述<code>.env</code>による設定はComposeファイル上の変数参照に使用するものであり、コンテナ内の環境変数定義は別。</p>
-<h3 id="_12">常駐型でないワンショット処理の起動</h3>
+<h3 id="_14">常駐型でないワンショット処理の起動</h3>
 <p>そのまま<code>services</code>に定義すればよい。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">server</span><span class="p">:</span>
