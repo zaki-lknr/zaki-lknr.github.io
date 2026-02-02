@@ -2611,6 +2611,8 @@ $ curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --resolv-co
 <p>ノードコンテナ再作成によって旧ノードが消え新ノードが追加されるため、旧ノードはNotReadyになる。<br />
 <code>kubectl delete node</code>で削除すれば良い。</p>
 <p><a href="https://docs.k3s.io/ja/architecture">アーキテクチャ | K3s</a></p>
+<p>ノード名を固定しdeleteを回避したい場合は、ノードパスワードも維持するように設定する(<code>/etc/rancher</code>のファイルをボリュームを使って維持する)。</p>
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2026/01/23/171358">Docker版K3s(Compose使用)でdown/upした際の動作とノード名固定 - zaki work log</a></p>
 <h2 id="always-freeocia1flex-2cpu12gb-ram">Always FreeのOCI(A1.Flex 2cpu/12gb ram)にシングルノードクラスタ作る</h2>
 <p>標準のE2.1.Microの場合↓<br />
 <a href="https://qiita.com/zaki-lknr/items/e829a3ad548e362ef89c">[Oracle Cloud] K3sでAlways Free枠ノードにKubernetesクラスタ作成してローカルからkubectlアクセスまで - Qiita</a></p>
