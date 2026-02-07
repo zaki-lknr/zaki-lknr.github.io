@@ -4516,7 +4516,14 @@
 </code></pre></div>
 <h3 id="_19">行の挿入</h3>
 <p>正規表現にマッチした次の行にテキストを挿入する</p>
-<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;/pattern/a INSERT_TEXT&#39; file</span>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;/pattern/a APPEND_TEXT&#39; file</span>
+</code></pre></div>
+<p>上記の場合、行頭から<code>APPEND_TEXT</code>が書き込まれるが、インデントを設定したい場合はバックスラッシュがデリミタとなるので以下のように実行する。<br />
+この場合、行頭にスペース2つ分のインデントが追加される。</p>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;/pattern/a \  APPEND_TEXT&#39; file</span>
+</code></pre></div>
+<p>前の行に挿入するには<code>a</code>でなく<code>i</code>を指定する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;/pattern/i INSERT_TEXT&#39; file</span>
 </code></pre></div>
 <h2 id="awk">awk</h2>
 <p><code>ps aux</code>の結果の3カラム目を抜き出す。</p>

@@ -1119,6 +1119,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#-l" class="md-nav__link">
+    ラベルでフィルタ(-l)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#jsonpath" class="md-nav__link">
     jsonpathでドットを含むキー
   </a>
@@ -2584,6 +2591,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#-l" class="md-nav__link">
+    ラベルでフィルタ(-l)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#jsonpath" class="md-nav__link">
     jsonpathでドットを含むキー
   </a>
@@ -3095,6 +3109,11 @@ podがrunningになるまで待つには以下。</p>
 <p>紐付いてるServiceAccountを確認する</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl get rolebindings,clusterrolebindings -A -o custom-columns=&#39;KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind==&quot;ServiceAccount&quot;)].name&#39; | grep &lt;SERVICE_ACCOUNT_NAME&gt;</span>
 </code></pre></div>
+<h3 id="-l">ラベルでフィルタ(-l)</h3>
+<p>labelに<code>app=server</code>がついているpodをリストする。</p>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get pod -l app=server</span>
+</code></pre></div>
+<p><code>-l</code>は<code>get</code>だけでなく<code>delete</code>とかでも使用可能。</p>
 <h3 id="jsonpath">jsonpathでドットを含むキー</h3>
 <p>キーに使うドットは<code>\</code>でエスケープする。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl get secret credential -o jsonpath=&#39;{.data.\.dockerconfigjson}&#39;</span>
