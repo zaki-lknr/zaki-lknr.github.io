@@ -2188,6 +2188,9 @@
 バックグラウンドで起動するには<code>-d</code>を付ける。</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose up -d</span>
 </code></pre></div>
+<p>特定コンテナのみ起動する場合はサービス名を指定。(複数指定可)</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose up -d &lt;service-name&gt; &lt;service-name&gt; &lt;service-name&gt;</span>
+</code></pre></div>
 <h3 id="_2">プロジェクト名を指定</h3>
 <p>デフォルトではディレクトリ名が使用されるが、そのままだと異なるコンテナ環境でもディレクトリ名がたまたまでも同一だと競合してしまう。その場合はプロジェクト名を指定する。</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose -p project-name up -d</span>
