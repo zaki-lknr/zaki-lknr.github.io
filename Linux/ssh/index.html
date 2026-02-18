@@ -2567,6 +2567,15 @@ PEM形式であれば以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-l<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa.pub
 <span class="go">4096 SHA256:6Qt0+Nikcx/NpgM4xu/4WnDpqhj8L+OjtDEP5O2a7lw no comment (RSA)</span>
 </code></pre></div>
+<p>サーバーへアクセスしたときに表示されるフィンガープリントはサーバーの公開鍵を見れば良い。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh<span class="w"> </span>localhost
+<span class="go">The authenticity of host &#39;localhost (::1)&#39; can&#39;t be established.</span>
+<span class="go">ED25519 key fingerprint is SHA256:wMt6BsdrtBNFa6bCZwA97ZFckU1HsoK5wsEW5dqHPe0.</span>
+<span class="go">:</span>
+<span class="go">:</span>
+<span class="gp">$ </span>ssh-keygen<span class="w"> </span>-lf<span class="w"> </span>/etc/ssh/ssh_host_ed25519_key.pub<span class="w"> </span>
+<span class="go">256 SHA256:wMt6BsdrtBNFa6bCZwA97ZFckU1HsoK5wsEW5dqHPe0 no comment (ED25519)</span>
+</code></pre></div>
 <h3 id="_17">秘密鍵から公開鍵を作成</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-y<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa
 </code></pre></div>
