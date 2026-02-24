@@ -1285,6 +1285,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#printf" class="md-nav__link">
+    printf
+  </a>
+  
+    <nav class="md-nav" aria-label="printf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    URLデコード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sed" class="md-nav__link">
     sed
   </a>
@@ -3349,6 +3369,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#printf" class="md-nav__link">
+    printf
+  </a>
+  
+    <nav class="md-nav" aria-label="printf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    URLデコード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sed" class="md-nav__link">
     sed
   </a>
@@ -4544,6 +4584,14 @@
 <span class="go">command | base64 -d</span>
 <span class="gp"># </span>ファイルから
 <span class="go">base64 -d FILENAME</span>
+</code></pre></div>
+<h2 id="printf">printf</h2>
+<h3 id="url">URLデコード</h3>
+<p>エンコード文字列が<code>$str</code>に入っているとして、</p>
+<div class="highlight"><pre><span></span><code><span class="go">: &quot;${str//+/ }&quot;; printf &#39;%b\n&#39; &quot;${_//%/\\x}&quot;</span>
+</code></pre></div>
+<p><code>+</code>のデコードが不要なら以下でも可。</p>
+<div class="highlight"><pre><span></span><code><span class="go">printf &#39;%b\n&#39; &quot;${str//%/\\x}&quot;</span>
 </code></pre></div>
 <h2 id="sed">sed</h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/regexp/string/&#39;</span><span class="w"> </span>file
