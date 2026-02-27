@@ -2208,7 +2208,8 @@
 <h3 id="_2">ビルド</h3>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose build [service-name]</span>
 </code></pre></div>
-<p>composeファイルに<code>build</code>定義があればイメージビルドを行う。</p>
+<p>composeファイルに<code>build</code>定義があればイメージビルドを行う。<br />
+(定義が無ければ<code>WARN[0000] No services to build</code>となり何も行われない)</p>
 <h3 id="_3">プロジェクト名を指定</h3>
 <p>デフォルトではディレクトリ名が使用されるが、そのままだと異なるコンテナ環境でもディレクトリ名がたまたまでも同一だと競合してしまう。その場合はプロジェクト名を指定する。</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose -p project-name up -d</span>
