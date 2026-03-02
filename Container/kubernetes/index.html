@@ -2360,6 +2360,8 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 </code></pre></div>
 <p><code>Delete</code>の場合は、(削除に対応していれば)ボリューム自体も消える。</p>
 <p><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming">Reclaiming</a></p>
+<p>ポリシーの変更については下記参照。<br />
+<a href="https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/">Change the Reclaim Policy of a PersistentVolume | Kubernetes</a></p>
 <h2 id="_3">トラブルシューティング</h2>
 <h3 id="namespace">消えないnamespace</h3>
 <p><code>kubectl delete ns hoge</code>が応答無くなりstatusがTerminatingのままになった場合の対処。</p>
