@@ -1052,6 +1052,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#webhttps" class="md-nav__link">
+    ローカルwebコンテンツのHTTPS公開
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#centosstream8" class="md-nav__link">
     centos:stream8
   </a>
@@ -2583,6 +2590,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#webhttps" class="md-nav__link">
+    ローカルwebコンテンツのHTTPS公開
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#centosstream8" class="md-nav__link">
     centos:stream8
   </a>
@@ -2942,6 +2956,11 @@ Compose使用時もこのパターン。</p>
 <h3 id="webhttpd">ローカルのwebコンテンツをhttpdに持たせる</h3>
 <div class="highlight"><pre><span></span><code><span class="go">docker run --name http_sample --rm -p 8081:80 -d -v $PWD:/usr/local/apache2/htdocs httpd:latest </span>
 </code></pre></div>
+<h3 id="webhttps">ローカルwebコンテンツのHTTPS公開</h3>
+<p>Caddyを使用し<code>localhost</code>でアクセスする構成</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker run --rm -d -v $PWD:/srv -p 443:443 --name web caddy caddy file-server --domain localhost --root /srv --browse</span>
+</code></pre></div>
+<p><a href="https://zaki-hmkc.hatenablog.com/entry/2024/08/08/173921">Caddyコンテナでローカルに自己署名の検証用途などのHTTPSサーバーをｼｭｯとたてる - zaki work log</a></p>
 <h3 id="centosstream8">centos:stream8</h3>
 <p><a href="https://quay.io/repository/centos/centos?tab=tags">quayにあるイメージ</a>を使う</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
