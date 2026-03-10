@@ -465,6 +465,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#backup-restore" class="md-nav__link">
+    backup &amp; restore
+  </a>
+  
+    <nav class="md-nav" aria-label="backup &amp; restore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awxbackup" class="md-nav__link">
+    awxbackup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awxrestore" class="md-nav__link">
+    awxrestore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#arm64" class="md-nav__link">
     arm64版ビルド
   </a>
@@ -1960,6 +1987,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#backup-restore" class="md-nav__link">
+    backup &amp; restore
+  </a>
+  
+    <nav class="md-nav" aria-label="backup &amp; restore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awxbackup" class="md-nav__link">
+    awxbackup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awxrestore" class="md-nav__link">
+    awxrestore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#arm64" class="md-nav__link">
     arm64版ビルド
   </a>
@@ -2073,6 +2127,22 @@
 <li><a href="https://ansible-community.github.io/awx-operator-helm/">awx-operator Helm charts | awx-operator-helm</a></li>
 <li><a href="https://github.com/ansible-community/awx-operator-helm/tree/main">ansible-community/awx-operator-helm: Helm chart for the AWX operator.</a></li>
 </ul>
+<h2 id="backup-restore">backup &amp; restore</h2>
+<h3 id="awxbackup">awxbackup</h3>
+<p><a href="https://github.com/ansible/awx-operator/blob/devel/roles/backup/README.md">awx-operator/roles/backup/README.md at devel · ansible/awx-operator · GitHub</a></p>
+<p><code>deployment_name</code>にバックアップ対象のAWXリソース名を指定</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx.ansible.com/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWXBackup</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awxbackup-1</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx</span>
+<span class="w">  </span><span class="c1"># backup_pvc: volume-claim</span>
+</code></pre></div>
+<h3 id="awxrestore">awxrestore</h3>
+<p><a href="https://github.com/ansible/awx-operator/blob/devel/roles/restore/README.md">awx-operator/roles/restore/README.md at devel · ansible/awx-operator · GitHub</a></p>
 <h2 id="arm64">arm64版ビルド</h2>
 <p>arm64版はイメージが公開されてないのでビルドする必要がある。<br />
 2022.02.15時点の内容。2.16にAWX 2.0.0がリリースされてる。</p>
