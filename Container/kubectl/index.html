@@ -955,6 +955,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    変更内容をファイル定義
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1050,7 +1057,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     全てのリソース
   </a>
   
@@ -1064,7 +1071,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -1079,7 +1086,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     イメージ一覧
   </a>
   
@@ -1166,21 +1173,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     削除
   </a>
   
@@ -1214,7 +1221,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     証明書検証無視
   </a>
   
@@ -2427,6 +2434,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    変更内容をファイル定義
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2522,7 +2536,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     全てのリソース
   </a>
   
@@ -2536,7 +2550,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -2551,7 +2565,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     イメージ一覧
   </a>
   
@@ -2638,21 +2652,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     追加
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     削除
   </a>
   
@@ -2686,7 +2700,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     証明書検証無視
   </a>
   
@@ -2763,6 +2777,7 @@
 <p>tab押下で <code>_get_comp_words_by_ref: command not found</code> エラーが出るときは、<code>bash-completion</code>が無いのでパッケージ追加する。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>-bash:<span class="w"> </span>_get_comp_words_by_ref:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found
 </code></pre></div>
+<p>パッケージインストールしても同エラーが解消されない場合は、<code>/usr/share/bash-completion/bash_completion</code>や<code>/etc/bash_completion.d/</code>などのファイルの読み込みを追加。</p>
 <h2 id="create">create</h2>
 <h3 id="job">job</h3>
 <h4 id="cronjobjob">既存CronJobから即時実行のjobを作成</h4>
@@ -2886,6 +2901,10 @@
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> </span>namespace<span class="w"> </span>awx<span class="w"> </span>awx-demo<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;:{&quot;init_container_image&quot;:&quot;quay.io/ansible/awx-ee&quot;}}&#39;</span>
 <span class="go">error: application/strategic-merge-patch+json is not supported by awx.ansible.com/v1beta1, Kind=AWX: the body of the request was in an unknown format - accepted media types include: application/json-patch+json, application/merge-patch+json, application/apply-patch+yaml</span>
 </code></pre></div>
+<h3 id="_10">変更内容をファイル定義</h3>
+<p>差分のみを記述したマニフェストを別途用意し、<code>-p</code>(<code>--patch</code>)でなく、<code>--patch-file</code>でファイルを指定する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace deploy awx-operator-controller-manager --patch-file patch-file.yaml</span>
+</code></pre></div>
 <h2 id="run">run</h2>
 <h3 id="pod">ワーク用のpodをデプロイする</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>run<span class="w"> </span>work-pod<span class="w"> </span>--image<span class="o">=</span>fedora<span class="w"> </span>--command<span class="w"> </span>--<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/dev/null
@@ -2990,7 +3009,7 @@ podがrunningになるまで待つには以下。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl wait --for=jsonpath=&#39;{.status.phase}&#39;=Running pod/*****</span>
 </code></pre></div>
 <h2 id="get">get</h2>
-<h3 id="_10">全てのリソース</h3>
+<h3 id="_11">全てのリソース</h3>
 <p><code>kubectl get all</code>だと全リソースが対象ではないが、本当にすべてのリソースを取得するには以下</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl get &quot;$(kubectl api-resources --namespaced=true --verbs=list -o name | tr &quot;\n&quot; &quot;,&quot; | sed -e &#39;s/,$//&#39;)&quot;</span>
 </code></pre></div>
@@ -3011,7 +3030,7 @@ podがrunningになるまで待つには以下。</p>
 <h3 id="event">eventで作成時ソート</h3>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl get event --sort-by=&#39;.metadata.creationTimestamp&#39;</span>
 </code></pre></div>
-<h3 id="_11">ヘルスチェック</h3>
+<h3 id="_12">ヘルスチェック</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span>kubectl<span class="w"> </span>get<span class="w"> </span>--raw<span class="o">=</span><span class="s1">&#39;/readyz&#39;</span>
 <span class="go">ok</span>
 </code></pre></div>
@@ -3054,7 +3073,7 @@ podがrunningになるまで待つには以下。</p>
 <span class="go">readyz check passed</span>
 </code></pre></div>
 <h3 id="pod_1">pod</h3>
-<h4 id="_12">イメージ一覧</h4>
+<h4 id="_13">イメージ一覧</h4>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl get pod -n awx -o jsonpath=&quot;{..image}&quot; | sed &#39;s/ /\n/g&#39; | sort | uniq</span>
 </code></pre></div>
 <p>これでもいいかな？</p>
@@ -3132,7 +3151,7 @@ podがrunningになるまで待つには以下。</p>
 </code></pre></div>
 <h2 id="label">label</h2>
 <p>リソースのラベルを追加/変更/削除する</p>
-<h3 id="_13">追加</h3>
+<h3 id="_14">追加</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>label<span class="w"> </span>pod<span class="w"> </span>rsync-pod<span class="w"> </span><span class="nv">app</span><span class="o">=</span>rsync
 <span class="go">pod/rsync-pod labeled</span>
 <span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>--show-labels
@@ -3151,7 +3170,7 @@ podがrunningになるまで待つには以下。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>label<span class="w"> </span>node<span class="w"> </span>k3s-node1<span class="w"> </span><span class="nv">label1</span><span class="o">=</span>foo<span class="w"> </span><span class="nv">label2</span><span class="o">=</span>bar<span class="w"> </span><span class="nv">label3</span><span class="o">=</span>baz
 <span class="go">node/k3s-node1 labeled</span>
 </code></pre></div>
-<h3 id="_14">更新</h3>
+<h3 id="_15">更新</h3>
 <p>既に存在する場合はエラーになる。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>label<span class="w"> </span>pod<span class="w"> </span>rsync-pod<span class="w"> </span><span class="nv">state</span><span class="o">=</span>error
 <span class="go">error: &#39;state&#39; already has a value (normal), and --overwrite is false</span>
@@ -3163,7 +3182,7 @@ podがrunningになるまで待つには以下。</p>
 <span class="go">NAME        READY   STATUS    RESTARTS   AGE   LABELS</span>
 <span class="go">rsync-pod   1/1     Running   3          28d   app=rsync,state=error</span>
 </code></pre></div>
-<h3 id="_15">削除</h3>
+<h3 id="_16">削除</h3>
 <p>ラベルのキーに<code>-</code>を付与したものをセットすれば削除される。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl label pod rsync-pod state-</span>
 </code></pre></div>
@@ -3177,7 +3196,7 @@ podがrunningになるまで待つには以下。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl uncordon &lt;node-name&gt;</span>
 </code></pre></div>
 <h2 id="kubeconfig_2">KUBECONFIG</h2>
-<h3 id="_16">証明書検証無視</h3>
+<h3 id="_17">証明書検証無視</h3>
 <p><a href="https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/#Cluster">https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/#Cluster</a></p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">clusters</span><span class="p">:</span>
