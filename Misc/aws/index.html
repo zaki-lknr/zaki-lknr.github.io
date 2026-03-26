@@ -1307,6 +1307,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ec2_1" class="md-nav__link">
+    指定サブネットに紐づいているEC2一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#id_1" class="md-nav__link">
     ゲートウェイIDの取得
   </a>
@@ -2049,6 +2056,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ec2_1" class="md-nav__link">
+    指定サブネットに紐づいているEC2一覧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#id_1" class="md-nav__link">
     ゲートウェイIDの取得
   </a>
@@ -2216,6 +2230,12 @@
 <span class="go">  --query &quot;Reservations[].Instances[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]]&quot;</span>
 </code></pre></div>
 <h4 id="_5">ネットワーク</h4>
+<h5 id="ec2_1">指定サブネットに紐づいているEC2一覧</h5>
+<div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-instances \</span>
+<span class="go">  --region &lt;リージョン&gt; \</span>
+<span class="go">  --filters Name=subnet-id,Values=&lt;サブネットID&gt; \</span>
+<span class="go">  --query &#39;Reservations[].Instances[].InstanceId&#39;</span>
+</code></pre></div>
 <h5 id="id_1">ゲートウェイIDの取得</h5>
 <div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-vpn-gateways \</span>
 <span class="go">  --region &lt;リージョン&gt; \</span>
