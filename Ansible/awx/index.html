@@ -2154,6 +2154,17 @@
 <span class="w">  </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx</span>
 <span class="w">  </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awxbackup-1</span>
 </code></pre></div>
+<p><code>AWXBackup</code>リソースが無い場合は、PVにあるバックアップデータが<code>/backups</code>にマウントされるので、PVCの指定とどのディレクトリのデータを使うかを<code>backup_dir</code>で指定する。</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx.ansible.com/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWXRestore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awxrestore-2026-3</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx</span>
+<span class="w">  </span><span class="nt">backup_pvc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx-backup-claim</span>
+<span class="w">  </span><span class="nt">backup_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/backups/tower-openshift-backup-2026-03-01-134803</span>
+</code></pre></div>
 <h2 id="arm64">arm64版ビルド</h2>
 <p>arm64版はイメージが公開されてないのでビルドする必要がある。<br />
 2022.02.15時点の内容。2.16にAWX 2.0.0がリリースされてる。</p>
