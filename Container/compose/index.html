@@ -837,6 +837,19 @@
     bindマウント
   </a>
   
+    <nav class="md-nav" aria-label="bindマウント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-only" class="md-nav__link">
+    read only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2119,6 +2132,19 @@
     bindマウント
   </a>
   
+    <nav class="md-nav" aria-label="bindマウント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-only" class="md-nav__link">
+    read only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2348,6 +2374,17 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span>
 <span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./registries.yaml</span>
 <span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/rancher/k3s/registries.yaml</span>
+</code></pre></div>
+<h5 id="read-only">read only</h5>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/dir:/usr/local/data:ro</span>
+</code></pre></div>
+<p>あるいは</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/dir</span>
+<span class="w">        </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/local/data</span>
+<span class="w">        </span><span class="nt">read_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <h4 id="volume">volumeマウント</h4>
 <p>long syntaxだと以下</p>
