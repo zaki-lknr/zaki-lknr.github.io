@@ -2169,6 +2169,13 @@
 <p>arm64版はイメージが公開されてないのでビルドする必要がある。<br />
 2022.02.15時点の内容。2.16にAWX 2.0.0がリリースされてる。</p>
 <h3 id="awx-operator">awx-operator</h3>
+<p><code>Makefile</code>を使ってビルドできる。targetは<code>docker-build</code>を指定。  </p>
+<ul>
+<li><code>IMAGE_TAG_BASE</code>でベースイメージを上書き (デフォルト<code>quay.io/ansible/awx-operator</code>)</li>
+<li><code>VERSION</code>でイメージバージョン(tag)を上書き (デフォルトはGitのローカルリポジトリのtagから取得)</li>
+<li>標準はDockerを使用するが<code>CONTAINER_CMD=podman</code>を追加すれば<code>podman</code>コマンドでビルド</li>
+<li><code>IMG</code>でビルドするイメージのタグを指定 (<code>IMG=awx-operator:custom</code>など)</li>
+</ul>
 <p>0.16.1 (devel)で実施</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>make<span class="w"> </span>docker-build<span class="w"> </span><span class="nv">IMAGE_TAG_BASE</span><span class="o">=</span>zakihmkc/awx-operator<span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">0</span>.16.1-arm
 </code></pre></div>
