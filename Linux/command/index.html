@@ -1581,6 +1581,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gunzip" class="md-nav__link">
+    gunzip
+  </a>
+  
+    <nav class="md-nav" aria-label="gunzip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdout" class="md-nav__link">
+    stdoutへ出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tar" class="md-nav__link">
     tar
   </a>
@@ -1877,6 +1897,13 @@
           <li class="md-nav__item">
   <a href="#a" class="md-nav__link">
     Aレコード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#txt" class="md-nav__link">
+    TXTレコード
   </a>
   
 </li>
@@ -3712,6 +3739,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gunzip" class="md-nav__link">
+    gunzip
+  </a>
+  
+    <nav class="md-nav" aria-label="gunzip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdout" class="md-nav__link">
+    stdoutへ出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tar" class="md-nav__link">
     tar
   </a>
@@ -4008,6 +4055,13 @@
           <li class="md-nav__item">
   <a href="#a" class="md-nav__link">
     Aレコード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#txt" class="md-nav__link">
+    TXTレコード
   </a>
   
 </li>
@@ -4850,6 +4904,10 @@ bind-key C-g send-prefix
 <p>gz圧縮されたログファイルの中身を見たいときなど</p>
 <div class="highlight"><pre><span></span><code><span class="go">gzip -dc /var/log/syslog.10.gz | less</span>
 </code></pre></div>
+<h2 id="gunzip">gunzip</h2>
+<h3 id="stdout">stdoutへ出力</h3>
+<div class="highlight"><pre><span></span><code><span class="go">gunzip -c /var/log/messags-20260301.gz | less</span>
+</code></pre></div>
 <h2 id="tar">tar</h2>
 <h3 id="_33">ファイルの追加</h3>
 <p>既存のtarファイルへ新たにファイルを追加する(append)</p>
@@ -5118,6 +5176,29 @@ bind-key C-g send-prefix
 <span class="go">;; SERVER: 127.0.0.53#53(127.0.0.53)</span>
 <span class="go">;; WHEN: Thu Apr 28 10:31:34 JST 2022</span>
 <span class="go">;; MSG SIZE  rcvd: 54</span>
+</code></pre></div>
+<h3 id="txt">TXTレコード</h3>
+<p><code>-t type</code>で<code>txt</code>を指定する。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>dig<span class="w"> </span>-t<span class="w"> </span>txt<span class="w"> </span>_atproto.jp-z.jp
+
+<span class="go">; &lt;&lt;&gt;&gt; DiG 9.18.47 &lt;&lt;&gt;&gt; -t txt _atproto.jp-z.jp</span>
+<span class="go">;; global options: +cmd</span>
+<span class="go">;; Got answer:</span>
+<span class="go">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 2237</span>
+<span class="go">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span>
+
+<span class="go">;; OPT PSEUDOSECTION:</span>
+<span class="go">; EDNS: version: 0, flags:; udp: 65494</span>
+<span class="go">;; QUESTION SECTION:</span>
+<span class="go">;_atproto.jp-z.jp.              IN      TXT</span>
+
+<span class="go">;; ANSWER SECTION:</span>
+<span class="go">_atproto.jp-z.jp.       3600    IN      TXT     &quot;did=did:plc:e3zjb4ne6avmlsifau3nconz&quot;</span>
+
+<span class="go">;; Query time: 380 msec</span>
+<span class="go">;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)</span>
+<span class="go">;; WHEN: Thu Apr 16 10:55:51 JST 2026</span>
+<span class="go">;; MSG SIZE  rcvd: 94</span>
 </code></pre></div>
 <h3 id="_56">逆引き</h3>
 <p><code>-x</code>オプションを使う</p>

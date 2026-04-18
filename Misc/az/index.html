@@ -1295,6 +1295,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#jqgrep" class="md-nav__link">
+    正規表現は現状使用不可 / jqやgrepと組み合わせる
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2372,6 +2379,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#jqgrep" class="md-nav__link">
+    正規表現は現状使用不可 / jqやgrepと組み合わせる
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2881,6 +2895,10 @@
 </code></pre></div>
 <p>オブジェクト全体でなくここからさらにnameのみの一覧を出力するなら以下。</p>
 <div class="highlight"><pre><span></span><code><span class="go">az aks list --query &quot;[?contains(name,&#39;dev&#39;)].name&quot;</span>
+</code></pre></div>
+<h3 id="jqgrep">正規表現は現状使用不可 / jqやgrepと組み合わせる</h3>
+<p><code>/dev-[0-9]+/</code>にマッチするものをリストアップするには。</p>
+<div class="highlight"><pre><span></span><code><span class="go">az aks list --query &quot;[].name&quot; | grep dev-[0-9]\\+</span>
 </code></pre></div>
 <h2 id="_5">アカウント</h2>
 <h3 id="_6">アカウント情報</h3>
