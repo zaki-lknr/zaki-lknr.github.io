@@ -1714,15 +1714,55 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    設定モード
+  <a href="#show" class="md-nav__link">
+    show
   </a>
+  
+    <nav class="md-nav" aria-label="show">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    バージョン確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_23" class="md-nav__link">
+    設定モード
+  </a>
+  
+    <nav class="md-nav" aria-label="設定モード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    デフォルトゲートウェイ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
     リブート
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    シャットダウン
   </a>
   
 </li>
@@ -2313,15 +2353,55 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    設定モード
+  <a href="#show" class="md-nav__link">
+    show
   </a>
+  
+    <nav class="md-nav" aria-label="show">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    バージョン確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_23" class="md-nav__link">
+    設定モード
+  </a>
+  
+    <nav class="md-nav" aria-label="設定モード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    デフォルトゲートウェイ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
     リブート
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    シャットダウン
   </a>
   
 </li>
@@ -2535,7 +2615,32 @@ SSH接続時はこれをセットしておかないと昇格できない。</p>
 <li>username: vyos</li>
 <li>password: vyos</li>
 </ul>
-<h3 id="_22">設定モード</h3>
+<h3 id="show">show</h3>
+<h4 id="_22">バージョン確認</h4>
+<div class="highlight"><pre><span></span><code><span class="gp">vyos@vyos:~$ </span>show<span class="w"> </span>version<span class="w"> </span>
+<span class="go">Version:          VyOS 1.5-rolling-202411070006</span>
+<span class="go">Release train:    current</span>
+<span class="go">Release flavor:   generic</span>
+
+<span class="go">Built by:         autobuild@vyos.net</span>
+<span class="go">Built on:         Thu 07 Nov 2024 00:06 UTC</span>
+<span class="go">Build UUID:       db676e72-c851-4935-80f7-7cec46ab47a4</span>
+<span class="go">Build commit ID:  33f15da7d481f7</span>
+
+<span class="go">Architecture:     x86_64</span>
+<span class="go">Boot via:         installed image</span>
+<span class="go">System type:      KVM guest</span>
+<span class="go">Secure Boot:      n/a (BIOS)</span>
+
+<span class="go">Hardware vendor:  QEMU</span>
+<span class="go">Hardware model:   Standard PC (i440FX + PIIX, 1996)</span>
+<span class="go">Hardware S/N:     </span>
+<span class="go">Hardware UUID:    </span>
+
+<span class="go">Copyright:        VyOS maintainers and contributors</span>
+</code></pre></div>
+<h3 id="_23">設定モード</h3>
+<p><a href="https://docs.vyos.io/en/latest/cli.html#configuration-overview">https://docs.vyos.io/en/latest/cli.html#configuration-overview</a></p>
 <div class="highlight"><pre><span></span><code><span class="gp">vyos@vyos:~$ </span>configure<span class="w"> </span>
 <span class="go">[edit]</span>
 <span class="gp">vyos@vyos# </span>
@@ -2543,7 +2648,12 @@ SSH接続時はこれをセットしておかないと昇格できない。</p>
 <p>設定を反映するには<code>commit</code>を実行。保存は<code>save</code><br />
 反映せずに破棄するには<code>discard</code>を実行。</p>
 <p>設定モードを抜けるには<code>exit</code></p>
-<h3 id="_23">リブート</h3>
+<h4 id="_24">デフォルトゲートウェイ</h4>
+<p><code>0.0.0.0/0</code>宛てのパケットをどこに送るか、という設定を入れる。</p>
+<div class="highlight"><pre><span></span><code><span class="go">[edit]</span>
+<span class="gp">vyos@vyos# </span><span class="nb">set</span><span class="w"> </span>protocols<span class="w"> </span>static<span class="w"> </span>route<span class="w"> </span><span class="m">0</span>.0.0.0/0<span class="w"> </span>next-hop<span class="w"> </span><span class="m">192</span>.168.0.1
+</code></pre></div>
+<h3 id="_25">リブート</h3>
 <p>saveされていない設定がなくてもなぜか警告がでる。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">vyos@vyos:~$ </span>reboot<span class="w"> </span>
 <span class="go">Warning: there are unsaved configuration changes!</span>
@@ -2553,6 +2663,20 @@ SSH接続時はこれをセットしておかないと昇格できない。</p>
 <span class="go">Broadcast message from root@vyos on pts/1 (Fri 2025-02-14 07:09:44 UTC):</span>
 
 <span class="go">The system will reboot now!</span>
+
+
+<span class="go">Connection to vyos closed by remote host.</span>
+<span class="go">Connection to vyos closed.</span>
+</code></pre></div>
+<h3 id="_26">シャットダウン</h3>
+<div class="highlight"><pre><span></span><code><span class="gp">vyos@vyos:~$ </span>poweroff<span class="w"> </span>
+<span class="go">Warning: there are unsaved configuration changes!</span>
+<span class="go">Run &#39;save&#39; command if you do not want to lose those changes after reboot/shutdown.</span>
+<span class="go">Are you sure you want to poweroff this system (vyos)? [y/N] yes</span>
+
+<span class="go">Broadcast message from root@vyos on pts/1 (Sat 2026-04-18 06:52:44 UTC):</span>
+
+<span class="go">The system will power off now!</span>
 
 
 <span class="go">Connection to vyos closed by remote host.</span>
