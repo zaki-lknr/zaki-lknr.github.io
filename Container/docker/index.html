@@ -829,6 +829,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-init" class="md-nav__link">
+    --init
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2367,6 +2374,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-init" class="md-nav__link">
+    --init
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2802,6 +2816,47 @@
 <div class="highlight"><pre><span></span><code><span class="go">docker run --restart always ...</span>
 </code></pre></div>
 <p><a href="https://docs.docker.jp/config/container/start-containers-automatically.html">コンテナを自動的に開始 — Docker-docs-ja 19.03 ドキュメント</a></p>
+<h4 id="-init">--init</h4>
+<p><code>--init</code>なしはそのまま</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>sample<span class="w"> </span>fedora:latest<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/dev/null
+<span class="gp">$ </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>sample<span class="w"> </span>bash
+<span class="gp">[root@6087d04c8d99 /]# </span>ps<span class="w"> </span>aux
+<span class="go">USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span>
+<span class="go">root           1  0.0  0.0   2616  1692 ?        Ss   12:40   0:00 tail -f /dev/null</span>
+<span class="go">root          13  0.0  0.0   4892  4228 pts/0    Ss   12:40   0:00 bash</span>
+<span class="go">root          53  0.0  0.0   6968  4196 pts/0    R+   12:41   0:00 ps aux</span>
+</code></pre></div>
+<p><code>--init</code>有りだと内部で<code>init</code>プロセスが起動する。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>sample2<span class="w"> </span>--init<span class="w"> </span>fedora:latest<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/dev/null
+<span class="gp">$ </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>sample2<span class="w"> </span>bash
+<span class="gp">[root@4202a1a5c820 /]# </span>ps<span class="w"> </span>aux
+<span class="go">USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span>
+<span class="go">root           1  0.0  0.0   1064   772 ?        Ss   12:42   0:00 /sbin/docker-init -- tail -f /dev/null</span>
+<span class="go">root           7  0.0  0.0   2616  1760 ?        S    12:42   0:00 tail -f /dev/null</span>
+<span class="go">root           8  0.0  0.0   4892  4232 pts/0    Ss   12:42   0:00 bash</span>
+<span class="go">root          46  0.0  0.0   6968  4096 pts/0    R+   12:44   0:00 ps aux</span>
+</code></pre></div>
+<p>この場合、<code>init</code>プロセスがシグナルハンドリングをしてくれるので、生<code>tail</code>より終了処理が早い。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">time</span><span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>sample
+<span class="go">sample</span>
+
+<span class="go">real    0m17.301s</span>
+<span class="go">user    0m0.008s</span>
+<span class="go">sys     0m0.006s</span>
+<span class="gp">$ </span><span class="nb">time</span><span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>sample2
+<span class="go">sample2</span>
+
+<span class="go">real    0m0.205s</span>
+<span class="go">user    0m0.006s</span>
+<span class="go">sys     0m0.010s</span>
+</code></pre></div>
+<p>終了コードも異なる。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>ps<span class="w"> </span>-a
+<span class="go">CONTAINER ID   IMAGE                                     COMMAND                   CREATED              STATUS                        PORTS           NAMES</span>
+<span class="go">6087d04c8d99   fedora:latest                             &quot;tail -f /dev/null&quot;       56 seconds ago       Exited (137) 13 seconds ago                   sample</span>
+<span class="go">4202a1a5c820   fedora:latest                             &quot;tail -f /dev/null&quot;       About a minute ago   Exited (143) 7 seconds ago                    sample2</span>
+</code></pre></div>
+<p>(そもそも<code>--init</code>無い場合に<code>tail</code>がkill TERMで停止しないのが微妙な気がするけど)</p>
 <h3 id="build">build</h3>
 <h4 id="dockerfile">Dockerfile指定</h4>
 <p><code>-f</code>で指定する。</p>
