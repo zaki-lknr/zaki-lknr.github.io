@@ -1748,6 +1748,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2387,6 +2394,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    DNS
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2652,6 +2666,11 @@ SSH接続時はこれをセットしておかないと昇格できない。</p>
 <p><code>0.0.0.0/0</code>宛てのパケットをどこに送るか、という設定を入れる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">[edit]</span>
 <span class="gp">vyos@vyos# </span><span class="nb">set</span><span class="w"> </span>protocols<span class="w"> </span>static<span class="w"> </span>route<span class="w"> </span><span class="m">0</span>.0.0.0/0<span class="w"> </span>next-hop<span class="w"> </span><span class="m">192</span>.168.0.1
+</code></pre></div>
+<h4 id="dns">DNS</h4>
+<p>VyOSホスト自身が名前解決するためのネームサーバーを設定</p>
+<div class="highlight"><pre><span></span><code><span class="go">[edit]</span>
+<span class="gp">vyos@vyos# </span><span class="nb">set</span><span class="w"> </span>system<span class="w"> </span>name-server<span class="w"> </span><span class="m">8</span>.8.8.8
 </code></pre></div>
 <h3 id="_25">リブート</h3>
 <p>saveされていない設定がなくてもなぜか警告がでる。</p>
