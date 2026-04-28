@@ -1386,6 +1386,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tr" class="md-nav__link">
+    tr
+  </a>
+  
+    <nav class="md-nav" aria-label="tr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cr" class="md-nav__link">
+    CR削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#touch" class="md-nav__link">
     touch
   </a>
@@ -2803,6 +2823,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/harvester/" class="md-nav__link">
+        Harvester
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/jq/" class="md-nav__link">
         jq
       </a>
@@ -3555,6 +3587,26 @@
           <li class="md-nav__item">
   <a href="#if_1" class="md-nav__link">
     if文で正規表現
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tr" class="md-nav__link">
+    tr
+  </a>
+  
+    <nav class="md-nav" aria-label="tr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cr" class="md-nav__link">
+    CR削除
   </a>
   
 </li>
@@ -4833,6 +4885,10 @@
 <h3 id="if_1">if文で正規表現</h3>
 <p>1カラム目が数字のみの場合の行全部</p>
 <div class="highlight"><pre><span></span><code><span class="go">ps aux | awk &#39;{if($1 ~ /[0-9]+/){print $0}}&#39;</span>
+</code></pre></div>
+<h2 id="tr">tr</h2>
+<h3 id="cr">CR削除</h3>
+<div class="highlight"><pre><span></span><code><span class="go">command | tr -d &#39;\r&#39; &gt; output</span>
 </code></pre></div>
 <h2 id="touch">touch</h2>
 <h3 id="_22">タイムスタンプ変更</h3>
