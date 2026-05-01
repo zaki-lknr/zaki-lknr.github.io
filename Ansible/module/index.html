@@ -608,6 +608,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#get_url" class="md-nav__link">
+    get_url
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lineinfile" class="md-nav__link">
     lineinfile
   </a>
@@ -2210,6 +2217,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#get_url" class="md-nav__link">
+    get_url
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lineinfile" class="md-nav__link">
     lineinfile
   </a>
@@ -2611,7 +2625,8 @@ ad-hocで実行する方が多いかも？</p>
 <h2 id="uri">uri</h2>
 <p>HTTPをしゃべる。<br />
 以下はAWX/AAPで通知テストをkickするRESTを叩くタスク。<br />
-basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<code>200</code>or<code>201</code>or<code>202</code>を期待している。</p>
+basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<code>200</code>or<code>201</code>or<code>202</code>を期待している。<br />
+ファイルのHTTPダウンロードであれば<code>get_url</code>を使う。</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">ansible.builtin.uri</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POST</span>
 <span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://{{</span><span class="nv"> </span><span class="s">aap_address</span><span class="nv"> </span><span class="s">}}/api/v2/notification_templates/{{</span><span class="nv"> </span><span class="s">notify_id</span><span class="nv"> </span><span class="s">}}/test/&quot;</span>
@@ -2635,6 +2650,15 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <span class="w">    </span><span class="nt">body</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">SESSION_COOKIE_AGE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">session_timeout_sec</span><span class="nv"> </span><span class="s">}}&quot;</span>
 <span class="w">    </span><span class="nt">status_code</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">200</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<h2 id="get_url">get_url</h2>
+<p>ファイルをHTTPなどからダウンロードする</p>
+<div class="highlight"><pre><span></span><code><span class="nt">ansible.builtin.get_url</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/k3s-io/k3s/releases/download/v1.35.3%2Bk3s1/k3s</span>
+<span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/local/bin/k3s</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0755&#39;</span>
+<span class="w">  </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 </code></pre></div>
 <h2 id="lineinfile">lineinfile</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html">ansible.builtin.lineinfile – Manage lines in text files — Ansible Documentation</a></p>

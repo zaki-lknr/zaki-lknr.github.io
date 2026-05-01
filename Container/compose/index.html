@@ -2271,9 +2271,14 @@
 <div class="highlight"><pre><span></span><code><span class="go">docker compose down -v</span>
 </code></pre></div>
 <p>特定のコンテナのみ停止・削除するには、引数にCompose Fileで指定している名称を指定する。<br />
-ただし<code>down</code>ではこの指定はできない。</p>
+ただし<code>down</code>ではこの指定はできないので<code>stop</code>と<code>rm</code>を実行する。</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose stop myapp</span>
 <span class="go">docker compose rm myapp</span>
+</code></pre></div>
+<p>特定コンテナのみを再作成したい場合は、<code>stop</code>,<code>rm</code>に続けて<code>up -d</code>を実行する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose stop myapp</span>
+<span class="go">docker compose rm myapp</span>
+<span class="go">docker compose up -d myapp</span>
 </code></pre></div>
 <h3 id="_6">コマンド起動</h3>
 <p><code>docker exec</code>と異なり<code>-it</code>オプションは不要。アプリ名とコマンド名のみでOK</p>
