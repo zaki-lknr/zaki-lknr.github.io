@@ -1968,6 +1968,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#provider_2" class="md-nav__link">
+    provider
+  </a>
+  
+    <nav class="md-nav" aria-label="provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    Azure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resource" class="md-nav__link">
     resource
   </a>
@@ -2601,6 +2621,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#provider_2" class="md-nav__link">
+    provider
+  </a>
+  
+    <nav class="md-nav" aria-label="provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    Azure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resource" class="md-nav__link">
     resource
   </a>
@@ -2938,6 +2978,23 @@ countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>�
 </code></pre></div>
 <p>出力されたtfコードを手直ししたり元のtfファイルへマージするなどし、<code>terraform apply</code>を実行するとtfstateへインポートされる。<br />
 最後にimportブロックを削除しても良いが残しても良い。</p>
+<h2 id="provider_2">provider</h2>
+<h3 id="azure">Azure</h3>
+<p>手動の場合、<code>terraform apply</code>を実行する環境で事前に<code>az login</code>しておけば実行可能</p>
+<div class="highlight"><pre><span></span><code><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">required_providers</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">azurerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/azurerm&quot;</span>
+<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;....&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;azurerm&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">features</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="na">subscription_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;********&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="resource">resource</h2>
 <h3 id="_21">デフォルトのルートテーブル</h3>
 <p>VPCのパラメタの<code>default_route_table_id</code>を参照する。</p>
