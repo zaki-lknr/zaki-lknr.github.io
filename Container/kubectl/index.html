@@ -962,6 +962,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#storageclass" class="md-nav__link">
+    StorageClassのデフォルト設定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2453,6 +2460,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#storageclass" class="md-nav__link">
+    StorageClassのデフォルト設定
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2916,6 +2930,13 @@
 <h3 id="_10">変更内容をファイル定義</h3>
 <p>差分のみを記述したマニフェストを別途用意し、<code>-p</code>(<code>--patch</code>)でなく、<code>--patch-file</code>でファイルを指定する。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace deploy awx-operator-controller-manager --patch-file patch-file.yaml</span>
+</code></pre></div>
+<h3 id="storageclass">StorageClassのデフォルト設定</h3>
+<p>デフォルトに設定</p>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl patch storageclass zzz -p &#39;{&quot;metadata&quot;: {&quot;annotations&quot;:{&quot;storageclass.kubernetes.io/is-default-class&quot;:&quot;true&quot;}}}&#39;</span>
+</code></pre></div>
+<p>デフォルト設定を解除</p>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl patch storageclass zzz -p &#39;{&quot;metadata&quot;: {&quot;annotations&quot;:{&quot;storageclass.kubernetes.io/is-default-class&quot;:&quot;false&quot;}}}&#39;</span>
 </code></pre></div>
 <h2 id="run">run</h2>
 <h3 id="pod">ワーク用のpodをデプロイする</h3>
