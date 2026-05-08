@@ -1703,6 +1703,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pki" class="md-nav__link">
+    PKI
+  </a>
+  
+    <nav class="md-nav" aria-label="PKI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    有効化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1717,7 +1737,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     一覧
   </a>
   
@@ -1739,7 +1759,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リスト
   </a>
   
@@ -1753,7 +1773,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     削除
   </a>
   
@@ -1805,21 +1825,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     作成/更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     参照
   </a>
   
@@ -1839,7 +1859,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -2182,6 +2202,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pki" class="md-nav__link">
+    PKI
+  </a>
+  
+    <nav class="md-nav" aria-label="PKI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    有効化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2196,7 +2236,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     一覧
   </a>
   
@@ -2218,7 +2258,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     リスト
   </a>
   
@@ -2232,7 +2272,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     削除
   </a>
   
@@ -2284,21 +2324,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     作成/更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     参照
   </a>
   
@@ -2318,7 +2358,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -2415,22 +2455,27 @@ KVシークレットエンジンであれば以下の通り。</p>
 </code></pre></div>
 <p><code>curl -H "X-Vault-Token: ${token}" http://192.168.0.75:8200/v1/kv/data/zzz?version=1</code>とか。<br />
 <a href="https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2">KV - Secrets Engines - HTTP API | Vault | HashiCorp Developer</a></p>
+<h3 id="pki">PKI</h3>
+<h4 id="_7">有効化</h4>
+<div class="highlight"><pre><span></span><code><span class="go">/ $ vault secrets enable -path=pki_sample pki</span>
+<span class="go">Success! Enabled the pki secrets engine at: pki_sample/</span>
+</code></pre></div>
 <h2 id="auth">auth</h2>
-<h3 id="_7">一覧</h3>
+<h3 id="_8">一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault auth list</span>
 </code></pre></div>
 <h3 id="token_1">token確認</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault token lookup</span>
 </code></pre></div>
 <h3 id="role">role</h3>
-<h4 id="_8">リスト</h4>
+<h4 id="_9">リスト</h4>
 <p><code>path</code>は<code>vault auth list</code>の出力で確認できる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">vault list auth/path/role</span>
 </code></pre></div>
 <h4 id="policy">内容確認(policyなど)</h4>
 <div class="highlight"><pre><span></span><code><span class="go">vault read auth/path/role/key</span>
 </code></pre></div>
-<h4 id="_9">削除</h4>
+<h4 id="_10">削除</h4>
 <div class="highlight"><pre><span></span><code><span class="go">vault delete auth/path/role/key</span>
 </code></pre></div>
 <h2 id="identityentity">identity/entity</h2>
@@ -2447,17 +2492,17 @@ KVシークレットエンジンであれば以下の通り。</p>
 <p>で出力する。<br />
 Entity Aliasについても同様。</p>
 <h2 id="policy_1">policy</h2>
-<h3 id="_10">一覧</h3>
+<h3 id="_11">一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault policy list</span>
 </code></pre></div>
-<h3 id="_11">作成/更新</h3>
+<h3 id="_12">作成/更新</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault policy write my-policy-name &lt;&lt;__EOL__</span>
 <span class="go">path ... {</span>
 <span class="go">    ...</span>
 <span class="go">}</span>
 <span class="go">__EOL__</span>
 </code></pre></div>
-<h3 id="_12">参照</h3>
+<h3 id="_13">参照</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault policy read my-policy-name</span>
 </code></pre></div>
 <h2 id="hvac">hvac</h2>
@@ -2466,7 +2511,7 @@ Entity Aliasについても同様。</p>
 <li><a href="https://python-hvac.org/en/latest/overview.html">hvac documentation</a></li>
 <li><a href="https://github.com/hvac/hvac">hvac/hvac: :lock: Python 3.X client for HashiCorp Vault</a></li>
 </ul>
-<h3 id="_13">コンストラクタ</h3>
+<h3 id="_14">コンストラクタ</h3>
 <p>証明書検証オフは<code>verify=False</code>を加えればOK</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urllib3</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
