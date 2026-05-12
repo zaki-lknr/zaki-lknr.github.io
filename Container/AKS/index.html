@@ -665,6 +665,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    サポートバージョン
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     ノードに接続する
   </a>
   
@@ -678,21 +685,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ログとイベントを記録する
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ストレージの拡張
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     アップグレード
   </a>
   
@@ -700,7 +707,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ノードの個別アップグレード
   </a>
   
@@ -1858,6 +1865,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    サポートバージョン
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     ノードに接続する
   </a>
   
@@ -1871,21 +1885,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     ログとイベントを記録する
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     ストレージの拡張
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     アップグレード
   </a>
   
@@ -1893,7 +1907,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     ノードの個別アップグレード
   </a>
   
@@ -1931,7 +1945,12 @@
                 <h1 id="aks">AKS</h1>
 <h2 id="faq">FAQ</h2>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/faq">Azure Kubernetes Service (AKS) についてよく寄せられる質問 - Azure Kubernetes Service | Microsoft Learn</a></p>
-<h2 id="_1">ノードに接続する</h2>
+<h2 id="_1">サポートバージョン</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/azure/aks/supported-kubernetes-versions?tabs=azure-cli">Azure Kubernetes Service (AKS) でサポートされている Kubernetes バージョン - Azure Kubernetes Service | Microsoft Learn</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/azure/aks/long-term-support">Azure Kubernetes Service (AKS) バージョンの長期サポート - Azure Kubernetes Service | Microsoft Learn</a></li>
+</ul>
+<h2 id="_2">ノードに接続する</h2>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/node-access">Azure Kubernetes Service (AKS) クラスター ノードへの接続 - Azure Kubernetes Service | Microsoft Learn</a></p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>ノードを確認
 <span class="go">kubectl get node -o wide</span>
@@ -1953,18 +1972,18 @@
 <li>ノードの再デプロイ</li>
 </ul>
 <p><a href="https://learn.microsoft.com/ja-jp/azure/aks/node-auto-repair">Azure Kubernetes Service (AKS) ノードの自動修復 - Azure Kubernetes Service | Microsoft Learn</a></p>
-<h2 id="_2">ログとイベントを記録する</h2>
+<h2 id="_3">ログとイベントを記録する</h2>
 <p>監視-&gt;分析情報で、Container insightsを有効（収集データに「ログとイベント」を選択）にする。<br />
 これでLog Analyticsワークスペースの画面から収集情報を検索できる。</p>
-<h2 id="_3">ストレージの拡張</h2>
+<h2 id="_4">ストレージの拡張</h2>
 <p>defaultのAzure DiskのStorage Class定義の内容は<code>allowVolumeExpansion</code>が<code>true</code>になっており、拡張に対応していることが確認できる。<br />
 拡張するにはPVCの定義を変更する。</p>
 <p>以下コマンドで10Giサイズに拡張する。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace pvc pvc-resource -p &#39;{&quot;spec&quot;:{&quot;resources&quot;:{&quot;requests&quot;:{&quot;storage&quot;: &quot;10Gi&quot;}}}}&#39;</span>
 </code></pre></div>
 <p>縮小は不可</p>
-<h2 id="_4">アップグレード</h2>
-<h3 id="_5">ノードの個別アップグレード</h3>
+<h2 id="_5">アップグレード</h2>
+<h3 id="_6">ノードの個別アップグレード</h3>
 <p>PDB設定などでノードがロックされアップグレードできなかった場合、あとから手動で個別にアップグレードできる。<br />
 <a href="https://learn.microsoft.com/ja-jp/azure/aks/node-image-upgrade">Azure Kubernetes Service (AKS) ノード イメージのアップグレード - Azure Kubernetes Service | Microsoft Learn</a></p>
 <h2 id="azure-blob-storage">Azure Blob Storageの利用</h2>
