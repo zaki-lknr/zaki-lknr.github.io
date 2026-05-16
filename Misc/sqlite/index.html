@@ -1578,6 +1578,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    ヘルプ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     テーブル一覧
   </a>
   
@@ -1824,6 +1831,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    ヘルプ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     テーブル一覧
   </a>
   
@@ -1855,7 +1869,77 @@
 <h2 id="db">DBファイルを開く</h2>
 <div class="highlight"><pre><span></span><code><span class="go">sqlite3 /path/to/data.db</span>
 </code></pre></div>
-<h2 id="_2">テーブル一覧</h2>
+<h2 id="_2">ヘルプ</h2>
+<div class="highlight"><pre><span></span><code><span class="go">sqlite&gt; .help</span>
+<span class="go">.archive ...             Manage SQL archives</span>
+<span class="go">.auth ON|OFF             Show authorizer callbacks</span>
+<span class="go">.backup ?DB? FILE        Backup DB (default &quot;main&quot;) to FILE</span>
+<span class="go">.bail on|off             Stop after hitting an error.  Default OFF</span>
+<span class="go">.cd DIRECTORY            Change the working directory to DIRECTORY</span>
+<span class="go">.changes on|off          Show number of rows changed by SQL</span>
+<span class="go">.check GLOB              Fail if output since .testcase does not match</span>
+<span class="go">.clone NEWDB             Clone data into NEWDB from the existing database</span>
+<span class="go">.connection [close] [#]  Open or close an auxiliary database connection</span>
+<span class="go">.crlf ?on|off?           Whether or not to use \r\n line endings</span>
+<span class="go">.databases               List names and files of attached databases</span>
+<span class="go">.dbconfig ?op? ?val?     List or change sqlite3_db_config() options</span>
+<span class="go">.dbinfo ?DB?             Show status information about the database</span>
+<span class="go">.dbtotxt                 Hex dump of the database file</span>
+<span class="go">.dump ?OBJECTS?          Render database content as SQL</span>
+<span class="go">.echo on|off             Turn command echo on or off</span>
+<span class="go">.eqp on|off|full|...     Enable or disable automatic EXPLAIN QUERY PLAN</span>
+<span class="go">.excel                   Display the output of next command in spreadsheet</span>
+<span class="go">.exit ?CODE?             Exit this program with return-code CODE</span>
+<span class="go">.expert                  EXPERIMENTAL. Suggest indexes for queries</span>
+<span class="go">.explain ?on|off|auto?   Change the EXPLAIN formatting mode.  Default: auto</span>
+<span class="go">.filectrl CMD ...        Run various sqlite3_file_control() operations</span>
+<span class="go">.fullschema ?--indent?   Show schema and the content of sqlite_stat tables</span>
+<span class="go">.headers on|off          Turn display of headers on or off</span>
+<span class="go">.help ?-all? ?PATTERN?   Show help text for PATTERN</span>
+<span class="go">.import FILE TABLE       Import data from FILE into TABLE</span>
+<span class="go">.indexes ?TABLE?         Show names of indexes</span>
+<span class="go">.intck ?STEPS_PER_UNLOCK?  Run an incremental integrity check on the db</span>
+<span class="go">.limit ?LIMIT? ?VAL?     Display or change the value of an SQLITE_LIMIT</span>
+<span class="go">.lint OPTIONS            Report potential schema issues.</span>
+<span class="go">.load FILE ?ENTRY?       Load an extension library</span>
+<span class="go">.log FILE|on|off         Turn logging on or off.  FILE can be stderr/stdout</span>
+<span class="go">.mode ?MODE? ?OPTIONS?   Set output mode</span>
+<span class="go">.nonce STRING            Suspend safe mode for one command if nonce matches</span>
+<span class="go">.nullvalue STRING        Use STRING in place of NULL values</span>
+<span class="go">.once ?OPTIONS? ?FILE?   Output for the next SQL command only to FILE</span>
+<span class="go">.open ?OPTIONS? ?FILE?   Close existing database and reopen FILE</span>
+<span class="go">.output ?FILE?           Send output to FILE or stdout if FILE is omitted</span>
+<span class="go">.parameter CMD ...       Manage SQL parameter bindings</span>
+<span class="go">.print STRING...         Print literal STRING</span>
+<span class="go">.progress N              Invoke progress handler after every N opcodes</span>
+<span class="go">.prompt MAIN CONTINUE    Replace the standard prompts</span>
+<span class="go">.quit                    Stop interpreting input stream, exit if primary.</span>
+<span class="go">.read FILE               Read input from FILE or command output</span>
+<span class="go">.recover                 Recover as much data as possible from corrupt db.</span>
+<span class="go">.restore ?DB? FILE       Restore content of DB (default &quot;main&quot;) from FILE</span>
+<span class="go">.save ?OPTIONS? FILE     Write database to FILE (an alias for .backup ...)</span>
+<span class="go">.scanstats on|off|est    Turn sqlite3_stmt_scanstatus() metrics on or off</span>
+<span class="go">.schema ?PATTERN?        Show the CREATE statements matching PATTERN</span>
+<span class="go">.separator COL ?ROW?     Change the column and row separators</span>
+<span class="go">.session ?NAME? CMD ...  Create or control sessions</span>
+<span class="go">.sha3sum ...             Compute a SHA3 hash of database content</span>
+<span class="go">.shell CMD ARGS...       Run CMD ARGS... in a system shell</span>
+<span class="go">.show                    Show the current values for various settings</span>
+<span class="go">.stats ?ARG?             Show stats or turn stats on or off</span>
+<span class="go">.system CMD ARGS...      Run CMD ARGS... in a system shell</span>
+<span class="go">.tables ?TABLE?          List names of tables matching LIKE pattern TABLE</span>
+<span class="go">.timeout MS              Try opening locked tables for MS milliseconds</span>
+<span class="go">.timer on|off            Turn SQL timer on or off</span>
+<span class="go">.trace ?OPTIONS?         Output each SQL statement as it is run</span>
+<span class="go">.version                 Show source, library and compiler versions</span>
+<span class="go">.vfsinfo ?AUX?           Information about the top-level VFS</span>
+<span class="go">.vfslist                 List all available VFSes</span>
+<span class="go">.vfsname ?AUX?           Print the name of the VFS stack</span>
+<span class="go">.width NUM1 NUM2 ...     Set minimum column widths for columnar output</span>
+<span class="go">.www                     Display output of the next command in web browser</span>
+<span class="go">sqlite&gt; </span>
+</code></pre></div>
+<h2 id="_3">テーブル一覧</h2>
 <div class="highlight"><pre><span></span><code><span class="go">sqlite&gt; .table</span>
 </code></pre></div>
                 
