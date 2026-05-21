@@ -1230,6 +1230,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    プロトコル
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#application" class="md-nav__link">
     Application
   </a>
@@ -1258,7 +1265,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     認証トークン
   </a>
   
@@ -1312,7 +1319,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     認証トークン
   </a>
   
@@ -1326,14 +1333,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     アプリケーション一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     アプリケーション情報取得
   </a>
   
@@ -1957,6 +1964,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    プロトコル
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#application" class="md-nav__link">
     Application
   </a>
@@ -1985,7 +1999,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     認証トークン
   </a>
   
@@ -2039,7 +2053,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     認証トークン
   </a>
   
@@ -2053,14 +2067,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     アプリケーション一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     アプリケーション情報取得
   </a>
   
@@ -2114,11 +2128,16 @@
 </ul>
 </li>
 </ul>
+<h2 id="_4">プロトコル</h2>
+<ul>
+<li><a href="https://auth0.com/docs/ja-jp/authenticate/protocols/openid-connect-protocol">OpenID Connectのプロトコル - Auth0 Docs</a></li>
+<li><a href="https://auth0.com/docs/ja-jp/authenticate/protocols/saml">SAML - Auth0 Docs</a></li>
+</ul>
 <h2 id="application">Application</h2>
 <h3 id="permissionscope">作成済みアプリケーションのPermission(scope)変更</h3>
 <p>APIsタブで認可してるAPIの<code>∨(expand)</code>押下で選択画面が表示される。</p>
 <h2 id="api">API</h2>
-<h3 id="_4">認証トークン</h3>
+<h3 id="_5">認証トークン</h3>
 <p><a href="https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing">Get Management API Access Tokens for Testing</a></p>
 <p>Applications &gt; APIs &gt; Auth0 Management API &gt; API Explorer tabから。<br />
 初期状態ではAPI Explorerを使うためのテストアプリケーションが存在しないため、作成ボタンを押下する。<br />
@@ -2188,7 +2207,7 @@ Application名の一覧であれば例えば<code>jq</code>を使って以下。
 <li><a href="https://github.com/auth0/auth0-python">auth0/auth0-python: Auth0 SDK for Python</a></li>
 <li><a href="https://auth0-python.readthedocs.io/en/latest/">Auth0-Python documentation — auth0-python 4.4.0 documentation</a></li>
 </ul>
-<h3 id="_5">認証トークン</h3>
+<h3 id="_6">認証トークン</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">auth0.authentication</span><span class="w"> </span><span class="kn">import</span> <span class="n">GetToken</span>
 
 <span class="n">GetToken</span> <span class="o">=</span> <span class="n">GetToken</span><span class="p">(</span><span class="n">auth_domain</span><span class="p">,</span> <span class="n">auth_client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="o">=</span><span class="n">auth_client_secret</span><span class="p">)</span>
@@ -2201,13 +2220,13 @@ Application名の一覧であれば例えば<code>jq</code>を使って以下。
 
 <span class="n">auth0</span> <span class="o">=</span> <span class="n">Auth0</span><span class="p">(</span><span class="n">auth_domain</span><span class="p">,</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">])</span>
 </code></pre></div>
-<h3 id="_6">アプリケーション一覧</h3>
+<h3 id="_7">アプリケーション一覧</h3>
 <p><code>per_page</code>はMAX100までなので、ループ前提</p>
 <div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="n">apps</span> <span class="o">:=</span> <span class="n">auth0</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">per_page</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="n">n</span><span class="p">)):</span>
     <span class="o">....</span>
     <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
-<h3 id="_7">アプリケーション情報取得</h3>
+<h3 id="_8">アプリケーション情報取得</h3>
 <p>auth0オブジェクトのメソッドの<code>get()</code>を使用。<br />
 引数はアプリケーションIDが必要(アプリケーション名不可)</p>
 <div class="highlight"><pre><span></span><code><span class="n">auth0</span> <span class="o">=</span> <span class="n">Auth0</span><span class="p">(</span><span class="n">auth_domain</span><span class="p">,</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">])</span>

@@ -1790,6 +1790,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#token_2" class="md-nav__link">
+    token
+  </a>
+  
+    <nav class="md-nav" aria-label="token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token_3" class="md-nav__link">
+    token作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identityentity" class="md-nav__link">
     identity/entity
   </a>
@@ -2289,6 +2309,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#token_2" class="md-nav__link">
+    token
+  </a>
+  
+    <nav class="md-nav" aria-label="token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token_3" class="md-nav__link">
+    token作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identityentity" class="md-nav__link">
     identity/entity
   </a>
@@ -2405,10 +2445,10 @@
 <h3 id="_2">ログイン</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault login [認証トークン]</span>
 </code></pre></div>
+<p>トークンを省略すれば対話的に聞いてくる</p>
 <h3 id="token">ログイン中のtoken情の報等</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault token lookup</span>
 </code></pre></div>
-<p>トークンを省略すれば対話的に聞いてくる</p>
 <h3 id="oidccli">OIDCでCLIログイン</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault login -method=oidc [-path=***] role=****</span>
 </code></pre></div>
@@ -2477,6 +2517,13 @@ KVシークレットエンジンであれば以下の通り。</p>
 </code></pre></div>
 <h4 id="_10">削除</h4>
 <div class="highlight"><pre><span></span><code><span class="go">vault delete auth/path/role/key</span>
+</code></pre></div>
+<h2 id="token_2">token</h2>
+<h3 id="token_3">token作成</h3>
+<div class="highlight"><pre><span></span><code><span class="go">vault token create</span>
+</code></pre></div>
+<p>policy指定なら</p>
+<div class="highlight"><pre><span></span><code><span class="go">vault token create -policy=foobar</span>
 </code></pre></div>
 <h2 id="identityentity">identity/entity</h2>
 <p><a href="https://developer.hashicorp.com/vault/tutorials/auth-methods/identity">Implement identity entities and groups | Vault | HashiCorp Developer</a></p>
