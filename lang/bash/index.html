@@ -1781,13 +1781,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    任意の文字列等を返す
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     制御構文
   </a>
   
@@ -1816,7 +1823,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ループ
   </a>
   
@@ -1824,21 +1831,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     引数を順番にループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     配列要素をループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     ループで参照(インデックス)
   </a>
   
@@ -1887,14 +1894,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     途中で抜ける
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     次のループ
   </a>
   
@@ -2150,13 +2157,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    任意の文字列等を返す
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     制御構文
   </a>
   
@@ -2185,7 +2199,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ループ
   </a>
   
@@ -2193,21 +2207,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     引数を順番にループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     配列要素をループ処理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     ループで参照(インデックス)
   </a>
   
@@ -2256,14 +2270,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     途中で抜ける
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     次のループ
   </a>
   
@@ -2393,7 +2407,15 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 myfunc<span class="w"> </span>a<span class="w"> </span>b
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 </code></pre></div>
-<h2 id="_12">制御構文</h2>
+<h3 id="_12">任意の文字列等を返す</h3>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>get_str<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;foobar </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+<span class="nv">val</span><span class="o">=</span><span class="k">$(</span>get_str<span class="w"> </span>arg<span class="k">)</span>
+</code></pre></div>
+<p>末尾の改行が維持されないのとサブシェル実行によるforkが発生するので注意。</p>
+<h2 id="_13">制御構文</h2>
 <h3 id="test">test/評価</h3>
 <table>
 <thead>
@@ -2495,13 +2517,13 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 <span class="w">        </span><span class="p">;;</span>
 <span class="k">esac</span>
 </code></pre></div>
-<h3 id="_13">ループ</h3>
-<h4 id="_14">引数を順番にループ処理</h4>
+<h3 id="_14">ループ</h3>
+<h4 id="_15">引数を順番にループ処理</h4>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>arg<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">arg</span><span class="si">}</span>
 <span class="k">done</span>
 </code></pre></div>
-<h4 id="_15">配列要素をループ処理</h4>
+<h4 id="_16">配列要素をループ処理</h4>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="nv">list</span><span class="o">=(</span><span class="s2">&quot;abc&quot;</span><span class="w"> </span><span class="s2">&quot;123&quot;</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="o">)</span>
@@ -2509,7 +2531,7 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$item</span>
 <span class="k">done</span>
 </code></pre></div>
-<h4 id="_16">ループで参照(インデックス)</h4>
+<h4 id="_17">ループで参照(インデックス)</h4>
 <p>インデックスが必要であればこちら。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
@@ -2565,9 +2587,9 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 <span class="w">    </span><span class="c1"># ${line}の処理</span>
 <span class="k">done</span>
 </code></pre></div>
-<h4 id="_17">途中で抜ける</h4>
+<h4 id="_18">途中で抜ける</h4>
 <p><code>break</code></p>
-<h4 id="_18">次のループ</h4>
+<h4 id="_19">次のループ</h4>
 <p><code>continue</code></p>
                 
               

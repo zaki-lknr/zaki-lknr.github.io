@@ -1804,6 +1804,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#token_4" class="md-nav__link">
+    tokenの情報
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessor" class="md-nav__link">
+    accessor一覧の取得
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2323,6 +2337,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#token_4" class="md-nav__link">
+    tokenの情報
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessor" class="md-nav__link">
+    accessor一覧の取得
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2524,6 +2552,16 @@ KVシークレットエンジンであれば以下の通り。</p>
 </code></pre></div>
 <p>policy指定なら</p>
 <div class="highlight"><pre><span></span><code><span class="go">vault token create -policy=foobar</span>
+</code></pre></div>
+<h3 id="token_4">tokenの情報</h3>
+<p>作成時に得られるトークンを引数に実行すればpolicyやttlを確認できる</p>
+<div class="highlight"><pre><span></span><code><span class="go">vault token lookup &lt;token&gt;</span>
+</code></pre></div>
+<p>あるいは<code>-accessor</code>を指定</p>
+<div class="highlight"><pre><span></span><code><span class="go">vault token lookup -accessor &lt;accessor&gt;</span>
+</code></pre></div>
+<h3 id="accessor">accessor一覧の取得</h3>
+<div class="highlight"><pre><span></span><code><span class="go">vault list auth/token/accessors</span>
 </code></pre></div>
 <h2 id="identityentity">identity/entity</h2>
 <p><a href="https://developer.hashicorp.com/vault/tutorials/auth-methods/identity">Implement identity entities and groups | Vault | HashiCorp Developer</a></p>
