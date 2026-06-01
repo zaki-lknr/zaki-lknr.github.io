@@ -1114,13 +1114,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ディスクラベルの削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ディスク拡張
   </a>
   
@@ -1128,21 +1135,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ブロックデバイスの拡張
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     パーティションを拡張
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ファイルシステムの拡張
   </a>
   
@@ -2103,13 +2110,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ディスクラベルの削除
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ディスク拡張
   </a>
   
@@ -2117,21 +2131,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     ブロックデバイスの拡張
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     パーティションを拡張
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     ファイルシステムの拡張
   </a>
   
@@ -2456,18 +2470,21 @@ sys     0m0.171s
 root@zaki-CF-J10YYBHR:~# e2label /dev/sdb1
 HD-LDS-A
 </code></pre></div>
-<h2 id="_10">ディスク拡張</h2>
+<h3 id="_10">ディスクラベルの削除</h3>
+<div class="highlight"><pre><span></span><code><span class="go">sudo wipefs -a /dev/sdb</span>
+</code></pre></div>
+<h2 id="_11">ディスク拡張</h2>
 <p>主にハイパーバイザーで動作するVMでの操作。</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2025/05/09/222749">[AWS] EC2のストレージ(EBS)を手動で拡張する手順 (RHEL) - zaki work log</a></p>
-<h3 id="_11">ブロックデバイスの拡張</h3>
+<h3 id="_12">ブロックデバイスの拡張</h3>
 <p>これはハイパーバイザーの操作を実施。EC2でEBSを拡張したり、Proxmoxでディスク増加したり。
 拡張後は<code>lsblk</code>でデバイスのサイズ増加を確認できる。</p>
-<h3 id="_12">パーティションを拡張</h3>
+<h3 id="_13">パーティションを拡張</h3>
 <p>ブロックデバイス拡張しても<code>lsblk</code>で見れる各パーティションは変化しないので、パーティションを拡張する。</p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>growpart<span class="w"> </span>/dev/sda<span class="w"> </span><span class="m">1</span>
 <span class="go">CHANGED: partition=1 start=2099200 old: size=24115167 end=26214366 new: size=49280991 end=51380190</span>
 </code></pre></div>
-<h3 id="_13">ファイルシステムの拡張</h3>
+<h3 id="_14">ファイルシステムの拡張</h3>
 <p>この時点では<code>df</code>の結果は変化していないので、パーティション拡張後はファイルシステムを拡張する。</p>
 <p>ext4であれば<code>resize2fs</code></p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>resize2fs<span class="w"> </span>/dev/sda1

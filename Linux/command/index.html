@@ -1380,6 +1380,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3カラム目以降全てを出力
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3591,6 +3598,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3カラム目以降全てを出力
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4886,6 +4900,15 @@
 <p>1カラム目が数字のみの場合の行全部</p>
 <div class="highlight"><pre><span></span><code><span class="go">ps aux | awk &#39;{if($1 ~ /[0-9]+/){print $0}}&#39;</span>
 </code></pre></div>
+<h3 id="3">3カラム目以降全てを出力</h3>
+<p><code>substr()</code>と<code>index()</code>を併用する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">awk &#39;{ print substr($0, index($0, $3)) }&#39;</span>
+</code></pre></div>
+<ul>
+<li><code>$0</code>: 行全体</li>
+<li><code>substr(s, p)</code>: 文字列j<code>s</code>内における<code>p</code>以降の部分文字列</li>
+<li><code>index(s, p)</code>: 文字列<code>s</code>内における<code>p</code>の位置</li>
+</ul>
 <h2 id="tr">tr</h2>
 <h3 id="cr">CR削除</h3>
 <div class="highlight"><pre><span></span><code><span class="go">command | tr -d &#39;\r&#39; &gt; output</span>
