@@ -2938,6 +2938,7 @@
 <p>デフォルト設定を解除</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl patch storageclass zzz -p &#39;{&quot;metadata&quot;: {&quot;annotations&quot;:{&quot;storageclass.kubernetes.io/is-default-class&quot;:&quot;false&quot;}}}&#39;</span>
 </code></pre></div>
+<p><a href="https://kubernetes.io/ja/docs/tasks/administer-cluster/change-default-storage-class/">デフォルトのStorageClassを変更する | Kubernetes</a></p>
 <h2 id="run">run</h2>
 <h3 id="pod">ワーク用のpodをデプロイする</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>run<span class="w"> </span>work-pod<span class="w"> </span>--image<span class="o">=</span>fedora<span class="w"> </span>--command<span class="w"> </span>--<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/dev/null
