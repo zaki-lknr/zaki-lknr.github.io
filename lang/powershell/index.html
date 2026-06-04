@@ -1761,6 +1761,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleep
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     ファイルのハッシュ値
   </a>
@@ -1987,6 +1994,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleep
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     ファイルのハッシュ値
   </a>
@@ -2153,6 +2167,14 @@ om/fwlink/?LinkID=135170) を参照してください。
 <h2 id="http">httpアクセス</h2>
 <p><a href="https://qiita.com/zaki-lknr/items/8950f6acea20961a8afc">curl/PowerShellでHTTPアクセスいろいろ - Qiita</a></p>
 <h2 id="_2">コマンドレット</h2>
+<h3 id="sleep">sleep</h3>
+<p><code>Start-Sleep</code>を使う</p>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">&gt;</span> <span class="nb">get-date</span><span class="p">;</span> <span class="nb">start-sleep</span> <span class="n">3</span><span class="p">;</span> <span class="nb">get-date</span>
+
+<span class="n">2026年6月5日</span> <span class="n">5</span><span class="p">:</span><span class="n">57</span><span class="p">:</span><span class="n">28</span>
+<span class="n">2026年6月5日</span> <span class="n">5</span><span class="p">:</span><span class="n">57</span><span class="p">:</span><span class="n">31</span>
+</code></pre></div>
+<p><code>sleep</code>同様<code>Start-Sleep 1.5</code>のように小数指定可能。</p>
 <h3 id="_3">ファイルのハッシュ値</h3>
 <p><code>Get-FileHash</code>で取れる。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Downloads</span><span class="p">&gt;</span> <span class="nb">Get-FileHash</span> <span class="p">.\</span><span class="n">r2tokimeki</span><span class="p">-</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">zip</span>
@@ -2160,6 +2182,13 @@ om/fwlink/?LinkID=135170) を参照してください。
 <span class="n">Algorithm</span>       <span class="n">Hash</span>                                                                   <span class="n">Path</span>
 <span class="p">---------</span>       <span class="p">----</span>                                                                   <span class="p">----</span>
 <span class="n">SHA256</span>          <span class="n">04B71F5099FDBC96A8497AD88D16C4169F978E931F0D59B7AAE3E2DC8B383CE1</span>       <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Downloads</span><span class="p">\</span><span class="n">r2to</span><span class="p">...</span>
+</code></pre></div>
+<p>MD5ハッシュの場合<code>-Algorithm</code>で指定する</p>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Downloads</span><span class="p">&gt;</span> <span class="nb">Get-FileHash</span> <span class="n">-Algorithm</span> <span class="n">MD5</span> <span class="p">.\</span><span class="n">harvester-v1</span><span class="p">.</span><span class="n">7</span><span class="p">.</span><span class="n">1-amd64</span><span class="p">.</span><span class="n">iso</span>
+
+<span class="n">Algorithm</span>       <span class="n">Hash</span>                                                                   <span class="n">Path</span>
+<span class="p">---------</span>           <span class="p">----</span>                                                                   <span class="p">----</span>
+<span class="n">MD5</span>             <span class="n">9BB6EA484F6A798ADB853884854A04D2</span>                                       <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">zakih</span><span class="p">\</span><span class="n">Downloads</span><span class="p">\...</span>
 </code></pre></div>
 <h2 id="_4">コーディング</h2>
 <h3 id="_5">型</h3>
