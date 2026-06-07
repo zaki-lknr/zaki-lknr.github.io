@@ -1056,6 +1056,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cp" class="md-nav__link">
+    cp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get" class="md-nav__link">
     get
   </a>
@@ -2554,6 +2561,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cp" class="md-nav__link">
+    cp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get" class="md-nav__link">
     get
   </a>
@@ -3041,6 +3055,20 @@ oci-k3s-le
 <p>リソースが指定の条件になるまで待つ。<br />
 podがrunningになるまで待つには以下。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl wait --for=jsonpath=&#39;{.status.phase}&#39;=Running pod/*****</span>
+</code></pre></div>
+<h2 id="cp">cp</h2>
+<p>podとホスト間でファイル転送する。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod
+<span class="go">NAME        READY   STATUS    RESTARTS   AGE</span>
+<span class="go">work-pod    1/1     Running   0          15m</span>
+<span class="go">work-pod2   1/1     Running   0          17m</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>cp<span class="w"> </span>README.md<span class="w"> </span>work-pod:/tmp
+<span class="gp">$ </span>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>work-pod<span class="w"> </span>--<span class="w"> </span>cat<span class="w"> </span>/tmp/README.md
+<span class="gp"># </span>pages<span class="o">(</span>github-pages<span class="o">)</span><span class="w"> </span>
+</code></pre></div>
+<p>ただしコンテナ内に<code>tar</code>が必要。無い場合(distrolessベースなど)はエラーとなる。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>cp<span class="w"> </span>sample.txt<span class="w"> </span>work-pod2:/tmp
+<span class="go">error: Internal error occurred: Internal error occurred: error executing command in container: failed to exec in container: failed to start exec &quot;f44fd2283fa42be5dcb8787db48b4e551c223d295a65fa14da32cf8a46ba416a&quot;: OCI runtime exec failed: exec failed: unable to start container process: exec: &quot;tar&quot;: executable file not found in $PATH</span>
 </code></pre></div>
 <h2 id="get">get</h2>
 <h3 id="_11">全てのリソース</h3>
