@@ -766,6 +766,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../Container/openshift/" class="md-nav__link">
+        OpenShift
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Container/podman/" class="md-nav__link">
         Podman
       </a>
@@ -1005,6 +1017,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cherry-pick" class="md-nav__link">
+    cherry-pick
+  </a>
   
 </li>
       
@@ -2669,6 +2688,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cherry-pick" class="md-nav__link">
+    cherry-pick
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conflict" class="md-nav__link">
     conflictした場合
   </a>
@@ -3372,6 +3398,12 @@ $ git commit -m &quot;first commit&quot;
 <span class="gp">$ </span>git<span class="w"> </span>stash<span class="w"> </span>pop
 </code></pre></div>
 <p>origin/mainから取り込むときに<code>pull</code>するとmergeになってしまうので、rebaseしたい場合は<code>fetch</code>する。(たぶん)</p>
+<h2 id="cherry-pick">cherry-pick</h2>
+<p>特定のコミット単体(あるいは範囲)を取り込みたい</p>
+<div class="highlight"><pre><span></span><code><span class="go">git cherry-pick &lt;コミットID&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go">git cherry-pick &lt;開始ID&gt;^...&lt;終了ID&gt;</span>
+</code></pre></div>
 <h2 id="conflict">conflictした場合</h2>
 <h3 id="_5">修正する場合は普通に</h3>
 <ol>
