@@ -2251,7 +2251,11 @@ Linuxが起動したらGRUBを再インストール</p>
 <li><code>sudo dnf upgrade --refresh</code></li>
 <li><code>sudo reboot</code></li>
 <li><code>sudo dnf system-upgrade download --releasever=41</code> # 41はターゲットバージョン。飛び級がサポートされるのは2段階(39 -&gt; 41)</li>
-<li><code>sudo dnf system-upgrade reboot</code></li>
+<li><code>sudo dnf system-upgrade reboot</code><ul>
+<li>44ではコマンドが変わっている: <code>sudo dnf offline reboot</code></li>
+</ul>
+</li>
+<li>アップグレード後のタスクもあるので公式ドキュメントを確認する</li>
 </ul>
 <h3 id="ubuntu_1">Ubuntu</h3>
 <p>次のLTSへのアップグレードは以下</p>
