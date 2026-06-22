@@ -2672,6 +2672,7 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <span class="w">  </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 <span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 </code></pre></div>
+<p><code>force: true</code>が無い場合、異なるファイルでもすでにダウンロード済み(ローカルにファイルがある状態)だとダウンロードしない。<code>force: true</code>があればリモートのファイルが変更されていればローカルのファイルを上書きする。<code>force: true</code>があってもリモートとローカルが同一のファイルであれば<code>changed</code>ではなく<code>ok</code>と処理される。</p>
 <h2 id="lineinfile">lineinfile</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html">ansible.builtin.lineinfile – Manage lines in text files — Ansible Documentation</a></p>
 <div class="highlight"><pre><span></span><code><span class="w">      </span><span class="nt">lineinfile</span><span class="p">:</span>

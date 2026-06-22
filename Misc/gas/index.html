@@ -1415,7 +1415,7 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    ダイアログ
+    アラートダイアログ
   </a>
   
 </li>
@@ -1937,7 +1937,7 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    ダイアログ
+    アラートダイアログ
   </a>
   
 </li>
@@ -1997,10 +1997,12 @@
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">UrlFetchApp</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="ui">UI</h2>
-<h3 id="_3">ダイアログ</h3>
+<p><a href="https://developers.google.com/apps-script/reference/base/browser?hl=ja">Class Browser、<code>inputBox()</code>、<code>msgBox()</code>はdeprecated</a></p>
+<h3 id="_3">アラートダイアログ</h3>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getUi</span><span class="p">();</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="nx">message_string</span><span class="p">);</span>
 </code></pre></div>
+<p><a href="https://developers.google.com/apps-script/guides/dialogs?hl=ja#alert_dialogs">Google Workspace ドキュメントのダイアログとサイドバー  |  Apps Script  |  Google for Developers</a></p>
 <h3 id="prompt">テキスト入力 (prompt)</h3>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getUi</span><span class="p">();</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">msg</span><span class="p">,</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">ButtonSet</span><span class="p">.</span><span class="nx">YES_NO</span><span class="p">);</span>
@@ -2012,6 +2014,7 @@
 <span class="w">    </span><span class="nx">Logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;input text: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">input</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
+<p><a href="https://developers.google.com/apps-script/guides/dialogs?hl=ja#prompt_dialogs">Google Workspace ドキュメントのダイアログとサイドバー  |  Apps Script  |  Google for Developers</a></p>
 <h2 id="_4">プロパティ</h2>
 <p><a href="https://developers.google.com/apps-script/guides/properties?hl=ja">プロパティ サービス  |  Apps Script  |  Google for Developers</a></p>
 <p>ハードコードしたくないパラメタ類はプロパティを使って外部入力可能。いくつか種類がある。</p>

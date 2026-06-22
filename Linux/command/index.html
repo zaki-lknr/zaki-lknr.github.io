@@ -1499,6 +1499,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#nohup" class="md-nav__link">
+    nohup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#script" class="md-nav__link">
     script
   </a>
@@ -3724,6 +3731,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#nohup" class="md-nav__link">
+    nohup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#script" class="md-nav__link">
     script
   </a>
@@ -4981,6 +4995,10 @@
 <p>コマンド実行結果のstdout同士を比較したい場合は以下。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>diff<span class="w"> </span>-u<span class="w"> </span>&lt;<span class="o">(</span>command1<span class="o">)</span><span class="w"> </span>&lt;<span class="o">(</span>command2<span class="o">)</span>
 </code></pre></div>
+<h2 id="nohup">nohup</h2>
+<div class="highlight"><pre><span></span><code><span class="go">nohup command &amp;</span>
+</code></pre></div>
+<p>起動元シェルが終了しても<code>command</code>は動作し続ける。stdout/stderrは実行時のディレクトリ直下に<code>nohup.out</code>ファイルに出力される。</p>
 <h2 id="script">script</h2>
 <h3 id="_26">シェルを指定して起動</h3>
 <p>デフォルトだと<code>sh</code>が起動するが、<code>-c &lt;command&gt;</code>を使用すれば<code>bash</code>で起動したりできる。</p>
