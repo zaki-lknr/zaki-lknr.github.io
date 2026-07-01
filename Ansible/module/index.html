@@ -706,6 +706,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#stat" class="md-nav__link">
+    stat
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1879,6 +1886,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Misc/oci/" class="md-nav__link">
+        Oracle Cloud
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Misc/openssl/" class="md-nav__link">
         openssl
       </a>
@@ -2323,6 +2342,13 @@
           <li class="md-nav__item">
   <a href="#file" class="md-nav__link">
     file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stat" class="md-nav__link">
+    stat
   </a>
   
 </li>
@@ -2869,6 +2895,19 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 <span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file not exist</span>
 <span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result.state == &quot;absent&quot;</span>
 </code></pre></div>
+<h4 id="stat">stat</h4>
+<p><a href="https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/stat_module.html">https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/stat_module.html</a><br />
+ファイルのステータスを取得する。ファイルが無い場合もエラーにはならない。</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exist check k3s.service</span>
+<span class="w">    </span><span class="nt">ansible.builtin.stat</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/systemd/system/k3s.service</span>
+<span class="w">    </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">print exist check result</span>
+<span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">result.stat.exists</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</code></pre></div>
+<p>ファイルが存在しない場合、<code>stat.exists</code>が<code>false</code>になるのでこれでもファイル有無の判定可能。</p>
 <h3 id="_4">モード</h3>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create file</span>
 <span class="w">  </span><span class="nt">file</span><span class="p">:</span>
