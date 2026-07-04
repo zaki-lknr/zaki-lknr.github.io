@@ -1801,6 +1801,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#acr" class="md-nav__link">
+    ACR
+  </a>
+  
+    <nav class="md-nav" aria-label="ACR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    他レジストリからのコピー
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#app-service" class="md-nav__link">
     App Service
   </a>
@@ -2943,6 +2963,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#acr" class="md-nav__link">
+    ACR
+  </a>
+  
+    <nav class="md-nav" aria-label="ACR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    他レジストリからのコピー
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#app-service" class="md-nav__link">
     App Service
   </a>
@@ -3337,6 +3377,11 @@
 <span class="go">  --cluster-name ${cluster_name} \</span>
 <span class="go">  --name ${nodepool_name} \</span>
 <span class="go">  --kubernetes-version ${k8s_version}</span>
+</code></pre></div>
+<h2 id="acr">ACR</h2>
+<p><a href="https://learn.microsoft.com/ja-jp/cli/azure/acr?view=azure-cli-latest">az acr | Microsoft Learn</a></p>
+<h3 id="_31">他レジストリからのコピー</h3>
+<div class="highlight"><pre><span></span><code><span class="go">az acr import --name ${acr_name} --source docker.io/library/####:tag --image image_name:tag</span>
 </code></pre></div>
 <h2 id="app-service">App Service</h2>
 <p><a href="https://learn.microsoft.com/ja-jp/cli/azure/service-page/app%20services?view=azure-cli-latest">App Services | Microsoft Learn</a></p>
