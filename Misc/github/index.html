@@ -2726,6 +2726,12 @@
 <h3 id="_2">デフォルトブランチの変更</h3>
 <p>リポジトリの「Settings」-&gt;「Default branch」で対象を選択する。</p>
 <p><a href="https://docs.github.com/ja/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch">デフォルトブランチを変更する - GitHub Docs</a></p>
+<p>リモート(GitHub上)のブランチを変更したらローカルも変更する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">git branch -m before after</span>
+<span class="go">git fetch origin</span>
+<span class="go">git branch -u origin/after after</span>
+<span class="go">git remote set-head origin -a</span>
+</code></pre></div>
 <h3 id="_3">ライセンスファイルの追加</h3>
 <p><a href="https://docs.github.com/ja/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository">リポジトリへのライセンスの追加 - GitHub Docs</a></p>
 <p>「新規ファイル追加」でファイル名<code>LICENSE</code>を追加しようとするとテンプレートを選択するボタンが表示される。</p>
