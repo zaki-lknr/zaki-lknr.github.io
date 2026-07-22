@@ -2018,6 +2018,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#arrayfrom" class="md-nav__link">
     Array.from()
   </a>
@@ -2888,6 +2895,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#arrayfrom" class="md-nav__link">
     Array.from()
   </a>
@@ -3648,6 +3662,10 @@
 <p>配列要素に一律に処理をかけるときに使う。<br />
 以下は文字列の配列の各要素末尾に<code>.</code>を追加して新しい配列を返す。</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">new_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">current_array</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="filter">filter</h4>
+<p>配列要素から条件に合った要素をフィルタリングする。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">repo_links</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">links</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">i</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/Repository/</span><span class="p">));</span>
 </code></pre></div>
 <h4 id="arrayfrom">Array.from()</h4>
 <p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from() - JavaScript | MDN</a></p>
