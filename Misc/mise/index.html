@@ -1594,6 +1594,13 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     テンプレート
   </a>
   
@@ -2114,6 +2121,13 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    環境変数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     テンプレート
   </a>
   
@@ -2244,7 +2258,11 @@
 <p><code>mise</code>コマンド実行の外で作成した<code>mise.toml</code>ファイルは、信頼済み設定が必要。</p>
 <div class="highlight"><pre><span></span><code><span class="go">mise trust /path/to/mise.toml</span>
 </code></pre></div>
-<h3 id="_10">テンプレート</h3>
+<h3 id="_10">環境変数</h3>
+<div class="highlight"><pre><span></span><code><span class="k">[env]</span>
+<span class="n">ANSIBLE_COLLECTIONS_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{{ config_root }}/.ansible&quot;</span>
+</code></pre></div>
+<h3 id="_11">テンプレート</h3>
 <p><a href="https://mise.jdx.dev/templates.html">Templates | mise-en-place</a></p>
 <h4 id="exec">コマンド実行結果を変数にセット (exec)</h4>
 <div class="highlight"><pre><span></span><code><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;カウント設定: {{ exec(command=</span><span class="se">\&quot;</span><span class="s2">grep count -A2 path/to/file | awk -F&#39;=&#39; &#39;{print $2}&#39;</span><span class="se">\&quot;</span><span class="s2">) }}&quot;</span>
