@@ -626,6 +626,26 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    演算子
+  </a>
+  
+    <nav class="md-nav" aria-label="演算子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    文字列結合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     コメント
   </a>
   
@@ -639,7 +659,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -659,7 +679,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     現在時刻の取得
   </a>
   
@@ -2042,6 +2062,26 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
+    演算子
+  </a>
+  
+    <nav class="md-nav" aria-label="演算子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    文字列結合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     コメント
   </a>
   
@@ -2055,7 +2095,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     指定部分へのフィルタの実行
   </a>
   
@@ -2075,7 +2115,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     現在時刻の取得
   </a>
   
@@ -2143,7 +2183,17 @@
 <p><code>array_value</code>の配列要素が<code>item</code>にセットされてループ処理される。</p>
 <h4 id="_9">ループインデックス</h4>
 <p>ループブロック内で<code>loop.index0</code>という変数参照でループインデックスを取り出せる(ゼロオリジン)</p>
-<h2 id="_10">コメント</h2>
+<h2 id="_10">演算子</h2>
+<h3 id="_11">文字列結合</h3>
+<p>Python同様<code>+</code>で結合できる。<br />
+以下は<code>"AB"</code></p>
+<div class="highlight"><pre><span></span><code>{{ &#39;A&#39; + &#39;B&#39; }}
+</code></pre></div>
+<p><code>~</code>も使用可能。自動キャストが行われるため数値との文字列結合もそのまま記述できる。<br />
+以下は<code>"ABC123"</code></p>
+<div class="highlight"><pre><span></span><code>{{ &#39;ABC&#39; ~ 123 }}
+</code></pre></div>
+<h2 id="_12">コメント</h2>
 <div class="highlight"><pre><span></span><code>{# comment #}
 </code></pre></div>
 <p>複数行もOK</p>
@@ -2156,7 +2206,7 @@
 <p>playbook等で書くときと同じ要領で記述可能</p>
 <div class="highlight"><pre><span></span><code>{{ lookup(&#39;pipe&#39;, &#39;date +%s&#39;) }}
 </code></pre></div>
-<h2 id="_11">指定部分へのフィルタの実行</h2>
+<h2 id="_13">指定部分へのフィルタの実行</h2>
 <h3 id="indent">indent()</h3>
 <div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">filter</span> <span class="nf">indent</span><span class="o">(</span><span class="m">4</span><span class="o">,</span> <span class="kp">true</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="cp">{{</span> <span class="nv">sample_string</span> <span class="cp">}}</span>
@@ -2182,7 +2232,7 @@
       return 0;
     }
 </code></pre></div>
-<h2 id="_12">現在時刻の取得</h2>
+<h2 id="_14">現在時刻の取得</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating_now.html">The now function: get the current time — Ansible Community Documentation</a></p>
 <p>Jinja2関数の<code>now()</code>を使う。(Jinja2の関数と書かれてるが、Jinja2のドキュメントに見当たらなくてよくわからん)<br />
 <code>pipe</code>で<code>date</code>を実行する必要はない。</p>

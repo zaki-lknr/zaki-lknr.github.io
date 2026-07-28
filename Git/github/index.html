@@ -1208,6 +1208,13 @@
         
           <li class="md-nav__item">
   <a href="#_19" class="md-nav__link">
+    ランナー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     コンテキスト
   </a>
   
@@ -1222,7 +1229,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     式の評価
   </a>
   
@@ -1237,7 +1244,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     空文字判定
   </a>
   
@@ -1254,7 +1261,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     変数
   </a>
   
@@ -2550,6 +2557,13 @@
         
           <li class="md-nav__item">
   <a href="#_19" class="md-nav__link">
+    ランナー
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     コンテキスト
   </a>
   
@@ -2564,7 +2578,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     式の評価
   </a>
   
@@ -2579,7 +2593,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     空文字判定
   </a>
   
@@ -2596,7 +2610,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     変数
   </a>
   
@@ -2905,10 +2919,17 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <p><a href="https://docs.github.com/ja/actions/how-tos/manage-workflow-runs/manually-run-a-workflow">ワークフローの手動実行 - GitHub Docs</a></p>
 <h3 id="_18">ワークフローとジョブの再実行</h3>
 <p>ワークフロー実行結果一覧から指定のワークフローを開き、画面右上の「Re-run all jobs」ボタンを押下</p>
-<h3 id="_19">コンテキスト</h3>
+<h3 id="_19">ランナー</h3>
+<ul>
+<li><a href="https://docs.github.com/ja/actions/how-tos/manage-runners/github-hosted-runners">GitHub サーバー上で実行されるランナーの使用 - GitHubドキュメント</a></li>
+<li><a href="https://docs.github.com/ja/actions/concepts/runners/github-hosted-runners">GitHub ホステッド ランナー - GitHubドキュメント</a></li>
+<li><a href="https://docs.github.com/ja/actions/concepts/runners/self-hosted-runners">セルフホステッド ランナー - GitHubドキュメント</a></li>
+<li><a href="https://docs.github.com/ja/actions/reference/runners/self-hosted-runners">セルフホステッド ランナー リファレンス - GitHubドキュメント</a></li>
+</ul>
+<h3 id="_20">コンテキスト</h3>
 <p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/contexts">コンテキスト リファレンス - GitHubドキュメント</a></p>
 <h3 id="steps">タスク(steps)</h3>
-<h4 id="_20">式の評価</h4>
+<h4 id="_21">式の評価</h4>
 <p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/expressions">ワークフローとアクションで式を評価する - GitHub ドキュメント</a></p>
 <h4 id="if">if</h4>
 <p>条件によってタスクを処理せずスキップする</p>
@@ -2922,10 +2943,10 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <p>"exec command"の出力結果を変数保持しているが、文字列長がゼロの場合は次のタスク"exec next"は実行されない。</p>
-<h5 id="_21">空文字判定</h5>
+<h5 id="_22">空文字判定</h5>
 <p>前述の通り <code>${{ value != '' }}</code> と記述。<br />
 ダブルクォート不可</p>
-<h3 id="_22">変数</h3>
+<h3 id="_23">変数</h3>
 <h4 id="format">フォーマット文字列(format)</h4>
 <div class="highlight"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">VALUE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ format(&#39;foo-{0}-bar&#39;, vars.INPUT_VALUE) }}</span>
