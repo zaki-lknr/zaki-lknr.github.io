@@ -975,6 +975,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    logs
+  </a>
+  
+    <nav class="md-nav" aria-label="logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod" class="md-nav__link">
+    最後にクラッシュしたpodのログを出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run" class="md-nav__link">
     run
   </a>
@@ -983,7 +1003,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pod" class="md-nav__link">
+  <a href="#pod_1" class="md-nav__link">
     ワーク用のpodをデプロイする
   </a>
   
@@ -1092,7 +1112,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pod_1" class="md-nav__link">
+  <a href="#pod_2" class="md-nav__link">
     pod
   </a>
   
@@ -1107,7 +1127,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pod_2" class="md-nav__link">
+  <a href="#pod_3" class="md-nav__link">
     podとコンテナ名
   </a>
   
@@ -2504,6 +2524,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    logs
+  </a>
+  
+    <nav class="md-nav" aria-label="logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pod" class="md-nav__link">
+    最後にクラッシュしたpodのログを出力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run" class="md-nav__link">
     run
   </a>
@@ -2512,7 +2552,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pod" class="md-nav__link">
+  <a href="#pod_1" class="md-nav__link">
     ワーク用のpodをデプロイする
   </a>
   
@@ -2621,7 +2661,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pod_1" class="md-nav__link">
+  <a href="#pod_2" class="md-nav__link">
     pod
   </a>
   
@@ -2636,7 +2676,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pod_2" class="md-nav__link">
+  <a href="#pod_3" class="md-nav__link">
     podとコンテナ名
   </a>
   
@@ -2977,8 +3017,13 @@
 <div class="highlight"><pre><span></span><code><span class="go">kubectl patch storageclass zzz -p &#39;{&quot;metadata&quot;: {&quot;annotations&quot;:{&quot;storageclass.kubernetes.io/is-default-class&quot;:&quot;false&quot;}}}&#39;</span>
 </code></pre></div>
 <p><a href="https://kubernetes.io/ja/docs/tasks/administer-cluster/change-default-storage-class/">デフォルトのStorageClassを変更する | Kubernetes</a></p>
+<h2 id="logs">logs</h2>
+<h3 id="pod">最後にクラッシュしたpodのログを出力</h3>
+<p>現在はrunningだがrestart前のpodログを参照</p>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl logs -n &lt;namespace&gt; &lt;pod-name&gt; --previous </span>
+</code></pre></div>
 <h2 id="run">run</h2>
-<h3 id="pod">ワーク用のpodをデプロイする</h3>
+<h3 id="pod_1">ワーク用のpodをデプロイする</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>run<span class="w"> </span>work-pod<span class="w"> </span>--image<span class="o">=</span>fedora<span class="w"> </span>--command<span class="w"> </span>--<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/dev/null
 </code></pre></div>
 <p>マニフェストにするとこんな感じ</p>
@@ -3158,7 +3203,7 @@ podがrunningになるまで待つには以下。</p>
 <span class="go">[+]shutdown ok</span>
 <span class="go">readyz check passed</span>
 </code></pre></div>
-<h3 id="pod_1">pod</h3>
+<h3 id="pod_2">pod</h3>
 <h4 id="_13">イメージ一覧</h4>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl get pod -n awx -o jsonpath=&quot;{..image}&quot; | sed &#39;s/ /\n/g&#39; | sort | uniq</span>
 </code></pre></div>
@@ -3174,7 +3219,7 @@ podがrunningになるまで待つには以下。</p>
 <span class="go">awx         awx-task-dc97f74f7-fmbbn                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx-ee:24.6.1,quay.io/ansible/awx:24.6.1</span>
 <span class="go">awx         awx-web-769f8f749f-s4qkz                           docker.io/redis:7,quay.io/ansible/awx:24.6.1,quay.io/ansible/awx:24.6.1</span>
 </code></pre></div>
-<h4 id="pod_2">podとコンテナ名</h4>
+<h4 id="pod_3">podとコンテナ名</h4>
 <div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>awx<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>NAMESPACE:.metadata.namespace,NAME:.metadata.name,IMAGE:.spec.containers<span class="o">[</span>*<span class="o">]</span>.name
 <span class="go">NAMESPACE   NAME                                               IMAGE</span>
 <span class="go">awx         awx-migration-24.6.1-dh8l8                         migration-job</span>
