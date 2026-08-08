@@ -1485,6 +1485,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    フローチャート
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1921,6 +1928,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    フローチャート
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2105,6 +2119,19 @@ sequenceDiagram
     server --&gt;&gt; client: エラー画面を表示
     end
     deactivate server</div>
+<h2 id="_4">フローチャート</h2>
+<p>コード</p>
+<div class="highlight"><pre><span></span><code>```mermaid
+flowchart TB
+  User--&gt;LB[Load Balancer]
+  LB--&gt; Web1[Web Server] &amp; Web2[Web Server]
+  Web1 &amp; Web2 --&gt; DB[(Database)]
+```
+</code></pre></div>
+<div class="mermaid">flowchart TB
+  User--&gt;LB[Load Balancer]
+  LB--&gt; Web1[Web Server] &amp; Web2[Web Server]
+  Web1 &amp; Web2 --&gt; DB[(Database)]</div>
                 
               
               
