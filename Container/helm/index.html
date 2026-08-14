@@ -2299,7 +2299,7 @@
 <p><a href="https://helm.sh/ja/docs/intro/install/">Helm | Helm のインストール</a></p>
 <p>OSのパッケージ管理で対応してなければ、バイナリを<code>/usr/local/bin/helm</code>に置けばOK.<br />
 インストール用スクリプトもある。</p>
-<p>aptはあるけど、今のとこyun/dnfはないんだよな。</p>
+<p>Fedora35からはオフィシャルリポジトリから<code>dnf</code>でもインストール可</p>
 <h3 id="apt">apt</h3>
 <div class="highlight"><pre><span></span><code><span class="go">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
 <span class="go">sudo apt-get install apt-transport-https --yes</span>
