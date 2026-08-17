@@ -1913,6 +1913,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    レジストリ操作
+  </a>
+  
+    <nav class="md-nav" aria-label="レジストリ操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    取得
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1934,14 +1954,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -2180,6 +2200,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    レジストリ操作
+  </a>
+  
+    <nav class="md-nav" aria-label="レジストリ操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    取得
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2201,14 +2241,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     サインイン
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     ディレクトリ切り替え
   </a>
   
@@ -2394,18 +2434,27 @@ om/fwlink/?LinkID=135170) を参照してください。
 <span class="n">PSDrive</span>       <span class="p">:</span> <span class="n">C</span>
 <span class="n">PSProvider</span>    <span class="p">:</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">PowerShell</span><span class="p">.</span><span class="n">Core</span><span class="p">\</span><span class="n">FileSystem</span>
 </code></pre></div>
+<h3 id="_15">レジストリ操作</h3>
+<h4 id="_16">取得</h4>
+<p><code>$path</code>のレジストリキーにある、<code>Sample</code>の値を取得する。</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$path</span> <span class="p">=</span> <span class="s2">&quot;HKLM:\SYSTEM\SOFTWARE\TestRegistry&quot;</span>
+
+<span class="nb">Get-ItemProperty</span> <span class="p">`</span>
+    <span class="n">-Path</span> <span class="nv">$path</span> <span class="p">`</span>
+    <span class="n">-Name</span> <span class="s2">&quot;Sample&quot;</span>
+</code></pre></div>
 <h2 id="azure-powershell">Azure PowerShell</h2>
 <h3 id="azure-az-powershell">Azure Az PowerShellインストール</h3>
 <p><a href="https://learn.microsoft.com/ja-jp/powershell/azure/install-az-ps">Azure Az PowerShell モジュールをインストールする | Microsoft Learn</a></p>
 <div class="highlight"><pre><span></span><code><span class="nb">Install-Module</span> <span class="n">-Name</span> <span class="n">Az</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span> <span class="n">-Repository</span> <span class="n">PSGallery</span> <span class="n">-Force</span>
 </code></pre></div>
-<h3 id="_15">サインイン</h3>
+<h3 id="_17">サインイン</h3>
 <div class="highlight"><pre><span></span><code><span class="nb">Connect-AzAccount</span>
 </code></pre></div>
 <p>ディレクトリが複数ある場合は指定の必要がある。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">Connect-AzAccount</span> <span class="n">-TenantId</span> <span class="p">********</span>
 </code></pre></div>
-<h3 id="_16">ディレクトリ切り替え</h3>
+<h3 id="_18">ディレクトリ切り替え</h3>
 <div class="highlight"><pre><span></span><code><span class="nb">Select-AzContext</span> <span class="p">...</span>
 </code></pre></div>
 <p>サインイン済みのディレクトリはtabでサジェストできる。</p>

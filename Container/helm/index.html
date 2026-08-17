@@ -2299,6 +2299,8 @@
 <p><a href="https://helm.sh/ja/docs/intro/install/">Helm | Helm のインストール</a></p>
 <p>OSのパッケージ管理で対応してなければ、バイナリを<code>/usr/local/bin/helm</code>に置けばOK.<br />
 インストール用スクリプトもある。</p>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4 | bash</span>
+</code></pre></div>
 <p>Fedora35からはオフィシャルリポジトリから<code>dnf</code>でもインストール可</p>
 <h3 id="apt">apt</h3>
 <div class="highlight"><pre><span></span><code><span class="go">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
