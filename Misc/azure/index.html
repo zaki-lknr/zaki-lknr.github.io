@@ -2111,7 +2111,7 @@ CLIであれば<code>az account show --query id</code></p>
 <h3 id="_7">クエリ</h3>
 <h4 id="countername">使用可能なCounterNameの一覧</h4>
 <div class="highlight"><pre><span></span><code><span class="n">Perf</span>
-<span class="p">|</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ObjectName</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s">&quot;K8SContainer&quot;</span>
+<span class="p">|</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ObjectName</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s">"K8SContainer"</span>
 <span class="p">|</span><span class="w"> </span><span class="k">summarize</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">CounterName</span>
 </code></pre></div>
 <p>CounterNameの一覧とそれぞれの件数が出力される</p>

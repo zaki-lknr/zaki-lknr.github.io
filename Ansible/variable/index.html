@@ -2124,12 +2124,12 @@
 <a href="https://zaki-hmkc.hatenablog.com/entry/2021/06/02/090251">[Ansible] 省略したいパラメタに変数指定せざるを得ない場合に使う変数omitとdefaultフィルタ - zaki work log</a></p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create files by csv</span>
 <span class="w">    </span><span class="nt">ansible.builtin.file</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.type</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.mode</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(omit,</span><span class="nv"> </span><span class="s">true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.owner</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(omit,</span><span class="nv"> </span><span class="s">true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.group</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(omit,</span><span class="nv"> </span><span class="s">true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="nt">loop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">res_input.list</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">item.type</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">item.mode</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(omit,</span><span class="nv"> </span><span class="s">true)</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">item.owner</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(omit,</span><span class="nv"> </span><span class="s">true)</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">item.group</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(omit,</span><span class="nv"> </span><span class="s">true)</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="nt">loop</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">res_input.list</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <h3 id="role_path">role_path</h3>
 <p>現在実行中のロールのディレクトリパス。<br />
@@ -2149,7 +2149,7 @@
 
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_facts</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">ansible_facts</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>これで<code>wc -l</code>すると約375行。<br />
 <code>gather_subset</code>の指定が無いと926行。</p>
@@ -2160,43 +2160,43 @@
 <h3 id="_8">環境変数</h3>
 <p><code>gather_subset: min</code>で確認。<br />
 <code>become</code>なしの場合。</p>
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">&quot;ansible_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;DBUS_SESSION_BUS_ADDRESS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unix:path=/run/user/1001/bus&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;HOME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/ubuntu&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;LANG&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C.UTF-8&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;LOGNAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;MOTD_SHOWN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pam&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;PWD&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/ubuntu&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SHELL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SHLVL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SSH_CLIENT&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;****&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SSH_CONNECTION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;****&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SSH_TTY&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/dev/pts/1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;TERM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xterm-256color&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;USER&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;XDG_RUNTIME_DIR&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/run/user/1001&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;XDG_SESSION_CLASS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;XDG_SESSION_ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;29&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;XDG_SESSION_TYPE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tty&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;_&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bin/sh&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">"ansible_env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"DBUS_SESSION_BUS_ADDRESS"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unix:path=/run/user/1001/bus"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"HOME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"LANG"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C.UTF-8"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"LOGNAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ubuntu"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"MOTD_SHOWN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pam"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"PATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"PWD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SHELL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/bin/bash"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SHLVL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SSH_CLIENT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SSH_CONNECTION"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SSH_TTY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/dev/pts/1"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"TERM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xterm-256color"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"USER"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ubuntu"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"XDG_RUNTIME_DIR"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/run/user/1001"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"XDG_SESSION_CLASS"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"XDG_SESSION_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"XDG_SESSION_TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tty"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"_"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/bin/sh"</span>
 <span class="w">        </span><span class="p">},</span>
 </code></pre></div>
 <p><code>become</code>ありの場合。</p>
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">&quot;ansible_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;HOME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/root&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;LANG&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C.UTF-8&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;LOGNAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;MAIL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/var/mail/root&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;PWD&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/home/ubuntu&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SHELL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SUDO_COMMAND&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bin/sh -c echo BECOME-SUCCESS-****** ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-****/AnsiballZ_setup.py&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SUDO_GID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1001&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SUDO_UID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1001&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;SUDO_USER&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;TERM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xterm-256color&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;USER&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;root&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">"ansible_env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"HOME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/root"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"LANG"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C.UTF-8"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"LOGNAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"root"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"MAIL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/mail/root"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"PATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"PWD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SHELL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/bin/bash"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SUDO_COMMAND"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/bin/sh -c echo BECOME-SUCCESS-****** ; /usr/bin/python3 /home/ubuntu/.ansible/tmp/ansible-tmp-****/AnsiballZ_setup.py"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SUDO_GID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SUDO_UID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"SUDO_USER"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ubuntu"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"TERM"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xterm-256color"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"USER"</span><span class="p">:</span><span class="w"> </span><span class="s2">"root"</span>
 <span class="w">        </span><span class="p">},</span>
 </code></pre></div>
 <p>昇格前のユーザー情報は<code>SUDO_USER</code>と<code>PWD</code>を見るしか無いかな？</p>
@@ -2205,7 +2205,7 @@
 <p>自ホスト変数だけでなく、他のホストのホスト変数を参照できる。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">vars</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other-host-name</span>
-<span class="w">  </span><span class="nt">other_host_value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">hostvars[hostname].private_ip_address</span><span class="nv"> </span><span class="s">}}</span>
+<span class="w">  </span><span class="nt">other_host_value</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">hostvars[hostname].private_ip_address</span><span class="nv"> </span><span class="s">}}</span>
 </code></pre></div>
                 
               

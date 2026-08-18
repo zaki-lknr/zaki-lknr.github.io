@@ -2543,7 +2543,7 @@ KVシークレットエンジンであれば以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="go">vault kv get &lt;secret-engine-name&gt;/&lt;key-name&gt;</span>
 </code></pre></div>
 <p>RESTであれば</p>
-<div class="highlight"><pre><span></span><code><span class="go">curl -H &quot;X-Vault-Token: ${token}&quot; http://server:port/v1/&lt;secret-engine-name&gt;/data/&lt;key-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -H "X-Vault-Token: ${token}" http://server:port/v1/&lt;secret-engine-name&gt;/data/&lt;key-name&gt;</span>
 </code></pre></div>
 <p><code>curl -H "X-Vault-Token: ${token}" http://192.168.0.75:8200/v1/kv/data/zzz?version=1</code>とか。<br />
 <a href="https://developer.hashicorp.com/vault/api-docs/secret/kv/kv-v2">KV - Secrets Engines - HTTP API | Vault | HashiCorp Developer</a></p>
@@ -2629,8 +2629,8 @@ Entity Aliasについても同様。</p>
 <span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">hvac</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://vault.example.org&#39;</span><span class="p">,</span>
-    <span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VAULT_TOKEN&#39;</span><span class="p">],</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">'https://vault.example.org'</span><span class="p">,</span>
+    <span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'VAULT_TOKEN'</span><span class="p">],</span>
     <span class="n">verify</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 </code></pre></div>

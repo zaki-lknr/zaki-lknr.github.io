@@ -1985,7 +1985,7 @@
 <span class="w">  </span><span class="nt">localhost</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">vars</span><span class="p">:</span>
 <span class="w">     </span><span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
-<span class="w">     </span><span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{ansible_playbook_python}}&quot;</span>
+<span class="w">     </span><span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="s">"{{ansible_playbook_python}}"</span>
 </code></pre></div>
 <p>ってのが内部で用意され、この設定で接続される。よって、<code>connection: local</code>として動く。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-playbook<span class="w"> </span>localhost.yml<span class="w"> </span>-vvv
@@ -2016,7 +2016,7 @@
 <h2 id="yaml">YAML形式</h2>
 <p>YAML形式のインベントリファイルの構造は基本的に以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">foobar</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># &quot;foobar&quot; グループ定義 / &quot;all&quot;使用可</span>
+<span class="w">  </span><span class="c1"># "foobar" グループ定義 / "all"使用可</span>
 <span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># ホスト定義</span>
 <span class="w">    </span><span class="nt">host1.example.org</span><span class="p">:</span>

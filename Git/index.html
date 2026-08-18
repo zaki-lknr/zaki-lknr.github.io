@@ -3339,9 +3339,9 @@
 <h2 id="_2">ローカルリポジトリ作成</h2>
 <p>リポジトリ用ディレクトリを作ってそのディレクトリ上で<code>git init</code>して<code>README.md</code>をinitial commitする。</p>
 <div class="highlight"><pre><span></span><code>$ git init
-$ echo &quot;# this is hogehgoe repository&quot; &gt;&gt; README.md
+$ echo "# this is hogehgoe repository" &gt;&gt; README.md
 $ git add README.md
-$ git commit -m &quot;first commit&quot;
+$ git commit -m "first commit"
 </code></pre></div>
 <h3 id="init">デフォルトブランチ名指定でinit</h3>
 <div class="highlight"><pre><span></span><code><span class="go">git init --initial-branch=main</span>
@@ -3368,7 +3368,7 @@ $ git commit -m &quot;first commit&quot;
 <p>これ実行するとエディタが起動する。
 先頭<code>#</code>になってる行は全て無視されるので、任意の位置にコミットログを入力する</p>
 <h3 id="optioncommit">optionでコミットメッセージ付きcommit</h3>
-<div class="highlight"><pre><span></span><code>$ git commit -m &quot;commit messages&quot;
+<div class="highlight"><pre><span></span><code>$ git commit -m "commit messages"
 </code></pre></div>
 <h3 id="amend">amend</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>--amend
@@ -3436,10 +3436,10 @@ $ git commit -m &quot;first commit&quot;
 <span class="go">CONFLICT (content): Merge conflict in &lt;filename&gt;</span>
 <span class="go">error: could not apply e91cdab... &lt;commit message&gt;</span>
 <span class="go">hint: Resolve all conflicts manually, mark them as resolved with</span>
-<span class="go">hint: &quot;git add/rm &lt;conflicted_files&gt;&quot;, then run &quot;git rebase --continue&quot;.</span>
-<span class="go">hint: You can instead skip this commit: run &quot;git rebase --skip&quot;.</span>
-<span class="go">hint: To abort and get back to the state before &quot;git rebase&quot;, run &quot;git rebase --abort&quot;.</span>
-<span class="go">hint: Disable this message with &quot;git config advice.mergeConflict false&quot;</span>
+<span class="go">hint: "git add/rm &lt;conflicted_files&gt;", then run "git rebase --continue".</span>
+<span class="go">hint: You can instead skip this commit: run "git rebase --skip".</span>
+<span class="go">hint: To abort and get back to the state before "git rebase", run "git rebase --abort".</span>
+<span class="go">hint: Disable this message with "git config advice.mergeConflict false"</span>
 <span class="go">Could not apply e91cdab... &lt;commit message&gt;</span>
 </code></pre></div>
 <p><code>git-prompt</code>を使っていると、プロンプトの表示は以下のようになる。</p>
@@ -3452,11 +3452,11 @@ $ git commit -m &quot;first commit&quot;
 <span class="go">Last command done (1 command done):</span>
 <span class="go">   pick e91cdab add: 24時間以内のチェックイン数の表示 #59</span>
 <span class="go">No commands remaining.</span>
-<span class="go">You are currently rebasing branch &#39;feature/count-24&#39; on &#39;a4650f8&#39;.</span>
-<span class="go">  (all conflicts fixed: run &quot;git rebase --continue&quot;)</span>
+<span class="go">You are currently rebasing branch 'feature/count-24' on 'a4650f8'.</span>
+<span class="go">  (all conflicts fixed: run "git rebase --continue")</span>
 
 <span class="go">Changes to be committed:</span>
-<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
+<span class="go">  (use "git restore --staged &lt;file&gt;..." to unstage)</span>
 <span class="go">        modified:   swarm.js</span>
 </code></pre></div>
 <p>ここで<code>rebase</code>を続けるために、メッセージに出てる通り<code>git rebase --continue</code>を実行するとエディタが起動するのでコミットメッセージを編集すればrebaseが完了する。</p>
@@ -3464,8 +3464,8 @@ $ git commit -m &quot;first commit&quot;
 <p>メッセージが以下のようになり<code>git merge --abort</code>は効かない。<br />
 状態としてはステージングになっている。</p>
 <div class="highlight"><pre><span></span><code><span class="go">Unmerged paths:</span>
-<span class="go">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span>
-<span class="go">  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)</span>
+<span class="go">  (use "git restore --staged &lt;file&gt;..." to unstage)</span>
+<span class="go">  (use "git add &lt;file&gt;..." to mark resolution)</span>
 <span class="go">        both modified:   filename</span>
 </code></pre></div>
 <p>メッセージにある通り、コンフリクトを解決したのであれば<code>git add</code>を、変更を破棄したい場合は<code>git restore --staged</code>で<code>add</code>を取り消し、さらに<code>git restore</code>すれば変更前の状態に戻る。</p>
@@ -3593,7 +3593,7 @@ If it does not apply cleanly, you will be given an opportunity to</p>
 </code></pre></div>
 <p><code>git remote -r</code>で出力されるのにすでにリモートには無い場合は<code>git fetch --prune</code>で参照のないブランチは消える</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:&lt;remote-branch-name&gt;
-<span class="go">error: failed to push some refs to &#39;github.com:******&#39;   # 消せない</span>
+<span class="go">error: failed to push some refs to 'github.com:******'   # 消せない</span>
 <span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--prune
 </code></pre></div>
 <h2 id="stash">stash</h2>
@@ -3630,7 +3630,7 @@ If it does not apply cleanly, you will be given an opportunity to</p>
 <p>タグ操作は基本的にブランチと同じ。</p>
 <h3 id="tag_1">tagを作成</h3>
 <p>最新コミットへtagを作成</p>
-<div class="highlight"><pre><span></span><code><span class="go">git tag -a tag-name -m &#39;coment&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">git tag -a tag-name -m 'coment'</span>
 </code></pre></div>
 <h3 id="tagpush">tagをpushする</h3>
 <p>デフォルトではtagはpushされない</p>
@@ -3731,7 +3731,7 @@ M       docs/Ansible/directives.md
 <p><code>--oneline</code>との併用も可</p>
 <h3 id="_41">出力書式のカスタム</h3>
 <p><code>--pretty=format</code>で書式を、<code>--date</code>で時刻の書式をカスタムできる。</p>
-<div class="highlight"><pre><span></span><code><span class="go">git log --date=short --pretty=format:&quot;%ad %h %s&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">git log --date=short --pretty=format:"%ad %h %s"</span>
 </code></pre></div>
 <ul>
 <li><a href="https://git-scm.com/book/ja/v2/Git-%e3%81%ae%e5%9f%ba%e6%9c%ac-%e3%82%b3%e3%83%9f%e3%83%83%e3%83%88%e5%b1%a5%e6%ad%b4%e3%81%ae%e9%96%b2%e8%a6%a7">Git - コミット履歴の閲覧</a></li>
@@ -3812,7 +3812,7 @@ M       docs/Ansible/directives.md
 </code></pre></div>
 <h2 id="_49">前の状態に戻す</h2>
 <h3 id="_50">指定コミットの状態に戻す</h3>
-<div class="highlight"><pre><span></span><code><span class="go">git reset --hard &#39;対象のコミットID&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">git reset --hard '対象のコミットID'</span>
 </code></pre></div>
 <p><code>reset --hard</code>は<a href="trouble/#_6">コミットの取り消し</a>にも使用する</p>
 <h2 id="_51">リモートリポジトリ情報</h2>

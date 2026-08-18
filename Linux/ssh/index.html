@@ -2542,7 +2542,7 @@
 <div class="highlight"><pre><span></span><code><span class="go">sshpass -f password.txt ssh user@hostname</span>
 </code></pre></div>
 <h4 id="_8">パスフレーズ付き公開鍵認証をバッチ処理</h4>
-<div class="highlight"><pre><span></span><code><span class="go">sshpass -p ${PASSPHRASE} -P &quot;Enter passphrase&quot; ssh user@hostname -i ~/.ssh/my_ssh_key</span>
+<div class="highlight"><pre><span></span><code><span class="go">sshpass -p ${PASSPHRASE} -P "Enter passphrase" ssh user@hostname -i ~/.ssh/my_ssh_key</span>
 </code></pre></div>
 <p><code>-p</code>(あるいは<code>-f</code>)でパスワードでなくパスフレーズを指定するのは同様だが、入力のプロンプトをパスフレーズ用にカスタムする<code>-P</code>を指定することで、パスフレーズの対話処理を<code>sshpass</code>でさばく。</p>
 <h3 id="ssh_config">ssh_config</h3>
@@ -2575,7 +2575,7 @@
 <p>SELinuxが有効の場合はsshdの設定変更だけでは有効にならない。<br />
 <code>Port 25022</code>を設定したときに、、</p>
 <div class="highlight"><pre><span></span><code># systemctl restart sshd
-Job for sshd.service failed because the control process exited with error code. See &quot;systemctl status sshd.service&quot; and &quot;journalctl -xe&quot; for details.
+Job for sshd.service failed because the control process exited with error code. See "systemctl status sshd.service" and "journalctl -xe" for details.
 # journalctl -xe
 sshd[20141]: error: Bind to port 25022 on 0.0.0.0 failed: Permission denied.
 sshd[20141]: error: Bind to port 25022 on :: failed: Permission denied.
@@ -2594,13 +2594,13 @@ systemd[1]: Failed to start OpenSSH server daemon.
 <li><code>-f</code> で作成先鍵ファイル (デフォルトは<code>$HOME/.ssh/id_***</code>)</li>
 <li><code>-N</code> でパスフレーズ (デフォルトは対話的に聞かれる)</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa_nopass<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;comments&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_rsa_nopass<span class="w"> </span>-N<span class="w"> </span><span class="s2">""</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"comments"</span>
 <span class="go">Generating public/private rsa key pair.</span>
 <span class="go">Your identification has been saved in /home/zaki/.ssh/id_rsa_nopass.</span>
 <span class="go">Your public key has been saved in /home/zaki/.ssh/id_rsa_nopass.pub.</span>
 <span class="go">The key fingerprint is:</span>
 <span class="go">SHA256:vDhmhHyGepTu929HGu0oPPKS/2HrJexF97CBWu9k0M4 zaki@cloud-dev</span>
-<span class="go">The key&#39;s randomart image is:</span>
+<span class="go">The key's randomart image is:</span>
 <span class="go">+---[RSA 2048]----+</span>
 <span class="go">|                 |</span>
 <span class="go">|                 |</span>
@@ -2632,18 +2632,18 @@ PEM形式であれば以下の通り。</p>
 </code></pre></div>
 <h3 id="_16">リモートへ公開鍵コピー</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa_nopass<span class="w"> </span><span class="m">192</span>.168.0.31
-<span class="go">/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/home/zaki/.ssh/id_rsa_nopass.pub&quot;</span>
-<span class="go">The authenticity of host &#39;192.168.0.31 (192.168.0.31)&#39; can&#39;t be established.</span>
+<span class="go">/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/zaki/.ssh/id_rsa_nopass.pub"</span>
+<span class="go">The authenticity of host '192.168.0.31 (192.168.0.31)' can't be established.</span>
 <span class="go">ECDSA key fingerprint is SHA256:WQpvcX7UfYAmdFIMfhak4pCevQvOjZkIZ/fpE4Sofm4.</span>
 <span class="go">ECDSA key fingerprint is MD5:97:15:37:72:88:ab:59:01:ad:3c:a2:e9:10:90:11:59.</span>
 <span class="go">Are you sure you want to continue connecting (yes/no)? yes</span>
 <span class="go">/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span>
 <span class="go">/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</span>
-<span class="go">zaki@192.168.0.31&#39;s password: </span>
+<span class="go">zaki@192.168.0.31's password: </span>
 
 <span class="go">Number of key(s) added: 1</span>
 
-<span class="go">Now try logging into the machine, with:   &quot;ssh &#39;192.168.0.31&#39;&quot;</span>
+<span class="go">Now try logging into the machine, with:   "ssh '192.168.0.31'"</span>
 <span class="go">and check to make sure that only the key(s) you wanted were added.</span>
 
 <span class="gp">$</span>
@@ -2654,7 +2654,7 @@ PEM形式であれば以下の通り。</p>
 </code></pre></div>
 <p>サーバーへアクセスしたときに表示されるフィンガープリントはサーバーの公開鍵を見れば良い。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh<span class="w"> </span>localhost
-<span class="go">The authenticity of host &#39;localhost (::1)&#39; can&#39;t be established.</span>
+<span class="go">The authenticity of host 'localhost (::1)' can't be established.</span>
 <span class="go">ED25519 key fingerprint is SHA256:wMt6BsdrtBNFa6bCZwA97ZFckU1HsoK5wsEW5dqHPe0.</span>
 <span class="go">:</span>
 <span class="go">:</span>
@@ -2670,7 +2670,7 @@ PEM形式であれば以下の通り。</p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh-keygen<span class="w"> </span>-f<span class="w"> </span>/path/to/id_rsa<span class="w"> </span>-p
 <span class="go">Enter old passphrase:</span>
-<span class="go">Key has comment &#39;&#39;</span>
+<span class="go">Key has comment ''</span>
 <span class="go">Enter new passphrase (empty for no passphrase):</span>
 <span class="go">Enter same passphrase again:</span>
 <span class="go">Your identification has been saved with the new passphrase.</span>
@@ -2698,7 +2698,7 @@ PEM形式に変換するのであれば以下の通り。</p>
 <h2 id="scp">scp</h2>
 <h3 id="_23">メタ文字のエスケープ</h3>
 <p>クォートが無いとエラーになる</p>
-<div class="highlight"><pre><span></span><code><span class="go">scp server:&#39;/path/to/file\(...\)&#39; dest</span>
+<div class="highlight"><pre><span></span><code><span class="go">scp server:'/path/to/file\(...\)' dest</span>
 </code></pre></div>
 <h3 id="_24">ディレクトリのコピー</h3>
 <p><code>-r</code>を付与して再帰コピーする</p>
@@ -2711,7 +2711,7 @@ PEM形式に変換するのであれば以下の通り。</p>
 <h3 id="_26">ワイルドカード</h3>
 <p>リモートのファイル・ディレクトリに対してもワイルドカートは有効。<br />
 ただしローカルに同じパスがあるとローカル側で展開されてしまうのでクォートで囲んでおくのが無難。</p>
-<div class="highlight"><pre><span></span><code><span class="go">scp -pr 192.168.1.10:&quot;/path/to/file*&quot; .</span>
+<div class="highlight"><pre><span></span><code><span class="go">scp -pr 192.168.1.10:"/path/to/file*" .</span>
 </code></pre></div>
 <h2 id="_27">その他</h2>
 <h3 id="_28">パスワード未設定ユーザーの公開鍵認証</h3>

@@ -2305,7 +2305,7 @@
 <h3 id="apt">apt</h3>
 <div class="highlight"><pre><span></span><code><span class="go">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null</span>
 <span class="go">sudo apt-get install apt-transport-https --yes</span>
-<span class="go">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list</span>
+<span class="go">echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list</span>
 <span class="go">sudo apt-get update</span>
 <span class="go">sudo apt-get install helm</span>
 </code></pre></div>
@@ -2338,7 +2338,7 @@
 <span class="go">awx-operator    https://ansible-community.github.io/awx-operator-helm/</span>
 <span class="go">gitlab          https://charts.gitlab.io/</span>
 <span class="gp">$ </span>helm<span class="w"> </span>repo<span class="w"> </span>remove<span class="w"> </span>stable
-<span class="go">&quot;stable&quot; has been removed from your repositories</span>
+<span class="go">"stable" has been removed from your repositories</span>
 </code></pre></div>
 <h3 id="_6">ローカルのリポジトリ情報を更新</h3>
 <div class="highlight"><pre><span></span><code><span class="go">helm repo update</span>
@@ -2381,8 +2381,8 @@
 <span class="gp"># </span>Declare<span class="w"> </span>variables<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>passed<span class="w"> </span>into<span class="w"> </span>your<span class="w"> </span>templates.
 
 <span class="go">imagePullSecrets: []</span>
-<span class="go">nameOverride: &quot;&quot;</span>
-<span class="go">fullnameOverride: &quot;&quot;</span>
+<span class="go">nameOverride: ""</span>
+<span class="go">fullnameOverride: ""</span>
 
 <span class="go">:</span>
 <span class="go">:</span>
@@ -2451,29 +2451,29 @@
 <h2 id="_19">環境変数</h2>
 <p>Helmで使用する環境編素は<code>helm env</code>で確認できる。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>helm<span class="w"> </span>env
-<span class="go">HELM_BIN=&quot;helm&quot;</span>
-<span class="go">HELM_CACHE_HOME=&quot;/home/zaki/.cache/helm&quot;</span>
-<span class="go">HELM_CONFIG_HOME=&quot;/home/zaki/.config/helm&quot;</span>
-<span class="go">HELM_DATA_HOME=&quot;/home/zaki/.local/share/helm&quot;</span>
-<span class="go">HELM_DEBUG=&quot;false&quot;</span>
-<span class="go">HELM_KUBEAPISERVER=&quot;&quot;</span>
-<span class="go">HELM_KUBEASGROUPS=&quot;&quot;</span>
-<span class="go">HELM_KUBEASUSER=&quot;&quot;</span>
-<span class="go">HELM_KUBECAFILE=&quot;&quot;</span>
-<span class="go">HELM_KUBECONTEXT=&quot;&quot;</span>
-<span class="go">HELM_KUBETOKEN=&quot;&quot;</span>
-<span class="go">HELM_MAX_HISTORY=&quot;10&quot;</span>
-<span class="go">HELM_NAMESPACE=&quot;default&quot;</span>
-<span class="go">HELM_PLUGINS=&quot;/home/zaki/.local/share/helm/plugins&quot;</span>
-<span class="go">HELM_REGISTRY_CONFIG=&quot;/home/zaki/.config/helm/registry.json&quot;</span>
-<span class="go">HELM_REPOSITORY_CACHE=&quot;/home/zaki/.cache/helm/repository&quot;</span>
-<span class="go">HELM_REPOSITORY_CONFIG=&quot;/home/zaki/.config/helm/repositories.yaml&quot;</span>
+<span class="go">HELM_BIN="helm"</span>
+<span class="go">HELM_CACHE_HOME="/home/zaki/.cache/helm"</span>
+<span class="go">HELM_CONFIG_HOME="/home/zaki/.config/helm"</span>
+<span class="go">HELM_DATA_HOME="/home/zaki/.local/share/helm"</span>
+<span class="go">HELM_DEBUG="false"</span>
+<span class="go">HELM_KUBEAPISERVER=""</span>
+<span class="go">HELM_KUBEASGROUPS=""</span>
+<span class="go">HELM_KUBEASUSER=""</span>
+<span class="go">HELM_KUBECAFILE=""</span>
+<span class="go">HELM_KUBECONTEXT=""</span>
+<span class="go">HELM_KUBETOKEN=""</span>
+<span class="go">HELM_MAX_HISTORY="10"</span>
+<span class="go">HELM_NAMESPACE="default"</span>
+<span class="go">HELM_PLUGINS="/home/zaki/.local/share/helm/plugins"</span>
+<span class="go">HELM_REGISTRY_CONFIG="/home/zaki/.config/helm/registry.json"</span>
+<span class="go">HELM_REPOSITORY_CACHE="/home/zaki/.cache/helm/repository"</span>
+<span class="go">HELM_REPOSITORY_CONFIG="/home/zaki/.config/helm/repositories.yaml"</span>
 </code></pre></div>
 <p><code>HELM_CONFIG_HOME</code>を設定すれば、<code>HELM_REGISTRY_CONFIG</code>などは連動する。</p>
 <div class="highlight"><pre><span></span><code>$ HELM_CONFIG_HOME=/var/tmp helm env | grep var
-HELM_CONFIG_HOME=&quot;/var/tmp&quot;
-HELM_REGISTRY_CONFIG=&quot;/var/tmp/registry.json&quot;
-HELM_REPOSITORY_CONFIG=&quot;/var/tmp/repositories.yaml&quot;
+HELM_CONFIG_HOME="/var/tmp"
+HELM_REGISTRY_CONFIG="/var/tmp/registry.json"
+HELM_REPOSITORY_CONFIG="/var/tmp/repositories.yaml"
 </code></pre></div>
 <p>KUBECONFIGファイルについては<code>kubectl</code>同様に<code>KUBECONFIG</code>を参照する。 (see <code>helm --help</code>)</p>
 <h2 id="_20">チャート作成</h2>

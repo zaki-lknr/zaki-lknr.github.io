@@ -2629,28 +2629,28 @@ ad-hocで実行する方が多いかも？</p>
 <p><code>vars</code>ディレクティブと異なりホスト変数を定義するので、セット後の以降のタスク・プレイでも変数参照できる。</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">define variable</span>
 <span class="w">  </span><span class="nt">ansible.builtin.set_fact</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">_state_val</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">foobar</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">_state_val</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">foobar</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(true)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p><code>vars</code>ディレクティブと異なり定義した変数を即参照することはできない。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ダメな例</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">define variable</span>
 <span class="w">  </span><span class="nt">ansible.builtin.set_fact</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">_state_val</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">foobar</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="nt">_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">_state_val</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary(...)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">_state_val</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">foobar</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(true)</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="nt">_mode</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">_state_val</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary(...)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <h2 id="assert">assert</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/assert_module.html">ansible.builtin.assert – Asserts given expressions are true — Ansible Documentation</a></p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert sample</span>
 <span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">hoge</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;zzz&quot;</span>
-<span class="w">      </span><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bar&quot;</span>
+<span class="w">      </span><span class="nt">hoge</span><span class="p">:</span><span class="w"> </span><span class="s">"zzz"</span>
+<span class="w">      </span><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="s">"bar"</span>
 <span class="w">      </span><span class="nt">baz</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 <span class="w">    </span><span class="nt">ansible.builtin.assert</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">that</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;hoge</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"hoge</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined"</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo is defined</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baz is defined and baz</span>
-<span class="w">      </span><span class="nt">fail_msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;hoge&#39;,&#39;bar&#39;</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">defined,</span><span class="nv"> </span><span class="s">&#39;baz&#39;</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">true&quot;</span>
+<span class="w">      </span><span class="nt">fail_msg</span><span class="p">:</span><span class="w"> </span><span class="s">"'hoge','bar'</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">defined,</span><span class="nv"> </span><span class="s">'baz'</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">true"</span>
 <span class="w">    </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert_result</span>
 </code></pre></div>
 <p><code>that</code>で指定した各値がtrueでなければタスクが失敗する。<br />
@@ -2658,7 +2658,7 @@ ad-hocで実行する方が多いかも？</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
 <span class="w">    </span><span class="nt">ansible.builtin.assert</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">that</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;sample_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">regex_search(&quot;could</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">found:</span><span class="nv"> </span><span class="s">foobar&quot;)&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'sample_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">regex_search("could</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">found:</span><span class="nv"> </span><span class="s">foobar")'</span>
 </code></pre></div>
 <h2 id="uri">uri</h2>
 <p>HTTPをしゃべる。<br />
@@ -2667,9 +2667,9 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 ファイルのHTTPダウンロードであれば<code>get_url</code>を使う。</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">ansible.builtin.uri</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POST</span>
-<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://{{</span><span class="nv"> </span><span class="s">aap_address</span><span class="nv"> </span><span class="s">}}/api/v2/notification_templates/{{</span><span class="nv"> </span><span class="s">notify_id</span><span class="nv"> </span><span class="s">}}/test/&quot;</span>
-<span class="w">    </span><span class="nt">url_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">username</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="nt">url_password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">"https://{{</span><span class="nv"> </span><span class="s">aap_address</span><span class="nv"> </span><span class="s">}}/api/v2/notification_templates/{{</span><span class="nv"> </span><span class="s">notify_id</span><span class="nv"> </span><span class="s">}}/test/"</span>
+<span class="w">    </span><span class="nt">url_username</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">username</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="nt">url_password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">validate_certs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">force_basic_auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">status_code</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">201</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">202</span><span class="p p-Indicator">]</span>
@@ -2679,14 +2679,14 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <code>body_format</code>で指定した形式で、<code>body</code>に指定した値が送信される。</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">ansible.builtin.uri</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUT</span>
-<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://{{</span><span class="nv"> </span><span class="s">server_addr</span><span class="nv"> </span><span class="s">}}/api/gateway/v1/settings/all/&quot;</span>
-<span class="w">    </span><span class="nt">url_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">username</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="nt">url_password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">"https://{{</span><span class="nv"> </span><span class="s">server_addr</span><span class="nv"> </span><span class="s">}}/api/gateway/v1/settings/all/"</span>
+<span class="w">    </span><span class="nt">url_username</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">username</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="nt">url_password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">validate_certs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">force_basic_auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">body_format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">json</span>
 <span class="w">    </span><span class="nt">body</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">SESSION_COOKIE_AGE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">session_timeout_sec</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">SESSION_COOKIE_AGE</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">session_timeout_sec</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">status_code</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">200</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 <h2 id="get_url">get_url</h2>
@@ -2694,7 +2694,7 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <div class="highlight"><pre><span></span><code><span class="nt">ansible.builtin.get_url</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/k3s-io/k3s/releases/download/v1.35.3%2Bk3s1/k3s</span>
 <span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/local/bin/k3s</span>
-<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0755&#39;</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">'0755'</span>
 <span class="w">  </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 <span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 </code></pre></div>
@@ -2703,8 +2703,8 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html">ansible.builtin.lineinfile – Manage lines in text files — Ansible Documentation</a></p>
 <div class="highlight"><pre><span></span><code><span class="w">      </span><span class="nt">lineinfile</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lineinfile.txt</span>
-<span class="w">        </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;^port:</span><span class="nv"> </span><span class="s">80&#39;</span>
-<span class="w">        </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;port:</span><span class="nv"> </span><span class="s">8080&#39;</span>
+<span class="w">        </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="s">'^port:</span><span class="nv"> </span><span class="s">80'</span>
+<span class="w">        </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s">'port:</span><span class="nv"> </span><span class="s">8080'</span>
 </code></pre></div>
 <p>lineinfile.txtファイルの中の<code>^port: 80</code>に <strong>最後に</strong> マッチする行を<code>port: 8080</code>に変更。<br />
 <code>port: 8080</code>が有る場合は、他に<code>^port: 80</code>にマッチしてもそれは対象外。</p>
@@ -2737,7 +2737,7 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blockinfile-test.txt</span>
 <span class="w">        </span><span class="nt">marker_begin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">begin</span>
 <span class="w">        </span><span class="nt">marker_end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
-<span class="w">        </span><span class="nt">marker</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#</span><span class="nv"> </span><span class="s">/share/www</span><span class="nv"> </span><span class="s">configure</span><span class="nv"> </span><span class="s">{mark}&#39;</span>
+<span class="w">        </span><span class="nt">marker</span><span class="p">:</span><span class="w"> </span><span class="s">'#</span><span class="nv"> </span><span class="s">/share/www</span><span class="nv"> </span><span class="s">configure</span><span class="nv"> </span><span class="s">{mark}'</span>
 <span class="w">        </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">...</span>
 </code></pre></div>
@@ -2790,8 +2790,8 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duplicate-test.txt</span>
 <span class="w">        </span><span class="nt">regexp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[0-9]+$</span>
 <span class="w">        </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zzz</span>
-<span class="w">        </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#</span><span class="nv"> </span><span class="s">/share/www</span><span class="nv"> </span><span class="s">configure</span><span class="nv"> </span><span class="s">begin&#39;</span>
-<span class="w">        </span><span class="nt">before</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#</span><span class="nv"> </span><span class="s">/share/www</span><span class="nv"> </span><span class="s">configure</span><span class="nv"> </span><span class="s">end&#39;</span>
+<span class="w">        </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="s">'#</span><span class="nv"> </span><span class="s">/share/www</span><span class="nv"> </span><span class="s">configure</span><span class="nv"> </span><span class="s">begin'</span>
+<span class="w">        </span><span class="nt">before</span><span class="p">:</span><span class="w"> </span><span class="s">'#</span><span class="nv"> </span><span class="s">/share/www</span><span class="nv"> </span><span class="s">configure</span><span class="nv"> </span><span class="s">end'</span>
 </code></pre></div>
 <p>入力ファイルが↓のように複数マッチする場合は</p>
 <div class="highlight"><pre><span></span><code># /share/www configure begin
@@ -2822,8 +2822,8 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription</span>
 <span class="w">      </span><span class="nt">community.general.redhat_subscription</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
-<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">rh_username</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">rh_password</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">rh_username</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">rh_password</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">        </span><span class="nt">auto_attach</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <p>ですべて完了する。</p>
@@ -2848,7 +2848,7 @@ basic認証+HTTPSでSSL検証無効の設定で、レスポンスコードが<co
 <h3 id="dnf">dnf</h3>
 <p>CentOS7(yum環境)に使える？ =&gt; NG</p>
 <div class="highlight"><pre><span></span><code>fatal: [cloud-dev]: FAILED! =&gt; changed=false 
-  msg: Could not import the dnf python module using /usr/bin/python (2.7.5 (default, Nov 16 2020, 22:23:17) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]). Please install `python3-dnf` or `python2-dnf` package or ensure you have specified the correct ansible_python_interpreter. (attempted [&#39;/usr/libexec/platform-python&#39;, &#39;/usr/bin/python3&#39;, &#39;/usr/bin/python2&#39;, &#39;/usr/bin/python&#39;])
+  msg: Could not import the dnf python module using /usr/bin/python (2.7.5 (default, Nov 16 2020, 22:23:17) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]). Please install `python3-dnf` or `python2-dnf` package or ensure you have specified the correct ansible_python_interpreter. (attempted ['/usr/libexec/platform-python', '/usr/bin/python3', '/usr/bin/python2', '/usr/bin/python'])
   results: []
 </code></pre></div>
 <p>ただし、CentOS7で<code>sudo yum install python2-dnf</code>を入れると動く。<br />
@@ -2893,7 +2893,7 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file not exist</span>
-<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result.state == &quot;absent&quot;</span>
+<span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result.state == "absent"</span>
 </code></pre></div>
 <h4 id="stat">stat</h4>
 <p><a href="https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/stat_module.html">https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/stat_module.html</a><br />
@@ -2905,14 +2905,14 @@ dnfモジュールでパッケージインストールし、CentOS7上で<code>r
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">print exist check result</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">result.stat.exists</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">result.stat.exists</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>ファイルが存在しない場合、<code>stat.exists</code>が<code>false</code>になるのでこれでもファイル有無の判定可能。</p>
 <h3 id="_4">モード</h3>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create file</span>
 <span class="w">  </span><span class="nt">file</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/tmp/file_permission</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0755&quot;</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">"0755"</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">directory</span>
 </code></pre></div>
 <p>これなら</p>
@@ -2976,7 +2976,7 @@ base64エンコードされているのででコードして使用する。</p>
 <span class="w">      </span><span class="nt">credential_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Source Control</span>
 <span class="w">      </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ec2-user</span>
-<span class="w">        </span><span class="nt">ssh_key_data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ssh_private_key.content</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">b64decode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">        </span><span class="nt">ssh_key_data</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">ssh_private_key.content</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">b64decode</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <h2 id="unarchive">unarchive</h2>
 <p>アーカイブファイル展開</p>
@@ -3083,10 +3083,10 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span class="w">  </span><span class="nt">ansible.builtin.git</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://{{ git_user | urlencode() }}:{{ git_password | urlencode() }}@{{ git_url }}</span>
 <span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
-<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/tmp/work-dir&quot;</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">"/var/tmp/work-dir"</span>
 <span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">git_user</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">lookup(&quot;env&quot;,</span><span class="nv"> </span><span class="s">&quot;GIT_USERNAME&quot;)</span><span class="nv"> </span><span class="s">}}&#39;</span>
-<span class="w">    </span><span class="nt">git_password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">lookup(&quot;env&quot;,</span><span class="nv"> </span><span class="s">&quot;GIT_PASSWORD&quot;)</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<span class="w">    </span><span class="nt">git_user</span><span class="p">:</span><span class="w"> </span><span class="s">'{{</span><span class="nv"> </span><span class="s">lookup("env",</span><span class="nv"> </span><span class="s">"GIT_USERNAME")</span><span class="nv"> </span><span class="s">}}'</span>
+<span class="w">    </span><span class="nt">git_password</span><span class="p">:</span><span class="w"> </span><span class="s">'{{</span><span class="nv"> </span><span class="s">lookup("env",</span><span class="nv"> </span><span class="s">"GIT_PASSWORD")</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre></div>
 <h2 id="gitlab">GitLab</h2>
 <p><code>community.general.gitlab_***</code> を使う</p>
@@ -3096,8 +3096,8 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create user</span>
 <span class="w">    </span><span class="nt">community.general.gitlab_user</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://gitlab.exmaple.org/</span>
-<span class="w">      </span><span class="nt">api_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">account_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">api_password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">account_password</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">api_username</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">account_name</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">api_password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">account_password</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">      </span><span class="nt">validate_certs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -3107,7 +3107,7 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create user</span>
 <span class="w">    </span><span class="nt">community.general.gitlab_user</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://gitlab.exmaple.org/</span>
-<span class="w">      </span><span class="nt">api_token</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">account_token</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">api_token</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">account_token</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">      </span><span class="nt">validate_certs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -3116,9 +3116,9 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <h3 id="_8">ユーザー作成</h3>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create user</span>
 <span class="w">  </span><span class="nt">awx.awx.user</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">username</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="nt">organization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">organization</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">username</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="nt">organization</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">organization</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">is_superuser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">is_system_auditor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
@@ -3130,14 +3130,14 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <span class="w">    </span><span class="nt">awx.awx.token</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_token</span>
 <span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
-<span class="w">      </span><span class="c1"># controller_username: &quot;{{ username }}&quot;</span>
-<span class="w">      </span><span class="c1"># controller_password: &quot;{{ password }}&quot; </span>
+<span class="w">      </span><span class="c1"># controller_username: "{{ username }}"</span>
+<span class="w">      </span><span class="c1"># controller_password: "{{ password }}" </span>
 </code></pre></div>
 <h2 id="ssh">ssh</h2>
 <h3 id="openssh_keypair">openssh_keypair</h3>
 <p>ssh key pair作成</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">community.crypto.openssh_keypair</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_env.HOME</span><span class="nv"> </span><span class="s">}}/.ssh/id_rsa&quot;</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">ansible_env.HOME</span><span class="nv"> </span><span class="s">}}/.ssh/id_rsa"</span>
 <span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span><span class="w">  </span><span class="c1"># default</span>
 <span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rsa</span><span class="w">   </span><span class="c1"># default</span>
 <span class="w">    </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh_keypair_result</span>
@@ -3145,9 +3145,9 @@ GitモジュールはCLIの<code>git clone</code>と異なり、上の例でい�
 <h3 id="authorized_key">authorized_key</h3>
 <p><code>authorized_keys</code>への公開鍵登録</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">ansible.posix.authorized_key</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_env.USER</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ssh_keypair_result.public_key</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="c1"># key: &quot;{{ lookup(&#39;file&#39;, &#39;~/.ssh/id_rsa.pub&#39;) }}&quot;</span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">ansible_env.USER</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">ssh_keypair_result.public_key</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="c1"># key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"</span>
 <span class="w">    </span><span class="nt">delegate_to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
 <span class="w">    </span><span class="nt">run_once</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
@@ -3178,8 +3178,8 @@ pipは最新にしつつ、バージョン指定のパッケージも入れる�
 <code>a</code>で中断した場合はそこで処理が終了する。</p>
 <div class="highlight"><pre><span></span><code><span class="go">TASK [sleep] *************************************************************************</span>
 <span class="go">Pausing for 10 seconds</span>
-<span class="gp gp-VirtualEnv">(ctrl+C then &#39;C&#39; = continue early, ctrl+C then &#39;A&#39; = abort)</span>
-<span class="go">Press &#39;C&#39; to continue the play or &#39;A&#39; to abort </span>
+<span class="gp gp-VirtualEnv">(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)</span>
+<span class="go">Press 'C' to continue the play or 'A' to abort </span>
 <span class="go">fatal: [localhost]: FAILED! =&gt; </span>
 <span class="go">  msg: user requested abort!</span>
 </code></pre></div>
@@ -3187,7 +3187,7 @@ pipは最新にしつつ、バージョン指定のパッケージも入れる�
 <h3 id="tcp">TCP接続</h3>
 <p>処理対象ホスト(<code>ansible_host</code>)の80/TCPがAnsible実行ホスト(<code>delegate_to: localhost</code>)から接続可能になるまで最大300秒waitするタスク</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ansible.builtin.wait_for</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">ansible_host</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
 <span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span>

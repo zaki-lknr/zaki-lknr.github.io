@@ -2889,8 +2889,8 @@
 <p>終了コードも異なる。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>ps<span class="w"> </span>-a
 <span class="go">CONTAINER ID   IMAGE                                     COMMAND                   CREATED              STATUS                        PORTS           NAMES</span>
-<span class="go">6087d04c8d99   fedora:latest                             &quot;tail -f /dev/null&quot;       56 seconds ago       Exited (137) 13 seconds ago                   sample</span>
-<span class="go">4202a1a5c820   fedora:latest                             &quot;tail -f /dev/null&quot;       About a minute ago   Exited (143) 7 seconds ago                    sample2</span>
+<span class="go">6087d04c8d99   fedora:latest                             "tail -f /dev/null"       56 seconds ago       Exited (137) 13 seconds ago                   sample</span>
+<span class="go">4202a1a5c820   fedora:latest                             "tail -f /dev/null"       About a minute ago   Exited (143) 7 seconds ago                    sample2</span>
 </code></pre></div>
 <p>(そもそも<code>--init</code>無い場合に<code>tail</code>がkill TERMで停止しないのが微妙な気がするけど)</p>
 <h3 id="build">build</h3>
@@ -2910,17 +2910,17 @@
 </code></pre></div>
 <h4 id="formatip">formatでIPアドレス</h4>
 <p><code>docker run</code>でデフォルトのネットワークへデプロイしたコンテナであればこの通り。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container<span class="w"> </span>name<span class="w"> </span>or<span class="w"> </span>ID&gt;<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;{{ .NetworkSettings.IPAddress }}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container<span class="w"> </span>name<span class="w"> </span>or<span class="w"> </span>ID&gt;<span class="w"> </span>--format<span class="w"> </span><span class="s1">'{{ .NetworkSettings.IPAddress }}'</span>
 <span class="go">172.17.0.2</span>
 </code></pre></div>
 <p>デフォルト以外のネットワークはこのパスの値は空になっているので、ネットワークの指定も必要。<br />
 Compose使用時もこのパターン。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container<span class="w"> </span>name<span class="w"> </span>or<span class="w"> </span>ID&gt;<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;{{ .NetworkSettings.Networks.&lt;network name&gt;.IPAddress }}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container<span class="w"> </span>name<span class="w"> </span>or<span class="w"> </span>ID&gt;<span class="w"> </span>--format<span class="w"> </span><span class="s1">'{{ .NetworkSettings.Networks.&lt;network name&gt;.IPAddress }}'</span>
 <span class="go">172.18.0.2</span>
 </code></pre></div>
 <h4 id="log">Logのパス</h4>
 <p>Logging Driverがjson-fileの場合</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker inspect &lt;container name or ID&gt; --format &#39;{{ .LogPath }}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker inspect &lt;container name or ID&gt; --format '{{ .LogPath }}'</span>
 <span class="go">/var/lib/docker/containers/.../...-json.log</span>
 </code></pre></div>
 <h3 id="save">save</h3>
@@ -2955,7 +2955,7 @@ Compose使用時もこのパターン。</p>
 <h3 id="image">image</h3>
 <h4 id="_5">サイズ順にソート</h4>
 <p>テンプレート付きのtableフォーマットでサイズをまず出力し、<code>sort</code>を<code>-h (--human-numeric-sort)</code>オプション付けてソートする。</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker image ls --format &quot;table {{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}&quot; | sort -h</span>
+<div class="highlight"><pre><span></span><code><span class="go">docker image ls --format "table {{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}" | sort -h</span>
 </code></pre></div>
 <p><a href="https://qiita.com/peaceiris/items/e38648a1e8614c7d5083">Docker image 一覧を容量順でソートする #Docker - Qiita</a></p>
 <h3 id="prune">prune</h3>
@@ -2965,7 +2965,7 @@ Compose使用時もこのパターン。</p>
 </code></pre></div>
 <p>デフォルトは停止している全コンテナが削除される。<br />
 10日以前に <del>停止している</del> 作成されて現在停止中のコンテナの場合は、</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>container<span class="w"> </span>prune<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;until=240h&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>container<span class="w"> </span>prune<span class="w"> </span>--filter<span class="w"> </span><span class="s2">"until=240h"</span>
 </code></pre></div>
 <p><a href="https://pkg.go.dev/time#ParseDuration">Go duration strings</a>を使って期間を指定できる。<br />
 指定可能なのは以下、かな？</p>
@@ -3021,8 +3021,8 @@ Compose使用時もこのパターン。</p>
 <span class="go">Containers space usage:</span>
 
 <span class="go">CONTAINER ID   IMAGE                                     COMMAND                   LOCAL VOLUMES   SIZE      CREATED         STATUS                     NAMES</span>
-<span class="go">e744ed9323d6   quay.io/prometheus/node-exporter:v1.9.0   &quot;/bin/node_exporter …&quot;   0               0B        8 weeks ago     Up 6 days                  node_exporter</span>
-<span class="go">529c27ccf88a   registry:2                                &quot;/entrypoint.sh /etc…&quot;   1               0B        14 months ago   Exited (2) 14 months ago   registry</span>
+<span class="go">e744ed9323d6   quay.io/prometheus/node-exporter:v1.9.0   "/bin/node_exporter …"   0               0B        8 weeks ago     Up 6 days                  node_exporter</span>
+<span class="go">529c27ccf88a   registry:2                                "/entrypoint.sh /etc…"   1               0B        14 months ago   Exited (2) 14 months ago   registry</span>
 
 <span class="go">Local Volumes space usage:</span>
 
@@ -3066,46 +3066,46 @@ Compose使用時もこのパターン。</p>
 
 <span class="k">HEALTHCHECK</span><span class="w"> </span>--interval<span class="o">=</span>5s<span class="w"> </span>--timeout<span class="o">=</span>5s<span class="w"> </span>--retries<span class="o">=</span><span class="m">15</span><span class="w"> </span><span class="k">CMD</span><span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>http://127.0.0.1<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 
-<span class="c">#CMD [&quot;httpd-foreground&quot;]</span>
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sleep 30; httpd-foreground&quot;</span><span class="p">]</span>
+<span class="c">#CMD ["httpd-foreground"]</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"sh"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-c"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sleep 30; httpd-foreground"</span><span class="p">]</span>
 </code></pre></div>
 <p>起動処理中は</p>
 <div class="highlight"><pre><span></span><code><span class="gp">[zaki@node slowstart_httpd]$ </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--name<span class="w"> </span>slowstart_httpd<span class="w"> </span>slowstart_httpd
 <span class="go">e5c366cb3bbab10284ab41bd3e23fbf24720c9c371c35a8137d78a3c138844c6</span>
 <span class="gp">[zaki@node slowstart_httpd]$ </span>docker<span class="w"> </span>container<span class="w"> </span>ls
 <span class="go">CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS                            PORTS                                   NAMES</span>
-<span class="go">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
+<span class="go">e5c366cb3bba   slowstart_httpd   "sh -c 'sleep 30; ht…"   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
 <p>起動後は</p>
 <div class="highlight"><pre><span></span><code><span class="gp">[zaki@node slowstart_httpd]$ </span>docker<span class="w"> </span>container<span class="w"> </span>ls
 <span class="go">CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                    PORTS                                   NAMES</span>
-<span class="go">e5c366cb3bba   slowstart_httpd   &quot;sh -c &#39;sleep 30; ht…&quot;   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
+<span class="go">e5c366cb3bba   slowstart_httpd   "sh -c 'sleep 30; ht…"   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
 <h2 id="_11">設定</h2>
 <h3 id="_12">コンテナログのサイズ・ローテート設定(システムワイド)</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>cat<span class="w"> </span>/etc/docker/daemon.json
 <span class="go">{</span>
-<span class="go">  &quot;log-driver&quot;: &quot;json-file&quot;,</span>
-<span class="go">  &quot;log-opts&quot;: {</span>
-<span class="go">    &quot;max-size&quot;: &quot;100k&quot;,</span>
-<span class="go">    &quot;max-file&quot;: &quot;3&quot;</span>
+<span class="go">  "log-driver": "json-file",</span>
+<span class="go">  "log-opts": {</span>
+<span class="go">    "max-size": "100k",</span>
+<span class="go">    "max-file": "3"</span>
 <span class="go">  }</span>
 <span class="go">}</span>
 </code></pre></div>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2020/09/09/211117">[Docker]コンテナ実行時にlog-optsでログサイズ上限とローテート数を設定してホストのストレージが溢れないようにする - zaki work log</a></p>
 <h3 id="insecure">insecureなレジストリ設定</h3>
-<div class="highlight"><pre><span></span><code><span class="go">Error response from daemon: Get &quot;https://registry.example.org/v2/&quot;: tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
+<div class="highlight"><pre><span></span><code><span class="go">Error response from daemon: Get "https://registry.example.org/v2/": tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead</span>
 </code></pre></div>
 <p>ローカルに立てたレジストリとかでこんなエラーが出る場合。<br />
 <code>/etc/docker/daemon.json</code>に、TLS検証を無視したいサイトを以下のように追加</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;insecure-registries&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;gitlab-ce.example.org:25000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;gitlab-ce.local:25000&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">  </span><span class="nt">"insecure-registries"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"gitlab-ce.example.org:25000"</span><span class="p">,</span><span class="w"> </span><span class="s2">"gitlab-ce.local:25000"</span><span class="w"> </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="dns">DNS</h3>
 <p>コンテナ内で使用するDNS設定を指定するには、<code>--dns</code>を指定するか、ホストの<code>/etc/docker/daemon.json</code>で一律指定する。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;dns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;8.8.8.8&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;8.8.4.4&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="nt">"dns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8.8.8.8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"8.8.4.4"</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="proxy">proxy設定</h3>
@@ -3115,8 +3115,8 @@ Compose使用時もこのパターン。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/system/docker.service.d
 <span class="gp">$ </span>cat<span class="w"> </span>/etc/systemd/system/docker.service.d/http-proxy.conf
 <span class="go">[Service]</span>
-<span class="go">Environment=&quot;HTTP_PROXY=http://proxy.example.com:8080&quot;</span>
-<span class="go">Environment=&quot;HTTPS_PROXY=http://proxy.example.com:8080&quot;</span>
+<span class="go">Environment="HTTP_PROXY=http://proxy.example.com:8080"</span>
+<span class="go">Environment="HTTPS_PROXY=http://proxy.example.com:8080"</span>
 <span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 <span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 </code></pre></div>

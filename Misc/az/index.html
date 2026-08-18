@@ -3027,27 +3027,27 @@
 <div class="highlight"><pre><span></span><code><span class="go">az keyvault secret show \</span>
 <span class="go">  --vault-name $az_keyvault_name \</span>
 <span class="go">  --name $item_name \</span>
-<span class="go">  --query &quot;value&quot; -o tsv</span>
+<span class="go">  --query "value" -o tsv</span>
 </code></pre></div>
 <p><code>-o tsv</code> でクォート削除</p>
 <h3 id="_3">辞書型データのリストから指定キーの値一覧</h3>
 <p>AKSのクラスター名一覧を取得</p>
-<div class="highlight"><pre><span></span><code><span class="go">az aks list [-g resource-group] --query &#39;[].name&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">az aks list [-g resource-group] --query '[].name'</span>
 </code></pre></div>
 <h3 id="and">辞書型データのリストから指定キーが特定の値のものを検索(and)</h3>
 <p>VNetの一覧からリソースグループ名とVNet名が指定のもののリソースIDを取得</p>
-<div class="highlight"><pre><span></span><code><span class="go">az network vnet list --query &quot;[?name==&#39;${vnet_name}&#39; &amp;&amp; resourceGroup==&#39;${resource_group}&#39;].id&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">az network vnet list --query "[?name=='${vnet_name}' &amp;&amp; resourceGroup=='${resource_group}'].id"</span>
 </code></pre></div>
 <h4 id="_4">文字列を含む(部分一致)検索</h4>
 <p><code>name</code>キーに<code>dev</code>を含むデータの検索</p>
-<div class="highlight"><pre><span></span><code><span class="go">az aks list --query &quot;[?contains(name,&#39;dev&#39;)]&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">az aks list --query "[?contains(name,'dev')]"</span>
 </code></pre></div>
 <p>オブジェクト全体でなくここからさらにnameのみの一覧を出力するなら以下。</p>
-<div class="highlight"><pre><span></span><code><span class="go">az aks list --query &quot;[?contains(name,&#39;dev&#39;)].name&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">az aks list --query "[?contains(name,'dev')].name"</span>
 </code></pre></div>
 <h3 id="jqgrep">正規表現は現状使用不可 / jqやgrepと組み合わせる</h3>
 <p><code>/dev-[0-9]+/</code>にマッチするものをリストアップするには。</p>
-<div class="highlight"><pre><span></span><code><span class="go">az aks list --query &quot;[].name&quot; | grep dev-[0-9]\\+</span>
+<div class="highlight"><pre><span></span><code><span class="go">az aks list --query "[].name" | grep dev-[0-9]\\+</span>
 </code></pre></div>
 <h2 id="_5">アカウント</h2>
 <h3 id="_6">アカウント情報</h3>
@@ -3161,14 +3161,14 @@
 <p>必要なアドレスは<code>--query</code>で取り出す。</p>
 <div class="highlight"><pre><span></span><code><span class="go">az network public-ip list \</span>
 <span class="go">  --resoure-group ${resource_group} \</span>
-<span class="go">  --query &quot;[?id==&#39;$publicip_id&#39;].ipAddress&quot; \</span>
+<span class="go">  --query "[?id=='$publicip_id'].ipAddress" \</span>
 <span class="go">  --o tsv</span>
 </code></pre></div>
 <h3 id="dns">DNS</h3>
 <h4 id="_14">レコード作成</h4>
 <div class="highlight"><pre><span></span><code><span class="go">az network dns record-set a add-record \</span>
 <span class="go">  --resoure-group ${resource_group} \</span>
-<span class="go">  --zone-name &quot;example.org&quot; \</span>
+<span class="go">  --zone-name "example.org" \</span>
 <span class="go">  --ipv4-address ${publicip_address} \</span>
 <span class="go">  --record-set-name ${recordset_name}</span>
 </code></pre></div>
@@ -3180,31 +3180,31 @@
 <h4 id="_15">ゾーン作成</h4>
 <div class="highlight"><pre><span></span><code><span class="go">az network private-dns zone create \</span>
 <span class="go">  --resoure-group ${resource_group} \</span>
-<span class="go">  --name &quot;private.example.org&quot;</span>
+<span class="go">  --name "private.example.org"</span>
 </code></pre></div>
 <h4 id="a">Aレコード作成</h4>
 <div class="highlight"><pre><span></span><code><span class="go">az network private-dns record-set a add-record \</span>
 <span class="go">  --resoure-group ${resource_group} \</span>
-<span class="go">  --zone-name &quot;private.example.org&quot;</span>
+<span class="go">  --zone-name "private.example.org"</span>
 <span class="go">  --ipv4-adderss ${ipaddr} \</span>
 <span class="go">  --record-set-name hostname</span>
 </code></pre></div>
 <h4 id="a_1">Aレコード削除</h4>
 <div class="highlight"><pre><span></span><code><span class="go">az network private-dns record-set a delete \</span>
 <span class="go">  --resoure-group ${resource_group} \</span>
-<span class="go">  --zone-name &quot;private.example.org&quot; \</span>
+<span class="go">  --zone-name "private.example.org" \</span>
 <span class="go">  --name hostname</span>
 </code></pre></div>
 <p>y/nを聞かれるが、<code>-y</code>を付与すれば強制削除</p>
 <h4 id="a_2">Aレコード一覧</h4>
 <div class="highlight"><pre><span></span><code><span class="go">az network private-dns record-set a list \</span>
 <span class="go">  --resoure-group ${resource_group} \</span>
-<span class="go">  --zone-name &quot;private.example.org&quot;</span>
+<span class="go">  --zone-name "private.example.org"</span>
 </code></pre></div>
 <h4 id="_16">仮想ネットワークとのリンク作成</h4>
 <p>ゾーンと仮想ネットワークが同じリソースグループであれば、<code>--virtual-network</code>は仮想ネットワーク名だけで良い。</p>
 <div class="highlight"><pre><span></span><code><span class="go">az network private-dns link vnet create \</span>
-<span class="go">  --zone &quot;private.example.org&quot; \</span>
+<span class="go">  --zone "private.example.org" \</span>
 <span class="go">  --resource-group ${resource_group} \</span>
 <span class="go">  --virtual-network ${vnet_name} \</span>
 <span class="go">  --name ${link_name}</span>
@@ -3336,10 +3336,10 @@
 <div class="highlight"><pre><span></span><code><span class="go">az aks list [-g &lt;resource-group&gt;]</span>
 </code></pre></div>
 <h3 id="_26">使用可能バージョンの確認</h3>
-<div class="highlight"><pre><span></span><code><span class="go">az aks get-versions --query &#39;orchestrators[].orchestratorVersion&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">az aks get-versions --query 'orchestrators[].orchestratorVersion'</span>
 </code></pre></div>
 <p>ロケールを指定するには以下</p>
-<div class="highlight"><pre><span></span><code><span class="go">az aks get-versions -l eastus --query &#39;orchestrators[].orchestratorVersion&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">az aks get-versions -l eastus --query 'orchestrators[].orchestratorVersion'</span>
 </code></pre></div>
 <h3 id="kubeconfig">KUBECONFIGの取得</h3>
 <div class="highlight"><pre><span></span><code><span class="go">az aks get-credentials \</span>

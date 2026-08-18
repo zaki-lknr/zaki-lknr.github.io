@@ -2315,11 +2315,11 @@
 <h2 id="_1">ヘルスチェック</h2>
 <p><a href="https://kubernetes.io/docs/reference/using-api/health-checks/">Kubernetes API health endpoints | Kubernetes</a></p>
 <p>APIエンドポイントとして <code>/readyz</code> と <code>/livez</code> が用意されている。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-k<span class="w"> </span><span class="s1">&#39;https://192.168.0.131:6443/readyz&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-k<span class="w"> </span><span class="s1">'https://192.168.0.131:6443/readyz'</span>
 <span class="go">ok</span>
 </code></pre></div>
 <p>K3sだと認証が必要</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="s1">&#39;https://192.168.0.75:6443/livez?verbose&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span><span class="w"> </span><span class="s1">'https://192.168.0.75:6443/livez?verbose'</span>
 <span class="go">[+]ping ok</span>
 <span class="go">[+]log ok</span>
 <span class="go">[+]etcd ok</span>
@@ -2359,7 +2359,7 @@
 <h3 id="pod">pod</h3>
 <h4 id="crashloopbackoff">CrashLoopBackOff</h4>
 <p><code>describe</code>または<code>event</code>で</p>
-<div class="highlight"><pre><span></span><code><span class="go">Failed to pull image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: rpc error: code = NotFound desc = failed to pull and unpack image &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: failed to resolve reference &quot;quay.io/ansible/awx-operator:0.16.1-12-g768bc2f&quot;: quay.io/ansible/awx-operator:0.16.1-12-g768bc2f: not found</span>
+<div class="highlight"><pre><span></span><code><span class="go">Failed to pull image "quay.io/ansible/awx-operator:0.16.1-12-g768bc2f": rpc error: code = NotFound desc = failed to pull and unpack image "quay.io/ansible/awx-operator:0.16.1-12-g768bc2f": failed to resolve reference "quay.io/ansible/awx-operator:0.16.1-12-g768bc2f": quay.io/ansible/awx-operator:0.16.1-12-g768bc2f: not found</span>
 </code></pre></div>
 <p>や、</p>
 <div class="highlight"><pre><span></span><code><span class="go">Error: ImagePullBackOff</span>
@@ -2404,16 +2404,16 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl get ns hoge -o json &gt; deletens.json</span>
 </code></pre></div>
 <p>namespace定義の中から、<code>spec.finalizers["kubernetes"]</code>の定義を見つけ、中身を空にする。</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&quot;spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;finalizers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">"spec"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"finalizers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
 <span class="w">    </span><span class="p">},</span>
 </code></pre></div>
 <p>最後に編集したファイルをパラメタに、以下コマンドを実行</p>
-<div class="highlight"><pre><span></span><code><span class="go">kubectl replace --raw &quot;/api/v1/namespaces/hoge/finalize&quot; -f deletens.json </span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl replace --raw "/api/v1/namespaces/hoge/finalize" -f deletens.json </span>
 </code></pre></div>
 <p>これで削除できるはず。</p>
 <p>namespaceの定義が簡単な場合は以下コマンドでも行ける。</p>
-<div class="highlight"><pre><span></span><code><span class="go">kubectl get ns ${namespace} -o json | grep -v -- &#39;&quot;kubernetes&quot;&#39; | kubectl replace --raw &quot;/api/v1/namespaces/${namespace}/finalize&quot; -f -</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get ns ${namespace} -o json | grep -v -- '"kubernetes"' | kubectl replace --raw "/api/v1/namespaces/${namespace}/finalize" -f -</span>
 </code></pre></div>
 <p>※ <code>kubectl get ns hoge -o json | grep -2 -- '"kubernetes"'</code>を実行して、1か所しかヒットしない場合</p>
 <h3 id="errorcontainerstatusunknownevict">大量のError/ContainerStatusUnknownコンテナが発生しEvictも動作せずフリーズ状態</h3>
@@ -2491,7 +2491,7 @@ podのステータスも<code>ErrImagePull</code>になる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">crictl ps --name &lt;CONTAINER_NAME&gt;</span>
 </code></pre></div>
 <p><code>--name</code>は正規表現可能</p>
-<div class="highlight"><pre><span></span><code><span class="go">crictl ps --name &#39;awx-.*&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">crictl ps --name 'awx-.*'</span>
 </code></pre></div>
 <h3 id="_5">コンテナ毎のリソース消費状況</h3>
 <div class="highlight"><pre><span></span><code><span class="go">crictl stats</span>

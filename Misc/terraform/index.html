@@ -2714,7 +2714,7 @@
 <h3 id="apt">apt</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gnupg<span class="w"> </span>software-properties-common<span class="w"> </span>curl
 <span class="gp">$ </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://apt.releases.hashicorp.com/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-<span class="gp">$ </span>sudo<span class="w"> </span>apt-add-repository<span class="w"> </span><span class="s2">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span>
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-add-repository<span class="w"> </span><span class="s2">"deb [arch=amd64] https://apt.releases.hashicorp.com </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main"</span>
 <span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>terraform
 </code></pre></div>
 <h2 id="cli">CLI</h2>
@@ -2722,8 +2722,8 @@
 <p>引数無し<code>python</code>のように、CLIで関数などの実行を確認できる。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">zaki@cloud-dev2:~$ </span>terraform<span class="w"> </span>console
 <span class="go">&gt;</span>
-<span class="go">&gt; join(&quot;-&quot;, [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;])</span>
-<span class="go">&quot;foo-bar-baz&quot;</span>
+<span class="go">&gt; join("-", ["foo", "bar", "baz"])</span>
+<span class="go">"foo-bar-baz"</span>
 <span class="go">&gt;</span>
 <span class="go">&gt; exit</span>
 </code></pre></div>
@@ -2769,12 +2769,12 @@
 <h4 id="_6">変更</h4>
 <p>workspace <code>2</code> に変更</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>terraform<span class="w"> </span>workspace<span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="m">2</span>
-<span class="go">Switched to workspace &quot;2&quot;.</span>
+<span class="go">Switched to workspace "2".</span>
 </code></pre></div>
 <p>設定値は<code>.terraform/environment</code>に記録される。</p>
 <h3 id="variable">variable</h3>
 <h4 id="_7">引数</h4>
-<div class="highlight"><pre><span></span><code><span class="go">terraform plan -var=&#39;enable_wan=false&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -var='enable_wan=false'</span>
 </code></pre></div>
 <h3 id="_8">デバッグログ</h3>
 <p>verboseオプション的なものはなく、変数指定する。</p>
@@ -2795,20 +2795,20 @@
 <div class="highlight"><pre><span></span><code><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nb">required_providers</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nb">aws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/aws&quot;</span>
-<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 3.0&quot;</span>
+<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"hashicorp/aws"</span>
+<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"~&gt; 3.0"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">&quot;s3&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bucket-name&quot;</span>
-<span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform.tfstate&quot;</span>
-<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ap-northeast-1&quot;</span>
+<span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">"s3"</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"bucket-name"</span>
+<span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"terraform.tfstate"</span>
+<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ap-northeast-1"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ap-northeast-1&quot;</span>
+<span class="kr">provider</span><span class="w"> </span><span class="nv">"aws"</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"ap-northeast-1"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>もともとローカルでtfstate作っていた状態からS3へ移行する場合は、</p>
@@ -2833,9 +2833,9 @@
 <li>その他はデフォルト</li>
 </ul>
 <p>あとはバックエンド設定に以下追加</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">&quot;s3&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">"s3"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="na">bucket</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="err">S</span><span class="m">3</span><span class="err">バケット名</span>
-<span class="w">    </span><span class="na">key</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform.tfstate&quot;</span>
+<span class="w">    </span><span class="na">key</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"terraform.tfstate"</span>
 <span class="w">    </span><span class="na">region</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="err">リージョン</span>
 <span class="w">    </span><span class="na">dynamodb_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">DynamoDBテーブル名</span>
 <span class="w">    </span><span class="na">encrypt</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
@@ -2860,20 +2860,20 @@
 <h2 id="_13">構文</h2>
 <h3 id="count">count</h3>
 <p>EC2を3つ立てNameタグに連番を振る</p>
-<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_instance&quot;</span><span class="w"> </span><span class="nv">&quot;cloud-vm&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"cloud-vm"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">count</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
-<span class="w">  </span><span class="na">instance_type</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t2.medium&quot;</span>
+<span class="w">  </span><span class="na">instance_type</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"t2.medium"</span>
 <span class="w">  </span><span class="o">:</span>
 
 <span class="w">  </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cloud-${count.index}&quot;</span>
+<span class="w">    </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cloud-${count.index}"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>EIPの付与と連動させるには、<a href="https://developer.hashicorp.com/terraform/language/functions/element">element function</a>を使って要素を参照する。</p>
-<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_eip&quot;</span><span class="w"> </span><span class="nv">&quot;cloud-eip&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_eip"</span><span class="w"> </span><span class="nv">"cloud-eip"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">count</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
-<span class="w">  </span><span class="na">instance</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${element(aws_instance.cloud-vm.*.id, count.index)}&quot;</span>
+<span class="w">  </span><span class="na">instance</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"${element(aws_instance.cloud-vm.*.id, count.index)}"</span>
 <span class="w">  </span><span class="na">depends_on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv">aws_internet_gateway.igw</span><span class="w"> </span><span class="p">]</span>
 
 <span class="p">}</span>
@@ -2886,28 +2886,28 @@
 <h4 id="_16">補完</h4>
 <p>文字列リテラルの中で参照する場合は「補完」で書式は以下。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${var.name_prefix}-server&quot;</span>
+<span class="w">  </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"${var.name_prefix}-server"</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="_17">テンプレート</h3>
 <h4 id="_18">エスケープ</h4>
 <p><code>%{...}</code>という文字をそのまま使いたい場合は<code>%%{...}</code></p>
-<div class="highlight"><pre><span></span><code>curl -k https://localhost:6443 -w &#39;%%{http_code}\n&#39; -sS -o /dev/null 2&gt;/dev/null
+<div class="highlight"><pre><span></span><code>curl -k https://localhost:6443 -w '%%{http_code}\n' -sS -o /dev/null 2&gt;/dev/null
 </code></pre></div>
 <h3 id="_19">関数</h3>
 <h4 id="file">file</h4>
 <p><a href="https://developer.hashicorp.com/terraform/language/functions/file">file - Functions - Configuration Language | Terraform | HashiCorp Developer</a></p>
 <p>引数のファイルの内容を取り込む。<br />
 EC2のユーザーデータ/Cloud-initのファイルや、ポリシーのJSON等を外部ファイルに定義できる。</p>
-<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_instance&quot;</span><span class="w"> </span><span class="nv">&quot;dev-vm&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"dev-vm"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">ami</span><span class="w">                         </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
-<span class="w">  </span><span class="na">instance_type</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t2.medium&quot;</span>
+<span class="w">  </span><span class="na">instance_type</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="s2">"t2.medium"</span>
 <span class="w">  </span><span class="na">key_name</span><span class="w">                    </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_key_pair.key.id</span>
 <span class="w">  </span><span class="na">subnet_id</span><span class="w">                   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_subnet.subnet.id</span>
 <span class="w">  </span><span class="na">vpc_security_group_ids</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_security_group.sg.id</span><span class="p">]</span>
 <span class="w">  </span><span class="na">associate_public_ip_address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
 
-<span class="w">  </span><span class="na">user_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">file</span><span class="p">(</span><span class="s2">&quot;${path.module}/cloud-config.yaml&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="na">user_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">file</span><span class="p">(</span><span class="s2">"${path.module}/cloud-config.yaml"</span><span class="p">)</span>
 
 <span class="w">  </span><span class="p">...</span>
 <span class="p">}</span>
@@ -2922,7 +2922,7 @@ EC2のユーザーデータ/Cloud-initのファイルや、ポリシーのJSON�
 </code></pre></div>
 <h4 id="templatefile">templatefile</h4>
 <p><code>file()</code>は外部ファイルを固定値として読み込むのみだが、<code>templatefile()</code>ならテンプレートとして変数を展開する。</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="na">user_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">templatefile</span><span class="p">(</span><span class="s2">&quot;${path.module}/user-data.sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="na">user_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">templatefile</span><span class="p">(</span><span class="s2">"${path.module}/user-data.sh"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="na">git_username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.git_username</span>
 <span class="w">    </span><span class="na">git_password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.git_password</span>
 <span class="w">  </span><span class="p">})</span>
@@ -2936,11 +2936,11 @@ git<span class="w"> </span>clone<span class="w"> </span>https://<span class="si"
 <p><code>concat(list1, list2, list3)</code></p>
 <p>EventBridge Schedulerにcount定義されたEC2インスタンスを複数セットするような場合</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nb">target</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">arn</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;arn:aws:scheduler:::aws-sdk:ec2:stopInstances&quot;</span>
+<span class="w">    </span><span class="na">arn</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">"arn:aws:scheduler:::aws-sdk:ec2:stopInstances"</span>
 <span class="w">    </span><span class="na">role_arn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_iam_role.stopstart_role.arn</span>
 <span class="w">    </span><span class="na">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">jsonencode</span><span class="p">({</span>
-<span class="w">      </span><span class="na">InstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="s2">&quot;${aws_instance.ec2_app1.*.id}&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;${aws_instance.ec2_app2.*.id}&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="na">InstanceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="s2">"${aws_instance.ec2_app1.*.id}"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"${aws_instance.ec2_app2.*.id}"</span><span class="p">,</span>
 <span class="w">      </span><span class="p">)</span>
 <span class="w">    </span><span class="p">})</span>
 <span class="w">  </span><span class="p">}</span>
@@ -2948,28 +2948,28 @@ git<span class="w"> </span>clone<span class="w"> </span>https://<span class="si"
 <h4 id="element">element (配列要素取得)</h4>
 <p><code>element(list, index)</code> で、list内のindex番目の要素を取得する。<br />
 以下はEC2を作成しつつ、それぞれのインスタンスにEIPをセットする場合</p>
-<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_eip&quot;</span><span class="w"> </span><span class="nv">&quot;eip&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_eip"</span><span class="w"> </span><span class="nv">"eip"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">count</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">var.count</span>
 <span class="w">  </span><span class="na">instance</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nf">element</span><span class="p">(</span><span class="nv">aws_instance.ec2</span><span class="p">.</span><span class="err">*</span><span class="p">.</span><span class="err">id</span><span class="p">,</span><span class="w"> </span><span class="nv">count.index</span><span class="p">)</span>
-<span class="w">  </span><span class="na">domain</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vpc&quot;</span>
+<span class="w">  </span><span class="na">domain</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"vpc"</span>
 <span class="w">  </span><span class="na">depends_on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_internet_gateway.igw</span><span class="p">]</span>
 </code></pre></div>
 <h4 id="join">join (文字結合)</h4>
 <p><code>join(char, list)</code> list各要素をcharを区切り文字で繋げる。<br />
 countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>の形式で全て連結する</p>
-<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="p">{</span><span class="nf">join</span><span class="p">(</span><span class="s2">&quot; &quot;, [for h in aws_instance.ec.*.tags.Name : &quot;--host ${h}&quot;</span><span class="p">])}</span>
+<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="p">{</span><span class="nf">join</span><span class="p">(</span><span class="s2">" ", [for h in aws_instance.ec.*.tags.Name : "--host ${h}"</span><span class="p">])}</span>
 </code></pre></div>
 <h3 id="_20">実装</h3>
 <h4 id="sleep">sleepする</h4>
 <p><a href="https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep">time_sleep</a>プロバイダを使用する。</p>
 <h2 id="output">output</h2>
 <h3 id="for_each">for_eachで作成したリソースの出力</h3>
-<div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;all_items&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">"all_items"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nb">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">k</span><span class="p">,</span><span class="err">v</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="nv">resource.name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="na">k</span><span class="w"> </span><span class="o">=</span><span class="err">&gt;</span><span class="w"> </span><span class="nv">v.key</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>あるいは</p>
-<div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;all_items&quot;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">"all_items"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">values</span><span class="p">(</span><span class="nv">resource.name</span><span class="p">)[</span><span class="err">*</span><span class="p">].</span><span class="err">key</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2979,7 +2979,7 @@ countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>�
 </code></pre></div>
 <p>これでtfstateに取り込める。1コマンド1つ</p>
 <p><code>for_each</code>内のリソースをゼロパディングの文字でキー指定で個別指定する場合、クォートの使い方に注意</p>
-<div class="highlight"><pre><span></span><code><span class="go">terraform import &#39;module.foobar.aws_instance.cloud-dev[&quot;0001&quot;]&#39; &lt;リソースID&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform import 'module.foobar.aws_instance.cloud-dev["0001"]' &lt;リソースID&gt;</span>
 </code></pre></div>
 <h3 id="import_1">importブロック</h3>
 <ul>
@@ -2988,17 +2988,17 @@ countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>�
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nb">import</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">TYPE.LABEL</span>
-<span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;import対象のリソースID&gt;&quot;</span>
+<span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;import対象のリソースID&gt;"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>[Telmate/proxmoxであれば、リソースIDの書式は<code>&lt;node&gt;/&lt;type&gt;/&lt;ID&gt;</code>](<a href="https://registry.terraform.io/providers/Telmate/proxmox/latest/docs/resources/vm_qemu#import">proxmox_vm_qemu | Resources | Telmate/proxmox | Terraform | Terraform Registry</a>になる。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">import</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pve01/qemu/255&quot;</span>
+<span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"pve01/qemu/255"</span>
 <span class="w">  </span><span class="na">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">proxmox_vm_qemu.my-vm</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>この状態で以下を実行すると、対象リソースのtfコードが<code>imported_resource.tf</code>に生成される。</p>
-<div class="highlight"><pre><span></span><code><span class="go">terraform plan -generate-config-out=&quot;imported_resource.tf&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">terraform plan -generate-config-out="imported_resource.tf"</span>
 </code></pre></div>
 <p>出力されたtfコードを手直ししたり元のtfファイルへマージするなどし、<code>terraform apply</code>を実行するとtfstateへインポートされる。<br />
 最後にimportブロックを削除しても良いが残しても良い。</p>
@@ -3008,15 +3008,15 @@ countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>�
 <div class="highlight"><pre><span></span><code><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nb">required_providers</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nb">azurerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/azurerm&quot;</span>
-<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;....&quot;</span>
+<span class="w">      </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"hashicorp/azurerm"</span>
+<span class="w">      </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"...."</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;azurerm&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="kr">provider</span><span class="w"> </span><span class="nv">"azurerm"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nb">features</span><span class="w"> </span><span class="p">{}</span>
-<span class="w">  </span><span class="na">subscription_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;********&quot;</span>
+<span class="w">  </span><span class="na">subscription_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"********"</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="resource">resource</h2>
@@ -3029,7 +3029,7 @@ countで複数デプロイするEC2のNameタグで<code>--host tag.Name</code>�
 Terraformコードからドキュメント生成するツール。</p>
 <p>CLIをインストールできるがコンテナ実行でも生成できる。<br />
 Podmanであれば、Terraformコードのあるディレクトリで以下を実行すれば<code>README.md</code>が生成される。</p>
-<div class="highlight"><pre><span></span><code><span class="go">podman run --rm -v &quot;$(pwd):/terraform-docs&quot; quay.io/terraform-docs/terraform-docs:0.18.0 markdown /terraform-docs --output-file README.md</span>
+<div class="highlight"><pre><span></span><code><span class="go">podman run --rm -v "$(pwd):/terraform-docs" quay.io/terraform-docs/terraform-docs:0.18.0 markdown /terraform-docs --output-file README.md</span>
 </code></pre></div>
                 
               

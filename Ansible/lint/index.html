@@ -1870,7 +1870,7 @@
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">print result</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">value}}&quot;</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">value}}"</span>
 </code></pre></div>
 <p><code>"{{ value }}"</code>の参照と、あと<code>tasks</code>の前の行は空行でなく2文字スペースが入っている状態。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>ansible-lint<span class="w"> </span>sample.yml<span class="w"> </span>
@@ -1881,15 +1881,15 @@
 
 <span class="go">[206] Variables should have spaces before and after: {{ var_name }}</span>
 <span class="go">sample.yml:10</span>
-<span class="go">      msg: &quot;{{ value}}&quot;</span>
+<span class="go">      msg: "{{ value}}"</span>
 
 <span class="go">You can skip specific rules or tags by adding them to your configuration file:       </span>
 
 <span class="go">┌───────────────────────────────────────────────────────────────────────────────────┐</span>
 <span class="go">│ # .ansible-lint                                                                   │</span>
-<span class="go">│ warn_list:  # or &#39;skip_list&#39; to silence them completely                           │</span>
-<span class="go">│   - &#39;201&#39;  # Trailing whitespace                                                  │</span>
-<span class="go">│   - &#39;206&#39;  # Variables should have spaces before and after: {{ var_name }}        │</span>
+<span class="go">│ warn_list:  # or 'skip_list' to silence them completely                           │</span>
+<span class="go">│   - '201'  # Trailing whitespace                                                  │</span>
+<span class="go">│   - '206'  # Variables should have spaces before and after: {{ var_name }}        │</span>
 <span class="go">└───────────────────────────────────────────────────────────────────────────────────┘</span>
 </code></pre></div>
 <p>もしくは <code>-p</code> を付けて</p>
@@ -1901,9 +1901,9 @@
 
 <span class="go">┌───────────────────────────────────────────────────────────────────────────────────┐</span>
 <span class="go">│ # .ansible-lint                                                                   │</span>
-<span class="go">│ warn_list:  # or &#39;skip_list&#39; to silence them completely                           │</span>
-<span class="go">│   - &#39;201&#39;  # Trailing whitespace                                                  │</span>
-<span class="go">│   - &#39;206&#39;  # Variables should have spaces before and after: {{ var_name }}        │</span>
+<span class="go">│ warn_list:  # or 'skip_list' to silence them completely                           │</span>
+<span class="go">│   - '201'  # Trailing whitespace                                                  │</span>
+<span class="go">│   - '206'  # Variables should have spaces before and after: {{ var_name }}        │</span>
 <span class="go">└───────────────────────────────────────────────────────────────────────────────────┘</span>
 </code></pre></div>
                 

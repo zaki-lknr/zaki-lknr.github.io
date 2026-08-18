@@ -2941,16 +2941,16 @@ UIのジョブ一覧からの削除の場合、ジョブは消えるがイベン
 権限はread/writeのみ。</p>
 <p>GUIで作ったパーソナルトークンを使ったRESTは以下のように<code>Authorization: Bearer {token-string}</code>をヘッダに追加すればOK</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">tower_token</span><span class="o">=</span>........
-<span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://192.168.0.27/api/v2/job_templates/<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$tower_token</span><span class="s2">&quot;</span>
+<span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://192.168.0.27/api/v2/job_templates/<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$tower_token</span><span class="s2">"</span>
 </code></pre></div>
 <p><a href="https://docs.ansible.com/ansible-tower/latest/html_ja/administration/oauth2_token_auth.html#using-oauth-2-token-system-for-personal-access-tokens-pat">19.2. パーソナルアクセストークン (PAT) 向けの OAuth2 トークンシステムの使用</a></p>
 <h3 id="_22">認証トークン</h3>
 <p>にわとり・たまごな感じだけど、APIでトークンを作成する。<br />
 (処理のための認証情報は予め必要)</p>
-<div class="highlight"><pre><span></span><code><span class="go">curl -H &quot;Authorization: Bearer $TOWER_TOKEN&quot; -H &quot;Content-Type: application/json&quot; -sk https://server/api/v2/tokens/ -XPOST -d &#39;{&quot;description&quot;: &quot;test&quot;, &quot;scope&quot;: &quot;write&quot;}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -H "Authorization: Bearer $TOWER_TOKEN" -H "Content-Type: application/json" -sk https://server/api/v2/tokens/ -XPOST -d '{"description": "test", "scope": "write"}'</span>
 </code></pre></div>
 <p>レスポンスは以下の通り、トークン文字列を含む。</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;o_auth2_access_token&quot;</span><span class="p">,</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;/api/v2/tokens/25/&quot;</span><span class="p">,</span><span class="nt">&quot;related&quot;</span><span class="p">:{</span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="s2">&quot;/api/v2/users/1/&quot;</span><span class="p">,</span><span class="nt">&quot;activity_stream&quot;</span><span class="p">:</span><span class="s2">&quot;/api/v2/tokens/25/activity_stream/&quot;</span><span class="p">},</span><span class="nt">&quot;summary_fields&quot;</span><span class="p">:{</span><span class="nt">&quot;user&quot;</span><span class="p">:{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="nt">&quot;first_name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;last_name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}},</span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="s2">&quot;2026-01-05T06:25:10.874771Z&quot;</span><span class="p">,</span><span class="nt">&quot;modified&quot;</span><span class="p">:</span><span class="s2">&quot;2026-01-05T06:25:10.885774Z&quot;</span><span class="p">,</span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="s2">&quot;H17XHP2GAGubYrYsQv77u7hcacUHLT&quot;</span><span class="p">,</span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&quot;application&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&quot;expires&quot;</span><span class="p">:</span><span class="s2">&quot;3025-05-08T06:25:10.867732Z&quot;</span><span class="p">,</span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="s2">&quot;write&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"o_auth2_access_token"</span><span class="p">,</span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"/api/v2/tokens/25/"</span><span class="p">,</span><span class="nt">"related"</span><span class="p">:{</span><span class="nt">"user"</span><span class="p">:</span><span class="s2">"/api/v2/users/1/"</span><span class="p">,</span><span class="nt">"activity_stream"</span><span class="p">:</span><span class="s2">"/api/v2/tokens/25/activity_stream/"</span><span class="p">},</span><span class="nt">"summary_fields"</span><span class="p">:{</span><span class="nt">"user"</span><span class="p">:{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"admin"</span><span class="p">,</span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">}},</span><span class="nt">"created"</span><span class="p">:</span><span class="s2">"2026-01-05T06:25:10.874771Z"</span><span class="p">,</span><span class="nt">"modified"</span><span class="p">:</span><span class="s2">"2026-01-05T06:25:10.885774Z"</span><span class="p">,</span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="nt">"user"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">"token"</span><span class="p">:</span><span class="s2">"H17XHP2GAGubYrYsQv77u7hcacUHLT"</span><span class="p">,</span><span class="nt">"refresh_token"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">"application"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">"expires"</span><span class="p">:</span><span class="s2">"3025-05-08T06:25:10.867732Z"</span><span class="p">,</span><span class="nt">"scope"</span><span class="p">:</span><span class="s2">"write"</span><span class="p">}</span>
 </code></pre></div>
 <p>エンドポイント名とその説明的に「指定ユーザーのトークンを作成する」という機能がありそうに見えるが、実際には指定したユーザーIDは無視され実行時の認証に使ったアカウント権限でトークンが作成される。</p>
 <ul>
@@ -2967,7 +2967,7 @@ UIのジョブ一覧からの削除の場合、ジョブは消えるがイベン
 </code></pre></div>
 <p>ソートするには<code>order_by</code>を使う。キーは<code>-</code>を先頭につけると逆順。<br />
 以下で最新のジョブが先頭に来る。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span><span class="s2">&quot;https://192.168.0.27/api/v2/jobs/?page_size=200&amp;order_by=-created&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span><span class="s2">"https://192.168.0.27/api/v2/jobs/?page_size=200&amp;order_by=-created"</span>
 </code></pre></div>
 <p><code>page_size</code>に指定できるのはMAX200？(オーバー時は無視されて200扱い)</p>
 <h4 id="_25">詳細</h4>
@@ -3002,109 +3002,109 @@ UIのジョブ一覧からの削除の場合、ジョブは消えるがイベン
 <p>「Settings」にある <code>/api/v2/settings/</code> で確認できる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">curl -sk https://tower.example.org/api/v2/settings/ | python3 -m json.tool</span>
 <span class="go">{</span>
-<span class="go">    &quot;count&quot;: 20,</span>
-<span class="go">    &quot;next&quot;: null,</span>
-<span class="go">    &quot;previous&quot;: null,</span>
-<span class="go">    &quot;results&quot;: [</span>
+<span class="go">    "count": 20,</span>
+<span class="go">    "next": null,</span>
+<span class="go">    "previous": null,</span>
+<span class="go">    "results": [</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/all/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;all&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;All&quot;</span>
+<span class="go">            "url": "/api/v2/settings/all/",</span>
+<span class="go">            "slug": "all",</span>
+<span class="go">            "name": "All"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/authentication/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;authentication&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;Authentication&quot;</span>
+<span class="go">            "url": "/api/v2/settings/authentication/",</span>
+<span class="go">            "slug": "authentication",</span>
+<span class="go">            "name": "Authentication"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/azuread-oauth2/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;azuread-oauth2&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;Azure AD OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/azuread-oauth2/",</span>
+<span class="go">            "slug": "azuread-oauth2",</span>
+<span class="go">            "name": "Azure AD OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/changed/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;changed&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;Changed&quot;</span>
+<span class="go">            "url": "/api/v2/settings/changed/",</span>
+<span class="go">            "slug": "changed",</span>
+<span class="go">            "name": "Changed"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;github&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;GitHub OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/github/",</span>
+<span class="go">            "slug": "github",</span>
+<span class="go">            "name": "GitHub OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;github-enterprise&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;GitHub Enterprise OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/github-enterprise/",</span>
+<span class="go">            "slug": "github-enterprise",</span>
+<span class="go">            "name": "GitHub Enterprise OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise-org/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;github-enterprise-org&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;GitHub Enterprise Organization OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/github-enterprise-org/",</span>
+<span class="go">            "slug": "github-enterprise-org",</span>
+<span class="go">            "name": "GitHub Enterprise Organization OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-enterprise-team/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;github-enterprise-team&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;GitHub Enterprise Team OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/github-enterprise-team/",</span>
+<span class="go">            "slug": "github-enterprise-team",</span>
+<span class="go">            "name": "GitHub Enterprise Team OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-org/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;github-org&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;GitHub Organization OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/github-org/",</span>
+<span class="go">            "slug": "github-org",</span>
+<span class="go">            "name": "GitHub Organization OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/github-team/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;github-team&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;GitHub Team OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/github-team/",</span>
+<span class="go">            "slug": "github-team",</span>
+<span class="go">            "name": "GitHub Team OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/google-oauth2/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;google-oauth2&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;Google OAuth2&quot;</span>
+<span class="go">            "url": "/api/v2/settings/google-oauth2/",</span>
+<span class="go">            "slug": "google-oauth2",</span>
+<span class="go">            "name": "Google OAuth2"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/jobs/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;jobs&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;Jobs&quot;</span>
+<span class="go">            "url": "/api/v2/settings/jobs/",</span>
+<span class="go">            "slug": "jobs",</span>
+<span class="go">            "name": "Jobs"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/ldap/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;ldap&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;LDAP&quot;</span>
+<span class="go">            "url": "/api/v2/settings/ldap/",</span>
+<span class="go">            "slug": "ldap",</span>
+<span class="go">            "name": "LDAP"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/logging/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;logging&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;Logging&quot;</span>
+<span class="go">            "url": "/api/v2/settings/logging/",</span>
+<span class="go">            "slug": "logging",</span>
+<span class="go">            "name": "Logging"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/named-url/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;named-url&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;Named URL&quot;</span>
+<span class="go">            "url": "/api/v2/settings/named-url/",</span>
+<span class="go">            "slug": "named-url",</span>
+<span class="go">            "name": "Named URL"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/radius/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;radius&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;RADIUS&quot;</span>
+<span class="go">            "url": "/api/v2/settings/radius/",</span>
+<span class="go">            "slug": "radius",</span>
+<span class="go">            "name": "RADIUS"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/saml/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;saml&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;SAML&quot;</span>
+<span class="go">            "url": "/api/v2/settings/saml/",</span>
+<span class="go">            "slug": "saml",</span>
+<span class="go">            "name": "SAML"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/system/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;system&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;System&quot;</span>
+<span class="go">            "url": "/api/v2/settings/system/",</span>
+<span class="go">            "slug": "system",</span>
+<span class="go">            "name": "System"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/tacacsplus/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;tacacsplus&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;TACACS+&quot;</span>
+<span class="go">            "url": "/api/v2/settings/tacacsplus/",</span>
+<span class="go">            "slug": "tacacsplus",</span>
+<span class="go">            "name": "TACACS+"</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;url&quot;: &quot;/api/v2/settings/ui/&quot;,</span>
-<span class="go">            &quot;slug&quot;: &quot;ui&quot;,</span>
-<span class="go">            &quot;name&quot;: &quot;UI&quot;</span>
+<span class="go">            "url": "/api/v2/settings/ui/",</span>
+<span class="go">            "slug": "ui",</span>
+<span class="go">            "name": "UI"</span>
 <span class="go">        }</span>
 <span class="go">    ]</span>
 <span class="go">}</span>
@@ -3114,34 +3114,34 @@ UIのジョブ一覧からの削除の場合、ジョブは消えるがイベン
 キー一覧は以下の通り</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-sk<span class="w"> </span>https://tower.example.org/api/v2/settings/system/<span class="w"> </span>...<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
 <span class="go">{</span>
-<span class="go">    &quot;ACTIVITY_STREAM_ENABLED&quot;: true,</span>
-<span class="go">    &quot;ACTIVITY_STREAM_ENABLED_FOR_INVENTORY_SYNC&quot;: false,</span>
-<span class="go">    &quot;ORG_ADMINS_CAN_SEE_ALL_USERS&quot;: true,</span>
-<span class="go">    &quot;MANAGE_ORGANIZATION_AUTH&quot;: true,</span>
-<span class="go">    &quot;TOWER_URL_BASE&quot;: &quot;https://127.0.0.1&quot;,</span>
-<span class="go">    &quot;REMOTE_HOST_HEADERS&quot;: [</span>
-<span class="go">        &quot;REMOTE_ADDR&quot;,</span>
-<span class="go">        &quot;REMOTE_HOST&quot;</span>
+<span class="go">    "ACTIVITY_STREAM_ENABLED": true,</span>
+<span class="go">    "ACTIVITY_STREAM_ENABLED_FOR_INVENTORY_SYNC": false,</span>
+<span class="go">    "ORG_ADMINS_CAN_SEE_ALL_USERS": true,</span>
+<span class="go">    "MANAGE_ORGANIZATION_AUTH": true,</span>
+<span class="go">    "TOWER_URL_BASE": "https://127.0.0.1",</span>
+<span class="go">    "REMOTE_HOST_HEADERS": [</span>
+<span class="go">        "REMOTE_ADDR",</span>
+<span class="go">        "REMOTE_HOST"</span>
 <span class="go">    ],</span>
-<span class="go">    &quot;PROXY_IP_ALLOWED_LIST&quot;: [],</span>
-<span class="go">    &quot;LICENSE&quot;: {</span>
+<span class="go">    "PROXY_IP_ALLOWED_LIST": [],</span>
+<span class="go">    "LICENSE": {</span>
 <span class="go">        ...</span>
 <span class="go">    },</span>
-<span class="go">    &quot;REDHAT_USERNAME&quot;: &quot;&quot;,</span>
-<span class="go">    &quot;REDHAT_PASSWORD&quot;: &quot;&quot;,</span>
-<span class="go">    &quot;SUBSCRIPTIONS_USERNAME&quot;: &quot;&quot;,</span>
-<span class="go">    &quot;SUBSCRIPTIONS_PASSWORD&quot;: &quot;&quot;,</span>
-<span class="go">    &quot;AUTOMATION_ANALYTICS_URL&quot;: &quot;https://cloud.redhat.com/api/ingress/v1/upload&quot;,</span>
-<span class="go">    &quot;INSTALL_UUID&quot;: &quot;...&quot;,</span>
-<span class="go">    &quot;DEFAULT_CONTROL_PLANE_QUEUE_NAME&quot;: &quot;controlplane&quot;,</span>
-<span class="go">    &quot;DEFAULT_EXECUTION_QUEUE_NAME&quot;: &quot;default&quot;,</span>
-<span class="go">    &quot;DEFAULT_EXECUTION_ENVIRONMENT&quot;: null,</span>
-<span class="go">    &quot;CUSTOM_VENV_PATHS&quot;: [],</span>
-<span class="go">    &quot;INSIGHTS_TRACKING_STATE&quot;: false,</span>
-<span class="go">    &quot;AUTOMATION_ANALYTICS_LAST_GATHER&quot;: null,</span>
-<span class="go">    &quot;AUTOMATION_ANALYTICS_LAST_ENTRIES&quot;: &quot;&quot;,</span>
-<span class="go">    &quot;AUTOMATION_ANALYTICS_GATHER_INTERVAL&quot;: 14400,</span>
-<span class="go">    &quot;IS_K8S&quot;: false</span>
+<span class="go">    "REDHAT_USERNAME": "",</span>
+<span class="go">    "REDHAT_PASSWORD": "",</span>
+<span class="go">    "SUBSCRIPTIONS_USERNAME": "",</span>
+<span class="go">    "SUBSCRIPTIONS_PASSWORD": "",</span>
+<span class="go">    "AUTOMATION_ANALYTICS_URL": "https://cloud.redhat.com/api/ingress/v1/upload",</span>
+<span class="go">    "INSTALL_UUID": "...",</span>
+<span class="go">    "DEFAULT_CONTROL_PLANE_QUEUE_NAME": "controlplane",</span>
+<span class="go">    "DEFAULT_EXECUTION_QUEUE_NAME": "default",</span>
+<span class="go">    "DEFAULT_EXECUTION_ENVIRONMENT": null,</span>
+<span class="go">    "CUSTOM_VENV_PATHS": [],</span>
+<span class="go">    "INSIGHTS_TRACKING_STATE": false,</span>
+<span class="go">    "AUTOMATION_ANALYTICS_LAST_GATHER": null,</span>
+<span class="go">    "AUTOMATION_ANALYTICS_LAST_ENTRIES": "",</span>
+<span class="go">    "AUTOMATION_ANALYTICS_GATHER_INTERVAL": 14400,</span>
+<span class="go">    "IS_K8S": false</span>
 <span class="go">}</span>
 </code></pre></div>
                 

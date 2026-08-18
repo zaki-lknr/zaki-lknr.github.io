@@ -2209,12 +2209,12 @@ Host github.com
 </code></pre></div>
 <h3 id="homesshconfig">共用アカウントなどで$HOME/.ssh/config以外を使いたい場合</h3>
 <p>以下設定。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_SSH_COMMAND</span><span class="o">=</span><span class="s2">&quot;ssh -F /path/to/myconf/ssh/config&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_SSH_COMMAND</span><span class="o">=</span><span class="s2">"ssh -F /path/to/myconf/ssh/config"</span>
 </code></pre></div>
 <h3 id="ssh">接続不調時などにSSHのログを確認する</h3>
 <p><code>-vvv</code>のように数を増やせばログ量は増える。<br />
 要は内部で使用する<code>ssh</code>コマンドを明示的に指定しつつverboseオプションを追加する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">GIT_SSH_COMMAND=&quot;ssh -v&quot; git push</span>
+<div class="highlight"><pre><span></span><code><span class="go">GIT_SSH_COMMAND="ssh -v" git push</span>
 </code></pre></div>
 <h2 id="_6">リモートリポジトリ</h2>
 <h3 id="_7">現在の設定</h3>
@@ -2257,12 +2257,12 @@ Host github.com
 <p>この状態で、<code>PS1</code>環境変数を設定する。<br />
 設定例</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># prompt</span>
-<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s1">'[\u@\h \W$(__git_ps1 " (%s)")]\$ '</span>
 </code></pre></div>
 <p>既存の<code>PS1</code>設定に追加するのであればこんな感じが良いかも。</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.git-prompt.sh<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.git-prompt.sh
-<span class="w">    </span><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\[\e[31m\]$(__git_ps1 &quot;(%s) &quot;)\[\e[0m\]&#39;</span><span class="s2">&quot;</span><span class="nv">$PS1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nv">PS1</span><span class="o">=</span><span class="s1">'\[\e[31m\]$(__git_ps1 "(%s) ")\[\e[0m\]'</span><span class="s2">"</span><span class="nv">$PS1</span><span class="s2">"</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_PS1_SHOWDIRTYSTATE</span><span class="o">=</span><span class="nb">true</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_PS1_SHOWUNTRACKEDFILES</span><span class="o">=</span><span class="nb">true</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_PS1_SHOWSTASHSTATE</span><span class="o">=</span><span class="nb">true</span>

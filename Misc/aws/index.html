@@ -2208,7 +2208,7 @@
 <h2 id="cli">CLI</h2>
 <h3 id="_1">インストール</h3>
 <p><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">Installing or updating the latest version of the AWS CLI - AWS Command Line Interface</a></p>
-<div class="highlight"><pre><span></span><code><span class="go">curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;awscliv2.zip&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"</span>
 <span class="go">unzip awscliv2.zip</span>
 <span class="go">sudo ./aws/install</span>
 </code></pre></div>
@@ -2247,35 +2247,35 @@
 <span class="go">  --region &lt;リージョン&gt;</span>
 </code></pre></div>
 <h6 id="id">インスタンスIDのみ一覧</h6>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--region<span class="w"> </span>ap-southeast-2<span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;Reservations[].Instances[].InstanceId&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--region<span class="w"> </span>ap-southeast-2<span class="w"> </span>--query<span class="w"> </span><span class="s1">'Reservations[].Instances[].InstanceId'</span>
 <span class="go">[</span>
-<span class="go">    &quot;i-002bfe31881b20e07&quot;,</span>
-<span class="go">    &quot;i-0d33f288e35835170&quot;</span>
+<span class="go">    "i-002bfe31881b20e07",</span>
+<span class="go">    "i-0d33f288e35835170"</span>
 <span class="go">]</span>
 </code></pre></div>
 <h6 id="name">Nameタグのみ一覧</h6>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--region<span class="w"> </span>ap-southeast-2<span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;Reservations[].Instances[].Tags[?Key==`Name`].Value[]&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--region<span class="w"> </span>ap-southeast-2<span class="w"> </span>--query<span class="w"> </span><span class="s1">'Reservations[].Instances[].Tags[?Key==`Name`].Value[]'</span>
 <span class="go">[</span>
-<span class="go">    &quot;server-1&quot;,</span>
-<span class="go">    &quot;server-2&quot;</span>
+<span class="go">    "server-1",</span>
+<span class="go">    "server-2"</span>
 <span class="go">]</span>
 </code></pre></div>
 <h5 id="vm_1">指定タグのVM</h5>
 <div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-instances \</span>
 <span class="go">  --region &lt;リージョン&gt; \</span>
-<span class="go">  --query &quot;Reservations[].Instances[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]]&quot;</span>
+<span class="go">  --query "Reservations[].Instances[?Tags[?Key=='Name' &amp;&amp; Value=='nameタグの名前']]"</span>
 </code></pre></div>
 <h4 id="_5">ネットワーク</h4>
 <h5 id="ec2_1">指定サブネットに紐づいているEC2一覧</h5>
 <div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-instances \</span>
 <span class="go">  --region &lt;リージョン&gt; \</span>
 <span class="go">  --filters Name=subnet-id,Values=&lt;サブネットID&gt; \</span>
-<span class="go">  --query &#39;Reservations[].Instances[].InstanceId&#39;</span>
+<span class="go">  --query 'Reservations[].Instances[].InstanceId'</span>
 </code></pre></div>
 <h5 id="id_1">ゲートウェイIDの取得</h5>
 <div class="highlight"><pre><span></span><code><span class="go">aws ec2 describe-vpn-gateways \</span>
 <span class="go">  --region &lt;リージョン&gt; \</span>
-<span class="go">  --query &quot;VpnGateways[?Tags[?Key==&#39;Name&#39; &amp;&amp; Value==&#39;nameタグの名前&#39;]].VpnGatewayId&quot; \</span>
+<span class="go">  --query "VpnGateways[?Tags[?Key=='Name' &amp;&amp; Value=='nameタグの名前']].VpnGatewayId" \</span>
 <span class="go">  --output text</span>
 </code></pre></div>
 <h5 id="vpn">サイト間VPN接続の設定サンプルダウンロード</h5>
@@ -2291,16 +2291,16 @@
 <div class="highlight"><pre><span></span><code><span class="go">aws ec2 get-vpn-connection-device-types --region ap-southeast-1</span>
 
 <span class="go">{</span>
-<span class="go">    &quot;VpnConnectionDeviceTypes&quot;: [</span>
+<span class="go">    "VpnConnectionDeviceTypes": [</span>
 <span class="go">        {</span>
 <span class="go">            :</span>
 <span class="go">            :</span>
 <span class="go">        },</span>
 <span class="go">        {</span>
-<span class="go">            &quot;VpnConnectionDeviceTypeId&quot;: &quot;9d9470de&quot;,</span>
-<span class="go">            &quot;Vendor&quot;: &quot;Fortinet&quot;,</span>
-<span class="go">            &quot;Platform&quot;: &quot;Fortigate 40+ Series&quot;,</span>
-<span class="go">            &quot;Software&quot;: &quot;FortiOS 5.0+&quot;</span>
+<span class="go">            "VpnConnectionDeviceTypeId": "9d9470de",</span>
+<span class="go">            "Vendor": "Fortinet",</span>
+<span class="go">            "Platform": "Fortigate 40+ Series",</span>
+<span class="go">            "Software": "FortiOS 5.0+"</span>
 <span class="go">        },</span>
 <span class="go">        :</span>
 <span class="go">        :</span>
@@ -2308,7 +2308,7 @@
 <span class="go">}</span>
 </code></pre></div>
 <p>上記の「FortiOS 5.0+」のID(<code>9d9470de</code>)を変数セットするには<code>--query</code>を使って以下の通り。</p>
-<div class="highlight"><pre><span></span><code><span class="go">devicetypeid=$(aws ec2 get-vpn-connection-device-types --region ${region} --query &quot;VpnConnectionDeviceTypes[?Vendor==&#39;Fortinet&#39; &amp;&amp; Software==&#39;FortiOS 5.0+&#39;].VpnConnectionDeviceTypeId&quot; --output text)</span>
+<div class="highlight"><pre><span></span><code><span class="go">devicetypeid=$(aws ec2 get-vpn-connection-device-types --region ${region} --query "VpnConnectionDeviceTypes[?Vendor=='Fortinet' &amp;&amp; Software=='FortiOS 5.0+'].VpnConnectionDeviceTypeId" --output text)</span>
 </code></pre></div>
 <h4 id="s3">S3</h4>
 <h5 id="_6">一覧</h5>

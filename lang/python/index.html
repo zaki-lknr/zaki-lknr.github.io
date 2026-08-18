@@ -4483,16 +4483,16 @@
 <h4 id="_4">比較(==)</h4>
 <p>Pythonは文字列も<code>==</code>を使う。<br />
 以下の比較処理は真。</p>
-<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;foobar&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="s2">"foobar"</span>
 
-<span class="k">if</span> <span class="n">string</span> <span class="o">==</span> <span class="s2">&quot;foobar&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string is &#39;foobar&#39;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">string</span> <span class="o">==</span> <span class="s2">"foobar"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"string is 'foobar'"</span><span class="p">)</span>
 </code></pre></div>
 <p>配列の比較も<code>==</code>で行う。以下はtrue</p>
-<div class="highlight"><pre><span></span><code><span class="n">obj_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">obj_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"abc"</span><span class="p">]</span>
 
-<span class="k">if</span> <span class="n">obj_list</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">obj_list</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"abc"</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"true"</span><span class="p">)</span>
 </code></pre></div>
 <p>というか<code>==</code>はオブジェクトの比較に使えるってことかな。</p>
 <h3 id="_5">制御構文</h3>
@@ -4521,15 +4521,15 @@
 <div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="o">..</span><span class="n">itemに対する処理</span><span class="o">..</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
 </code></pre></div>
 <p>BeautifulSoupを使ったスクレイピングの記述例</p>
-<div class="highlight"><pre><span></span><code><span class="n">links</span> <span class="o">=</span> <span class="p">[</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;toctree-l2&#39;</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="n">links</span> <span class="o">=</span> <span class="p">[</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'href'</span><span class="p">)</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">'li'</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">'toctree-l2'</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
 </code></pre></div>
 <h5 id="enumerate">enumerate()でインデックス参照</h5>
 <p>配列要素のインデックスにアクセスしたければ<code>enumerate</code>を使うと楽</p>
-<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">': '</span> <span class="o">+</span> <span class="n">item</span><span class="p">)</span>
 </code></pre></div>
 <p>出力は以下</p>
 <div class="highlight"><pre><span></span><code><span class="go">0: foo</span>
@@ -4560,9 +4560,9 @@
 <h4 id="_9">環境変数の参照</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="n">aws_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="p">)</span>
+<span class="n">aws_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AWS_ACCESS_KEY_ID"</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">aws_access_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AWS_ACCESS_KEY_ID not defined&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"AWS_ACCESS_KEY_ID not defined"</span><span class="p">)</span>
 </code></pre></div>
 <p><code>os.getenv('key')</code>も同じように動作する。コード量的にはこっちが便利。</p>
 <h4 id="_10">型の確認</h4>
@@ -4571,19 +4571,19 @@
 <h4 id="isinstance">isinstance()で型判定</h4>
 <div class="highlight"><pre><span></span><code><span class="n">bool_val</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">bool_val</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bool_val is bool&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"bool_val is bool"</span><span class="p">)</span>
 
 <span class="n">int_val</span> <span class="o">=</span> <span class="mi">123</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">int_val</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;int_val is int&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"int_val is int"</span><span class="p">)</span>
 
 <span class="n">list_val</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">list_val</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_val is list&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"list_val is list"</span><span class="p">)</span>
 
-<span class="n">dict_val</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
+<span class="n">dict_val</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"key1"</span><span class="p">:</span> <span class="s2">"value1"</span><span class="p">,</span> <span class="s2">"key2"</span><span class="p">:</span> <span class="s2">"value2"</span><span class="p">}</span>
 <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">dict_val</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dict_val is dict&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"dict_val is dict"</span><span class="p">)</span>
 </code></pre></div>
 <p>実行結果は以下</p>
 <div class="highlight"><pre><span></span><code><span class="go">bool_val is bool</span>
@@ -4608,7 +4608,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>./argv.py<span class="w"> </span>hello
-<span class="go">[&#39;./argv.py&#39;, &#39;hello&#39;]</span>
+<span class="go">['./argv.py', 'hello']</span>
 <span class="go">./argv.py</span>
 <span class="go">hello</span>
 </code></pre></div>
@@ -4617,10 +4617,10 @@
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;begin func()&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"begin func()"</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;begin main()&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"begin main()"</span><span class="p">)</span>
     <span class="n">func</span><span class="p">()</span>
 </code></pre></div>
 <h4 id="_14">関数名を取得する</h4>
@@ -4639,9 +4639,9 @@
 <h3 id="_15">配列</h3>
 <h4 id="_16">リストの定義</h4>
 <div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;foo&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;baz&#39;</span><span class="p">,</span>
+    <span class="s1">'foo'</span><span class="p">,</span>
+    <span class="s1">'bar'</span><span class="p">,</span>
+    <span class="s1">'baz'</span><span class="p">,</span>
 <span class="p">]</span>
 </code></pre></div>
 <p>空リスト</p>
@@ -4649,23 +4649,23 @@
 </code></pre></div>
 <h4 id="_17">要素の追加</h4>
 <p>末尾への追加はリストオブジェクトの<code>append()</code>メソッドを使う。</p>
-<div class="highlight"><pre><span></span><code><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'qux'</span><span class="p">)</span>
 </code></pre></div>
 <p>末尾以外の任意の位置への追加は<code>insert()</code>で位置指定する。<br />
 <code>0</code>は先頭。</p>
 <div class="highlight"><pre><span></span><code><span class="n">items</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="_18">要素の削除</h4>
-<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;aaa&#39;</span><span class="p">,</span> <span class="s1">&#39;bbb&#39;</span><span class="p">,</span> <span class="s1">&#39;ccc&#39;</span><span class="p">,</span> <span class="s1">&#39;ddd&#39;</span><span class="p">,</span> <span class="s1">&#39;eee&#39;</span> <span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'aaa'</span><span class="p">,</span> <span class="s1">'bbb'</span><span class="p">,</span> <span class="s1">'ccc'</span><span class="p">,</span> <span class="s1">'ddd'</span><span class="p">,</span> <span class="s1">'eee'</span> <span class="p">]</span>
 
 <span class="k">del</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-<span class="c1"># [&#39;aaa&#39;, &#39;ccc&#39;, &#39;ddd&#39;, &#39;eee&#39;]</span>
+<span class="c1"># ['aaa', 'ccc', 'ddd', 'eee']</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-<span class="c1"># [&#39;aaa&#39;, &#39;ccc&#39;, &#39;eee&#39;]</span>
+<span class="c1"># ['aaa', 'ccc', 'eee']</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="c1"># ddd</span>
 </code></pre></div>
@@ -4675,7 +4675,7 @@
 上記は<code>ddd</code>を返したうえで要素から消える。</p>
 <h4 id="_19">リストの結合</h4>
 <p>複数のリストを結合(1つのリストに全要素をまとめる)するには<code>+</code>を使う</p>
-<div class="highlight"><pre><span></span><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">]</span>
 <span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span><span class="p">)</span>
@@ -4684,9 +4684,9 @@
 <code>+=</code> で代入も可能。</p>
 <h4 id="length">length</h4>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
-<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
-<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'3'</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'4'</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
 </code></pre></div>
@@ -4696,44 +4696,44 @@
 <div class="highlight"><pre><span></span><code><span class="n">empty_array</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">empty_array</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blank&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"blank"</span><span class="p">)</span>
 </code></pre></div>
 <p>あるいは<code>[]</code>との一致でも判定できる。</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">empty_array</span> <span class="o">==</span> <span class="p">[]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blank&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"blank"</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="index">要素のindex</h4>
-<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'curry'</span><span class="p">,</span> <span class="s1">'beef'</span><span class="p">,</span> <span class="s1">'chicken'</span><span class="p">,</span> <span class="s1">'vegetable'</span><span class="p">]</span>
 
-<span class="n">beef_index</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;chicken&#39;</span><span class="p">)</span>
+<span class="n">beef_index</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'chicken'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">beef_index</span><span class="p">)</span>
 </code></pre></div>
 <p>引数に指定した要素が配列中の何番目にあるかを返す。上記の出力は<code>2</code><br />
 存在しない場合はValueErrorになる。</p>
-<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'curry'</span><span class="p">,</span> <span class="s1">'beef'</span><span class="p">,</span> <span class="s1">'chicken'</span><span class="p">,</span> <span class="s1">'vegetable'</span><span class="p">]</span>
 
-<span class="n">beef_index</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;zzz&#39;</span><span class="p">)</span>
+<span class="n">beef_index</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'zzz'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">beef_index</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>index.py
 <span class="go">Traceback (most recent call last):</span>
-<span class="go">  File &quot;index.py&quot;, line 3, in &lt;module&gt;</span>
-<span class="go">    beef_index = array.index(&#39;zzz&#39;)</span>
-<span class="go">ValueError: &#39;zzz&#39; is not in list</span>
+<span class="go">  File "index.py", line 3, in &lt;module&gt;</span>
+<span class="go">    beef_index = array.index('zzz')</span>
+<span class="go">ValueError: 'zzz' is not in list</span>
 </code></pre></div>
 <h4 id="_21">要素の有無</h4>
 <p><code>in</code>を使う。</p>
-<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'curry'</span><span class="p">,</span> <span class="s1">'beef'</span><span class="p">,</span> <span class="s1">'chicken'</span><span class="p">,</span> <span class="s1">'vegetable'</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;curry&#39;</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pork&#39;</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'curry'</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'pork'</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
 </code></pre></div>
 <p>出力は以下になる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">True</span>
 <span class="go">False</span>
 </code></pre></div>
 <h4 id="_22">スライス</h4>
-<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;curry&#39;</span><span class="p">,</span> <span class="s1">&#39;beef&#39;</span><span class="p">,</span> <span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="s1">&#39;vegetable&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'curry'</span><span class="p">,</span> <span class="s1">'beef'</span><span class="p">,</span> <span class="s1">'chicken'</span><span class="p">,</span> <span class="s1">'vegetable'</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
@@ -4741,9 +4741,9 @@
 </code></pre></div>
 <p>実行結果は以下</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>slice.py
-<span class="go">[&#39;chicken&#39;, &#39;vegetable&#39;]</span>
-<span class="go">[&#39;curry&#39;, &#39;beef&#39;, &#39;chicken&#39;]</span>
-<span class="go">[&#39;beef&#39;]</span>
+<span class="go">['chicken', 'vegetable']</span>
+<span class="go">['curry', 'beef', 'chicken']</span>
+<span class="go">['beef']</span>
 </code></pre></div>
 <p>書式は<code>array[始点:終点]</code>。省略時は最初からor最後まで。<br />
 始点はindexを「含む」が、終点はindexを「含まない」ので注意。<br />
@@ -4765,7 +4765,7 @@
 <h4 id="_26">集合の定義</h4>
 <div class="highlight"><pre><span></span><code><span class="n">data_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">200</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">301</span><span class="p">,</span> <span class="mi">401</span><span class="p">,</span> <span class="mi">403</span><span class="p">,</span> <span class="mi">404</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data_set</span><span class="p">))</span>
-<span class="c1"># 出力は &lt;class &#39;set&#39;&gt;</span>
+<span class="c1"># 出力は &lt;class 'set'&gt;</span>
 </code></pre></div>
 <h4 id="_27">空集合の定義</h4>
 <p><code>{}</code>は不可(辞書と同じコードになるため)<br />
@@ -4774,49 +4774,49 @@
 </code></pre></div>
 <h3 id="_28">辞書</h3>
 <h4 id="_29">辞書の定義</h4>
-<div class="highlight"><pre><span></span><code><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
-<span class="n">dict2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="s2">&quot;value2&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"key1"</span><span class="p">:</span> <span class="s2">"value1"</span><span class="p">,</span> <span class="s2">"key2"</span><span class="p">:</span> <span class="s2">"value2"</span><span class="p">}</span>
+<span class="n">dict2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="s2">"value1"</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="s2">"value2"</span><span class="p">)</span>
 </code></pre></div>
 <p>この場合、<code>dict1</code>と<code>dict2</code>の中身は同じ。<br />
 <code>dict1 == dict2</code>の結果もtrueになる。</p>
 <h4 id="_30">キーを使った値へのアクセス</h4>
-<div class="highlight"><pre><span></span><code><span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">dict1</span><span class="p">[</span><span class="s1">'key1'</span><span class="p">]</span>
 </code></pre></div>
 <p>ただしキーが無い場合は<code>KeyError</code>例外になる。<br />
 <code>get()</code>を使えばキーが存在しない場合は<code>None</code>が返る。</p>
-<div class="highlight"><pre><span></span><code><span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'key1'</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="_31">キーの追加</h4>
 <p><code>dict[key] = value</code>で足してやればOK</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"key1"</span><span class="p">:</span> <span class="s2">"value1"</span><span class="p">,</span> <span class="s2">"key2"</span><span class="p">:</span> <span class="s2">"value2"</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
-<span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;value3&quot;</span>
+<span class="p">{</span><span class="s1">'key1'</span><span class="p">:</span> <span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">:</span> <span class="s1">'value2'</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">'key3'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"value3"</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
-<span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="s1">&#39;value3&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">'key1'</span><span class="p">:</span> <span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">:</span> <span class="s1">'value2'</span><span class="p">,</span> <span class="s1">'key3'</span><span class="p">:</span> <span class="s1">'value3'</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
 <p>新規キーの追加をサブキーまで左辺で指定すると KeyErrorになる。その場合は辞書型データを代入すればOK</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key4&#39;</span><span class="p">][</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">'key4'</span><span class="p">][</span><span class="s1">'foo'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"bar"</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;key4&#39;</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">'key4'</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;key4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">'key4'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'foo'</span><span class="p">:</span> <span class="s2">"bar"</span> <span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
-<span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="s1">&#39;value3&#39;</span><span class="p">,</span> <span class="s1">&#39;key4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">}}</span>
+<span class="p">{</span><span class="s1">'key1'</span><span class="p">:</span> <span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="p">:</span> <span class="s1">'value2'</span><span class="p">,</span> <span class="s1">'key3'</span><span class="p">:</span> <span class="s1">'value3'</span><span class="p">,</span> <span class="s1">'key4'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span><span class="p">}}</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
 <h4 id="_32">辞書要素のループ</h4>
 <h5 id="_33">キーと値の組み合わせを取得</h5>
 <div class="highlight"><pre><span></span><code><span class="n">sample_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="s2">&quot;value3&quot;</span><span class="p">,</span>
+    <span class="s2">"key1"</span><span class="p">:</span> <span class="s2">"value1"</span><span class="p">,</span>
+    <span class="s2">"key2"</span><span class="p">:</span> <span class="s2">"value2"</span><span class="p">,</span>
+    <span class="s2">"key3"</span><span class="p">:</span> <span class="s2">"value3"</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;key: &quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot;, value: &quot;</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"key: "</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">", value: "</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span>
 </code></pre></div>
 <p><code>辞書.items()</code>で、キーと値のペアのリストを得られるので、これでループできる。<br />
 上のコードの実行結果は以下の通り。</p>
@@ -4836,8 +4836,8 @@
 </code></pre></div>
 <h4 id="_35">辞書のリストから指定キーの値の一致判定</h4>
 <p>リスト内包表記を使って辞書から指定キーのみのリストを作り、それに対して<code>in</code>で判定する。</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="s1">&#39; is exists&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="s1">' is exists'</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="-yaml">辞書-&gt;YAML化</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
@@ -4848,7 +4848,7 @@
 <h4 id="yaml-">YAMLファイル-&gt;辞書化</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;config.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">yml</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'config.yaml'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">yml</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">yml</span><span class="p">)</span>
 </code></pre></div>
 <p>これで<code>config</code>変数にYAMLファイルに定義した情報が辞書型オブジェクトとしてセットされる。</p>
@@ -4871,7 +4871,7 @@
 <p>上記の<code>json.loads()</code>と異なり、<code>json.load()</code>を使う。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./sample.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'./sample.json'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
 <p>STDINの場合は</p>
@@ -4896,11 +4896,11 @@
 <h4 id="_39">空文字判定</h4>
 <p>空文字がセットされた変数は、それ自体が<code>False</code>となるので、比較等は不要。</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">blank_string</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;blank&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"blank"</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="_40">指定文字で始まるか</h4>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">string_value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;kube&quot;</span><span class="p">):</span>
-    <span class="c1"># 文字列が&quot;kube&quot;で始まる場合</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">string_value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"kube"</span><span class="p">):</span>
+    <span class="c1"># 文字列が"kube"で始まる場合</span>
 </code></pre></div>
 <h4 id="_41">部分文字列</h4>
 <p><code>in</code>を使う</p>
@@ -4913,15 +4913,15 @@
 <div class="highlight"><pre><span></span><code><span class="n">sample_str</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 <h4 id="join">join()</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line_items</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line_items</span><span class="p">))</span>
 </code></pre></div>
 <h4 id="splitlines">splitlines()</h4>
 <p>テキストの末尾に改行がある場合、<code>split('\n')</code>を使うと末尾の改行もデリミタと認識し、リストの最終要素は空文字になるが、<code>splitlines()</code>であれば末尾の改行分は無視される。行ごとに処理したい場合はこちらが便利。</p>
 <h4 id="_42">ゼロパディング</h4>
 <p>文字列のzfill()メソッドを使う。<br />
 引数の数値の桁数長にゼロパディングされた文字列を返す。</p>
-<div class="highlight"><pre><span></span><code><span class="n">int_sample</span> <span class="o">=</span> <span class="s1">&#39;123&#39;</span>
-<span class="n">str_sample</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">int_sample</span> <span class="o">=</span> <span class="s1">'123'</span>
+<span class="n">str_sample</span> <span class="o">=</span> <span class="s1">'foo'</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">int_sample</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">str_sample</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 </code></pre></div>
@@ -4930,28 +4930,28 @@
 <span class="go">00000foo</span>
 </code></pre></div>
 <h4 id="_43">フォーマット文字列</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">expire</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">expire</span><span class="p">))</span>
 </code></pre></div>
 <h5 id="_44">スペース埋め</h5>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &gt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"string:「</span><span class="si">{: &gt;5}</span><span class="s2">」"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">string</span><span class="p">:</span><span class="err">「</span>   <span class="mi">10</span><span class="err">」</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &gt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"string:「</span><span class="si">{: &gt;5}</span><span class="s2">」"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">string</span><span class="p">:</span><span class="err">「</span>    <span class="mi">1</span><span class="err">」</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &gt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"string:「</span><span class="si">{: &gt;5}</span><span class="s2">」"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234</span><span class="p">))</span>
 <span class="n">string</span><span class="p">:</span><span class="err">「</span> <span class="mi">1234</span><span class="err">」</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
 <p>左詰めなら<code>&lt;</code>を指定</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &lt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"string:「</span><span class="si">{: &lt;5}</span><span class="s2">」"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234</span><span class="p">))</span>
 <span class="n">string</span><span class="p">:</span><span class="err">「</span><span class="mi">1234</span> <span class="err">」</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:「</span><span class="si">{: &lt;5}</span><span class="s2">」&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"string:「</span><span class="si">{: &lt;5}</span><span class="s2">」"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">string</span><span class="p">:</span><span class="err">「</span><span class="mi">1</span>    <span class="err">」</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
 <h4 id="_45">文字列置換</h4>
 <p>正規表現を使わないなら<code>replace()</code>で置換する。</p>
-<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;2025/06/22&#39;</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="s1">'2025/06/22'</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
@@ -4969,7 +4969,7 @@
 </code></pre></div>
 <p><code>re.match()</code>は先頭からマッチを行うため、文字列の途中にはマッチしない。</p>
 <h5 id="_47">正規表現検索とキャプチャ</h5>
-<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;aaa(\d</span><span class="si">{5}</span><span class="s1">)bbb&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">'aaa(\d</span><span class="si">{5}</span><span class="s1">)bbb'</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
 </code></pre></div>
 <p><code>r</code>には<code>re.Match</code>オブジェクトが返る。マッチしなかったら<code>None</code><br />
 マッチした場合、<code>\d{5}</code>は<code>r.group(1)</code>で参照できる。</p>
@@ -4978,41 +4978,41 @@
 書式は <code>(?P&lt;name&gt;regexp)</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;/path/to/sample.txt&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">'/path/to/sample.txt'</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;path&gt;.*)/(?P&lt;file&gt;[^\.]*)\.(?P&lt;ext&gt;.*)&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(?P&lt;path&gt;.*)/(?P&lt;file&gt;[^\.]*)\.(?P&lt;ext&gt;.*)'</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;path: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ext: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;path: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ext: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;ext&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"path: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"file: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ext: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"---"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"path: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">'path'</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"file: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">'file'</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ext: "</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">'ext'</span><span class="p">))</span>
 </code></pre></div>
 <p>出力はグループ番号・グループ名どちらもpathは<code>/path/to</code>、fileは<code>sample</code>、extは<code>txt</code>になる。</p>
 <h5 id="resub">re.sub()で置換</h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;/path/to/sample.txt&#39;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">'/path/to/sample.txt'</span>
 
 <span class="c1"># s/a/A/</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 
 <span class="c1"># 末尾の.txtを削る</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\.txt$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\.txt$'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 
-<span class="c1"># &#39;t&#39;と&#39;p&#39;を(t)か(p)に変換</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([tp])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;(\1)&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="c1"># 't'と'p'を(t)か(p)に変換</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'([tp])'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'(\1)'</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-<span class="c1"># r&#39;...&#39;を使わない場合は&#39;\\1&#39;と書く</span>
+<span class="c1"># r'...'を使わない場合は'\\1'と書く</span>
 
 <span class="c1"># aを変換。ただし大文字小文字無視</span>
-<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'a'</span><span class="p">,</span> <span class="sa">r</span><span class="s1">'_'</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-<span class="c1"># re.sub(pattern, repl, string, count=0, flags=0) なので、countを省略するためには&quot;flags=&quot;という名前付き引数を使う</span>
+<span class="c1"># re.sub(pattern, repl, string, count=0, flags=0) なので、countを省略するためには"flags="という名前付き引数を使う</span>
 </code></pre></div>
 <p>上記コードの実行結果は以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>python<span class="w"> </span>replace.py<span class="w"> </span>
@@ -5023,14 +5023,14 @@
 </code></pre></div>
 <h4 id="_49">バイト列との変換</h4>
 <p>バイト列 -&gt; 文字列</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;nijigasaki&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">'nijigasaki'</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div>
 <p>出力は</p>
-<div class="highlight"><pre><span></span><code><span class="go">b&#39;nijigasaki&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">b'nijigasaki'</span>
 <span class="go">nijigasaki</span>
 </code></pre></div>
 <p>文字列 -&gt; バイト列</p>
@@ -5038,7 +5038,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
 </code></pre></div>
 <p>出力は以下</p>
-<div class="highlight"><pre><span></span><code><span class="go">b&#39;nijigasaki&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">b'nijigasaki'</span>
 </code></pre></div>
 <h3 id="datetime">日付型(datetime)</h3>
 <h4 id="_50">現在時刻</h4>
@@ -5084,11 +5084,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">diff</span><span class="o">.</span><span class="n">days</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; days&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">diff</span><span class="o">.</span><span class="n">seconds</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">diff</span><span class="o">.</span><span class="n">days</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" days"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">diff</span><span class="o">.</span><span class="n">seconds</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" seconds"</span><span class="p">)</span>
 </code></pre></div>
 <p>出力は以下の通り。</p>
-<div class="highlight"><pre><span></span><code><span class="go">&lt;class &#39;datetime.timedelta&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">&lt;class 'datetime.timedelta'&gt;</span>
 <span class="go">1 day, 23:05:00</span>
 <span class="go">1 days</span>
 <span class="go">83100 seconds</span>
@@ -5118,8 +5118,8 @@ float型なので必要に応じて<code>int()</code>を併用する。</p>
 <h4 id="-datetime">文字列 -&gt; datetime</h4>
 <p><code>datetime.strptime</code>を使う。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
-<span class="n">date_str</span> <span class="o">=</span> <span class="s2">&quot;2026/01/10 08:26:34&quot;</span>
-<span class="n">date_strptime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span> <span class="s1">&#39;%Y/%m/</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+<span class="n">date_str</span> <span class="o">=</span> <span class="s2">"2026/01/10 08:26:34"</span>
+<span class="n">date_strptime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span> <span class="s1">'%Y/%m/</span><span class="si">%d</span><span class="s1"> %H:%M:%S'</span><span class="p">)</span>
 </code></pre></div>
 <table>
 <thead>
@@ -5197,16 +5197,16 @@ float型なので必要に応じて<code>int()</code>を併用する。</p>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/02/11/225358">[Python] datetime.strptime()を使った文字列からdatetimeオブジェクトへの変換とタイムゾーン - zaki work log</a></p>
 <h3 id="byte">byte型</h3>
 <p>変数出力すると<code>b'....'</code>と表記され出力される。</p>
-<div class="highlight"><pre><span></span><code><span class="n">byte_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;zzzzzzzz&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">byte_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">'zzzzzzzz'</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">byte_data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">byte_data</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">byte_data</span><span class="p">))</span>
 </code></pre></div>
 <p>出力は以下。</p>
-<div class="highlight"><pre><span></span><code><span class="go">b&#39;zzzzzzzz&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">b'zzzzzzzz'</span>
 <span class="go">8</span>
-<span class="go">&lt;class &#39;bytes&#39;&gt;</span>
+<span class="go">&lt;class 'bytes'&gt;</span>
 </code></pre></div>
 <h4 id="byte-string">byte -&gt; string変換</h4>
 <div class="highlight"><pre><span></span><code><span class="n">string_data</span> <span class="o">=</span> <span class="n">byte_data</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
@@ -5226,7 +5226,7 @@ float型なので必要に応じて<code>int()</code>を併用する。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s1">'aaa'</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </code></pre></div>
@@ -5238,7 +5238,7 @@ float型なので必要に応じて<code>int()</code>を併用する。</p>
 <div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
 </code></pre></div>
 <p>この場合の値はバイナリとなり、出力は以下の通り。</p>
-<div class="highlight"><pre><span></span><code><span class="go">b&#39;G\xbc\xe5\xc7OX\x9fHg\xdb\xd5~\x9c\xa9\xf8\x08&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">b'G\xbc\xe5\xc7OX\x9fHg\xdb\xd5~\x9c\xa9\xf8\x08'</span>
 </code></pre></div>
 <h3 id="path">path</h3>
 <h4 id="_57">ユーザーディレクトリを展開</h4>
@@ -5252,13 +5252,13 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <span class="n">zaki</span>
 <span class="p">[</span><span class="n">zaki</span><span class="nd">@cloud</span><span class="o">-</span><span class="n">dev2</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">python</span>
 <span class="n">Python</span> <span class="mf">3.10.2</span> <span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">Jan</span> <span class="mi">17</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">)</span> <span class="p">[</span><span class="n">GCC</span> <span class="mf">11.2.1</span> <span class="mi">20211203</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">11.2.1</span><span class="o">-</span><span class="mi">7</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux</span>
-<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="n">Type</span> <span class="s2">"help"</span><span class="p">,</span> <span class="s2">"copyright"</span><span class="p">,</span> <span class="s2">"credits"</span> <span class="ow">or</span> <span class="s2">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~zaki&#39;</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~zaki'</span><span class="p">))</span>
 <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">zaki</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~root&#39;</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~root'</span><span class="p">))</span>
 <span class="o">/</span><span class="n">root</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~'</span><span class="p">))</span>
 <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">zaki</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
@@ -5272,35 +5272,35 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <h4 id="_60">パスの結合</h4>
 <p>末尾のディレクトリセパレータの有無に関係なく、パスを結合する。</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc&quot;</span><span class="p">)</span>
-<span class="s1">&#39;aaa/bbb/ccc&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb/&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc/&quot;</span><span class="p">)</span>
-<span class="s1">&#39;aaa/bbb/ccc/&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"aaa"</span><span class="p">,</span> <span class="s2">"bbb"</span><span class="p">,</span> <span class="s2">"ccc"</span><span class="p">)</span>
+<span class="s1">'aaa/bbb/ccc'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"aaa"</span><span class="p">,</span> <span class="s2">"bbb/"</span><span class="p">,</span> <span class="s2">"ccc/"</span><span class="p">)</span>
+<span class="s1">'aaa/bbb/ccc/'</span>
 </code></pre></div>
 <p>冒頭のディレクトリセパレータはルート扱いで、上書きになる。</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;/aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;/ccc&quot;</span><span class="p">,</span> <span class="s2">&quot;ddd&quot;</span><span class="p">)</span>
-<span class="s1">&#39;/ccc/ddd&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"/aaa"</span><span class="p">,</span> <span class="s2">"bbb"</span><span class="p">,</span> <span class="s2">"/ccc"</span><span class="p">,</span> <span class="s2">"ddd"</span><span class="p">)</span>
+<span class="s1">'/ccc/ddd'</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </code></pre></div>
 <p>リストを渡す場合は<code>*</code>でアンパックする。</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dir_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb&quot;</span><span class="p">,</span> <span class="s2">&quot;ccc&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dir_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"aaa"</span><span class="p">,</span> <span class="s2">"bbb"</span><span class="p">,</span> <span class="s2">"ccc"</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_list</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;frozen posixpath&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">76</span><span class="p">,</span> <span class="ow">in</span> <span class="n">join</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">"&lt;frozen posixpath&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">76</span><span class="p">,</span> <span class="ow">in</span> <span class="n">join</span>
 <span class="ne">TypeError</span><span class="p">:</span> <span class="n">expected</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span> <span class="nb">object</span><span class="p">,</span> <span class="ow">not</span> <span class="nb">list</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">dir_list</span><span class="p">)</span>
-<span class="s1">&#39;aaa/bbb/ccc&#39;</span>
+<span class="s1">'aaa/bbb/ccc'</span>
 </code></pre></div>
 <h3 id="_61">外部コマンド実行</h3>
 <p><code>subprocess.run()</code>を使う。(<code>os.system</code>はもう使わない)</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
-<span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"ls"</span><span class="p">,</span> <span class="s2">"-l"</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </code></pre></div>
 <p>リストでなく文字列を指定したい場合は<code>shell=True</code>を付与</p>
-<div class="highlight"><pre><span></span><code><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"ls -l"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="sleep">sleep</h3>
 <p>指定の秒数停止する。</p>
@@ -5314,20 +5314,20 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <h4 id="_63">標準エラー出力</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="print">printで改行無し</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sample&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"sample"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
 </code></pre></div>
 <p>ただし行ごとにフラッシュされるため、プログレス表示的に使う場合は追加オプションが必要</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="_64">ヒアドキュメント</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2">東京・お台場にある、自由な校風と専攻の多様さで人気の高校「虹ヶ咲学園」。</span>
 <span class="s2">スクールアイドルの魅力にときめいた普通科2年の高咲侑は、</span>
 <span class="s2">幼馴染の上原歩夢とともに「スクールアイドル同好会」の門を叩く。</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="s2">"""</span><span class="p">)</span>
 </code></pre></div>
 <p>この場合、「開始の<code>"""</code>」のあとの改行と、「終了の<code>"""</code>」の手前の改行も含まれる。</p>
 <h3 id="io">ファイルI/O</h3>
@@ -5338,7 +5338,7 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
     <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </code></pre></div>
 <h4 id="write">文字列としてwrite</h4>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <p><code>mode='w'</code>は単に<code>'w'</code>とも書ける</p>
@@ -5386,7 +5386,7 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 </table>
 <h4 id="readwrite">readしてwrite (ただしファイルが無い場合は新規作成する)</h4>
 <p><code>a+</code>で開いて<code>seek(0)</code>で先頭に移動して処理する。</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">'a+'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -5398,7 +5398,7 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">fcntl</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">'a+'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">fcntl</span><span class="o">.</span><span class="n">flock</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fcntl</span><span class="o">.</span><span class="n">LOCK_EX</span><span class="p">)</span>
         <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -5418,16 +5418,16 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <h4 id="httprequests">HTTP(requests)</h4>
 <p><code>requests</code>を使うと楽。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.example.org&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.example.org"</span><span class="p">)</span>
 </code></pre></div>
 <h5 id="post">POST</h5>
 <p>リクエストボディは<code>data</code>で指定する。<br />
 辞書型データをJSON形式のリクエストボディにするなら<code>json.dumps</code>を使うと楽。</p>
 <div class="highlight"><pre><span></span><code><span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dict_params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer '</span> <span class="o">+</span> <span class="n">token</span>
 <span class="p">}</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre></div>
@@ -5437,8 +5437,8 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 </code></pre></div>
 <h5 id="_67">リクエストヘッダ</h5>
 <div class="highlight"><pre><span></span><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer ********&#39;</span>
+    <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer ********'</span>
 <span class="p">}</span>
 
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -5452,11 +5452,11 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>   <span class="c1"># レスポンスbody</span>
 </code></pre></div>
 <p>REST APIのようにレスポンスがJSON形式のテキストの場合は、<code>r.json()</code>を使うとオブジェクトとして値をとれる。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;items&#39;</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'items'</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">'metadata'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">])</span>
 </code></pre></div>
 <h5 id="ssl">SSL検証無視</h5>
-<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.example.org&quot;</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://www.example.org"</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <h5 id="basic">Basic認証</h5>
 <div class="highlight"><pre><span></span><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">HTTPBasicAuth</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
@@ -5477,9 +5477,9 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <h5 id="get">GET</h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://example.org&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://example.org'</span>
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+    <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer '</span> <span class="o">+</span> <span class="n">token</span>
 <span class="p">}</span>
 
 <span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -5489,10 +5489,10 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <h5 id="post_1">POST</h5>
 <p>Requestオブジェクト作成時に送信するデータを指定すればPOSTメソッドになる。</p>
 <div class="highlight"><pre><span></span><code><span class="n">auth_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-    <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
+    <span class="s1">'Username'</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+    <span class="s1">'Password'</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="n">auth_req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">auth_page</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">auth_data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">))</span>
+<span class="n">auth_req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">auth_page</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">auth_data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'ascii'</span><span class="p">))</span>
 <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">auth_req</span><span class="p">)</span> <span class="k">as</span> <span class="n">auth_resp</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">auth_resp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </code></pre></div>
@@ -5517,7 +5517,7 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
     <span class="c1"># 例外が発生するコード</span>
 <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># エラーハンドリング処理</span>
-    <span class="c1"># エラー情報は&quot;e&quot;に入っている</span>
+    <span class="c1"># エラー情報は"e"に入っている</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 <p>捕捉する例外が複数の場合は、<code>except</code>を複数並べるか、カッコでまとめる。</p>
@@ -5527,7 +5527,7 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="raise">例外を投げる(raise)</h4>
-<div class="highlight"><pre><span></span><code><span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;application error: &#39;</span> <span class="o">+</span> <span class="n">error_value</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">'application error: '</span> <span class="o">+</span> <span class="n">error_value</span><span class="p">)</span>
 </code></pre></div>
 <p>標準で使用できる組み込み例外は以下。<br />
 <a href="https://docs.python.org/ja/3/library/exceptions.html">組み込み例外</a></p>
@@ -5544,10 +5544,10 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 </ul>
 <p>こんな感じ。<br />
 <a href="https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114">https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114</a></p>
-<div class="highlight"><pre><span></span><code>                    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;_get_attr_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">attr_name</span>
+<div class="highlight"><pre><span></span><code>                    <span class="n">method</span> <span class="o">=</span> <span class="s2">"_get_attr_</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">attr_name</span>
                     <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">src_dict</span> <span class="ow">or</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">dst_dict</span><span class="p">:</span>
                         <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_method</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
-                    <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">dst_dict</span> <span class="ow">or</span> <span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">src_dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">inherit</span><span class="p">:</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="s1">'_get_parent_attribute'</span> <span class="ow">in</span> <span class="n">dst_dict</span> <span class="ow">or</span> <span class="s1">'_get_parent_attribute'</span> <span class="ow">in</span> <span class="n">src_dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">inherit</span><span class="p">:</span>
                         <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_parent</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
@@ -5564,10 +5564,10 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 </ul>
 <p>クラスの定義をコードで動的に実装する感じ。</p>
 <p><a href="https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114">https://github.com/ansible/ansible/blob/stable-2.10/lib/ansible/playbook/base.py#L105-L114</a>  </p>
-<div class="highlight"><pre><span></span><code>                    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;_get_attr_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">attr_name</span>
+<div class="highlight"><pre><span></span><code>                    <span class="n">method</span> <span class="o">=</span> <span class="s2">"_get_attr_</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">attr_name</span>
                     <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">src_dict</span> <span class="ow">or</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">dst_dict</span><span class="p">:</span>
                         <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_method</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
-                    <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">dst_dict</span> <span class="ow">or</span> <span class="s1">&#39;_get_parent_attribute&#39;</span> <span class="ow">in</span> <span class="n">src_dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">inherit</span><span class="p">:</span>
+                    <span class="k">elif</span> <span class="p">(</span><span class="s1">'_get_parent_attribute'</span> <span class="ow">in</span> <span class="n">dst_dict</span> <span class="ow">or</span> <span class="s1">'_get_parent_attribute'</span> <span class="ow">in</span> <span class="n">src_dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">inherit</span><span class="p">:</span>
                         <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g_parent</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">getter</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_generic_g</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
@@ -5587,7 +5587,7 @@ zaki:x:1000:1000:zaki:/home/zaki:/bin/bash
 <h4 id="_76">インスタンス作成(呼び出し側)</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">animal</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">animal</span><span class="o">.</span><span class="n">Animal</span><span class="p">(</span><span class="s1">&#39;piyo&#39;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">animal</span><span class="o">.</span><span class="n">Animal</span><span class="p">(</span><span class="s1">'piyo'</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="_77">パッケージ</h3>
 <h4 id="_78">ディレクトリ構成</h4>
@@ -5648,7 +5648,7 @@ jmespath==0.10.0
 <div class="highlight"><pre><span></span><code><span class="go">Uninstall Options:</span>
 <span class="go">  -r, --requirement &lt;file&gt;    Uninstall all the packages listed in the given requirements file.</span>
 <span class="go">                              This option can be used multiple times.</span>
-<span class="go">  -y, --yes                   Don&#39;t ask for confirmation of uninstall deletions.</span>
+<span class="go">  -y, --yes                   Don't ask for confirmation of uninstall deletions.</span>
 </code></pre></div>
 <h4 id="_83">全てアンインストール</h4>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip<span class="w"> </span>uninstall<span class="w"> </span>-r<span class="w"> </span>&lt;<span class="o">(</span>pip<span class="w"> </span>freeze<span class="o">)</span>
@@ -5662,8 +5662,8 @@ jmespath==0.10.0
 </code></pre></div>
 <p>Required-byの<code>ansible</code>によってインストールされ、このパッケージによって<code>cryptography</code>, <code>jinja2</code>, <code>packaging</code>, <code>PyYAML</code>, <code>resolvelib</code>がインストールされる。</p>
 <h4 id="pip_2">pip実行時のインストールパス確認</h4>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import site;print(site.getsitepackages())&quot;</span>
-<span class="go">[&#39;/home/zaki/.local/share/mise/installs/python/3.13.5/lib/python3.13/site-packages&#39;]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import site;print(site.getsitepackages())"</span>
+<span class="go">['/home/zaki/.local/share/mise/installs/python/3.13.5/lib/python3.13/site-packages']</span>
 </code></pre></div>
 <h3 id="pyenv">pyenv</h3>
 <p><a href="https://github.com/pyenv/pyenv">pyenv/pyenv: Simple Python version management</a></p>
@@ -5671,10 +5671,10 @@ jmespath==0.10.0
 <div class="highlight"><pre><span></span><code><span class="go">curl https://pyenv.run | bash</span>
 </code></pre></div>
 <h4 id="_86">設定追加</h4>
-<div class="highlight"><pre><span></span><code><span class="go">cat &lt;&lt;&#39;__EOL__&#39; &gt;&gt; $HOME/.bashrc</span>
-<span class="go">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span>
-<span class="go">command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;</span>
-<span class="go">eval &quot;$(pyenv init -)&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">cat &lt;&lt;'__EOL__' &gt;&gt; $HOME/.bashrc</span>
+<span class="go">export PYENV_ROOT="$HOME/.pyenv"</span>
+<span class="go">command -v pyenv &gt;/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"</span>
+<span class="go">eval "$(pyenv init -)"</span>
 <span class="go">__EOL__</span>
 <span class="go">. $HOME/.bashrc</span>
 </code></pre></div>
@@ -5768,7 +5768,7 @@ jmespath==0.10.0
 <span class="gp">$ </span>ansible<span class="w"> </span>--version
 <span class="go">ansible [core 2.18.0]</span>
 <span class="go">  config file = None</span>
-<span class="go">  configured module search path = [&#39;/home/zaki/.ansible/plugins/modules&#39;, &#39;/usr/share/ansible/plugins/modules&#39;]</span>
+<span class="go">  configured module search path = ['/home/zaki/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']</span>
 <span class="go">  ansible python module location = /home/zaki/.local/share/pipx/venvs/ansible-core/lib64/python3.13/site-packages/ansible</span>
 <span class="go">  ansible collection location = /home/zaki/.ansible/collections:/usr/share/ansible/collections</span>
 <span class="go">  executable location = /home/zaki/.local/bin/ansible</span>

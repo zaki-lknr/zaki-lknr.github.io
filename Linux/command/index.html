@@ -4770,7 +4770,7 @@
 <div class="highlight"><pre><span></span><code><span class="go">for i in `seq 1 3`; do curl 192.168.0.${i}; done</span>
 </code></pre></div>
 <h3 id="ifelse">if/elseワンライナー</h3>
-<div class="highlight"><pre><span></span><code><span class="go">if [ $value == &quot;fobar&quot; ]; then command_a; else commandb; fi</span>
+<div class="highlight"><pre><span></span><code><span class="go">if [ $value == "fobar" ]; then command_a; else commandb; fi</span>
 </code></pre></div>
 <h2 id="less">less</h2>
 <h3 id="_2">終了時にクリアしない</h3>
@@ -4797,7 +4797,7 @@
 <h3 id="_8">ディレクトリ除外</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>find<span class="w"> </span>/path/to<span class="w"> </span>-path<span class="w"> </span><span class="o">(</span>除外パス<span class="o">)</span><span class="w"> </span>-prune<span class="w"> </span>-o<span class="w"> </span><span class="o">(</span>検索条件<span class="o">)</span><span class="w"> </span>-print
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="go">find . -path &quot;*venv&quot; -prune -o -name &quot;*.py&quot; -print</span>
+<div class="highlight"><pre><span></span><code><span class="go">find . -path "*venv" -prune -o -name "*.py" -print</span>
 </code></pre></div>
 <p>とか。</p>
 <h3 id="xargs">スペース込みのパスとxargsの連携</h3>
@@ -4806,7 +4806,7 @@
 </code></pre></div>
 <p><code>find</code>は結果を改行区切りで出力し、<code>xargs</code>は改行とスペースを区切りとみなすのがデフォルト。<br />
 <code>find</code>に<code>-print0</code>を付与すると区切りが<code>\0</code>に変更され、<code>xargs</code>に<code>-0</code>を付与すると<code>\0</code>区切りで動作する。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">zaki@salva% </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*txt&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@salva% </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*txt"</span>
 <span class="go">./a b.txt</span>
 <span class="go">./a.txt</span>
 <span class="go">./b.txt</span>
@@ -4814,13 +4814,13 @@
 <span class="go">./sub/a.txt</span>
 <span class="go">./sub/b.txt</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">zaki@salva% </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*txt&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>od<span class="w"> </span>-c
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@salva% </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*txt"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>od<span class="w"> </span>-c
 <span class="go">0000000   .   /   a       b   .   t   x   t  \n   .   /   a   .   t   x</span>
 <span class="go">0000020   t  \n   .   /   b   .   t   x   t  \n   .   /   s   u   b   /</span>
 <span class="go">0000040   a       b   .   t   x   t  \n   .   /   s   u   b   /   a   .</span>
 <span class="go">0000060   t   x   t  \n   .   /   s   u   b   /   b   .   t   x   t  \n</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">zaki@salva% </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*txt&quot;</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>od<span class="w"> </span>-c
+<div class="highlight"><pre><span></span><code><span class="gp">zaki@salva% </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*txt"</span><span class="w"> </span>-print0<span class="w"> </span><span class="p">|</span><span class="w"> </span>od<span class="w"> </span>-c
 <span class="go">0000000   .   /   a       b   .   t   x   t  \0   .   /   a   .   t   x</span>
 <span class="go">0000020   t  \0   .   /   b   .   t   x   t  \0   .   /   s   u   b   /</span>
 <span class="go">0000040   a       b   .   t   x   t  \0   .   /   s   u   b   /   a   .</span>
@@ -4838,10 +4838,10 @@
 <ul>
 <li>文字列</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;2021/06/25 09:00&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">"2021/06/25 09:00"</span>
 <span class="go">2021年  6月 25日 金曜日 09:00:00 JST</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;2021/06/25 09:00&quot;</span><span class="w"> </span>+%s
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">"2021/06/25 09:00"</span><span class="w"> </span>+%s
 <span class="go">1624579200</span>
 </code></pre></div>
 <ul>
@@ -4850,7 +4850,7 @@
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span>@1624579200
 <span class="go">2021年  6月 25日 金曜日 09:00:00 JST</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span>@1624579200<span class="w"> </span><span class="s2">&quot;+%Y-%m-%d %H-%M-%S&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span>@1624579200<span class="w"> </span><span class="s2">"+%Y-%m-%d %H-%M-%S"</span>
 <span class="go">2021-06-25 09-00-00</span>
 </code></pre></div>
 <h4 id="_13">相対時間</h4>
@@ -4861,7 +4861,7 @@
 <span class="go">2025年  7月 14日 月曜日 10:13:52 JST</span>
 <span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span>-1day
 <span class="go">2025年  7月 13日 日曜日 10:13:53 JST</span>
-<span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;1 day ago&quot;</span>
+<span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">"1 day ago"</span>
 <span class="go">2025年  7月 13日 日曜日 10:14:38 JST</span>
 </code></pre></div>
 <ul>
@@ -4869,12 +4869,12 @@
 </ul>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span>2day
 <span class="go">2025年  7月 16日 水曜日 10:16:06 JST</span>
-<span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;2 days ago&quot;</span>
+<span class="gp">$ </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">"2 days ago"</span>
 <span class="go">2025年  7月 12日 土曜日 10:16:25 JST</span>
 </code></pre></div>
 <h3 id="_14">時刻変更</h3>
 <p><code>-s</code>で指定日時に設定する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">date -s &quot;2026-04-17 12:00:00&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">date -s "2026-04-17 12:00:00"</span>
 </code></pre></div>
 <h2 id="man">man</h2>
 <p>セクション番号を指定するには</p>
@@ -4899,7 +4899,7 @@
 </code></pre></div>
 <p>HTTP/0.9のレスポンスは<code>curl</code>はデフォルトで処理しないが、<code>--http0.9</code>をオプションに加えるとOK</p>
 <h3 id="_16">ステータスコードのみ取得</h3>
-<div class="highlight"><pre><span></span><code><span class="go">curl http://www.example.org/ -w &#39;%{http_code}\n&#39; -sS -o /dev/null</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl http://www.example.org/ -w '%{http_code}\n' -sS -o /dev/null</span>
 </code></pre></div>
 <h3 id="_17">レスポンスヘッダ</h3>
 <div class="highlight"><pre><span></span><code><span class="go">curl -I http://www.exmaple.org</span>
@@ -4928,65 +4928,65 @@
 <h2 id="printf">printf</h2>
 <h3 id="url">URLデコード</h3>
 <p>エンコード文字列が<code>$str</code>に入っているとして、</p>
-<div class="highlight"><pre><span></span><code><span class="go">: &quot;${str//+/ }&quot;; printf &#39;%b\n&#39; &quot;${_//%/\\x}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">: "${str//+/ }"; printf '%b\n' "${_//%/\\x}"</span>
 </code></pre></div>
 <p><code>+</code>のデコードが不要なら以下でも可。</p>
-<div class="highlight"><pre><span></span><code><span class="go">printf &#39;%b\n&#39; &quot;${str//%/\\x}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">printf '%b\n' "${str//%/\\x}"</span>
 </code></pre></div>
 <h2 id="sed">sed</h2>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/regexp/string/&#39;</span><span class="w"> </span>file
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'s/regexp/string/'</span><span class="w"> </span>file
 </code></pre></div>
 <p><code>-i</code>でファイル更新を行う。<br />
 <code>-ie</code>って書くと、<code>-i.bak</code>で<code>file.bak</code>のバックアップ作成と解釈されるので分ける。</p>
 <h3 id="_19">デリミタ変更</h3>
 <p>普通に使えばOK</p>
-<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;s#foo#bar#&#39; file</span>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e 's#foo#bar#' file</span>
 </code></pre></div>
 <h3 id="_20">行の挿入</h3>
 <h4 id="_21">正規表現パターン</h4>
 <p>正規表現にマッチした次の行にテキストを挿入する</p>
-<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;/pattern/a APPEND_TEXT&#39; file</span>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e '/pattern/a APPEND_TEXT' file</span>
 </code></pre></div>
 <p>上記の場合、行頭から<code>APPEND_TEXT</code>が書き込まれるが、インデントを設定したい場合はバックスラッシュがデリミタとなるので以下のように実行する。<br />
 この場合、行頭にスペース2つ分のインデントが追加される。</p>
-<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;/pattern/a \  APPEND_TEXT&#39; file</span>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e '/pattern/a \  APPEND_TEXT' file</span>
 </code></pre></div>
 <p>前の行に挿入するには<code>a</code>でなく<code>i</code>を指定する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;/pattern/i INSERT_TEXT&#39; file</span>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e '/pattern/i INSERT_TEXT' file</span>
 </code></pre></div>
 <h4 id="_22">指定行番号</h4>
-<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;10a APPEND_TEXT&#39; file</span>
-<span class="go">sed -e &#39;10i INSERT_TEXT&#39; file</span>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e '10a APPEND_TEXT' file</span>
+<span class="go">sed -e '10i INSERT_TEXT' file</span>
 </code></pre></div>
 <p>正規表現パターンではなく単に数字を指定すれば行番号指定になる。<code>a</code>でappend(次行)、<code>i</code>でinsert(前行)へ挿入。<br />
 <code>a</code>や<code>i</code>のあとに<code>\</code>を入れればデリミタ扱いとなるので、スペースも認識する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">sed -e &#39;10a\    APPEND_TEXT(4spaces indent)&#39; file</span>
+<div class="highlight"><pre><span></span><code><span class="go">sed -e '10a\    APPEND_TEXT(4spaces indent)' file</span>
 </code></pre></div>
 <h2 id="awk">awk</h2>
 <p><code>ps aux</code>の結果の3カラム目を抜き出す。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $3}'</span>
 </code></pre></div>
 <p>3カラム目と4カラム目をタブで区切って出力。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $3, &quot;\t&quot;, $4}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $3, "\t", $4}'</span>
 </code></pre></div>
 <p>または、OFS変数(output field separator)にタブをセットし以下。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;BEGIN { OFS=&quot;\t&quot; } {print $3, $4}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'BEGIN { OFS="\t" } {print $3, $4}'</span>
 </code></pre></div>
 <h3 id="sub">正規表現置換 (sub)</h3>
 <p><code>ps aux</code>の行頭(<code>/^/</code>)に3桁0埋めの連番(行番号)を付与する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">ps aux | awk &#39;{sub(/^/, sprintf(&quot;%03d: &quot;, ++i)); print}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">ps aux | awk '{sub(/^/, sprintf("%03d: ", ++i)); print}'</span>
 </code></pre></div>
 <h3 id="if">if文</h3>
 <p>1カラム目が<code>root</code>の場合の11カラム目を出力</p>
-<div class="highlight"><pre><span></span><code><span class="go">ps aux | awk &#39;{if($1 == &quot;root&quot;){print $11}}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">ps aux | awk '{if($1 == "root"){print $11}}'</span>
 </code></pre></div>
 <h3 id="if_1">if文で正規表現</h3>
 <p>1カラム目が数字のみの場合の行全部</p>
-<div class="highlight"><pre><span></span><code><span class="go">ps aux | awk &#39;{if($1 ~ /[0-9]+/){print $0}}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">ps aux | awk '{if($1 ~ /[0-9]+/){print $0}}'</span>
 </code></pre></div>
 <h3 id="3">3カラム目以降全てを出力</h3>
 <p><code>substr()</code>と<code>index()</code>を併用する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">awk &#39;{ print substr($0, index($0, $3)) }&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">awk '{ print substr($0, index($0, $3)) }'</span>
 </code></pre></div>
 <ul>
 <li><code>$0</code>: 行全体</li>
@@ -4995,7 +4995,7 @@
 </ul>
 <h2 id="tr">tr</h2>
 <h3 id="cr">CR削除</h3>
-<div class="highlight"><pre><span></span><code><span class="go">command | tr -d &#39;\r&#39; &gt; output</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | tr -d '\r' &gt; output</span>
 </code></pre></div>
 <h2 id="touch">touch</h2>
 <h3 id="_23">タイムスタンプ変更</h3>
@@ -5022,7 +5022,7 @@
 <h3 id="_26">変数展開しない</h3>
 <p>デフォルトはヒアドキュメント内に変数・環境変数が参照できる文字列を含む場合に変数展開される。<br />
 抑止するには終了識別子をクォートする。</p>
-<div class="highlight"><pre><span></span><code><span class="go">cat &gt; /path/to/file &lt;&lt;&#39;__EOL__&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">cat &gt; /path/to/file &lt;&lt;'__EOL__'</span>
 <span class="gp">$</span>foobar
 <span class="go">__EOL__</span>
 </code></pre></div>
@@ -5096,7 +5096,7 @@
 <div class="highlight"><pre><span></span><code><span class="go">tmux a || tmux</span>
 </code></pre></div>
 <p>名前付きでalias設定しておくと良い</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">ta</span><span class="o">=</span><span class="s1">&#39;tmux attach -t main || tmux new -s main&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">ta</span><span class="o">=</span><span class="s1">'tmux attach -t main || tmux new -s main'</span>
 </code></pre></div>
 <h4 id="_32">マウスホイールでスクロール</h4>
 <p>デフォルトだとコマンド履歴表示になってる</p>
@@ -5159,7 +5159,7 @@ bind-key C-g send-prefix
 <div class="highlight"><pre><span></span><code><span class="go">unzip &lt;zip-file&gt; path/to1/file1.yaml path/to2/file2.conf</span>
 </code></pre></div>
 <p>ワイルドカードも指定可能</p>
-<div class="highlight"><pre><span></span><code><span class="go">unzip &lt;zip-file&gt; &quot;path/*&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">unzip &lt;zip-file&gt; "path/*"</span>
 </code></pre></div>
 <h3 id="_40">圧縮</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>zip<span class="w"> </span>gitlab-compose.zip<span class="w"> </span>gitlab-compose/<span class="w"> </span>-r
@@ -5363,7 +5363,7 @@ bind-key C-g send-prefix
 <div class="highlight"><pre><span></span><code><span class="go">timedatectl set-timezone Asia/Tokyo</span>
 </code></pre></div>
 <h3 id="_57">日時の設定</h3>
-<div class="highlight"><pre><span></span><code><span class="go">timedatectl set-time &quot;2026-06-09 19:30:24&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">timedatectl set-time "2026-06-09 19:30:24"</span>
 </code></pre></div>
 <h2 id="dig">dig</h2>
 <h3 id="dns">DNSサーバーの指定</h3>
@@ -5409,7 +5409,7 @@ bind-key C-g send-prefix
 <span class="go">;_atproto.jp-z.jp.              IN      TXT</span>
 
 <span class="go">;; ANSWER SECTION:</span>
-<span class="go">_atproto.jp-z.jp.       3600    IN      TXT     &quot;did=did:plc:e3zjb4ne6avmlsifau3nconz&quot;</span>
+<span class="go">_atproto.jp-z.jp.       3600    IN      TXT     "did=did:plc:e3zjb4ne6avmlsifau3nconz"</span>
 
 <span class="go">;; Query time: 380 msec</span>
 <span class="go">;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)</span>
@@ -5545,7 +5545,7 @@ bind-key C-g send-prefix
 <div class="highlight"><pre><span></span><code><span class="gp">[zaki@fedora-node ~]$ </span>nmcli<span class="w"> </span>c<span class="w"> </span>s
 <span class="go">NAME             UUID                                  TYPE      DEVICE</span>
 <span class="go">有線接続 1       e8d83bb5-ce0a-3fe8-911e-8bc57153091c  ethernet  ens18</span>
-<span class="gp">[zaki@fedora-node ~]$ </span>sudo<span class="w"> </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span><span class="s2">&quot;有線接続 1&quot;</span><span class="w"> </span>connection.id<span class="w"> </span>ens18
+<span class="gp">[zaki@fedora-node ~]$ </span>sudo<span class="w"> </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span><span class="s2">"有線接続 1"</span><span class="w"> </span>connection.id<span class="w"> </span>ens18
 <span class="gp">[zaki@fedora-node ~]$ </span>nmcli<span class="w"> </span>c<span class="w"> </span>s
 <span class="go">NAME             UUID                                  TYPE      DEVICE</span>
 <span class="go">ens18            e8d83bb5-ce0a-3fe8-911e-8bc57153091c  ethernet  ens18</span>
@@ -5561,8 +5561,8 @@ bind-key C-g send-prefix
 <h3 id="ipstatic">IPアドレスをstaticに変更</h3>
 <p>DHCPでインストールしたあとに変更したいときとか。<br />
 methodをmanualに変更するのはaddressesをセットしたあとでないとエラーになるので注意。</p>
-<div class="highlight"><pre><span></span><code><span class="go">nmcli c m ens192 ipv4.addresses &quot;192.168.0.79/24&quot;</span>
-<span class="go">nmcli c m ens192 ipv4.gateway &quot;192.168.0.1&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">nmcli c m ens192 ipv4.addresses "192.168.0.79/24"</span>
+<span class="go">nmcli c m ens192 ipv4.gateway "192.168.0.1"</span>
 <span class="go">nmcli c m ens192 ipv4.method manual</span>
 </code></pre></div>
 <p>最後に再起動</p>
@@ -5577,7 +5577,7 @@ methodをmanualに変更するのはaddressesをセットしたあとでない�
 <p>追加する項目である<code>ipv4.dns</code>の手前に<code>+</code>を付与すると「追加」になる。<br />
 <code>-</code>を付与すると対象を削除になる。</p>
 <p><code>DNS1</code>の設定がある状態で下記を実行すると、<code>DNS2</code>の設定として追加される。</p>
-<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span><span class="s2">&quot;System ens192&quot;</span><span class="w"> </span>+ipv4.dns<span class="w"> </span><span class="m">192</span>.168.0.1
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span><span class="s2">"System ens192"</span><span class="w"> </span>+ipv4.dns<span class="w"> </span><span class="m">192</span>.168.0.1
 </code></pre></div>
 <h3 id="dnssearch">DNSのsearch行追加</h3>
 <p><code>my.example.org</code>を設定するには</p>
@@ -5589,7 +5589,7 @@ methodをmanualに変更するのはaddressesをセットしたあとでない�
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span>ens192<span class="w"> </span>ipv4.gateway<span class="w"> </span><span class="m">192</span>.168.39.89
 </code></pre></div>
 <p>設定削除する</p>
-<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span>ens192<span class="w"> </span>ipv4.gateway<span class="w"> </span><span class="s2">&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span>ens192<span class="w"> </span>ipv4.gateway<span class="w"> </span><span class="s2">""</span>
 </code></pre></div>
 <p><a href="https://zaki-hmkc.hatenablog.com/entry/2021/01/08/094833">[Ansible] ターゲットホストのIPアドレスの参照とデフォルトゲートウェイの設定についてのメモ - zaki work log</a></p>
 <h3 id="_72">スタティックルート追加</h3>
@@ -5605,7 +5605,7 @@ methodをmanualに変更するのはaddressesをセットしたあとでない�
 </li>
 </ul>
 <p>コマンド</p>
-<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span>ens224<span class="w"> </span>+ipv4.routes<span class="w"> </span><span class="s2">&quot;172.29.0.0/24 172.16.1.3&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span>ens224<span class="w"> </span>+ipv4.routes<span class="w"> </span><span class="s2">"172.29.0.0/24 172.16.1.3"</span>
 <span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>u<span class="w"> </span>ens224
 </code></pre></div>
 <p><a href="https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_static_routes_using_nmcli">4.2. nmcli を使った静的ルートの設定 Red Hat Enterprise Linux 7 | Red Hat Customer Portal</a></p>
@@ -5626,7 +5626,7 @@ method=manual
 route1=172.29.0.0/24,172.16.1.3
 </code></pre></div>
 <p>設定解除は<code>-</code>を付けて実行。</p>
-<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span>ens224<span class="w"> </span>-ipv4.routes<span class="w"> </span><span class="s2">&quot;172.29.0.0/24 172.16.1.3&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>nmcli<span class="w"> </span>c<span class="w"> </span>m<span class="w"> </span>ens224<span class="w"> </span>-ipv4.routes<span class="w"> </span><span class="s2">"172.29.0.0/24 172.16.1.3"</span>
 </code></pre></div>
 <h3 id="_73">設定ファイル</h3>
 <p>Fedora 43だと <code>/etc/NetworkManager/system-connections/&lt;I/F name&gt;.nmconnection</code>にある。</p>
@@ -5651,7 +5651,7 @@ route1=172.29.0.0/24,172.16.1.3
 <h3 id="_79">ターゲット(ランレベル)の変更</h3>
 <p><code>multi-user.target</code>(ランレベル3)に設定するには<code>set-default</code>で指定する。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>set-default<span class="w"> </span>multi-user.target
-<span class="go">Removed &quot;/etc/systemd/system/default.target&quot;.</span>
+<span class="go">Removed "/etc/systemd/system/default.target".</span>
 <span class="go">Created symlink /etc/systemd/system/default.target → /lib/systemd/system/multi-user.target.</span>
 </code></pre></div>
 <h3 id="unit">UNITファイルを作成すべきパス</h3>
@@ -5730,7 +5730,7 @@ route1=172.29.0.0/24,172.16.1.3
 <div class="highlight"><pre><span></span><code><span class="go">journalctl -u sshd.service</span>
 </code></pre></div>
 <p>ワイルドカードも使用可能</p>
-<div class="highlight"><pre><span></span><code><span class="go">journalctl -u &quot;cron*&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">journalctl -u "cron*"</span>
 </code></pre></div>
 <h2 id="_84">ホスト名</h2>
 <h3 id="_85">変更</h3>

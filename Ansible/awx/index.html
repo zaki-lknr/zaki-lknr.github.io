@@ -2226,8 +2226,8 @@
 <span class="go"> ---&gt; Running in bb9cc8cc61ee</span>
 <span class="go">Process install dependency map</span>
 <span class="go">Starting collection install process</span>
-<span class="go">Installing &#39;kubernetes.core:1.2.1&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/kubernetes/core&#39;</span>
-<span class="go">Installing &#39;operator_sdk.util:0.2.0&#39; to &#39;/opt/ansible/.ansible/collections/ansible_collections/operator_sdk/util&#39;</span>
+<span class="go">Installing 'kubernetes.core:1.2.1' to '/opt/ansible/.ansible/collections/ansible_collections/kubernetes/core'</span>
+<span class="go">Installing 'operator_sdk.util:0.2.0' to '/opt/ansible/.ansible/collections/ansible_collections/operator_sdk/util'</span>
 <span class="go">Removing intermediate container bb9cc8cc61ee</span>
 <span class="go"> ---&gt; 7346f9bc9f4e</span>
 <span class="go">Step 6/8 : COPY watches.yaml ${HOME}/watches.yaml</span>
@@ -2350,27 +2350,27 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span class="go">Status: Downloaded newer image for quay.io/ansible/ansible-runner:latest</span>
 <span class="go"> ---&gt; fe0ebe0eae7f</span>
 <span class="go">Step 4/26 : ARG ANSIBLE_GALAXY_CLI_COLLECTION_OPTS=</span>
-<span class="go"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span class="go"> ---&gt; [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
 <span class="go"> ---&gt; Running in ddcc58ce4a3e</span>
 <span class="go">Removing intermediate container ddcc58ce4a3e</span>
 <span class="go"> ---&gt; 29bdd8b42c78</span>
 <span class="go">Step 5/26 : USER root</span>
-<span class="go"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span class="go"> ---&gt; [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
 <span class="go"> ---&gt; Running in ec96ecc53899</span>
 <span class="go">Removing intermediate container ec96ecc53899</span>
 <span class="go"> ---&gt; 047557a18fd9</span>
 <span class="go">Step 6/26 : ADD _build /build</span>
 <span class="go"> ---&gt; 4aae6069de8c</span>
 <span class="go">Step 7/26 : WORKDIR /build</span>
-<span class="go"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span class="go"> ---&gt; [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
 <span class="go"> ---&gt; Running in 84bc2b6aa898</span>
 <span class="go">Removing intermediate container 84bc2b6aa898</span>
 <span class="go"> ---&gt; 96ca9bbcffce</span>
 <span class="go">Step 8/26 : RUN ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles</span>
-<span class="go"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span class="go"> ---&gt; [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
 <span class="go"> ---&gt; Running in 52ab0ab8b6c9</span>
 <span class="go">standard_init_linux.go:228: exec user process caused: exec format error</span>
-<span class="go">The command &#39;/bin/sh -c ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles&#39; returned a non-zero code: 1</span>
+<span class="go">The command '/bin/sh -c ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles' returned a non-zero code: 1</span>
 
 <span class="go">An error occured (rc=1), see output line(s) above for details.</span>
 <span class="go">ERROR: InvocationError for command /home/ubuntu/src/awx-ee/.tox/docker/bin/ansible-builder build -v3 -c . -t quay.io/ansible/awx-ee --container-runtime=docker (exited with code 1)</span>
@@ -2402,31 +2402,31 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <div class="highlight"><pre><span></span><code><span class="go">Status: Downloaded newer image for quay.io/ansible/python-builder:latest</span>
 <span class="go"> ---&gt; e86f8912b919</span>
 <span class="go">Step 6/21 : ARG ANSIBLE_BRANCH</span>
-<span class="go"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span class="go"> ---&gt; [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
 <span class="go"> ---&gt; Running in 4efe4c1dbf0d</span>
 <span class="go">Removing intermediate container 4efe4c1dbf0d</span>
 <span class="go"> ---&gt; b29ee85f97c3</span>
 <span class="go">Step 7/21 : ARG ZUUL_SIBLINGS</span>
-<span class="go"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span class="go"> ---&gt; [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
 <span class="go"> ---&gt; Running in e3770bf07693</span>
 <span class="go">Removing intermediate container e3770bf07693</span>
 <span class="go"> ---&gt; 3bc46246a2c3</span>
 <span class="go">Step 8/21 : COPY . /tmp/src</span>
 <span class="go"> ---&gt; 5c8193d3adec</span>
-<span class="go">Step 9/21 : RUN if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt</span>
-<span class="go"> ---&gt; [Warning] The requested image&#39;s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
+<span class="go">Step 9/21 : RUN if [ "$ANSIBLE_BRANCH" != "" ] ; then       echo "Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH" ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo "Installing requirements.txt" ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt</span>
+<span class="go"> ---&gt; [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested</span>
 <span class="go"> ---&gt; Running in a3b89d0a4b54</span>
 <span class="go">standard_init_linux.go:228: exec user process caused: exec format error</span>
-<span class="go">The command &#39;/bin/sh -c if [ &quot;$ANSIBLE_BRANCH&quot; != &quot;&quot; ] ; then       echo &quot;Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH&quot; ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo &quot;Installing requirements.txt&quot; ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt&#39; returned a non-zero code: 1</span>
+<span class="go">The command '/bin/sh -c if [ "$ANSIBLE_BRANCH" != "" ] ; then       echo "Installing requirements.txt / upper-constraints.txt for Ansible $ANSIBLE_BRANCH" ;       cp /tmp/src/tools/requirements-$ANSIBLE_BRANCH.txt /tmp/src/requirements.txt ;       cp /tmp/src/tools/upper-constraints-$ANSIBLE_BRANCH.txt /tmp/src/upper-constraints.txt ;     else       echo "Installing requirements.txt" ;       cp /tmp/src/tools/requirements.txt /tmp/src/requirements.txt ;     fi     &amp;&amp; cp /tmp/src/tools/build-requirements.txt /tmp/src/build-requirements.txt     &amp;&amp; cp /tmp/src/tools/bindep.txt /tmp/src/bindep.txt' returned a non-zero code: 1</span>
 <span class="go">make: *** [Makefile:95: image] Error 1</span>
 </code></pre></div>
 <p>これまたベースやビルドに使う <code>quay.io/ansible/python-base:latest</code> と <code>quay.io/ansible/python-builder:latest</code> がamd64向けっぽい。</p>
 <p>後述の<code>python-base</code>と<code>python-builder</code>を↑のイメージ名でビルドして再実行すればOK</p>
-<div class="highlight"><pre><span></span><code><span class="go">Step 20/21 : ENTRYPOINT [&quot;entrypoint&quot;]</span>
+<div class="highlight"><pre><span></span><code><span class="go">Step 20/21 : ENTRYPOINT ["entrypoint"]</span>
 <span class="go"> ---&gt; Running in efe6471171c6</span>
 <span class="go">Removing intermediate container efe6471171c6</span>
 <span class="go"> ---&gt; 8b899620e92f</span>
-<span class="go">Step 21/21 : CMD [&quot;ansible-runner&quot;, &quot;run&quot;, &quot;/runner&quot;]</span>
+<span class="go">Step 21/21 : CMD ["ansible-runner", "run", "/runner"]</span>
 <span class="go"> ---&gt; Running in 5486cf162432</span>
 <span class="go">Removing intermediate container 5486cf162432</span>
 <span class="go"> ---&gt; 7db86ada250a</span>
@@ -2448,7 +2448,7 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <span class="go"> ---&gt; Running in e45372606b30</span>
 <span class="go">Removing intermediate container e45372606b30</span>
 <span class="go"> ---&gt; 1fc6e4db77c4</span>
-<span class="go">Step 17/17 : ENTRYPOINT [&quot;/usr/local/bin/dumb-init&quot;, &quot;--&quot;]</span>
+<span class="go">Step 17/17 : ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]</span>
 <span class="go"> ---&gt; Running in e711f13da032</span>
 <span class="go">Removing intermediate container e711f13da032</span>
 <span class="go"> ---&gt; 84c14ff10f30</span>
@@ -2507,14 +2507,14 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>make<span class="w"> </span>container<span class="w"> </span><span class="nv">CONTAINERCMD</span><span class="o">=</span>docker
 </code></pre></div>
 <p>エラーになった。</p>
-<div class="highlight"><pre><span></span><code><span class="go">Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
-<span class="go">error in setup command: Error parsing /source/receptorctl/setup.cfg: Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It&#39;s also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
+<div class="highlight"><pre><span></span><code><span class="go">Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It's also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
+<span class="go">error in setup command: Error parsing /source/receptorctl/setup.cfg: Exception: Versioning for this project requires either an sdist tarball, or access to an upstream git repository. It's also possible that there is a mismatch between the package name in setup.cfg and the argument given to pbr.version.VersionInfo. Project name receptorctl was given, but was not able to be found.</span>
 <span class="go">make: git: Command not found</span>
 </code></pre></div>
 <p>んー、develのままだったのが悪かったかな。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>release_1.1<span class="w"> </span>
-<span class="go">Switched to branch &#39;release_1.1&#39;</span>
-<span class="go">Your branch is up to date with &#39;origin/release_1.1&#39;.</span>
+<span class="go">Switched to branch 'release_1.1'</span>
+<span class="go">Your branch is up to date with 'origin/release_1.1'.</span>
 </code></pre></div>
 <p>でも、別のエラーが出る。。よくわからん。<br />
 ディレクトリ掘ったら<code>packaging/container/Dockerfile</code>があった…が、このファイルは<code>make</code>でビルドするときに使われるのと一緒だ。。</p>
@@ -2549,11 +2549,11 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <p>これでビルド。同じエラーはでたが処理は続行した。</p>
 <div class="highlight"><pre><span></span><code><span class="go">:</span>
 <span class="go">:</span>
-<span class="go">Step 24/25 : ENTRYPOINT [&quot;/usr/bin/tini&quot;, &quot;--&quot;]</span>
+<span class="go">Step 24/25 : ENTRYPOINT ["/usr/bin/tini", "--"]</span>
 <span class="go"> ---&gt; Running in c19287787c6c</span>
 <span class="go">Removing intermediate container c19287787c6c</span>
 <span class="go"> ---&gt; d90dae43fbbf</span>
-<span class="go">Step 25/25 : CMD [&quot;/usr/bin/receptor&quot;, &quot;-c&quot;, &quot;/etc/receptor/receptor.conf&quot;]</span>
+<span class="go">Step 25/25 : CMD ["/usr/bin/receptor", "-c", "/etc/receptor/receptor.conf"]</span>
 <span class="go"> ---&gt; Running in e8debaee8c0c</span>
 <span class="go">Removing intermediate container e8debaee8c0c</span>
 <span class="go"> ---&gt; 376efbc54f61</span>
@@ -2571,25 +2571,25 @@ tools/ansible/build.ymlがあるので、こっちでビルドできた。</p>
 <h2 id="awx_2">AWXでジョブが実行できない件(調査中)</h2>
 <p>AWXで以下のエラーが出てるやつ。</p>
 <div class="highlight"><pre><span></span><code><span class="go">Traceback (most recent call last):</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 449, in run</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py", line 449, in run</span>
 <span class="go">    self.pre_run_hook(self.instance, private_data_dir)</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 979, in pre_run_hook</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py", line 979, in pre_run_hook</span>
 <span class="go">    RunProjectUpdate.make_local_copy(job.project, private_data_dir, scm_revision=job_revision)</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py&quot;, line 1380, in make_local_copy</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/awx/main/tasks/jobs.py", line 1380, in make_local_copy</span>
 <span class="go">    source_branch = git_repo.create_head(tmp_branch_name, p.scm_revision)</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/repo/base.py&quot;, line 386, in create_head</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/repo/base.py", line 386, in create_head</span>
 <span class="go">    return Head.create(self, path, commit, force, logmsg)</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 543, in create</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py", line 543, in create</span>
 <span class="go">    return cls._create(repo, path, cls._resolve_ref_on_create, reference, force, logmsg)</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 510, in _create</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py", line 510, in _create</span>
 <span class="go">    ref.set_reference(target, logmsg)</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py&quot;, line 326, in set_reference</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/refs/symbolic.py", line 326, in set_reference</span>
 <span class="go">    assure_directory_exists(fpath, is_file=True)</span>
-<span class="go">  File &quot;/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/util.py&quot;, line 177, in assure_directory_exists</span>
+<span class="go">  File "/var/lib/awx/venv/awx/lib64/python3.9/site-packages/git/util.py", line 177, in assure_directory_exists</span>
 <span class="go">    os.makedirs(path, exist_ok=True)</span>
-<span class="go">  File &quot;/usr/lib64/python3.9/os.py&quot;, line 225, in makedirs</span>
+<span class="go">  File "/usr/lib64/python3.9/os.py", line 225, in makedirs</span>
 <span class="go">    mkdir(name, mode)</span>
-<span class="go">PermissionError: [Errno 13] Permission denied: &#39;/var/lib/awx/projects/_6__demo_project/.git/refs/heads/awx_internal&#39;</span>
+<span class="go">PermissionError: [Errno 13] Permission denied: '/var/lib/awx/projects/_6__demo_project/.git/refs/heads/awx_internal'</span>
 </code></pre></div>
 <p>オリジナルのamd64版、Dockerイメージのユーザー権限</p>
 <div class="highlight"><pre><span></span><code><span class="gp">[zaki@cloud-dev2 ~]$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>quay.io/ansible/awx-ee:0.6.0<span class="w"> </span>bash

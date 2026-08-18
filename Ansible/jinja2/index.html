@@ -2148,7 +2148,7 @@
 <h2 id="_2">変数</h2>
 <h3 id="_3">変数宣言</h3>
 <p>変数</p>
-<div class="highlight"><pre><span></span><code>{% set hogehoge = &#39;foobar&#39; %}
+<div class="highlight"><pre><span></span><code>{% set hogehoge = 'foobar' %}
 </code></pre></div>
 <p>配列</p>
 <div class="highlight"><pre><span></span><code>{% set array = [] %}
@@ -2156,21 +2156,21 @@
 <h3 id="_4">配列要素の追加</h3>
 <p>↑の<code>array</code>に要素を追加したい場合、Ansibleでは<code>array.append()</code>は使えるように見えて使えない。<br />
 ↓のように書く。</p>
-<div class="highlight"><pre><span></span><code>{% set _ = array.append(&#39;item&#39;) %} 
+<div class="highlight"><pre><span></span><code>{% set _ = array.append('item') %} 
 </code></pre></div>
 <blockquote>
 <p>これに <code>do</code> を追加して <code>{% do list.append(1) %}</code> と書けるようにする <a href="https://jinja.palletsprojects.com/en/latest/templates/#expression-statement">Expression Statement</a> という拡張もあるらしいのですが Ansible では有効化されていませんので、面倒ですが <code>{% if list.append(1) %}{% endif %}</code> や <code>{% set _ = list.append(1) %}</code> のように他のステートメントの中で評価したい式を書く必要があります。</p>
 <p><a href="http://blog.keshi.org/hogememo/2015/12/07/exploiting-ansible-jinja2">ほげめも: Ansible の Jinja2 を活用する</a></p>
 </blockquote>
 <p>辞書をリストの要素として追加は普通にOK</p>
-<div class="highlight"><pre><span></span><code>{% set _ = host_list.append({&#39;host&#39;: host, &#39;name&#39;: hostvars[host].tags.User }) %}
+<div class="highlight"><pre><span></span><code>{% set _ = host_list.append({'host': host, 'name': hostvars[host].tags.User }) %}
 </code></pre></div>
 <h3 id="_5">辞書</h3>
 <h4 id="_6">値の参照</h4>
 <div class="highlight"><pre><span></span><code>{{ foo.bar.baz }}
 </code></pre></div>
 <p>または</p>
-<div class="highlight"><pre><span></span><code>{{ foo[&#39;bar&#39;][&#39;baz&#39;] }}
+<div class="highlight"><pre><span></span><code>{{ foo['bar']['baz'] }}
 </code></pre></div>
 <p>後者の書式であればキー名に変数を使うこともできる。</p>
 <h2 id="_7">制御構文</h2>
@@ -2187,11 +2187,11 @@
 <h3 id="_11">文字列結合</h3>
 <p>Python同様<code>+</code>で結合できる。<br />
 以下は<code>"AB"</code></p>
-<div class="highlight"><pre><span></span><code>{{ &#39;A&#39; + &#39;B&#39; }}
+<div class="highlight"><pre><span></span><code>{{ 'A' + 'B' }}
 </code></pre></div>
 <p><code>~</code>も使用可能。自動キャストが行われるため数値との文字列結合もそのまま記述できる。<br />
 以下は<code>"ABC123"</code></p>
-<div class="highlight"><pre><span></span><code>{{ &#39;ABC&#39; ~ 123 }}
+<div class="highlight"><pre><span></span><code>{{ 'ABC' ~ 123 }}
 </code></pre></div>
 <h2 id="_12">コメント</h2>
 <div class="highlight"><pre><span></span><code>{# comment #}
@@ -2204,7 +2204,7 @@
 </code></pre></div>
 <h2 id="lookup">lookupプラグイン実行</h2>
 <p>playbook等で書くときと同じ要領で記述可能</p>
-<div class="highlight"><pre><span></span><code>{{ lookup(&#39;pipe&#39;, &#39;date +%s&#39;) }}
+<div class="highlight"><pre><span></span><code>{{ lookup('pipe', 'date +%s') }}
 </code></pre></div>
 <h2 id="_13">指定部分へのフィルタの実行</h2>
 <h3 id="indent">indent()</h3>
@@ -2239,16 +2239,16 @@
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">print current date</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">msg</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;current(local):</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;current(utc):</span><span class="nv">   </span><span class="s">{{</span><span class="nv"> </span><span class="s">now(true)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;formatted:</span><span class="nv">      </span><span class="s">{{</span><span class="nv"> </span><span class="s">now(false,</span><span class="nv"> </span><span class="s">&#39;%Y-%m-%d</span><span class="nv"> </span><span class="s">%H-%M-%S&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"current(local):</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"current(utc):</span><span class="nv">   </span><span class="s">{{</span><span class="nv"> </span><span class="s">now(true)</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"formatted:</span><span class="nv">      </span><span class="s">{{</span><span class="nv"> </span><span class="s">now(false,</span><span class="nv"> </span><span class="s">'%Y-%m-%d</span><span class="nv"> </span><span class="s">%H-%M-%S')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>出力は以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="go">ok: [localhost] =&gt; </span>
 <span class="go">    msg:</span>
-<span class="go">    - &#39;current(local): 2025-09-06 12:05:13.671003&#39;</span>
-<span class="go">    - &#39;current(utc):   2025-09-06 03:05:13.671557&#39;</span>
-<span class="go">    - &#39;formatted:      2025-09-06 12-05-13&#39;</span>
+<span class="go">    - 'current(local): 2025-09-06 12:05:13.671003'</span>
+<span class="go">    - 'current(utc):   2025-09-06 03:05:13.671557'</span>
+<span class="go">    - 'formatted:      2025-09-06 12-05-13'</span>
 </code></pre></div>
 <p>引数のbooleanはUTCフラグ。書式をフォーマットする場合は第2引数。</p>
                 

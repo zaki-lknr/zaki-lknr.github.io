@@ -1906,15 +1906,15 @@
 <h2 id="_1">ファイル</h2>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">load ssh public key</span>
 <span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">pubkey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;file&#39;,</span><span class="nv"> </span><span class="s">&#39;~/.ssh/id_rsa.pub&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">pubkey</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">lookup('file',</span><span class="nv"> </span><span class="s">'~/.ssh/id_rsa.pub')</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pubkey</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">pubkey</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p><code>ansible-playbook</code>の実行ユーザの<code>~/.ssh/id_rsa.pub</code>の内容を読み込んだ内容が<code>pubkey</code>にセットされる。</p>
 <h2 id="_2">環境変数</h2>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">env lookup</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;env&#39;,</span><span class="nv"> </span><span class="s">&#39;HOSTNAME&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">lookup('env',</span><span class="nv"> </span><span class="s">'HOSTNAME')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>環境変数<code>HOSTNAME</code>を取得する。<br />
 コントロールノードでの評価結果になるので、どのターゲットノードのtaskの実行でも、コントロールノードのホスト名になる。</p>
@@ -1923,20 +1923,20 @@
 <h2 id="_3">コマンド実行</h2>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get date</span>
 <span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">current_date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;pipe&#39;,</span><span class="nv"> </span><span class="s">&#39;date</span><span class="nv"> </span><span class="s">+%Y/%m/%d_%H:%M:%S&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">current_date</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">lookup('pipe',</span><span class="nv"> </span><span class="s">'date</span><span class="nv"> </span><span class="s">+%Y/%m/%d_%H:%M:%S')</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">      </span><span class="c1"># https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pipe_lookup.html</span>
 <span class="w">      </span><span class="c1"># pipeを使うとコマンド実行結果を取得できる</span>
 
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">msg</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">current_date</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">current_date</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <h2 id="_4">パスワード文字列生成</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/password_lookup.html">ansible.builtin.password – retrieve or generate a random password, stored in a file — Ansible Documentation</a></p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create password</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;password&#39;,</span><span class="nv"> </span><span class="s">&#39;/var/tmp/ansible-work/password&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">lookup('password',</span><span class="nv"> </span><span class="s">'/var/tmp/ansible-work/password')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>実行結果は</p>
 <div class="highlight"><pre><span></span><code>TASK [create password] *************************
@@ -1953,16 +1953,16 @@ ok: [localhost] =&gt;
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
 <span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">create_password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;password&#39;,</span><span class="nv"> </span><span class="s">&#39;/dev/null&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">create_password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">lookup('password',</span><span class="nv"> </span><span class="s">'/dev/null')</span><span class="nv"> </span><span class="s">}}"</span>
 
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create password (1)</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">create_password</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">create_password</span><span class="nv"> </span><span class="s">}}"</span>
 
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create password (2)</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">create_password</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">create_password</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>実行結果</p>
 <div class="highlight"><pre><span></span><code>TASK [create password] **************************************************
@@ -1976,11 +1976,11 @@ ok: [localhost] =&gt;
 <p>これだと生成したパスワードを見ることができないので、<code>set_fact</code>で一度作成済みにして、それを使うようにすれば、「パスワード設定」と「設定したパスワードのストア」を自前で管理できる。</p>
 <div class="highlight"><pre><span></span><code>    - name: create password
       set_fact:
-        password: &quot;{{ create_password }}&quot;
+        password: "{{ create_password }}"
 
     - name: print password
       debug:
-        msg: &quot;{{ password }}&quot;
+        msg: "{{ password }}"
 </code></pre></div>
 <p><code>-v</code>つけて実行すれば以下の通り。</p>
 <div class="highlight"><pre><span></span><code>TASK [create password] **************************************************
@@ -1995,15 +1995,15 @@ ok: [localhost] =&gt;
 <h2 id="http">HTTPアクセスする</h2>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">url lookup plugin</span>
 <span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">response</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">lookup(&#39;url&#39;,</span><span class="nv"> </span><span class="s">&#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">response</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">lookup('url',</span><span class="nv"> </span><span class="s">'https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json')</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># msg: &quot;{{ lookup(&#39;url&#39;, &#39;https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json&#39;, wantlist=true) }}&quot;</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">response.text</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="c1"># msg: "{{ lookup('url', 'https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json', wantlist=true) }}"</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">response.text</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>basic認証するなら</p>
-<div class="highlight"><pre><span></span><code>&quot;{{ lookup(&#39;ansible.builtin.url&#39;, &#39;http://www.example.org/path/to/basicauth/file&#39;,
-            username=&#39;user&#39;,
-            password=&#39;pass&#39;) }}&quot;
+<div class="highlight"><pre><span></span><code>"{{ lookup('ansible.builtin.url', 'http://www.example.org/path/to/basicauth/file',
+            username='user',
+            password='pass') }}"
 </code></pre></div>
 <p>こんな感じ</p>
                 

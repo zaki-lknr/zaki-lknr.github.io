@@ -2039,27 +2039,27 @@
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>key作成
 <span class="go">openssl genpkey -algorithm rsa -out ca.key</span>
 <span class="gp"># </span>crt作成
-<span class="go">openssl req -new -x509 -days 3650 -key ca.key -subj &quot;/CN=example.org/&quot; -out ca.crt</span>
+<span class="go">openssl req -new -x509 -days 3650 -key ca.key -subj "/CN=example.org/" -out ca.crt</span>
 </code></pre></div>
 <p>csrを作らずに一気にcrtファイル作成は↑の通り。</p>
 <p>csrも作るには以下(生成情報に若干の差異はあるけど)</p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>csr作成
-<span class="go">openssl req -new -key ca.key -subj &quot;/CN=example.org/&quot; -out ca.csr</span>
+<span class="go">openssl req -new -key ca.key -subj "/CN=example.org/" -out ca.csr</span>
 <span class="gp"># </span>crt作成
 <span class="go">openssl x509 -req -in ca.csr -signkey ca.key -days 3650 -out ca.crt</span>
 </code></pre></div>
 <p>作成したCAで署名した証明書作成</p>
-<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa -nodes -sha256 -keyout server.key -x509 -days 365 -out server.crt -subj &#39;/CN=example.org/&#39; -addext &quot;subjectAltName=DNS:example.org,DNS:*.example.org&quot; -CA ca.crt -CAkey ca.key</span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa -nodes -sha256 -keyout server.key -x509 -days 365 -out server.crt -subj '/CN=example.org/' -addext "subjectAltName=DNS:example.org,DNS:*.example.org" -CA ca.crt -CAkey ca.key</span>
 </code></pre></div>
 <h3 id="commonname">オレオレ証明書作成(CommonName)</h3>
-<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa:4096 -nodes -sha256 -keyout /path/to/example.org.key -x509 -days 365 -out /path/to/example.org.crt -subj &#39;/CN=example.org/&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa:4096 -nodes -sha256 -keyout /path/to/example.org.key -x509 -days 365 -out /path/to/example.org.crt -subj '/CN=example.org/'</span>
 </code></pre></div>
 <h3 id="alternative-name">Alternative Name指定のオレオレ証明書</h3>
 <p><code>appserv</code>と<code>appserv.example.org</code>いう名前のSANを追加する場合。</p>
-<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa:4096 -nodes -sha256 -keyout server.key -x509 -days 365  -out server.crt -subj &#39;/C=JP/&#39; -addext &quot;subjectAltName=DNS:appserv,DNS:appserv.example.org&quot; </span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req -newkey rsa:4096 -nodes -sha256 -keyout server.key -x509 -days 365  -out server.crt -subj '/C=JP/' -addext "subjectAltName=DNS:appserv,DNS:appserv.example.org" </span>
 </code></pre></div>
 <h3 id="_3">国や都道府県等の指定</h3>
-<div class="highlight"><pre><span></span><code><span class="go">openssl req ... -subj &#39;/C=JP/ST=Tokyo/L=Daiba/CN=example.org&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">openssl req ... -subj '/C=JP/ST=Tokyo/L=Daiba/CN=example.org'</span>
 </code></pre></div>
 <ul>
 <li>C(Country Name): 国(2文字)</li>

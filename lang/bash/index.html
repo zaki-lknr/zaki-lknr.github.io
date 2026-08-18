@@ -2361,7 +2361,7 @@
 <span class="go">bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</span>
 </code></pre></div>
 <p>出力の先頭文字は変数<code>PS4</code>で指定。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">PS4</span><span class="o">=</span><span class="s2">&quot;---&quot;</span><span class="w"> </span>./option.sh<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">PS4</span><span class="o">=</span><span class="s2">"---"</span><span class="w"> </span>./option.sh<span class="w"> </span>
 <span class="go">---ls /</span>
 <span class="go">afs  boot  etc   lib    media  opt   root  sbin  sys  usr</span>
 <span class="go">bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</span>
@@ -2378,8 +2378,8 @@
 <li>全ての引数: <code>$@</code></li>
 </ul>
 <h3 id="_4">引数の有無</h3>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;no argument&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$#</span><span class="s2">"</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"no argument"</span>
 <span class="k">fi</span>
 </code></pre></div>
 <h2 id="_5">算術演算</h2>
@@ -2398,17 +2398,17 @@
 <h3 id="_6">小数</h3>
 <p><code>$(( ))</code>は小数を扱えないので<code>bc</code>を使う。<br />
 <code>scale=*</code> で有効桁数を指定する。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;scale=1; 5 / 3&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"scale=1; 5 / 3"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc
 <span class="go">1.6</span>
 </code></pre></div>
 <h3 id="_7">小数以下切り捨て</h3>
 <p>切り捨ては無いためbashのパラメタ展開を使う</p>
-<div class="highlight"><pre><span></span><code><span class="go">r=$(echo &quot;(4 - 0.5) * 1000&quot; | bc)</span>
-<span class="go">echo &quot;${r%.*}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="go">r=$(echo "(4 - 0.5) * 1000" | bc)</span>
+<span class="go">echo "${r%.*}"</span>
 </code></pre></div>
 <p><code>$r</code>は3500.0だが、出力は3500になる。</p>
 <h2 id="_8">配列</h2>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">list</span><span class="o">=(</span><span class="s2">&quot;abc&quot;</span><span class="w"> </span><span class="s2">&quot;123&quot;</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">list</span><span class="o">=(</span><span class="s2">"abc"</span><span class="w"> </span><span class="s2">"123"</span><span class="w"> </span><span class="s2">"xyz"</span><span class="o">)</span>
 <span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">list</span><span class="p">[1]</span><span class="si">}</span>
 <span class="go">123</span>
 </code></pre></div>
@@ -2417,14 +2417,14 @@
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="k">function</span><span class="w"> </span>myfunc<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;function arg1(</span><span class="nv">$1</span><span class="s2">) arg2(</span><span class="nv">$2</span><span class="s2">)&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"function arg1(</span><span class="nv">$1</span><span class="s2">) arg2(</span><span class="nv">$2</span><span class="s2">)"</span>
 <span class="o">}</span>
 
 myfunc<span class="w"> </span>a<span class="w"> </span>b
 </code></pre></div>
 <h3 id="_11">戻り値</h3>
 <div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>myfunc<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;function arg1(</span><span class="nv">$1</span><span class="s2">) arg2(</span><span class="nv">$2</span><span class="s2">)&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"function arg1(</span><span class="nv">$1</span><span class="s2">) arg2(</span><span class="nv">$2</span><span class="s2">)"</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="o">}</span>
 
@@ -2433,7 +2433,7 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 </code></pre></div>
 <h3 id="_12">任意の文字列等を返す</h3>
 <div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>get_str<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;foobar </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"foobar </span><span class="nv">$1</span><span class="s2">"</span>
 <span class="o">}</span>
 
 <span class="nv">val</span><span class="o">=</span><span class="k">$(</span>get_str<span class="w"> </span>arg<span class="k">)</span>
@@ -2511,9 +2511,9 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 </ul>
 <h3 id="if">if</h3>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="nv">$value1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="nv">$value2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$value1 or $value2 is not defined&#39;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'$value1 or $value2 is not defined'</span>
 <span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="nv">$value3</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;$value3 is not defined&#39;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'$value3 is not defined'</span>
 <span class="k">else</span>
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span>OK
 <span class="k">fi</span>
@@ -2521,36 +2521,36 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 <h3 id="case">case</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="nv">arg</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nv">arg</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
 
 <span class="k">case</span><span class="w"> </span><span class="nv">$arg</span><span class="w"> </span><span class="k">in</span>
 <span class="w">    </span>start<span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;start&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"start"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>stop<span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;stop&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"stop"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>reload<span class="p">|</span>restart<span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;restart&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"restart"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>st<span class="p">|</span>status<span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;status&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"status"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>*<span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;unknown arg&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"unknown arg"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="k">esac</span>
 </code></pre></div>
 <h3 id="_14">ループ</h3>
 <h4 id="_15">引数を順番にループ処理</h4>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>arg<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">do</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>arg<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">arg</span><span class="si">}</span>
 <span class="k">done</span>
 </code></pre></div>
 <h4 id="_16">配列要素をループ処理</h4>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="nv">list</span><span class="o">=(</span><span class="s2">&quot;abc&quot;</span><span class="w"> </span><span class="s2">&quot;123&quot;</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="o">)</span>
+<span class="nv">list</span><span class="o">=(</span><span class="s2">"abc"</span><span class="w"> </span><span class="s2">"123"</span><span class="w"> </span><span class="s2">"xyz"</span><span class="o">)</span>
 <span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">list</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$item</span>
 <span class="k">done</span>
@@ -2559,7 +2559,7 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 <p>インデックスが必要であればこちら。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="nv">list</span><span class="o">=(</span><span class="s2">&quot;abc&quot;</span><span class="w"> </span><span class="s2">&quot;123&quot;</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="o">)</span>
+<span class="nv">list</span><span class="o">=(</span><span class="s2">"abc"</span><span class="w"> </span><span class="s2">"123"</span><span class="w"> </span><span class="s2">"xyz"</span><span class="o">)</span>
 <span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="p">!list[@]</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span>
 <span class="k">done</span>
@@ -2596,7 +2596,7 @@ myfunc<span class="w"> </span>a<span class="w"> </span>b
 <div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>line
 <span class="k">do</span>
 <span class="w">    </span><span class="c1"># ${line}に行が入っている</span>
-<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;/path/to/file.txt&quot;</span>
+<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span><span class="s2">"/path/to/file.txt"</span>
 </code></pre></div>
 <h4 id="stdin1">stdinから1行ずつ</h4>
 <p>上記ファイルの場合がベース</p>

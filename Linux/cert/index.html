@@ -1961,10 +1961,10 @@ done.
 <span class="go">    trust: anchor</span>
 <span class="go">    category: other-entry</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>[root@cloud-dev ~]# trust anchor --remove &quot;pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%3f;type=cert&quot;
-p11-kit: couldn&#39;t remove read-only certificate
+<div class="highlight"><pre><span></span><code>[root@cloud-dev ~]# trust anchor --remove "pkcs11:id=%dd%14%05%0a%b1%7b%9b%09%41%2b%e6%90%a1%5d%6d%30%06%75%c7%3f;type=cert"
+p11-kit: couldn't remove read-only certificate
 [root@cloud-dev ~]# trust anchor --remove /var/tmp/ansible-work/ca.crt 
-p11-kit: couldn&#39;t remove read-only certificate
+p11-kit: couldn't remove read-only certificate
 </code></pre></div>
 <p>これで消せるらしいんだけど、<code>update-ca-trust</code>で追加してるCAはダメなのかな。。</p>
 <p><a href="https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/8/html/security_hardening/using-shared-system-certificates_security-hardening">第6章 共通システム証明書の使用 Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></p>

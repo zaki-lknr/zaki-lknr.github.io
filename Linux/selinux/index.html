@@ -1930,14 +1930,14 @@
 <p>webサーバーで適当に<code>8081</code>でListenさせようとしてもバインドできずに起動できない。</p>
 <p>error_log</p>
 <div class="highlight"><pre><span></span><code>[suexec:notice] [pid 1237:tid 1237] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
-AH00558: httpd: Could not reliably determine the server&#39;s fully qualified domain name, using 192.168.0.44. Set the &#39;ServerName&#39; directive globally to suppress this message
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 192.168.0.44. Set the 'ServerName' directive globally to suppress this message
 [Tue Jul 06 10:47:18.353422 2021] [lbmethod_heartbeat:notice] [pid 1237:tid 1237] AH02282: No slotmem from mod_heartmonitor
 </code></pre></div>
 <p>message</p>
-<div class="highlight"><pre><span></span><code>setroubleshoot[1462]: SELinux により、httpd による name_bind アクセスが、tcp_socket ポート 8081 で拒否されました。#012#012*****  プラグイン catchall (100. 信頼性) による示唆****************************************#012#012httpd に、 ポート 8081 tcp_socket の name_bind アクセスがデフォルトで許可されるべきと考える場合。#012このようにします: バグとして報告してください。 #012ローカルのポリシーモジュールを生成すると、#012 このアクセスを許可することができます。#012そして、以下を実行します: #012以下を実行して、このアクセスを許可します:#012# ausearch -c &#39;httpd&#39; --raw | audit2allow -M my-httpd#012# semodule -X 300 -i my-httpd.pp#012
+<div class="highlight"><pre><span></span><code>setroubleshoot[1462]: SELinux により、httpd による name_bind アクセスが、tcp_socket ポート 8081 で拒否されました。#012#012*****  プラグイン catchall (100. 信頼性) による示唆****************************************#012#012httpd に、 ポート 8081 tcp_socket の name_bind アクセスがデフォルトで許可されるべきと考える場合。#012このようにします: バグとして報告してください。 #012ローカルのポリシーモジュールを生成すると、#012 このアクセスを許可することができます。#012そして、以下を実行します: #012以下を実行して、このアクセスを許可します:#012# ausearch -c 'httpd' --raw | audit2allow -M my-httpd#012# semodule -X 300 -i my-httpd.pp#012
 </code></pre></div>
 <h3 id="_2">ポート状態</h3>
-<div class="highlight"><pre><span></span><code><span class="gp">[root@fedora-node ~]# </span>semanage<span class="w"> </span>port<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;http_port_t&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">[root@fedora-node ~]# </span>semanage<span class="w"> </span>port<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-w<span class="w"> </span><span class="s2">"http_port_t"</span>
 <span class="go">http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
 </code></pre></div>
 <p>なるほど、8081は無い。</p>
@@ -1957,7 +1957,7 @@ AH00558: httpd: Could not reliably determine the server&#39;s fully qualified do
 </code></pre></div>
 <p>8085空いてる</p>
 <div class="highlight"><pre><span></span><code><span class="gp">[root@fedora-node ~]# </span>semanage<span class="w"> </span>port<span class="w"> </span>-a<span class="w"> </span>-t<span class="w"> </span>http_port_t<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span><span class="m">8085</span>
-<span class="gp">[root@fedora-node ~]# </span>semanage<span class="w"> </span>port<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;http_port_t&quot;</span>
+<span class="gp">[root@fedora-node ~]# </span>semanage<span class="w"> </span>port<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-w<span class="w"> </span><span class="s2">"http_port_t"</span>
 <span class="go">http_port_t                    tcp      8085, 80, 81, 443, 488, 8008, 8009, 8443, 9000</span>
 </code></pre></div>
 <p>うむ</p>
@@ -1968,7 +1968,7 @@ AH00558: httpd: Could not reliably determine the server&#39;s fully qualified do
 <span class="go">Date: Tue, 06 Jul 2021 01:55:15 GMT</span>
 <span class="go">Server: Apache/2.4.48 (Fedora)</span>
 <span class="go">Last-Modified: Fri, 26 Mar 2021 17:49:58 GMT</span>
-<span class="go">ETag: &quot;211a-5be742910bd80&quot;</span>
+<span class="go">ETag: "211a-5be742910bd80"</span>
 <span class="go">Accept-Ranges: bytes</span>
 <span class="go">Content-Length: 8474</span>
 <span class="go">Content-Type: text/html; charset=UTF-8</span>
@@ -1996,7 +1996,7 @@ HTTP/1.1 403 Forbidden
 Date: Tue, 06 Jul 2021 04:06:38 GMT
 Server: Apache/2.4.48 (Fedora)
 Last-Modified: Fri, 26 Mar 2021 17:49:58 GMT
-ETag: &quot;211a-5be742910bd80&quot;
+ETag: "211a-5be742910bd80"
 Accept-Ranges: bytes
 Content-Length: 8474
 Content-Type: text/html; charset=UTF-8

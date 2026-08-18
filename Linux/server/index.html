@@ -2263,7 +2263,7 @@ frontend foobar
 
 backend bazqux
   option external-check
-  external-check path &quot;/usr/bin:/bin&quot;
+  external-check path "/usr/bin:/bin"
   external-check command /path/to/script.sh
   server host1 192.168.0.121:8080 check
   server host2 192.168.0.122:8080 check
@@ -2275,7 +2275,7 @@ backend bazqux
 </code></pre></div>
 <h3 id="_7">統計情報</h3>
 <p>CLIの場合</p>
-<div class="highlight"><pre><span></span><code><span class="go">echo &quot;show stat&quot; | socat stdio /var/lib/haproxy/stats</span>
+<div class="highlight"><pre><span></span><code><span class="go">echo "show stat" | socat stdio /var/lib/haproxy/stats</span>
 </code></pre></div>
 <p>web UIの場合は<code>haproxy.cfg</code>に以下設定を追加し、ブラウザで<code>http://server:8080/stats</code>にアクセスする。</p>
 <div class="highlight"><pre><span></span><code><span class="na">listen haproxy-stats</span>
@@ -2310,7 +2310,7 @@ backend bazqux
 </code></pre></div>
 <p>これで<code>example.org</code>だけでなく、<code>foo.example.org</code>も<code>foo.bar.baz.example.org</code>も<code>192.168.0.15</code>となる。</p>
 <h4 id="txt">TXTレコード</h4>
-<div class="highlight"><pre><span></span><code>txt-record=host.example.org,&quot;msg=sample_text&quot;
+<div class="highlight"><pre><span></span><code>txt-record=host.example.org,"msg=sample_text"
 </code></pre></div>
                 
               

@@ -2201,7 +2201,7 @@
                 <h1 id="_1">やらかしたとき</h1>
 <h2 id="commit">ユーザー設定前にcommitした</h2>
 <p>メッセージ出るのでその通りすればいい</p>
-<div class="highlight"><pre><span></span><code>$ git config --global user.name &quot;Your Name&quot;
+<div class="highlight"><pre><span></span><code>$ git config --global user.name "Your Name"
 $ git config --global user.email you@example.com
 $ git commit --amend --reset-author
 </code></pre></div>
@@ -2332,8 +2332,8 @@ fatal: Cannot do hard reset with paths.
 <h2 id="_8">エラー</h2>
 <h3 id="pushcannot-lock-ref">pushでcannot lock ref</h3>
 <p>リモートリポジトリに<code>feature</code>が存在する状態で<code>feature/foobar</code>を<code>push</code>しようとすると以下のエラー</p>
-<div class="highlight"><pre><span></span><code>! [remote rejected] feature/foobar -&gt; feature/foobar (cannot lock ref &#39;refs/heads/feature/foobar&#39;: &#39;refs/heads/feature&#39; exists; cannot create &#39;refs/heads/feature/foobar&#39;)
-error: failed to push some refs to &#39;github.com:...&#39;
+<div class="highlight"><pre><span></span><code>! [remote rejected] feature/foobar -&gt; feature/foobar (cannot lock ref 'refs/heads/feature/foobar': 'refs/heads/feature' exists; cannot create 'refs/heads/feature/foobar')
+error: failed to push some refs to 'github.com:...'
 </code></pre></div>
 <p>リモートブランチの削除とローカルの<code>origin/feature</code>を削除すればOK</p>
 <h3 id="pullneed-to-specify-how-to-reconcile-divergent-branches">pullでNeed to specify how to reconcile divergent branches</h3>
@@ -2346,7 +2346,7 @@ error: failed to push some refs to &#39;github.com:...&#39;
 <span class="go">hint:   git config pull.rebase true   # rebase</span>
 <span class="go">hint:   git config pull.ff only       # fast-forward only</span>
 <span class="go">hint:</span>
-<span class="go">hint: You can replace &quot;git config&quot; with &quot;git config --global&quot; to set a default</span>
+<span class="go">hint: You can replace "git config" with "git config --global" to set a default</span>
 <span class="go">hint: preference for all repositories. You can also pass --rebase, --no-rebase,</span>
 <span class="go">hint: or --ff-only on the command line to override the configured default per</span>
 <span class="go">hint: invocation.</span>

@@ -2123,7 +2123,7 @@
 <h3 id="insecure">insecureなレジストリ設定</h3>
 <p>ユーザー単位であれば<code>$HOME/.config/containers/registries.conf</code>に以下作成</p>
 <div class="highlight"><pre><span></span><code><span class="k">[registries.insecure]</span>
-<span class="na">registries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&#39;my-registry.example.org:5000&#39;]</span>
+<span class="na">registries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">['my-registry.example.org:5000']</span>
 </code></pre></div>
 <p>システムワイドであれば<code>/etc/containers/registries.conf</code>または<code>/etc/containers/registries.conf.d/insecure-registries.conf</code>などに作成してもよい。</p>
 <blockquote>
@@ -2131,7 +2131,7 @@
 </blockquote>
 <p>エラーが出る場合、v2の書式で作成する。</p>
 <div class="highlight"><pre><span></span><code><span class="k">[[registry]]</span>
-<span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-registry.example.org:5000&quot;</span>
+<span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"my-registry.example.org:5000"</span>
 <span class="n">insecure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </code></pre></div>
                 

@@ -1959,15 +1959,15 @@
 </code></pre></div>
 <p>または</p>
 <div class="highlight"><pre><span></span><code><span class="gp">[ec2-user@ip-172-26-10-149 ~]$ </span>cat<span class="w"> </span>/etc/os-release<span class="w"> </span>
-<span class="go">NAME=&quot;Amazon Linux&quot;</span>
-<span class="go">VERSION=&quot;2&quot;</span>
-<span class="go">ID=&quot;amzn&quot;</span>
-<span class="go">ID_LIKE=&quot;centos rhel fedora&quot;</span>
-<span class="go">VERSION_ID=&quot;2&quot;</span>
-<span class="go">PRETTY_NAME=&quot;Amazon Linux 2&quot;</span>
-<span class="go">ANSI_COLOR=&quot;0;33&quot;</span>
-<span class="go">CPE_NAME=&quot;cpe:2.3:o:amazon:amazon_linux:2&quot;</span>
-<span class="go">HOME_URL=&quot;https://amazonlinux.com/&quot;</span>
+<span class="go">NAME="Amazon Linux"</span>
+<span class="go">VERSION="2"</span>
+<span class="go">ID="amzn"</span>
+<span class="go">ID_LIKE="centos rhel fedora"</span>
+<span class="go">VERSION_ID="2"</span>
+<span class="go">PRETTY_NAME="Amazon Linux 2"</span>
+<span class="go">ANSI_COLOR="0;33"</span>
+<span class="go">CPE_NAME="cpe:2.3:o:amazon:amazon_linux:2"</span>
+<span class="go">HOME_URL="https://amazonlinux.com/"</span>
 </code></pre></div>
 <h2 id="_2">ディスク拡張</h2>
 <ul>
@@ -1994,7 +1994,7 @@
 </code></pre></div>
 <h3 id="_4">パスワード設定</h3>
 <div class="highlight"><pre><span></span><code><span class="c1">#cloud-config</span>
-<span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;p@ssword&#39;</span>
+<span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">'p@ssword'</span>
 <span class="nt">chpasswd</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> expire</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </code></pre></div>
 <p>記号を含む場合はクォートするのが無難。

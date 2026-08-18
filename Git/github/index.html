@@ -2832,20 +2832,20 @@
 JSON形式のレスポンスのうち、<code>default_branch</code>キーの値にデフォルトブランチがセットされている。</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>https://api.github.com/repos/netbox-community/ansible_modules
 <span class="go">{</span>
-<span class="go">  &quot;id&quot;: 204365310,</span>
-<span class="go">  &quot;node_id&quot;: &quot;MDEwOlJlcG9zaXRvcnkyMDQzNjUzMTA=&quot;,</span>
-<span class="go">  &quot;name&quot;: &quot;ansible_modules&quot;,</span>
-<span class="go">  &quot;full_name&quot;: &quot;netbox-community/ansible_modules&quot;,</span>
-<span class="go">  &quot;private&quot;: false,</span>
+<span class="go">  "id": 204365310,</span>
+<span class="go">  "node_id": "MDEwOlJlcG9zaXRvcnkyMDQzNjUzMTA=",</span>
+<span class="go">  "name": "ansible_modules",</span>
+<span class="go">  "full_name": "netbox-community/ansible_modules",</span>
+<span class="go">  "private": false,</span>
 
 <span class="go">  :</span>
 <span class="go">  :</span>
 
-<span class="go">  &quot;visibility&quot;: &quot;public&quot;,</span>
-<span class="go">  &quot;forks&quot;: 123,</span>
-<span class="go">  &quot;open_issues&quot;: 46,</span>
-<span class="go">  &quot;watchers&quot;: 200,</span>
-<span class="go">  &quot;default_branch&quot;: &quot;devel&quot;,</span>
+<span class="go">  "visibility": "public",</span>
+<span class="go">  "forks": 123,</span>
+<span class="go">  "open_issues": 46,</span>
+<span class="go">  "watchers": 200,</span>
+<span class="go">  "default_branch": "devel",</span>
 
 <span class="go">  :</span>
 <span class="go">  :</span>
@@ -2885,12 +2885,12 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.10'</span>
 <span class="w">        </span><span class="c1"># withはアクションのパラメタ</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upgrade pip</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no"># install pip=&gt;20.1 to use &quot;pip cache dir&quot;</span>
+<span class="w">          </span><span class="no"># install pip=&gt;20.1 to use "pip cache dir"</span>
 <span class="w">          </span><span class="no">python3 -m pip install --upgrade pip</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3 -m pip install -r ./requirements.txt</span>
@@ -2900,7 +2900,7 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
-<span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == 'refs/heads/main'</span>
 <span class="w">        </span><span class="c1"># if:条件</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">personal_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PERSONAL_TOKEN }}</span>
@@ -2936,10 +2936,10 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec command</span>
 <span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">    </span><span class="no">value=$(command)</span>
-<span class="w">    </span><span class="no">echo &quot;VALUE=$value&quot; &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
+<span class="w">    </span><span class="no">echo "VALUE=$value" &gt;&gt; "$GITHUB_ENV"</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec next</span>
-<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.VALUE != &#39;&#39; }}</span>
+<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.VALUE != '' }}</span>
 <span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <p>"exec command"の出力結果を変数保持しているが、文字列長がゼロの場合は次のタスク"exec next"は実行されない。</p>
@@ -2949,7 +2949,7 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <h3 id="_23">変数</h3>
 <h4 id="format">フォーマット文字列(format)</h4>
 <div class="highlight"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">VALUE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ format(&#39;foo-{0}-bar&#39;, vars.INPUT_VALUE) }}</span>
+<span class="w">  </span><span class="nt">VALUE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ format('foo-{0}-bar', vars.INPUT_VALUE) }}</span>
 </code></pre></div>
 <p><code>VALUE</code>の値は、入力変数<code>INPUT_VALUE</code>の内容に従って<code>"foo-***-bar"</code>となる。</p>
 <h4 id="github_env">タスクの結果を次のタスクで参照する($GITHUB_ENV)</h4>
@@ -2962,10 +2962,10 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">step_one</span>
 <span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">      </span><span class="no">{</span>
-<span class="w">        </span><span class="no">echo &#39;JSON_RESPONSE&lt;&lt;EOF&#39;</span>
+<span class="w">        </span><span class="no">echo 'JSON_RESPONSE&lt;&lt;EOF'</span>
 <span class="w">        </span><span class="no">curl https://example.com</span>
 <span class="w">        </span><span class="no">echo EOF</span>
-<span class="w">      </span><span class="no">} &gt;&gt; &quot;$GITHUB_ENV&quot;</span>
+<span class="w">      </span><span class="no">} &gt;&gt; "$GITHUB_ENV"</span>
 </code></pre></div>
 <p><a href="https://docs.github.com/ja/actions/reference/workflows-and-actions/workflow-commands#multiline-strings">GitHub Actions のワークフロー コマンド - GitHub Docs</a></p>
 <h3 id="github_tokenpermissions">GITHUB_TOKENとpermissions</h3>
@@ -2995,10 +2995,10 @@ JSON形式のレスポンスのうち、<code>default_branch</code>キーの値�
 <p><code>subscription-id</code>/<code>client-id</code>/<code>tenant-id</code>のセット(OpenID Connect(OIDC))か、<code>creds</code>にクレデンシャル情報を指定(サービスプリンシパル)する。<br />
 <code>creds</code>の場合は以下の形式の文字列</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;subscriptionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"clientSecret"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"subscriptionId"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"tenantId"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"clientId"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="azure-cli">Azure CLI</h4>

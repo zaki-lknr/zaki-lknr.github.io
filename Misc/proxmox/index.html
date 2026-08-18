@@ -2282,7 +2282,7 @@
 </code></pre></div>
 <p>実行例</p>
 <div class="highlight"><pre><span></span><code><span class="gp">root@pve:~# </span>qm<span class="w"> </span>importovf<span class="w"> </span><span class="m">201</span><span class="w"> </span>/mnt/pve/pecorino/archive/export/fedora-node/fedora-node.ovf<span class="w"> </span>wdblue1000gb
-<span class="go">  Logical volume &quot;vm-201-disk-0&quot; created.</span>
+<span class="go">  Logical volume "vm-201-disk-0" created.</span>
 <span class="go">transferred 0.0 B of 20.0 GiB (0.00%)</span>
 <span class="go">transferred 204.8 MiB of 20.0 GiB (1.00%)</span>
 <span class="go">transferred 409.6 MiB of 20.0 GiB (2.00%)</span>
@@ -2342,7 +2342,7 @@
 <h3 id="_3">ブリッジポート無しで作成したブリッジに物理ポートを追加</h3>
 <p>UIでLinux Bridgeの「ブリッジポート」にポート名を追加し「OK」押下。<br />
 画面下部にメッセージが表示される。</p>
-<div class="highlight"><pre><span></span><code>## 変更を保留中 (有効にするには再起動か、 &#39;Apply Configuration&#39; (needs ifupdown2)を使用)
+<div class="highlight"><pre><span></span><code>## 変更を保留中 (有効にするには再起動か、 'Apply Configuration' (needs ifupdown2)を使用)
 <span class="gd">--- /etc/network/interfaces 2023-05-21 15:33:29.906403987 +0900</span>
 <span class="gi">+++ /etc/network/interfaces.new 2023-10-17 09:10:38.701832421 +0900</span>
 <span class="gu">@@ -29,7 +29,7 @@</span>
@@ -2395,9 +2395,9 @@
 <span class="go">CFG: size: 458 name: qemu-server.conf</span>
 <span class="go">DEV: dev_id=1 size: 17179869184 devname: drive-scsi0</span>
 <span class="go">CTIME: Tue Sep  5 15:29:21 2023</span>
-<span class="go">  Logical volume &quot;vm-500-disk-0&quot; created.</span>
-<span class="go">new volume ID is &#39;WDS100T2BA0A:vm-500-disk-0&#39;</span>
-<span class="go">map &#39;drive-scsi0&#39; to &#39;/dev/WDS100T2BA0A/vm-500-disk-0&#39; (write zeros = 0)</span>
+<span class="go">  Logical volume "vm-500-disk-0" created.</span>
+<span class="go">new volume ID is 'WDS100T2BA0A:vm-500-disk-0'</span>
+<span class="go">map 'drive-scsi0' to '/dev/WDS100T2BA0A/vm-500-disk-0' (write zeros = 0)</span>
 <span class="go">progress 1% (read 171835392 bytes, duration 1 sec)</span>
 <span class="go">progress 2% (read 343605248 bytes, duration 2 sec)</span>
 <span class="go">progress 3% (read 515440640 bytes, duration 4 sec)</span>
@@ -2447,29 +2447,29 @@ NIC情報であれば以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>qm<span class="w"> </span>guest<span class="w"> </span>cmd<span class="w"> </span><span class="m">710</span><span class="w"> </span>network-get-interfaces
 <span class="go">[</span>
 <span class="go">   {</span>
-<span class="go">      &quot;hardware-address&quot; : &quot;00:00:00:00:00:00&quot;,</span>
-<span class="go">      &quot;ip-addresses&quot; : [</span>
+<span class="go">      "hardware-address" : "00:00:00:00:00:00",</span>
+<span class="go">      "ip-addresses" : [</span>
 <span class="go">         {</span>
-<span class="go">            &quot;ip-address&quot; : &quot;127.0.0.1&quot;,</span>
-<span class="go">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
-<span class="go">            &quot;prefix&quot; : 8</span>
+<span class="go">            "ip-address" : "127.0.0.1",</span>
+<span class="go">            "ip-address-type" : "ipv4",</span>
+<span class="go">            "prefix" : 8</span>
 <span class="go">         },</span>
 
 <span class="go">         ...</span>
 <span class="go">      ]</span>
 <span class="go">   },</span>
 <span class="go">   {</span>
-<span class="go">      &quot;hardware-address&quot; : &quot;bc:24:11:d6:b0:61&quot;,</span>
-<span class="go">      &quot;ip-addresses&quot; : [</span>
+<span class="go">      "hardware-address" : "bc:24:11:d6:b0:61",</span>
+<span class="go">      "ip-addresses" : [</span>
 <span class="go">         {</span>
-<span class="go">            &quot;ip-address&quot; : &quot;192.168.0.201&quot;,</span>
-<span class="go">            &quot;ip-address-type&quot; : &quot;ipv4&quot;,</span>
-<span class="go">            &quot;prefix&quot; : 24</span>
+<span class="go">            "ip-address" : "192.168.0.201",</span>
+<span class="go">            "ip-address-type" : "ipv4",</span>
+<span class="go">            "prefix" : 24</span>
 <span class="go">         },</span>
 <span class="go">         {</span>
-<span class="go">            &quot;ip-address&quot; : &quot;fe80::be24:11ff:fed6:b061&quot;,</span>
-<span class="go">            &quot;ip-address-type&quot; : &quot;ipv6&quot;,</span>
-<span class="go">            &quot;prefix&quot; : 64</span>
+<span class="go">            "ip-address" : "fe80::be24:11ff:fed6:b061",</span>
+<span class="go">            "ip-address-type" : "ipv6",</span>
+<span class="go">            "prefix" : 64</span>
 <span class="go">         }</span>
 <span class="go">      ],</span>
 

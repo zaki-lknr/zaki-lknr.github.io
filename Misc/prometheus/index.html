@@ -1938,16 +1938,16 @@
 <div class="highlight"><pre><span></span><code><span class="go">docker run -d \</span>
 <span class="go">  --name=node_exporter \</span>
 <span class="go">  --publish 9100:9100 \</span>
-<span class="go">  --pid=&quot;host&quot; \</span>
-<span class="go">  -v &quot;/:/host:ro,rslave&quot; \</span>
+<span class="go">  --pid="host" \</span>
+<span class="go">  -v "/:/host:ro,rslave" \</span>
 <span class="go">  --restart=always \</span>
 <span class="go">  quay.io/prometheus/node-exporter:latest \</span>
 <span class="go">  --path.rootfs=/host</span>
 </code></pre></div>
 <p>このNode ExporterをPrometheusから監視するには以下の設定</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">'node'</span>
 <span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;192.168.0.16:9100&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'192.168.0.16:9100'</span><span class="p p-Indicator">]</span>
 </code></pre></div>
                 
               

@@ -2209,13 +2209,13 @@
 <p>未定義だったらこの値に置き換える、というもの。<br />
 以下は<code>foobar_values</code>が未定義の場合は<code>value</code>は<code>zzz</code>となる。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">vars</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">foobar_values</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(&#39;zzz&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">foobar_values</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default('zzz')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>よく使うのは初期値が無い場合にループでリストを作るとき。</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curry</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">loop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">yasai</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">(niku</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default([]))</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">loop</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">yasai</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">(niku</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default([]))</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>とか</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set_fact list value</span>
@@ -2225,11 +2225,11 @@
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item2</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item3</span>
 <span class="w">      </span><span class="nt">set_fact</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">list_items</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list_items|default([])</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">[item]</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="nt">loop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list_values</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">        </span><span class="nt">list_items</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list_items|default([])</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">[item]</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="nt">loop</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list_values</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>未定義でなくfalseだったら置き換えるのであれば、第2引数に<code>true</code>をセットする。</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">{{</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="err">|</span><span class="nv">default(&#39;the string was empty&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">true)</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">{{</span><span class="w"> </span><span class="s">''</span><span class="err">|</span><span class="nv">default('the string was empty'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">true)</span><span class="w"> </span><span class="p p-Indicator">}}</span>
 </code></pre></div>
 <ul>
 <li><a href="https://jinja.palletsprojects.com/en/3.0.x/templates/#jinja-filters.default">jinja-filters.default</a></li>
@@ -2241,26 +2241,26 @@
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#defining-different-values-for-true-false-null-ternary">Defining different values for true/false/null (ternary)</a></p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ternary sample</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">1)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary(&#39;sample_valueは1だよ&#39;,</span><span class="nv"> </span><span class="s">&#39;sample_valueは1じゃないよ&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="c1"># やってることは (sample_value == 1) ? &#39;sample_valueは1だよ&#39;: &#39;sample_valueは1じゃないよ&#39; と同じ</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">1)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary('sample_valueは1だよ',</span><span class="nv"> </span><span class="s">'sample_valueは1じゃないよ')</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="c1"># やってることは (sample_value == 1) ? 'sample_valueは1だよ': 'sample_valueは1じゃないよ' と同じ</span>
 
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ternary nest sample</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">1)</span><span class="nv"> </span><span class="s">|</span>
-<span class="w">                    </span><span class="s">ternary(&#39;sample_valueは1だよ&#39;,</span>
-<span class="w">                              </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">2)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary(&#39;sample_valueは2だよ&#39;,</span><span class="nv"> </span><span class="s">&#39;sample_valueは1でも2でもないよ&#39;)</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">1)</span><span class="nv"> </span><span class="s">|</span>
+<span class="w">                    </span><span class="s">ternary('sample_valueは1だよ',</span>
+<span class="w">                              </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">2)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary('sample_valueは2だよ',</span><span class="nv"> </span><span class="s">'sample_valueは1でも2でもないよ')</span>
 <span class="w">                            </span><span class="s">)</span>
-<span class="w">              </span><span class="s">}}&quot;</span>
+<span class="w">              </span><span class="s">}}"</span>
 <span class="w">        </span><span class="c1"># 入れ子にしたternary()</span>
 
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ternary nest sample</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">1)</span><span class="nv"> </span><span class="s">|</span>
-<span class="w">                    </span><span class="s">ternary(&#39;sample_valueは1だよ&#39;,</span><span class="nv"> </span><span class="s">undefined)</span><span class="nv"> </span><span class="s">|</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">(sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">1)</span><span class="nv"> </span><span class="s">|</span>
+<span class="w">                    </span><span class="s">ternary('sample_valueは1だよ',</span><span class="nv"> </span><span class="s">undefined)</span><span class="nv"> </span><span class="s">|</span>
 <span class="w">                  </span><span class="s">default((sample_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">2)</span><span class="nv"> </span><span class="s">|</span>
-<span class="w">                           </span><span class="s">ternary(&#39;sample_valueは2だよ&#39;,</span><span class="nv"> </span><span class="s">&#39;sample_valueは1でも2でもないよ&#39;)</span>
+<span class="w">                           </span><span class="s">ternary('sample_valueは2だよ',</span><span class="nv"> </span><span class="s">'sample_valueは1でも2でもないよ')</span>
 <span class="w">                         </span><span class="s">)</span>
-<span class="w">              </span><span class="s">}}&quot;</span>
+<span class="w">              </span><span class="s">}}"</span>
 <span class="w">      </span><span class="c1"># 入れ子にせずに、defaultフィルタを併用。ピタゴラスイッチ感。</span>
 <span class="w">      </span><span class="c1"># if-elsif-else っぽく見せるインデント難しい</span>
 </code></pre></div>
@@ -2288,30 +2288,30 @@
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spinach</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garlic</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">menu</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">dict2items</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">menu</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">dict2items</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>実行結果は以下の通り。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"msg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;curry&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;chicken&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;meat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="s2">&quot;cow&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"curry"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"chicken"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"meat"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cow"</span>
 <span class="w">            </span><span class="p">],</span>
-<span class="w">            </span><span class="nt">&quot;vegetable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="s2">&quot;carrot&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;potato&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;onion&quot;</span>
+<span class="w">            </span><span class="nt">"vegetable"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"carrot"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"potato"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"onion"</span>
 <span class="w">            </span><span class="p">]</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pasta&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;vegetable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="s2">&quot;spinach&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;garlic&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pasta"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"vegetable"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"spinach"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"garlic"</span>
 <span class="w">            </span><span class="p">]</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -2327,28 +2327,28 @@
 <span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">netbox-demo-inventory</span>
 </code></pre></div>
 <p>という構造に対しては、以下のように書く。</p>
-<div class="highlight"><pre><span></span><code>selectattr(&#39;summary_fields.inventory.name&#39;, &#39;eq&#39;, &#39;netbox-demo-inventory&#39;)
+<div class="highlight"><pre><span></span><code>selectattr('summary_fields.inventory.name', 'eq', 'netbox-demo-inventory')
 </code></pre></div>
 <h2 id="reject-rejectattr">否定検索 (reject / rejectattr)</h2>
 <p>それぞれ<code>select</code>と<code>selectattr</code>の真偽が逆になるフィルタ。<br />
 「リスト内の空文字を除外」であれば以下の通り。</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">reject(&#39;eq&#39;,</span><span class="nv"> </span><span class="s">&#39;&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">reject('eq',</span><span class="nv"> </span><span class="s">'')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <h2 id="map">リスト要素への一律処理 (map)</h2>
 <h3 id="_3">別フィルタの適用</h3>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(&#39;length&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map('length')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>リスト<code>items</code>の各要素に対して<code>length</code>フィルタをかます</p>
 <h3 id="_4">要素抜き出し</h3>
 <p>辞書のキーを<code>attribute</code>で指定することで、各要素(辞書型からなる)の指定キーの値のみ抜き出す。</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute=&#39;hostname&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute='hostname')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>キーが無い場合は<code>AnsibleUndefined</code>になるが、オプションか更にフィルタすることで対処できる。<br />
 <code>default</code>を指定すればキーが無い場合はその値に置き換える。</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute=&#39;hostname&#39;,</span><span class="nv"> </span><span class="s">default=&#39;no</span><span class="nv"> </span><span class="s">data&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute='hostname',</span><span class="nv"> </span><span class="s">default='no</span><span class="nv"> </span><span class="s">data')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p><code>select</code>を使ったフィルタに繋げれば、undefの項目を除外もできる。</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute=&#39;hostname&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">select(&#39;none&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"{{</span><span class="nv"> </span><span class="s">items</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute='hostname')</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">select('none')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p><code>none</code>は<a href="https://jinja.palletsprojects.com/en/latest/templates/#jinja-tests.none">Jinja2のTest</a>の一つ。</p>
 <h2 id="_5">リストの先頭・末尾要素</h2>
@@ -2367,10 +2367,10 @@
 <span class="w">        </span><span class="nt">foobar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hogehoge</span>
 <span class="w">      </span><span class="nt">debug</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">msg</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list[0]</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">last</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list[-1]</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list[0]</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">last</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list[-1]</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>結果</p>
 <div class="highlight"><pre><span></span><code>TASK [first] *******************************************
@@ -2399,23 +2399,23 @@ ok: [localhost] =&gt;
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defference filter sample</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">msg</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">int_list1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">difference(int_list2)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">int_list1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">difference(int_list2)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>出力は<code>[1, 2]</code>になる。(<code>int_list2</code>のみの要素である<code>4</code>は対象外)</p>
 <p>なお、文字列の場合は元々iterableのため、<code>difference</code>の引数はリストでなくても一応動作する。</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
 <span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">list1</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;foo&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bar&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;baz&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">list2</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;baz&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;qux&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">str_item</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;baz&quot;</span>
+<span class="w">    </span><span class="nt">list1</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"foo"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"bar"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"baz"</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">list2</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"baz"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"qux"</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">str_item</span><span class="p">:</span><span class="w"> </span><span class="s">"baz"</span>
 
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defference filter sample</span>
 <span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">msg</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">difference(list2)</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">list1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">difference(str_item)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">difference(list2)</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">difference(str_item)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>どちらの結果も<code>["foo", "bar"]</code>になる。</p>
 <h2 id="combine">辞書のマージ(combine)</h2>
@@ -2430,20 +2430,20 @@ ok: [localhost] =&gt;
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemA</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemB</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>2つの辞書をマージする。<br />
 重複キーの無い辞書同士は単純合成になり、上のタスクの実行結果は以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="go">TASK [merge 2 dicts] *********************************************</span>
 <span class="go">ok: [localhost] =&gt; {</span>
-<span class="go">    &quot;msg&quot;: {</span>
-<span class="go">        &quot;list1&quot;: [</span>
-<span class="go">            &quot;item1&quot;,</span>
-<span class="go">            &quot;item2&quot;</span>
+<span class="go">    "msg": {</span>
+<span class="go">        "list1": [</span>
+<span class="go">            "item1",</span>
+<span class="go">            "item2"</span>
 <span class="go">        ],</span>
-<span class="go">        &quot;list2&quot;: [</span>
-<span class="go">            &quot;itemA&quot;,</span>
-<span class="go">            &quot;itemB&quot;</span>
+<span class="go">        "list2": [</span>
+<span class="go">            "itemA",</span>
+<span class="go">            "itemB"</span>
 <span class="go">        ]</span>
 <span class="go">    }</span>
 <span class="go">}</span>
@@ -2462,18 +2462,18 @@ ok: [localhost] =&gt;
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemA</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemB</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p><code>combine</code>する辞書に同じ<code>lsit1</code>キーを含む場合、このタスクの実行結果は以下の通りで、<code>combine</code>に指定した辞書側の<code>list1</code>キーの値で上書きされる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">TASK [merge 2 dicts] ******************************************************************</span>
 <span class="go">ok: [localhost] =&gt; {</span>
-<span class="go">    &quot;msg&quot;: {</span>
-<span class="go">        &quot;list1&quot;: [</span>
-<span class="go">            &quot;item3&quot;</span>
+<span class="go">    "msg": {</span>
+<span class="go">        "list1": [</span>
+<span class="go">            "item3"</span>
 <span class="go">        ],</span>
-<span class="go">        &quot;list2&quot;: [</span>
-<span class="go">            &quot;itemA&quot;,</span>
-<span class="go">            &quot;itemB&quot;</span>
+<span class="go">        "list2": [</span>
+<span class="go">            "itemA",</span>
+<span class="go">            "itemB"</span>
 <span class="go">        ]</span>
 <span class="go">    }</span>
 <span class="go">}</span>
@@ -2494,20 +2494,20 @@ ok: [localhost] =&gt;
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemA</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemB</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2,</span><span class="nv"> </span><span class="s">list_merge=&#39;append&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2,</span><span class="nv"> </span><span class="s">list_merge='append')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p><code>list1</code>キーが重複した入力で、<code>list_merge=append</code>を指定した場合の実行結果は以下の通り。</p>
 <div class="highlight"><pre><span></span><code><span class="go">TASK [merge 2 dicts] *********************************************</span>
 <span class="go">ok: [localhost] =&gt; {</span>
-<span class="go">    &quot;msg&quot;: {</span>
-<span class="go">        &quot;list1&quot;: [</span>
-<span class="go">            &quot;item1&quot;,</span>
-<span class="go">            &quot;item2&quot;,</span>
-<span class="go">            &quot;item3&quot;</span>
+<span class="go">    "msg": {</span>
+<span class="go">        "list1": [</span>
+<span class="go">            "item1",</span>
+<span class="go">            "item2",</span>
+<span class="go">            "item3"</span>
 <span class="go">        ],</span>
-<span class="go">        &quot;list2&quot;: [</span>
-<span class="go">            &quot;itemA&quot;,</span>
-<span class="go">            &quot;itemB&quot;</span>
+<span class="go">        "list2": [</span>
+<span class="go">            "itemA",</span>
+<span class="go">            "itemB"</span>
 <span class="go">        ]</span>
 <span class="go">    }</span>
 <span class="go">}</span>
@@ -2556,22 +2556,22 @@ ok: [localhost] =&gt;
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemA</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itemB</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2,</span><span class="nv"> </span><span class="s">list_merge=&#39;append_rp&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">var1</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">combine(var2,</span><span class="nv"> </span><span class="s">list_merge='append_rp')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>このタスクを実行すると以下の通り。<br />
 リスト要素にどちらも<code>item1</code>が含まれるためこれが<code>var1</code>から削除され、<code>var2</code>の要素(<code>item3</code>,<code>item1</code>,<code>item4</code>)が末尾へ追加される。</p>
 <div class="highlight"><pre><span></span><code><span class="go">TASK [merge 2 dicts] *********************************************</span>
 <span class="go">ok: [localhost] =&gt; {</span>
-<span class="go">    &quot;msg&quot;: {</span>
-<span class="go">        &quot;list1&quot;: [</span>
-<span class="go">            &quot;item2&quot;,</span>
-<span class="go">            &quot;item3&quot;,</span>
-<span class="go">            &quot;item1&quot;,</span>
-<span class="go">            &quot;item4&quot;</span>
+<span class="go">    "msg": {</span>
+<span class="go">        "list1": [</span>
+<span class="go">            "item2",</span>
+<span class="go">            "item3",</span>
+<span class="go">            "item1",</span>
+<span class="go">            "item4"</span>
 <span class="go">        ],</span>
-<span class="go">        &quot;list2&quot;: [</span>
-<span class="go">            &quot;itemA&quot;,</span>
-<span class="go">            &quot;itemB&quot;</span>
+<span class="go">        "list2": [</span>
+<span class="go">            "itemA",</span>
+<span class="go">            "itemB"</span>
 <span class="go">        ]</span>
 <span class="go">    }</span>
 <span class="go">}</span>
@@ -2580,16 +2580,16 @@ ok: [localhost] =&gt;
 重複する<code>item1</code>が<code>var1</code>から削除される動作は同じで、<code>var2</code>の要素(<code>item3</code>,<code>item1</code>,<code>item4</code>)が先頭へ追加される。</p>
 <div class="highlight"><pre><span></span><code><span class="go">TASK [merge 2 dicts] *********************************************</span>
 <span class="go">ok: [localhost] =&gt; {</span>
-<span class="go">    &quot;msg&quot;: {</span>
-<span class="go">        &quot;list1&quot;: [</span>
-<span class="go">            &quot;item3&quot;,</span>
-<span class="go">            &quot;item1&quot;,</span>
-<span class="go">            &quot;item4&quot;,</span>
-<span class="go">            &quot;item2&quot;</span>
+<span class="go">    "msg": {</span>
+<span class="go">        "list1": [</span>
+<span class="go">            "item3",</span>
+<span class="go">            "item1",</span>
+<span class="go">            "item4",</span>
+<span class="go">            "item2"</span>
 <span class="go">        ],</span>
-<span class="go">        &quot;list2&quot;: [</span>
-<span class="go">            &quot;itemA&quot;,</span>
-<span class="go">            &quot;itemB&quot;</span>
+<span class="go">        "list2": [</span>
+<span class="go">            "itemA",</span>
+<span class="go">            "itemB"</span>
 <span class="go">        ]</span>
 <span class="go">    }</span>
 <span class="go">}</span>
@@ -2597,7 +2597,7 @@ ok: [localhost] =&gt;
 <h2 id="length">文字列長(length)</h2>
 <p>そのまんま</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">string_value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">string_value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">string_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">abcde</span>
 </code></pre></div>
@@ -2608,7 +2608,7 @@ ok: [localhost] =&gt;
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create repository url</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">msg</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(registry_url,</span><span class="nv"> </span><span class="s">registry_username,</span><span class="nv"> </span><span class="s">&#39;awx&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">path_join</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">(registry_url,</span><span class="nv"> </span><span class="s">registry_username,</span><span class="nv"> </span><span class="s">'awx')</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">path_join</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="na">registry_username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">zaki-lknr</span>
 <span class="na">registry_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ghcr.io</span>
@@ -2625,15 +2625,15 @@ ok: [localhost] =&gt;
 <li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#encrypting-and-checksumming-strings-and-passwords">Encrypting and checksumming strings and passwords</a></li>
 </ul>
 <h3 id="password_hash">password_hash</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">password_plain_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">password_hash(&#39;sha512&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">password_plain_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">password_hash('sha512')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>デフォルトは<code>sha512</code>で暗号化される。<br />
 <a href="https://github.com/ansible/ansible/blob/v2.10.5/lib/ansible/plugins/filter/core.py#L266">https://github.com/ansible/ansible/blob/v2.10.5/lib/ansible/plugins/filter/core.py#L266</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_encrypted_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">hashtype</span><span class="o">=</span><span class="s1">&#39;sha512&#39;</span><span class="p">,</span> <span class="n">salt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">salt_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rounds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_encrypted_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">hashtype</span><span class="o">=</span><span class="s1">'sha512'</span><span class="p">,</span> <span class="n">salt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">salt_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rounds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 </code></pre></div>
 <p>saltの指定が無い場合はランダムになるため、実行のたびに結果の値は変化する。(つまり、このパスワードを設定したりすれば毎回<code>changed</code>になる)<br />
 冪等にしたければ、saltに固定の値をセットする。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">password_plain_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">password_hash(&#39;sha512&#39;,</span><span class="nv"> </span><span class="s">&#39;hoge&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">password_plain_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">password_hash('sha512',</span><span class="nv"> </span><span class="s">'hoge')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <ul>
 <li><a href="https://blog.amedama.jp/entry/linux-shadow-passwd">Linux の UNIX パスワード認証について調べた - CUBE SUGAR CONTAINER</a></li>
@@ -2645,7 +2645,7 @@ ok: [localhost] =&gt;
 <span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">sample_text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zaki</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sample_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">b64encode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">sample_text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">b64encode</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>↓</p>
 <div class="highlight"><pre><span></span><code><span class="go">ok: [localhost] =&gt; </span>
@@ -2656,7 +2656,7 @@ ok: [localhost] =&gt;
 <span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">b64text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">emFraQ==</span>
 <span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">b64text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">b64decode</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">b64text</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">b64decode</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>↓</p>
 <div class="highlight"><pre><span></span><code><span class="go">ok: [localhost] =&gt; </span>
@@ -2664,25 +2664,25 @@ ok: [localhost] =&gt;
 </code></pre></div>
 <h2 id="type_debug">オブジェクトの型を調べる (type_debug)</h2>
 <p>任意のオブジェクトの型をチェックするには <code>type_debug</code> を使う。</p>
-<div class="highlight"><pre><span></span><code>- name: type debug
-  debug:
-    msg: &quot;{{ item }}&quot;
-  vars:
-    num_val: 1
-    str_val: zzz
-    list_val:
-      - item1
-      - item2
-      - item3
-    dict_val:
-      key1: val1
-      key2: val2
-      key3: val3
-  loop:
-    - &quot;{{ num_val | type_debug }}&quot;
-    - &quot;{{ str_val | type_debug }}&quot;
-    - &quot;{{ list_val | type_debug }}&quot;
-    - &quot;{{ dict_val | type_debug }}&quot;
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type debug</span>
+<span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">num_val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">str_val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zzz</span>
+<span class="w">    </span><span class="nt">list_val</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item1</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item3</span>
+<span class="w">    </span><span class="nt">dict_val</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">key1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">val1</span>
+<span class="w">      </span><span class="nt">key2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">val2</span>
+<span class="w">      </span><span class="nt">key3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">val3</span>
+<span class="w">  </span><span class="nt">loop</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">num_val</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">type_debug</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">str_val</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">type_debug</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">list_val</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">type_debug</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">dict_val</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">type_debug</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
 <p>結果</p>
 <div class="highlight"><pre><span></span><code><span class="go">TASK [type debug] ***********************************************************</span>

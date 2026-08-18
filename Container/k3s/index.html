@@ -2573,8 +2573,8 @@
 </tbody>
 </table>
 <div class="highlight"><pre><span></span><code><span class="go">curl -sfL https://get.k3s.io | sh -s - \</span>
-<span class="go">  --cluster-cidr &quot;172.28.0.0/16&quot; \</span>
-<span class="go">  --service-cidr &quot;172.29.0.0/16&quot; \</span>
+<span class="go">  --cluster-cidr "172.28.0.0/16" \</span>
+<span class="go">  --service-cidr "172.29.0.0/16" \</span>
 <span class="go">  --kube-controller-manager-arg=node-cidr-mask-size=24 \</span>
 <span class="go">  --kubelet-arg=max-pods=200</span>
 </code></pre></div>
@@ -2600,9 +2600,9 @@ $ curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --resolv-co
 <h3 id="_11">インストールパラメタの設定ファイル化</h3>
 <p><code>/etc/rancher/k3s/config.yaml</code>ファイルに定義する。</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="nt">write-kubeconfig-mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0644&quot;</span>
-<span class="nt">cluster-cidr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;172.28.0.0/16&quot;</span>
-<span class="nt">service-cidr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;172.29.0.0/16&quot;</span>
+<span class="nt">write-kubeconfig-mode</span><span class="p">:</span><span class="w"> </span><span class="s">"0644"</span>
+<span class="nt">cluster-cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"172.28.0.0/16"</span>
+<span class="nt">service-cidr</span><span class="p">:</span><span class="w"> </span><span class="s">"172.29.0.0/16"</span>
 <span class="nt">kube-controller-manager-arg</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node-cidr-mask-size=24</span>
 <span class="nt">kubelet-arg</span><span class="p">:</span>
@@ -2677,11 +2677,11 @@ $ curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --resolv-co
 <div class="highlight"><pre><span></span><code><span class="nt">mirrors</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">docker.io</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">endpoint</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;https://gitlab.example.org:25000&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"https://gitlab.example.org:25000"</span>
 <span class="w">    </span><span class="nt">rewrite</span><span class="p">:</span>
-<span class="w">      </span><span class="s">&quot;^rancher/(.*)&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;zaki/images/$1&quot;</span>
+<span class="w">      </span><span class="s">"^rancher/(.*)"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"zaki/images/$1"</span>
 <span class="nt">configs</span><span class="p">:</span>
-<span class="w">  </span><span class="s">&quot;gitlab.example.org:25000&quot;</span><span class="p p-Indicator">:</span>
+<span class="w">  </span><span class="s">"gitlab.example.org:25000"</span><span class="p p-Indicator">:</span>
 <span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">insecure_skip_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
@@ -2693,7 +2693,7 @@ $ curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --resolv-co
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--scale<span class="w"> </span><span class="nv">agent</span><span class="o">=</span><span class="m">5</span>
 <span class="go">[+] Running 6/8</span>
 <span class="go"> ⠸ Network k3s-compose_default      Created                                                                 1.3s </span>
-<span class="go"> ⠹ Volume &quot;k3s-compose_k3s-server&quot;  Created                                                                 1.2s </span>
+<span class="go"> ⠹ Volume "k3s-compose_k3s-server"  Created                                                                 1.2s </span>
 <span class="go"> ✔ Container k3s-compose-server-1   Started                                                                 0.4s </span>
 <span class="go"> ✔ Container k3s-compose-agent-5    Started                                                                 1.2s </span>
 <span class="go"> ✔ Container k3s-compose-agent-2    Started                                                                 1.0s </span>

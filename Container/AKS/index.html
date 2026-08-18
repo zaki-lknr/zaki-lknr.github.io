@@ -2003,7 +2003,7 @@
 <p>defaultのAzure DiskのStorage Class定義の内容は<code>allowVolumeExpansion</code>が<code>true</code>になっており、拡張に対応していることが確認できる。<br />
 拡張するにはPVCの定義を変更する。</p>
 <p>以下コマンドで10Giサイズに拡張する。</p>
-<div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace pvc pvc-resource -p &#39;{&quot;spec&quot;:{&quot;resources&quot;:{&quot;requests&quot;:{&quot;storage&quot;: &quot;10Gi&quot;}}}}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl patch -n namespace pvc pvc-resource -p '{"spec":{"resources":{"requests":{"storage": "10Gi"}}}}'</span>
 </code></pre></div>
 <p>縮小は不可</p>
 <h2 id="_5">アップグレード</h2>

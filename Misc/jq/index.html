@@ -1921,20 +1921,20 @@
 <div class="highlight"><pre><span></span><code><span class="go">command | jq keys_unsorted</span>
 </code></pre></div>
 <h2 id="_2">全ての値の取得</h2>
-<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.[]&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq '.[]'</span>
 </code></pre></div>
 <h2 id="_3">全ての値の中から指定キーの値を全て出力</h2>
-<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.[] | [.name, .count]&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq '.[] | [.name, .count]'</span>
 </code></pre></div>
 <h2 id="_4">特定の値を取得</h2>
-<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.list[0].key&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq '.list[0].key'</span>
 </code></pre></div>
 <h2 id="_5">配列要素を全て出力</h2>
-<div class="highlight"><pre><span></span><code><span class="go">command | jq &#39;.list[].key&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq '.list[].key'</span>
 </code></pre></div>
 <h2 id="_6">出力からクォーテーションを削除</h2>
 <p><code>-r</code>を付与</p>
-<div class="highlight"><pre><span></span><code><span class="go">command | jq -r &#39;.list[0].key&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="go">command | jq -r '.list[0].key'</span>
 </code></pre></div>
                 
               

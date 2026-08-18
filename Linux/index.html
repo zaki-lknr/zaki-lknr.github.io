@@ -2213,7 +2213,7 @@ __EOL__
 <h2 id="_9">シングルユーザーモード</h2>
 <h3 id="ubuntu">ubuntu</h3>
 <p>GRUBメニュー画面で<code>e</code>し、</p>
-<div class="highlight"><pre><span></span><code>setparams &#39;Ubuntu&#39;
+<div class="highlight"><pre><span></span><code>setparams 'Ubuntu'
 
         recordfail
         load_video
@@ -2228,7 +2228,7 @@ __EOL__
 <h2 id="_10">キーボード</h2>
 <h3 id="capsctrlgnome">capsをctrlに変更(GNOME)</h3>
 <p><code>/etc/default/keyboard</code>ファイルの以下の行、空設定になっている箇所に<code>ctrl:nocaps</code>を追加してリブートする</p>
-<div class="highlight"><pre><span></span><code>XKBOPTIONS=&quot;ctrl:nocaps&quot;
+<div class="highlight"><pre><span></span><code>XKBOPTIONS="ctrl:nocaps"
 </code></pre></div>
 <h2 id="grub">GRUB</h2>
 <p>ブートローダーが壊れてgrub rescueモードになった場合。<br />
@@ -2278,7 +2278,7 @@ Linuxが起動したらGRUBを再インストール</p>
 <li><code>sudo apt-get autoremove</code></li>
 <li><code>sudo do-release-upgrade</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="go">If you continue, an additional ssh daemon will be started at port &#39;1022&#39;. </span>
+<div class="highlight"><pre><span></span><code><span class="go">If you continue, an additional ssh daemon will be started at port '1022'. </span>
 <span class="go">Do you want to continue? </span>
 </code></pre></div>
 <p>SSH経由だと上記警告が出るが続けるなら続ける。<br />
@@ -2286,14 +2286,14 @@ Linuxが起動したらGRUBを再インストール</p>
 <p>aptラインの編集は不要。(<code>do-release-upgrade</code>を叩けば勝手にやってくれる)<br />
 ただしサードパーティのaptラインを追加してる場合はアップグレードに対応してない場合もあるので注意。</p>
 <p>最新LTSから非LTS(24.04から24.10など)へのアップグレードの場合、普通に実行すると以下の通りの出力になる。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span><span class="k">do</span>-release-upgrade<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>do-release-upgrade<span class="w"> </span>
 <span class="go">Checking for a new Ubuntu release</span>
 <span class="go">There is no development version of an LTS available.</span>
 <span class="go">To upgrade to the latest non-LTS development release </span>
 <span class="go">set Prompt=normal in /etc/update-manager/release-upgrades.</span>
 </code></pre></div>
 <p>メッセージの通り、<code>/etc/update-manager/release-upgrades</code>ファイルの<code>Prompt=lts</code>となっている箇所を<code>Prompt=normal</code>に編集して <code>do-release-upgrade</code> を実行すれば良い。</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/Prompt=lts/Prompt=normal/&#39;</span><span class="w"> </span>/etc/update-manager/release-upgrades
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'s/Prompt=lts/Prompt=normal/'</span><span class="w"> </span>/etc/update-manager/release-upgrades
 </code></pre></div>
                 
               
