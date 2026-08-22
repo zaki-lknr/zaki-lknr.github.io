@@ -2171,7 +2171,14 @@
                 <h1 id="mise">mise</h1>
 <p><a href="https://mise.jdx.dev/">mise-en-place</a></p>
 <h2 id="_1">インストール</h2>
-<h3 id="fedora">Fedora</h3>
+<p>OS用パッケージもあるがスクリプトで入れるのが推奨とのこと。</p>
+<div class="highlight"><pre><span></span><code><span class="go">curl https://mise.run | sh</span>
+</code></pre></div>
+<p><code>$HOME/.local/bin/mise</code>にインストールされる。<br />
+STDOUTに<code>.bashrc</code>への設定追加コマンドが表示されるので実行する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">echo "eval \"\$(/home/zaki/.local/bin/mise activate bash)\"" &gt;&gt; ~/.bashrc</span>
+</code></pre></div>
+<h4 id="fedora">Fedora</h4>
 <p><code>dnf</code>で入れられる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">sudo dnf install -y dnf-plugins-core</span>
 <span class="go">sudo dnf config-manager addrepo --from-repofile=https://mise.jdx.dev/rpm/mise.repo</span>
@@ -2191,6 +2198,12 @@
 <span class="go">mise usage@2.0.3 ✓ installed                                                                                 mise ~/.config/mise/config.toml tools: usage@2.0.3</span>
 </code></pre></div>
 <p><a href="https://github.com/jdx/mise/issues/1710">https://github.com/jdx/mise/issues/1710</a></p>
+<div class="highlight"><pre><span></span><code>_comp_initialize: command not found
+</code></pre></div>
+<p>これが出る場合は.bashrcのcompletion設定を下記に変更</p>
+<div class="highlight"><pre><span></span><code>eval "$(mise completion bash --include-bash-completion-lib)"
+</code></pre></div>
+<p><a href="https://zenn.dev/mirablue/scraps/11ff50613b3ea3">https://zenn.dev/mirablue/scraps/11ff50613b3ea3</a></p>
 <h2 id="_3">パッケージ検索</h2>
 <h3 id="_4">パッケージ一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="go">mise ls-remote --all</span>
