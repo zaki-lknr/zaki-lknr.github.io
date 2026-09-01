@@ -3318,8 +3318,8 @@ podがrunningになるまで待つには以下。</p>
 <div class="highlight"><pre><span></span><code><span class="go">kubectl label pod rsync-pod state-</span>
 </code></pre></div>
 <h2 id="drain">drain</h2>
-<p>大抵はDaemonSetのpodが動いているので<code>--ignore-daemonsets</code>オプションを付ける。</p>
-<div class="highlight"><pre><span></span><code><span class="go">kubectl drain k3s-node2 --force --ignore-daemonsets</span>
+<p>大抵はDaemonSetのpodが動いているので<code>--ignore-daemonsets</code>オプションを付ける。またemptyDirを使っててもエラーになるため<code>--delete-emptydir-data</code>を追加。</p>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl drain k3s-node2 --force --ignore-daemonsets --delete-emptydir-data</span>
 </code></pre></div>
 <p>ノードを完全にクラスタから除外するにはさらに<code>kubectl delete node &lt;node-name&gt;</code>する。</p>
 <h2 id="uncordon">uncordon</h2>
