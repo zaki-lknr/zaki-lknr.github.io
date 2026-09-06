@@ -552,6 +552,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    usage
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2001,6 +2008,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    usage
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2179,6 +2193,16 @@
 <span class="go">    - jinja2</span>
 <span class="go">done! ✨ 🌟 ✨</span>
 </code></pre></div>
+<h3 id="usage">usage</h3>
+<p><code>format</code>は自動認識する。</p>
+<div class="highlight"><pre><span></span><code><span class="go">jinja2 templates.j2 param.yaml [--format yaml]</span>
+</code></pre></div>
+<p><code>param.yaml</code>はこんな感じ</p>
+<div class="highlight"><pre><span></span><code><span class="nt">resourcename</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+<span class="nt">replica</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div>
+<p><code>templates.j2</code>内の<code>{{resourcename}}</code>や<code>{{namespace}}</code>が<code>param.yaml</code>に記載された値に置き換わる。</p>
 <h2 id="_2">変数</h2>
 <h3 id="_3">変数宣言</h3>
 <p>変数</p>

@@ -3059,6 +3059,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    依存パッケージの追加
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4426,6 +4433,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    依存パッケージの追加
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5775,6 +5789,13 @@ jmespath==0.10.0
 <span class="go">  python version = 3.13.7 (main, Aug 14 2025, 00:00:00) [GCC 15.2.1 20250808 (Red Hat 15.2.1-1)] (/home/zaki/.local/share/pipx/venvs/ansible-core/bin/python)</span>
 <span class="go">  jinja version = 3.1.6</span>
 <span class="go">  libyaml = True</span>
+</code></pre></div>
+<h4 id="_91">依存パッケージの追加</h4>
+<p>pipxでインストールしたコマンドが追加のPythonパッケージを必要とする場合。<br />
+<code>jinja2-cli</code>に<code>pyyaml</code>を追加するには以下。</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pipx<span class="w"> </span>inject<span class="w"> </span>jinja2-cli<span class="w"> </span>pyyaml
+<span class="go">  injected package pyyaml into venv jinja2-cli</span>
+<span class="go">done! ✨ 🌟 ✨</span>
 </code></pre></div>
 <h2 id="rhel-ansible">RHEL / Ansible</h2>
 <p><a href="https://rheb.hatenablog.com/entry/ansible_python_environment">Ansible が利用する Python 実行環境 - 赤帽エンジニアブログ</a></p>
