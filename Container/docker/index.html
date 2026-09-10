@@ -1079,6 +1079,26 @@
       
         <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
+    デバッグ用
+  </a>
+  
+    <nav class="md-nav" aria-label="デバッグ用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps_1" class="md-nav__link">
+    psが無い
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     ビルド
   </a>
   
@@ -1086,7 +1106,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -1098,7 +1118,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     設定
   </a>
   
@@ -1106,7 +1126,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     コンテナログのサイズ・ローテート設定(システムワイド)
   </a>
   
@@ -1159,7 +1179,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     その他
   </a>
   
@@ -2672,6 +2692,26 @@
       
         <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
+    デバッグ用
+  </a>
+  
+    <nav class="md-nav" aria-label="デバッグ用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps_1" class="md-nav__link">
+    psが無い
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     ビルド
   </a>
   
@@ -2679,7 +2719,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ヘルスチェック
   </a>
   
@@ -2691,7 +2731,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     設定
   </a>
   
@@ -2699,7 +2739,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     コンテナログのサイズ・ローテート設定(システムワイド)
   </a>
   
@@ -2752,7 +2792,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     その他
   </a>
   
@@ -3068,8 +3108,14 @@ Compose使用時もこのパターン。</p>
 <p><a href="https://quay.io/repository/centos/centos?tab=tags">quayにあるイメージ</a>を使う</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
 </code></pre></div>
-<h2 id="_9">ビルド</h2>
-<h3 id="_10">ヘルスチェック</h3>
+<h2 id="_9">デバッグ用</h2>
+<h3 id="ps_1">psが無い</h3>
+<div class="highlight"><pre><span></span><code><span class="go">dnf install procps-ng</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go">apt-get install procps</span>
+</code></pre></div>
+<h2 id="_10">ビルド</h2>
+<h3 id="_11">ヘルスチェック</h3>
 <p>30秒後にhttpdが起動するようになっているコンテナイメージ。</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">httpd:2.4</span>
 
@@ -3093,8 +3139,8 @@ Compose使用時もこのパターン。</p>
 <span class="go">CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                    PORTS                                   NAMES</span>
 <span class="go">e5c366cb3bba   slowstart_httpd   "sh -c 'sleep 30; ht…"   32 seconds ago   Up 31 seconds (healthy)   0.0.0.0:8080-&gt;80/tcp, :::8080-&gt;80/tcp   slowstart_httpd</span>
 </code></pre></div>
-<h2 id="_11">設定</h2>
-<h3 id="_12">コンテナログのサイズ・ローテート設定(システムワイド)</h3>
+<h2 id="_12">設定</h2>
+<h3 id="_13">コンテナログのサイズ・ローテート設定(システムワイド)</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>cat<span class="w"> </span>/etc/docker/daemon.json
 <span class="go">{</span>
 <span class="go">  "log-driver": "json-file",</span>
@@ -3148,7 +3194,7 @@ Compose使用時もこのパターン。</p>
 <span class="w"> </span>RestartSec=2
 </code></pre></div>
 <p>これで2375/TCPでListenする。</p>
-<h2 id="_13">その他</h2>
+<h2 id="_14">その他</h2>
 <h3 id="fedora-42docker">Fedora 42でDockerサービスが起動しない</h3>
 <p><a href="https://forums.docker.com/t/docker-stopped-working-after-update-to-fedora-42/147915">Docker stopped working after update to Fedora 42 - Docker Engine / General - Docker Community Forums</a></p>
 <blockquote>
