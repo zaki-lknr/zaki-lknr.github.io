@@ -1298,6 +1298,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#azure-vm" class="md-nav__link">
+    Azure VM
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure VM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    自動シャットダウン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aks" class="md-nav__link">
     AKS
   </a>
@@ -1306,7 +1326,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     監視設定
   </a>
   
@@ -1334,7 +1354,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     収集するコンテナーログの設定変更
   </a>
   
@@ -1346,7 +1366,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     クエリ
   </a>
   
@@ -1786,6 +1806,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zed/" class="md-nav__link">
+        Zed
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1991,6 +2023,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#azure-vm" class="md-nav__link">
+    Azure VM
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure VM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    自動シャットダウン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aks" class="md-nav__link">
     AKS
   </a>
@@ -1999,7 +2051,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     監視設定
   </a>
   
@@ -2027,7 +2079,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     収集するコンテナーログの設定変更
   </a>
   
@@ -2039,7 +2091,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     クエリ
   </a>
   
@@ -2101,8 +2153,11 @@ CLIであれば<code>az account show --query id</code></p>
 <p>環境変数にセットされている。</p>
 <div class="highlight"><pre><span></span><code><span class="go">echo $ACC_STORAGE_PROFILE</span>
 </code></pre></div>
+<h2 id="azure-vm">Azure VM</h2>
+<h3 id="_5">自動シャットダウン</h3>
+<p>メニューの「操作」＞「自動シャットダウン」から設定可能。</p>
 <h2 id="aks">AKS</h2>
-<h3 id="_5">監視設定</h3>
+<h3 id="_6">監視設定</h3>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli">Azure Kubernetes Service (AKS) クラスターの監視を有効にする - Azure Monitor | Microsoft Learn</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/containers/kubernetes-monitoring-disable">Kubernetes クラスターの監視を無効にする - Azure Monitor | Microsoft Learn</a></li>
@@ -2116,11 +2171,11 @@ CLIであれば<code>az account show --query id</code></p>
 <li><a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/metrics/analyze-metrics">Azure Monitor メトリックス エクスプローラーを使用してメトリックを分析する - Azure Monitor | Microsoft Learn</a></li>
 <li><a href="https://learn.microsoft.com/ja-jp/previous-versions/azure/azure-monitor/containers/container-insights-custom-metrics?tabs=portal">Container Insights によって収集されるカスタム メトリック - Azure Monitor | Microsoft Learn</a></li>
 </ul>
-<h4 id="_6">収集するコンテナーログの設定変更</h4>
+<h4 id="_7">収集するコンテナーログの設定変更</h4>
 <p>AKSクラスターのメニューの「監視」から、上部の「モニターの設定」押下。<br />
 これでデプロイ時に選択するPrometheus/Grafanaやコンテナーログの設定画面が表示される。<br />
 収集頻度や対象ネームスペースなどをここから選択。</p>
-<h3 id="_7">クエリ</h3>
+<h3 id="_8">クエリ</h3>
 <h4 id="countername">使用可能なCounterNameの一覧</h4>
 <div class="highlight"><pre><span></span><code><span class="n">Perf</span>
 <span class="p">|</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ObjectName</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s">"K8SContainer"</span>
