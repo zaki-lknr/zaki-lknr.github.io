@@ -1079,15 +1079,22 @@
       
         <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    デバッグ用
+    デバッグで使うパッケージ
   </a>
   
-    <nav class="md-nav" aria-label="デバッグ用">
+    <nav class="md-nav" aria-label="デバッグで使うパッケージ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#ps_1" class="md-nav__link">
     psが無い
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dig" class="md-nav__link">
+    dig
   </a>
   
 </li>
@@ -2704,15 +2711,22 @@
       
         <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    デバッグ用
+    デバッグで使うパッケージ
   </a>
   
-    <nav class="md-nav" aria-label="デバッグ用">
+    <nav class="md-nav" aria-label="デバッグで使うパッケージ">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#ps_1" class="md-nav__link">
     psが無い
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dig" class="md-nav__link">
+    dig
   </a>
   
 </li>
@@ -3120,11 +3134,16 @@ Compose使用時もこのパターン。</p>
 <p><a href="https://quay.io/repository/centos/centos?tab=tags">quayにあるイメージ</a>を使う</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker run --name cent-stream --rm -it quay.io/centos/centos:stream8 bash</span>
 </code></pre></div>
-<h2 id="_9">デバッグ用</h2>
+<h2 id="_9">デバッグで使うパッケージ</h2>
 <h3 id="ps_1">psが無い</h3>
 <div class="highlight"><pre><span></span><code><span class="go">dnf install procps-ng</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="go">apt-get install procps</span>
+</code></pre></div>
+<h3 id="dig">dig</h3>
+<div class="highlight"><pre><span></span><code><span class="go">dnf install bind-utils</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go">apt-get install bind9-dnsutils</span>
 </code></pre></div>
 <h2 id="_10">ビルド</h2>
 <h3 id="_11">ヘルスチェック</h3>
