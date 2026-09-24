@@ -1229,6 +1229,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
     名前解決オプション
   </a>
@@ -3511,6 +3518,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    POST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
     名前解決オプション
   </a>
@@ -4906,6 +4920,11 @@
 </code></pre></div>
 <p>など</p>
 <h2 id="curl">curl</h2>
+<h3 id="post">POST</h3>
+<p><code>-X POST</code>を付与する。<br />
+が、現在はpostデータをセットしてあれば自動でPOSTメソッドになるため不要。付けていると下記メッセージが出力される。</p>
+<div class="highlight"><pre><span></span><code><span class="go">"Unnecessary use of -X or --request, POST is already inferred."</span>
+</code></pre></div>
 <h3 id="_15">名前解決オプション</h3>
 <div class="highlight"><pre><span></span><code>curl --resolve ansible.example.org:443:192.168.0.41 https://ansible.example.org/
 </code></pre></div>
