@@ -1775,6 +1775,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ttl" class="md-nav__link">
+    TTL等設定確認
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2341,6 +2348,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ttl" class="md-nav__link">
+    TTL等設定確認
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2658,6 +2672,17 @@ KVシークレットエンジンであれば以下の通り。</p>
 </code></pre></div>
 <h4 id="issuer_1">デフォルトissuer更新</h4>
 <div class="highlight"><pre><span></span><code><span class="go">/ $ vault write pki_lab_int/config/issuers default=&lt;対象のIssuer ID&gt;</span>
+</code></pre></div>
+<h4 id="ttl">TTL等設定確認</h4>
+<div class="highlight"><pre><span></span><code><span class="go">/ $ vault read sys/mounts/pki_lab_int/tune</span>
+<span class="go">Key                            Value</span>
+<span class="go">---                            -----</span>
+<span class="go">allowed_response_headers       [Last-Modified Location Replay-Nonce Link]</span>
+<span class="go">default_lease_ttl              768h</span>
+<span class="go">description                    n/a</span>
+<span class="go">force_no_cache                 false</span>
+<span class="go">max_lease_ttl                  768h</span>
+<span class="go">passthrough_request_headers    [If-Modified-Since]</span>
 </code></pre></div>
 <h2 id="auth">auth</h2>
 <h3 id="_9">一覧</h3>
