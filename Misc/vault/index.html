@@ -1782,6 +1782,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ttl_1" class="md-nav__link">
+    最大TTL更新
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2355,6 +2362,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ttl_1" class="md-nav__link">
+    最大TTL更新
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2683,6 +2697,10 @@ KVシークレットエンジンであれば以下の通り。</p>
 <span class="go">force_no_cache                 false</span>
 <span class="go">max_lease_ttl                  768h</span>
 <span class="go">passthrough_request_headers    [If-Modified-Since]</span>
+</code></pre></div>
+<h4 id="ttl_1">最大TTL更新</h4>
+<div class="highlight"><pre><span></span><code><span class="go">/ $ vault secrets tune -max-lease-ttl=87600h pki_lab_int</span>
+<span class="go">Success! Tuned the secrets engine at: pki_lab_int/</span>
 </code></pre></div>
 <h2 id="auth">auth</h2>
 <h3 id="_9">一覧</h3>
