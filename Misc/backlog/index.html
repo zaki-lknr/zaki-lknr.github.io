@@ -1263,6 +1263,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    書式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
     ID確認
   </a>
@@ -1278,28 +1285,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     プロジェクト一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     プロジェクトメンバー一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     課題一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     メンション
   </a>
   
@@ -1884,6 +1891,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    書式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
     ID確認
   </a>
@@ -1899,28 +1913,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     プロジェクト一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     プロジェクトメンバー一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     課題一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     メンション
   </a>
   
@@ -1949,6 +1963,11 @@
                 
                 
                 <h1 id="backlog">Backlog</h1>
+<h2 id="_1">書式</h2>
+<ul>
+<li><a href="https://help-center.backlog.com/%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E6%95%B4%E5%BD%A2%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB-6a18006f7909d3fe5e860e8e">テキスト整形のルール - よくあるご質問 | Backlog</a></li>
+<li><a href="https://help-center.backlog.com/--6a1d4d7f3abb3ada78c5658a">テキスト整形のルール（Markdown記法） - よくあるご質問 | Backlog</a></li>
+</ul>
 <h2 id="id">ID確認</h2>
 <ul>
 <li>プロジェクトID<ul>
@@ -1957,19 +1976,19 @@
 </li>
 </ul>
 <h2 id="rest">REST</h2>
-<h3 id="_1">プロジェクト一覧</h3>
+<h3 id="_2">プロジェクト一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">https://${BACKLOG_SPACE}.backlog.com/api/v2/projects?apiKey=$</span><span class="o">{</span>BACKLOG_APIKEY<span class="o">}</span>
 </code></pre></div>
-<h3 id="_2">プロジェクトメンバー一覧</h3>
+<h3 id="_3">プロジェクトメンバー一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">https://${BACKLOG_SPACE}.backlog.com/api/v2/projects/${PROJECT_KEY}/users?apiKey=$</span><span class="o">{</span>BACKLOG_APIKEY<span class="o">}</span><span class="w"> </span>
 </code></pre></div>
 <p><a href="https://developer.nulab.com/ja/docs/backlog/api/2/get-project-user-list/">プロジェクトユーザー一覧の取得 | Backlog Developer API | Nulab</a></p>
 <p><code>${PROJECT_KEY}</code>はIDでも可</p>
-<h3 id="_3">課題一覧</h3>
+<h3 id="_4">課題一覧</h3>
 <p><a href="https://developer.nulab.com/ja/docs/backlog/api/2/get-issue-list/">課題一覧の取得 | Backlog Developer API | Nulab</a></p>
 <div class="highlight"><pre><span></span><code><span class="go">curl -LO "https://${BACKLOG_SPACE}.backlog.com/api/v2/issues?count=${COUNT}&amp;startDateUntil=${YYYY_mm_dd}&amp;projectId[]=${PROJECT_ID}&amp;statusId[]=1&amp;statusId[]=2&amp;apiKey=${BACKLOG_APIKEY}"</span>
 </code></pre></div>
-<h3 id="_4">メンション</h3>
+<h3 id="_5">メンション</h3>
 <p>ユーザーID<code>12345678</code>であれば<code>&lt;@U12345678&gt;</code>のように記述する。</p>
 <div class="highlight"><pre><span></span><code><span class="s2">"(&lt;@U"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"&gt;)"</span>
 </code></pre></div>
