@@ -600,6 +600,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#basename" class="md-nav__link">
+    ファイル名取得(basename)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2130,6 +2137,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#basename" class="md-nav__link">
+    ファイル名取得(basename)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2643,6 +2657,14 @@ ok: [localhost] =&gt;
 <span class="go">  msg:</span>
 <span class="go">  - ghcr.io/zaki-lknr/awx</span>
 </code></pre></div>
+<h3 id="basename">ファイル名取得(basename)</h3>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get filename</span>
+<span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">iso_download_url</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">basename</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">iso_download_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://cloud-images.ubuntu.com/resolute/current/resolute-server-cloudimg-amd64.img</span>
+</code></pre></div>
+<p>出力は<code>resolute-server-cloudimg-amd64.img</code>になる。</p>
 <h2 id="_7">暗号化パスワード</h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-generate-encrypted-passwords-for-the-user-module">How do I generate encrypted passwords for the user module?</a></li>
