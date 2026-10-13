@@ -581,6 +581,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#include_vars" class="md-nav__link">
+    include_vars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assert" class="md-nav__link">
     assert
   </a>
@@ -2245,6 +2252,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#include_vars" class="md-nav__link">
+    include_vars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assert" class="md-nav__link">
     assert
   </a>
@@ -2662,6 +2676,20 @@ ad-hocで実行する方が多いかも？</p>
 <span class="w">    </span><span class="nt">_state_val</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">foobar</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default(true)</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">_mode</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">_state_val</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">ternary(...)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
+<h2 id="include_vars">include_vars</h2>
+<p>外部ファイルにた定義した変数を読み込む</p>
+<p>Playbookで以下</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">include vars</span>
+<span class="w">    </span><span class="nt">ansible.builtin.include_vars</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vars.yaml</span>
+</code></pre></div>
+<p>読み込む<code>vars.yaml</code>に普通に辞書定義</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/.venv/bin/python</span>
+<span class="nt">vm_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9021</span>
+<span class="nt">vm_cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">x86-64-v3</span>
+</code></pre></div>
+<p>これでinclude以降のタスクで上記変数定義が有効になる。</p>
 <h2 id="assert">assert</h2>
 <p><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/assert_module.html">ansible.builtin.assert – Asserts given expressions are true — Ansible Documentation</a></p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert sample</span>

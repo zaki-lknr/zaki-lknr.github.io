@@ -2179,7 +2179,7 @@
 <code>gather_subset</code>の指定が無いと926行。</p>
 <p><code>ansible all -m setup | wc -l</code>だと916行。<br />
 <code>ansible -i inventory all -m setup -a "gather_subset=network" | wc -l</code>だと365行。</p>
-<p>OS情報程度であれば<code>min</code>で取れる。<br />
+<p>OS情報(<code>ansible_facts.os_family</code>)程度であれば<code>min</code>で取れる。<br />
 インタフェース毎のネットワーク設定は<code>network</code>も必要っぽい。</p>
 <h3 id="_8">環境変数</h3>
 <p><code>gather_subset: min</code>で確認。<br />
