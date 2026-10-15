@@ -1776,6 +1776,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    設定確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ttl" class="md-nav__link">
     TTL等設定確認
   </a>
@@ -1808,7 +1815,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     一覧
   </a>
   
@@ -1830,7 +1837,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     リスト
   </a>
   
@@ -1844,7 +1851,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     削除
   </a>
   
@@ -1930,21 +1937,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     作成/更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     参照
   </a>
   
@@ -1964,7 +1971,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -2356,6 +2363,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    設定確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ttl" class="md-nav__link">
     TTL等設定確認
   </a>
@@ -2388,7 +2402,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     一覧
   </a>
   
@@ -2410,7 +2424,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     リスト
   </a>
   
@@ -2424,7 +2438,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     削除
   </a>
   
@@ -2510,21 +2524,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     作成/更新
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     参照
   </a>
   
@@ -2544,7 +2558,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     コンストラクタ
   </a>
   
@@ -2687,6 +2701,20 @@ KVシークレットエンジンであれば以下の通り。</p>
 <h4 id="issuer_1">デフォルトissuer更新</h4>
 <div class="highlight"><pre><span></span><code><span class="go">/ $ vault write pki_lab_int/config/issuers default=&lt;対象のIssuer ID&gt;</span>
 </code></pre></div>
+<h4 id="_9">設定確認</h4>
+<div class="highlight"><pre><span></span><code><span class="go">/ $ vault read pki_lab_int/config/acme</span>
+<span class="go">Key                         Value</span>
+<span class="go">---                         -----</span>
+<span class="go">allow_role_ext_key_usage    false</span>
+<span class="go">allowed_issuers             [*]</span>
+<span class="go">allowed_roles               [*]</span>
+<span class="go">default_directory_policy    sign-verbatim</span>
+<span class="go">dns_resolver                n/a</span>
+<span class="go">eab_policy                  not-required</span>
+<span class="go">enabled                     true</span>
+<span class="go">max_ttl                     2160h</span>
+<span class="go">/ $</span>
+</code></pre></div>
 <h4 id="ttl">TTL等設定確認</h4>
 <div class="highlight"><pre><span></span><code><span class="go">/ $ vault read sys/mounts/pki_lab_int/tune</span>
 <span class="go">Key                            Value</span>
@@ -2703,21 +2731,21 @@ KVシークレットエンジンであれば以下の通り。</p>
 <span class="go">Success! Tuned the secrets engine at: pki_lab_int/</span>
 </code></pre></div>
 <h2 id="auth">auth</h2>
-<h3 id="_9">一覧</h3>
+<h3 id="_10">一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault auth list</span>
 </code></pre></div>
 <h3 id="token_1">token確認</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault token lookup</span>
 </code></pre></div>
 <h3 id="role">role</h3>
-<h4 id="_10">リスト</h4>
+<h4 id="_11">リスト</h4>
 <p><code>path</code>は<code>vault auth list</code>の出力で確認できる。</p>
 <div class="highlight"><pre><span></span><code><span class="go">vault list auth/path/role</span>
 </code></pre></div>
 <h4 id="policy">内容確認(policyなど)</h4>
 <div class="highlight"><pre><span></span><code><span class="go">vault read auth/path/role/key</span>
 </code></pre></div>
-<h4 id="_11">削除</h4>
+<h4 id="_12">削除</h4>
 <div class="highlight"><pre><span></span><code><span class="go">vault delete auth/path/role/key</span>
 </code></pre></div>
 <h2 id="token_2">token</h2>
@@ -2751,17 +2779,17 @@ KVシークレットエンジンであれば以下の通り。</p>
 <p>で出力する。<br />
 Entity Aliasについても同様。</p>
 <h2 id="policy_1">policy</h2>
-<h3 id="_12">一覧</h3>
+<h3 id="_13">一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault policy list</span>
 </code></pre></div>
-<h3 id="_13">作成/更新</h3>
+<h3 id="_14">作成/更新</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault policy write my-policy-name &lt;&lt;__EOL__</span>
 <span class="go">path ... {</span>
 <span class="go">    ...</span>
 <span class="go">}</span>
 <span class="go">__EOL__</span>
 </code></pre></div>
-<h3 id="_14">参照</h3>
+<h3 id="_15">参照</h3>
 <div class="highlight"><pre><span></span><code><span class="go">vault policy read my-policy-name</span>
 </code></pre></div>
 <h2 id="hvac">hvac</h2>
@@ -2770,7 +2798,7 @@ Entity Aliasについても同様。</p>
 <li><a href="https://python-hvac.org/en/latest/overview.html">hvac documentation</a></li>
 <li><a href="https://github.com/hvac/hvac">hvac/hvac: :lock: Python 3.X client for HashiCorp Vault</a></li>
 </ul>
-<h3 id="_15">コンストラクタ</h3>
+<h3 id="_16">コンストラクタ</h3>
 <p>証明書検証オフは<code>verify=False</code>を加えればOK</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urllib3</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
