@@ -1425,6 +1425,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    systemでコマンド実行
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3714,6 +3721,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    systemでコマンド実行
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5048,6 +5062,12 @@
 <li><code>substr(s, p)</code>: 文字列j<code>s</code>内における<code>p</code>以降の部分文字列</li>
 <li><code>index(s, p)</code>: 文字列<code>s</code>内における<code>p</code>の位置</li>
 </ul>
+<h3 id="system">systemでコマンド実行</h3>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get pod -A | awk '{if ($1 ~ /kube-system/) system("echo " $2) }'</span>
+</code></pre></div>
+<p>あまり意味のないコマンドだけど、以下と同等</p>
+<div class="highlight"><pre><span></span><code><span class="go">kubectl get pod -A | awk '{if ($1 ~ /kube-system/) print $2 }'</span>
+</code></pre></div>
 <h2 id="tr">tr</h2>
 <h3 id="cr">CR削除</h3>
 <div class="highlight"><pre><span></span><code><span class="go">command | tr -d '\r' &gt; output</span>
