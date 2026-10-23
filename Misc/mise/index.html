@@ -1534,13 +1534,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    リリースされたばかりのパッケージ
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     パッケージセットアップ
   </a>
   
@@ -1576,14 +1583,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     使用中パッケージ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     パッケージアップデート
   </a>
   
@@ -1603,7 +1610,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     使用中設定ファイルの確認
   </a>
   
@@ -1617,14 +1624,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     環境変数
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    外部ファイル定義(.env)
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     テンプレート
   </a>
   
@@ -2073,13 +2093,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    リリースされたばかりのパッケージ
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     パッケージセットアップ
   </a>
   
@@ -2115,14 +2142,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     使用中パッケージ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     パッケージアップデート
   </a>
   
@@ -2142,7 +2169,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     使用中設定ファイルの確認
   </a>
   
@@ -2156,14 +2183,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     環境変数
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    外部ファイル定義(.env)
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     テンプレート
   </a>
   
@@ -2251,7 +2291,22 @@ STDOUTに<code>.bashrc</code>への設定追加コマンドが表示されるの
 <h3 id="_5">指定パッケージ(コマンド)のバージョン一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="go">mise ls-remote &lt;command&gt;</span>
 </code></pre></div>
-<h2 id="_6">パッケージセットアップ</h2>
+<h3 id="_6">リリースされたばかりのパッケージ</h3>
+<p>緊急セキュリティアップデートなどが行われた場合。デフォルトではリリース後24hの間はminimum_release_ageの設定によってリストされない。<br />
+<a href="https://mise.jdx.dev/security.html#minimum-release-age">https://mise.jdx.dev/security.html#minimum-release-age</a>  </p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mise<span class="w"> </span>ls-remote<span class="w"> </span>python
+<span class="go">:</span>
+<span class="go">3.14.7</span>
+<span class="go">3.14.8</span>
+<span class="go">3.15.0</span>
+<span class="go">3.15-dev</span>
+<span class="go">3.16.0a1</span>
+<span class="go">3.16-dev</span>
+<span class="go">mise WARN  3 newer python releases hidden by minimum_release_age</span>
+</code></pre></div>
+<p>上記は3パッケージが非表示になっているが、リストするには<code>mise ls-remote python --minimum-release-age=0s</code>を実行する。<br />
+<a href="https://mise.jdx.dev/troubleshooting.html#new-version-of-a-tool-is-not-available">https://mise.jdx.dev/troubleshooting.html#new-version-of-a-tool-is-not-available</a></p>
+<h2 id="_7">パッケージセットアップ</h2>
 <h3 id="misetoml">mise.toml定義のパッケージインストール</h3>
 <div class="highlight"><pre><span></span><code><span class="go">mise install</span>
 </code></pre></div>
@@ -2291,15 +2346,15 @@ STDOUTに<code>.bashrc</code>への設定追加コマンドが表示されるの
 <span class="go">/usr/bin/python</span>
 <span class="gp">root@cloud-dev2:~# </span>
 </code></pre></div>
-<h3 id="_7">使用中パッケージ一覧</h3>
+<h3 id="_8">使用中パッケージ一覧</h3>
 <div class="highlight"><pre><span></span><code><span class="go">mise ls</span>
 </code></pre></div>
-<h3 id="_8">パッケージアップデート</h3>
+<h3 id="_9">パッケージアップデート</h3>
 <p>別ディレクトリ(プロジェクト)で別バージョンを使っていて警告が出る(指定バージョンが入ってない場合)など</p>
 <div class="highlight"><pre><span></span><code><span class="go">mise up</span>
 </code></pre></div>
 <h2 id="misetoml_1">mise.toml</h2>
-<h3 id="_9">使用中設定ファイルの確認</h3>
+<h3 id="_10">使用中設定ファイルの確認</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mise<span class="w"> </span>cfg
 <span class="go">Path                                         Tools              </span>
 <span class="go">~/.config/mise/config.toml                   aws, python, usage </span>
@@ -2309,11 +2364,15 @@ STDOUTに<code>.bashrc</code>への設定追加コマンドが表示されるの
 <p><code>mise</code>コマンド実行の外で作成した<code>mise.toml</code>ファイルは、信頼済み設定が必要。</p>
 <div class="highlight"><pre><span></span><code><span class="go">mise trust /path/to/mise.toml</span>
 </code></pre></div>
-<h3 id="_10">環境変数</h3>
+<h3 id="_11">環境変数</h3>
 <div class="highlight"><pre><span></span><code><span class="k">[env]</span>
 <span class="n">ANSIBLE_COLLECTIONS_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"{{ config_root }}/.ansible"</span>
 </code></pre></div>
-<h3 id="_11">テンプレート</h3>
+<h4 id="env">外部ファイル定義(.env)</h4>
+<div class="highlight"><pre><span></span><code><span class="k">[env]</span>
+<span class="n">_</span><span class="p">.</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">".env"</span>
+</code></pre></div>
+<h3 id="_12">テンプレート</h3>
 <p><a href="https://mise.jdx.dev/templates.html">Templates | mise-en-place</a></p>
 <h4 id="exec">コマンド実行結果を変数にセット (exec)</h4>
 <div class="highlight"><pre><span></span><code><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"カウント設定: {{ exec(command=</span><span class="se">\"</span><span class="s2">grep count -A2 path/to/file | awk -F'=' '{print $2}'</span><span class="se">\"</span><span class="s2">) }}"</span>
