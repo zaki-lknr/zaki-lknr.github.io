@@ -699,6 +699,13 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    ファクト変数を取得するタスク
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     環境変数
   </a>
   
@@ -710,7 +717,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ホスト変数
   </a>
   
@@ -718,7 +725,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ホストを指定した参照
   </a>
   
@@ -2047,6 +2054,13 @@
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    ファクト変数を取得するタスク
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     環境変数
   </a>
   
@@ -2058,7 +2072,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ホスト変数
   </a>
   
@@ -2066,7 +2080,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     ホストを指定した参照
   </a>
   
@@ -2193,7 +2207,15 @@
 <code>ansible -i inventory all -m setup -a "gather_subset=network" | wc -l</code>だと365行。</p>
 <p>OS情報(<code>ansible_facts.os_family</code>)程度であれば<code>min</code>で取れる。<br />
 インタフェース毎のネットワーク設定は<code>network</code>も必要っぽい。</p>
-<h3 id="_8">環境変数</h3>
+<h3 id="_8">ファクト変数を取得するタスク</h3>
+<p><code>gather_facts</code>モジュールで取れる。</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ansible.builtin.gather_facts</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">gather_subset</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># - min</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">network</span>
+</code></pre></div>
+<h3 id="_9">環境変数</h3>
 <p><code>gather_subset: min</code>で確認。<br />
 <code>become</code>なしの場合。</p>
 <div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">"ansible_env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -2236,8 +2258,8 @@
 <span class="w">        </span><span class="p">},</span>
 </code></pre></div>
 <p>昇格前のユーザー情報は<code>SUDO_USER</code>と<code>PWD</code>を見るしか無いかな？</p>
-<h2 id="_9">ホスト変数</h2>
-<h3 id="_10">ホストを指定した参照</h3>
+<h2 id="_10">ホスト変数</h2>
+<h3 id="_11">ホストを指定した参照</h3>
 <p>自ホスト変数だけでなく、他のホストのホスト変数を参照できる。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">vars</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other-host-name</span>
