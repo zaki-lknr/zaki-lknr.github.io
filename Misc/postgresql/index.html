@@ -1554,6 +1554,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    起動(listen)確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#db" class="md-nav__link">
     DBに接続
   </a>
@@ -1952,6 +1959,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    起動(listen)確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#db" class="md-nav__link">
     DBに接続
   </a>
@@ -2046,6 +2060,10 @@
 <h2 id="cli">CLI</h2>
 <h3 id="_1">バージョン確認</h3>
 <div class="highlight"><pre><span></span><code><span class="go">psql --version</span>
+</code></pre></div>
+<h3 id="listen">起動(listen)確認</h3>
+<div class="highlight"><pre><span></span><code><span class="go">bash-5.1$ pg_isready -h 127.0.0.1 -p 5432</span>
+<span class="go">127.0.0.1:5432 - accepting connections</span>
 </code></pre></div>
 <h3 id="db">DBに接続</h3>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>psql<span class="w"> </span>-d<span class="w"> </span>&lt;DB名&gt;<span class="w"> </span>-U<span class="w"> </span>&lt;ユーザー名&gt;
