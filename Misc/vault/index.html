@@ -1795,6 +1795,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eab_policy" class="md-nav__link">
+    設定変更(eab_policy)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ttl" class="md-nav__link">
     TTL等設定確認
   </a>
@@ -2382,6 +2389,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eab_policy" class="md-nav__link">
+    設定変更(eab_policy)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ttl" class="md-nav__link">
     TTL等設定確認
   </a>
@@ -2726,6 +2740,9 @@ KVシークレットエンジンであれば以下の通り。</p>
 <span class="go">enabled                     true</span>
 <span class="go">max_ttl                     2160h</span>
 <span class="go">/ $</span>
+</code></pre></div>
+<h4 id="eab_policy">設定変更(eab_policy)</h4>
+<div class="highlight"><pre><span></span><code><span class="go">/ $ vault write pki_lab_int/config/acme eab_policy=always-required</span>
 </code></pre></div>
 <h4 id="ttl">TTL等設定確認</h4>
 <div class="highlight"><pre><span></span><code><span class="go">/ $ vault read sys/mounts/pki_lab_int/tune</span>
