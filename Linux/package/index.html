@@ -1200,6 +1200,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    パッケージインストール履歴
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1214,14 +1221,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     リポジトリ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     リポジトリの有効化
   </a>
   
@@ -1241,7 +1248,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     強制インストール
   </a>
   
@@ -1260,7 +1267,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     リポジトリ
   </a>
   
@@ -2137,6 +2144,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    パッケージインストール履歴
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2151,14 +2165,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     リポジトリ一覧
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     リポジトリの有効化
   </a>
   
@@ -2178,7 +2192,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     強制インストール
   </a>
   
@@ -2197,7 +2211,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     リポジトリ
   </a>
   
@@ -2316,15 +2330,22 @@ rhel-8-for-x86_64-baseos-rpms                                      Red Hat Enter
 <div class="highlight"><pre><span></span><code><span class="go">dnf config-manager addrepo --from-repofile=https://rpm.example.org/rpm.repo</span>
 </code></pre></div>
 <p>以前は <code>dnf config-manager --add-repo https://rpm.example.org/rpm.repo</code> だったがオプションが変更された。</p>
+<h3 id="_11">パッケージインストール履歴</h3>
+<p>トランザクション一覧</p>
+<div class="highlight"><pre><span></span><code><span class="go">dnf history list</span>
+</code></pre></div>
+<p>一覧でトランザクションIDが取れるので、下記でインストールされたパッケージ一覧を確認できる</p>
+<div class="highlight"><pre><span></span><code><span class="go">dnf history info &lt;ID&gt;</span>
+</code></pre></div>
 <h2 id="yum_1">yum</h2>
-<h3 id="_11">リポジトリ一覧</h3>
+<h3 id="_12">リポジトリ一覧</h3>
 <p>有効なもの一覧</p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>yum<span class="w"> </span>repolist
 </code></pre></div>
 <p>無効なもの一覧</p>
 <div class="highlight"><pre><span></span><code><span class="gp"># </span>yum<span class="w"> </span>repolist<span class="w"> </span>disabled
 </code></pre></div>
-<h3 id="_12">リポジトリの有効化</h3>
+<h3 id="_13">リポジトリの有効化</h3>
 <div class="highlight"><pre><span></span><code># yum-config-manager --enable ol7_developer_EPEL
 </code></pre></div>
 <p>引数に指定するのはリポジトリIDだけど、リスト時に<code>/arch</code>が付いてる場合はそれは除く。</p>
@@ -2341,7 +2362,7 @@ rhel-8-for-x86_64-baseos-rpms                                      Red Hat Enter
 </ul>
 </li>
 </ul>
-<h3 id="_13">強制インストール</h3>
+<h3 id="_14">強制インストール</h3>
 <p>自動化するときとか</p>
 <div class="highlight"><pre><span></span><code><span class="go">apt-get install -y &lt;package-name&gt;</span>
 </code></pre></div>
@@ -2352,7 +2373,7 @@ rhel-8-for-x86_64-baseos-rpms                                      Red Hat Enter
 <p>アンインストール</p>
 <div class="highlight"><pre><span></span><code># apk del squid
 </code></pre></div>
-<h2 id="_14">リポジトリ</h2>
+<h2 id="_15">リポジトリ</h2>
 <ul>
 <li><a href="https://www.debian.org/distrib/packages">Debian -- パッケージ</a></li>
 <li><a href="https://packages.ubuntu.com/ja/">Ubuntu – Ubuntu パッケージ検索</a></li>
