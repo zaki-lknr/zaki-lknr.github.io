@@ -1855,8 +1855,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    動画の結合
+  <a href="#aviutl" class="md-nav__link">
+    動画の結合(AviUtl)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aviutl2" class="md-nav__link">
+    動画の不要部分カット(AviUtl2)
   </a>
   
 </li>
@@ -1883,7 +1890,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     設定
   </a>
   
@@ -1900,7 +1907,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     リモートデスクトップ
   </a>
   
@@ -1915,7 +1922,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     全画面表示時にキーボード操作をローカルに戻す
   </a>
   
@@ -2295,8 +2302,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    動画の結合
+  <a href="#aviutl" class="md-nav__link">
+    動画の結合(AviUtl)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aviutl2" class="md-nav__link">
+    動画の不要部分カット(AviUtl2)
   </a>
   
 </li>
@@ -2323,7 +2337,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     設定
   </a>
   
@@ -2340,7 +2354,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     リモートデスクトップ
   </a>
   
@@ -2355,7 +2369,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     全画面表示時にキーボード操作をローカルに戻す
   </a>
   
@@ -2477,7 +2491,7 @@ DISKPART&gt; list partition
 <p>ゲームバーの録画のデフォルトは最長2時間。2時間以上録画するには設定変更が必要。<br />
 「Windowsの設定」-&gt;「ゲーム」-&gt;「キャプチャ」で、「記録の最大長」を変更する。</p>
 <p>試してないけど最長4時間かな。</p>
-<h3 id="_13">動画の結合</h3>
+<h3 id="aviutl">動画の結合(AviUtl)</h3>
 <p>AviUtl使用</p>
 <ol>
 <li>1つ目のファイルを「ファイル」「開く」で選択。</li>
@@ -2485,22 +2499,28 @@ DISKPART&gt; list partition
 <li>最後に「ファイル」「エクスポート」「MP4 Export」</li>
 </ol>
 <p>準備としてmp4を扱うプラグイン(MP4Plugin)をセットアップしておく。</p>
+<h3 id="aviutl2">動画の不要部分カット(AviUtl2)</h3>
+<ol>
+<li>動画を読み込みレイヤーの区切り部分で「分割」</li>
+<li>不要側のレイヤーで「削除」</li>
+</ol>
+<p>ただし保存時に再エンコードしてそう。</p>
 <h2 id="terminal">Terminal</h2>
 <h3 id="windowsterminal">WindowsTerminal</h3>
 <ul>
 <li>指定ディレクトリをカレントで起動するには<code>wt -d c:/path/to</code></li>
 <li>エクスプローラーから指定パスで起動するには<code>wt -d .</code></li>
 </ul>
-<h4 id="_14">設定</h4>
+<h4 id="_13">設定</h4>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/windows/terminal/customize-settings/profile-appearance">Windows ターミナルの外観プロファイル設定 | Microsoft Learn</a></li>
 </ul>
-<h2 id="_15">リモートデスクトップ</h2>
+<h2 id="_14">リモートデスクトップ</h2>
 <h3 id="rdp">RDPファイルからの起動で全画面表示</h3>
 <p><code>screen mode id:i:</code>の値を<code>2</code>にする。(初期値は<code>1</code>になってるはず)</p>
 <div class="highlight"><pre><span></span><code>screen mode id:i:2
 </code></pre></div>
-<h3 id="_16">全画面表示時にキーボード操作をローカルに戻す</h3>
+<h3 id="_15">全画面表示時にキーボード操作をローカルに戻す</h3>
 <p>以下で接続バーにフォーカスが移るのでローカルのデスクトップが操作対象になる。これでAlt-Tabがローカルで効く。</p>
 <div class="highlight"><pre><span></span><code>Ctrl + Alt + Home
 </code></pre></div>

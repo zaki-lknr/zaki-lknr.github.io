@@ -537,6 +537,19 @@
     YAML形式
   </a>
   
+    <nav class="md-nav" aria-label="YAML形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#children" class="md-nav__link">
+    children定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1927,6 +1940,19 @@
     YAML形式
   </a>
   
+    <nav class="md-nav" aria-label="YAML形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#children" class="md-nav__link">
+    children定義
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2063,6 +2089,36 @@
 <span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># 以下、グループ変数</span>
 <span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+</code></pre></div>
+<h3 id="children">children定義</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">all</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># 以下、グループ変数</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># ホスト定義</span>
+<span class="w">    </span><span class="nt">web1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">web2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">db1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">db2</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">children</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">database</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># グループ名</span>
+<span class="w">      </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># hosts以下にホスト名</span>
+<span class="w">        </span><span class="nt">db1</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">db2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">children</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># children以下に別グループ名</span>
+<span class="w">        </span><span class="nt">group1</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">group2</span><span class="p">:</span>
+<span class="nt">group1</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">group2</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">other_group</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">children</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># こっちからall.childrenのグループ参照も可能</span>
 </code></pre></div>
 <h2 id="_3">ダイナミックインベントリ</h2>
 <h3 id="ec2">EC2</h3>
